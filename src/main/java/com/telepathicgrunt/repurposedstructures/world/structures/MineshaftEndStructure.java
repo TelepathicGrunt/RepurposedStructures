@@ -61,11 +61,11 @@ public class MineshaftEndStructure extends MineshaftStructure {
         ChunkPos chunkPos = context.chunkPos();
         for (int curChunkX = chunkPos.x - structureCheckRadius; curChunkX <= chunkPos.x + structureCheckRadius; curChunkX++) {
             for (int curChunkZ = chunkPos.z - structureCheckRadius; curChunkZ <= chunkPos.z + structureCheckRadius; curChunkZ++) {
-                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)){
+                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)) {
                     if(structureFeature == this) continue;
 
                     StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(structureFeature);
-                    if(structureConfig != null && structureConfig.spacing() > 10){
+                    if(structureConfig != null && structureConfig.spacing() > 10) {
                         ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, context.seed(), curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
@@ -85,8 +85,8 @@ public class MineshaftEndStructure extends MineshaftStructure {
 
         int landHeight = Integer.MAX_VALUE;
         // Surrounding far terrain is more likely to fail the check and exit early.
-        for(int i = 2; i >= 1; i--){
-            for(Direction direction : Direction.Plane.HORIZONTAL){
+        for(int i = 2; i >= 1; i--) {
+            for(Direction direction : Direction.Plane.HORIZONTAL) {
                 Vector3f offsetPos = direction.step();
                 offsetPos.mul(30f * i);
                 landHeight = getHeightAt(context.chunkGenerator(), context.heightAccessor(), xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
@@ -111,18 +111,18 @@ public class MineshaftEndStructure extends MineshaftStructure {
         BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos(xPos, maxY, zPos);
         boolean isInIsland = false;
 
-        while(currentPos.getY() >= minY){
+        while(currentPos.getY() >= minY) {
             BlockState state = columnOfBlocks.getBlock(currentPos.getY());
 
             // Detects top of island
-            if(!state.isAir() && !isInIsland){
+            if(!state.isAir() && !isInIsland) {
                 isInIsland = true;
                 int topIslandY = Math.min(currentPos.getY(), islandTopBottomThickness.getX());
                 islandTopBottomThickness.set(topIslandY, islandTopBottomThickness.getY(), islandTopBottomThickness.getZ());
             }
 
             // Detects bottom of island or land
-            else if((state.isAir() && isInIsland) || currentPos.getY() == minY){
+            else if((state.isAir() && isInIsland) || currentPos.getY() == minY) {
                 int bottomIslandY = Math.max(currentPos.getY(), islandTopBottomThickness.getY());
                 islandTopBottomThickness.set(islandTopBottomThickness.getX(), bottomIslandY, islandTopBottomThickness.getZ());
                 break;
@@ -132,7 +132,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         }
 
         // Never hit land since isInIsland was never set to true for terrain top.
-        if(!isInIsland){
+        if(!isInIsland) {
             islandTopBottomThickness.set(0, 0, 0);
         }
 
@@ -148,7 +148,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         int minThickness = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.endMineshaftMinIslandThickness;
         int maxY = 53;
         int minY = 15;
-        if(minThickness == 0){
+        if(minThickness == 0) {
             blockpos.move(Direction.UP, 35);
         }
         else{
@@ -158,7 +158,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
             blockpos.move(Direction.UP, structureStartHeight);
             maxY = islandTopBottomThickness.getX() - 5;
             minY = islandTopBottomThickness.getY();
-            if(maxY - minY <= 5){
+            if(maxY - minY <= 5) {
                 minY = maxY - 5;
             }
         }

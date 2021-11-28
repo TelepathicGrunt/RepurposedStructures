@@ -14,7 +14,7 @@ public class MobSpawnerObj {
 
     public transient EntityType<?> entityType;
 
-    public MobSpawnerObj(String name, float weight){
+    public MobSpawnerObj(String name, float weight) {
         this.name = name;
         this.weight = weight;
     }

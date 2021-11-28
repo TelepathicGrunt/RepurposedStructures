@@ -36,12 +36,12 @@ public abstract class CatEntityMixin extends Mob {
      */
     @Inject(method = "finalizeSpawn(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/DifficultyInstance;Lnet/minecraft/world/entity/MobSpawnType;Lnet/minecraft/world/entity/SpawnGroupData;Lnet/minecraft/nbt/CompoundTag;)Lnet/minecraft/world/entity/SpawnGroupData;",
             at = @At(value = "TAIL"))
-    private void repurposedstructures_spawnWitchHutCats(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, CompoundTag entityTag, CallbackInfoReturnable<SpawnGroupData> cir){
+    private void repurposedstructures_spawnWitchHutCats(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType spawnReason, SpawnGroupData entityData, CompoundTag entityTag, CallbackInfoReturnable<SpawnGroupData> cir) {
         ServerLevel world2 = world.getLevel();
         BlockPos pos = blockPosition();
 
         if (world2 != null) {
-            for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.WITCH_HUTS)){
+            for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.WITCH_HUTS)) {
                 if (world2.structureFeatureManager().getStructureAt(pos, structureFeature).isValid()) {
                     setCatType(Cat.TYPE_ALL_BLACK);
                     setPersistenceRequired();

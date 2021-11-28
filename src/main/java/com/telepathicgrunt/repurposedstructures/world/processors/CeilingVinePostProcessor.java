@@ -54,17 +54,17 @@ public class CeilingVinePostProcessor extends StructureProcessor {
 
             if(random.nextFloat() < probability &&
                 centerState.isAir() &&
-                Block.isFaceFull(aboveState.getCollisionShape(worldView, abovePos), Direction.DOWN)){
+                Block.isFaceFull(aboveState.getCollisionShape(worldView, abovePos), Direction.DOWN)) {
 
                 BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
                 List<Direction> shuffledDirectionList = Direction.Plane.HORIZONTAL.stream().collect(Collectors.toList());
                 Collections.shuffle(shuffledDirectionList);
-                for(Direction facing : shuffledDirectionList){
+                for(Direction facing : shuffledDirectionList) {
                     mutable.set(structureBlockInfoWorld.pos).move(facing);
                     BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed if side block is empty and top block is solid.
-                    if(!worldState.canOcclude()){
+                    if(!worldState.canOcclude()) {
                         // side block to hold vine
                         worldView.getChunk(mutable).setBlockState(mutable, blockState, false);
 
@@ -75,9 +75,9 @@ public class CeilingVinePostProcessor extends StructureProcessor {
 
                         // hanging vines
                         vineBlock = vineBlock.setValue(VineBlock.UP, false);
-                        for(int depth = random.nextInt(4); depth < 3; depth++){
+                        for(int depth = random.nextInt(4); depth < 3; depth++) {
                             mutable.move(Direction.DOWN);
-                            if(!centerChunk.getBlockState(mutable).isAir()){
+                            if(!centerChunk.getBlockState(mutable).isAir()) {
                                 break;
                             }
                             centerChunk.setBlockState(mutable, vineBlock, false);

@@ -80,7 +80,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
                     }
                     // No spawning on slopes
                     else if(context.level().getBlockState(blockpos$Mutable.move(Direction.UP)).canOcclude() ||
-                            !context.level().getBlockState(blockpos$Mutable.move(Direction.DOWN, 3)).canOcclude()){
+                            !context.level().getBlockState(blockpos$Mutable.move(Direction.DOWN, 3)).canOcclude()) {
                         return false;
                     }
 
@@ -91,7 +91,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
 
         BlockPos halfLengths = new BlockPos(template.get().getSize().getX() / 2, 0, template.get().getSize().getZ() / 2);
         placementsettings.setRotation(Rotation.getRandom(context.random())).setRotationPivot(halfLengths).setIgnoreEntities(false);
-        if(context.config().processor != null){
+        if(context.config().processor != null) {
             context.level().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY)
                     .getOptional(context.config().processor).ifPresent(processor -> processor.list().forEach(placementsettings::addProcessor));
         }

@@ -37,30 +37,30 @@ public class FloodWithWaterProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        if(structureBlockInfoWorld.state.getFluidState().is(FluidTags.WATER)){
+        if(structureBlockInfoWorld.state.getFluidState().is(FluidTags.WATER)) {
             tickWaterFluid(worldView, structureBlockInfoWorld);
             return structureBlockInfoWorld;
         }
 
         if (structureBlockInfoWorld.pos.getY() <= floodLevel) {
             boolean flooded = false;
-            if(structureBlockInfoWorld.state.isAir()){
+            if(structureBlockInfoWorld.state.isAir()) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }
-            else if(structureBlockInfoWorld.state.hasProperty(BlockStateProperties.WATERLOGGED)){
+            else if(structureBlockInfoWorld.state.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, true), structureBlockInfoWorld.nbt);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }
-            else if(structureBlockInfoWorld.state.getBlock() instanceof BushBlock){
+            else if(structureBlockInfoWorld.state.getBlock() instanceof BushBlock) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }
 
-            if(flooded){
+            if(flooded) {
                 // enclose the new water block with cracked stonebrick
                 ChunkPos currentChunkPos = new ChunkPos(structureBlockInfoWorld.pos);
                 ChunkAccess currentChunk = worldView.getChunk(currentChunkPos.x, currentChunkPos.z);

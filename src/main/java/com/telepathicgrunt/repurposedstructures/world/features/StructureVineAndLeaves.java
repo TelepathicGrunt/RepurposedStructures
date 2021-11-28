@@ -23,14 +23,14 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
     public boolean place(FeaturePlaceContext<StructureTargetAndLengthConfig> context) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     context.random().nextInt(4) - 1,
                     context.random().nextInt(7) - 3
             );
 
-            if(!context.level().isEmptyBlock(mutable)){
+            if(!context.level().isEmptyBlock(mutable)) {
                 continue;
             }
 

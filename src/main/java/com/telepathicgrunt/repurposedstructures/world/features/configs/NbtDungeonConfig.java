@@ -68,25 +68,25 @@ public class NbtDungeonConfig implements FeatureConfiguration {
         this.lootBlock = lootBlock;
     }
 
-    public NbtDungeonConfig(String dungeonType, ResourceLocation postProcessor){
+    public NbtDungeonConfig(String dungeonType, ResourceLocation postProcessor) {
         this(dungeonType, dungeonType, postProcessor);
     }
 
-    public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor){
+    public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor) {
         this(dungeonType, spawnerType, postProcessor, 13, false, 0);
     }
 
-    public NbtDungeonConfig(ResourceLocation cfID, String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor){
+    public NbtDungeonConfig(ResourceLocation cfID, String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor) {
         this(cfID, dungeonType, spawnerType, processor, postProcessor, 13, false, 0);
     }
 
     public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation postProcessor,
-                            int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset){
+                            int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset) {
         this(dungeonType, spawnerType, new ResourceLocation(RepurposedStructures.MODID, "dungeons/"+dungeonType), postProcessor, maxAirSpace, airRequirementIsNowWater, structureYOffset);
     }
 
     public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor,
-                            int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset){
+                            int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset) {
         this(new ResourceLocation(RepurposedStructures.MODID, "dungeon_" + dungeonType), false, 1, maxAirSpace, 2,
                 airRequirementIsNowWater,
                 structureYOffset, Blocks.CHEST.defaultBlockState(),
@@ -102,7 +102,7 @@ public class NbtDungeonConfig implements FeatureConfiguration {
     }
 
     public NbtDungeonConfig(ResourceLocation cfID, String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor,
-                            int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset){
+                            int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset) {
         this(cfID, false, 1, maxAirSpace, 2,
                 airRequirementIsNowWater,
                 structureYOffset, Blocks.CHEST.defaultBlockState(),
@@ -118,7 +118,7 @@ public class NbtDungeonConfig implements FeatureConfiguration {
     }
 
     public NbtDungeonConfig(String dungeonType, String loottablePlace, ResourceLocation postProcessor,
-                            int maxAirSpace, BlockState lootBlock){
+                            int maxAirSpace, BlockState lootBlock) {
         this(new ResourceLocation(RepurposedStructures.MODID, dungeonType), false, 1, maxAirSpace, 2,
                 false, 0, lootBlock,
                 new ResourceLocation(RepurposedStructures.MODID, loottablePlace+"/dungeons/"+dungeonType),

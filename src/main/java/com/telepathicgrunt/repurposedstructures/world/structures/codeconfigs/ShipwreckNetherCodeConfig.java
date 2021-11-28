@@ -27,7 +27,7 @@ public class ShipwreckNetherCodeConfig {
             return (T) this;
         }
 
-        public T setSealevelOffset(int sealevelOffset){
+        public T setSealevelOffset(int sealevelOffset) {
             this.sealevelOffset = sealevelOffset;
             return getThis();
         }

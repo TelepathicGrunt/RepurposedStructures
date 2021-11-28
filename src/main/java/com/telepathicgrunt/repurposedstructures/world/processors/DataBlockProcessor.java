@@ -47,7 +47,7 @@ public class DataBlockProcessor extends StructureProcessor {
 
             try {
                 // Pillar mode activated
-                if(metadata.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)){
+                if(metadata.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)) {
                     String[] splitString = metadata.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
 
                     // Parses the data block's field to get direction, blockstate, and depth
@@ -59,9 +59,9 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
 
                     int depth = Integer.MAX_VALUE;
-                    if(splitString.length > 2){
+                    if(splitString.length > 2) {
                         String thirdArgument = splitString[2];
-                        if(NumberUtils.isParsable(thirdArgument)){
+                        if(NumberUtils.isParsable(thirdArgument)) {
                             depth = parseInt(thirdArgument) + 1;
                         }
                     }
@@ -80,18 +80,18 @@ public class DataBlockProcessor extends StructureProcessor {
                             currentPos.getY() <= worldView.dimensionType().logicalHeight() &&
                             currentPos.getY() >= terrainY &&
                             currentPos.closerThan(worldPos, depth)
-                    ){
+                    ) {
                         StructureTemplate.StructureBlockInfo newPillarState1 = new StructureTemplate.StructureBlockInfo(structureBlockInfoLocal.pos, replacementState, null);
                         StructureTemplate.StructureBlockInfo newPillarState2 = new StructureTemplate.StructureBlockInfo(currentPos.immutable(), replacementState, null);
 
-                        for(StructureProcessor processor : structurePlacementData.getProcessors()){
-                            if(newPillarState2 == null){
+                        for(StructureProcessor processor : structurePlacementData.getProcessors()) {
+                            if(newPillarState2 == null) {
                                 break;
                             }
                             newPillarState2 = processor.processBlock(worldView, pos, blockPos, newPillarState1, newPillarState2, structurePlacementData);
                         }
 
-                        if(newPillarState2 != null){
+                        if(newPillarState2 != null) {
                             worldView.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state, false);
                         }
 

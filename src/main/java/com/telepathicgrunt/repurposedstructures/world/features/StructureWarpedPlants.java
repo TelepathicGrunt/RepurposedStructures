@@ -27,32 +27,32 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
         BlockState twistingVines = Blocks.TWISTING_VINES.defaultBlockState();
         BlockState twistingVinesPlant = Blocks.TWISTING_VINES_PLANT.defaultBlockState();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     -1,
                     context.random().nextInt(7) - 3
             );
 
-            if(context.level().getBlockState(mutable).isAir()){
-                if(context.random().nextFloat() < 0.5f && netherSprouts.canSurvive(context.level(), mutable)){
+            if(context.level().getBlockState(mutable).isAir()) {
+                if(context.random().nextFloat() < 0.5f && netherSprouts.canSurvive(context.level(), mutable)) {
 
                     context.level().setBlock(mutable, netherSprouts, 3);
                 }
-                else if(context.random().nextFloat() < 0.4f && twistingRoots.canSurvive(context.level(), mutable)){
+                else if(context.random().nextFloat() < 0.4f && twistingRoots.canSurvive(context.level(), mutable)) {
 
                     context.level().setBlock(mutable, twistingRoots, 3);
                 }
-                else if(context.random().nextFloat() < 0.3f && twistingFungus.canSurvive(context.level(), mutable)){
+                else if(context.random().nextFloat() < 0.3f && twistingFungus.canSurvive(context.level(), mutable)) {
 
                     context.level().setBlock(mutable, twistingFungus, 3);
                 }
-                else if(twistingVines.canSurvive(context.level(), mutable)){
+                else if(twistingVines.canSurvive(context.level(), mutable)) {
 
                     // Biased towards max length if greater than 3
                     int length = context.config().length > 3 ? context.config().length - context.random().nextInt(context.random().nextInt(context.config().length) + 1) : context.random().nextInt(context.config().length);
-                    for(int currentLength = 0; currentLength <= length; currentLength++){
-                        if(currentLength == length || !context.level().getBlockState(mutable.above()).isAir()){
+                    for(int currentLength = 0; currentLength <= length; currentLength++) {
+                        if(currentLength == length || !context.level().getBlockState(mutable.above()).isAir()) {
                             context.level().setBlock(mutable, twistingVines, 3);
                             break;
                         }

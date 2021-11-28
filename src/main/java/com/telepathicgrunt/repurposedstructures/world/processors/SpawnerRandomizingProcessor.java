@@ -61,7 +61,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
         if(entity != null) {
             if(nbt != null) {
                 CompoundTag spawnDataTag = nbt.getCompound("SpawnData");
-                if(spawnDataTag.isEmpty()){
+                if(spawnDataTag.isEmpty()) {
                     spawnDataTag = new CompoundTag();
                     nbt.put("SpawnData", spawnDataTag);
                 }

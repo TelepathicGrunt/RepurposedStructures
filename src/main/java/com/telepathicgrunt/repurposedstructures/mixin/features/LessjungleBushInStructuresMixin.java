@@ -23,9 +23,9 @@ public class LessjungleBushInStructuresMixin {
     )
     private void repurposedstructures_lessJungleBushInStructures(FeaturePlaceContext<TreeConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
         // Detect jungle bush like tree
-        if(context.config().foliagePlacer instanceof BushFoliagePlacer && context.config().minimumSize.minClippedHeight().orElse(0) < 2){
+        if(context.config().foliagePlacer instanceof BushFoliagePlacer && context.config().minimumSize.minClippedHeight().orElse(0) < 2) {
             // Rate for removal of bush
-            if(context.random().nextFloat() < 0.9f){
+            if(context.random().nextFloat() < 0.9f) {
                 SectionPos chunkPos = SectionPos.of(context.origin());
                 for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.LESS_JUNGLE_BUSH)) {
                     if (!context.level().startsForFeature(chunkPos, structure).isEmpty()) {

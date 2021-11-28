@@ -24,7 +24,7 @@ public class AdvancedDistanceJigsawStructureCodeConfig extends AdvancedJigsawStr
             super(startPool);
         }
 
-        public T setDistanceFromWorldOrigin(int distanceFromWorldOrigin){
+        public T setDistanceFromWorldOrigin(int distanceFromWorldOrigin) {
             this.distanceFromWorldOrigin = distanceFromWorldOrigin;
             return getThis();
         }

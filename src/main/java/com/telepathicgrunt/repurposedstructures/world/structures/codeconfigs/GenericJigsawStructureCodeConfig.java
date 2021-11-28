@@ -66,57 +66,57 @@ public class GenericJigsawStructureCodeConfig {
             return (T) this;
         }
 
-        public T setStructureSize(int structureSize){
+        public T setStructureSize(int structureSize) {
             this.structureSize = structureSize;
             return getThis();
         }
 
-        public T setCenterOffset(int centerOffset){
+        public T setCenterOffset(int centerOffset) {
             this.centerOffset = centerOffset;
             return getThis();
         }
 
-        public T setBiomeRange(int biomeRange){
+        public T setBiomeRange(int biomeRange) {
             this.biomeRange = biomeRange;
             return getThis();
         }
 
-        public T setStructureBlacklistRange(int structureBlacklistRange){
+        public T setStructureBlacklistRange(int structureBlacklistRange) {
             this.structureBlacklistRange = structureBlacklistRange;
             return getThis();
         }
 
-        public T setAvoidStructuresSet(Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet){
+        public T setAvoidStructuresSet(Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet) {
             this.avoidStructuresSet = avoidStructuresSet;
             return getThis();
         }
 
-        public T setAllowTerrainHeightRange(int allowTerrainHeightRange){
+        public T setAllowTerrainHeightRange(int allowTerrainHeightRange) {
             this.allowTerrainHeightRange = allowTerrainHeightRange;
             return getThis();
         }
 
-        public T setTerrainHeightRadius(int terrainHeightRadius){
+        public T setTerrainHeightRadius(int terrainHeightRadius) {
             this.terrainHeightRadius = terrainHeightRadius;
             return getThis();
         }
 
-        public T setMinHeightLimit(int minHeightLimit){
+        public T setMinHeightLimit(int minHeightLimit) {
             this.minHeightLimit = minHeightLimit;
             return getThis();
         }
 
-        public T setFixedYSpawn(int fixedYSpawn){
+        public T setFixedYSpawn(int fixedYSpawn) {
             this.fixedYSpawn = fixedYSpawn;
             return getThis();
         }
 
-        public T doNotUseHeightmap(){
+        public T doNotUseHeightmap() {
             this.useHeightmap = false;
             return getThis();
         }
 
-        public T cannotSpawnInWater(){
+        public T cannotSpawnInWater() {
             this.cannotSpawnInWater = true;
             return getThis();
         }

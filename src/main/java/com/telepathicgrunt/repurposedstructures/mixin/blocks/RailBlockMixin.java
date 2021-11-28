@@ -19,10 +19,10 @@ public class RailBlockMixin {
      */
     @Inject(method = "rotate(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/Rotation;)Lnet/minecraft/world/level/block/state/BlockState;",
             at = @At(value = "RETURN"), cancellable = true)
-    private void repurposedstructures_fixMC196102Bug(BlockState state, Rotation rotation, CallbackInfoReturnable<BlockState> cir){
-        if(rotation == Rotation.CLOCKWISE_180){
+    private void repurposedstructures_fixMC196102Bug(BlockState state, Rotation rotation, CallbackInfoReturnable<BlockState> cir) {
+        if(rotation == Rotation.CLOCKWISE_180) {
             RailShape railShape = state.getValue(RailBlock.SHAPE);
-            if(railShape == RailShape.NORTH_SOUTH || railShape == RailShape.EAST_WEST){
+            if(railShape == RailShape.NORTH_SOUTH || railShape == RailShape.EAST_WEST) {
                 cir.setReturnValue(state);
             }
         }

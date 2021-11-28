@@ -40,16 +40,16 @@ public class WallVinePostProcessor extends StructureProcessor {
             random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
             ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
-            if(random.nextFloat() < probability && centerState.isAir()){
+            if(random.nextFloat() < probability && centerState.isAir()) {
 
                 BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-                for(Direction facing : Direction.Plane.HORIZONTAL){
+                for(Direction facing : Direction.Plane.HORIZONTAL) {
 
                     mutable.set(structureBlockInfoWorld.pos).move(facing);
                     BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed facing the side of 1 full block.
-                    if(!worldState.is(Blocks.SPAWNER) && Block.isFaceFull(worldState.getCollisionShape(worldView, pos), facing.getOpposite())){
+                    if(!worldState.is(Blocks.SPAWNER) && Block.isFaceFull(worldState.getCollisionShape(worldView, pos), facing.getOpposite())) {
                         BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true);
                         centerChunk.setBlockState(structureBlockInfoWorld.pos, vineBlock, false);
                         break;

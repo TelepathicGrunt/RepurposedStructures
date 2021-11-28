@@ -23,14 +23,14 @@ public class StructureVine extends Feature<StructureTargetLengthRangeConfig> {
     public boolean place(FeaturePlaceContext<StructureTargetLengthRangeConfig> context) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt((context.config().xzRange * 2) + 1) - context.config().xzRange,
                     context.random().nextInt(context.config().heightRange) - 1,
                     context.random().nextInt((context.config().xzRange * 2) + 1) - context.config().xzRange
             );
 
-            if(!context.level().isEmptyBlock(mutable)){
+            if(!context.level().isEmptyBlock(mutable)) {
                 continue;
             }
 

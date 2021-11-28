@@ -25,16 +25,16 @@ import java.util.function.Supplier;
 public final class BiomeSelection {
     private BiomeSelection() {}
 
-    public static boolean hasName(BiomeSelectionContext context, String... names){
+    public static boolean hasName(BiomeSelectionContext context, String... names) {
         return Arrays.stream(names).anyMatch(name -> context.getBiomeKey().location().getPath().contains(name));
     }
 
-    public static boolean hasNamespace(BiomeSelectionContext context, String... namespace){
+    public static boolean hasNamespace(BiomeSelectionContext context, String... namespace) {
         return Arrays.stream(namespace).anyMatch(name -> context.getBiomeKey().location().getNamespace().contains(name));
     }
 
     @SafeVarargs
-    public static boolean isBiome(BiomeSelectionContext context, ResourceKey<Biome>... keys){
+    public static boolean isBiome(BiomeSelectionContext context, ResourceKey<Biome>... keys) {
         return Arrays.stream(keys).anyMatch(key -> context.getBiomeKey().equals(key));
     }
 
@@ -42,17 +42,17 @@ public final class BiomeSelection {
         Set<Biome.BiomeCategory> categorySet = new HashSet<>(Arrays.asList(categories));
         return categorySet.contains(context.getBiome().getBiomeCategory());
     }
-    public static boolean hasStructure(BiomeSelectionContext context, StructureFeature<?> structureFeature){
+    public static boolean hasStructure(BiomeSelectionContext context, StructureFeature<?> structureFeature) {
         //return context.getBiome().getGenerationSettings().isValidStart(structureFeature);
         return false;
     }
 
-    public static boolean hasStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag){
+    public static boolean hasStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag) {
         //return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().anyMatch(structure -> context.getBiome().getGenerationSettings().isValidStart(structure));
         return false;
     }
 
-    public static boolean doesNotHaveStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag){
+    public static boolean doesNotHaveStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag) {
         //return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().noneMatch(structure -> context.getBiome().getGenerationSettings().isValidStart(structure));
         return true;
     }
@@ -75,10 +75,10 @@ public final class BiomeSelection {
         String biomeID = context.getBiomeKey().location().toString();
         return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
                 .anyMatch(pattern -> {
-                    if(pattern.pattern().startsWith("#")){
+                    if(pattern.pattern().startsWith("#")) {
                         String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
                         Biome.BiomeCategory category = Biome.BiomeCategory.byName(cleanedUpCategoryString);
-                        if(category == null){
+                        if(category == null) {
                             RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome allow configs: {}", cleanedUpCategoryString);
                         }
                         else{
@@ -95,10 +95,10 @@ public final class BiomeSelection {
         String biomeID = context.getBiomeKey().location().toString();
         return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
                 .anyMatch(pattern -> {
-                    if(pattern.pattern().startsWith("#")){
+                    if(pattern.pattern().startsWith("#")) {
                         String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
                         Biome.BiomeCategory category = Biome.BiomeCategory.byName(cleanedUpCategoryString);
-                        if(category == null){
+                        if(category == null) {
                             RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome disallow configs: {}", cleanedUpCategoryString);
                         }
                         else{
@@ -114,15 +114,15 @@ public final class BiomeSelection {
     // Temporary until BiomeModification API works again for structures
 
     @SafeVarargs
-    public static boolean isBiomeTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, ResourceKey<Biome>... keys){
+    public static boolean isBiomeTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, ResourceKey<Biome>... keys) {
         return Arrays.stream(keys).anyMatch(key -> context.getBiomeKey().equals(key));
     }
 
-    public static boolean hasNameTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, String... names){
+    public static boolean hasNameTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, String... names) {
         return Arrays.stream(names).anyMatch(name -> context.biomeKey.location().getPath().contains(name));
     }
 
-    public static boolean hasNamespaceTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, String... namespace){
+    public static boolean hasNamespaceTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, String... namespace) {
         return Arrays.stream(namespace).anyMatch(name -> context.getBiomeKey().location().getNamespace().contains(name));
     }
 
@@ -150,10 +150,10 @@ public final class BiomeSelection {
         String biomeID = context.biomeRegistry.getKey(context.biome).toString();
         return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
                 .anyMatch(pattern -> {
-                    if(pattern.pattern().startsWith("#")){
+                    if(pattern.pattern().startsWith("#")) {
                         String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
                         Biome.BiomeCategory category = Biome.BiomeCategory.byName(cleanedUpCategoryString);
-                        if(category == null){
+                        if(category == null) {
                             RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome allow configs: {}", cleanedUpCategoryString);
                         }
                         else{
@@ -170,10 +170,10 @@ public final class BiomeSelection {
         String biomeID = context.biomeRegistry.getKey(context.biome).toString();
         return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
                 .anyMatch(pattern -> {
-                    if(pattern.pattern().startsWith("#")){
+                    if(pattern.pattern().startsWith("#")) {
                         String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
                         Biome.BiomeCategory category = Biome.BiomeCategory.byName(cleanedUpCategoryString);
-                        if(category == null){
+                        if(category == null) {
                             RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome disallow configs: {}", cleanedUpCategoryString);
                         }
                         else{

@@ -34,8 +34,8 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
 
         // Repair arch if we can at this spot (doesn't repair all arches. That requires a redesign of these jigsaw mineshafts)
         if (chunk.getBlockState(mutable.above(3)).canOcclude()) {
-            for(int  i = 0; i <= 1; i++){
-                if(!chunk.getBlockState(mutable.move(Direction.UP)).getMaterial().blocksMotion()){
+            for(int  i = 0; i <= 1; i++) {
+                if(!chunk.getBlockState(mutable.move(Direction.UP)).getMaterial().blocksMotion()) {
                     chunk.setBlockState(mutable, context.config().fenceState, false);
                 }
             }

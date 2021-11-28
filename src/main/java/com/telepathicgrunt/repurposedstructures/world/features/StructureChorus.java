@@ -26,18 +26,18 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState chorusFlower = Blocks.CHORUS_FLOWER.defaultBlockState();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     -1,
                     context.random().nextInt(7) - 3
             );
 
-            if(context.level().getBlockState(mutable).isAir() && context.level().getBlockState(mutable.above()).isAir() && context.level().getBlockState(mutable.move(Direction.DOWN)).canOcclude()){
+            if(context.level().getBlockState(mutable).isAir() && context.level().getBlockState(mutable.above()).isAir() && context.level().getBlockState(mutable.move(Direction.DOWN)).canOcclude()) {
                 
 
                 context.level().setBlock(mutable, Blocks.END_STONE.defaultBlockState(), 3);
-                if(context.random().nextFloat() < 0.33f){
+                if(context.random().nextFloat() < 0.33f) {
                     context.level().setBlock(
                             mutable.move(Direction.UP),
                             chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - context.random().nextInt(context.random().nextInt(6) + 1)),
@@ -47,9 +47,9 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
 
                 // check to make sure this chorus stem can be placed
                 boolean isValidSpot = true;
-                for(Direction direction : Direction.Plane.HORIZONTAL){
+                for(Direction direction : Direction.Plane.HORIZONTAL) {
                     mutable.move(direction);
-                    if(context.level().getBlockState(mutable).is(Blocks.CHORUS_PLANT)){
+                    if(context.level().getBlockState(mutable).is(Blocks.CHORUS_PLANT)) {
                         isValidSpot = false;
                         break;
                     }

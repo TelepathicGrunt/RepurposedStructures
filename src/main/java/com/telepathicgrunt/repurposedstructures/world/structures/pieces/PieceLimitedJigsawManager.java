@@ -82,7 +82,7 @@ public class PieceLimitedJigsawManager {
 
         // Get starting pool
         StructureTemplatePool startPool = jigsawConfig.startPool().get();
-        if(startPool == null || startPool.size() == 0){
+        if(startPool == null || startPool.size() == 0) {
             RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent start pool: {}  Crash is imminent", startPool.getName());
         }
 
@@ -167,15 +167,15 @@ public class PieceLimitedJigsawManager {
         });
     }
 
-    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, Map<ResourceLocation, Integer> counter){
+    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, Map<ResourceLocation, Integer> counter) {
         counter.clear();
         requiredPieces.forEach((key, value) -> counter.put(key, value.getRequiredAmount()));
-        for(Object piece : components){
-            if(piece instanceof PoolElementStructurePiece){
+        for(Object piece : components) {
+            if(piece instanceof PoolElementStructurePiece) {
                 StructurePoolElement poolElement = ((PoolElementStructurePiece)piece).getElement();
-                if(poolElement instanceof SinglePoolElement){
+                if(poolElement instanceof SinglePoolElement) {
                     ResourceLocation pieceID = ((SinglePoolElementAccessor) poolElement).repurposedstructures_getTemplate().left().orElse(null);
-                    if(counter.containsKey(pieceID)){
+                    if(counter.containsKey(pieceID)) {
                         counter.put(pieceID, counter.get(pieceID) - 1);
                     }
                 }
@@ -365,7 +365,7 @@ public class PieceLimitedJigsawManager {
                 // Before performing any logic, check to ensure we haven't reached the max number of instances of this piece.
                 // This logic is my own additional logic - vanilla does not offer this behavior.
                 ResourceLocation pieceName = null;
-                if(candidatePiece instanceof SinglePoolElement){
+                if(candidatePiece instanceof SinglePoolElement) {
                     pieceName = ((SinglePoolElementAccessor) candidatePiece).repurposedstructures_getTemplate().left().get();
                     if (this.pieceCounts.containsKey(pieceName)) {
                         if (this.pieceCounts.get(pieceName) <= 0) {

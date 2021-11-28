@@ -58,7 +58,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
         if(infoIn2.state.is(Blocks.STRUCTURE_VOID) || !infoIn2.state.getFluidState().isEmpty()) return infoIn2;
 
-        if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()){
+        if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()) {
             ChunkAccess currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos).isAir()) return infoIn2;
@@ -69,7 +69,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                 if(ignoreDown && direction == Direction.DOWN) continue;
 
                 mutable.set(infoIn2.pos).move(direction);
-                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()){
+                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
                     continue;
                 }
 

@@ -26,14 +26,14 @@ public class StructureChains extends Feature<StructureTargetConfig> {
         WorldGenLevel world = context.level();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(11) - 5,
                     context.random().nextInt(3) - 1,
                     context.random().nextInt(11) - 5
             );
 
-            if(!world.getBlockState(mutable).isAir()){
+            if(!world.getBlockState(mutable).isAir()) {
                 continue;
             }
 
@@ -59,8 +59,8 @@ public class StructureChains extends Feature<StructureTargetConfig> {
             if(exitEarly) continue;
 
             //attaches lantern at end at a rare chance
-            if(mutable.getY() != world.getMinBuildHeight() + 3 && context.random().nextFloat() < 0.075f && world.isEmptyBlock(mutable)){
-                if(world.getBiome(mutable).getBiomeCategory() == Biome.BiomeCategory.NETHER){
+            if(mutable.getY() != world.getMinBuildHeight() + 3 && context.random().nextFloat() < 0.075f && world.isEmptyBlock(mutable)) {
+                if(world.getBiome(mutable).getBiomeCategory() == Biome.BiomeCategory.NETHER) {
                     world.setBlock(mutable, Blocks.SOUL_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
                 }
                 else{

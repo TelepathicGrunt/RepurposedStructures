@@ -27,10 +27,10 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
         // The logic needs to do a putIfAbsent to add the missing structures between the config versions when updating.
 
         // Fix typo in old config value
-        if(configVersion == 1){
+        if(configVersion == 1) {
             List<MobSpawningOverTime.PublicMobSpawnEntry> mobList = appendMobSpawns.get("repurposed_structures:mineshaft_end");
-            for(int i = 0; i < mobList.size(); i++){
-                if(mobList.get(i).type.equals("minecraft:endermen")){
+            for(int i = 0; i < mobList.size(); i++) {
+                if(mobList.get(i).type.equals("minecraft:endermen")) {
                     mobList.set(i, new MobSpawningOverTime.PublicMobSpawnEntry(
                                     "minecraft:enderman",
                                     mobList.get(i).weight,
@@ -41,7 +41,7 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
             configVersion = 2;
         }
 
-        if(configVersion == 2){
+        if(configVersion == 2) {
             addEntries(appendMobSpawns, "repurposed_structures:stronghold_end", List.of(new MobSpawningOverTime.PublicMobSpawnEntry("minecraft:endermite", 100, 2, 4)));
         }
 
@@ -49,9 +49,9 @@ public class RSNaturalMobSpawningOmegaConfig implements Config {
         Config.super.save();
     }
 
-    private void addEntries(Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> map, String key, List<MobSpawningOverTime.PublicMobSpawnEntry> entry){
+    private void addEntries(Map<String, List<MobSpawningOverTime.PublicMobSpawnEntry>> map, String key, List<MobSpawningOverTime.PublicMobSpawnEntry> entry) {
         // assign entry
-        if(map.putIfAbsent(key, entry) != null){
+        if(map.putIfAbsent(key, entry) != null) {
             map.get(key).addAll(entry); // append entry
         }
     }

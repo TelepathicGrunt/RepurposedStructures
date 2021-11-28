@@ -26,19 +26,19 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
         BlockState grass = Blocks.GRASS.defaultBlockState();
         BlockState tallGrass = Blocks.TALL_GRASS.defaultBlockState();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt((context.config().range * 2) + 1) - context.config().range,
                     context.random().nextInt(3) - 1,
                     context.random().nextInt((context.config().range * 2) + 1) - context.config().range
             );
 
-            if(context.level().getBlockState(mutable).isAir()){
-                if((context.random().nextFloat() < 0.45f || !context.level().getBlockState(mutable.above()).isAir()) && grass.canSurvive(context.level(), mutable)){
+            if(context.level().getBlockState(mutable).isAir()) {
+                if((context.random().nextFloat() < 0.45f || !context.level().getBlockState(mutable.above()).isAir()) && grass.canSurvive(context.level(), mutable)) {
 
                     context.level().setBlock(mutable, grass, 3);
                 }
-                else if(tallGrass.canSurvive(context.level(), mutable)){
+                else if(tallGrass.canSurvive(context.level(), mutable)) {
 
                     context.level().setBlock(mutable, tallGrass.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
                     context.level().setBlock(mutable.move(Direction.UP), tallGrass.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);

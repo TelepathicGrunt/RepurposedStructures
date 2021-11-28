@@ -14,7 +14,7 @@ import com.modrinth.minotaur.TaskModrinthUpload
 String fileContents = new File("./", "CHANGELOG.md").text
 
 // Make sure it runs after build!
-task publishModrinth (type: TaskModrinthUpload){
+task publishModrinth (type: TaskModrinthUpload) {
     token = "$System.env.MODRINTH"
     versionName = "Repurposed Structures"
     projectId = 'muf0XoRe'

@@ -47,7 +47,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        if(context.random().nextFloat() < context.config().chance){
+        if(context.random().nextFloat() < context.config().chance) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     0,
@@ -55,12 +55,12 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
             );
 
             boolean foundSurface = findSurface(context.level(), mutable, Direction.UP);
-            if(!foundSurface){
+            if(!foundSurface) {
                 mutable.move(Direction.DOWN, 5);
                 foundSurface = findSurface(context.level(), mutable, Direction.DOWN);
             }
 
-            if(!foundSurface){
+            if(!foundSurface) {
                 return false;
             }
             mutable.move(Direction.UP, 2);
@@ -178,7 +178,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                 boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
 
                                                 // Do not carve if exposed to cave space
-                                                if(isBelowSealevel && isBorderingAir(context.level(), mutable)){
+                                                if(isBelowSealevel && isBorderingAir(context.level(), mutable)) {
                                                     continue;
                                                 }
 
@@ -187,13 +187,13 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                 // no floating vines
                                                 state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
-                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT) {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), false);
                                                     state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
                                                 }
 
                                                 state = currentChunk.getBlockState(mutable.move(Direction.UP));
-                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT) {
                                                     isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
                                                     state = currentChunk.getBlockState(mutable.move(Direction.UP));
@@ -211,7 +211,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                     BlockState neighboringBlock = currentChunk.getBlockState(mutableVineCheck);
                                                     if (neighboringBlock.is(Blocks.VINE) && neighboringBlock.getValue(VineBlock.getPropertyForFace(direction.getOpposite()))) {
-                                                        while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT){
+                                                        while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT) {
                                                             currentChunk.setBlockState(mutableVineCheck, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), false);
                                                             neighboringBlock = currentChunk.getBlockState(mutableVineCheck.move(Direction.DOWN));
                                                         }
@@ -245,7 +245,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                 currentChunkPos2 = new ChunkPos(mutableWaterCheck);
             }
 
-            if(currentChunk2.getBlockState(mutableWaterCheck).isAir()){
+            if(currentChunk2.getBlockState(mutableWaterCheck).isAir()) {
                 return true;
             }
         }

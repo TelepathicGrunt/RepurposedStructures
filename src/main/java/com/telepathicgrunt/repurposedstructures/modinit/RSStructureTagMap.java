@@ -56,7 +56,7 @@ public final class RSStructureTagMap {
     /**
      * Call this after structure registration. This will setup the tags for all structures so we can reference them easier.
      */
-    public static void setupTags(){
+    public static void setupTags() {
         addTags(RSStructures.MINESHAFT_BIRCH, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.MINESHAFT_SAVANNA, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
         addTags(RSStructures.MINESHAFT_OCEAN, Stream.of(STRUCTURE_TAGS.MINESHAFT).collect(Collectors.toSet()));
@@ -165,14 +165,14 @@ public final class RSStructureTagMap {
      *
      * Only does additions and no replacements/deletions.
      */
-    private static void addTags(StructureFeature<?> structure, Set<STRUCTURE_TAGS> tags){
-        if(!TAGGED_STRUCTURES.containsKey(structure)){
+    private static void addTags(StructureFeature<?> structure, Set<STRUCTURE_TAGS> tags) {
+        if(!TAGGED_STRUCTURES.containsKey(structure)) {
             TAGGED_STRUCTURES.put(structure, new HashSet<>());
         }
         TAGGED_STRUCTURES.get(structure).addAll(tags);
 
-        for(STRUCTURE_TAGS tag : tags){
-            if(!REVERSED_TAGGED_STRUCTURES.containsKey(tag)){
+        for(STRUCTURE_TAGS tag : tags) {
+            if(!REVERSED_TAGGED_STRUCTURES.containsKey(tag)) {
                 REVERSED_TAGGED_STRUCTURES.put(tag, new HashSet<>());
             }
 

@@ -51,7 +51,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(!infoIn2.state.getFluidState().isEmpty()){
+        if(!infoIn2.state.getFluidState().isEmpty()) {
             ChunkAccess currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             Fluid currentFluid = infoIn2.state.getFluidState().getType();
 
@@ -60,7 +60,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
             for (Direction direction : Direction.values()) {
 
                 mutable.set(infoIn2.pos).move(direction);
-                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()){
+                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
                     continue;
                 }
 
@@ -85,7 +85,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
 
                     if (neighboringState.isAir() || (neighboringState.getBlock() instanceof LiquidBlock && !currentFluid.equals(neighboringState.getFluidState().getType()))) {
                         Block replacementBlock;
-                        if(weightedReplacementBlocks.size() == 1){
+                        if(weightedReplacementBlocks.size() == 1) {
                             replacementBlock = weightedReplacementBlocks.get(0).getFirst();
                         }
                         else{

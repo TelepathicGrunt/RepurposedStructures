@@ -57,7 +57,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
                     BlockPos placementPos;
 
-                    if(config.highestLandSearch){
+                    if(config.highestLandSearch) {
                         placementPos = GeneralUtils.getHighestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), config.canPlaceOnLiquid);
                     }
                     else{

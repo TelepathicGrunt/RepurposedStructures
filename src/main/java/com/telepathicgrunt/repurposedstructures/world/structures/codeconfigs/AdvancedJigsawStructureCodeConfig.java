@@ -44,32 +44,32 @@ public class AdvancedJigsawStructureCodeConfig {
             return (T) this;
         }
 
-        public T setStructureSize(int structureSize){
+        public T setStructureSize(int structureSize) {
             this.structureSize = structureSize;
             return getThis();
         }
 
-        public T setBiomeRange(int biomeRange){
+        public T setBiomeRange(int biomeRange) {
             this.biomeRange = biomeRange;
             return getThis();
         }
 
-        public T setMaxY(int maxY){
+        public T setMaxY(int maxY) {
             this.maxY = maxY;
             return getThis();
         }
 
-        public T setMinY(int minY){
+        public T setMinY(int minY) {
             this.minY = minY;
             return getThis();
         }
 
-        public T setVerticalRange(int verticalRange){
+        public T setVerticalRange(int verticalRange) {
             this.verticalRange = verticalRange;
             return getThis();
         }
 
-        public T doNotClipOutOfBoundsPieces(){
+        public T doNotClipOutOfBoundsPieces() {
             this.clipOutOfBoundsPieces = false;
             return getThis();
         }

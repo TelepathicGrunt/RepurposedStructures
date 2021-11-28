@@ -175,7 +175,7 @@ public final class StructureModdedLootImporter {
 
 
 
-    public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot){
+    public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
         if(RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.importModdedItems)
         {
             // Cache the result of the loottable to the id into our own map.
@@ -219,7 +219,7 @@ public final class StructureModdedLootImporter {
         return originalLoot;
     }
 
-    private static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext){
+    private static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext) {
         LootContext.Builder newContextBuilder = new LootContext.Builder(oldLootContext.getLevel())
                 .withRandom(oldLootContext.getRandom())
                 .withLuck(oldLootContext.getLuck());
@@ -229,7 +229,7 @@ public final class StructureModdedLootImporter {
         return newContextBuilder.create(LootContextParamSets.CHEST);
     }
 
-    private static boolean isInBlacklist(ResourceLocation lootTableID){
+    private static boolean isInBlacklist(ResourceLocation lootTableID) {
         if(BLACKLISTED_LOOTTABLES == null) {
             String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.blacklistedRSLoottablesFromImportingModdedItems.trim();
 

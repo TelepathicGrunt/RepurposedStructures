@@ -34,7 +34,7 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
         Drowned drownedEntity = EntityType.DROWNED.create(context.level().getLevel());
         if(drownedEntity == null) return false;
 
-        if(context.random().nextFloat() < 0.45F){
+        if(context.random().nextFloat() < 0.45F) {
             ItemStack stoneSword = new ItemStack(Items.STONE_SWORD);
 
             // enchant sword
@@ -43,16 +43,16 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
             drownedEntity.setLeftHanded(context.random().nextFloat() < 0.05F);
         }
 
-        if(context.level().getRandom().nextFloat() < 0.4f){
+        if(context.level().getRandom().nextFloat() < 0.4f) {
             drownedEntity.setItemSlot(EquipmentSlot.HEAD, context.level().getRandom().nextFloat() < 0.2f ? Items.IRON_HELMET.getDefaultInstance() : Items.CHAINMAIL_HELMET.getDefaultInstance());
         }
-        if(context.level().getRandom().nextFloat() < 0.4f){
+        if(context.level().getRandom().nextFloat() < 0.4f) {
             drownedEntity.setItemSlot(EquipmentSlot.CHEST, context.level().getRandom().nextFloat() < 0.2f ? Items.IRON_CHESTPLATE.getDefaultInstance() : Items.CHAINMAIL_CHESTPLATE.getDefaultInstance());
         }
-        if(context.level().getRandom().nextFloat() < 0.4f){
+        if(context.level().getRandom().nextFloat() < 0.4f) {
             drownedEntity.setItemSlot(EquipmentSlot.LEGS, context.level().getRandom().nextFloat() < 0.2f ? Items.IRON_LEGGINGS.getDefaultInstance() : Items.CHAINMAIL_LEGGINGS.getDefaultInstance());
         }
-        if(context.level().getRandom().nextFloat() < 0.4f){
+        if(context.level().getRandom().nextFloat() < 0.4f) {
             drownedEntity.setItemSlot(EquipmentSlot.FEET, context.level().getRandom().nextFloat() < 0.2f ? Items.IRON_BOOTS.getDefaultInstance() : Items.CHAINMAIL_BOOTS.getDefaultInstance());
         }
 

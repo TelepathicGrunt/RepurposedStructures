@@ -36,7 +36,7 @@ public class StructureFire extends Feature<StructureTargetConfig> {
         BlockState fire = Blocks.FIRE.defaultBlockState();
         Tag<Block> infiniteBurningBlocks = INFINITE_FIRE_BLOCKS.getOrDefault(context.level().getLevel().dimension(), BlockTags.INFINIBURN_OVERWORLD);
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     -1,
@@ -44,9 +44,9 @@ public class StructureFire extends Feature<StructureTargetConfig> {
             );
 
             Block belowBlock = context.level().getBlockState(mutable.below()).getBlock();
-            if(context.level().getBlockState(mutable).isAir() && (belowBlock == Blocks.NETHER_BRICKS || infiniteBurningBlocks.contains(belowBlock))){
+            if(context.level().getBlockState(mutable).isAir() && (belowBlock == Blocks.NETHER_BRICKS || infiniteBurningBlocks.contains(belowBlock))) {
 
-                if(belowBlock == Blocks.NETHER_BRICKS){
+                if(belowBlock == Blocks.NETHER_BRICKS) {
                     context.level().setBlock(mutable.below(), Blocks.NETHERRACK.defaultBlockState(), 3);
                 }
 

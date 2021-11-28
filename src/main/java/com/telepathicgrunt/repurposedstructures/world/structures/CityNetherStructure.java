@@ -42,7 +42,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
         ChunkPos chunkPos = context.chunkPos();
 
         // do cheaper checks first
-        if(super.isFeatureChunk(context, config)){
+        if(super.isFeatureChunk(context, config)) {
 
             // make sure land is open enough for city
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
@@ -53,9 +53,9 @@ public class CityNetherStructure extends GenericJigsawStructure {
                     int minValidSpace = 65;
                     int maxHeight = Math.min(context.chunkGenerator().getGenDepth(), context.chunkGenerator().getSeaLevel() + minValidSpace);
 
-                    while(mutable.getY() < maxHeight){
+                    while(mutable.getY() < maxHeight) {
                         BlockState state = blockView.getBlock(mutable.getY());
-                        if(!state.isAir()){
+                        if(!state.isAir()) {
                             return false;
                         }
                         mutable.move(Direction.UP);

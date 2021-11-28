@@ -139,9 +139,9 @@ public class RepurposedStructures implements ModInitializer {
             }
             // Not superflat overworld. Do normal behavior now
             else{
-                for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
+                for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()) {
                     boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
-                    if (isWorldBlacklisted){
+                    if (isWorldBlacklisted) {
                         // make absolutely sure dimension cannot spawn the RS structure
                         tempMap.remove(structureFeatureEntry.getKey());
                     }

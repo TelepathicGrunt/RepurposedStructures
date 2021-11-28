@@ -38,14 +38,14 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
         WorldGenLevel world = context.level();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     -1,
                     context.random().nextInt(7) - 3
             );
 
-            if(!world.getBlockState(mutable).isAir()){
+            if(!world.getBlockState(mutable).isAir()) {
                 continue;
             }
 

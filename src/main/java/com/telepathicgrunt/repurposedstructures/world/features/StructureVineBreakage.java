@@ -41,14 +41,14 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     context.random().nextInt(5) - 1,
                     context.random().nextInt(7) - 3
             );
 
-            if(!FORTRESS_BLOCKS.test(context.level().getBlockState(mutable)) || !context.level().isEmptyBlock(mutable.below())){
+            if(!FORTRESS_BLOCKS.test(context.level().getBlockState(mutable)) || !context.level().isEmptyBlock(mutable.below())) {
                 continue;
             }
 
@@ -59,7 +59,7 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 vineMutablePos.set(mutable).move(direction);
                 // no floating vines
-                while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT){
+                while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT) {
                     context.level().setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
                     neighboringBlock = context.level().getBlockState(vineMutablePos.move(Direction.DOWN));
                 }
@@ -67,7 +67,7 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
 
             BlockPos.MutableBlockPos replacingPlantMutable = new BlockPos.MutableBlockPos().set(mutable);
             BlockState plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
-            while(plantState.getMaterial() == Material.REPLACEABLE_PLANT){
+            while(plantState.getMaterial() == Material.REPLACEABLE_PLANT) {
                 context.level().setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
                 plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
             }

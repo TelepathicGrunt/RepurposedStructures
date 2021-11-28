@@ -26,7 +26,7 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
         BlockState tallSeagrass = Blocks.TALL_SEAGRASS.defaultBlockState();
         BlockState seagrass = Blocks.SEAGRASS.defaultBlockState();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,
                     -1,
@@ -37,13 +37,13 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
             if(!isWater) continue;
 
             boolean isWaterAbove = context.level().getBlockState(mutable.above()).is(Blocks.WATER);
-            if(isWaterAbove && context.random().nextFloat() < 0.33f && tallSeagrass.canSurvive(context.level(), mutable)){
+            if(isWaterAbove && context.random().nextFloat() < 0.33f && tallSeagrass.canSurvive(context.level(), mutable)) {
                 
 
                 context.level().setBlock(mutable, tallSeagrass.setValue(TallSeagrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
                 context.level().setBlock(mutable.move(Direction.UP), tallSeagrass.setValue(TallSeagrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
             }
-            else if(seagrass.canSurvive(context.level(), mutable)){
+            else if(seagrass.canSurvive(context.level(), mutable)) {
                 
 
                 context.level().setBlock(mutable, Blocks.SEAGRASS.defaultBlockState(), 3);

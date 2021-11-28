@@ -22,7 +22,7 @@ public class MineshaftCodeConfig extends AdvancedJigsawStructureCodeConfig {
             super(startPool);
         }
 
-        public T setProbability(double probability){
+        public T setProbability(double probability) {
             this.probability = probability;
             return getThis();
         }

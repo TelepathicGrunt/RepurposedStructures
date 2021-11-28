@@ -48,25 +48,25 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
-        if(infoIn2.state.getBlock() == inputBlock){
+        if(infoIn2.state.getBlock() == inputBlock) {
             BlockPos worldPos = infoIn2.pos;
             Random random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(worldPos.asLong() * worldPos.getY());
 
-            if(random.nextFloat() < probability){
-                if(outputBlock.isPresent()){
+            if(random.nextFloat() < probability) {
+                if(outputBlock.isPresent()) {
                     BlockState newBlockState = outputBlock.get().defaultBlockState();
-                    for(Property<?> property : infoIn2.state.getProperties()){
-                        if(newBlockState.hasProperty(property)){
+                    for(Property<?> property : infoIn2.state.getProperties()) {
+                        if(newBlockState.hasProperty(property)) {
                             newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
                         }
                     }
                     return new StructureTemplate.StructureBlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
                 }
-                else if(!outputBlocks.isEmpty()){
+                else if(!outputBlocks.isEmpty()) {
                     BlockState newBlockState = outputBlocks.get(random.nextInt(outputBlocks.size())).defaultBlockState();
-                    for(Property<?> property : infoIn2.state.getProperties()){
-                        if(newBlockState.hasProperty(property)){
+                    for(Property<?> property : infoIn2.state.getProperties()) {
+                        if(newBlockState.hasProperty(property)) {
                             newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
                         }
                     }
@@ -80,7 +80,7 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
         return infoIn2;
     }
 
-    private <T extends Comparable<T>> BlockState getStateWithProperty(BlockState state, BlockState stateToCopy, Property<T> property){
+    private <T extends Comparable<T>> BlockState getStateWithProperty(BlockState state, BlockState stateToCopy, Property<T> property) {
         return state.setValue(property, stateToCopy.getValue(property));
     }
 

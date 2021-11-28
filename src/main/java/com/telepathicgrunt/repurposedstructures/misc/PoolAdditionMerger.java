@@ -84,17 +84,17 @@ public final class PoolAdditionMerger {
         elementCounts.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getRawTemplates());
 
         // Helps people know if they typoed their merger pool's nbt file paths
-        for(StructurePoolElement element : elements){
-            if(element instanceof SinglePoolElement singlePoolElement){
+        for(StructurePoolElement element : elements) {
+            if(element instanceof SinglePoolElement singlePoolElement) {
                 Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures_getTemplate().left();
                 if(nbtID.isEmpty()) continue;
                 Optional<StructureTemplate> structureTemplate = structureManager.get(nbtID.get());
-                if(structureTemplate.isEmpty()){
+                if(structureTemplate.isEmpty()) {
                     RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getName(), nbtID.get());
                 }
             }
-            else if(element instanceof ListPoolElement listPoolElement){
-                for(StructurePoolElement listElement : ((ListPoolElementAccessor)listPoolElement).repurposedstructures_getElements()){
+            else if(element instanceof ListPoolElement listPoolElement) {
+                for(StructurePoolElement listElement : ((ListPoolElementAccessor)listPoolElement).repurposedstructures_getElements()) {
                     if(listElement instanceof SinglePoolElement singlePoolElement) {
                         Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor) singlePoolElement).repurposedstructures_getTemplate().left();
                         if (nbtID.isEmpty()) continue;

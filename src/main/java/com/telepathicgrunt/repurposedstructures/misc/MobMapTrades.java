@@ -10,7 +10,7 @@ import net.minecraft.world.level.saveddata.maps.MapDecoration;
 public final class MobMapTrades {
     private MobMapTrades() {}
 
-    public static void addMapTrades(){
+    public static void addMapTrades() {
 
         // Villagers
         // Level 3 trades

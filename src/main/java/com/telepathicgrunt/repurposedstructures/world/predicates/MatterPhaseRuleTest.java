@@ -32,7 +32,7 @@ public class MatterPhaseRuleTest extends RuleTest {
     public boolean test(BlockState state, Random random) {
         boolean phaseMatch = false;
 
-        switch(phaseToTestFor){
+        switch(phaseToTestFor) {
             case AIR:
                 if(state.isAir()) phaseMatch = true;
                 break;
@@ -47,7 +47,7 @@ public class MatterPhaseRuleTest extends RuleTest {
                 break;
         }
 
-        if(invertCondition){
+        if(invertCondition) {
             phaseMatch = !phaseMatch;
         }
 

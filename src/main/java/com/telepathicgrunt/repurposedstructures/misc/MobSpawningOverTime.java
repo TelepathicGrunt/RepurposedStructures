@@ -31,7 +31,7 @@ public final class MobSpawningOverTime {
         public final int maxGroupSize;
         public final boolean logErrorIfNotFound;
 
-        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean logErrorIfNotFound){
+        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize, boolean logErrorIfNotFound) {
             this.type = type;
             this.weight = weight;
             this.minGroupSize = minGroupSize;
@@ -39,7 +39,7 @@ public final class MobSpawningOverTime {
             this.logErrorIfNotFound = logErrorIfNotFound;
         }
 
-        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize){
+        public PublicMobSpawnEntry(String type, int weight, int minGroupSize, int maxGroupSize) {
             this(type, weight, minGroupSize, maxGroupSize, true);
         }
     }
@@ -47,7 +47,7 @@ public final class MobSpawningOverTime {
     public static final Map<MobCategory, Map<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>>> REPLACE_MOB_SPAWNING = new HashMap<>();
     public static final Map<MobCategory, Map<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>>> APPEND_MOB_SPAWNING = new HashMap<>();
 
-    public static void setupMobSpawningMaps(){
+    public static void setupMobSpawningMaps() {
         Arrays.stream(MobCategory.values()).forEach(group -> REPLACE_MOB_SPAWNING.put(group, new HashMap<>()));
         Arrays.stream(MobCategory.values()).forEach(group -> APPEND_MOB_SPAWNING.put(group, new HashMap<>()));
 
@@ -60,7 +60,7 @@ public final class MobSpawningOverTime {
                                  Map<String, List<PublicMobSpawnEntry>> configMap,
                                  String errorMsg) {
 
-        for(Map.Entry<String, List<PublicMobSpawnEntry>> configMapEntry : configMap.entrySet()){
+        for(Map.Entry<String, List<PublicMobSpawnEntry>> configMapEntry : configMap.entrySet()) {
             // validate to make sure we only are affecting Repurposed Structures's structures.
             if(!configMapEntry.getKey().equals("all") && !configMapEntry.getKey().contains(RepurposedStructures.MODID)) {
                 RepurposedStructures.LOGGER.warn("Repurposed Structures: Found key that is not a repurposed structure's structure in {} config: {} Skipping that entry...", errorMsg, configMapEntry.getKey());
@@ -69,12 +69,12 @@ public final class MobSpawningOverTime {
 
 
             // Adds to all of RS's Structures
-            if(configMapEntry.getKey().equals("all")){
+            if(configMapEntry.getKey().equals("all")) {
                 RSStructures.RS_STRUCTURES.forEach((key, value) -> {
-                    for(PublicMobSpawnEntry spawnEntry : configMapEntry.getValue()){
+                    for(PublicMobSpawnEntry spawnEntry : configMapEntry.getValue()) {
                         // Parse and make sure the entity type exists
                         Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
-                        if(entityType.isEmpty()){
+                        if(entityType.isEmpty()) {
                             if(spawnEntry.logErrorIfNotFound) {
                                 RepurposedStructures.LOGGER.warn("Repurposed Structures (first): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                             }
@@ -90,7 +90,7 @@ public final class MobSpawningOverTime {
                         // Add the spawn entry for the structure into map.
                         // No usage of .merge due to performance reasons of making a new list every time for merge.
                         Map<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureMobMap = mapToFillWithMobSpawns.get(entryToAdd.type.getCategory());
-                        if(structureMobMap.containsKey(key)){
+                        if(structureMobMap.containsKey(key)) {
                             structureMobMap.get(key).add(entryToAdd);
                         }
                         else{
@@ -103,15 +103,15 @@ public final class MobSpawningOverTime {
             // Adds to a targeted RS's Structure
             else{
                 StructureFeature<?> structureFeature = Registry.STRUCTURE_FEATURE.get(new ResourceLocation(configMapEntry.getKey()));
-                if(structureFeature == null){
+                if(structureFeature == null) {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), errorMsg);
                     continue;
                 }
 
-                for(PublicMobSpawnEntry spawnEntry : configMapEntry.getValue()){
+                for(PublicMobSpawnEntry spawnEntry : configMapEntry.getValue()) {
                     // Parse and make sure the entity type exists
                     Optional<EntityType<?>> entityType = Registry.ENTITY_TYPE.getOptional(new ResourceLocation(spawnEntry.type));
-                    if(entityType.isEmpty()){
+                    if(entityType.isEmpty()) {
                         if(spawnEntry.logErrorIfNotFound) {
                             RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown EntityType {} was found in the {} config. Skipping that entry...", spawnEntry.type, errorMsg);
                         }
@@ -126,7 +126,7 @@ public final class MobSpawningOverTime {
                     // Add the spawn entry for the structure into map.
                     // No usage of .merge due to performance reasons of making a new list every time for merge.
                     Map<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureMobMap = mapToFillWithMobSpawns.get(entryToAdd.type.getCategory());
-                    if(structureMobMap.containsKey(structureFeature)){
+                    if(structureMobMap.containsKey(structureFeature)) {
                         structureMobMap.get(structureFeature).add(entryToAdd);
                     }
                     else{
@@ -142,9 +142,9 @@ public final class MobSpawningOverTime {
     /**
      * Handles actual structure mob spacing. Call this in StructureMobSpawningMixin that hooks into NoiseChunkGenerator
      */
-    public static WeightedRandomList<MobSpawnSettings.SpawnerData> getStructureSpawns(Biome biome, StructureFeatureManager accessor, MobCategory spawnGroup, BlockPos pos){
+    public static WeightedRandomList<MobSpawnSettings.SpawnerData> getStructureSpawns(Biome biome, StructureFeatureManager accessor, MobCategory spawnGroup, BlockPos pos) {
         // Replace spawns
-        for(Map.Entry<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureEntry : MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(spawnGroup).entrySet()){
+        for(Map.Entry<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureEntry : MobSpawningOverTime.REPLACE_MOB_SPAWNING.get(spawnGroup).entrySet()) {
             if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, structureEntry.getKey()).isValid()) {
                 return WeightedRandomList.create(structureEntry.getValue());
             }
@@ -152,7 +152,7 @@ public final class MobSpawningOverTime {
 
         // Appended spawns (combined with other structure appended spawns and to biome spawns)
         List<MobSpawnSettings.SpawnerData> appendedSpawn = null;
-        for(Map.Entry<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureEntry : MobSpawningOverTime.APPEND_MOB_SPAWNING.get(spawnGroup).entrySet()){
+        for(Map.Entry<StructureFeature<?>, List<MobSpawnSettings.SpawnerData>> structureEntry : MobSpawningOverTime.APPEND_MOB_SPAWNING.get(spawnGroup).entrySet()) {
             if (!structureEntry.getValue().isEmpty() && accessor.getStructureAt(pos, structureEntry.getKey()).isValid()) {
                 if(appendedSpawn == null) appendedSpawn = new ArrayList<>(biome.getMobSettings().getMobs(spawnGroup).unwrap());
                 appendedSpawn.addAll(structureEntry.getValue());

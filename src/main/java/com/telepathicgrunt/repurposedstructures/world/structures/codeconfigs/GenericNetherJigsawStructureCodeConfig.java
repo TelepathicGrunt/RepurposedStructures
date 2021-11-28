@@ -36,22 +36,22 @@ public class GenericNetherJigsawStructureCodeConfig extends GenericJigsawStructu
             super(startPool);
         }
 
-        public T searchForHighestLand(){
+        public T searchForHighestLand() {
             this.highestLandSearch = true;
             return getThis();
         }
 
-        public T canSpawnOnLiquid(){
+        public T canSpawnOnLiquid() {
             this.canPlaceOnLiquid = true;
             return getThis();
         }
 
-        public T setLedgeSpotOffset(int ledgeSpotOffset){
+        public T setLedgeSpotOffset(int ledgeSpotOffset) {
             this.ledgeSpotOffset = ledgeSpotOffset;
             return getThis();
         }
 
-        public T setLiquidSpotOffset(int liquidSpotOffset){
+        public T setLiquidSpotOffset(int liquidSpotOffset) {
             this.liquidSpotOffset = liquidSpotOffset;
             return getThis();
         }

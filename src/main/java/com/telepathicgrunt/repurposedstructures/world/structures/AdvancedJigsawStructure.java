@@ -81,7 +81,7 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
         }
 
 //            long startTime = System.currentTimeMillis();
-//            for(int i = 0; i < 50; i++){
+//            for(int i = 0; i < 50; i++) {
 //                this.pieces.clear();
 
         ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);

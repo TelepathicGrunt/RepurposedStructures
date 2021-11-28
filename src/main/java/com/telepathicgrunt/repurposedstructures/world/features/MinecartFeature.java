@@ -35,7 +35,7 @@ public class MinecartFeature extends Feature<MinecartConfig> {
 
         // Check if below block is solid
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(context.origin());
-        if(!context.level().getBlockState(mutable.below()).canOcclude()){
+        if(!context.level().getBlockState(mutable.below()).canOcclude()) {
             return false;
         }
 

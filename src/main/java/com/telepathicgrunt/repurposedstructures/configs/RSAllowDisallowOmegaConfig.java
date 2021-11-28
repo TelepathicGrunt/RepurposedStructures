@@ -22,7 +22,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
     @Override
     public void save() {
 
-        if(configVersion == 1){
+        if(configVersion == 1) {
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_neutral_ocean", "terrestria:lush_desert");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_lukewarm_ocean", "terrestria:lush_desert");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_frozen_ocean", "terrestria:lush_desert");
@@ -34,21 +34,21 @@ public class RSAllowDisallowOmegaConfig implements Config {
         Config.super.save();
     }
 
-    private void addEntries(Map<String, String> map, String key, String entry){
+    private void addEntries(Map<String, String> map, String key, String entry) {
         // assign entry
-        if(map.putIfAbsent(key, entry) != null && !map.get(key).contains(entry)){
+        if(map.putIfAbsent(key, entry) != null && !map.get(key).contains(entry)) {
             map.put(key, map.get(key) + ", " + entry); // append entry
         }
     }
 
-    private void removeEntries(Map<String, String> map, String key, String entry){
-        if(map.containsKey(key) && map.get(key).contains(entry)){
+    private void removeEntries(Map<String, String> map, String key, String entry) {
+        if(map.containsKey(key) && map.get(key).contains(entry)) {
             String newEntry = map.get(key)
                     .replace(entry+", ", "")
                     .replace(entry+",", "")
                     .replace(entry, "");
 
-            if(newEntry.isEmpty()){
+            if(newEntry.isEmpty()) {
                 map.remove(key);
             }
             else{

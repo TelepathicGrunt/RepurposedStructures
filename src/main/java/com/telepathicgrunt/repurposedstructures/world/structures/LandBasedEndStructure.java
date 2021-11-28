@@ -54,7 +54,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
 
         BlockPos pos = new BlockPos(xPos, chunkGenerator.getGenDepth(), zPos);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        for(Direction direction : Direction.Plane.HORIZONTAL){
+        for(Direction direction : Direction.Plane.HORIZONTAL) {
             mutable.set(pos).move(direction, 16);
             height = Math.min(height, chunkGenerator.getFirstOccupiedHeight(mutable.getX(), mutable.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
         }
@@ -84,8 +84,8 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
                     int radius = (int) Math.sqrt((box.getLength().getX() * box.getLength().getX()) + (box.getLength().getZ() * box.getLength().getZ())) / 2;
 
                     List<Integer> landHeights = new ArrayList<>();
-                    for(int xOffset = -radius; xOffset <= radius; xOffset += (radius/2)){
-                        for(int zOffset = -radius; zOffset <= radius; zOffset += (radius/2)){
+                    for(int xOffset = -radius; xOffset <= radius; xOffset += (radius/2)) {
+                        for(int zOffset = -radius; zOffset <= radius; zOffset += (radius/2)) {
                             int landHeight = context.chunkGenerator().getFirstOccupiedHeight(centerPos.getX() + xOffset, centerPos.getZ() + zOffset, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
                             landHeights.add(landHeight);
                         }

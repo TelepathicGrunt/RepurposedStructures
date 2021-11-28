@@ -26,12 +26,12 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
         BlockPos.MutableBlockPos offsetMutable = new BlockPos.MutableBlockPos();
         ChunkPos currentChunkPos = new ChunkPos(context.origin());
         ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x, currentChunkPos.z);
-        for(int x = -1; x <= 1; x++){
-            for(int z = -1; z <= 1; z++){
+        for(int x = -1; x <= 1; x++) {
+            for(int z = -1; z <= 1; z++) {
                 // only run the connection code in adjacent spots
                 if(Math.abs(x) + Math.abs(z) != 1) continue;
 
-                for(int y = -2; y <= 0; y++){
+                for(int y = -2; y <= 0; y++) {
                     currentBlockMutable.set(context.origin()).move(x, y, z);
                     if (currentChunkPos.x != currentBlockMutable.getX() >> 4 || currentChunkPos.z != currentBlockMutable.getZ() >> 4) {
                         currentChunk = context.level().getChunk(currentBlockMutable);
@@ -39,9 +39,9 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                     }
 
                     BlockState currentBlock = currentChunk.getBlockState(currentBlockMutable);
-                    if(currentBlock.getBlock() instanceof WallBlock){
+                    if(currentBlock.getBlock() instanceof WallBlock) {
                         BlockState currentState = currentBlock.getBlock().defaultBlockState();
-                        for(Direction direction : Direction.values()){
+                        for(Direction direction : Direction.values()) {
                             offsetMutable.set(currentBlockMutable).move(direction);
                             if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
                                 continue;
@@ -55,14 +55,14 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                                     offsetMutable
                             );
                         }
-                        if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)){
+                        if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
                             currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, currentBlock.getValue(BlockStateProperties.WATERLOGGED));
                         }
                         context.level().setBlock(currentBlockMutable, currentState, 3);
                     }
-                    else if(currentBlock.getBlock() instanceof FenceBlock){
+                    else if(currentBlock.getBlock() instanceof FenceBlock) {
                         BlockState currentState = currentBlock.getBlock().defaultBlockState();
-                        for(Direction direction : Direction.Plane.HORIZONTAL){
+                        for(Direction direction : Direction.Plane.HORIZONTAL) {
                             offsetMutable.set(currentBlockMutable).move(direction);
                             if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
                                 continue;
@@ -76,7 +76,7 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                                     offsetMutable
                             );
                         }
-                        if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)){
+                        if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
                             currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, currentBlock.getValue(BlockStateProperties.WATERLOGGED));
                         }
                         context.level().setBlock(currentBlockMutable, currentState, 3);

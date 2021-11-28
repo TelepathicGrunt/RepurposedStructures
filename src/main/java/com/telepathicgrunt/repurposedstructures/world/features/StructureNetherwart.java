@@ -23,14 +23,14 @@ public class StructureNetherwart extends Feature<StructureTargetConfig> {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState netherwart = Blocks.NETHER_WART.defaultBlockState();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(10) - 5,
                     -1,
                     context.random().nextInt(10) - 5
             );
 
-            if(netherwart.canSurvive(context.level(), mutable)){
+            if(netherwart.canSurvive(context.level(), mutable)) {
                 
 
                 context.level().setBlock(mutable, netherwart.setValue(NetherWartBlock.AGE, context.random().nextInt(4)), 3);

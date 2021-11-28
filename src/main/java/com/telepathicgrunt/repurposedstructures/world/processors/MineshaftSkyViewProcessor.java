@@ -25,7 +25,7 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         // Mimic Mineshaft rails visible even in sky if block below is solid
-        if(structureBlockInfoWorld.state.is(Blocks.RAIL) && worldView.getBlockState(structureBlockInfoWorld.pos.below()).canOcclude()){
+        if(structureBlockInfoWorld.state.is(Blocks.RAIL) && worldView.getBlockState(structureBlockInfoWorld.pos.below()).canOcclude()) {
             return structureBlockInfoWorld;
         }
 

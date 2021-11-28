@@ -40,20 +40,20 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++){
+        for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt((context.config().range * 2) + 1) - context.config().range,
                     context.random().nextInt(3) - 1,
                     context.random().nextInt((context.config().range * 2) + 1) - context.config().range
             );
 
-            if(context.level().getBlockState(mutable).isAir()){
+            if(context.level().getBlockState(mutable).isAir()) {
 
                 BlockState chosenFlower = FLOWERS.get(context.random().nextInt(FLOWERS.size()));
 
-                if(chosenFlower.canSurvive(context.level(), mutable)){
+                if(chosenFlower.canSurvive(context.level(), mutable)) {
 
-                    if(chosenFlower.getBlock() instanceof DoublePlantBlock && context.level().getBlockState(mutable.above()).isAir()){
+                    if(chosenFlower.getBlock() instanceof DoublePlantBlock && context.level().getBlockState(mutable.above()).isAir()) {
                         context.level().setBlock(mutable, chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
                         context.level().setBlock(mutable.move(Direction.UP), chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                     }

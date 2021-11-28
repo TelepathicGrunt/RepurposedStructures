@@ -18,18 +18,18 @@ public class BoxOctree {
     private final List<AABB> innerBoxes = new ArrayList<>();
     private final List<BoxOctree> childrenOctants = new ArrayList<>();
 
-    public BoxOctree(AABB axisAlignedBB){
+    public BoxOctree(AABB axisAlignedBB) {
         this(axisAlignedBB, 0);
     }
 
-    private BoxOctree(AABB axisAlignedBB, int parentDepth){
+    private BoxOctree(AABB axisAlignedBB, int parentDepth) {
         boundary = axisAlignedBB.move(0, 0, 0); // deep copy
         size = new Vec3i(boundary.getXsize(), boundary.getYsize(), boundary.getZsize());
         depth = parentDepth + 1;
     }
 
-    private void subdivide(){
-        if(!childrenOctants.isEmpty()){
+    private void subdivide() {
+        if(!childrenOctants.isEmpty()) {
             throw new UnsupportedOperationException("Repurposed Structures - Tried to subdivide when there are already children octants.");
         }
 
@@ -88,14 +88,14 @@ public class BoxOctree {
         innerBoxes.clear();
     }
 
-    public void addBox(AABB axisAlignedBB){
-        if(depth < maximumDepth && innerBoxes.size() > subdivideThreshold){
+    public void addBox(AABB axisAlignedBB) {
+        if(depth < maximumDepth && innerBoxes.size() > subdivideThreshold) {
             subdivide();
         }
 
-        if(!childrenOctants.isEmpty()){
-            for(BoxOctree octree : childrenOctants){
-                if(octree.boundaryContainsFuzzy(axisAlignedBB)){
+        if(!childrenOctants.isEmpty()) {
+            for(BoxOctree octree : childrenOctants) {
+                if(octree.boundaryContainsFuzzy(axisAlignedBB)) {
                     octree.addBox(axisAlignedBB);
                 }
             }
@@ -103,7 +103,7 @@ public class BoxOctree {
         else{
             // Prevent re-adding the same box if it already exists
             for(AABB parentInnerBox : innerBoxes) {
-                if(parentInnerBox.equals(axisAlignedBB)){
+                if(parentInnerBox.equals(axisAlignedBB)) {
                     return;
                 }
             }
@@ -112,26 +112,26 @@ public class BoxOctree {
         }
     }
 
-    public boolean boundaryContainsFuzzy(AABB axisAlignedBB){
+    public boolean boundaryContainsFuzzy(AABB axisAlignedBB) {
         return boundary.inflate(axisAlignedBB.getSize() / 2).intersects(axisAlignedBB);
     }
 
-    public boolean boundaryContains(AABB axisAlignedBB){
+    public boolean boundaryContains(AABB axisAlignedBB) {
         return boundary.contains(axisAlignedBB.minX, axisAlignedBB.minY, axisAlignedBB.minZ) &&
                 boundary.contains(axisAlignedBB.maxX, axisAlignedBB.maxY, axisAlignedBB.maxZ);
     }
 
-    public boolean intersectsAnyBox(AABB axisAlignedBB){
-        if(!childrenOctants.isEmpty()){
-            for(BoxOctree octree : childrenOctants){
-                if(octree.intersectsAnyBox(axisAlignedBB)){
+    public boolean intersectsAnyBox(AABB axisAlignedBB) {
+        if(!childrenOctants.isEmpty()) {
+            for(BoxOctree octree : childrenOctants) {
+                if(octree.intersectsAnyBox(axisAlignedBB)) {
                     return true;
                 }
             }
         }
         else{
             for(AABB innerBox : innerBoxes) {
-                if(innerBox.intersects(axisAlignedBB)){
+                if(innerBox.intersects(axisAlignedBB)) {
                     return true;
                 }
             }

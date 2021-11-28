@@ -22,7 +22,7 @@ public class SnapToLowerNonAirPlacement extends PlacementModifier {
 	@Override
 	public final Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos blockPos) {
 		BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);
-		while(placementContext.getBlockState(mutable).isAir() && mutable.getY() > placementContext.getMinGenY()){
+		while(placementContext.getBlockState(mutable).isAir() && mutable.getY() > placementContext.getMinGenY()) {
 			mutable.move(Direction.DOWN);
 		}
 		return Stream.of(mutable.immutable());

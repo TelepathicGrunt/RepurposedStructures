@@ -35,15 +35,15 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
         ImmutableMap.Builder<ResourceLocation, List<MobSpawnerObj>> builder = ImmutableMap.builder();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
-                List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>(){}.getType());
-                for(int i = spawnerMobEntries.size() - 1; i >= 0; i--){
+                List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>() {}.getType());
+                for(int i = spawnerMobEntries.size() - 1; i >= 0; i--) {
                     MobSpawnerObj entry = spawnerMobEntries.get(i);
                     entry.setEntityType();
-                    if(entry.weight == 0){
+                    if(entry.weight == 0) {
                         // Make 0 remove the mob automatically so it doesn't spawn.
                         spawnerMobEntries.remove(i);
                     }
-                    else if(entry.weight < 0){
+                    else if(entry.weight < 0) {
                         throw new Exception("Error: Found " + entry.name + " entry has a weight less than 0. Please remove the entry if you don't want a mob to be picked");
                     }
                 }

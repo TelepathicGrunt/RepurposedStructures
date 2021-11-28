@@ -33,17 +33,17 @@ public class BuriableStructureCodeConfig {
             return (T) this;
         }
 
-        public T setOffsetAmount(int offsetAmount){
+        public T setOffsetAmount(int offsetAmount) {
             this.offsetAmount = offsetAmount;
             return getThis();
         }
 
-        public T useOceanHeightmap(){
+        public T useOceanHeightmap() {
             this.onLand = false;
             return getThis();
         }
 
-        public T cannotSpawnInWater(){
+        public T cannotSpawnInWater() {
             this.cannotSpawnInWater = false;
             return getThis();
         }

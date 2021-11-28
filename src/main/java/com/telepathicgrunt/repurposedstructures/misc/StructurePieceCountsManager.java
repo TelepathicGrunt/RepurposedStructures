@@ -31,10 +31,10 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
 
     @MethodsReturnNonnullByDefault
     private List<StructurePieceCountsObj> getStructurePieceCountsObjs(JsonElement jsonElement) throws Exception {
-        List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>(){}.getType());
-        for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--){
+        List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>() {}.getType());
+        for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--) {
             StructurePieceCountsObj entry = piecesSpawnCounts.get(i);
-            if(entry.alwaysSpawnThisMany != null && entry.neverSpawnMoreThanThisMany != null && entry.alwaysSpawnThisMany > entry.neverSpawnMoreThanThisMany){
+            if(entry.alwaysSpawnThisMany != null && entry.neverSpawnMoreThanThisMany != null && entry.alwaysSpawnThisMany > entry.neverSpawnMoreThanThisMany) {
                 throw new Exception("Error: Found " + entry.nbtPieceName + " entry has alwaysSpawnThisMany greater than neverSpawnMoreThanThisMany which is invalid.");
             }
         }

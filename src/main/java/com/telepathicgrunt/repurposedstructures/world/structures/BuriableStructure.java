@@ -77,7 +77,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
                     highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.maxX(), box.minZ(), heightMapToUse, context.heightAccessor()));
                     highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.maxX(), box.maxZ(), heightMapToUse, context.heightAccessor()));
 
-                    if(!config.onLand){
+                    if(!config.onLand) {
                         int maxHeightForSubmerging = context.chunkGenerator().getSeaLevel() - box.getYSpan();
                         highestLandPos = Math.min(highestLandPos, maxHeightForSubmerging);
                     }

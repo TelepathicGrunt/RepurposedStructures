@@ -43,7 +43,7 @@ public class MansionPieces{
             this.foundationBlock = foundationBlock;
         }
 
-        public BlockState getFoundationBlock(){
+        public BlockState getFoundationBlock() {
             return foundationBlock;
         }
     }
@@ -1023,7 +1023,7 @@ public class MansionPieces{
             StructureTemplatePool pool = poolRegistry.get(resourceLocation);
             StructurePoolElement poolEntry;
 
-            if(pool == null || pool.size() == 0){
+            if(pool == null || pool.size() == 0) {
                 RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate mansion piece at spot.", resourceLocation + " - Mansion type: " + type);
                 poolEntry = StructurePoolElement.empty().apply(StructureTemplatePool.Projection.RIGID);
             }

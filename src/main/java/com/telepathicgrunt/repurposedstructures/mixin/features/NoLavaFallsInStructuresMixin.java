@@ -27,7 +27,7 @@ public class NoLavaFallsInStructuresMixin {
         if(context.config().state.is(FluidTags.LAVA)) {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             SectionPos chunkPos;
-            for(Direction face : Direction.Plane.HORIZONTAL){
+            for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
                 chunkPos = SectionPos.of(mutable);
                 for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {

@@ -50,10 +50,10 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureC
         int checkRadius = 16;
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8){
-            for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8){
+        for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8) {
+            for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8) {
                 NoiseColumn blockView = context.chunkGenerator().getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), context.heightAccessor());
-                for(int yOffset = 0; yOffset <= 30; yOffset += 5){
+                for(int yOffset = 0; yOffset <= 30; yOffset += 5) {
                     mutable.set(blockPos).move(xOffset, yOffset, zOffset);
                     if (!blockView.getBlock(mutable.getY()).isAir()) {
                         return false;
@@ -66,11 +66,11 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureC
         int structureCheckRadius = 3;
         for (int curChunkX = chunkPos.x - structureCheckRadius; curChunkX <= chunkPos.x + structureCheckRadius; curChunkX++) {
             for (int curChunkZ = chunkPos.z - structureCheckRadius; curChunkZ <= chunkPos.z + structureCheckRadius; curChunkZ++) {
-                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)){
+                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)) {
                     if(structureFeature == this) continue;
 
                     StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(structureFeature);
-                    if(structureConfig != null && structureConfig.spacing() > 8){
+                    if(structureConfig != null && structureConfig.spacing() > 8) {
                         ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, context.seed(), curChunkX, curChunkZ);
                         if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
                             return false;
