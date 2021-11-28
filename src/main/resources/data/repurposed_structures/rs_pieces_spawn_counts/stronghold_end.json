@@ -1,0 +1,54 @@
+{
+  "pieces_spawn_counts" : [
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/portal_room",
+      "always_spawn_this_many" : 1,
+      "minimum_distance_from_center_piece": 9
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/empty_crossing",
+      "always_spawn_this_many" : 2,
+      "minimum_distance_from_center_piece": 5
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/library_big",
+      "never_spawn_more_than_this_many": 4
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/library_small",
+      "never_spawn_more_than_this_many": 2
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/prison",
+      "never_spawn_more_than_this_many": 8
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/crossing",
+      "never_spawn_more_than_this_many": 7
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/pillar_crossing",
+      "never_spawn_more_than_this_many": 3
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/fountain_crossing",
+      "never_spawn_more_than_this_many": 3
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/storage_crossing",
+      "never_spawn_more_than_this_many": 4
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/stairs_straight",
+      "never_spawn_more_than_this_many": 7
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/stairs",
+      "never_spawn_more_than_this_many": 7
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:strongholds/end/chest_corridor",
+      "never_spawn_more_than_this_many": 17
+    }
+  ]
+}

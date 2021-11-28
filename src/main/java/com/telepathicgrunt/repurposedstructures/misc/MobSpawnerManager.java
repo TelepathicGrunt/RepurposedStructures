@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class MobSpawnerManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
-    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().create();
+    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
     private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
     private final ResourceLocation MOB_SPAWNER_MANAGER_ID = new ResourceLocation(RepurposedStructures.MODID, "mob_spawner_manager");
 
@@ -58,22 +58,22 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
 
     public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
-        if(spawnerMobEntries == null){
+        if(spawnerMobEntries == null) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
             return Util.getRandom(DungeonFeatureAccessor.repurposedstructures_getMOBS(), random);
         }
 
         // Already did a check to make sure all entries do not have a negative weight earlier.
-        int totalWeight = spawnerMobEntries.stream().mapToInt(mobEntry -> mobEntry.weight).sum();
+        float totalWeight = (float)spawnerMobEntries.stream().mapToDouble(mobEntry -> mobEntry.weight).sum();
         if(totalWeight == 0) {
             return null;
         }
 
-        int randomWeight = random.nextInt(totalWeight) + 1;
+        float randomWeight = random.nextFloat() * totalWeight;
         int index = 0;
 
-        try{
-            while(true){
+        try {
+            while(true) {
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0)
                     return Registry.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
@@ -81,7 +81,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
                 index++;
             }
         }
-        catch(Exception e){
+        catch(Exception e) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
             return EntityType.PIG;
         }

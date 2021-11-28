@@ -1,3 +1,11 @@
+### **(V.3.1.0 Changes) (1.18-rc3 Minecraft)**
+
+#### Misc:
+rs_spawner's json file now uses floats instead of ints so you can do fractional weights for mob spawner's mob type rates if you desire.
+
+rs_pieces_spawn_counts folder is now added that lets you control what pieces in RS structures should always spawn and limit how often a piece spawns.
+
+
 ### **(V.3.0.2 Changes) (1.18-rc3 Minecraft)**
 
 #### Major:

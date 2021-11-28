@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 import com.google.common.collect.Queues;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.BoxOctree;
@@ -118,7 +119,7 @@ public class PieceLimitedJigsawManager {
         return Optional.of((structurePiecesBuilder, contextx) -> {
             List<PoolElementStructurePiece> components = new ArrayList<>();
             components.add(startPiece);
-            Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces = StructurePiecesBehavior.REQUIRED_PIECES_COUNT.get(structureID);
+            Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces = RepurposedStructures.structurePieceCountsManager.getRequirePieces(structureID);
             boolean runOnce = requiredPieces == null;
             for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces); attempts++) {
                 if (attempts == 100) {
@@ -127,9 +128,11 @@ public class PieceLimitedJigsawManager {
                                             
                                     -------------------------------------------------------------------
                                     Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces are: {}
-                                      Make sure the max height and min height for this structure in the config is not too close together.
+                                      Make sure this structure's size in the config (if it has one) is not set too low.
+                                      Also make sure the max height and min height for this structure in the config (if it has one) is not too close together.
                                       If min and max height is super close together, the structure's pieces may not be able to fit in the narrow range and spawn.
-                                      Otherwise, if the min and max height ranges aren't close and this message still appears, please report the issue to Repurposed Structures's dev with latest.log file!
+                                      Otherwise, if the min and max height ranges aren't close, and structure size isn't super small like 1 or 2, and this message still appears,
+                                      please report the issue to Repurposed Structures's dev with latest.log file!
                                             
                                     """,
                             startPool.getName(), Arrays.toString(requiredPieces.keySet().toArray()));
@@ -145,7 +148,7 @@ public class PieceLimitedJigsawManager {
                     boxOctree.addBox(AABB.of(pieceBoundingBox));
                     Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
-                    Assembler assembler = new Assembler(jigsawPoolRegistry, jigsawConfig.maxDepth(), context.chunkGenerator(), context.structureManager(), components, random, requiredPieces, maxY, minY);
+                    Assembler assembler = new Assembler(structureID, jigsawPoolRegistry, jigsawConfig.maxDepth(), context, components, random, requiredPieces, maxY, minY);
                     assembler.availablePieces.addLast(startPieceEntry);
 
                     while (!assembler.availablePieces.isEmpty()) {
@@ -162,7 +165,7 @@ public class PieceLimitedJigsawManager {
         });
     }
 
-    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces){
+    private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces){
         Map<ResourceLocation, Integer> counter = new HashMap<>();
         requiredPieces.forEach((key, value) -> counter.put(key, value.getRequiredAmount()));
         for(Object piece : components){
@@ -182,6 +185,7 @@ public class PieceLimitedJigsawManager {
 
 
     public static final class Assembler {
+        private final ResourceLocation structureID;
         private final Registry<StructureTemplatePool> poolRegistry;
         private final int maxDepth;
         private final ChunkGenerator chunkGenerator;
@@ -190,15 +194,16 @@ public class PieceLimitedJigsawManager {
         private final Random rand;
         public final Deque<Entry> availablePieces = Queues.newArrayDeque();
         private final Map<ResourceLocation, Integer> pieceCounts;
-        private final Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces;
+        private final Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces;
         private final int maxY;
         private final int minY;
 
-        public Assembler(Registry<StructureTemplatePool> poolRegistry, int maxDepth, ChunkGenerator chunkGenerator, StructureManager structureManager, List<? super PoolElementStructurePiece> structurePieces, Random rand, Map<ResourceLocation, StructurePiecesBehavior.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
+        public Assembler(ResourceLocation structureID, Registry<StructureTemplatePool> poolRegistry, int maxDepth, PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, List<? super PoolElementStructurePiece> structurePieces, Random rand, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
+            this.structureID = structureID;
             this.poolRegistry = poolRegistry;
             this.maxDepth = maxDepth;
-            this.chunkGenerator = chunkGenerator;
-            this.structureManager = structureManager;
+            this.chunkGenerator = context.chunkGenerator();
+            this.structureManager = context.structureManager();
             this.structurePieces = structurePieces;
             this.rand = rand;
             this.maxY = maxY;
@@ -206,7 +211,7 @@ public class PieceLimitedJigsawManager {
 
             // Create map clone so we do not modify the original map.
             this.requiredPieces = requiredPieces == null ? new HashMap<>() : new HashMap<>(requiredPieces);
-            this.pieceCounts = new HashMap<>(StructurePiecesBehavior.PIECES_COUNT);
+            this.pieceCounts = new HashMap<>(RepurposedStructures.structurePieceCountsManager.getMaximumCountForPieces(structureID));
             // pieceCounts will keep track of how many required pieces were spawned
             this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
         }
@@ -309,9 +314,9 @@ public class PieceLimitedJigsawManager {
                 // Condition 2
                 Optional<ResourceLocation> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> {
                     int currentCount = this.pieceCounts.get(key);
-                    StructurePiecesBehavior.RequiredPieceNeeds requiredPieceNeeds = this.requiredPieces.get(key);
+                    StructurePieceCountsManager.RequiredPieceNeeds requiredPieceNeeds = this.requiredPieces.get(key);
                     int requireCount = requiredPieceNeeds == null ? 0 : requiredPieceNeeds.getRequiredAmount();
-                    int startCount = StructurePiecesBehavior.PIECES_COUNT.getOrDefault(key, requireCount);
+                    int startCount = RepurposedStructures.structurePieceCountsManager.getMaximumCountForPieces(structureID).getOrDefault(key, requireCount);
 
                     return currentCount > 0 && startCount - currentCount < requireCount;
                 }).findFirst();
@@ -321,10 +326,11 @@ public class PieceLimitedJigsawManager {
                         Pair<StructurePoolElement, Integer> candidatePiecePair = candidatePieces.get(i);
                         StructurePoolElement candidatePiece = candidatePiecePair.getFirst();
                         if (candidatePiece instanceof SinglePoolElement && ((SinglePoolElementAccessor) candidatePiece).repurposedstructures_getTemplate().left().get().equals(pieceNeededToSpawn.get())) { // Condition 1
-                            if (depth >= this.requiredPieces.get(pieceNeededToSpawn.get()).getMinDistanceFromCenter()) { // Condition 3
+                            if (depth >= Math.min(maxDepth - 1, this.requiredPieces.get(pieceNeededToSpawn.get()).getMinDistanceFromCenter())) { // Condition 3
                                 // All conditions are met. Use required piece  as chosen piece.
                                 chosenPiecePair = candidatePiecePair;
-                            } else {
+                            }
+                            else {
                                 // If not far enough from starting room, remove the required piece from the list
                                 totalCount -= candidatePiecePair.getSecond();
                                 candidatePieces.remove(candidatePiecePair);

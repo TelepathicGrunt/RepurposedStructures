@@ -10,13 +10,13 @@ public class MobSpawnerObj {
     public String name;
 
     @Expose
-    public int weight;
+    public float weight;
 
     public transient EntityType<?> entityType;
 
-    public MobSpawnerObj(String name, double weight){
+    public MobSpawnerObj(String name, float weight){
         this.name = name;
-        this.weight = (int)weight;
+        this.weight = weight;
     }
 
     public void setEntityType() throws Exception {

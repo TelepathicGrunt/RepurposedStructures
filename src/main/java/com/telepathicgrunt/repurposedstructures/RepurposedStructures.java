@@ -15,6 +15,7 @@ import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructuresConfigAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
@@ -55,10 +56,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class RepurposedStructures implements ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
+public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
+    public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
 	public static RSAllConfig RSAllConfig = null;
     public static final RSAllowDisallowOmegaConfig omegaBiomeDimConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
@@ -86,22 +88,11 @@ public class RepurposedStructures implements ModInitializer, DedicatedServerModI
         setupBiomeModifications();
         allowStructureSpawningPerDimension();
         PoolAdditionMerger.mergeAdditionPools();
-        StructurePiecesBehavior.init();
         MobMapTrades.addMapTrades();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structurePieceCountsManager);
 
         initialized = true;
-    }
-
-    // These are for when we want to add compat with other mods but uses their configs/codes that isn't read in the regular onInitialize method
-    @Override
-    public void onInitializeServer() {
-        //StructurePiecesBehavior.addDelayedRequiredPieces();
-    }
-
-    @Override
-    public void onInitializeClient() {
-        //StructurePiecesBehavior.addDelayedRequiredPieces();
     }
 
     public static void allowStructureSpawningPerDimension() {
