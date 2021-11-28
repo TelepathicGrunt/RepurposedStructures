@@ -1,8 +1,13 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -12,6 +17,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.resources.FallbackResourceManager;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -29,6 +39,12 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.material.Material;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -216,5 +232,85 @@ public final class GeneralUtils {
         for(StructurePiece structurePiece : pieces) {
             structurePiece.move(xOffset, 0, zOffset);
         }
+    }
+
+    //////////////////////////////////////////////
+
+    /**
+     * Obtains all of the file streams for all files found in all datapacks with the given id.
+     *
+     * @return - Filestream list of all files found with id
+     */
+    public static List<InputStream> getAllFileStreams(ResourceManager resourceManager, ResourceLocation fileID) throws IOException {
+        List<InputStream> fileStreams = new ArrayList<>();
+
+        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
+        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
+
+        // Find the file with the given id and add its filestream to the list
+        for (PackResources resourcePack : allResourcePacks) {
+            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
+                if (inputStream != null) fileStreams.add(inputStream);
+            }
+        }
+
+        // Return filestream of all files matching id path
+        return fileStreams;
+    }
+
+    /**
+     * Will grab all JSON objects from all datapacks's folder that is specified by the dataType parameter.
+     *
+     * @return - A map of paths (identifiers) to a list of all JSON elements found under it from all datapacks.
+     */
+    public static Map<ResourceLocation, List<JsonElement>> getAllDatapacksJSONElement(ResourceManager resourceManager, Gson gson, String dataType, int fileSuffixLength) {
+        Map<ResourceLocation, List<JsonElement>> map = new HashMap<>();
+        int dataTypeLength = dataType.length() + 1;
+
+        // Finds all JSON files paths within the pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
+        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(dataType, (fileString) -> fileString.endsWith(".json"))) {
+            String identifierPath = fileIDWithExtension.getPath();
+            ResourceLocation fileID = new ResourceLocation(
+                    fileIDWithExtension.getNamespace(),
+                    identifierPath.substring(dataTypeLength, identifierPath.length() - fileSuffixLength));
+
+            try {
+                // getAllFileStreams will find files with the given ID. This part is what will loop over all matching files from all datapacks.
+                for (InputStream fileStream : GeneralUtils.getAllFileStreams(resourceManager, fileIDWithExtension)) {
+                    try (Reader bufferedReader = new BufferedReader(new InputStreamReader(fileStream, StandardCharsets.UTF_8))) {
+
+                        // Get the JSON from the file
+                        JsonElement countsJSONElement = GsonHelper.fromJson(gson, bufferedReader, (Class<? extends JsonElement>) JsonElement.class);
+                        if (countsJSONElement != null) {
+
+                            // Create list in map for the ID if non exists yet for that ID
+                            if (!map.containsKey(fileID)) {
+                                map.put(fileID, new ArrayList<>());
+                            }
+                            // Add the parsed json to the list we will merge later on
+                            map.get(fileID).add(countsJSONElement);
+                        }
+                        else {
+                            RepurposedStructures.LOGGER.error(
+                                    "(Repurposed Structures {} MERGER) Couldn't load data file {} from {} as it's null or empty",
+                                    dataType,
+                                    fileID,
+                                    fileIDWithExtension);
+                        }
+                    }
+                }
+            }
+            catch (IllegalArgumentException | IOException | JsonParseException exception) {
+                RepurposedStructures.LOGGER.error(
+                        "(Repurposed Structures {} MERGER) Couldn't parse data file {} from {}",
+                        dataType,
+                        fileID,
+                        fileIDWithExtension,
+                        exception);
+            }
+        }
+
+        return map;
     }
 }

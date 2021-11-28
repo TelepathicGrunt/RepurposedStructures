@@ -5,6 +5,8 @@ rs_spawner's json file now uses floats instead of ints so you can do fractional 
 
 rs_pieces_spawn_counts folder is now added that lets you control what pieces in RS structures should always spawn and limit how often a piece spawns.
 
+rs_pieces_spawn_counts_additions folder is created to make it easier for me to create RS datapacks with new pieces and have them not spawn excessively.
+
 
 ### **(V.3.0.2 Changes) (1.18-rc3 Minecraft)**
 

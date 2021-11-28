@@ -3,16 +3,14 @@ package com.telepathicgrunt.repurposedstructures.misc;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.ListPoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.SafeDecodingRegistryOps;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.Registry;
@@ -20,11 +18,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.packs.PackResources;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.resources.FallbackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.level.levelgen.feature.structures.ListPoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
@@ -32,14 +26,7 @@ import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePo
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -58,86 +45,9 @@ public final class PoolAdditionMerger {
     public static void mergeAdditionPools() {
         ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer minecraftServer) -> {
             ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).repurposedstructures_getResourceManager();
-            Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = getPoolAdditionJSON(resourceManager);
+            Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = GeneralUtils.getAllDatapacksJSONElement(resourceManager, GSON, DATA_TYPE, FILE_SUFFIX_LENGTH);
             parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.registryAccess(), minecraftServer.getStructureManager());
         });
-    }
-
-    /**
-     * Will grab all JSON objects from all datapacks's pool_additions folder.
-     *
-     * @return - A map of paths (identifiers) to a list of all JSON elements found under it from all datapacks.
-     */
-    private static Map<ResourceLocation, List<JsonElement>> getPoolAdditionJSON(ResourceManager resourceManager) {
-        Map<ResourceLocation, List<JsonElement>> map = new HashMap<>();
-        int dataTypeLength = DATA_TYPE.length() + 1;
-
-        // Finds all JSON files paths within the pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
-        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(DATA_TYPE, (fileString) -> fileString.endsWith(".json"))) {
-            String identifierPath = fileIDWithExtension.getPath();
-            ResourceLocation fileID = new ResourceLocation(
-                    fileIDWithExtension.getNamespace(),
-                    identifierPath.substring(dataTypeLength, identifierPath.length() - FILE_SUFFIX_LENGTH));
-
-            try {
-                // getAllFileStreams will find files with the given ID. This part is what will loop over all matching files from all datapacks.
-                for (InputStream fileStream : getAllFileStreams(resourceManager, fileIDWithExtension)) {
-                    try (Reader bufferedReader = new BufferedReader(new InputStreamReader(fileStream, StandardCharsets.UTF_8))) {
-
-                        // Get the JSON from the file
-                        JsonElement poolJSONElement = GsonHelper.fromJson(GSON, bufferedReader, (Class<? extends JsonElement>) JsonElement.class);
-                        if (poolJSONElement != null) {
-
-                            // Create list in map for the ID if non exists yet for that ID
-                            if (!map.containsKey(fileID)) {
-                                map.put(fileID, new ArrayList<>());
-                            }
-                            // Add the pool to the list we will merge later on
-                            map.get(fileID).add(poolJSONElement);
-                        }
-                        else {
-                            RepurposedStructures.LOGGER.error(
-                                    "(Repurposed Structures POOL MERGER) Couldn't load data file {} from {} as it's null or empty",
-                                    fileID,
-                                    fileIDWithExtension);
-                        }
-                    }
-                }
-            }
-            catch (IllegalArgumentException | IOException | JsonParseException exception) {
-                RepurposedStructures.LOGGER.error(
-                        "(Repurposed Structures POOL MERGER) Couldn't parse data file {} from {}",
-                        fileID,
-                        fileIDWithExtension,
-                        exception);
-            }
-        }
-
-        return map;
-    }
-
-
-    /**
-     * Obtains all of the file streams for all files found in all datapacks with the given id.
-     *
-     * @return - Filestream list of all files found with id
-     */
-    private static List<InputStream> getAllFileStreams(ResourceManager resourceManager, ResourceLocation fileID) throws IOException {
-        List<InputStream> fileStreams = new ArrayList<>();
-
-        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
-        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
-
-        // Find the file with the given id and add its filestream to the list
-        for (PackResources resourcePack : allResourcePacks) {
-            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
-                if (inputStream != null) fileStreams.add(inputStream);
-            }
-        }
-
-        // Return filestream of all files matching id path
-        return fileStreams;
     }
 
     /**

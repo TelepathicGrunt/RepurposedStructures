@@ -2,9 +2,6 @@ package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.resources.ResourceLocation;
-
-import java.util.Optional;
 
 public class StructurePieceCountsObj {
     @Expose

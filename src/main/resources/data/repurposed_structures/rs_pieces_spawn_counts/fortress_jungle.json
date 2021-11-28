@@ -1,23 +1,23 @@
 {
   "pieces_spawn_counts" : [
     {
-      "nbt_piece_name" : "fortresses/jungle/spawner",
+      "nbt_piece_name" : "repurposed_structures:fortresses/jungle/spawner",
       "always_spawn_this_many" : 2,
       "minimum_distance_from_center_piece": 6
     },
     {
-      "nbt_piece_name" : "fortresses/jungle/balcony",
+      "nbt_piece_name" : "repurposed_structures:fortresses/jungle/balcony",
       "always_spawn_this_many" : 1,
       "minimum_distance_from_center_piece": 2,
       "never_spawn_more_than_this_many": 3
     },
     {
-      "nbt_piece_name" : "fortresses/jungle/turn_inside_chest",
+      "nbt_piece_name" : "repurposed_structures:fortresses/jungle/turn_inside_chest",
       "always_spawn_this_many" : 4,
       "minimum_distance_from_center_piece": 6
     },
     {
-      "nbt_piece_name" : "fortresses/jungle/4_way_outside",
+      "nbt_piece_name" : "repurposed_structures:fortresses/jungle/4_way_outside",
       "never_spawn_more_than_this_many": 6
     }
   ]

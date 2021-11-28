@@ -1,3 +1,4 @@
+import com.google.gson.Gson
 import net.fabricmc.loom.task.RemapJarTask
 
 buildscript {
@@ -52,6 +53,9 @@ if (project.use_third_party_mods) {
 	}
 
 	dependencies {
+		//implementation group: 'org.openjdk.jol', name: 'jol-core', version: '0.16'
+		// Example usage: System.out.println(ClassLayout.parseClass(Gson.class).toPrintable());
+
 		modRuntimeOnly "com.telepathicgrunt:LoadNbtBlock:3.0.0+1.18-pre5"
 		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
 		//modRuntimeOnly "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"

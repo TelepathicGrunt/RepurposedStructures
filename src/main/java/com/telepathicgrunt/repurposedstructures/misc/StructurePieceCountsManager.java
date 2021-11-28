@@ -1,7 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -15,13 +13,14 @@ import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
-    private Map<ResourceLocation, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = ImmutableMap.of();
+    private Map<ResourceLocation, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = new HashMap<>();
     private final ResourceLocation STRUCTURE_PIECE_COUNT_MANAGER_ID = new ResourceLocation(RepurposedStructures.MODID, "structure_piece_count_manager");
     private final Map<ResourceLocation, Map<ResourceLocation, RequiredPieceNeeds>> cachedRequirePiecesMap = new HashMap<>();
     private final Map<ResourceLocation, Map<ResourceLocation, Integer>> cachedMaxCountPiecesMap = new HashMap<>();
@@ -30,26 +29,43 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         super(GSON, "rs_pieces_spawn_counts");
     }
 
+    @MethodsReturnNonnullByDefault
+    private List<StructurePieceCountsObj> getStructurePieceCountsObjs(JsonElement jsonElement) throws Exception {
+        List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>(){}.getType());
+        for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--){
+            StructurePieceCountsObj entry = piecesSpawnCounts.get(i);
+            if(entry.alwaysSpawnThisMany != null && entry.neverSpawnMoreThanThisMany != null && entry.alwaysSpawnThisMany > entry.neverSpawnMoreThanThisMany){
+                throw new Exception("Error: Found " + entry.nbtPieceName + " entry has alwaysSpawnThisMany greater than neverSpawnMoreThanThisMany which is invalid.");
+            }
+        }
+        return piecesSpawnCounts;
+    }
+
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
-        ImmutableMap.Builder<ResourceLocation, List<StructurePieceCountsObj>> mapBuilder = ImmutableMap.builder();
+        Map<ResourceLocation, List<StructurePieceCountsObj>> mapBuilder = new HashMap<>();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
-                List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>(){}.getType());
-                for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--){
-                    StructurePieceCountsObj entry = piecesSpawnCounts.get(i);
-                    if(entry.alwaysSpawnThisMany != null && entry.neverSpawnMoreThanThisMany != null && entry.alwaysSpawnThisMany > entry.neverSpawnMoreThanThisMany){
-                        throw new Exception("Error: Found " + entry.nbtPieceName + " entry has alwaysSpawnThisMany greater than neverSpawnMoreThanThisMany which is invalid.");
-                    }
-                }
-                mapBuilder.put(fileIdentifier, ImmutableList.copyOf(piecesSpawnCounts));
+                mapBuilder.put(fileIdentifier, getStructurePieceCountsObjs(jsonElement));
             }
             catch (Exception e) {
-                RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse spawner mob list {}", fileIdentifier, e);
+                RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse rs_pieces_spawn_counts file {} - JSON looks like: {}", fileIdentifier, jsonElement, e);
             }
         });
-        this.StructureToPieceCountsObjs = mapBuilder.build();
+        this.StructureToPieceCountsObjs = mapBuilder;
         cachedRequirePiecesMap.clear();
+        StructurePieceCountsAdditionsMerger.performCountsAdditionsDetectionAndMerger(manager);
+    }
+
+    public void parseAndAddCountsJSONObj(ResourceLocation structureRL, List<JsonElement> jsonElements) {
+        jsonElements.forEach(jsonElement -> {
+            try {
+                this.StructureToPieceCountsObjs.computeIfAbsent(structureRL, rl -> new ArrayList<>()).addAll(getStructurePieceCountsObjs(jsonElement));
+            }
+            catch (Exception e) {
+                RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse rs_pieces_spawn_counts file {} - JSON looks like: {}", structureRL, jsonElement, e);
+            }
+        });
     }
 
     @Nullable
