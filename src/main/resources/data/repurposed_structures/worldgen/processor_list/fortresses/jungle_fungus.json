@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
-            "probability": 0.33,
+            "probability": 0.25,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -20,8 +20,8 @@
             "Name": "minecraft:cave_air"
           },
           "input_predicate": {
-            "block": "minecraft:brown_mushroom",
-            "probability": 0.5,
+            "block": "minecraft:red_mushroom",
+            "probability": 0.33,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

@@ -9,6 +9,9 @@ rs_pieces_spawn_counts_additions folder is created to make it easier for me to c
 
 Improved error message a tad when a required structure piece fails to generate.
 
+#### Fortresses:
+Jungle Fortress mushroom stairs room has slightly reduced amount of mushrooms.
+
 
 ### **(V.3.0.2 Changes) (1.18-rc3 Minecraft)**
 
