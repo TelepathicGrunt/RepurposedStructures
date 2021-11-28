@@ -3,6 +3,17 @@
 #### Major:
 Now works with modded biomes and the biome allow/disallow configs now works again. Enjoy!
 
+#### Mineshafts:
+Slightly buffed rates of Minecarts in all Overworld Mineshafts.
+
+Nerfed Minecart rate in Icy Mineshafts to match rate of other Overworld Mineshafts.
+
+Nerfed End Mineshaft's Minecart rates a bit to balance it a bit better.
+
+#### Strongholds:
+End Strongholds have slightly less loot Shulker Boxes and slightly less Shulker mobs to 
+ help reduce amount of Shulker boxes a bit that can be collected from this structure.
+
 
 ### **(V.3.0.1 Changes) (1.18-rc3 Minecraft)**
 

@@ -11,7 +11,7 @@
       }
     },
     {
-      "weight": 25,
+      "weight": 50,
       "element": {
         "location": "repurposed_structures:mineshafts/icy/ice_decor",
         "processors": "repurposed_structures:mineshafts/icy_misc",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "weight": 124,
+      "weight": 225,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }
