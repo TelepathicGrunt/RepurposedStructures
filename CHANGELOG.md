@@ -4,6 +4,9 @@
 Grassy Igloo and Stone Igloo basements and ladder pieces has properly randomized stone brick variant blocks and randomized infested blocks.
  Amount of infested stone brick blocks was reduced a bit.
 
+#### Mansions:
+Icy Mansion pieces now has Polished Diorite under floor carpet to make traversing the mansion easier.
+
 
 ### **(V.3.1.0 Changes) (1.18-rc3 Minecraft)**
 
