@@ -1,19 +1,4 @@
 {
   "feature": "repurposed_structures:patch_tall_grass_sparse",
-  "placement": [
-    {
-      "count": 2,
-      "type": "minecraft:count"
-    },
-    {
-      "type": "minecraft:in_square"
-    },
-    {
-      "type": "repurposed_structures:dungeon_placement"
-    },
-    {
-      "heightmap": "WORLD_SURFACE_WG",
-      "type": "minecraft:heightmap"
-    }
-  ]
+  "placement": []
 }

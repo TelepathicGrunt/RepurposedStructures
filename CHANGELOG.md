@@ -7,6 +7,10 @@ Grassy Igloo and Stone Igloo basements and ladder pieces has properly randomized
 #### Mansions:
 Icy Mansion pieces now has Polished Diorite under floor carpet to make traversing the mansion easier.
 
+#### Misc:
+Fixed logspam that may appear saying setblock out of bounds due to some PlacedFeatures having randomization inside their placements.
+ Also fixed some PlacedFeature's spawn positions and rates in RS structures.
+
 
 ### **(V.3.1.0 Changes) (1.18-rc3 Minecraft)**
 

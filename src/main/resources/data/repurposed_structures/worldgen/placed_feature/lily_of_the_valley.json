@@ -1,12 +1,4 @@
 {
   "feature": "repurposed_structures:lily_of_the_valley",
-  "placement": [
-    {
-      "type": "minecraft:in_square"
-    },
-    {
-      "heightmap": "MOTION_BLOCKING",
-      "type": "minecraft:heightmap"
-    }
-  ]
+  "placement": []
 }

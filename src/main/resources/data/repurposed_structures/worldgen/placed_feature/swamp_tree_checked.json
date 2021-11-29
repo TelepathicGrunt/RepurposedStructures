@@ -1,7 +1,6 @@
 {
   "feature": "minecraft:swamp_oak",
-  "placement": 
-  [
+  "placement": [
     {
       "predicate": {
         "state": {

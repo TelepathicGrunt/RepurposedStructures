@@ -18,7 +18,7 @@ public final class RSPlacements {
     public static PlacementModifierType<?> SNAP_TO_LOWER_NON_AIR_PLACEMENT;
 
     public static void registerPlacements() {
-        MINUS_EIGHT_PLACEMENT = register(new ResourceLocation(RepurposedStructures.MODID, "dungeon_placement"), MinusEightPlacement.CODEC);
+        MINUS_EIGHT_PLACEMENT = register(new ResourceLocation(RepurposedStructures.MODID, "minus_eight_placement"), MinusEightPlacement.CODEC);
         UNLIMITED_COUNT = register(new ResourceLocation(RepurposedStructures.MODID, "unlimited_count"), UnlimitedCountPlacement.CODEC);
         SNAP_TO_LOWER_NON_AIR_PLACEMENT = register(new ResourceLocation(RepurposedStructures.MODID, "snap_to_lower_non_air_placement"), SnapToLowerNonAirPlacement.CODEC);
     }
