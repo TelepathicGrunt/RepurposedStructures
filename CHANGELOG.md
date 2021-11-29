@@ -1,3 +1,10 @@
+### **(V.3.1.1 Changes) (1.18-rc3 Minecraft)**
+
+#### Igloos:
+Grassy Igloo and Stone Igloo basements and ladder pieces has properly randomized stone brick variant blocks and randomized infested blocks.
+ Amount of infested stone brick blocks was reduced a bit.
+
+
 ### **(V.3.1.0 Changes) (1.18-rc3 Minecraft)**
 
 #### Misc:
