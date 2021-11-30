@@ -20,10 +20,15 @@ public class StructurePieceCountsObj {
     @SerializedName("minimum_distance_from_center_piece")
     public Integer minimumDistanceFromCenterPiece;
 
-    public StructurePieceCountsObj(String nbtPieceName, Integer alwaysSpawnThisMany, Integer neverSpawnMoreThanThisMany, Integer minimumDistanceFromCenterPiece) {
+    @Expose
+    @SerializedName("condition")
+    public String condition;
+
+    public StructurePieceCountsObj(String nbtPieceName, Integer alwaysSpawnThisMany, Integer neverSpawnMoreThanThisMany, Integer minimumDistanceFromCenterPiece, String condition) {
         this.nbtPieceName = nbtPieceName;
         this.alwaysSpawnThisMany = alwaysSpawnThisMany;
         this.neverSpawnMoreThanThisMany = neverSpawnMoreThanThisMany;
         this.minimumDistanceFromCenterPiece = minimumDistanceFromCenterPiece;
+        this.condition = condition;
     }
 }

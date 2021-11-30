@@ -49,7 +49,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 
 /**
  * Special thanks to YUNGNICKYOUNG for allowing me to use his piece count limiting jigsaw manager!

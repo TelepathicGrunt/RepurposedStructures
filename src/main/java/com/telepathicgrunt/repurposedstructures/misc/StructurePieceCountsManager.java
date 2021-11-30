@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
@@ -36,6 +38,15 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
             StructurePieceCountsObj entry = piecesSpawnCounts.get(i);
             if(entry.alwaysSpawnThisMany != null && entry.neverSpawnMoreThanThisMany != null && entry.alwaysSpawnThisMany > entry.neverSpawnMoreThanThisMany) {
                 throw new Exception("Error: Found " + entry.nbtPieceName + " entry has alwaysSpawnThisMany greater than neverSpawnMoreThanThisMany which is invalid.");
+            }
+            if(entry.condition != null) {
+                Optional<Supplier<Boolean>> optionalSupplier = JSONConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.getOptional(new ResourceLocation(entry.condition));
+                optionalSupplier.ifPresentOrElse(condition -> {
+                    if(!condition.get()) {
+                        piecesSpawnCounts.remove(entry);
+                    }
+                },
+                () -> RepurposedStructures.LOGGER.error("Error: Found " + entry.nbtPieceName + " entry has a condition that does not exist."));
             }
         }
         return piecesSpawnCounts;

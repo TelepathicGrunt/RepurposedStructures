@@ -4,7 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.ListPoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
@@ -25,11 +27,15 @@ import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElemen
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import org.apache.commons.lang3.tuple.Triple;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public final class PoolAdditionMerger {
     private PoolAdditionMerger() {}
@@ -65,7 +71,7 @@ public final class PoolAdditionMerger {
 
             // Parse the given pool addition JSON objects and add their pool to the dynamic registry pool
             for (JsonElement jsonElement : entry.getValue()) {
-                StructureTemplatePool.DIRECT_CODEC.parse(customRegistryOps, jsonElement)
+                AdditionalStructureTemplatePool.DIRECT_CODEC.parse(customRegistryOps, jsonElement)
                         .resultOrPartial(messageString -> logBadData(entry.getKey(), messageString))
                         .ifPresent(validPool -> mergeIntoExistingPool(validPool, poolRegistry.get(entry.getKey()), structureManager));
             }
@@ -75,7 +81,7 @@ public final class PoolAdditionMerger {
     /**
      * Merges the incoming pool with the given target pool in an additive manner that does not affect any other pools and can be stacked safely.
      */
-    private static void mergeIntoExistingPool(StructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureManager structureManager) {
+    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureManager structureManager) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
         List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
         List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
@@ -116,5 +122,40 @@ public final class PoolAdditionMerger {
      */
     private static void logBadData(ResourceLocation poolPath, String messageString) {
         RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
+    }
+
+
+    private static class AdditionalStructureTemplatePool extends StructureTemplatePool {
+        private static final Codec<ExpandedPoolEntry> EXPANDED_POOL_ENTRY_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                StructurePoolElement.CODEC.fieldOf("element").forGetter(ExpandedPoolEntry::poolElement),
+                Codec.intRange(1, 150).fieldOf("weight").forGetter(ExpandedPoolEntry::weight),
+                ResourceLocation.CODEC.optionalFieldOf("condition").forGetter(ExpandedPoolEntry::condition)
+        ).apply(instance, ExpandedPoolEntry::new));
+
+        public static final Codec<AdditionalStructureTemplatePool> DIRECT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                ResourceLocation.CODEC.fieldOf("name").forGetter(StructureTemplatePool::getName),
+                ResourceLocation.CODEC.fieldOf("fallback").forGetter(StructureTemplatePool::getFallback),
+                EXPANDED_POOL_ENTRY_CODEC.listOf().fieldOf("elements").forGetter(structureTemplatePool -> structureTemplatePool.rawTemplatesWithConditions)
+        ).apply(instance, AdditionalStructureTemplatePool::new));
+
+        protected final List<ExpandedPoolEntry> rawTemplatesWithConditions;
+
+        public AdditionalStructureTemplatePool(ResourceLocation resourceLocation, ResourceLocation resourceLocation2, List<ExpandedPoolEntry> rawTemplatesWithConditions) {
+            super(resourceLocation, resourceLocation2, rawTemplatesWithConditions.stream().filter(triple -> {
+                if(triple.condition().isPresent()) {
+                    Optional<Supplier<Boolean>> optionalSupplier = JSONConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.getOptional(triple.condition.get());
+                    if(optionalSupplier.isPresent()) {
+                        return optionalSupplier.get().get();
+                    }
+                    else {
+                        RepurposedStructures.LOGGER.error("Error: Found " + resourceLocation + " entry has a condition that does not exist.");
+                    }
+                }
+                return true;
+            }).map(triple -> Pair.of(triple.poolElement(), triple.weight())).collect(Collectors.toList()));
+            this.rawTemplatesWithConditions = rawTemplatesWithConditions;
+        }
+
+        public record ExpandedPoolEntry(StructurePoolElement poolElement, Integer weight, Optional<ResourceLocation> condition) {}
     }
 }

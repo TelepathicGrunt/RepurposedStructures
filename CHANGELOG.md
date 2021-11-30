@@ -11,6 +11,12 @@ Icy Mansion pieces now has Polished Diorite under floor carpet to make traversin
 Fixed logspam that may appear saying setblock out of bounds due to some PlacedFeatures having randomization inside their placements.
  Also fixed some PlacedFeature's spawn positions and rates in RS structures.
 
+#### Misc:
+Added conditions to entries in rs_pieces_spawn_counts and rs_pieces_spawn_counts_additions files so mods can register a condition to
+ "repurposed_structures:json_conditions" registry and have their entries only apply if certain configs are on.
+
+Conditions entry is also added to pool_additions json files and an option too.
+
 
 ### **(V.3.1.0 Changes) (1.18-rc3 Minecraft)**
 

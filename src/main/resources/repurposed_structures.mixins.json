@@ -4,7 +4,6 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "structures.StructureFeaturesAccessor",
     "blocks.RailBlockMixin",
     "entities.CatEntityMixin",
     "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
@@ -16,6 +15,7 @@
     "features.NoLakesInStructuresMixin",
     "features.NoLavaFallsInStructuresMixin",
     "resources.BuilderAccessor",
+    "resources.BuiltinRegistriesMixin",
     "resources.LootContextAccessor",
     "resources.LootManagerAccessor",
     "resources.LootTableMixin",
@@ -25,6 +25,7 @@
     "structures.ListPoolElementAccessor",
     "structures.LocateCommandMixin",
     "structures.SinglePoolElementAccessor",
+    "structures.StructureFeaturesAccessor",
     "structures.StructureManagerAccessor",
     "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",
