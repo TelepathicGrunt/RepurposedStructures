@@ -1,6 +1,8 @@
 ### **(V.3.1.2 Changes) (1.18.0 Minecraft)**
 
 #### Misc:
+Updated mod's info to make it run only on 1.18.0 and newer.
+
 Fixed codec for pool_additions files so it allows weights up to 5000 instead of just to 150.
 
 

@@ -8,10 +8,10 @@ curseforge {
     project {
         apiKey = "$System.env.CURSEFORGEKEY"
         id = "391366"
-        releaseType = "beta"
+        releaseType = "release"
         changelogType = 'markdown'
         changelog = fileContents
-        addGameVersion("1.18-Snapshot")
+        addGameVersion("1.18")
         addGameVersion("Fabric")
 
         relations {
