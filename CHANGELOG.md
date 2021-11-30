@@ -1,3 +1,9 @@
+### **(V.3.1.3 Changes) (1.18.0 Minecraft)**
+
+#### Misc:
+Fixed fabric.mod.json being incorrect and requiring 1.18.1 or higher instead of 1.18.0 or higher. Oops.
+
+
 ### **(V.3.1.2 Changes) (1.18.0 Minecraft)**
 
 #### Mineshafts:
