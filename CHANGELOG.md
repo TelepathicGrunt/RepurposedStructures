@@ -1,5 +1,8 @@
 ### **(V.3.1.2 Changes) (1.18.0 Minecraft)**
 
+#### Mineshafts:
+Overworld RS Mineshafts are now lowered to always be below top land instead of spawning above land and not place any blocks.
+
 #### Misc:
 Updated mod's info to make it run only on 1.18.0 and newer.
 
