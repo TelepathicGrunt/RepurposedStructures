@@ -1,3 +1,9 @@
+### **(V.3.1.2 Changes) (1.18.0 Minecraft)**
+
+#### Misc:
+Fixed codec for pool_additions files so it allows weights up to 5000 instead of just to 150.
+
+
 ### **(V.3.1.1 Changes) (1.18-rc3 Minecraft)**
 
 #### Igloos:

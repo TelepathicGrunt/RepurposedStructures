@@ -128,7 +128,7 @@ public final class PoolAdditionMerger {
     private static class AdditionalStructureTemplatePool extends StructureTemplatePool {
         private static final Codec<ExpandedPoolEntry> EXPANDED_POOL_ENTRY_CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 StructurePoolElement.CODEC.fieldOf("element").forGetter(ExpandedPoolEntry::poolElement),
-                Codec.intRange(1, 150).fieldOf("weight").forGetter(ExpandedPoolEntry::weight),
+                Codec.intRange(1, 5000).fieldOf("weight").forGetter(ExpandedPoolEntry::weight),
                 ResourceLocation.CODEC.optionalFieldOf("condition").forGetter(ExpandedPoolEntry::condition)
         ).apply(instance, ExpandedPoolEntry::new));
 
