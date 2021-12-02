@@ -112,7 +112,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:fortress_jungle"
+      "rs_spawner_resourcelocation": "repurposed_structures:fortresses/jungle"
     },
     {
       "flood_level": 62,
@@ -122,7 +122,7 @@
       "processor_type": "repurposed_structures:air_processor"
     },
     {
-      "processor_type": "repurposed_structures:water_fix_processor"
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }

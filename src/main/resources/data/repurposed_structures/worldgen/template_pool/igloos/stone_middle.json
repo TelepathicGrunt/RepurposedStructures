@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:igloos/stone_ladder_short",
-        "processors": "repurposed_structures:igloos/no_water",
+        "processors": "repurposed_structures:igloos/stone",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -15,7 +15,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:igloos/stone_ladder_medium",
-        "processors": "repurposed_structures:igloos/no_water",
+        "processors": "repurposed_structures:igloos/stone",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -24,7 +24,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:igloos/stone_ladder_long",
-        "processors": "repurposed_structures:igloos/no_water",
+        "processors": "repurposed_structures:igloos/stone",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

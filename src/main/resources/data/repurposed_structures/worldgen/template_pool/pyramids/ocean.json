@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:pyramids/ocean",
+  "fallback": "repurposed_structures:pyramids/ocean_plants",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:pyramids/ocean_body",
+        "processors": "repurposed_structures:pyramids/ocean",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

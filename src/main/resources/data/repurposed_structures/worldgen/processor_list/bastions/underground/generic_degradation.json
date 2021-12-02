@@ -10,10 +10,88 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "Name": "minecraft:cobbled_deepslate"
           },
           "input_predicate": {
-            "block": "minecraft:polished_andesite",
+            "block": "minecraft:cracked_deepslate_tiles",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:magma_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:cracked_deepslate_tiles",
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_deepslate_tiles"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobbled_deepslate",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:magma_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobbled_deepslate",
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_deepslate_tiles"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:magma_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate",
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_deepslate_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:polished_deepslate",
             "probability": 0.3,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -26,7 +104,7 @@
             "Name": "minecraft:air"
           },
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
+            "block": "minecraft:deepslate_bricks",
             "probability": 1.0E-4,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -36,11 +114,11 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "Name": "minecraft:cracked_deepslate_bricks"
           },
           "input_predicate": {
             "block": "minecraft:redstone_block",
-            "probability": 0.3,
+            "probability": 0.35,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -49,10 +127,36 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone_bricks"
+            "Name": "minecraft:chiseled_deepslate"
           },
           "input_predicate": {
-            "block": "minecraft:redstone_ore",
+            "block": "minecraft:redstone_block",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:deepslate_copper_ore"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate_redstone_ore",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:deepslate_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate_redstone_ore",
             "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -65,11 +169,24 @@
             "Properties": {
               "lit": "false"
             },
-            "Name": "minecraft:redstone_ore"
+            "Name": "minecraft:deepslate_redstone_ore"
           },
           "input_predicate": {
-            "block": "minecraft:stone_bricks",
-            "probability": 0.01,
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.008,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:deepslate_copper_ore"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate_bricks",
+            "probability": 0.002,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -85,7 +202,7 @@
       "if_air_in_world": true,
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:stone",
+          "block" : "minecraft:deepslate",
           "weight": 1
         }
       ]

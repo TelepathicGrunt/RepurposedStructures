@@ -2,7 +2,7 @@
   "processors": [
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:stronghold_end_portal_room"
+      "rs_spawner_resourcelocation": "repurposed_structures:strongholds/end_portal_room"
     },
     {
       "processor_type": "repurposed_structures:fill_end_portal_frame_processor",
@@ -17,14 +17,37 @@
       "y_scale": 0.25
     },
     {
+      "input_block": "minecraft:small_amethyst_bud",
+      "output_blocks": [
+        "minecraft:medium_amethyst_bud",
+        "minecraft:large_amethyst_bud",
+        "minecraft:amethyst_cluster"
+      ],
+      "probability": 0.25,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:blue_stained_glass"
+            "Name": "minecraft:budding_amethyst"
           },
           "input_predicate": {
-            "block": "minecraft:lapis_block",
-            "probability": 0.33,
+            "block": "minecraft:amethyst_block",
+            "probability": 0.55,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cave_air"
+          },
+          "input_predicate": {
+            "block": "minecraft:small_amethyst_bud",
+            "probability": 0.8,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

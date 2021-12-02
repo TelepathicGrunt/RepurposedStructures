@@ -1,0 +1,7 @@
+{
+  "config": {
+	  "attempts": 15,
+	  "length": 4
+  },
+  "type": "repurposed_structures:structure_vine_breakage"
+}

@@ -1,0 +1,158 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
+            "block": "minecraft:spore_blossom",
+            "probability": 0.9885,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:flowering_azalea"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.01,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:orange_tulip"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.11,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:white_tulip"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.12,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:pink_tulip"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.13,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cornflower"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.14,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:lily_of_the_valley"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.15,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:allium"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.16,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:poppy"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.17,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dandelion"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_tulip",
+            "probability": 0.18,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:data_block_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:air_processor"
+    }
+  ]
+}

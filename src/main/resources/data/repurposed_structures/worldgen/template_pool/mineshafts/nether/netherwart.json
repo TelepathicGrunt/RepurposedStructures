@@ -1,11 +1,11 @@
 {
   "name": "repurposed_structures:mineshafts/nether/netherwart",
-  "fallback": "repurposed_structures:mineshafts/nether/netherwart",
+  "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:nether_mineshaft_netherwart",
+        "feature": "repurposed_structures:decor/nether_mineshaft_netherwart",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

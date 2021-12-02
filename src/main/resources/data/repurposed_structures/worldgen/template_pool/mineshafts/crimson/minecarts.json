@@ -5,10 +5,9 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:mineshafts/crimson/minecart",
-        "processors": "minecraft:empty",
+        "feature": "repurposed_structures:minecarts/crimson_mineshaft_minecart",
         "projection": "rigid",
-        "element_type": "minecraft:single_pool_element"
+        "element_type": "minecraft:feature_pool_element"
       }
     },
     {

@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:villages/oak/trees",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "minecraft:fancy_oak_bees_002",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "feature": "minecraft:patch_taiga_grass",
+  "placement": [
+    {
+      "count": 7,
+      "type": "minecraft:count"
+    }
+  ]
+}

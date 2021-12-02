@@ -1,11 +1,11 @@
 {
   "name": "repurposed_structures:mineshafts/end/chorus_dense",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:mineshafts/end/chorus_dense",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:end_mineshaft_dense_chorus",
+        "feature": "repurposed_structures:decor/end_mineshaft_dense_chorus",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

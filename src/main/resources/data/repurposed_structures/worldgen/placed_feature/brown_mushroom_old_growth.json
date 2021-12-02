@@ -1,0 +1,9 @@
+{
+  "feature": "minecraft:patch_brown_mushroom",
+  "placement": [
+    {
+      "count": 3,
+      "type": "minecraft:count"
+    }
+  ]
+}

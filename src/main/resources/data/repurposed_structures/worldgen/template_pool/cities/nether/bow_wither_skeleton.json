@@ -1,11 +1,11 @@
 {
-  "name": "repurposed_structures:bow_wither_skeleton",
+  "name": "repurposed_structures:cities/nether/bow_wither_skeleton",
   "fallback": "repurposed_structures:cities/nether/bow_wither_skeleton",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:wither_skeleton_with_bow",
+        "feature": "repurposed_structures:mobs/wither_skeleton_with_bow",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

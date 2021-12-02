@@ -1,0 +1,30 @@
+{
+  "pieces_spawn_counts" : [
+    {
+      "nbt_piece_name" : "repurposed_structures:mineshafts/stone/spawner_4_end",
+      "always_spawn_this_many" : 1,
+      "minimum_distance_from_center_piece": 5,
+      "never_spawn_more_than_this_many": 1
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:mineshafts/stone/spawner_1",
+      "never_spawn_more_than_this_many": 1
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:mineshafts/stone/spawner_2",
+      "never_spawn_more_than_this_many": 1
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:mineshafts/stone/spawner_3_end",
+      "never_spawn_more_than_this_many": 1
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:mineshafts/stone/spawner_3_middle",
+      "never_spawn_more_than_this_many": 1
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:mineshafts/stone/spawner_4_middle",
+      "never_spawn_more_than_this_many": 1
+    }
+  ]
+}

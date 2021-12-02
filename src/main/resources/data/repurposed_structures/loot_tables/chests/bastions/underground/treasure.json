@@ -3,20 +3,64 @@
   "pools": [
     {
       "rolls": 8,
-      "bonus_rolls": 1.0,
       "entries": [
         {
-          "name": "minecraft:redstone_block",
+          "name": "minecraft:copper_ingot",
           "type": "minecraft:item",
-          "weight": 37,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 3.0,
-                "max": 7.0
-              }
+                "min": 5.0,
+                "max": 15.0
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "name": "minecraft:deepslate_copper_ore",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 10.0,
+                "max": 20.0
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "name": "minecraft:raw_copper_block",
+          "type": "minecraft:item",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 4.0,
+                "max": 9.0
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "name": "minecraft:weathered_copper",
+          "type": "minecraft:item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 4.0,
+              "add": false
             }
           ]
         },
@@ -31,7 +75,8 @@
                 "type": "minecraft:uniform",
                 "min": 0.8,
                 "max": 1.0
-              }
+              },
+              "add": false
             },
             {
               "function": "minecraft:enchant_randomly"
@@ -49,7 +94,8 @@
                 "type": "minecraft:uniform",
                 "min": 0.8,
                 "max": 1.0
-              }
+              },
+              "add": false
             },
             {
               "function": "minecraft:enchant_randomly"
@@ -67,7 +113,8 @@
                 "type": "minecraft:uniform",
                 "min": 0.8,
                 "max": 1.0
-              }
+              },
+              "add": false
             },
             {
               "function": "minecraft:enchant_randomly"
@@ -85,7 +132,8 @@
                 "type": "minecraft:uniform",
                 "min": 0.8,
                 "max": 1.0
-              }
+              },
+              "add": false
             },
             {
               "function": "minecraft:enchant_randomly"
@@ -103,7 +151,8 @@
                 "type": "minecraft:uniform",
                 "min": 0.8,
                 "max": 1.0
-              }
+              },
+              "add": false
             },
             {
               "function": "minecraft:enchant_randomly"
@@ -146,7 +195,8 @@
                 "type": "minecraft:uniform",
                 "min": 2.0,
                 "max": 6.0
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -157,7 +207,8 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0
+              "count": 1.0,
+              "add": false
             }
           ]
         }
@@ -212,7 +263,6 @@
         {
           "name": "minecraft:redstone_block",
           "type": "minecraft:item",
-          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -220,14 +270,14 @@
                 "type": "minecraft:uniform",
                 "min": 2.0,
                 "max": 5.0
-              }
+              },
+              "add": false
             }
           ]
         },
         {
           "name": "minecraft:iron_block",
           "type": "minecraft:item",
-          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -235,14 +285,14 @@
                 "type": "minecraft:uniform",
                 "min": 1.0,
                 "max": 5.0
-              }
+              },
+              "add": false
             }
           ]
         },
         {
           "name": "minecraft:redstone",
           "type": "minecraft:item",
-          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -250,14 +300,14 @@
                 "type": "minecraft:uniform",
                 "min": 17.0,
                 "max": 33.0
-              }
+              },
+              "add": false
             }
           ]
         },
         {
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
-          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -265,14 +315,14 @@
                 "type": "minecraft:uniform",
                 "min": 2.0,
                 "max": 5.0
-              }
+              },
+              "add": false
             }
           ]
         },
         {
           "name": "minecraft:obsidian",
           "type": "minecraft:item",
-          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -280,22 +330,53 @@
                 "type": "minecraft:uniform",
                 "min": 3.0,
                 "max": 5.0
-              }
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "name": "minecraft:amethyst_shard",
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 10.0,
+                "max": 20.0
+              },
+              "add": false
+            }
+          ]
+        },
+        {
+          "name": "minecraft:deepslate_redstone_ore",
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 5.0,
+                "max": 11.0
+              },
+              "add": false
             }
           ]
         },
         {
           "name": "minecraft:bone_block",
           "type": "minecraft:item",
-          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 7.0,
-                "max": 18.0
-              }
+                "min": 4.0,
+                "max": 8.0
+              },
+              "add": false
             }
           ]
         }

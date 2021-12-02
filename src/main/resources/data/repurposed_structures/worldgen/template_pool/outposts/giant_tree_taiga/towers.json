@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/giant_tree_taiga/watchtower",
-        "processors": "repurposed_structures:outpost/weakly_mossify",
+        "processors": "repurposed_structures:outposts/weakly_mossify",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -15,7 +15,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/giant_tree_taiga/watchtower_aged",
-        "processors": "repurposed_structures:outpost/strongly_mossify",
+        "processors": "repurposed_structures:outposts/strongly_mossify",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

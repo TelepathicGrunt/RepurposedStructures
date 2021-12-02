@@ -5,8 +5,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:ruins/nether_1",
-        "processors": "repurposed_structures:ruin/nether_randomize",
+        "location": "repurposed_structures:ruins/nether/large_1",
+        "processors": "repurposed_structures:ruins/nether_randomize",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -14,8 +14,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:ruins/nether_2",
-        "processors": "repurposed_structures:ruin/nether_randomize",
+        "location": "repurposed_structures:ruins/nether/large_2",
+        "processors": "repurposed_structures:ruins/nether_randomize",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -23,8 +23,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:ruins/nether_3",
-        "processors": "repurposed_structures:ruin/nether_randomize",
+        "location": "repurposed_structures:ruins/nether/large_3",
+        "processors": "repurposed_structures:ruins/nether_randomize",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -32,8 +32,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:ruins/nether_4",
-        "processors": "repurposed_structures:ruin/nether_randomize",
+        "location": "repurposed_structures:ruins/nether/large_4",
+        "processors": "repurposed_structures:ruins/nether_randomize",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -41,8 +41,8 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:ruins/nether_5",
-        "processors": "repurposed_structures:ruin/nether_randomize",
+        "location": "repurposed_structures:ruins/nether/large_5",
+        "processors": "repurposed_structures:ruins/nether_randomize",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

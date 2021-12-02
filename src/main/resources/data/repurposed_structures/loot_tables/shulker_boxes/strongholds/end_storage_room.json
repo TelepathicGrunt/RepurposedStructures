@@ -7,10 +7,9 @@
         "max": 6.0,
         "type": "minecraft:uniform"
       },
-      "bonus_rolls": 1.0,
       "entries": [
         {
-          "name": "minecraft:lapis_lazuli",
+          "name": "minecraft:amethyst_shard",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
@@ -170,7 +169,7 @@
           ]
         },
         {
-          "name": "minecraft:shulker_shell",
+          "name": "minecraft:bundle",
           "type": "minecraft:item",
           "weight": 2
         },

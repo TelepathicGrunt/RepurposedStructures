@@ -10,7 +10,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "Name": "minecraft:cracked_deepslate_bricks"
           },
           "input_predicate": {
             "block": "minecraft:redstone_block",
@@ -42,11 +42,37 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone_bricks"
+            "Name": "minecraft:deepslate_bricks"
           },
           "input_predicate": {
-            "block": "minecraft:redstone_ore",
+            "block": "minecraft:deepslate_redstone_ore",
             "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:chiseled_deepslate"
+          },
+          "input_predicate": {
+            "block": "minecraft:redstone_block",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:deepslate_copper_ore"
+          },
+          "input_predicate": {
+            "block": "minecraft:deepslate_redstone_ore",
+            "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -62,7 +88,7 @@
       "if_air_in_world": true,
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:stone",
+          "block" : "minecraft:deepslate",
           "weight": 1
         }
       ]

@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:mineshafts/end/minecarts",
-  "fallback": "repurposed_structures:mineshafts/end/minecarts",
+  "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
@@ -12,7 +12,7 @@
       }
     },
     {
-      "weight": 149,
+      "weight": 199,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }

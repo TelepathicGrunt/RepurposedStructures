@@ -66,6 +66,12 @@
                 "feature": "repurposed_structures:village_mushroom"
             }
         },
+        "in_village_warped": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "feature": "repurposed_structures:village_warped"
+            }
+        },
         "in_village_oak": {
             "trigger": "minecraft:location",
             "conditions": {
@@ -76,12 +82,6 @@
             "trigger": "minecraft:location",
             "conditions": {
                 "feature": "repurposed_structures:village_swamp"
-            }
-        },
-        "in_village_warped": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_warped"
             }
         }
     },

@@ -1,0 +1,14 @@
+{
+  "feature": "minecraft:warped_fungus",
+  "placement": [
+    {
+      "predicate": {
+        "state": {
+          "Name": "minecraft:warped_fungus"
+        },
+        "type": "minecraft:would_survive"
+      },
+      "type": "minecraft:block_predicate_filter"
+    }
+  ]
+}

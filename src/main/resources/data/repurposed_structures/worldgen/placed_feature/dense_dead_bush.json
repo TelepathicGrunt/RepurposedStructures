@@ -1,0 +1,9 @@
+{
+  "feature": "minecraft:patch_dead_bush",
+  "placement": [
+    {
+      "count": 8,
+      "type": "minecraft:count"
+    }
+  ]
+}

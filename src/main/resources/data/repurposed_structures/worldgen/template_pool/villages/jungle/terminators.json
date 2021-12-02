@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:villages/jungle/terminators",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/jungle/terminators/terminator_05",
+        "processors": "repurposed_structures:villages/jungle/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

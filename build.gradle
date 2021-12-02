@@ -7,7 +7,7 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
         classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
         classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
@@ -16,17 +16,16 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
-apply plugin: 'maven'
 apply plugin: 'org.spongepowered.mixin'
 
 version = "${mod_version}+${mc_version}"
 group = "com.telepathicgrunt"
 archivesBaseName = "${modid}_forge"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: "official", version: "1.16.5"
+    mappings channel: "official", version: "1.18"
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
    
     runs {
@@ -60,7 +59,6 @@ minecraft {
 repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
     maven { url "https://www.cursemaven.com" }
-    // flatDir { dirs 'deps' }
     //maven { url = "https://maven.blamejared.com/" }
 }
 
@@ -71,9 +69,6 @@ dependencies {
     }
 
     //compileOnly
-    runtimeOnly fg.deobf("com.telepathicgrunt:Blame:1.16.5-3.2.0-forge")
-    // runtimeOnly fg.deobf("patrigan:loadnbtblock:1.0")
-    compileOnly fg.deobf("curse.maven:waystones-245755:3515707")
     //runtimeOnly fg.deobf("curse.maven:simply_cats-332910:3498688")
     //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3533703")
     //runtimeOnly fg.deobf("curse.maven:bountiful-309516:3239647")

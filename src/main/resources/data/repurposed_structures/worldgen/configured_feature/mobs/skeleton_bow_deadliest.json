@@ -1,0 +1,10 @@
+{
+  "config": {
+	  "helmet": "minecraft:chainmail_helmet",
+	  "chestplate": "minecraft:chainmail_chestplate",
+	  "leggings": "minecraft:chainmail_leggings",
+	  "speed_modifier": 0.21,
+	  "health": 24
+  },
+  "type": "repurposed_structures:skeleton"
+}

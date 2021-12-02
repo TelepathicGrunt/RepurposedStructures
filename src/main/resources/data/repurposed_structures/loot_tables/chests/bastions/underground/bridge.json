@@ -3,7 +3,6 @@
   "pools": [
     {
       "rolls": 1,
-      "bonus_rolls": 1.0,
       "entries": [
         {
           "type": "minecraft:empty",
@@ -94,7 +93,7 @@
           ]
         },
         {
-          "name": "minecraft:redstone_ore",
+          "name": "minecraft:deepslate_redstone_ore",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -126,7 +125,13 @@
         {
           "name": "minecraft:redstone_block",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
         },
         {
           "name": "minecraft:redstone",
@@ -315,7 +320,7 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 7.0,
+                "min": 5.0,
                 "max": 19.0,
                 "type": "minecraft:uniform"
               }

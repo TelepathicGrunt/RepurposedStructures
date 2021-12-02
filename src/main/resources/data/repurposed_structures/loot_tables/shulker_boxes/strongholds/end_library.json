@@ -7,7 +7,6 @@
         "max": 10.0,
         "type": "minecraft:uniform"
       },
-      "bonus_rolls": 1.0,
       "entries": [
         {
           "name": "minecraft:book",
@@ -32,7 +31,7 @@
           "weight": 8
         },
         {
-          "name": "minecraft:lapis_block",
+          "name": "minecraft:spyglass",
           "type": "minecraft:item",
           "weight": 8
         },
@@ -76,7 +75,7 @@
           ]
         },
         {
-          "name": "minecraft:lapis_lazuli",
+          "name": "minecraft:amethyst_shard",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
