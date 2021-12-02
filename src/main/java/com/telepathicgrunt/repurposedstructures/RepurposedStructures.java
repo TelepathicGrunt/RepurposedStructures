@@ -1,6 +1,9 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Bastions;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Cities;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
@@ -15,6 +18,7 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Ruins;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Shipwrecks;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Strongholds;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Temples;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.TemporaryBiomeInjection;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
@@ -22,11 +26,14 @@ import com.telepathicgrunt.repurposedstructures.configs.*;
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
+import com.telepathicgrunt.repurposedstructures.misc.JSONConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureSettingsAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.world.ChunkGeneratorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
@@ -41,11 +48,15 @@ import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.FlatLevelSource;
+import net.minecraft.world.level.levelgen.StructureSettings;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraftforge.common.MinecraftForge;
@@ -78,8 +89,11 @@ public class RepurposedStructures {
     public static final RSBiomeDimConfig omegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
     public static final RSNaturalMobSpawningConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningConfig.class);
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
+    public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
+        // Classload and create custom registry. Other mods should add to this custom registry in FMLCommonSetupEvent.
+        JSONConditionsRegistry.registerTestJSONCondition();
 
         // Setup configs
         FileUtils.getOrCreateDirectory(FMLPaths.CONFIGDIR.get().resolve("repurposed_structures-forge"), "repurposed_structures-forge");
@@ -146,7 +160,7 @@ public class RepurposedStructures {
                 if (structureMap instanceof ImmutableMap) {
                     Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(structureMap);
                     tempMap.putAll(RSStructures.RS_STRUCTURES);
-                    settings.getValue().structureSettings().structureConfig = tempMap;
+                    ((StructureSettingsAccessor)settings.getValue().structureSettings()).setStructureConfig(tempMap);
                 }
                 else {
                     structureMap.putAll(RSStructures.RS_STRUCTURES);
@@ -183,13 +197,43 @@ public class RepurposedStructures {
         //add our structure spacing to all chunkgenerators including modded one and datapack ones.
         if (event.getWorld() instanceof ServerLevel serverLevel) {
 
+            // We will need this a lot lol
+            StructureSettings worldStructureSettings = serverLevel.getChunkSource().getGenerator().getSettings();
+
+            //////////// BIOME BASED STRUCTURE SPAWNING ////////////
+            /*
+             * NOTE: Forge does not have a hook for injecting structures into biomes yet.
+             * Instead, we will use the below to add our structure to overworld biomes.
+             * Remember, this is temporary until Forge finds a better solution for adding structures to biomes.
+             */
+
+            // Grab the map that holds what ConfigureStructures a structure has and what biomes it can spawn in.
+            // We will inject our structures into that map/multimap
+            Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
+            ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
+            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
+
+            // Turn the entire map and the inner multimaps to immutable to match the source code's require type
+            ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> immutableOuterMap = ImmutableMap.builder();
+            tempStructureToMultiMap.forEach((key, value) -> {
+                ImmutableMultimap.Builder<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> immutableInnerMultiMap = ImmutableMultimap.builder();
+                immutableInnerMultiMap.putAll(value);
+                immutableOuterMap.put(key, immutableInnerMultiMap.build());
+            });
+
+            // Set it in the field.
+            ((StructureSettingsAccessor) worldStructureSettings).setConfiguredStructures(immutableOuterMap.build());
+
+
+            //////////// DIMENSION BASED STRUCTURE SPAWNING ////////////
+
             // Workaround for Terraforged
             ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverLevel.getChunkSource().getGenerator()).repurposedstructures_getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(serverLevel.getChunkSource().getGenerator().getSettings().structureConfig());
+            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(worldStructureSettings.structureConfig());
 
             // make absolutely sure superflat dimension cannot spawn RS structures
             if (serverLevel.getChunkSource().getGenerator() instanceof FlatLevelSource && serverLevel.dimension().equals(Level.OVERWORLD)) {
@@ -209,30 +253,16 @@ public class RepurposedStructures {
                     }
                 }
             }
-            serverLevel.getChunkSource().getGenerator().getSettings().structureConfig = tempMap;
+            ((StructureSettingsAccessor)worldStructureSettings).setStructureConfig(tempMap);
         }
     }
 
     /*
-     * Here, we will use this to add our structures/features to all biomes.
+     * Here, we will use this to add our features to all biomes.
+     * Structures are not stored in biomes anymore so we cannot use BiomeLoadingEvent for them.
      */
     public static void addFeaturesAndStructuresToBiomes(BiomeLoadingEvent event) {
-        Mineshafts.addMineshafts(event);
         Dungeons.addDungeons(event);
         Wells.addWells(event);
-        Strongholds.addStrongholds(event);
-        Outposts.addOutposts(event);
-        Shipwrecks.addShipwrecks(event);
-        Fortresses.addJungleFortress(event);
-        Temples.addTemples(event);
-        Pyramids.addPyramids(event);
-        Igloos.addIgloos(event);
-        Villages.addVillages(event);
-        RuinedPortals.addRuinedPortals(event);
-        Ruins.addRuins(event);
-        Cities.addCities(event);
-        Mansions.addMansions(event);
-        WitchHuts.addWitchHuts(event);
-        Bastions.addBastions(event);
     }
 }

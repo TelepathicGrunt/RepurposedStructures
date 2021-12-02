@@ -19,6 +19,8 @@ import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSWitchHutsConfig;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureFeatureAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureSettingsAccessor;
 import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedDistanceJigsawStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedJigsawStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.BuriableStructure;
@@ -307,7 +309,7 @@ public final class RSStructures {
     }
 
     public static <F extends StructureFeature<NoneFeatureConfiguration>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStep.Decoration stage, StructureFeatureConfiguration StructureFeatureConfiguration) {
-        StructureFeature.NOISE_AFFECTING_FEATURES = ImmutableList.<StructureFeature<?>>builder().addAll(StructureFeature.NOISE_AFFECTING_FEATURES).add(structure).build();
+        StructureFeatureAccessor.setNOISE_AFFECTING_FEATURES(ImmutableList.<StructureFeature<?>>builder().addAll(StructureFeature.NOISE_AFFECTING_FEATURES).add(structure).build());
         addToStructureMaps(resourceLocation, structure, stage, StructureFeatureConfiguration);
     }
 
@@ -316,9 +318,9 @@ public final class RSStructures {
 
         // This is only for myself. Others should override step() in
         // their structure's class to return their generation stage instead.
-        StructureFeature.STEP.put(structure, stage);
+        StructureFeatureAccessor.getSTEP().put(structure, stage);
 
-        StructureSettings.DEFAULTS = ImmutableMap.<StructureFeature<?>, StructureFeatureConfiguration>builder().putAll(StructureSettings.DEFAULTS).put(structure, StructureFeatureConfiguration).build();
+        StructureSettingsAccessor.setDEFAULTS(ImmutableMap.<StructureFeature<?>, StructureFeatureConfiguration>builder().putAll(StructureSettings.DEFAULTS).put(structure, StructureFeatureConfiguration).build());
         RS_STRUCTURES.put(structure, StructureFeatureConfiguration);
     }
 
@@ -326,9 +328,9 @@ public final class RSStructures {
         StructureFeature.STRUCTURES_REGISTRY.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
 
         // This is only for myself. Others should override step() in their structure's class to return their generation stage instead.
-        StructureFeature.STEP.put(structure, stage);
+        StructureFeatureAccessor.getSTEP().put(structure, stage);
 
-        StructureSettings.DEFAULTS = ImmutableMap.<StructureFeature<?>, StructureFeatureConfiguration>builder().putAll(StructureSettings.DEFAULTS).put(structure, StructureFeatureConfiguration).build();
+        StructureSettingsAccessor.setDEFAULTS(ImmutableMap.<StructureFeature<?>, StructureFeatureConfiguration>builder().putAll(StructureSettings.DEFAULTS).put(structure, StructureFeatureConfiguration).build());
         RS_STRUCTURES.put(structure, StructureFeatureConfiguration);
     }
 }

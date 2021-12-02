@@ -6,6 +6,7 @@
   "mixins": [
     "entities.CatEntityMixin",
     "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
+    "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessjungleBushInStructuresMixin",
     "features.NoBasaltColumnsInStructuresMixin",
@@ -19,10 +20,13 @@
     "structures.ListPoolElementAccessor",
     "structures.LocateCommandMixin",
     "structures.SinglePoolElementAccessor",
+    "structures.StructureFeatureAccessor",
+    "structures.StructureFeaturesAccessor",
+    "structures.StructureManagerAccessor",
     "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",
-    "structures.TemplateAccessor",
-    "structures.TemplateManagerAccessor",
+    "structures.StructureSettingsAccessor",
+    "structures.StructureTemplateAccessor",
     "world.ChunkGeneratorAccessor"
   ],
   "client": [

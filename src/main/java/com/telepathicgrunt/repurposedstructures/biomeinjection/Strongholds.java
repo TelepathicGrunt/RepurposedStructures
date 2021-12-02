@@ -4,28 +4,27 @@ import com.telepathicgrunt.repurposedstructures.configs.RSStrongholdsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biomes;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 
 public final class Strongholds {
     private Strongholds() {}
 
-    public static void addStrongholds(BiomeLoadingEvent event) {
+    public static void addStrongholds(TemporaryBiomeInjection.BiomeInjectionHelper event) {
 
         if (RSStrongholdsConfig.strongholdNetherAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.STRONGHOLD_NETHER.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.STRONGHOLD_NETHER.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STRONGHOLD_NETHER);
+            event.addStructure(RSConfiguredStructures.STRONGHOLD_NETHER);
         }
 
         if (RSStrongholdsConfig.strongholdEndAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.STRONGHOLD_END.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.THEEND) &&
-                    !BiomeSelection.isBiome(event, Biomes.SMALL_END_ISLANDS)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.STRONGHOLD_END.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) &&
+                    !BiomeSelection.isBiomeTemp(event, Biomes.SMALL_END_ISLANDS)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STRONGHOLD_END);
+            event.addStructure(RSConfiguredStructures.STRONGHOLD_END);
         }
     }
 }

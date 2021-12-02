@@ -1,125 +1,124 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSOutpostsConfig;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureFeaturesAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 
 public final class Outposts {
     private Outposts() {}
 
-    public static void addOutposts(BiomeLoadingEvent event) {
+    public static void addOutposts(TemporaryBiomeInjection.BiomeInjectionHelper event) {
 
         if (RSOutpostsConfig.outpostCrimsonAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_CRIMSON.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    BiomeSelection.hasName(event, "crimson", "red_")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_CRIMSON.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasNameTemp(event, "crimson", "red_")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_CRIMSON);
+            event.addStructure(RSConfiguredStructures.OUTPOST_CRIMSON);
         }
 
         if (RSOutpostsConfig.outpostWarpedAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_WARPED.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    BiomeSelection.hasName(event, "warped", "blue")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_WARPED.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasNameTemp(event, "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_WARPED);
+            event.addStructure(RSConfiguredStructures.OUTPOST_WARPED);
         }
 
         if (RSOutpostsConfig.outpostNetherBrickAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_NETHER_BRICK.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    !BiomeSelection.hasName(event, "crimson", "red_", "warped", "blue")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_NETHER_BRICK.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    !BiomeSelection.hasNameTemp(event, "crimson", "red_", "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_NETHER_BRICK);
+            event.addStructure(RSConfiguredStructures.OUTPOST_NETHER_BRICK);
         }
 
         if (RSOutpostsConfig.outpostEndAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_END.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.THEEND)
-                    && !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_END.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND)
+                    && !BiomeSelection.isBiomeTemp(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_END);
+            event.addStructure(RSConfiguredStructures.OUTPOST_END);
         }
 
         if (RSOutpostsConfig.outpostBirchAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_BIRCH.get(),
-                    () -> BiomeSelection.hasName(event, "birch")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_BIRCH.get(),
+                    () -> BiomeSelection.hasNameTemp(event, "birch")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BIRCH);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_BIRCH);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostJungleAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_JUNGLE.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_JUNGLE.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.JUNGLE)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_JUNGLE);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_JUNGLE);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostGiantTreeTaigaAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_GIANT_TREE_TAIGA.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.TAIGA) &&
-                    BiomeSelection.hasName(event, "giant", "redwood")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_GIANT_TREE_TAIGA.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
+                    BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_GIANT_TREE_TAIGA);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostDesertAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_DESERT.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.DESERT)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_DESERT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_DESERT);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_DESERT);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostBadlandsAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_BADLANDS.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.MESA)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_BADLANDS.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MESA)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_BADLANDS);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_BADLANDS);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostSnowyAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_SNOWY.get(),
-                    () -> (BiomeSelection.hasName(event, "snow") ||
-                    (BiomeSelection.haveCategories(event, Category.ICY) && !BiomeSelection.hasName(event, "ice", "icy", "glacier", "frozen")))))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_SNOWY.get(),
+                    () -> (BiomeSelection.hasNameTemp(event, "snow") || BiomeSelection.isBiomeTemp(event, Biomes.GROVE) ||
+                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MOUNTAIN) && !BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "frozen")))))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_SNOWY);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_SNOWY);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostIcyAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_ICY.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.ICY) && BiomeSelection.hasName(event, "ice", "icy", "glacier", "frozen")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_ICY.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MOUNTAIN) && BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "frozen")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_ICY);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_ICY);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostTaigaAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_TAIGA.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.TAIGA) &&
-                    !BiomeSelection.hasName(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_TAIGA.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && !BiomeSelection.isBiomeTemp(event, Biomes.GROVE) &&
+                    !BiomeSelection.hasNameTemp(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_TAIGA);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_TAIGA);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
 
         if (RSOutpostsConfig.outpostOakAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.OUTPOST_OAK.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.FOREST) &&
-                    !(BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted"))))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_OAK.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
+                    !(BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted"))))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.OUTPOST_OAK);
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature.equals(Structure.PILLAGER_OUTPOST));
+            event.addStructure(RSConfiguredStructures.OUTPOST_OAK);
+            event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
         }
     }
 }

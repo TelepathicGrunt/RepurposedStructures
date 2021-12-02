@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -20,10 +19,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
+public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
     private Map<ResourceLocation, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = new HashMap<>();
-    private final ResourceLocation STRUCTURE_PIECE_COUNT_MANAGER_ID = new ResourceLocation(RepurposedStructures.MODID, "structure_piece_count_manager");
     private final Map<ResourceLocation, Map<ResourceLocation, RequiredPieceNeeds>> cachedRequirePiecesMap = new HashMap<>();
     private final Map<ResourceLocation, Map<ResourceLocation, Integer>> cachedMaxCountPiecesMap = new HashMap<>();
 
@@ -133,10 +131,5 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         public int getMinDistanceFromCenter() {
             return minDistanceFromCenter;
         }
-    }
-
-    @Override
-    public ResourceLocation getFabricId() {
-        return STRUCTURE_PIECE_COUNT_MANAGER_ID;
     }
 }

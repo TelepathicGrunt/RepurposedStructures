@@ -4,20 +4,19 @@ import com.telepathicgrunt.repurposedstructures.configs.RSRuinedPortalsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biomes;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 
 public final class RuinedPortals {
     private RuinedPortals() {}
 
-    public static void addRuinedPortals(BiomeLoadingEvent event) {
+    public static void addRuinedPortals(TemporaryBiomeInjection.BiomeInjectionHelper event) {
 
         if (RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINED_PORTAL_END.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.THEEND) && !BiomeSelection.isBiome(event, Biomes.THE_END)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINED_PORTAL_END.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) && !BiomeSelection.isBiomeTemp(event, Biomes.THE_END)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINED_PORTAL_END);
+            event.addStructure(RSConfiguredStructures.RUINED_PORTAL_END);
         }
     }
 }

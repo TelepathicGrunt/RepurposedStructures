@@ -65,7 +65,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     if (System.getProperty("idea.sync.active") != "true") {
-        annotationProcessor 'org.spongepowered:mixin:0.8.2:processor'
+        annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     }
 
     //compileOnly

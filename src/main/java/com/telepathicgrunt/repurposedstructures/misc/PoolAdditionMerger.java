@@ -11,7 +11,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.ListPoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.TemplateManagerAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.SafeDecodingRegistryOps;
 import net.minecraft.core.Registry;
@@ -46,7 +46,7 @@ public final class PoolAdditionMerger {
      * Call this at mod init so we can subscribe our pool merging to run at server startup as that's when the dynamic registry exists.
      */
     public static void mergeAdditionPools(final ServerAboutToStartEvent event) {
-        ResourceManager resourceManager = ((TemplateManagerAccessor) event.getServer().getStructureManager()).repurposedstructures_getResourceManager();
+        ResourceManager resourceManager = ((StructureManagerAccessor) event.getServer().getStructureManager()).repurposedstructures_getResourceManager();
         Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = GeneralUtils.getAllDatapacksJSONElement(resourceManager, GSON, DATA_TYPE, FILE_SUFFIX_LENGTH);
         parsePoolsAndBeginMerger(poolAdditionJSON,  event.getServer().registryAccess(),  event.getServer().getStructureManager());
     }

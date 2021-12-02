@@ -36,7 +36,7 @@ public final class RSConfiguredFeatures {
     // Need this field for dimension/biome blacklisting
     // Need this field so we can test to make sure we do not add the dungeons to biomes that
     // we already added an RS dungeon to. (Due to BiomeModification API running separately for each feature)
-    public static List<ConfiguredFeature<?, ?>> RS_DUNGEONS = new ArrayList<>();
+    public static List<PlacedFeature> RS_DUNGEONS = new ArrayList<>();
 
     private static final NbtDungeonConfig BADLANDS_DUNGEON_CONFIG = new NbtDungeonConfig("badlands", EMPTY_ID);
     public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.BADLANDS_DUNGEONS.get().configured(BADLANDS_DUNGEON_CONFIG);
@@ -193,7 +193,7 @@ public final class RSConfiguredFeatures {
     // Wells
 
     // Need this field for dimension/biome blacklisting
-    public static List<ConfiguredFeature<?, ?>> RS_WELLS = new ArrayList<>();
+    public static List<PlacedFeature> RS_WELLS = new ArrayList<>();
 
     public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.get()
             .configured(new NbtFeatureConfig(

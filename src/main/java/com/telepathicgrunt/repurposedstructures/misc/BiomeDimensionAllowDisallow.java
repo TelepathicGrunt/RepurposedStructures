@@ -33,14 +33,14 @@ public final class BiomeDimensionAllowDisallow {
             BIOME_DISALLOW.put(id, new ArrayList<>());
         });
         RSConfiguredFeatures.RS_DUNGEONS.forEach((configuredFeature) -> {
-            ResourceLocation id = BuiltinRegistries.CONFIGURED_FEATURE.getKey(configuredFeature);
+            ResourceLocation id = BuiltinRegistries.PLACED_FEATURE.getKey(configuredFeature);
             DIMENSION_DISALLOW.put(id, new ArrayList<>());
             DIMENSION_ALLOW.put(id, new ArrayList<>());
             BIOME_ALLOW.put(id, new ArrayList<>());
             BIOME_DISALLOW.put(id, new ArrayList<>());
         });
         RSConfiguredFeatures.RS_WELLS.forEach((configuredFeature) -> {
-            ResourceLocation id = BuiltinRegistries.CONFIGURED_FEATURE.getKey(configuredFeature);
+            ResourceLocation id = BuiltinRegistries.PLACED_FEATURE.getKey(configuredFeature);
             DIMENSION_DISALLOW.put(id, new ArrayList<>());
             DIMENSION_ALLOW.put(id, new ArrayList<>());
             BIOME_ALLOW.put(id, new ArrayList<>());

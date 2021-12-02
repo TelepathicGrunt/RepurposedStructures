@@ -4,8 +4,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.biome.Biome;
 
 public final class Fortresses {
     private Fortresses() {}
@@ -13,13 +12,13 @@ public final class Fortresses {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // JUNGLE FORTRESS //
 
-    public static void addJungleFortress(BiomeLoadingEvent event) {
+    public static void addJungleFortress(TemporaryBiomeInjection.BiomeInjectionHelper event) {
 
         if(RSFortressesConfig.jungleFortressAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.FORTRESS_JUNGLE.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.JUNGLE)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.FORTRESS_JUNGLE.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.JUNGLE)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.FORTRESS_JUNGLE);
+            event.addStructure(RSConfiguredStructures.FORTRESS_JUNGLE);
         }
     }
 }

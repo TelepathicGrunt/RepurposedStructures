@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.TemplateAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureTemplateAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import net.minecraft.core.BlockPos;
@@ -158,7 +158,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             placementsettings.clearProcessors();
             Optional<StructureProcessorList> postProcessor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().postProcessor);
             postProcessor.orElse(ProcessorLists.EMPTY).list().forEach(placementsettings::addProcessor); // add all post processors
-            List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template).repurposedstructures_getPalettes(), mutable).blocks();
+            List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((StructureTemplateAccessor)template).repurposedstructures_getPalettes(), mutable).blocks();
             StructureTemplate.processBlockInfos(context.level(), mutable, mutable, placementsettings, list);
 
             spawnLootBlocks(context.level(), context.random(), position, context.config(), fullLengths, halfLengthsRotated, mutable);

@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.Mutable;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MansionCodeConfig;
@@ -120,7 +120,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
         for(int x = box.minX(); x <= box.maxX(); ++x) {
             for(int z = box.minZ(); z <= box.maxZ(); ++z) {
                 mutableBlockPos.set(x, structureBottomY, z);
-                if(RepurposedStructures.RSAllConfig.RSMansionsConfig.pillarOnlyToLand) {
+                if(RSMansionsConfig.pillarOnlyToLand.get()) {
                     terrainY = GeneralUtils.getFirstLandYFromPos(world, mutableBlockPos.below());
                     if(terrainY <= chunkGenerator.getMinY()) {
                         continue;
@@ -129,7 +129,7 @@ public class MansionStructure extends AbstractBaseStructure<NoneFeatureConfigura
 
                 if (!world.isEmptyBlock(mutableBlockPos) && box.isInside(mutableBlockPos) && piecesContainer.isInsidePiece(mutableBlockPos)) {
                     for(int currentY = structureBottomY - 1; currentY > chunkGenerator.getMinY(); --currentY) {
-                        if(RepurposedStructures.RSAllConfig.RSMansionsConfig.pillarOnlyToLand) {
+                        if(RSMansionsConfig.pillarOnlyToLand.get()) {
                             if(currentY <= terrainY) {
                                 break;
                             }

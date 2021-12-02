@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(StructureManager.class)
-public interface TemplateManagerAccessor {
+public interface StructureManagerAccessor {
     @Accessor("resourceManager")
     ResourceManager repurposedstructures_getResourceManager();
 }

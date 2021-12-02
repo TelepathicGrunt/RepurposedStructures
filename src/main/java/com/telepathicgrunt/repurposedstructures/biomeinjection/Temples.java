@@ -4,52 +4,51 @@ import com.telepathicgrunt.repurposedstructures.configs.RSTemplesConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.biome.Biome;
 
 public final class Temples {
     private Temples() {}
 
-    public static void addTemples(BiomeLoadingEvent event) {
+    public static void addTemples(TemporaryBiomeInjection.BiomeInjectionHelper event) {
 
         if (RSTemplesConfig.netherBasaltTempleAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    BiomeSelection.hasName(event, "basalt", "blackstone")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasNameTemp(event, "basalt", "blackstone")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_BASALT);
+            event.addStructure(RSConfiguredStructures.TEMPLE_NETHER_BASALT);
         }
 
         if (RSTemplesConfig.netherCrimsonTempleAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    BiomeSelection.hasName(event, "crimson", "red_")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasNameTemp(event, "crimson", "red_")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_CRIMSON);
+            event.addStructure(RSConfiguredStructures.TEMPLE_NETHER_CRIMSON);
         }
 
         if (RSTemplesConfig.netherWarpedTempleAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    BiomeSelection.hasName(event, "warped", "blue")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasNameTemp(event, "warped", "blue")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_WARPED);
+            event.addStructure(RSConfiguredStructures.TEMPLE_NETHER_WARPED);
         }
 
         if (RSTemplesConfig.netherSoulTempleAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    BiomeSelection.hasName(event, "soul")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasNameTemp(event, "soul")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_SOUL);
+            event.addStructure(RSConfiguredStructures.TEMPLE_NETHER_SOUL);
         }
 
         if (RSTemplesConfig.netherWastelandTempleAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER) &&
-                    !BiomeSelection.hasName(event, "basalt", "blackstone", "crimson", "red_", "warped", "blue", "soul")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
+                    !BiomeSelection.hasNameTemp(event, "basalt", "blackstone", "crimson", "red_", "warped", "blue", "soul")))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.TEMPLE_NETHER_WASTELAND);
+            event.addStructure(RSConfiguredStructures.TEMPLE_NETHER_WASTELAND);
         }
     }
 }

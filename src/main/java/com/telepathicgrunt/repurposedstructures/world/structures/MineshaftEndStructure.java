@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.math.Vector3f;
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.utils.Mutable;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
@@ -75,7 +75,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
             }
         }
 
-        int minThickness = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.endMineshaftMinIslandThickness;
+        int minThickness = RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
         if(minThickness == 0)
             return true;
 
@@ -145,7 +145,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
         analyzeLand(context.chunkGenerator(), blockpos.getX(), blockpos.getZ(), islandTopBottomThickness, context.heightAccessor());
 
-        int minThickness = RepurposedStructures.RSAllConfig.RSMineshaftsConfig.misc.endMineshaftMinIslandThickness;
+        int minThickness = RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
         int maxY = 53;
         int minY = 15;
         if(minThickness == 0) {
@@ -167,7 +167,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
         int finalMaxY = maxY;
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize.get()),
                 structureID,
                 blockpos,
                 false,

@@ -4,35 +4,34 @@ import com.telepathicgrunt.repurposedstructures.configs.RSRuinsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.biome.Biome;
 
 public final class Ruins {
     private Ruins() {}
 
-    public static void addRuins(BiomeLoadingEvent event) {
+    public static void addRuins(TemporaryBiomeInjection.BiomeInjectionHelper event) {
 
         if (RSRuinsConfig.ruinsNetherAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_NETHER.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.NETHER)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_NETHER.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_NETHER);
+            event.addStructure(RSConfiguredStructures.RUINS_NETHER);
         }
 
         if (RSRuinsConfig.ruinsLandWarmAverageChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_WARM.get(),
-                    () -> BiomeSelection.haveCategories(event, Category.PLAINS, Category.FOREST, Category.TAIGA, Category.SWAMP) &&
-                    !BiomeSelection.hasName(event, "snow", "ice", "frozen") &&
-                    event.getClimate().temperature >= 0.25f))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_WARM.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.SWAMP) &&
+                    !BiomeSelection.hasNameTemp(event, "snow", "ice", "frozen") &&
+                    event.biome.getBaseTemperature() >= 0.25f))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_WARM);
+            event.addStructure(RSConfiguredStructures.RUINS_LAND_WARM);
         }
 
         if (RSRuinsConfig.ruinsLandHotAverageChunkDistance.get() != 1001 &&
-                BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_HOT.get(),
-                        () -> BiomeSelection.haveCategories(event, Category.DESERT)))
+                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_HOT.get(),
+                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
         {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.RUINS_LAND_HOT);
+            event.addStructure(RSConfiguredStructures.RUINS_LAND_HOT);
         }
     }
 }
