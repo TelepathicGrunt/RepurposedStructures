@@ -178,7 +178,7 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
-        public int badlandsDungeonMinHeight = 2;
+        public int badlandsDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart

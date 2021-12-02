@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.Map;
 
 @Mixin(StructureSettings.class)
-public interface StructuresConfigAccessor {
+public interface StructureSettingsAccessor {
 
     @Accessor("structureConfig")
     void repurposedstructures_setStructureConfig(Map<StructureFeature<?>, StructureFeatureConfiguration> structuresSpacingMap);

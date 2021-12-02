@@ -473,7 +473,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
-        public int birchMineshaftSize = 10;
+        public int birchMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -483,7 +483,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
-        public int jungleMineshaftSize = 6;
+        public int jungleMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
@@ -493,7 +493,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Size of the mineshaft. This is how many pieces long a branch can be from the start piece.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 30)
-        public int desertMineshaftSize = 6;
+        public int desertMineshaftSize = 9;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart

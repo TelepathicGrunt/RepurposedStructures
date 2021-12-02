@@ -16,7 +16,7 @@ import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.StructuresConfigAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureSettingsAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
@@ -112,7 +112,7 @@ public class RepurposedStructures implements ModInitializer {
             // Grab the map that holds what ConfigureStructures a structure has and what biomes it can spawn in.
             // We will inject our structures into that map/multimap
             Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
-            ((StructuresConfigAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
+            ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
             TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, minecraftServer.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
 
             // Turn the entire map and the inner multimaps to immutable to match the source code's require type
@@ -124,7 +124,7 @@ public class RepurposedStructures implements ModInitializer {
             });
 
             // Set it in the field.
-            ((StructuresConfigAccessor) worldStructureSettings).setConfiguredStructures(immutableOuterMap.build());
+            ((StructureSettingsAccessor) worldStructureSettings).setConfiguredStructures(immutableOuterMap.build());
 
 
             //////////// DIMENSION BASED STRUCTURE SPAWNING ////////////
@@ -151,7 +151,7 @@ public class RepurposedStructures implements ModInitializer {
                     }
                 }
             }
-            ((StructuresConfigAccessor) worldStructureSettings).repurposedstructures_setStructureConfig(tempMap);
+            ((StructureSettingsAccessor) worldStructureSettings).repurposedstructures_setStructureConfig(tempMap);
         });
     }
 
