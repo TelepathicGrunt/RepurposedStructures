@@ -3,21 +3,22 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BushBlock;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.feature.template.IStructureProcessorType;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.gen.feature.template.StructureProcessor;
-import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.material.Fluids;
 
 /**
  * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
@@ -35,35 +36,35 @@ public class FloodWithWaterProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
-        if(structureBlockInfoWorld.state.getFluidState().is(FluidTags.WATER)){
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+        if(structureBlockInfoWorld.state.getFluidState().is(FluidTags.WATER)) {
             tickWaterFluid(worldView, structureBlockInfoWorld);
             return structureBlockInfoWorld;
         }
 
         if (structureBlockInfoWorld.pos.getY() <= floodLevel) {
             boolean flooded = false;
-            if(structureBlockInfoWorld.state.isAir()){
-                structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
+            if(structureBlockInfoWorld.state.isAir()) {
+                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }
-            else if(structureBlockInfoWorld.state.hasProperty(BlockStateProperties.WATERLOGGED)){
-                structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, true), structureBlockInfoWorld.nbt);
+            else if(structureBlockInfoWorld.state.hasProperty(BlockStateProperties.WATERLOGGED)) {
+                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, true), structureBlockInfoWorld.nbt);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }
-            else if(structureBlockInfoWorld.state.getBlock() instanceof BushBlock){
-                structureBlockInfoWorld = new Template.BlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
+            else if(structureBlockInfoWorld.state.getBlock() instanceof BushBlock) {
+                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
                 tickWaterFluid(worldView, structureBlockInfoWorld);
                 flooded = true;
             }
 
-            if(flooded){
+            if(flooded) {
                 // enclose the new water block with cracked stonebrick
                 ChunkPos currentChunkPos = new ChunkPos(structureBlockInfoWorld.pos);
-                IChunk currentChunk = worldView.getChunk(currentChunkPos.x, currentChunkPos.z);
-                BlockPos.Mutable mutable = new BlockPos.Mutable();
+                ChunkAccess currentChunk = worldView.getChunk(currentChunkPos.x, currentChunkPos.z);
+                BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
                 for (Direction direction : Direction.values()) {
                     if(direction == Direction.UP) continue;
 
@@ -83,13 +84,12 @@ public class FloodWithWaterProcessor extends StructureProcessor {
         return structureBlockInfoWorld;
     }
 
-    private void tickWaterFluid(IWorldReader worldView, Template.BlockInfo structureBlockInfoWorld) {
-        IChunk currentChunk = worldView.getChunk(structureBlockInfoWorld.pos);
-        currentChunk.getLiquidTicks().scheduleTick(structureBlockInfoWorld.pos, Fluids.WATER, 1);
+    private void tickWaterFluid(LevelReader worldView, StructureTemplate.StructureBlockInfo structureBlockInfoWorld) {
+        ((LevelAccessor)worldView).scheduleTick(structureBlockInfoWorld.pos, Fluids.WATER, 1);
     }
 
     @Override
-    protected IStructureProcessorType<?> getType() {
+    protected StructureProcessorType<?> getType() {
         return RSProcessors.FLOOD_WITH_WATER_PROCESSOR;
     }
 }

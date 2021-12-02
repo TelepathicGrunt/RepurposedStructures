@@ -2,17 +2,14 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
 public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
@@ -23,26 +20,28 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndRangeConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetAndRangeConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState grass = Blocks.GRASS.defaultBlockState();
         BlockState tallGrass = Blocks.TALL_GRASS.defaultBlockState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt((config.range * 2) + 1) - config.range,
-                    random.nextInt(3) - 1,
-                    random.nextInt((config.range * 2) + 1) - config.range
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt((context.config().range * 2) + 1) - context.config().range,
+                    context.random().nextInt(3) - 1,
+                    context.random().nextInt((context.config().range * 2) + 1) - context.config().range
             );
 
-            if(world.getBlockState(mutable).isAir()){
-                if((random.nextFloat() < 0.45f || !world.getBlockState(mutable.above()).isAir()) && grass.canSurvive(world, mutable)){
-                    world.setBlock(mutable, grass, 3);
+            if(context.level().getBlockState(mutable).isAir()) {
+                if((context.random().nextFloat() < 0.45f || !context.level().getBlockState(mutable.above()).isAir()) && grass.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, grass, 3);
                 }
-                else if(tallGrass.canSurvive(world, mutable)){
-                    world.setBlock(mutable, tallGrass.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                    world.setBlock(mutable.move(Direction.UP), tallGrass.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.UPPER), 3);
+                else if(tallGrass.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, tallGrass.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                    context.level().setBlock(mutable.move(Direction.UP), tallGrass.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                 }
             }
         }

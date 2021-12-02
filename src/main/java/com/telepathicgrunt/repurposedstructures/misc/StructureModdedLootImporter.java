@@ -4,11 +4,11 @@ import com.google.gson.JsonObject;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.LootParameterSets;
-import net.minecraft.loot.conditions.ILootCondition;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 
@@ -166,7 +166,7 @@ public class StructureModdedLootImporter extends LootModifier {
         return tableMap;
     }
 
-    public StructureModdedLootImporter(final ILootCondition[] conditionsIn) {
+    public StructureModdedLootImporter(final LootItemCondition[] conditionsIn) {
         super(conditionsIn);
     }
 
@@ -215,7 +215,7 @@ public class StructureModdedLootImporter extends LootModifier {
 
     public static class Serializer extends GlobalLootModifierSerializer<StructureModdedLootImporter> {
         @Override
-        public StructureModdedLootImporter read(ResourceLocation location, JsonObject object, ILootCondition[] conditions) {
+        public StructureModdedLootImporter read(ResourceLocation location, JsonObject object, LootItemCondition[] conditions) {
              return new StructureModdedLootImporter(conditions);
         }
 
@@ -226,7 +226,7 @@ public class StructureModdedLootImporter extends LootModifier {
     }
 
     protected static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
-        LootContext newContext = new LootContext.Builder(oldLootContext).create(LootParameterSets.CHEST);
+        LootContext newContext = new LootContext.Builder(oldLootContext).create(LootContextParamSets.CHEST);
         ((LootContextAccessor)newContext).repurposedstructures_setQueriedLootTableId(newQueryID); // The normal method won't set it as the newContext already has queriedID.
         return newContext;
     }

@@ -5,17 +5,18 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.state.Property;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.gen.feature.template.IStructureProcessorType;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.gen.feature.template.StructureProcessor;
-import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,9 +28,9 @@ import java.util.Random;
 public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
 
     public static final Codec<RandomReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.fieldOf("input_block").forGetter(config -> config.inputBlock),
-            Registry.BLOCK.optionalFieldOf("output_block").forGetter(config -> config.outputBlock),
-            Registry.BLOCK.listOf().optionalFieldOf("output_blocks", ImmutableList.of()).forGetter(config -> config.outputBlocks),
+            Registry.BLOCK.byNameCodec().fieldOf("input_block").forGetter(config -> config.inputBlock),
+            Registry.BLOCK.byNameCodec().optionalFieldOf("output_block").forGetter(config -> config.outputBlock),
+            Registry.BLOCK.byNameCodec().listOf().optionalFieldOf("output_blocks", ImmutableList.of()).forGetter(config -> config.outputBlocks),
             Codec.floatRange(0, 1).fieldOf("probability").forGetter(config -> config.probability)
     ).apply(instance, instance.stable(RandomReplaceWithPropertiesProcessor::new)));
 
@@ -46,30 +47,32 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo processBlock(IWorldReader worldReader, BlockPos pos, BlockPos pos2, Template.BlockInfo infoIn1, Template.BlockInfo infoIn2, PlacementSettings settings) {
-        if(infoIn2.state.getBlock().is(inputBlock)){
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
+        if(infoIn2.state.getBlock() == inputBlock) {
             BlockPos worldPos = infoIn2.pos;
-            Random random = new SharedSeedRandom();
+            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(worldPos.asLong() * worldPos.getY());
 
             if(random.nextFloat() < probability) {
-                if (outputBlock.isPresent()) {
+                if(outputBlock.isPresent()) {
                     BlockState newBlockState = outputBlock.get().defaultBlockState();
-                    for (Property<?> property : infoIn2.state.getProperties()) {
-                        if (newBlockState.hasProperty(property)) {
+                    for(Property<?> property : infoIn2.state.getProperties()) {
+                        if(newBlockState.hasProperty(property)) {
                             newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
                         }
                     }
-                    return new Template.BlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
-                } else if (!outputBlocks.isEmpty()) {
+                    return new StructureTemplate.StructureBlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
+                }
+                else if(!outputBlocks.isEmpty()) {
                     BlockState newBlockState = outputBlocks.get(random.nextInt(outputBlocks.size())).defaultBlockState();
-                    for (Property<?> property : infoIn2.state.getProperties()) {
-                        if (newBlockState.hasProperty(property)) {
+                    for(Property<?> property : infoIn2.state.getProperties()) {
+                        if(newBlockState.hasProperty(property)) {
                             newBlockState = getStateWithProperty(newBlockState, infoIn2.state, property);
                         }
                     }
-                    return new Template.BlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
-                } else {
+                    return new StructureTemplate.StructureBlockInfo(infoIn2.pos, newBlockState, infoIn2.nbt);
+                }
+                else{
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: repurposed_structures:random_replace_with_properties_processor in a processor file has no replacement block of any kind.");
                 }
             }
@@ -77,12 +80,12 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
         return infoIn2;
     }
 
-    private <T extends Comparable<T>> BlockState getStateWithProperty(BlockState state, BlockState stateToCopy, Property<T> property){
+    private <T extends Comparable<T>> BlockState getStateWithProperty(BlockState state, BlockState stateToCopy, Property<T> property) {
         return state.setValue(property, stateToCopy.getValue(property));
     }
 
     @Override
-    protected IStructureProcessorType<?> getType() {
+    protected StructureProcessorType<?> getType() {
         return RSProcessors.RANDOM_REPLACE_WITH_PROPERTIES_PROCESSOR;
     }
 }

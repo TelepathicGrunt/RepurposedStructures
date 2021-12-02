@@ -3,18 +3,16 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TallFlowerBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.List;
-import java.util.Random;
 
 
 public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
@@ -38,28 +36,29 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
     );
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndRangeConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetAndRangeConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt((config.range * 2) + 1) - config.range,
-                    random.nextInt(3) - 1,
-                    random.nextInt((config.range * 2) + 1) - config.range
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt((context.config().range * 2) + 1) - context.config().range,
+                    context.random().nextInt(3) - 1,
+                    context.random().nextInt((context.config().range * 2) + 1) - context.config().range
             );
 
-            if(world.getBlockState(mutable).isAir()){
+            if(context.level().getBlockState(mutable).isAir()) {
 
-                BlockState chosenFlower = FLOWERS.get(random.nextInt(FLOWERS.size()));
+                BlockState chosenFlower = FLOWERS.get(context.random().nextInt(FLOWERS.size()));
 
-                if(chosenFlower.canSurvive(world, mutable)){
-                    if(chosenFlower.getBlock() instanceof TallFlowerBlock && world.getBlockState(mutable.above()).isAir()){
-                        world.setBlock(mutable, chosenFlower.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                        world.setBlock(mutable.move(Direction.UP), chosenFlower.setValue(TallFlowerBlock.HALF, DoubleBlockHalf.UPPER), 3);
+                if(chosenFlower.canSurvive(context.level(), mutable)) {
+
+                    if(chosenFlower.getBlock() instanceof DoublePlantBlock && context.level().getBlockState(mutable.above()).isAir()) {
+                        context.level().setBlock(mutable, chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                        context.level().setBlock(mutable.move(Direction.UP), chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                     }
                     else{
-                        world.setBlock(mutable, chosenFlower, 3);
+                        context.level().setBlock(mutable, chosenFlower, 3);
                     }
                 }
             }

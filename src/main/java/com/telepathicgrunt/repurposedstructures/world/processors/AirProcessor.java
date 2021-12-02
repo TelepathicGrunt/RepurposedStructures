@@ -3,15 +3,19 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
-import net.minecraft.block.Block;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.feature.template.IStructureProcessorType;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.gen.feature.template.StructureProcessor;
-import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.SectionPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunkSection;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,7 +26,7 @@ import java.util.HashSet;
 public class AirProcessor extends StructureProcessor {
 
     public static final Codec<AirProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToIgnore)
+            Registry.BLOCK.byNameCodec().listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToIgnore)
     ).apply(instance, instance.stable(AirProcessor::new)));
 
     private final HashSet<Block> blocksToIgnore;
@@ -32,18 +36,37 @@ public class AirProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo processBlock(IWorldReader worldView, BlockPos pos, BlockPos blockPos, Template.BlockInfo structureBlockInfoLocal, Template.BlockInfo structureBlockInfoWorld, PlacementSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.isAir()) {
-            IChunk chunk = worldView.getChunk(structureBlockInfoWorld.pos);
-            if(!blocksToIgnore.contains(chunk.getBlockState(structureBlockInfoWorld.pos).getBlock())){
-                chunk.setBlockState(structureBlockInfoWorld.pos, structureBlockInfoWorld.state, false);
+            BlockPos currentPos = structureBlockInfoWorld.pos;
+            ChunkAccess currentChunk = worldView.getChunk(currentPos);
+            if (currentPos.getY() >= currentChunk.getMinBuildHeight() && currentPos.getY() < currentChunk.getMaxBuildHeight()) {
+                if(!blocksToIgnore.contains(currentChunk.getBlockState(currentPos).getBlock())) {
+
+                    LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
+                    if((worldView instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinBuildHeight() && currentPos.getY() < levelHeightAccessor.getMaxBuildHeight())) {
+                        // Copy what vanilla ores do.
+                        // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
+                        // even though everything seemed to be safe and fine.
+                        int sectionYIndex = currentChunk.getSectionIndex(currentPos.getY());
+                        LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
+                        if (levelChunkSection != null) {
+                            levelChunkSection.setBlockState(
+                                    SectionPos.sectionRelative(currentPos.getX()),
+                                    SectionPos.sectionRelative(currentPos.getY()),
+                                    SectionPos.sectionRelative(currentPos.getZ()),
+                                    structureBlockInfoWorld.state,
+                                    false);
+                        }
+                    }
+                }
             }
         }
         return structureBlockInfoWorld;
     }
 
     @Override
-    protected IStructureProcessorType<?> getType() {
+    protected StructureProcessorType<?> getType() {
         return RSProcessors.AIR_PROCESSOR;
     }
 }

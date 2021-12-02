@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.configs;
 
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class RSVillagesConfig {

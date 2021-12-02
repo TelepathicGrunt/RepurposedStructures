@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
@@ -119,10 +118,6 @@ public final class Mineshafts {
                         (RSMineshaftsConfig.endMineshaftMinIslandThickness.get() == 0 || !BiomeSelection.isBiome(event, Biomes.END_BARRENS, Biomes.SMALL_END_ISLANDS))))
         {
             event.getGeneration().getStructures().add(() -> RSConfiguredStructures.MINESHAFT_END);
-        }
-
-        if(!RepurposedStructures.yungsBetterMineshaftIsOn && !RepurposedStructures.isCavesAndCliffsBackportOn && BiomeSelection.doesHaveStructureType(event, RSStructureTagMap.STRUCTURE_TAGS.MINESHAFT)){
-            event.getGeneration().getStructures().removeIf((supplier) -> supplier.get().feature == Structure.MINESHAFT);
         }
     }
 

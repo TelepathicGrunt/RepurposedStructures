@@ -5,19 +5,25 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.minecraft.block.Block;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.feature.template.IStructureProcessorType;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.gen.feature.template.StructureProcessor;
-import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.SectionPos;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunkSection;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.material.FluidState;
 
 import java.util.List;
 import java.util.Random;
@@ -29,7 +35,7 @@ import java.util.Random;
 public class CloseOffFluidSourcesProcessor extends StructureProcessor {
 
     public static final Codec<CloseOffFluidSourcesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Codec.mapPair(Registry.BLOCK.fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
+            Codec.mapPair(Registry.BLOCK.byNameCodec().fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
                     .codec().listOf().fieldOf("weighted_list_of_replacement_blocks")
                     .forGetter(processor -> processor.weightedReplacementBlocks),
             Codec.BOOL.fieldOf("ignore_down").orElse(false).forGetter(processor -> processor.ignoreDown),
@@ -47,34 +53,57 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     }
 
     @Override
-    public Template.BlockInfo processBlock(IWorldReader worldReader, BlockPos pos, BlockPos pos2, Template.BlockInfo infoIn1, Template.BlockInfo infoIn2, PlacementSettings settings) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(!infoIn2.state.getFluidState().isEmpty()) return infoIn2;
+        if(infoIn2.state.is(Blocks.STRUCTURE_VOID) || !infoIn2.state.getFluidState().isEmpty()) return infoIn2;
 
-        if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()){
-            IChunk currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+        if(!GeneralUtils.isFullCube(worldReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()) {
+            ChunkAccess currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos).isAir()) return infoIn2;
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
-            BlockPos.Mutable mutable = new BlockPos.Mutable();
+            BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for (Direction direction : Direction.values()) {
                 if(ignoreDown && direction == Direction.DOWN) continue;
 
                 mutable.set(infoIn2.pos).move(direction);
+                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
+                    continue;
+                }
+
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
                     currentChunk = worldReader.getChunk(mutable);
                     currentChunkPos = new ChunkPos(mutable);
                 }
 
-                FluidState fluidState = currentChunk.getFluidState(mutable);
-                if (fluidState.isSource()) {
-                    Random random = new SharedSeedRandom();
-                    random.setSeed(mutable.asLong() * mutable.getY());
+                // Copy what vanilla ores do.
+                // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
+                // even though everything seemed to be safe and fine.
+                LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
+                if(worldReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
+                    int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
+                    LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
+                    if (levelChunkSection == null) continue;
 
-                    Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
-                    currentChunk.setBlockState(mutable, replacementBlock.defaultBlockState(), false);
+                    FluidState fluidState = levelChunkSection.getFluidState(
+                            SectionPos.sectionRelative(mutable.getX()),
+                            SectionPos.sectionRelative(mutable.getY()),
+                            SectionPos.sectionRelative(mutable.getZ()));
+
+                    if (fluidState.isSource()) {
+                        Random random = new WorldgenRandom(new LegacyRandomSource(0L));
+                        random.setSeed(mutable.asLong() * mutable.getY());
+
+                        Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
+                        levelChunkSection.setBlockState(
+                                SectionPos.sectionRelative(mutable.getX()),
+                                SectionPos.sectionRelative(mutable.getY()),
+                                SectionPos.sectionRelative(mutable.getZ()),
+                                replacementBlock.defaultBlockState(),
+                                false);
+                    }
                 }
             }
         }
@@ -83,7 +112,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     }
 
     @Override
-    protected IStructureProcessorType<?> getType() {
+    protected StructureProcessorType<?> getType() {
         return RSProcessors.CLOSE_OFF_FLUID_SOURCES_PROCESSOR;
     }
 }

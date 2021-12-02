@@ -3,11 +3,11 @@ package com.telepathicgrunt.repurposedstructures.world.predicates;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.gen.feature.template.IPosRuleTests;
-import net.minecraft.world.gen.feature.template.PosRuleTest;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.Mth;
+import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType;
 
 import java.util.Random;
 
@@ -45,10 +45,10 @@ public class PieceOriginAxisAlignedLinearPosRuleTest extends PosRuleTest {
         float zDist = (float)Math.abs((blockPos.getZ()) * direction.getStepZ());
         int distanceFromOrigin = (int)(xDist + yDist + zDist);
         float randomChance = random.nextFloat();
-        return (double)randomChance <= MathHelper.clampedLerp(this.minChance, this.maxChance, MathHelper.inverseLerp(distanceFromOrigin, this.minDistance, this.maxDistance));
+        return (double)randomChance <= Mth.clampedLerp(this.minChance, this.maxChance, Mth.inverseLerp(distanceFromOrigin, this.minDistance, this.maxDistance));
     }
 
-    protected IPosRuleTests<?> getType() {
+    protected PosRuleTestType<?> getType() {
         return RSPredicates.PIECE_ORIGIN_AXIS_ALIGNED_LINEAR_POS_RULE_TEST;
     }
 }

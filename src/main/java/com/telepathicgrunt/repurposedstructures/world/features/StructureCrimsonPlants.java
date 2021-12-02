@@ -2,15 +2,12 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
 public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConfig> {
@@ -21,37 +18,40 @@ public class StructureCrimsonPlants extends Feature<StructureTargetAndLengthConf
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetAndLengthConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState crimsonFungus = Blocks.CRIMSON_FUNGUS.defaultBlockState();
         BlockState crimsonRoots = Blocks.CRIMSON_ROOTS.defaultBlockState();
         BlockState weepingVines = Blocks.WEEPING_VINES.defaultBlockState();
         BlockState weepingVinesPlant = Blocks.WEEPING_VINES_PLANT.defaultBlockState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
-                    random.nextInt(4) - 1,
-                    random.nextInt(7) - 3
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
+                    context.random().nextInt(4) - 1,
+                    context.random().nextInt(7) - 3
             );
 
-            if(world.getBlockState(mutable).isAir()){
-                if(random.nextFloat() < 0.8f && crimsonRoots.canSurvive(world, mutable)){
-                    world.setBlock(mutable, crimsonRoots, 3);
+            if(context.level().getBlockState(mutable).isAir()) {
+                if(context.random().nextFloat() < 0.8f && crimsonRoots.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, crimsonRoots, 3);
                 }
-                else if(crimsonFungus.canSurvive(world, mutable)){
-                    world.setBlock(mutable, crimsonFungus, 3);
+                else if(crimsonFungus.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, crimsonFungus, 3);
                 }
-                else if(weepingVines.canSurvive(world, mutable)){
+                else if(weepingVines.canSurvive(context.level(), mutable)) {
+
                     // Biased towards max length if greater than 3
-                    int length = config.length > 3 ? config.length - random.nextInt(random.nextInt(config.length) + 1) : random.nextInt(config.length);
-                    for(int currentLength = 0; currentLength <= length; currentLength++){
-                        if(currentLength == length || !world.getBlockState(mutable.below()).isAir()){
-                            world.setBlock(mutable, weepingVines, 3);
+                    int length = context.config().length > 3 ? context.config().length - context.random().nextInt(context.random().nextInt(context.config().length) + 1) : context.random().nextInt(context.config().length);
+                    for(int currentLength = 0; currentLength <= length; currentLength++) {
+                        if(currentLength == length || !context.level().getBlockState(mutable.below()).isAir()) {
+                            context.level().setBlock(mutable, weepingVines, 3);
                             break;
                         }
-                        world.setBlock(mutable, weepingVinesPlant, 3);
+                        context.level().setBlock(mutable, weepingVinesPlant, 3);
                         mutable.move(Direction.DOWN);
                     }
                 }

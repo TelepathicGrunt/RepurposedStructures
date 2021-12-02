@@ -1,40 +1,36 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.mojang.serialization.Codec;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.monster.WitherSkeletonEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.WitherSkeleton;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 
-public class WitherSkeletonWithBow extends Feature<NoFeatureConfig> {
+public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
 
-    public WitherSkeletonWithBow(Codec<NoFeatureConfig> configFactory) {
-        super(configFactory);
+    public WitherSkeletonWithBow() {
+        super(NoneFeatureConfiguration.CODEC);
     }
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, NoFeatureConfig config) {
+    public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
 
         // move down to spawn at the jigsaw block calling this
-        position = position.below();
+        BlockPos position = context.origin().below();
 
-        WitherSkeletonEntity witherEntity = EntityType.WITHER_SKELETON.create(world.getLevel());
+        WitherSkeleton witherEntity = EntityType.WITHER_SKELETON.create(context.level().getLevel());
         witherEntity.setPersistenceRequired();
-        witherEntity.absMoveTo(
+        witherEntity.moveTo(
                 (double)position.getX() + 0.5D,
                 position.getY(),
                 (double)position.getZ() + 0.5D,
@@ -44,7 +40,7 @@ public class WitherSkeletonWithBow extends Feature<NoFeatureConfig> {
         witherEntity.getAttribute(Attributes.FOLLOW_RANGE)
                 .addPermanentModifier(new AttributeModifier(
                         "Random spawn bonus",
-                        (random.nextGaussian() * 0.3D) + 0.5D,
+                        (context.random().nextGaussian() * 0.3D) + 0.5D,
                         AttributeModifier.Operation.MULTIPLY_BASE));
 
         ItemStack bow = new ItemStack(Items.BOW);
@@ -53,11 +49,11 @@ public class WitherSkeletonWithBow extends Feature<NoFeatureConfig> {
         bow.enchant(Enchantments.POWER_ARROWS, 2);
         bow.enchant(Enchantments.VANISHING_CURSE, 1);
         bow.enchant(Enchantments.BINDING_CURSE, 1);
-        witherEntity.setItemInHand(Hand.MAIN_HAND, bow);
-        witherEntity.setDropChance(EquipmentSlotType.MAINHAND, 0.5f);
-        witherEntity.setLeftHanded(random.nextFloat() < 0.05F);
+        witherEntity.setItemInHand(InteractionHand.MAIN_HAND, bow);
+        witherEntity.setDropChance(EquipmentSlot.MAINHAND, 0.5f);
+        witherEntity.setLeftHanded(context.random().nextFloat() < 0.05F);
 
-        world.addFreshEntityWithPassengers(witherEntity);
+        context.level().addFreshEntityWithPassengers(witherEntity);
         return true;
     }
 }

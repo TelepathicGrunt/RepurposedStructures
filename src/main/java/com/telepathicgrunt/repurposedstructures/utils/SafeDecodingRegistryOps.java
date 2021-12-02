@@ -8,30 +8,30 @@ import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
 import com.mojang.serialization.Lifecycle;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.util.registry.MutableRegistry;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldSettingsImport;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.WritableRegistry;
+import net.minecraft.resources.RegistryReadOps;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * This is a modified WorldSettingsImport that takes a DynamicRegistries instead of a DynamicRegistries.Impl
- * and does exactly what I need in decodeOrId without the extra stuff that could mess with the DynamicRegistries itself.
- * We also have to extend WorldSettingsImport because RegistryLookupCodec does an instanceof check for WorldSettingsImport before deciding if it should call decodeOrId.
+ * This is a modified RegistryOps that takes a DynamicRegistryManager instead of a DynamicRegistryManager.Impl
+ * and does exactly what I need in decodeOrId without the extra stuff that could mess with the DynamicRegistryManager itself.
+ * We also have to extend RegistryOps because RegistryLookupCodec does an instanceof check for RegistryOps before deciding if it should call decodeOrId.
  */
-public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
+public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
 
-    private final DynamicRegistries dynamicRegistries;
-    private final Map<RegistryKey<? extends Registry<?>>, ValueHolder<?>> valueHolders;
+    private final RegistryAccess dynamicRegistryManager;
+    private final Map<ResourceKey<? extends Registry<?>>, ValueHolder<?>> valueHolders;
 
-    public SafeDecodingRegistryOps(DynamicOps<T> delegate, DynamicRegistries dynamicRegistries) {
+    public SafeDecodingRegistryOps(DynamicOps<T> delegate, RegistryAccess dynamicRegistryManager) {
         super(delegate, null, null, Maps.newIdentityHashMap());
-        this.dynamicRegistries = dynamicRegistries;
+        this.dynamicRegistryManager = dynamicRegistryManager;
         this.valueHolders = Maps.newIdentityHashMap();
     }
 
@@ -41,32 +41,35 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
      * <p>This method is called by casting an arbitrary dynamic ops to a registry reading ops.</p>
      */
     @Override
-    protected <E> DataResult<Pair<Supplier<E>, T>> decodeElement(T object, RegistryKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
-        Optional<MutableRegistry<E>> optional = this.dynamicRegistries.registry(registryKey);
-        if (!optional.isPresent()) {
+    protected <E> DataResult<Pair<Supplier<E>, T>> decodeElement(T object, ResourceKey<? extends Registry<E>> registryKey, Codec<E> codec, boolean allowInlineDefinitions) {
+        Optional<WritableRegistry<E>> optional = this.dynamicRegistryManager.ownedRegistry(registryKey);
+        if (optional.isEmpty()) {
             return DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
-        } else {
+        }
+        else {
             DataResult<Pair<ResourceLocation, T>> dataResult = ResourceLocation.CODEC.decode(this.delegate, object);
-            if (!dataResult.result().isPresent()) {
+            if (dataResult.result().isEmpty()) {
                 return !allowInlineDefinitions ?
                         DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Inline definitions not allowed here") :
                         codec.decode(this, object).map((pair) -> pair.mapFirst((object2) -> () -> object2));
             }
             else {
-                MutableRegistry<E> mutableRegistry = optional.get();
+                WritableRegistry<E> mutableRegistry = optional.get();
                 Pair<ResourceLocation, T> pair = dataResult.result().get();
-                ResourceLocation resourceLocation = pair.getFirst();
+                ResourceLocation identifier = pair.getFirst();
 
                 try {
-                    return this.readSupplier(registryKey, mutableRegistry, codec, resourceLocation)
+                    return this.readAndRegisterElement(registryKey, mutableRegistry, codec, identifier)
                             .map((supplier) -> Pair.of(supplier, pair.getSecond()));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(
-                            "\n Repurposed Structures: Crash is about to occur because an entry in a datapack does not exist in a registry or failed to resolve an entry." +
-                            "\n Entry failed to be resolved: {}" +
-                            "\n Registry being used: {}",
-                            object, registryKey);
+                            """
+
+                            Repurposed Structures: Crash is about to occur because an entry in a datapack does not exist in a registry or failed to resolve an entry.
+                            Entry failed to be resolved: {}
+                            Registry being used: {}""".indent(1),
+                            registryKey, object);
                     throw e;
                 }
             }
@@ -77,18 +80,20 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
      * Reads a supplier for a registry element.
      * <p>This logic is used by both {@code decodeOrId} and {@code loadToRegistry}.</p>
      */
-    private <E> DataResult<Supplier<E>> readSupplier(RegistryKey<? extends Registry<E>> registryRegistryKey, MutableRegistry<E> mutableRegistry, Codec<E> codec, ResourceLocation elementId) {
-        RegistryKey<E> elementRegistryKey = RegistryKey.create(registryRegistryKey, elementId);
+    private <E> DataResult<Supplier<E>> readAndRegisterElement(ResourceKey<? extends Registry<E>> registryRegistryKey, WritableRegistry<E> mutableRegistry, Codec<E> codec, ResourceLocation elementId) {
+        ResourceKey<E> elementRegistryKey = ResourceKey.create(registryRegistryKey, elementId);
         ValueHolder<E> valueHolder = this.getValueHolder(registryRegistryKey);
         DataResult<Supplier<E>> dataResult = valueHolder.values.get(elementRegistryKey);
         if (dataResult != null) {
             return dataResult;
-        } else {
+        }
+        else {
             Supplier<E> supplier = Suppliers.memoize(() -> {
                 E object = mutableRegistry.get(elementRegistryKey);
                 if (object == null) {
                     throw new RuntimeException("(Repurposed Structures SafeDecodingRegistryOps) Error during recursive registry parsing, element resolved too early: " + elementRegistryKey);
-                } else {
+                }
+                else {
                     return object;
                 }
             });
@@ -104,12 +109,12 @@ public class SafeDecodingRegistryOps<T> extends WorldSettingsImport<T> {
         }
     }
 
-    private <E> ValueHolder<E> getValueHolder(RegistryKey<? extends Registry<E>> registryRef) {
+    private <E> ValueHolder<E> getValueHolder(ResourceKey<? extends Registry<E>> registryRef) {
         return (ValueHolder<E>) this.valueHolders.computeIfAbsent(registryRef, (registryKey) -> new ValueHolder());
     }
 
     static final class ValueHolder<E> {
-        private final Map<RegistryKey<E>, DataResult<Supplier<E>>> values;
+        private final Map<ResourceKey<E>, DataResult<Supplier<E>>> values;
 
         private ValueHolder() {
             this.values = Maps.newIdentityHashMap();

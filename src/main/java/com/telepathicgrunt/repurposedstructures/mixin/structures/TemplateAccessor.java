@@ -1,14 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
-import net.minecraft.world.gen.feature.template.Template;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.List;
 
-@Mixin(Template.class)
+@Mixin(StructureTemplate.class)
 public interface TemplateAccessor {
 
     @Accessor("palettes")
-    List<Template.Palette> repurposedstructures_getBlocks();
+    List<StructureTemplate.Palette> repurposedstructures_getPalettes();
 }

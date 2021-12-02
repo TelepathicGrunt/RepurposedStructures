@@ -1,27 +1,35 @@
 package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.WorldDecoratingHelper;
-import net.minecraft.world.gen.placement.NoPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
+import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.levelgen.placement.PlacementContext;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class SnapToLowerNonAirPlacement extends Placement<NoPlacementConfig>
-{
-    public SnapToLowerNonAirPlacement(Codec<NoPlacementConfig> config) {
-		super(config);
-    }
+public class SnapToLowerNonAirPlacement extends PlacementModifier {
+	private static final SnapToLowerNonAirPlacement INSTANCE = new SnapToLowerNonAirPlacement();
+	public static final Codec<SnapToLowerNonAirPlacement> CODEC = Codec.unit(() -> INSTANCE);
+
+	public static SnapToLowerNonAirPlacement snapToLowerNonAir() {
+		return INSTANCE;
+	}
 
 	@Override
-	public final Stream<BlockPos> getPositions(WorldDecoratingHelper world, Random random, NoPlacementConfig config, BlockPos pos) {
-		BlockPos.Mutable mutable = new BlockPos.Mutable().set(pos);
-		while(world.getBlockState(mutable).isAir() && mutable.getY() > 0){
+	public final Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos blockPos) {
+		BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);
+		while(placementContext.getBlockState(mutable).isAir() && mutable.getY() > placementContext.getMinGenY()) {
 			mutable.move(Direction.DOWN);
 		}
 		return Stream.of(mutable.immutable());
+	}
+
+	@Override
+	public PlacementModifierType<?> type() {
+		return RSPlacements.SNAP_TO_LOWER_NON_AIR_PLACEMENT;
 	}
 }

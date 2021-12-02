@@ -20,9 +20,7 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
 import com.telepathicgrunt.repurposedstructures.configs.*;
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
-import com.telepathicgrunt.repurposedstructures.data.DataGenerators;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
-import com.telepathicgrunt.repurposedstructures.misc.BiomeSourceChecks;
 import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
@@ -34,7 +32,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSGlobalLootModifier;
-import com.telepathicgrunt.repurposedstructures.modinit.RSNumberProviders;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
@@ -42,17 +39,15 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.LogSpamFiltering;
-import com.telepathicgrunt.repurposedstructures.world.structures.pieces.StructurePiecesBehavior;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.FlatChunkGenerator;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.FlatLevelSource;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -67,10 +62,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.loading.FileUtils;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.maven.artifact.versioning.ArtifactVersion;
-import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -78,17 +72,12 @@ import java.util.Map;
 
 @Mod(RepurposedStructures.MODID)
 public class RepurposedStructures {
-    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
+    public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final RSBiomeDimConfig RSOmegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
-    public static final RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = OmegaConfig.register(RSNaturalMobSpawningConfig.class);
+    public static final RSBiomeDimConfig omegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
+    public static final RSNaturalMobSpawningConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningConfig.class);
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
-
-    public static boolean yungsBetterMineshaftIsOn = true;
-    public static boolean yungsBetterDungeonsIsOn = true;
-    public static boolean isCharmOn = false;
-    public static boolean isCavesAndCliffsBackportOn = false;
 
     public RepurposedStructures() {
 
@@ -125,50 +114,24 @@ public class RepurposedStructures {
         forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
         forgeBus.addListener(MobMapTrades::onWandererTradesEvent);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
-        //GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
+        // GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
-        if(DataGenerators.datagenLootTableModeOn) modEventBus.addListener(DataGenerators::gatherData);
         modEventBus.addListener(this::setup);
         RSFeatures.FEATURES.register(modEventBus);
         RSStructures.STRUCTURE_FEATURES.register(modEventBus);
-        RSPlacements.DECORATORS.register(modEventBus);
         RSGlobalLootModifier.GLM.register(modEventBus);
 
         //For mod compat by checking if other mod is on
-        yungsBetterMineshaftIsOn = ModList.get().isLoaded("bettermineshafts");
-        yungsBetterDungeonsIsOn = ModList.get().isLoaded("betterdungeons");
-        isCharmOn = ModList.get().isLoaded("charm");
-
-        // CCB added mineshafts that replaces vanilla's. We do not want to remove the vanilla mineshafts ourselves.
-        if(ModList.get().isLoaded("cavesandcliffs")) {
-            ArtifactVersion modVersion = ModList.get().getModContainerById("cavesandcliffs").get().getModInfo().getVersion();
-            if(modVersion.compareTo(new DefaultArtifactVersion("1.16.5-7.1.0")) > 0) {
-                isCavesAndCliffsBackportOn = true;
-            }
-        }
-        
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
-        BiomeSourceChecks.hexlandsiiIsOn = ModList.get().isLoaded("hexlands");
-
-        // Silences logspam due to me changing my piece's namespace from minecraft to my modid.
-        Logger rootLogger = LogManager.getRootLogger();
-        if (rootLogger instanceof org.apache.logging.log4j.core.Logger) {
-            ((org.apache.logging.log4j.core.Logger) rootLogger).addFilter(new LogSpamFiltering());
-        }
-        else {
-            LOGGER.error("Registration failed with unexpected class: {}", rootLogger.getClass());
-        }
-
     }
 
     public void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            //Moved the methods below into enqueue to make sure they dont cause issues during registration - andrew
-            StructurePiecesBehavior.init();
             RSProcessors.registerProcessors();
             RSPredicates.registerPredicates();
-            RSNumberProviders.registerNumberProviders();
+            RSPlacements.registerPlacements();
             RSConfiguredFeatures.registerConfiguredFeatures();
+            RSConfiguredFeatures.registerPlacedFeatures();
             RSStructures.setupStructures();
             RSConfiguredStructures.registerStructureFeatures();
             RSStructureTagMap.setupTags();
@@ -178,10 +141,10 @@ public class RepurposedStructures {
             MobSpawningOverTime.setupMobSpawningMaps();
 
             // Workaround for Terraforged
-            WorldGenRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
-                Map<Structure<?>, StructureSeparationSettings> structureMap = settings.getValue().structureSettings().structureConfig();
+            BuiltinRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
+                Map<StructureFeature<?>, StructureFeatureConfiguration> structureMap = settings.getValue().structureSettings().structureConfig();
                 if (structureMap instanceof ImmutableMap) {
-                    Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(structureMap);
+                    Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(structureMap);
                     tempMap.putAll(RSStructures.RS_STRUCTURES);
                     settings.getValue().structureSettings().structureConfig = tempMap;
                 }
@@ -207,39 +170,35 @@ public class RepurposedStructures {
      * and could break a potential future Forge PR that is currently being worked on.
      */
     public void deepCopyDimensionalSpacing(final WorldEvent.Load event) {
-        if (event.getWorld() instanceof ServerWorld) {
-            ServerWorld serverWorld = (ServerWorld) event.getWorld();
-
+        if (event.getWorld() instanceof ServerLevel serverLevel) {
             // Workaround for Terraforged
-            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).repurposedstructures_getCodec());
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverLevel.getChunkSource().getGenerator()).repurposedstructures_getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
-
-            ChunkGenerator chunkGenerator = serverWorld.getChunkSource().generator;
+            ChunkGenerator chunkGenerator = serverLevel.getChunkSource().getGenerator();
             ((ChunkGeneratorAccessor) chunkGenerator).repurposedstructures_setSettings(NoiseSettingsDeepCopier.deepCopyDimensionStructuresSettings(chunkGenerator.getSettings()));
         }
     }
 
     public void addDimensionalSpacing(final WorldEvent.Load event) {
         //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-        if (event.getWorld() instanceof ServerWorld) {
-            ServerWorld serverWorld = (ServerWorld) event.getWorld();
+        if (event.getWorld() instanceof ServerLevel serverLevel) {
 
             // Workaround for Terraforged
-            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverWorld.getChunkSource().generator).repurposedstructures_getCodec());
+            ResourceLocation cgRL = Registry.CHUNK_GENERATOR.getKey(((ChunkGeneratorAccessor) serverLevel.getChunkSource().getGenerator()).repurposedstructures_getCodec());
             if (cgRL != null && cgRL.getNamespace().equals("terraforged")) return;
 
             //add our structure spacing to all chunkgenerators including modded one and datapack ones.
             // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-            Map<Structure<?>, StructureSeparationSettings> tempMap = new HashMap<>(serverWorld.getChunkSource().getGenerator().getSettings().structureConfig());
+            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(serverLevel.getChunkSource().getGenerator().getSettings().structureConfig());
 
             // make absolutely sure superflat dimension cannot spawn RS structures
-            if (serverWorld.getChunkSource().getGenerator() instanceof FlatChunkGenerator && serverWorld.dimension().equals(World.OVERWORLD)) {
+            if (serverLevel.getChunkSource().getGenerator() instanceof FlatLevelSource && serverLevel.dimension().equals(Level.OVERWORLD)) {
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
             // Not superflat overworld. Do normal behavior now
             else{
-                for(Map.Entry<Structure<?>, StructureSeparationSettings> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
-                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
+                for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
+                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverLevel, ForgeRegistries.STRUCTURE_FEATURES.getKey(structureFeatureEntry.getKey()));
                     if (isWorldBlacklisted){
                         // make absolutely sure dimension cannot spawn the RS structure
                         tempMap.remove(structureFeatureEntry.getKey());
@@ -250,7 +209,7 @@ public class RepurposedStructures {
                     }
                 }
             }
-            serverWorld.getChunkSource().generator.getSettings().structureConfig = tempMap;
+            serverLevel.getChunkSource().getGenerator().getSettings().structureConfig = tempMap;
         }
     }
 

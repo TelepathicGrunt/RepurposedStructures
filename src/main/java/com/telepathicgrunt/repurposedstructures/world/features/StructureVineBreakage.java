@@ -2,18 +2,16 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.VineBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.VineBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.material.Material;
 
-import java.util.Random;
 import java.util.function.Predicate;
 
 
@@ -39,39 +37,39 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetAndLengthConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
-                    random.nextInt(5) - 1,
-                    random.nextInt(7) - 3
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
+                    context.random().nextInt(5) - 1,
+                    context.random().nextInt(7) - 3
             );
 
-            if(!FORTRESS_BLOCKS.test(world.getBlockState(mutable)) || !world.isEmptyBlock(mutable.below())){
+            if(!FORTRESS_BLOCKS.test(context.level().getBlockState(mutable)) || !context.level().isEmptyBlock(mutable.below())) {
                 continue;
             }
 
             // create hole in fortress block for vine
-            world.setBlock(mutable, Blocks.CAVE_AIR.defaultBlockState(), 3);
-            BlockPos.Mutable vineMutablePos = new BlockPos.Mutable().set(mutable);
-            BlockState neighboringBlock = world.getBlockState(vineMutablePos);
+            context.level().setBlock(mutable, Blocks.CAVE_AIR.defaultBlockState(), 3);
+            BlockPos.MutableBlockPos vineMutablePos = new BlockPos.MutableBlockPos().set(mutable);
+            BlockState neighboringBlock = context.level().getBlockState(vineMutablePos);
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 vineMutablePos.set(mutable).move(direction);
                 // no floating vines
-                while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT){
-                    world.setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
-                    neighboringBlock = world.getBlockState(vineMutablePos.move(Direction.DOWN));
+                while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT) {
+                    context.level().setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
+                    neighboringBlock = context.level().getBlockState(vineMutablePos.move(Direction.DOWN));
                 }
             }
 
-            BlockPos.Mutable replacingPlantMutable = new BlockPos.Mutable().set(mutable);
-            BlockState plantState = world.getBlockState(replacingPlantMutable.move(Direction.UP));
-            while(plantState.getMaterial() == Material.REPLACEABLE_PLANT){
-                world.setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
-                plantState = world.getBlockState(replacingPlantMutable.move(Direction.UP));
+            BlockPos.MutableBlockPos replacingPlantMutable = new BlockPos.MutableBlockPos().set(mutable);
+            BlockState plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
+            while(plantState.getMaterial() == Material.REPLACEABLE_PLANT) {
+                context.level().setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
+                plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
             }
 
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
@@ -79,13 +77,12 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             ChunkPos currentChunkPos = new ChunkPos(vineMutablePos);
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
-
             // Biased towards max length
-            int maxLength = config.length - random.nextInt(random.nextInt(config.length) + 1);
+            int maxLength = context.config().length - context.random().nextInt(context.random().nextInt(context.config().length) + 1);
             int targetY = vineMutablePos.getY() - maxLength;
 
             for (; vineMutablePos.getY() >= targetY; vineMutablePos.move(Direction.DOWN)) {
-                if (world.isEmptyBlock(vineMutablePos)) {
+                if (context.level().isEmptyBlock(vineMutablePos)) {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
                         ChunkPos newChunkPos = new ChunkPos(mutable);
@@ -93,16 +90,16 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
                         if(newChunkPos.x != currentChunkPos.x || newChunkPos.z != currentChunkPos.z) continue;
 
                         currentBlockstate = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction), Boolean.TRUE);
-                        aboveBlockstate = world.getBlockState(vineMutablePos.above());
+                        aboveBlockstate = context.level().getBlockState(vineMutablePos.above());
 
-                        if (currentBlockstate.canSurvive(world, vineMutablePos)) {
+                        if (currentBlockstate.canSurvive(context.level(), vineMutablePos) && context.level().getBlockState(vineMutablePos.relative(direction)).getBlock() != Blocks.MOSS_CARPET) {
                             //places topmost vine that can face upward
-                            world.setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
+                            context.level().setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
                             break;
                         }
                         else if (aboveBlockstate.is(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
-                            world.setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
+                            context.level().setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
                             break;
                         }
                     }

@@ -3,6 +3,8 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
@@ -10,11 +12,11 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class RSFeatures {
 	private RSFeatures() {}
@@ -40,13 +42,13 @@ public final class RSFeatures {
 	public static final RegistryObject<Feature<NbtFeatureConfig>> FOREST_WELL = FEATURES.register("well_forest", NbtFeature::new);
 	public static final RegistryObject<Feature<NbtFeatureConfig>> MUSHROOM_WELL = FEATURES.register("well_mushroom", NbtFeature::new);
 
-	public static final RegistryObject<Feature<NoFeatureConfig>> WITHER_SKELETON_WITH_BOW = FEATURES.register("wither_skeleton_with_bow", () -> new WitherSkeletonWithBow(NoFeatureConfig.CODEC));
-	public static final RegistryObject<Feature<NoFeatureConfig>> SHULKER_MOB = FEATURES.register("shulker_mob", () -> new ShulkerMob(NoFeatureConfig.CODEC));
-	public static final RegistryObject<Feature<NoFeatureConfig>> DROWNED_WITH_ARMOR = FEATURES.register("drowned_with_armor", DrownedWithArmor::new);
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> WITHER_SKELETON_WITH_BOW = FEATURES.register("wither_skeleton_with_bow", WitherSkeletonWithBow::new);
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> SHULKER_MOB = FEATURES.register("shulker_mob", ShulkerMob::new);
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> DROWNED_WITH_ARMOR = FEATURES.register("drowned_with_armor", DrownedWithArmor::new);
 	public static final RegistryObject<Feature<GenericMobConfig>> SKELETON = FEATURES.register("skeleton", Skeletons::new);
 	public static final RegistryObject<Feature<GenericMobConfig>> SKELETON_HORSEMAN = FEATURES.register("skeleton_horseman", SkeletonHorseman::new);
 
-	public static final RegistryObject<Feature<NoFeatureConfig>> POST_PROCESS_CONNECTING_BLOCKS = FEATURES.register("post_process_connecting_blocks", StructurePostProcessConnectiveBlocks::new);
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> POST_PROCESS_CONNECTING_BLOCKS = FEATURES.register("post_process_connecting_blocks", StructurePostProcessConnectiveBlocks::new);
 	public static final RegistryObject<Feature<StructureTargetChanceConfig>> STRUCTURE_BREAKAGE = FEATURES.register("structure_breakage", () -> new StructureBreakage(StructureTargetChanceConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetConfig>> STRUCTURE_CHAINS = FEATURES.register("structure_chains", () -> new StructureChains(StructureTargetConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetConfig>> STRUCTURE_END_ROD_CHAINS = FEATURES.register("structure_end_rod_chains", () -> new StructureEndRodChains(StructureTargetConfig.CODEC));
@@ -61,4 +63,7 @@ public final class RSFeatures {
 	public static final RegistryObject<Feature<StructureTargetAndLengthConfig>> STRUCTURE_VINE_BREAKAGE = FEATURES.register("structure_vine_breakage", () -> new StructureVineBreakage(StructureTargetAndLengthConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetAndRangeConfig>> STRUCTURE_GRASS = FEATURES.register("structure_grass", () -> new StructureGrass(StructureTargetAndRangeConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetAndRangeConfig>> STRUCTURE_FLOWERS = FEATURES.register("structure_flowers", () -> new StructureFlowers(StructureTargetAndRangeConfig.CODEC));
+
+	public static final RegistryObject<Feature<MinecartConfig>> MINESHAFT_MINECARTS = FEATURES.register("mineshaft_minecarts", () -> new MinecartFeature(MinecartConfig.CODEC));
+	public static final RegistryObject<Feature<MineshaftSupportConfig>> MINESHAFT_SUPPORTS = FEATURES.register("mineshaft_supports", () -> new MineshaftSupport(MineshaftSupportConfig.CODEC));
 }

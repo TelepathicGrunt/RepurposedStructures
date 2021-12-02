@@ -4,11 +4,12 @@ import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.Util;
-import net.minecraft.world.gen.feature.template.IRuleTestType;
-import net.minecraft.world.gen.feature.template.RuleTest;
+import net.minecraft.Util;
+import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
 
 import java.util.Locale;
 import java.util.Map;
@@ -16,8 +17,8 @@ import java.util.Random;
 
 public class MatterPhaseRuleTest extends RuleTest {
     public static final Codec<MatterPhaseRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            IStringSerializable.fromEnum(MATTER_PHASE::values, MATTER_PHASE::byName).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
-            Codec.BOOL.fieldOf("invert_condition").forGetter((ruletest) -> ruletest.invertCondition))
+            StringRepresentable.fromEnum(MATTER_PHASE::values, MATTER_PHASE::byName).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
+            Codec.BOOL.fieldOf("invert_condition").orElse(false).forGetter((ruletest) -> ruletest.invertCondition))
             .apply(instance, instance.stable(MatterPhaseRuleTest::new)));
 
     private final MATTER_PHASE phaseToTestFor;
@@ -31,7 +32,7 @@ public class MatterPhaseRuleTest extends RuleTest {
     public boolean test(BlockState state, Random random) {
         boolean phaseMatch = false;
 
-        switch(phaseToTestFor){
+        switch(phaseToTestFor) {
             case AIR:
                 if(state.isAir()) phaseMatch = true;
                 break;
@@ -41,24 +42,28 @@ public class MatterPhaseRuleTest extends RuleTest {
             case SOLID:
                 if(!state.isAir() && state.getFluidState().isEmpty() && state.canOcclude()) phaseMatch = true;
                 break;
+            case AIR_RAIL_OR_CHAIN:
+                if(state.isAir() || state.is(Blocks.CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
+                break;
         }
 
-        if(invertCondition){
+        if(invertCondition) {
             phaseMatch = !phaseMatch;
         }
 
         return phaseMatch;
     }
 
-    protected IRuleTestType<?> getType() {
+    protected RuleTestType<?> getType() {
         return RSPredicates.MATTER_PHASE_RULE_TEST;
     }
 
 
-    public enum MATTER_PHASE implements IStringSerializable {
+    public enum MATTER_PHASE implements StringRepresentable {
         SOLID("SOLID"),
         LIQUID("LIQUID"),
-        AIR("AIR");
+        AIR("AIR"),
+        AIR_RAIL_OR_CHAIN("AIR_RAIL_OR_CHAIN");
 
         private final String name;
 

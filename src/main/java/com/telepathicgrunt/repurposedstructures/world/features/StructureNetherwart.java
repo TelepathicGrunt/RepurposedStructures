@@ -2,15 +2,12 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.NetherWartBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.NetherWartBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
 public class StructureNetherwart extends Feature<StructureTargetConfig> {
@@ -21,20 +18,22 @@ public class StructureNetherwart extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState netherwart = Blocks.NETHER_WART.defaultBlockState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(10) - 5,
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(10) - 5,
                     -1,
-                    random.nextInt(10) - 5
+                    context.random().nextInt(10) - 5
             );
 
-            if(netherwart.canSurvive(world, mutable)){
-                world.setBlock(mutable, netherwart.setValue(NetherWartBlock.AGE, random.nextInt(4)), 3);
+            if(netherwart.canSurvive(context.level(), mutable)) {
+                
+
+                context.level().setBlock(mutable, netherwart.setValue(NetherWartBlock.AGE, context.random().nextInt(4)), 3);
             }
         }
 

@@ -2,57 +2,59 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.EndRodBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.state.properties.SlabType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.EndRodBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
-import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 
 public class StructureEndRodChains extends Feature<StructureTargetConfig> {
 
-    private static final Set<Block> ALLOWED_ATTACHEMENT_BLOCKS = new HashSet<Block>(){{
-        add(Blocks.CHAIN);
-        add(Blocks.OBSIDIAN);
-        add(Blocks.CRYING_OBSIDIAN);
-        add(Blocks.PURPUR_BLOCK);
-        add(Blocks.PURPUR_PILLAR);
-        add(Blocks.PURPUR_SLAB);
-        add(Blocks.PURPUR_STAIRS);
-    }};
+    private static final Set<Block> ALLOWED_ATTACHEMENT_BLOCKS = Set.of(
+            Blocks.CHAIN,
+            Blocks.OBSIDIAN,
+            Blocks.CRYING_OBSIDIAN,
+            Blocks.PURPUR_BLOCK,
+            Blocks.PURPUR_PILLAR,
+            Blocks.PURPUR_SLAB,
+            Blocks.PURPUR_STAIRS);
 
     public StructureEndRodChains(Codec<StructureTargetConfig> config) {
         super(config);
     }
 
-
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        WorldGenLevel world = context.level();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.random().nextInt(7) - 3
             );
+
+            if(!world.getBlockState(mutable).isAir()) {
+                continue;
+            }
+
             // generates chains from given position down 1-8 blocks if path is clear and the given position is valid
             int length = 0;
             BlockState belowBlockstate;
             boolean exitEarly = false;
 
-            for (; mutable.getY() < world.getMaxBuildHeight() - 3 && length < random.nextInt(random.nextInt(random.nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
+            for (; mutable.getY() < world.getMaxBuildHeight() - 3 && length < context.random().nextInt(context.random().nextInt(context.random().nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
                 if (world.isEmptyBlock(mutable)) {
                     belowBlockstate = world.getBlockState(mutable.below());
                     Block belowBlock = belowBlockstate.getBlock();
@@ -72,11 +74,11 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
 
             if(exitEarly) continue;
 
-            //attaches End Rod at a decent chance
+            //attaches end rod at end at a decent chance
             if(mutable.getY() != world.getMaxBuildHeight() - 3 &&
-                    random.nextFloat() < 0.475f &&
-                    world.isEmptyBlock(mutable.above()) &&
-                    world.isEmptyBlock(mutable))
+                context.random().nextFloat() < 0.475f &&
+                world.isEmptyBlock(mutable.above()) &&
+                world.isEmptyBlock(mutable))
             {
                 world.setBlock(mutable, Blocks.END_ROD.defaultBlockState().setValue(EndRodBlock.FACING, Direction.UP), 2);
             }

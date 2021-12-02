@@ -2,29 +2,27 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 
 public class StructureFire extends Feature<StructureTargetConfig> {
 
-    private static final Map<RegistryKey<World>, ITag.INamedTag<Block>> INFINITE_FIRE_BLOCKS = new HashMap<RegistryKey<World>, ITag.INamedTag<Block>>() {{
-        put(World.OVERWORLD, BlockTags.INFINIBURN_OVERWORLD);
-        put(World.NETHER, BlockTags.INFINIBURN_NETHER);
-        put(World.END, BlockTags.INFINIBURN_END);
+    private static final Map<ResourceKey<Level>, Tag<Block>> INFINITE_FIRE_BLOCKS = new HashMap<>() {{
+        put(Level.OVERWORLD, BlockTags.INFINIBURN_OVERWORLD);
+        put(Level.NETHER, BlockTags.INFINIBURN_NETHER);
+        put(Level.END, BlockTags.INFINIBURN_END);
     }};
 
     public StructureFire(Codec<StructureTargetConfig> config) {
@@ -32,26 +30,27 @@ public class StructureFire extends Feature<StructureTargetConfig> {
     }
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState fire = Blocks.FIRE.defaultBlockState();
-        ITag.INamedTag<Block> infiniteBurningBlocks = INFINITE_FIRE_BLOCKS.getOrDefault(world.getLevel().dimension(), BlockTags.INFINIBURN_OVERWORLD);
+        Tag<Block> infiniteBurningBlocks = INFINITE_FIRE_BLOCKS.getOrDefault(context.level().getLevel().dimension(), BlockTags.INFINIBURN_OVERWORLD);
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.random().nextInt(7) - 3
             );
 
-            Block belowBlock = world.getBlockState(mutable.below()).getBlock();
-            if(world.getBlockState(mutable).isAir() && (belowBlock.is(Blocks.NETHER_BRICKS) || infiniteBurningBlocks.contains(belowBlock))){
-                if(belowBlock.is(Blocks.NETHER_BRICKS)){
-                    world.setBlock(mutable.below(), Blocks.NETHERRACK.defaultBlockState(), 3);
+            Block belowBlock = context.level().getBlockState(mutable.below()).getBlock();
+            if(context.level().getBlockState(mutable).isAir() && (belowBlock == Blocks.NETHER_BRICKS || infiniteBurningBlocks.contains(belowBlock))) {
+
+                if(belowBlock == Blocks.NETHER_BRICKS) {
+                    context.level().setBlock(mutable.below(), Blocks.NETHERRACK.defaultBlockState(), 3);
                 }
 
-                world.setBlock(mutable, fire, 3);
+                context.level().setBlock(mutable, fire, 3);
             }
         }
 

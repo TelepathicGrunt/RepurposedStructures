@@ -1,124 +1,99 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.SectionPos;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.chunk.ChunkStatus;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructureManager;
-import net.minecraft.world.gen.feature.structure.StructureStart;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.util.Lazy;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.Mutable;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class MineshaftStructure extends AdvancedJigsawStructure {
 
-    protected final Lazy<Double> probability;
-
-    public MineshaftStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
-                              Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
-                              Lazy<Integer> verticalRange, Lazy<Double> probability)
-    {
-        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange);
-        this.probability = probability;
+    public MineshaftStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    public BlockPos getNearestGeneratedFeature(IWorldReader world, StructureManager structureAccessor, BlockPos searchStartPos, int searchRadius, boolean skipExistingChunks, long worldSeed, StructureSeparationSettings config) {
-        return MineshaftStructure.locateStructureFast(world, structureAccessor, searchStartPos, searchRadius, skipExistingChunks, worldSeed, config, this, this.probability.get());
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static MineshaftStructure create(MineshaftCodeConfig mineshaftCodeConfig) {
+        final Mutable<MineshaftStructure> box = new Mutable<>();
+        final MineshaftStructure finalInstance = new MineshaftStructure(
+                (context) -> box.getValue().isFeatureChunk(context, mineshaftCodeConfig),
+                (context) -> box.getValue().generatePieces(context, mineshaftCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
     }
 
-    public static <C extends IFeatureConfig> BlockPos locateStructureFast(IWorldReader worldView, StructureManager structureAccessor, BlockPos blockPos, int radius, boolean skipExistingChunks, long seed, StructureSeparationSettings structureConfig, Structure<C> structure, double probability) {
-        int spacing = structureConfig.spacing();
-        int chunkX = blockPos.getX() >> 4;
-        int chunkZ = blockPos.getZ() >> 4;
-        int currentRadius = 0;
-        SharedSeedRandom msRandom = new SharedSeedRandom();
-
-        for(SharedSeedRandom chunkRandom = new SharedSeedRandom(); currentRadius <= 100000; ++currentRadius) {
-            for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
-                boolean xEdge = xRadius == -currentRadius || xRadius == currentRadius;
-
-                for(int zRadius = -currentRadius; zRadius <= currentRadius; ++zRadius) {
-                    boolean zEdge = zRadius == -currentRadius || zRadius == currentRadius;
-                    if (xEdge || zEdge) {
-                        int trueChunkX = chunkX + spacing * xRadius;
-                        int trueChunkZ = chunkZ + spacing * zRadius;
-                        ChunkPos chunkPos = structure.getPotentialFeatureChunk(structureConfig, seed, chunkRandom, trueChunkX, trueChunkZ);
-
-                        // Speedup for mineshafts by checking probability chance before getChunk or grabbing biome.
-                        msRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkPos.x, chunkPos.z);
-                        double d = (probability / 10000D);
-                        if(msRandom.nextDouble() < d && worldView.getNoiseBiome((chunkPos.x << 2) + 2, 60, (chunkPos.z << 2) + 2).getGenerationSettings().isValidStart(structure)) {
-
-                            IChunk chunk = worldView.getChunk(chunkPos.x, chunkPos.z, ChunkStatus.STRUCTURE_STARTS);
-                            StructureStart<?> structureStart = structureAccessor.getStartForFeature(SectionPos.of(chunk.getPos(), 0), structure, chunk);
-                            if (structureStart != null && structureStart.isValid()) {
-                                if (skipExistingChunks && structureStart.canBeReferenced()) {
-                                    structureStart.addReference();
-                                    return structureStart.getLocatePos();
-                                }
-
-                                if (!skipExistingChunks) {
-                                    return structureStart.getLocatePos();
-                                }
-                            }
-                        }
-                    }
-                    else{
-                        zRadius = currentRadius - 1;
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
-
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        StructureSeparationSettings structureConfig = chunkGenerator.getSettings().getConfig(this);
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {
+        StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(this);
         if(structureConfig != null) {
-            chunkRandom.setLargeFeatureSeed(seed + structureConfig.salt(), chunkX, chunkZ);
-            double d = (this.probability.get() / 10000D);
-            return chunkRandom.nextDouble() < d;
+            WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+            random.setLargeFeatureSeed(context.seed() + structureConfig.salt(), context.chunkPos().x, context.chunkPos().z);
+            double d = (config.probability.get() / 10000D);
+            return random.nextDouble() < d;
         }
         return false;
     }
 
-    public static class Builder<T extends Builder<T>> extends AdvancedJigsawStructure.Builder<T> {
+    @Override
+    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedJigsawStructureCodeConfig config) {
+        BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
+        if(config.maxY.get() - config.minY.get() <= 0) {
+            RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this));
+        }
+        WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        int structureStartHeight = random.nextInt(config.maxY.get() - config.minY.get()) + config.minY.get();
+        blockpos.move(Direction.UP, structureStartHeight);
 
-        protected Lazy<Double> probability = Lazy.of(() -> 0.01D);
-
-        public Builder(ResourceLocation startPool) {
-            super(startPool);
+        int topClipOff;
+        int bottomClipOff;
+        if(config.verticalRange == null) {
+            // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or topYLimit
+            topClipOff = config.clipOutOfBoundsPieces ? config.maxY.get() + 5 : Integer.MAX_VALUE;
+            bottomClipOff = config.clipOutOfBoundsPieces ? config.minY.get() - 5 : Integer.MIN_VALUE;
+        }
+        else {
+            topClipOff = structureStartHeight + config.verticalRange.get();
+            bottomClipOff = structureStartHeight - config.verticalRange.get();
         }
 
-        public T setProbability(ForgeConfigSpec.DoubleValue probability){
-            this.probability = Lazy.of(probability::get);
-            return getThis();
-        }
-
-        public MineshaftStructure build() {
-            return new MineshaftStructure(
-                    startPool,
-                    structureSize,
-                    biomeRange,
-                    maxY,
-                    minY,
-                    clipOutOfBoundsPieces,
-                    verticalRange,
-                    probability);
-        }
+        ResourceLocation structureID = ForgeRegistries.STRUCTURE_FEATURES.getKey(this);
+        return PieceLimitedJigsawManager.assembleJigsawStructure(
+                context,
+                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize.get()),
+                structureID,
+                blockpos,
+                false,
+                false,
+                topClipOff,
+                bottomClipOff,
+                (structurePiecesBuilder, pieces) -> {
+                    int xPos = context.chunkPos().getMiddleBlockX();
+                    int zPos = context.chunkPos().getMiddleBlockZ();
+                    int justBelowTerrain = context.chunkGenerator().getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()) - 15;
+                    int finalJustBelowTerrain = Math.max(justBelowTerrain, bottomClipOff);
+                    int currentHeight = pieces.get(0).getBoundingBox().minY();
+                    if(finalJustBelowTerrain < topClipOff && finalJustBelowTerrain < currentHeight) {
+                        pieces.forEach(piece -> piece.move(0, finalJustBelowTerrain - currentHeight, 0));
+                    }
+                });
     }
 }

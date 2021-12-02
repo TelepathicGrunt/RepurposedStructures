@@ -1,72 +1,66 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.vector.Vector3f;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraftforge.common.util.Lazy;
+import com.mojang.math.Vector3f;
+import com.telepathicgrunt.repurposedstructures.utils.Mutable;
+import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedDistanceJigsawStructureCodeConfig;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
 
-    public StrongholdEndStructure(ResourceLocation poolID, Lazy<Integer> structureSize, int biomeRange,
-                                  Lazy<Integer> maxY, Lazy<Integer> minY, boolean clipOutOfBoundsPieces,
-                                  Lazy<Integer> verticalRange, int distanceFromWorldOrigin)
-    {
-        super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange, distanceFromWorldOrigin);
+    public StrongholdEndStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
+        super(locationCheckPredicate, pieceCreationPredicate);
     }
 
-    @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGenerator, BiomeProvider biomeSource, long seed, SharedSeedRandom chunkRandom, int chunkX, int chunkZ, Biome biome, ChunkPos chunkPos, NoFeatureConfig featureConfig) {
-        boolean superCheck = super.isFeatureChunk(chunkGenerator, biomeSource, seed, chunkRandom, chunkX, chunkZ, biome, chunkPos, featureConfig);
+    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
+    public static StrongholdEndStructure create(AdvancedDistanceJigsawStructureCodeConfig advancedDistanceJigsawStructureCodeConfig) {
+        final Mutable<StrongholdEndStructure> box = new Mutable<>();
+        final StrongholdEndStructure finalInstance = new StrongholdEndStructure(
+                (context) -> box.getValue().isFeatureChunk(context, advancedDistanceJigsawStructureCodeConfig),
+                (context) -> box.getValue().generatePieces(context, advancedDistanceJigsawStructureCodeConfig)
+        );
+        box.setValue(finalInstance);
+        return finalInstance;
+    }
+
+
+    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedDistanceJigsawStructureCodeConfig config) {
+        boolean superCheck = super.isFeatureChunk(context, config);
         if(!superCheck)
             return false;
 
-        int minLandHeight = Math.min(chunkGenerator.getGenDepth(), 45);
-        int xPos = chunkX * 16;
-        int zPos = chunkZ * 16;
+        ChunkPos chunkPos = context.chunkPos();
+        int minLandHeight = Math.min(context.chunkGenerator().getGenDepth(), context.chunkGenerator().getMinY() + 45);
+        int xPos = chunkPos.getMinBlockX();
+        int zPos = chunkPos.getMinBlockZ();
         int landHeight = Integer.MAX_VALUE;
 
-        for(int i = 2; i >= 1; i--){
-            for(Direction direction : Direction.Plane.HORIZONTAL){
-                Vector3f offsetPos = new Vector3f(direction.getStepX(), 0, direction.getStepZ());
-                offsetPos = new Vector3f(offsetPos.x() * 35f * i, 0, offsetPos.z() * 35f * i);
-                landHeight = getHeightAt(chunkGenerator, xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
+        for(int i = 2; i >= 1; i--) {
+            for(Direction direction : Direction.Plane.HORIZONTAL) {
+                Vector3f offsetPos = direction.step();
+                offsetPos.mul(35f * i);
+                landHeight = getHeightAt(context.chunkGenerator(), context.heightAccessor(), xPos + (int)offsetPos.x(), zPos + (int)offsetPos.z(), landHeight);
                 if(landHeight < minLandHeight) return false;
             }
         }
 
-        landHeight = getHeightAt(chunkGenerator, xPos, zPos, landHeight);
+        landHeight = getHeightAt(context.chunkGenerator(), context.heightAccessor(), xPos, zPos, landHeight);
         return landHeight >= minLandHeight;
     }
 
-    private int getHeightAt(ChunkGenerator chunkGenerator, int xPos, int zPos, int landHeight) {
-        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Type.WORLD_SURFACE_WG));
+    private int getHeightAt(ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView, int xPos, int zPos, int landHeight) {
+        landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
         return landHeight;
-    }
-
-    public static class Builder<T extends StrongholdEndStructure.Builder<T>> extends AdvancedDistanceJigsawStructure.Builder<T> {
-
-        public Builder(ResourceLocation startPool) {
-            super(startPool);
-        }
-
-        public StrongholdEndStructure build() {
-            return new StrongholdEndStructure(
-                    startPool,
-                    structureSize,
-                    biomeRange,
-                    maxY,
-                    minY,
-                    clipOutOfBoundsPieces,
-                    verticalRange,
-                    distanceFromWorldOrigin);
-        }
     }
 }

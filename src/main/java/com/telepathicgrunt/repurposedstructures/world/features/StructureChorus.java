@@ -2,18 +2,15 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ChorusFlowerBlock;
-import net.minecraft.block.ChorusPlantBlock;
-import net.minecraft.block.SixWayBlock;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChorusFlowerBlock;
+import net.minecraft.world.level.block.ChorusPlantBlock;
+import net.minecraft.world.level.block.PipeBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
 public class StructureChorus extends Feature<StructureTargetConfig> {
@@ -24,33 +21,35 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState chorusFlower = Blocks.CHORUS_FLOWER.defaultBlockState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.random().nextInt(7) - 3
             );
 
-            if(world.getBlockState(mutable).isAir() && world.getBlockState(mutable.above()).isAir() && world.getBlockState(mutable.move(Direction.DOWN)).canOcclude()){
-                world.setBlock(mutable, Blocks.END_STONE.defaultBlockState(), 3);
-                if(random.nextFloat() < 0.33f){
-                    world.setBlock(
+            if(context.level().getBlockState(mutable).isAir() && context.level().getBlockState(mutable.above()).isAir() && context.level().getBlockState(mutable.move(Direction.DOWN)).canOcclude()) {
+                
+
+                context.level().setBlock(mutable, Blocks.END_STONE.defaultBlockState(), 3);
+                if(context.random().nextFloat() < 0.33f) {
+                    context.level().setBlock(
                             mutable.move(Direction.UP),
-                            chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - random.nextInt(random.nextInt(6) + 1)),
+                            chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - context.random().nextInt(context.random().nextInt(6) + 1)),
                             3);
                     continue;
                 }
 
                 // check to make sure this chorus stem can be placed
                 boolean isValidSpot = true;
-                for(Direction direction : Direction.Plane.HORIZONTAL){
+                for(Direction direction : Direction.Plane.HORIZONTAL) {
                     mutable.move(direction);
-                    if(world.getBlockState(mutable).is(Blocks.CHORUS_PLANT)){
+                    if(context.level().getBlockState(mutable).is(Blocks.CHORUS_PLANT)) {
                         isValidSpot = false;
                         break;
                     }
@@ -59,28 +58,28 @@ public class StructureChorus extends Feature<StructureTargetConfig> {
                 if(!isValidSpot) continue;
 
                 mutable.move(Direction.UP);
-                world.setBlock(mutable,
+                context.level().setBlock(mutable,
                         Blocks.CHORUS_PLANT.defaultBlockState()
                                 .setValue(ChorusPlantBlock.DOWN, true)
                                 .setValue(ChorusPlantBlock.UP, true),
                         3);
 
-                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-                if(random.nextFloat() < 0.33f || !world.getBlockState(mutable.relative(direction)).isAir()) {
-                    world.setBlock(
+                Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(context.random());
+                if(context.random().nextFloat() < 0.33f || !context.level().getBlockState(mutable.relative(direction)).isAir()) {
+                    context.level().setBlock(
                             mutable.move(Direction.UP),
-                            chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - random.nextInt(random.nextInt(6) + 1)),
+                            chorusFlower.setValue(ChorusFlowerBlock.AGE, 5 - context.random().nextInt(context.random().nextInt(6) + 1)),
                             3);
                     continue;
                 }
 
-                world.setBlock(mutable.move(Direction.UP),
+                context.level().setBlock(mutable.move(Direction.UP),
                         Blocks.CHORUS_PLANT.defaultBlockState()
                             .setValue(ChorusPlantBlock.DOWN, true)
-                            .setValue(SixWayBlock.PROPERTY_BY_DIRECTION.get(direction), true),
+                            .setValue(PipeBlock.PROPERTY_BY_DIRECTION.get(direction), true),
                         3);
 
-                world.setBlock(mutable.move(direction), chorusFlower.setValue(ChorusFlowerBlock.AGE, random.nextInt(5)), 3);
+                context.level().setBlock(mutable.move(direction), chorusFlower.setValue(ChorusFlowerBlock.AGE, context.random().nextInt(5)), 3);
             }
         }
 

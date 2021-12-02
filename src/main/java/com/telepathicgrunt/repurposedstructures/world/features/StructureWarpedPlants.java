@@ -2,15 +2,12 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
 public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfig> {
@@ -21,41 +18,45 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetAndLengthConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetAndLengthConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState netherSprouts = Blocks.NETHER_SPROUTS.defaultBlockState();
         BlockState twistingFungus = Blocks.WARPED_FUNGUS.defaultBlockState();
         BlockState twistingRoots = Blocks.WARPED_ROOTS.defaultBlockState();
         BlockState twistingVines = Blocks.TWISTING_VINES.defaultBlockState();
         BlockState twistingVinesPlant = Blocks.TWISTING_VINES_PLANT.defaultBlockState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.random().nextInt(7) - 3
             );
 
-            if(world.getBlockState(mutable).isAir()){
-                if(random.nextFloat() < 0.5f && netherSprouts.canSurvive(world, mutable)){
-                    world.setBlock(mutable, netherSprouts, 3);
+            if(context.level().getBlockState(mutable).isAir()) {
+                if(context.random().nextFloat() < 0.5f && netherSprouts.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, netherSprouts, 3);
                 }
-                else if(random.nextFloat() < 0.4f && twistingRoots.canSurvive(world, mutable)){
-                    world.setBlock(mutable, twistingRoots, 3);
+                else if(context.random().nextFloat() < 0.4f && twistingRoots.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, twistingRoots, 3);
                 }
-                else if(random.nextFloat() < 0.3f && twistingFungus.canSurvive(world, mutable)){
-                    world.setBlock(mutable, twistingFungus, 3);
+                else if(context.random().nextFloat() < 0.3f && twistingFungus.canSurvive(context.level(), mutable)) {
+
+                    context.level().setBlock(mutable, twistingFungus, 3);
                 }
-                else if(twistingVines.canSurvive(world, mutable)){
+                else if(twistingVines.canSurvive(context.level(), mutable)) {
+
                     // Biased towards max length if greater than 3
-                    int length = config.length > 3 ? config.length - random.nextInt(random.nextInt(config.length) + 1) : random.nextInt(config.length);
-                    for(int currentLength = 0; currentLength <= length; currentLength++){
-                        if(currentLength == length || !world.getBlockState(mutable.above()).isAir()){
-                            world.setBlock(mutable, twistingVines, 3);
+                    int length = context.config().length > 3 ? context.config().length - context.random().nextInt(context.random().nextInt(context.config().length) + 1) : context.random().nextInt(context.config().length);
+                    for(int currentLength = 0; currentLength <= length; currentLength++) {
+                        if(currentLength == length || !context.level().getBlockState(mutable.above()).isAir()) {
+                            context.level().setBlock(mutable, twistingVines, 3);
                             break;
                         }
-                        world.setBlock(mutable, twistingVinesPlant, 3);
+                        context.level().setBlock(mutable, twistingVinesPlant, 3);
                         mutable.move(Direction.UP);
                     }
                 }

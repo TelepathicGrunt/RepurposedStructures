@@ -1,39 +1,36 @@
 package com.telepathicgrunt.repurposedstructures.mixin.features;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.SectionPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.BasaltDeltasFeature;
-import net.minecraft.world.gen.feature.structure.BasaltDeltasStructure;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructureStart;
+import net.minecraft.core.SectionPos;
+import net.minecraft.world.level.levelgen.feature.DeltaFeature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.DeltaFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureStart;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Optional;
-import java.util.Random;
+import java.util.List;
 
 
-@Mixin(BasaltDeltasStructure.class)
+@Mixin(DeltaFeature.class)
 public class NoDeltasInStructuresMixin {
 
     @Inject(
-            method = "place(Lnet/minecraft/world/ISeedReader;Lnet/minecraft/world/gen/ChunkGenerator;Ljava/util/Random;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/gen/feature/BasaltDeltasFeature;)Z",
+            method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z",
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void repurposedstructures_noDeltasInStructures(ISeedReader serverWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, BasaltDeltasFeature config, CallbackInfoReturnable<Boolean> cir) {
-        SectionPos sectionPos = SectionPos.of(blockPos);
-        for (Structure<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_DELTAS)) {
-            Optional<? extends StructureStart<?>> structureStart = serverWorldAccess.startsForFeature(sectionPos, structure).findAny();
+    private void repurposedstructures_noDeltasInStructures(FeaturePlaceContext<DeltaFeatureConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
+        SectionPos sectionPos = SectionPos.of(context.origin());
+        for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_DELTAS)) {
+            List<? extends StructureStart<?>> structureStarts = context.level().startsForFeature(sectionPos, structure);
             boolean checkCenterOnly = RSStructureTagMap.TAGGED_STRUCTURES.get(structure).contains(RSStructureTagMap.STRUCTURE_TAGS.DELTA_CHECK_CENTER_PIECE);
-            if (structureStart.isPresent() && (checkCenterOnly ?
-                    structureStart.get().getPieces().get(0).getBoundingBox().isInside(blockPos) :
-                    structureStart.get().getPieces().stream().anyMatch(box -> box.getBoundingBox().isInside(blockPos))))
+            if (!structureStarts.isEmpty() && (checkCenterOnly ?
+                    structureStarts.stream().anyMatch(structureStart -> structureStart.getPieces().get(0).getBoundingBox().isInside(context.origin())) :
+                    structureStarts.stream().anyMatch(structureStart -> structureStart.getPieces().stream().anyMatch(box -> box.getBoundingBox().isInside(context.origin())))))
             {
                 cir.setReturnValue(false);
                 break;

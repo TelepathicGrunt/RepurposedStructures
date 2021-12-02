@@ -2,17 +2,14 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TallSeaGrassBlock;
-import net.minecraft.state.properties.DoubleBlockHalf;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-
-import java.util.Random;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.TallSeagrassBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
 public class StructureSeagrass extends Feature<StructureTargetConfig> {
@@ -23,29 +20,33 @@ public class StructureSeagrass extends Feature<StructureTargetConfig> {
 
 
     @Override
-    public boolean place(ISeedReader world, ChunkGenerator chunkGenerator, Random random, BlockPos position, StructureTargetConfig config) {
+    public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
 
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState tallSeagrass = Blocks.TALL_SEAGRASS.defaultBlockState();
         BlockState seagrass = Blocks.SEAGRASS.defaultBlockState();
 
-        for(int i = 0; i < config.attempts; i++){
-            mutable.set(position).move(
-                    random.nextInt(7) - 3,
+        for(int i = 0; i < context.config().attempts; i++) {
+            mutable.set(context.origin()).move(
+                    context.random().nextInt(7) - 3,
                     -1,
-                    random.nextInt(7) - 3
+                    context.random().nextInt(7) - 3
             );
 
-            boolean isWater = world.getBlockState(mutable).is(Blocks.WATER);
+            boolean isWater = context.level().getBlockState(mutable).is(Blocks.WATER);
             if(!isWater) continue;
 
-            boolean isWaterAbove = world.getBlockState(mutable.above()).is(Blocks.WATER);
-            if(isWaterAbove && random.nextFloat() < 0.33f && tallSeagrass.canSurvive(world, mutable)){
-                world.setBlock(mutable, tallSeagrass.setValue(TallSeaGrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                world.setBlock(mutable.move(Direction.UP), tallSeagrass.setValue(TallSeaGrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
+            boolean isWaterAbove = context.level().getBlockState(mutable.above()).is(Blocks.WATER);
+            if(isWaterAbove && context.random().nextFloat() < 0.33f && tallSeagrass.canSurvive(context.level(), mutable)) {
+                
+
+                context.level().setBlock(mutable, tallSeagrass.setValue(TallSeagrassBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                context.level().setBlock(mutable.move(Direction.UP), tallSeagrass.setValue(TallSeagrassBlock.HALF, DoubleBlockHalf.UPPER), 3);
             }
-            else if(seagrass.canSurvive(world, mutable)){
-                world.setBlock(mutable, Blocks.SEAGRASS.defaultBlockState(), 3);
+            else if(seagrass.canSurvive(context.level(), mutable)) {
+                
+
+                context.level().setBlock(mutable, Blocks.SEAGRASS.defaultBlockState(), 3);
             }
         }
 

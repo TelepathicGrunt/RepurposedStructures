@@ -1,20 +1,19 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.gen.NoiseChunkGenerator;
-import net.minecraft.world.gen.feature.structure.StructureManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.random.WeightedRandomList;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.List;
-
-@Mixin(NoiseChunkGenerator.class)
+@Mixin(NoiseBasedChunkGenerator.class)
 public class StructureMobSpawningMixin {
 
     /**
@@ -27,12 +26,12 @@ public class StructureMobSpawningMixin {
      * @reason Return list of structure mob spawn combined with biome's mob spawn.
      */
     @Inject(
-            method = "getMobsAt(Lnet/minecraft/world/biome/Biome;Lnet/minecraft/world/gen/feature/structure/StructureManager;Lnet/minecraft/entity/EntityClassification;Lnet/minecraft/util/math/BlockPos;)Ljava/util/List;",
+            method = "getMobsAt(Lnet/minecraft/world/level/biome/Biome;Lnet/minecraft/world/level/StructureFeatureManager;Lnet/minecraft/world/entity/MobCategory;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/util/random/WeightedRandomList;",
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void repurposedstructures_structureMobs(Biome biome, StructureManager accessor, EntityClassification group, BlockPos pos, CallbackInfoReturnable<List<MobSpawnInfo.Spawners>> cir) {
-        List<MobSpawnInfo.Spawners> list = MobSpawningOverTime.getStructureSpawns(biome, accessor, group, pos);
-        if(list != null) cir.setReturnValue(list);
+    private void repurposedstructures_structureMobs(Biome biome, StructureFeatureManager accessor, MobCategory group, BlockPos pos, CallbackInfoReturnable<WeightedRandomList<MobSpawnSettings.SpawnerData>> cir) {
+        WeightedRandomList<MobSpawnSettings.SpawnerData> pool = MobSpawningOverTime.getStructureSpawns(biome, accessor, group, pos);
+        if(pool != null && !pool.isEmpty()) cir.setReturnValue(pool);
     }
 }

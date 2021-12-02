@@ -1,53 +1,50 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
-import com.mojang.serialization.JsonOps;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.math.SectionPos;
-import net.minecraft.util.math.vector.Vector3i;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.IServerWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.chunk.ChunkStatus;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.structure.StructureStart;
-import net.minecraft.world.gen.settings.StructureSeparationSettings;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.RegistryObject;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.resources.FallbackResourceManager;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.material.Material;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -76,9 +73,9 @@ public final class GeneralUtils {
     //////////////////////////////
     private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new HashMap<>();
 
-    public static boolean isFullCube(IWorldReader world, BlockPos pos, BlockState state){
-        if(!IS_FULLCUBE_MAP.containsKey(state)){
-            boolean isFullCube = Block.isShapeFullBlock(state.getOcclusionShape(world, pos)) || state.getBlock() instanceof LeavesBlock;
+    public static boolean isFullCube(BlockGetter world, BlockPos pos, BlockState state) {
+        if(!IS_FULLCUBE_MAP.containsKey(state)) {
+            boolean isFullCube = Block.isShapeFullBlock(state.getOcclusionShape(world, pos));
             IS_FULLCUBE_MAP.put(state, isFullCube);
         }
         return IS_FULLCUBE_MAP.get(state);
@@ -87,52 +84,32 @@ public final class GeneralUtils {
     //////////////////////////////
 
     // Helper method to make chests always face away from walls
-    public static BlockState orientateChest(IServerWorld blockView, BlockPos blockPos, BlockState blockState) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
-        Direction bestDirection = blockState.getValue(HorizontalBlock.FACING);
+    public static BlockState orientateChest(ServerLevelAccessor blockView, BlockPos blockPos, BlockState blockState) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+        Direction wallDirection = blockState.getValue(HorizontalDirectionalBlock.FACING);
 
         for(Direction facing : Direction.Plane.HORIZONTAL) {
             mutable.set(blockPos).move(facing);
 
             // Checks if wall is in this side
             if (isFullCube(blockView, mutable, blockView.getBlockState(mutable))) {
-                bestDirection = facing;
+                wallDirection = facing;
 
                 // Exit early if facing open space opposite of wall
                 mutable.move(facing.getOpposite(), 2);
-                if(!blockView.getBlockState(mutable).getMaterial().isSolid()){
+                if(!blockView.getBlockState(mutable).getMaterial().isSolid()) {
                     break;
                 }
             }
         }
 
         // Make chest face away from wall
-        return blockState.setValue(HorizontalBlock.FACING, bestDirection.getOpposite());
-    }
-
-    ///////////////////////////////////////////
-
-    /**
-     * Will serialize (if possible) both features and check if they are the same feature.
-     * If cannot serialize, compare the feature itself to see if it is the same.
-     */
-    public static boolean serializeAndCompareFeature(ConfiguredFeature<?, ?> configuredFeature1, ConfiguredFeature<?, ?> configuredFeature2) {
-
-        Optional<JsonElement> configuredFeatureJSON1 = ConfiguredFeature.DIRECT_CODEC.encode(configuredFeature1, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
-        Optional<JsonElement> configuredFeatureJSON2 = ConfiguredFeature.DIRECT_CODEC.encode(configuredFeature2, JsonOps.INSTANCE, JsonOps.INSTANCE.empty()).get().left();
-
-        // One of the configuredfeatures cannot be serialized
-        if(!configuredFeatureJSON1.isPresent() || !configuredFeatureJSON2.isPresent()) {
-            return false;
-        }
-
-        // Compare the JSON to see if it's the same ConfiguredFeature in the end.
-        return configuredFeatureJSON1.equals(configuredFeatureJSON2);
+        return blockState.setValue(HorizontalDirectionalBlock.FACING, wallDirection.getOpposite());
     }
 
     //////////////////////////////////////////////
 
-    public static boolean isBlacklistedForWorld(ISeedReader currentWorld, ResourceLocation worldgenObjectID){
+    public static boolean isBlacklistedForWorld(ServerLevelAccessor currentWorld, ResourceLocation worldgenObjectID) {
         ResourceLocation worldID = currentWorld.getLevel().dimension().location();
 
         // Apply disallow first. (Default behavior is it adds to all dimensions)
@@ -142,109 +119,43 @@ public final class GeneralUtils {
         // Apply allow to override disallow if dimension is targeted in both.
         // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
         if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
-                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())){
+                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())) {
             allowInDim = true;
         }
 
         return !allowInDim;
     }
 
-    //////////////////////////////////////////////
-
-    public static <T extends IFeatureConfig> void registerStructureDebugging(RegistryObject<Structure<T>> structure){
-        MinecraftForge.EVENT_BUS.addListener(
-                (PlayerInteractEvent.RightClickBlock event) -> {
-                    if(!event.getWorld().isClientSide() && event.getHand() == Hand.MAIN_HAND){
-                        RepurposedStructures.LOGGER.info("Started search");
-
-                        ServerWorld serverWorld = (ServerWorld) event.getWorld();
-                        ChunkGenerator chunkGenerator = serverWorld.getChunkSource().getGenerator();
-                        StructureSeparationSettings structureseparationsettings = chunkGenerator.getSettings().getConfig(RSStructures.STRONGHOLD_NETHER.get());
-                        Structure<?> structureToFind = structure.get();
-                        List<Pair<BlockPos, Integer>> structureStarts = new ArrayList<>();
-
-                        int spacing = structureseparationsettings.spacing();
-                        int startX = 0;
-                        int startZ = 0;
-                        int currentRadius = 0;
-                        int maxRadius = 20;
-
-                        for(SharedSeedRandom sharedseedrandom = new SharedSeedRandom(); currentRadius <= maxRadius; ++currentRadius) {
-                            for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
-                                boolean onXEdge = xRadius == -currentRadius || xRadius == currentRadius;
-
-                                for(int zRadius = -currentRadius; zRadius <= currentRadius; ++zRadius) {
-                                    boolean onZEdge = zRadius == -currentRadius || zRadius == currentRadius;
-                                    if (onXEdge || onZEdge) {
-                                        int k1 = startX + spacing * xRadius;
-                                        int l1 = startZ + spacing * zRadius;
-                                        ChunkPos chunkpos = structureToFind.getPotentialFeatureChunk(structureseparationsettings, serverWorld.getSeed(), sharedseedrandom, k1, l1);
-                                        IChunk ichunk = serverWorld.getChunk(chunkpos.x, chunkpos.z, ChunkStatus.STRUCTURE_STARTS);
-                                        StructureStart<?> structurestart = serverWorld.structureFeatureManager().getStartForFeature(SectionPos.of(ichunk.getPos(), 0), structureToFind, ichunk);
-                                        if (structurestart != null && structurestart.isValid()) {
-                                            BlockPos pos = structurestart.getLocatePos();
-                                            structureStarts.add(Pair.of(pos, (int)Math.sqrt((pos.getX() * pos.getX()) + (pos.getZ() * pos.getZ()))));
-                                        }
-
-                                        if (currentRadius == 0) {
-                                            break;
-                                        }
-                                    }
-                                    else{
-                                        zRadius = currentRadius - 1;
-                                    }
-                                }
-
-                                if (currentRadius == 0) {
-                                    break;
-                                }
-                            }
-                        }
-
-                        structureStarts.sort(Comparator.comparingInt(Pair::getSecond));
-                        structureStarts.forEach(pair -> RepurposedStructures.LOGGER.info(
-                                "position: {} - distance: {}", pair.getFirst(), pair.getSecond()
-                        ));
-
-                        boolean breakpointHere = true;
-                    }
-                }
-        );
-    }
-
     //////////////////////////////
 
     public static ItemStack enchantRandomly(Random random, ItemStack itemToEnchant, float chance) {
-        if(random.nextFloat() < chance){
+        if(random.nextFloat() < chance) {
             List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
                     .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).collect(Collectors.toList());
-            if(!list.isEmpty()){
+            if(!list.isEmpty()) {
                 Enchantment enchantment = list.get(random.nextInt(list.size()));
                 // bias towards weaker enchantments
-                int enchantmentLevel = random.nextInt(MathHelper.nextInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel()) + 1);
+                int enchantmentLevel = random.nextInt(Mth.nextInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel()) + 1);
                 itemToEnchant.enchant(enchantment, enchantmentLevel);
             }
         }
 
         return itemToEnchant;
     }
+
     //////////////////////////////
 
-    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, MutableBoundingBox boundingBox, boolean canBeOnLiquid) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(
-                boundingBox.getCenter().getX(),
-                chunkGenerator.getGenDepth() - 20,
-                boundingBox.getCenter().getZ());
-
-        IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getGenDepth() - 20, boundingBox.getCenter().getZ());
+        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel()) {
-            currentBlockstate = blockView.getBlockState(mutable);
+            currentBlockstate = blockView.getBlock(mutable.getY());
             if (!currentBlockstate.canOcclude()) {
                 mutable.move(Direction.DOWN);
                 continue;
             }
-            else if (blockView.getBlockState(mutable.offset(0, 3, 0)).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude())) {
+            else if (blockView.getBlock(mutable.getY() + 3).getMaterial() == Material.AIR && (canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude())) {
                 return mutable;
             }
             mutable.move(Direction.DOWN);
@@ -254,26 +165,22 @@ public final class GeneralUtils {
     }
 
 
-    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, MutableBoundingBox boundingBox, boolean canBeOnLiquid){
-        BlockPos.Mutable mutable = new BlockPos.Mutable().set(
-                boundingBox.getCenter().getX(),
-                chunkGenerator.getSeaLevel() + 1,
-                boundingBox.getCenter().getZ());
-
-        IBlockReader blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ());
-        BlockState currentBlockstate = blockView.getBlockState(mutable);
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
+        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
+        BlockState currentBlockstate = blockView.getBlock(mutable.getY());
         while (mutable.getY() <= chunkGenerator.getGenDepth() - 20) {
 
             if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude()) &&
-                    blockView.getBlockState(mutable.above()).getMaterial() == Material.AIR &&
-                    blockView.getBlockState(mutable.above(5)).getMaterial() == Material.AIR)
+                    blockView.getBlock(mutable.getY() + 1).getMaterial() == Material.AIR &&
+                    blockView.getBlock(mutable.getY() + 5).getMaterial() == Material.AIR)
             {
                 mutable.move(Direction.UP);
                 return mutable;
             }
 
             mutable.move(Direction.UP);
-            currentBlockstate = blockView.getBlockState(mutable);
+            currentBlockstate = blockView.getBlock(mutable.getY());
         }
 
         return mutable.set(mutable.getX(), chunkGenerator.getSeaLevel(), mutable.getZ());
@@ -281,13 +188,13 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    public static int getFirstLandYFromPos(IWorldReader worldView, BlockPos pos) {
-        BlockPos.Mutable mutable = new BlockPos.Mutable();
+    public static int getFirstLandYFromPos(LevelReader worldView, BlockPos pos) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         mutable.set(pos);
-        IChunk currentChunk = worldView.getChunk(mutable);
+        ChunkAccess currentChunk = worldView.getChunk(mutable);
         BlockState currentState = currentChunk.getBlockState(mutable);
 
-        while(mutable.getY() >= 0 && isReplaceableByStructures(currentState)) {
+        while(mutable.getY() >= worldView.getMinBuildHeight() && isReplaceableByStructures(currentState)) {
             mutable.move(Direction.DOWN);
             currentState = currentChunk.getBlockState(mutable);
         }
@@ -301,15 +208,95 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    public static void centerAllPieces(BlockPos targetPos, List<StructurePiece> pieces){
+    public static void centerAllPieces(BlockPos targetPos, List<? extends StructurePiece> pieces) {
         if(pieces.isEmpty()) return;
 
-        Vector3i structureCenter = pieces.get(0).getBoundingBox().getCenter();
+        Vec3i structureCenter = pieces.get(0).getBoundingBox().getCenter();
         int xOffset = targetPos.getX() - structureCenter.getX();
         int zOffset = targetPos.getZ() - structureCenter.getZ();
 
-        for(StructurePiece structurePiece : pieces){
+        for(StructurePiece structurePiece : pieces) {
             structurePiece.move(xOffset, 0, zOffset);
         }
+    }
+
+    //////////////////////////////////////////////
+
+    /**
+     * Obtains all of the file streams for all files found in all datapacks with the given id.
+     *
+     * @return - Filestream list of all files found with id
+     */
+    public static List<InputStream> getAllFileStreams(ResourceManager resourceManager, ResourceLocation fileID) throws IOException {
+        List<InputStream> fileStreams = new ArrayList<>();
+
+        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
+        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
+
+        // Find the file with the given id and add its filestream to the list
+        for (PackResources resourcePack : allResourcePacks) {
+            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
+                if (inputStream != null) fileStreams.add(inputStream);
+            }
+        }
+
+        // Return filestream of all files matching id path
+        return fileStreams;
+    }
+
+    /**
+     * Will grab all JSON objects from all datapacks's folder that is specified by the dataType parameter.
+     *
+     * @return - A map of paths (identifiers) to a list of all JSON elements found under it from all datapacks.
+     */
+    public static Map<ResourceLocation, List<JsonElement>> getAllDatapacksJSONElement(ResourceManager resourceManager, Gson gson, String dataType, int fileSuffixLength) {
+        Map<ResourceLocation, List<JsonElement>> map = new HashMap<>();
+        int dataTypeLength = dataType.length() + 1;
+
+        // Finds all JSON files paths within the pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
+        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(dataType, (fileString) -> fileString.endsWith(".json"))) {
+            String identifierPath = fileIDWithExtension.getPath();
+            ResourceLocation fileID = new ResourceLocation(
+                    fileIDWithExtension.getNamespace(),
+                    identifierPath.substring(dataTypeLength, identifierPath.length() - fileSuffixLength));
+
+            try {
+                // getAllFileStreams will find files with the given ID. This part is what will loop over all matching files from all datapacks.
+                for (InputStream fileStream : GeneralUtils.getAllFileStreams(resourceManager, fileIDWithExtension)) {
+                    try (Reader bufferedReader = new BufferedReader(new InputStreamReader(fileStream, StandardCharsets.UTF_8))) {
+
+                        // Get the JSON from the file
+                        JsonElement countsJSONElement = GsonHelper.fromJson(gson, bufferedReader, (Class<? extends JsonElement>) JsonElement.class);
+                        if (countsJSONElement != null) {
+
+                            // Create list in map for the ID if non exists yet for that ID
+                            if (!map.containsKey(fileID)) {
+                                map.put(fileID, new ArrayList<>());
+                            }
+                            // Add the parsed json to the list we will merge later on
+                            map.get(fileID).add(countsJSONElement);
+                        }
+                        else {
+                            RepurposedStructures.LOGGER.error(
+                                    "(Repurposed Structures {} MERGER) Couldn't load data file {} from {} as it's null or empty",
+                                    dataType,
+                                    fileID,
+                                    fileIDWithExtension);
+                        }
+                    }
+                }
+            }
+            catch (IllegalArgumentException | IOException | JsonParseException exception) {
+                RepurposedStructures.LOGGER.error(
+                        "(Repurposed Structures {} MERGER) Couldn't parse data file {} from {}",
+                        dataType,
+                        fileID,
+                        fileIDWithExtension,
+                        exception);
+            }
+        }
+
+        return map;
     }
 }
