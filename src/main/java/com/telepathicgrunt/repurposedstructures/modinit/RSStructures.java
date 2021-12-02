@@ -198,7 +198,7 @@ public final class RSStructures {
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> WITCH_HUTS_GIANT_TREE_TAIGA = addToStructureMaps("witch_hut_giant_tree_taiga", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "witch_huts/giant_tree_taiga_start_pool")).setStructureSize(11).build()));
 
     // Bastions
-    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> BASTION_UNDERGROUND = addToStructureMaps("bastion_underground", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "bastions/underground/starts")).setStructureSize(10).setFixedYSpawn(12).doNotUseHeightmap().setBiomeRange(7).setStructureBlacklistRange(5).setAvoidStructuresSet(ImmutableSet.of(RSStructureTagMap.STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE)).build()));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> BASTION_UNDERGROUND = addToStructureMaps("bastion_underground", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "bastions/underground/starts")).setStructureSize(10).setFixedYSpawn(-45).doNotUseHeightmap().setBiomeRange(7).setStructureBlacklistRange(5).setAvoidStructuresSet(ImmutableSet.of(RSStructureTagMap.STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE)).build()));
 
 
     private static <T extends StructureFeature<?>> RegistryObject<T> addToStructureMaps(String name, Supplier<T> structure) {
