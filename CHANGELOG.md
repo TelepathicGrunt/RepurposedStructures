@@ -1,3 +1,9 @@
+### **(V.3.1.4 Changes) (1.18.0 Minecraft)**
+
+#### Wells:
+Fixed Nether Well using Forest Wells's config value by mistake.
+
+
 ### **(V.3.1.3 Changes) (1.18.0 Minecraft)**
 
 #### Misc:

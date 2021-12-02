@@ -154,7 +154,6 @@ public final class Dungeons {
     }
 
     private static boolean genericDungeonCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {
-        return BiomeSelection.isBiomeAllowed(context, configuredFeatures,
-                () -> RSConfiguredFeatures.RS_DUNGEONS_WITHOUT_MUSHROOM.stream().noneMatch(context::hasBuiltInFeature) && condition.get());
+        return BiomeSelection.isBiomeAllowed(context, configuredFeatures, condition);
     }
 }

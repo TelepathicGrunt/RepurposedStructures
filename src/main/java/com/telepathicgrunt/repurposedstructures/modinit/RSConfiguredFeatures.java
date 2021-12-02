@@ -35,7 +35,6 @@ public final class RSConfiguredFeatures {
     // Need this field so we can test to make sure we do not add the dungeons to biomes that
     // we already added an RS dungeon to. (Due to BiomeModification API running separately for each feature)
     public static List<ConfiguredFeature<?, ?>> RS_DUNGEONS = new ArrayList<>();
-    public static List<ConfiguredFeature<?, ?>> RS_DUNGEONS_WITHOUT_MUSHROOM = new ArrayList<>();
 
     private static final NbtDungeonConfig BADLANDS_DUNGEON_CONFIG = new NbtDungeonConfig("badlands", EMPTY_ID);
     public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.BADLANDS_DUNGEONS.configured(BADLANDS_DUNGEON_CONFIG);
@@ -215,7 +214,7 @@ public final class RSConfiguredFeatures {
                     ImmutableList.of(Pair.of(new ResourceLocation(RepurposedStructures.MODID, "wells/nether"), 1)),
                     new ResourceLocation(RepurposedStructures.MODID, "wells/nether")));
     public static PlacedFeature NETHER_WELL_PLACED = NETHER_WELL.placed(
-            RarityFilter.onAverageOnceEvery(RepurposedStructures.RSAllConfig.RSWellsConfig.forestWellRarityPerChunk),
+            RarityFilter.onAverageOnceEvery(RepurposedStructures.RSAllConfig.RSWellsConfig.netherWellRarityPerChunk),
             InSquarePlacement.spread(),
             HeightRangePlacement.uniform(
                     VerticalAnchor.aboveBottom(30),

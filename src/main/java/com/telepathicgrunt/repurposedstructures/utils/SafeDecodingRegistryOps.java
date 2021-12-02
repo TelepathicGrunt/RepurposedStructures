@@ -45,13 +45,15 @@ public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
         Optional<WritableRegistry<E>> optional = this.dynamicRegistryManager.ownedRegistry(registryKey);
         if (optional.isEmpty()) {
             return DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Unknown registry: " + registryKey);
-        } else {
+        }
+        else {
             DataResult<Pair<ResourceLocation, T>> dataResult = ResourceLocation.CODEC.decode(this.delegate, object);
             if (dataResult.result().isEmpty()) {
                 return !allowInlineDefinitions ?
                         DataResult.error("(Repurposed Structures SafeDecodingRegistryOps) Inline definitions not allowed here") :
                         codec.decode(this, object).map((pair) -> pair.mapFirst((object2) -> () -> object2));
-            } else {
+            }
+            else {
                 WritableRegistry<E> mutableRegistry = optional.get();
                 Pair<ResourceLocation, T> pair = dataResult.result().get();
                 ResourceLocation identifier = pair.getFirst();
@@ -84,12 +86,14 @@ public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
         DataResult<Supplier<E>> dataResult = valueHolder.values.get(elementRegistryKey);
         if (dataResult != null) {
             return dataResult;
-        } else {
+        }
+        else {
             Supplier<E> supplier = Suppliers.memoize(() -> {
                 E object = mutableRegistry.get(elementRegistryKey);
                 if (object == null) {
                     throw new RuntimeException("(Repurposed Structures SafeDecodingRegistryOps) Error during recursive registry parsing, element resolved too early: " + elementRegistryKey);
-                } else {
+                }
+                else {
                     return object;
                 }
             });
