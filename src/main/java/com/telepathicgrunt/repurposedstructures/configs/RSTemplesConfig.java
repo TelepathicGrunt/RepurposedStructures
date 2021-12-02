@@ -22,28 +22,26 @@ public class RSTemplesConfig {
 		builder.comment("",
 				" Average distance between spawn attempts for Repurposed Structures Temples.",
 				" 1 for spawning in most chunks and 1001 for none.");
-
-		// Needs config category but that would break config files made before the update to make this be a category.
-		// RIP. (Category is wanted in case config entries shuffle around due to https://github.com/MinecraftForge/MinecraftForge/issues/7489
-
+		builder.push("Temples");
 		netherWastelandTempleAverageChunkDistance = builder
-			.translation("repurposedstructures.config.temples.netherwastelandtemplemaxchunkdistance")
-			.defineInRange("netherWastelandTempleMaxChunkDistance", 27, 1, 1001);
+			.translation("repurposedstructures.netherwastelandtempleaveragechunkdistance")
+			.defineInRange("netherWastelandTempleAverageChunkDistance", 27, 1, 1001);
 
 		netherBasaltTempleAverageChunkDistance = builder
-			.translation("repurposedstructures.config.temples.netherbasalttemplemaxchunkdistance")
-			.defineInRange("netherBasaltTempleMaxChunkDistance", 27, 1, 1001);
+			.translation("repurposedstructures.netherbasalttempleaveragechunkdistance")
+			.defineInRange("netherBasaltTempleAverageChunkDistance", 27, 1, 1001);
 
 		netherCrimsonTempleAverageChunkDistance = builder
-			.translation("repurposedstructures.config.temples.nethercrimsontemplemaxchunkdistance")
-			.defineInRange("netherCrimsonTempleMaxChunkDistance", 27, 1, 1001);
+			.translation("repurposedstructures.nethercrimsontempleaveragechunkdistance")
+			.defineInRange("netherCrimsonTempleAverageChunkDistance", 27, 1, 1001);
 
 		netherWarpedTempleAverageChunkDistance = builder
-			.translation("repurposedstructures.config.temples.netherwarpedtemplemaxchunkdistance")
-			.defineInRange("netherWarpedTempleMaxChunkDistance", 27, 1, 1001);
+			.translation("repurposedstructures.netherwarpedtempleaveragechunkdistance")
+			.defineInRange("netherWarpedTempleAverageChunkDistance", 27, 1, 1001);
 
 		netherSoulTempleAverageChunkDistance = builder
-			.translation("repurposedstructures.config.temples.nethersoultemplemaxchunkdistance")
-			.defineInRange("netherSoulTempleMaxChunkDistance", 27, 1, 1001);
+			.translation("repurposedstructures.nethersoultempleaveragechunkdistance")
+			.defineInRange("netherSoulTempleAverageChunkDistance", 27, 1, 1001);
+		builder.pop();
 	}
 }

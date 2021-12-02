@@ -18,7 +18,7 @@ public class RSBastionsConfig {
 				.comment("\n Average distance between spawn attempts for Underground Bastions in",
 						" biomes not tagged as ocean, beach, end, nether, or none category.",
 						" 1 for spawning in most chunks and 10001 for none.")
-				.translation("repurposedstructures.config.pyramids.bastionundergroundmaxchunkdistance")
-				.defineInRange("bastionUndergroundMaxChunkDistance", 500, 1, 10001);
+				.translation("repurposedstructures.bastionundergroundaveragechunkdistance")
+				.defineInRange("bastionUndergroundAverageChunkDistance", 400, 1, 10001);
 	}
 }

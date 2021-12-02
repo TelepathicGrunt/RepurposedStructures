@@ -17,7 +17,7 @@ public class RSCitiesConfig {
 		citiesNetherAverageChunkDistance = builder
 				.comment("\n Average distance between spawn attempts for Nether Cities.",
 						" 1 for spawning in most chunks and 1001 for none.")
-				.translation("repurposedstructures.config.cities.citiesnethermaxchunkdistance")
-				.defineInRange("citiesNetherMaxChunkDistance", 120, 1, 1001);
+				.translation("repurposedstructures.citiesnetheraveragechunkdistance")
+				.defineInRange("citiesNetherAverageChunkDistance", 110, 1, 1001);
 	}
 }

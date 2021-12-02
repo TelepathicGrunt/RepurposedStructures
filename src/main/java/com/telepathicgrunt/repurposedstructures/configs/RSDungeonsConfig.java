@@ -19,29 +19,29 @@ public class RSDungeonsConfig {
 	public static ForgeConfigSpec.IntValue netherDungeonAttemptsPerChunk;
 	public static ForgeConfigSpec.IntValue oceanDungeonAttemptsPerChunk;
 
-	public static ForgeConfigSpec.IntValue badlandsDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue darkForestDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue desertDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue jungleDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue mushroomDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue snowDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue icyDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue swampDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue endDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue netherDungeonMinHeight;
-	public static ForgeConfigSpec.IntValue oceanDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> badlandsDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> darkForestDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> desertDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> jungleDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> mushroomDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> snowDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> icyDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> swampDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> endDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> netherDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> oceanDungeonMinHeight;
 
-	public static ForgeConfigSpec.IntValue badlandsDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue darkForestDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue desertDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue jungleDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue mushroomDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue snowDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue icyDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue swampDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue endDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue netherDungeonMaxHeight;
-	public static ForgeConfigSpec.IntValue oceanDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> badlandsDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> darkForestDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> desertDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> jungleDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> mushroomDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> snowDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> icyDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> swampDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> endDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> netherDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> oceanDungeonMaxHeight;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -54,7 +54,7 @@ public class RSDungeonsConfig {
 		shulkerBoxInEndDungeons = builder
 				.comment("\n Whether End Dungeons spawns Shulker Boxes. if false, spawns regular Chests instead.",
 						"(Configuredfeatures are unable to be overridden by datapack due to bad Forge hook placement. Hence this config option)")
-				.translation("repurposedstructures.config.dungeons.shulkerboxinenddungeons")
+				.translation("repurposedstructures.shulkerboxinenddungeons")
 				.define("shulkerBoxInEndDungeons", true);
 
 		builder.comment("-----------------------------------------------------------------------------------------",
@@ -65,48 +65,48 @@ public class RSDungeonsConfig {
 		builder.push("AttemptsPerChunk");
 
 			badlandsDungeonAttemptsPerChunk = builder
-					.translation("repurposedstructures.config.dungeons.badlandsdungeonattemptsperchunk")
+					.translation("repurposedstructures.badlandsdungeonattemptsperchunk")
 					.defineInRange("badlandsDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			darkForestDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.darkforestdungeonattemptsperchunk")
+				.translation("repurposedstructures.darkforestdungeonattemptsperchunk")
 				.defineInRange("darkForestDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			desertDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.desertdungeonattemptsperchunk")
+				.translation("repurposedstructures.desertdungeonattemptsperchunk")
 				.defineInRange("desertDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			jungleDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.jungledungeonattemptsperchunk")
+				.translation("repurposedstructures.jungledungeonattemptsperchunk")
 				.defineInRange("jungleDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			mushroomDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.mushroomdungeonattemptsperchunk")
+				.translation("repurposedstructures.mushroomdungeonattemptsperchunk")
 				.defineInRange("mushroomDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			snowDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.snowdungeonattemptsperchunk")
+				.translation("repurposedstructures.snowdungeonattemptsperchunk")
 				.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			icyDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.snowdungeonattemptsperchunk")
+				.translation("repurposedstructures.snowdungeonattemptsperchunk")
 				.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			swampDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.swampdungeonattemptsperchunk")
+				.translation("repurposedstructures.swampdungeonattemptsperchunk")
 				.defineInRange("swampDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			endDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.enddungeonattemptsperchunk")
+				.translation("repurposedstructures.enddungeonattemptsperchunk")
 				.defineInRange("endDungeonAttemptsPerChunk", 12, 0, 1000);
 
 			netherDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.netherdungeonattemptsperchunk")
+				.translation("repurposedstructures.netherdungeonattemptsperchunk")
 				.defineInRange("netherDungeonAttemptsPerChunk", 12, 0, 1000);
 
 			oceanDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.config.dungeons.oceandungeonattemptsperchunk")
-				.defineInRange("oceanDungeonAttemptsPerChunk", 4, 0, 1000);
+				.translation("repurposedstructures.oceandungeonattemptsperchunk")
+				.defineInRange("oceanDungeonAttemptsPerChunk", 3, 0, 1000);
 
 
 		builder.pop();
@@ -118,48 +118,48 @@ public class RSDungeonsConfig {
 		builder.push("Min Height");
 
 			badlandsDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.badlandsdungeonminheight")
-				.defineInRange("badlandsDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.badlandsdungeonminheight")
+				.define("badlandsDungeonMinHeight", 35);
 
 			darkForestDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.darkforestdungeonminheight")
-				.defineInRange("darkForestDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.darkforestdungeonminheight")
+				.define("darkForestDungeonMinHeight", 35);
 
 			desertDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.desertdungeonminheight")
-				.defineInRange("desertDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.desertdungeonminheight")
+				.define("desertDungeonMinHeight", 35);
 
 			jungleDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.jungledungeonminheight")
-				.defineInRange("jungleDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.jungledungeonminheight")
+				.define("jungleDungeonMinHeight", 35);
 
 			mushroomDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.mushroomdungeonminheight")
-				.defineInRange("mushroomDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.mushroomdungeonminheight")
+				.define("mushroomDungeonMinHeight", 35);
 
 			snowDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.snowdungeonminheight")
-				.defineInRange("snowDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.snowdungeonminheight")
+				.define("snowDungeonMinHeight", 35);
 
 			icyDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.icydungeonminheight")
-				.defineInRange("icyDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.icydungeonminheight")
+				.define("icyDungeonMinHeight", 35);
 
 			swampDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.swampdungeonminheight")
-				.defineInRange("swampDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.swampdungeonminheight")
+				.define("swampDungeonMinHeight", 35);
 
 			endDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.enddungeonminheight")
-				.defineInRange("endDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.enddungeonminheight")
+				.define("endDungeonMinHeight", 2);
 
 			netherDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.netherdungeonminheight")
-				.defineInRange("netherDungeonMinHeight", 2, 2, 255);
+				.translation("repurposedstructures.netherdungeonminheight")
+				.define("netherDungeonMinHeight", 2);
 
 			oceanDungeonMinHeight = builder
-				.translation("repurposedstructures.config.dungeons.oceandungeonminheight")
-				.defineInRange("oceanDungeonMinHeight", 3, 3, 255);
+				.translation("repurposedstructures.oceandungeonminheight")
+				.define("oceanDungeonMinHeight", 205);
 
 		builder.pop();
 
@@ -170,48 +170,48 @@ public class RSDungeonsConfig {
 		builder.push("Max Height");
 
 			badlandsDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.badlandsdungeonmaxheight")
-				.defineInRange("badlandsDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.badlandsdungeonmaxheight")
+				.define("badlandsDungeonMaxHeight", 255);
 
 			darkForestDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.darkforestdungeonmaxheight")
-				.defineInRange("darkForestDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.darkforestdungeonmaxheight")
+				.define("darkForestDungeonMaxHeight", 255);
 
 			desertDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.desertdungeonmaxheight")
-				.defineInRange("desertDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.desertdungeonmaxheight")
+				.define("desertDungeonMaxHeight", 255);
 
 			jungleDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.jungledungeonmaxheight")
-				.defineInRange("jungleDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.jungledungeonmaxheight")
+				.define("jungleDungeonMaxHeight", 255);
 
 			mushroomDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.mushroomdungeonmaxheight")
-				.defineInRange("mushroomDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.mushroomdungeonmaxheight")
+				.define("mushroomDungeonMaxHeight", 255);
 
 			snowDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.snowdungeonmaxheight")
-				.defineInRange("snowDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.snowdungeonmaxheight")
+				.define("snowDungeonMaxHeight", 255);
 
 			icyDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.icydungeonmaxheight")
-				.defineInRange("icyDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.icydungeonmaxheight")
+				.define("icyDungeonMaxHeight", 255);
 
 			swampDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.swampdungeonmaxheight")
-				.defineInRange("swampDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.swampdungeonmaxheight")
+				.define("swampDungeonMaxHeight", 255);
 
 			endDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.enddungeonmaxheight")
-				.defineInRange("endDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.enddungeonmaxheight")
+				.define("endDungeonMaxHeight", 255);
 
 			netherDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.netherdungeonmaxheight")
-				.defineInRange("netherDungeonMaxHeight", 255, 2, 255);
+				.translation("repurposedstructures.netherdungeonmaxheight")
+				.define("netherDungeonMaxHeight", 255);
 
 			oceanDungeonMaxHeight = builder
-				.translation("repurposedstructures.config.dungeons.oceandungeonmaxheight")
-				.defineInRange("oceanDungeonMaxHeight", 255, 3, 255);
+				.translation("repurposedstructures.oceandungeonmaxheight")
+				.define("oceanDungeonMaxHeight", 255);
 
 		builder.pop();
 	}

@@ -22,28 +22,26 @@ public class RSWitchHutsConfig {
 		builder.comment("",
 				" Average distance between spawn attempts for Repurposed Structures Witch Huts.",
 				" 1 for spawning in most chunks and 1001 for no spawn.");
-
-		// Needs config category but that would break config files made before the update to make this be a category.
-		// RIP. (Category is wanted in case config entries shuffle around due to https://github.com/MinecraftForge/MinecraftForge/issues/7489
-
+		builder.push("Wells");
 		witchHutsOakAverageChunkDistance = builder
-				.translation("repurposedstructures.config.witch_huts.witchhutsoakmaxchunkdistance")
-				.defineInRange("witchHutsOakMaxChunkDistance", 48, 1, 1001);
+				.translation("repurposedstructures.witchhutsoakaveragechunkdistance")
+				.defineInRange("witchHutsOakAverageChunkDistance", 48, 1, 1001);
 
 		witchHutsTaigaAverageChunkDistance = builder
-				.translation("repurposedstructures.config.witch_huts.witchhutstaigamaxchunkdistance")
-				.defineInRange("witchHutsTaigaMaxChunkDistance", 48, 1, 1001);
+				.translation("repurposedstructures.witchhutstaigaaveragechunkdistance")
+				.defineInRange("witchHutsTaigaAverageChunkDistance", 48, 1, 1001);
 
 		witchHutsGiantTreeTaigaAverageChunkDistance = builder
-				.translation("repurposedstructures.config.witch_huts.witchhutsgianttreetaigamaxchunkdistance")
-				.defineInRange("witchHutsGiantTreeTaigaMaxChunkDistance", 48, 1, 1001);
+				.translation("repurposedstructures.witchhutsgianttreetaigaaveragechunkdistance")
+				.defineInRange("witchHutsGiantTreeTaigaAverageChunkDistance", 48, 1, 1001);
 
 		witchHutsBirchAverageChunkDistance = builder
-				.translation("repurposedstructures.config.witch_huts.witchhutsbirchmaxchunkdistance")
-				.defineInRange("witchHutsBirchMaxChunkDistance", 48, 1, 1001);
+				.translation("repurposedstructures.witchhutsbirchaveragechunkdistance")
+				.defineInRange("witchHutsBirchAverageChunkDistance", 48, 1, 1001);
 
 		witchHutsDarkForestAverageChunkDistance = builder
-				.translation("repurposedstructures.config.witch_huts.witchhutsdarkforestmaxchunkdistance")
-				.defineInRange("witchHutsDarkForestMaxChunkDistance", 48, 1, 1001);
+				.translation("repurposedstructures.witchhutsdarkforestaveragechunkdistance")
+				.defineInRange("witchHutsDarkForestAverageChunkDistance", 48, 1, 1001);
+		builder.pop();
 	}
 }

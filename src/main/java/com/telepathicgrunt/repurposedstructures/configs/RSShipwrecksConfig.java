@@ -24,20 +24,20 @@ public class RSShipwrecksConfig {
 		builder.push("Shipwrecks");
 
 			shipwreckEndAverageChunkDistance = builder
-				.translation("repurposedstructures.config.shipwrecks.endshipwreckmaxchunkdistance")
-				.defineInRange("endShipwreckMaxChunkDistance", 24, 1, 1001);
+				.translation("repurposedstructures.endshipwreckaveragechunkdistance")
+				.defineInRange("endShipwreckAverageChunkDistance", 24, 1, 1001);
 
 			shipwreckNetherBricksAverageChunkDistance = builder
-				.translation("repurposedstructures.config.shipwrecks.netherbricksshipwreckmaxchunkdistance")
-				.defineInRange("netherBricksShipwreckMaxChunkDistance", 21, 1, 1001);
+				.translation("repurposedstructures.netherbricksshipwreckaveragechunkdistance")
+				.defineInRange("netherBricksShipwreckAverageChunkDistance", 21, 1, 1001);
 
 			shipwreckCrimsonAverageChunkDistance = builder
-				.translation("repurposedstructures.config.shipwrecks.crimsonshipwreckmaxchunkdistance")
-				.defineInRange("crimsonShipwreckMaxChunkDistance", 18, 1, 1001);
+				.translation("repurposedstructures.crimsonshipwreckaveragechunkdistance")
+				.defineInRange("crimsonShipwreckAverageChunkDistance", 18, 1, 1001);
 
 			shipwreckWarpedAverageChunkDistance = builder
-				.translation("repurposedstructures.config.shipwrecks.warpedshipwreckmaxchunkdistance")
-				.defineInRange("warpedShipwreckMaxChunkDistance", 18, 1, 1001);
+				.translation("repurposedstructures.warpedshipwreckaveragechunkdistance")
+				.defineInRange("warpedShipwreckAverageChunkDistance", 18, 1, 1001);
 
 		builder.pop();
 	}

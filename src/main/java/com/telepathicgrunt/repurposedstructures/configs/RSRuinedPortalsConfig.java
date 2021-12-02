@@ -17,7 +17,7 @@ public class RSRuinedPortalsConfig {
 		ruinedPortalEndAverageChunkDistance = builder
 				.comment("\n Average distance between spawn attempts for End themed Ruined Portals in End category biomes.",
 						" 1 for spawning in most chunks and 1001 for none.")
-				.translation("repurposedstructures.config.ruinedPortals.ruinedportalendmaxchunkdistance")
-				.defineInRange("ruinedPortalEndMaxChunkDistance", 57, 1, 1001);
+				.translation("repurposedstructures.ruinedportalendaveragechunkdistance")
+				.defineInRange("ruinedPortalEndAverageChunkDistance", 57, 1, 1001);
 	}
 }

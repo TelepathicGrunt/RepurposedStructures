@@ -20,20 +20,18 @@ public class RSRuinsConfig {
 		builder.comment("",
 				" Average distance between spawn attempts for Repurposed Structures Ruins.",
 				" 1 for spawning in most chunks and 1001 for none.");
-
-		// Needs config category but that would break config files made before the update to make this be a category.
-		// RIP. (Category is wanted in case config entries shuffle around due to https://github.com/MinecraftForge/MinecraftForge/issues/7489
-
+		builder.push("Ruins");
 		ruinsNetherAverageChunkDistance = builder
-				.translation("repurposedstructures.config.ruins.ruinsnethermaxchunkdistance")
-				.defineInRange("ruinsNetherMaxChunkDistance", 35, 1, 1001);
+				.translation("repurposedstructures.ruinsnetheraveragechunkdistance")
+				.defineInRange("ruinsNetherAverageChunkDistance", 35, 1, 1001);
 
 		ruinsLandWarmAverageChunkDistance = builder
-				.translation("repurposedstructures.config.ruins.ruinslandwarmmaxchunkdistance")
-				.defineInRange("ruinsLandWarmMaxChunkDistance", 42, 1, 1001);
+				.translation("repurposedstructures.ruinslandwarmaveragechunkdistance")
+				.defineInRange("ruinsLandWarmAverageChunkDistance", 45, 1, 1001);
 
 		ruinsLandHotAverageChunkDistance = builder
-				.translation("repurposedstructures.config.ruins.ruinslandhotmaxchunkdistance")
-				.defineInRange("ruinsLandHotMaxChunkDistance", 45, 1, 1001);
+				.translation("repurposedstructures.ruinslandhotaveragechunkdistance")
+				.defineInRange("ruinsLandHotAverageChunkDistance", 45, 1, 1001);
+		builder.pop();
 	}
 }

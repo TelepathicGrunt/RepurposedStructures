@@ -18,13 +18,13 @@ public class RSIgloosConfig {
 		grassyIglooAverageChunkDistance = builder
 				.comment("\n Average distance between spawn attempts for Grassy Igloos in Plains and Forests.",
 						" 1 for spawning in most chunks and 1001 for no spawn.")
-				.translation("repurposedstructures.config.igloo.grassyigloomaxchunkdistance")
-				.defineInRange("grassyIglooMaxChunkDistance", 20, 1, 1001);
+				.translation("repurposedstructures.grassyiglooaveragechunkdistance")
+				.defineInRange("grassyIglooAverageChunkDistance", 24, 1, 1001);
 
 		stoneIglooAverageChunkDistance = builder
 				.comment("\n Average distance between spawn attempts for Stone Igloos in Giant Tree Taiga biomes.",
 						" 1 for spawning in most chunks and 1001 for no spawn.")
-				.translation("repurposedstructures.config.igloo.stoneigloomaxchunkdistance")
-				.defineInRange("stoneIglooMaxChunkDistance", 20, 1, 1001);
+				.translation("repurposedstructures.stoneiglooaveragechunkdistance")
+				.defineInRange("stoneIglooAverageChunkDistance", 24, 1, 1001);
 	}
 }

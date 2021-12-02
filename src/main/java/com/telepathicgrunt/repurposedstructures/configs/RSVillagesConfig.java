@@ -44,48 +44,48 @@ public class RSVillagesConfig {
 		builder.push("Spawnrates");
 
 		villageBadlandsAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.badlandsvillagemaxchunkdistance")
-			.defineInRange("badlandsVillageMaxChunkDistance", 34, 1, 1001);
+			.translation("repurposedstructures.badlandsvillageaveragechunkdistance")
+			.defineInRange("badlandsVillageAverageChunkDistance", 37, 1, 1001);
 
 		villageBirchAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.birchvillagemaxchunkdistance")
-			.defineInRange("birchVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.birchvillageaveragechunkdistance")
+			.defineInRange("birchVillageAverageChunkDistance", 52, 1, 1001);
 
 		villageDarkForestAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.darkforestvillagemaxchunkdistance")
-			.defineInRange("darkForestVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.darkforestvillageaveragechunkdistance")
+			.defineInRange("darkForestVillageAverageChunkDistance", 47, 1, 1001);
 
 		villageJungleAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.junglevillagemaxchunkdistance")
-			.defineInRange("jungleVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.junglevillageaveragechunkdistance")
+			.defineInRange("jungleVillageAverageChunkDistance", 52, 1, 1001);
 
 		villageSwampAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.swampvillagemaxchunkdistance")
-			.defineInRange("swampVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.swampvillageaveragechunkdistance")
+			.defineInRange("swampVillageAverageChunkDistance", 52, 1, 1001);
 
 		villageMountainsAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.mountainsvillagemaxchunkdistance")
-			.defineInRange("mountainsVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.mountainsvillageaveragechunkdistance")
+			.defineInRange("mountainsVillageAverageChunkDistance", 52, 1, 1001);
 
 		villageMushroomAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.villagemushroomaveragechunkdistance")
+			.translation("repurposedstructures.villagemushroomaveragechunkdistance")
 			.defineInRange("villageMushroomAverageChunkDistance", 24, 1, 1001);
 
 		villageGiantTaigaAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.gianttaigavillagemaxchunkdistance")
-			.defineInRange("giantTaigaVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.gianttaigavillageaveragechunkdistance")
+			.defineInRange("giantTaigaVillageAverageChunkDistance", 47, 1, 1001);
 
 		villageOakAverageChunkDistance = builder
-			.translation("repurposedstructures.config.village.villageoakmaxchunkdistance")
-			.defineInRange("oakVillageMaxChunkDistance", 47, 1, 1001);
+			.translation("repurposedstructures.villageoakaveragechunkdistance")
+			.defineInRange("oakVillageAverageChunkDistance", 52, 1, 1001);
 
 		villageCrimsonAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.crimsonvillagemaxchunkdistance")
-			.defineInRange("crimsonVillageMaxChunkDistance", 30, 1, 1001);
+			.translation("repurposedstructures.crimsonvillageaveragechunkdistance")
+			.defineInRange("crimsonVillageAverageChunkDistance", 30, 1, 1001);
 
 		villageWarpedAverageChunkDistance = builder
-			.translation("repurposedstructures.config.villages.warpedvillagemaxchunkdistance")
-			.defineInRange("warpedVillageMaxChunkDistance", 30, 1, 1001);
+			.translation("repurposedstructures.warpedvillageaveragechunkdistance")
+			.defineInRange("warpedVillageAverageChunkDistance", 30, 1, 1001);
 
 		builder.pop();
 

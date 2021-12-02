@@ -20,33 +20,33 @@ public class RSMineshaftsConfig {
     public static ForgeConfigSpec.DoubleValue crimsonMineshaftSpawnrate;
     public static ForgeConfigSpec.DoubleValue warpedMineshaftSpawnrate;
 
-    public static ForgeConfigSpec.IntValue birchMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue jungleMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue desertMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue stoneMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue savannaMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue icyMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue oceanMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue taigaMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue darkForestMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue swampMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue netherMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue crimsonMineshaftMinHeight;
-    public static ForgeConfigSpec.IntValue warpedMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> birchMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> jungleMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> desertMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> stoneMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> savannaMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> icyMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> oceanMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> taigaMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> darkForestMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> swampMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> netherMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> crimsonMineshaftMinHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> warpedMineshaftMinHeight;
 
-    public static ForgeConfigSpec.IntValue birchMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue jungleMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue desertMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue stoneMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue savannaMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue icyMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue oceanMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue taigaMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue darkForestMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue swampMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue netherMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue crimsonMineshaftMaxHeight;
-    public static ForgeConfigSpec.IntValue warpedMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> birchMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> jungleMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> desertMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> stoneMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> savannaMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> icyMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> oceanMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> taigaMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> darkForestMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> swampMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> netherMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> crimsonMineshaftMaxHeight;
+    public static ForgeConfigSpec.ConfigValue<Integer> warpedMineshaftMaxHeight;
 
     public static ForgeConfigSpec.IntValue birchMineshaftSize;
     public static ForgeConfigSpec.IntValue jungleMineshaftSize;
@@ -81,59 +81,59 @@ public class RSMineshaftsConfig {
         builder.push("Spawnrate");
 
         birchMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.birchmineshaftspawnrate")
-                .defineInRange("birchMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.birchmineshaftspawnrate")
+                .defineInRange("birchMineshaftSpawnrate", 10D, 0, 1000);
 
         jungleMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.junglemineshaftspawnrate")
-                .defineInRange("jungleMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.junglemineshaftspawnrate")
+                .defineInRange("jungleMineshaftSpawnrate", 10D, 0, 1000);
 
         desertMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.desertmineshaftspawnrate")
-                .defineInRange("desertMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.desertmineshaftspawnrate")
+                .defineInRange("desertMineshaftSpawnrate", 10D, 0, 1000);
 
         stoneMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.stonemineshaftspawnrate")
-                .defineInRange("stoneMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.stonemineshaftspawnrate")
+                .defineInRange("stoneMineshaftSpawnrate", 20D, 0, 1000);
 
         savannaMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.savannamineshaftspawnrate")
-                .defineInRange("savannaMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.savannamineshaftspawnrate")
+                .defineInRange("savannaMineshaftSpawnrate", 20D, 0, 1000);
 
         icyMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.icymineshaftspawnrate")
-                .defineInRange("icyMineshaftSpawnrate", 40D, 0, 1000);
-
-        oceanMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.oceanmineshaftspawnrate")
-                .defineInRange("oceanMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.icymineshaftspawnrate")
+                .defineInRange("icyMineshaftSpawnrate", 20D, 0, 1000);
 
         taigaMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.taigamineshaftspawnrate")
-                .defineInRange("taigaMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.taigamineshaftspawnrate")
+                .defineInRange("taigaMineshaftSpawnrate", 10D, 0, 1000);
 
         darkForestMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.darkforestmineshaftspawnrate")
-                .defineInRange("darkForestMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.darkforestmineshaftspawnrate")
+                .defineInRange("darkForestMineshaftSpawnrate", 10D, 0, 1000);
 
         swampMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.swampmineshaftspawnrate")
-                .defineInRange("swampMineshaftSpawnrate", 40D, 0, 1000);
+                .translation("repurposedstructures.swampmineshaftspawnrate")
+                .defineInRange("swampMineshaftSpawnrate", 10D, 0, 1000);
+
+        oceanMineshaftSpawnrate = builder
+                .translation("repurposedstructures.oceanmineshaftspawnrate")
+                .defineInRange("oceanMineshaftSpawnrate", 15D, 0, 1000);
 
         netherMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.nethermineshaftspawnrate")
+                .translation("repurposedstructures.nethermineshaftspawnrate")
                 .defineInRange("netherMineshaftSpawnrate", 40D, 0, 1000);
 
         crimsonMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.crimsonmineshaftspawnrate")
+                .translation("repurposedstructures.crimsonmineshaftspawnrate")
                 .defineInRange("crimsonMineshaftSpawnrate", 40D, 0, 1000);
 
         warpedMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.warpedmineshaftspawnrate")
+                .translation("repurposedstructures.warpedmineshaftspawnrate")
                 .defineInRange("warpedMineshaftSpawnrate", 40D, 0, 1000);
 
         endMineshaftSpawnrate = builder
-                .translation("repurposedstructures.config.mineshaft.endmineshaftspawnrate")
+                .translation("repurposedstructures.endmineshaftspawnrate")
                 .defineInRange("endMineshaftSpawnrate", 60D, 0, 1000);
 
         builder.pop();
@@ -144,56 +144,56 @@ public class RSMineshaftsConfig {
         builder.push("Min height");
 
         birchMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.birchmineshaftminheight")
-                .defineInRange("birchMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.birchmineshaftminheight")
+                .define("birchMineshaftMinHeight", 40);
 
         jungleMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.junglemineshaftminheight")
-                .defineInRange("jungleMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.junglemineshaftminheight")
+                .define("jungleMineshaftMinHeight", 40);
 
         desertMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.desertmineshaftminheight")
-                .defineInRange("desertMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.desertmineshaftminheight")
+                .define("desertMineshaftMinHeight", 40);
 
         stoneMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.stonemineshaftminheight")
-                .defineInRange("stoneMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.stonemineshaftminheight")
+                .define("stoneMineshaftMinHeight", 40);
 
         savannaMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.savannamineshaftminheight")
-                .defineInRange("savannaMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.savannamineshaftminheight")
+                .define("savannaMineshaftMinHeight", 40);
 
         icyMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.icymineshaftminheight")
-                .defineInRange("icyMineshaftMinHeight", 8, 5, 255);
-
-        oceanMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.oceanmineshaftminheight")
-                .defineInRange("oceanMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.icymineshaftminheight")
+                .define("icyMineshaftMinHeight", 40);
 
         taigaMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.taigamineshaftminheight")
-                .defineInRange("taigaMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.taigamineshaftminheight")
+                .define("taigaMineshaftMinHeight", 40);
 
         darkForestMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.darkforestmineshaftminheight")
-                .defineInRange("darkForestMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.darkforestmineshaftminheight")
+                .define("darkForestMineshaftMinHeight", 40);
 
         swampMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.swampmineshaftminheight")
-                .defineInRange("swampMineshaftMinHeight", 8, 5, 255);
+                .translation("repurposedstructures.swampmineshaftminheight")
+                .define("swampMineshaftMinHeight", 40);
+
+        oceanMineshaftMinHeight = builder
+                .translation("repurposedstructures.oceanmineshaftminheight")
+                .define("oceanMineshaftMinHeight", 15);
 
         netherMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.nethermineshaftminheight")
-                .defineInRange("netherMineshaftMinHeight", 6, 5, 255);
+                .translation("repurposedstructures.nethermineshaftminheight")
+                .define("netherMineshaftMinHeight", 6);
 
         crimsonMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.crimsonmineshaftminheight")
-                .defineInRange("crimsonMineshaftMinHeight", 6, 5, 255);
+                .translation("repurposedstructures.crimsonmineshaftminheight")
+                .define("crimsonMineshaftMinHeight", 6);
 
         warpedMineshaftMinHeight = builder
-                .translation("repurposedstructures.config.mineshaft.warpedmineshaftminheight")
-                .defineInRange("warpedMineshaftMinHeight", 6, 5, 255);
+                .translation("repurposedstructures.warpedmineshaftminheight")
+                .define("warpedMineshaftMinHeight", 6);
 
         builder.pop();
 
@@ -204,56 +204,56 @@ public class RSMineshaftsConfig {
         builder.push("Max height");
 
         birchMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.birchmineshaftmaxheight")
-                .defineInRange("birchMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.birchmineshaftmaxheight")
+                .define("birchMineshaftMaxHeight", 55);
 
         jungleMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.junglemineshaftmaxheight")
-                .defineInRange("jungleMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.junglemineshaftmaxheight")
+                .define("jungleMineshaftMaxHeight", 55);
 
         desertMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.desertmineshaftmaxheight")
-                .defineInRange("desertMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.desertmineshaftmaxheight")
+                .define("desertMineshaftMaxHeight", 55);
 
         stoneMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.stonemineshaftmaxheight")
-                .defineInRange("stoneMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.stonemineshaftmaxheight")
+                .define("stoneMineshaftMaxHeight", 150);
 
         savannaMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.savannamineshaftmaxheight")
-                .defineInRange("savannaMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.savannamineshaftmaxheight")
+                .define("savannaMineshaftMaxHeight", 120);
 
         icyMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.icymineshaftmaxheight")
-                .defineInRange("icyMineshaftMaxHeight", 45, 5, 255);
-
-        oceanMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.oceanmineshaftmaxheight")
-                .defineInRange("oceanMineshaftMaxHeight", 26, 5, 255);
+                .translation("repurposedstructures.icymineshaftmaxheight")
+                .define("icyMineshaftMaxHeight", 150);
 
         taigaMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.taigamineshaftmaxheight")
-                .defineInRange("taigaMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.taigamineshaftmaxheight")
+                .define("taigaMineshaftMaxHeight", 55);
 
         darkForestMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.darkforestmineshaftmaxheight")
-                .defineInRange("darkForestMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.darkforestmineshaftmaxheight")
+                .define("darkForestMineshaftMaxHeight", 55);
 
         swampMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.swampmineshaftmaxheight")
-                .defineInRange("swampMineshaftMaxHeight", 45, 5, 255);
+                .translation("repurposedstructures.swampmineshaftmaxheight")
+                .define("swampMineshaftMaxHeight", 55);
+
+        oceanMineshaftMaxHeight = builder
+                .translation("repurposedstructures.oceanmineshaftmaxheight")
+                .define("oceanMineshaftMaxHeight", 30);
 
         netherMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.nethermineshaftmaxheight")
-                .defineInRange("netherMineshaftMaxHeight", 17, 5, 255);
+                .translation("repurposedstructures.nethermineshaftmaxheight")
+                .define("netherMineshaftMaxHeight", 17);
 
         crimsonMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.crimsonmineshaftmaxheight")
-                .defineInRange("crimsonMineshaftMaxHeight", 14, 5, 255);
+                .translation("repurposedstructures.crimsonmineshaftmaxheight")
+                .define("crimsonMineshaftMaxHeight", 14);
 
         warpedMineshaftMaxHeight = builder
-                .translation("repurposedstructures.config.mineshaft.warpedmineshaftmaxheight")
-                .defineInRange("warpedMineshaftMaxHeight", 14, 5, 255);
+                .translation("repurposedstructures.warpedmineshaftmaxheight")
+                .define("warpedMineshaftMaxHeight", 14);
 
         builder.pop();
 
@@ -262,59 +262,59 @@ public class RSMineshaftsConfig {
         builder.push("Size");
 
         birchMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.birchmineshaftsize")
+                .translation("repurposedstructures.birchmineshaftsize")
                 .defineInRange("birchMineshaftSize", 9, 1, 30);
 
         jungleMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.junglemineshaftsize")
+                .translation("repurposedstructures.junglemineshaftsize")
                 .defineInRange("jungleMineshaftSize", 9, 1, 30);
 
         desertMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.desertmineshaftsize")
+                .translation("repurposedstructures.desertmineshaftsize")
                 .defineInRange("desertMineshaftSize", 9, 1, 30);
 
         stoneMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.stonemineshaftsize")
+                .translation("repurposedstructures.stonemineshaftsize")
                 .defineInRange("stoneMineshaftSize", 9, 1, 30);
 
         savannaMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.savannamineshaftsize")
+                .translation("repurposedstructures.savannamineshaftsize")
                 .defineInRange("savannaMineshaftSize", 9, 1, 30);
 
         icyMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.icymineshaftsize")
+                .translation("repurposedstructures.icymineshaftsize")
                 .defineInRange("icyMineshaftSize", 9, 1, 30);
 
         oceanMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.oceanmineshaftsize")
+                .translation("repurposedstructures.oceanmineshaftsize")
                 .defineInRange("oceanMineshaftSize", 9, 1, 30);
 
         taigaMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.taigamineshaftsize")
+                .translation("repurposedstructures.taigamineshaftsize")
                 .defineInRange("taigaMineshaftSize", 9, 1, 30);
 
         darkForestMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.darkforestmineshaftsize")
+                .translation("repurposedstructures.darkforestmineshaftsize")
                 .defineInRange("darkForestMineshaftSize", 9, 1, 30);
 
         swampMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.swampmineshaftsize")
+                .translation("repurposedstructures.swampmineshaftsize")
                 .defineInRange("swampMineshaftSize", 9, 1, 30);
 
         endMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.endmineshaftsize")
+                .translation("repurposedstructures.endmineshaftsize")
                 .defineInRange("endMineshaftSize", 11, 1, 30);
 
         netherMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.nethermineshaftsize")
+                .translation("repurposedstructures.nethermineshaftsize")
                 .defineInRange("netherMineshaftSize", 10, 1, 30);
 
         crimsonMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.crimsonmineshaftsize")
+                .translation("repurposedstructures.crimsonmineshaftsize")
                 .defineInRange("crimsonMineshaftSize", 10, 1, 30);
 
         warpedMineshaftSize = builder
-                .translation("repurposedstructures.config.mineshaft.warpedmineshaftsize")
+                .translation("repurposedstructures.warpedmineshaftsize")
                 .defineInRange("warpedMineshaftSize", 10, 1, 30);
 
         builder.pop();
@@ -325,7 +325,7 @@ public class RSMineshaftsConfig {
                 .comment("\n The minimum thickness of End islands that the End Mineshaft can spawn in.",
                         "So 30 means the End Mineshaft will spawn in land that is at least 30 blocks vertically in the area.",
                         "Do 0 to turn off this check and allow the End Mineshaft to spawn anywhere including floating in midair.")
-                .translation("repurposedstructures.config.mineshaft.endMineshaftMinIslandThickness")
+                .translation("repurposedstructures.endMineshaftMinIslandThickness")
                 .defineInRange("endMineshaftMinIslandThickness", 30, 0, 256);
 
         builder.pop();

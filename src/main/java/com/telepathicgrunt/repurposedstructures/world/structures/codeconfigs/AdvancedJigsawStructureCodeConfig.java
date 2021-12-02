@@ -67,7 +67,7 @@ public class AdvancedJigsawStructureCodeConfig {
             return getThis();
         }
 
-        public T setMaxY(ForgeConfigSpec.IntValue maxY) {
+        public T setMaxY(ForgeConfigSpec.ConfigValue<Integer> maxY) {
             this.maxY = Lazy.of(maxY::get);
             return getThis();
         }
@@ -77,7 +77,7 @@ public class AdvancedJigsawStructureCodeConfig {
             return getThis();
         }
 
-        public T setMinY(ForgeConfigSpec.IntValue minY) {
+        public T setMinY(ForgeConfigSpec.ConfigValue<Integer> minY) {
             this.minY = Lazy.of(minY::get);
             return getThis();
         }
@@ -86,7 +86,7 @@ public class AdvancedJigsawStructureCodeConfig {
             this.verticalRange = () -> verticalRange;
             return getThis();
         }
-        public T setVerticalRange(ForgeConfigSpec.IntValue verticalRange) {
+        public T setVerticalRange(ForgeConfigSpec.ConfigValue<Integer> verticalRange) {
             this.verticalRange = Lazy.of(verticalRange::get);
             return getThis();
         }

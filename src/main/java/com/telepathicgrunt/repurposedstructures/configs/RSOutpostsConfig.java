@@ -35,56 +35,56 @@ public class RSOutpostsConfig {
         builder.push("Outposts");
 
         outpostBirchAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostbirchmaxchunkdistance")
-                .defineInRange("outpostBirchMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostbirchaveragechunkdistance")
+                .defineInRange("outpostBirchAverageChunkDistance", 49, 1, 1001);
 
         outpostJungleAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostjunglemaxchunkdistance")
-                .defineInRange("outpostJungleMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostjungleaveragechunkdistance")
+                .defineInRange("outpostJungleAverageChunkDistance", 49, 1, 1001);
 
         outpostGiantTreeTaigaAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostgianttreetaigamaxchunkdistance")
-                .defineInRange("outpostGiantTreeTaigaMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostgianttreetaigaaveragechunkdistance")
+                .defineInRange("outpostGiantTreeTaigaAverageChunkDistance", 49, 1, 1001);
 
         outpostDesertAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostdesertmaxchunkdistance")
-                .defineInRange("outpostDesertMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostdesertaveragechunkdistance")
+                .defineInRange("outpostDesertAverageChunkDistance", 49, 1, 1001);
 
         outpostBadlandsAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostbadlandsmaxchunkdistance")
-                .defineInRange("outpostBadlandsMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostbadlandsaveragechunkdistance")
+                .defineInRange("outpostBadlandsAverageChunkDistance", 49, 1, 1001);
 
         outpostSnowyAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostsnowymaxchunkdistance")
-                .defineInRange("outpostSnowyMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostsnowyaveragechunkdistance")
+                .defineInRange("outpostSnowyAverageChunkDistance", 49, 1, 1001);
 
         outpostIcyAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outposticymaxchunkdistance")
-                .defineInRange("outpostIcyMaxChunkDistance", 41, 1, 1001);
+                .translation("repurposedstructures.outposticyaveragechunkdistance")
+                .defineInRange("outpostIcyAverageChunkDistance", 41, 1, 1001);
 
         outpostOakAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostoakmaxchunkdistance")
-                .defineInRange("outpostOakMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outpostoakaveragechunkdistance")
+                .defineInRange("outpostOakAverageChunkDistance", 49, 1, 1001);
 
         outpostTaigaAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outposttaigamaxchunkdistance")
-                .defineInRange("outpostTaigaMaxChunkDistance", 45, 1, 1001);
+                .translation("repurposedstructures.outposttaigaaveragechunkdistance")
+                .defineInRange("outpostTaigaAverageChunkDistance", 49, 1, 1001);
 
         outpostNetherBrickAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.netherbrickoutpostmaxchunkdistance")
-                .defineInRange("netherBrickOutpostMaxChunkDistance", 34, 1, 1001);
+                .translation("repurposedstructures.netherbrickoutpostaveragechunkdistance")
+                .defineInRange("netherBrickOutpostAverageChunkDistance", 34, 1, 1001);
 
         outpostWarpedAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.warpedoutpostmaxchunkdistance")
-                .defineInRange("warpedOutpostMaxChunkDistance", 34, 1, 1001);
+                .translation("repurposedstructures.warpedoutpostaveragechunkdistance")
+                .defineInRange("warpedOutpostAverageChunkDistance", 34, 1, 1001);
 
         outpostCrimsonAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.crimsonoutpostspawnrate")
-                .defineInRange("crimsonOutpostMaxChunkDistance", 34, 1, 1001);
+                .translation("repurposedstructures.crimsonoutpostspawnrate")
+                .defineInRange("crimsonOutpostAverageChunkDistance", 34, 1, 1001);
 
         outpostEndAverageChunkDistance = builder
-                .translation("repurposedstructures.config.outposts.outpostendmaxchunkdistance")
-                .defineInRange("outpostEndMaxChunkDistance", 61, 1, 1001);
+                .translation("repurposedstructures.outpostendaveragechunkdistance")
+                .defineInRange("outpostEndAverageChunkDistance", 61, 1, 1001);
 
         builder.pop();
     }
