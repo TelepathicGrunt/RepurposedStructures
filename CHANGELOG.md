@@ -1,3 +1,12 @@
+### **(V.4.0.1 Changes) (1.18.0 Minecraft)**
+
+#### Misc:
+Fixed pool weight increase mixin not applying outside of dev.
+
+#### Dungeons:
+Fixed Ocean Dungeons not spawning because default min y config value was 205 instead of 20. Oops
+
+
 ### **(V.4.0.0 Changes) (1.18.0 Minecraft)**
 
 ##### Major:

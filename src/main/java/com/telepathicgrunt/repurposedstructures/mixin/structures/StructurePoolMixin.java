@@ -17,7 +17,6 @@ public class StructurePoolMixin {
     @ModifyConstant(
             method = "lambda$static$1",
             constant = @Constant(intValue = 150),
-            remap = false,
             require = 0
     )
     private static int repurposedstructures_increaseWeightLimitDev(int constant) {

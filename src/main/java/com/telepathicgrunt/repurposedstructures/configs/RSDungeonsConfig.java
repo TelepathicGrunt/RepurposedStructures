@@ -159,7 +159,7 @@ public class RSDungeonsConfig {
 
 			oceanDungeonMinHeight = builder
 				.translation("repurposedstructures.oceandungeonminheight")
-				.define("oceanDungeonMinHeight", 205);
+				.define("oceanDungeonMinHeight", 20);
 
 		builder.pop();
 
