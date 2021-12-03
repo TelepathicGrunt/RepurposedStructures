@@ -9,6 +9,9 @@ Fixed default config value for Badlands Dungeon's min y value being 2 instead of
 #### Mineshafts:
 Fixed some default config values for minecraft sizes not being correct.
 
+#### Villages:
+Reduced amount of candles in Mushroom Villages.
+
 #### Misc:
 Fixed an error reporting crashing when trying to print info about a crash about to happen in RS.
 

@@ -6,7 +6,7 @@
       "weight": 2,
       "element": {
         "location": "repurposed_structures:villages/mushroom/decor/lamp_1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:villages/mushroom/general_randomizer",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
