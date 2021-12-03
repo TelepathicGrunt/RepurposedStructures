@@ -4,7 +4,8 @@
 Fixed pool weight increase mixin not applying outside of dev.
 
 #### Dungeons:
-Fixed Ocean Dungeons not spawning because default min y config value was 205 instead of 20. Oops
+Fixed Ocean Dungeons not spawning because default min y config value was 205 instead of 20. Oops.
+ If you already launched the game in 1.18 with v4.0.0 RS, you'll have to fix the Ocean Dungeon's config entry yourself.
 
 
 ### **(V.4.0.0 Changes) (1.18.0 Minecraft)**
