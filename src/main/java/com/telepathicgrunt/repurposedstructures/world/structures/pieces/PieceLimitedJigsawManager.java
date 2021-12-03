@@ -82,7 +82,7 @@ public class PieceLimitedJigsawManager {
         // Get starting pool
         StructureTemplatePool startPool = jigsawConfig.startPool().get();
         if(startPool == null || startPool.size() == 0) {
-            RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent start pool: {}  Crash is imminent", startPool.getName());
+            RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent start pool in structure: {}  Crash is imminent", structureID);
         }
 
         // Grab a random starting piece from the start pool. This is just the piece design itself, without rotation or position information.
