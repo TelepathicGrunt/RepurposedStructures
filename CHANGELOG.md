@@ -1,3 +1,10 @@
+### **(V.4.0.3 Changes) (1.18.0 Minecraft)**
+
+#### Misc:
+Fixed issue with deep copying the Structure Settings in chunk generators. 
+ (This is needed to allow RS's dimension allow/disallow configs to work)
+
+
 ### **(V.4.0.2 Changes) (1.18.0 Minecraft)**
 
 #### Configs:
