@@ -48,7 +48,7 @@ public final class Mansions {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.MANSION_TAIGA,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.TAIGA) && context.getBiome().getPrecipitation() != Biome.Precipitation.SNOW
-                                && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen"))
+                                && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "glacial", "frozen"))
                         && RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionTaigaAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.MANSION_TAIGA));
 

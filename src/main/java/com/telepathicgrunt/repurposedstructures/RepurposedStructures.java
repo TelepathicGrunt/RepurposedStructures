@@ -34,6 +34,7 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -51,6 +52,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class RepurposedStructures implements ModInitializer {
@@ -114,6 +116,23 @@ public class RepurposedStructures implements ModInitializer {
             Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
             ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
             TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, minecraftServer.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
+
+            // for debugging purposes
+//            StringBuilder stringBuilder = new StringBuilder();
+//            tempStructureToMultiMap.forEach((key1, value1) -> value1.keySet().forEach(csf ->
+//                    stringBuilder
+//                            .append("\n ")
+//                            .append(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getKey(csf))
+//                            .append(" - ")
+//                            .append(tempStructureToMultiMap.get(csf.feature).get(csf).stream().map(ResourceKey::location).collect(Collectors.toList()))
+//            ));
+//
+//            RepurposedStructures.LOGGER.error("""
+//
+//                    Structure Maps to biomes:
+//                    {}
+//                    """,
+//                    stringBuilder);
 
             // Turn the entire map and the inner multimaps to immutable to match the source code's require type
             ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> immutableOuterMap = ImmutableMap.builder();

@@ -19,21 +19,21 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("jungle_dungeon",
                 (context) ->
-                        genericDungeonCheck(context, RSConfiguredFeatures.JUNGLE_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.JUNGLE_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.JUNGLE))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.jungleDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.JUNGLE_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("badlands_dungeon",
                 (context) ->
-                        genericDungeonCheck(context, RSConfiguredFeatures.BADLANDS_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.BADLANDS_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MESA))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.BADLANDS_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("dark_forest_dungeons",
                 (context) ->
-                        genericDungeonCheck(context, RSConfiguredFeatures.DARK_FOREST_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.DARK_FOREST_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk != 0,
@@ -41,52 +41,48 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("desert_dungeons",
                 (context) ->
-                        genericDungeonCheck(context, RSConfiguredFeatures.DESERT_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.DESERT_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.DESERT))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.DESERT_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("mushroom_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.MUSHROOM_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.MUSHROOM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.mushroomDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.MUSHROOM_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("swamp_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.SWAMP_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.SWAMP_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.SWAMP))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.swampDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SWAMP_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("snow_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.SNOW_DUNGEONS,
-                                () -> (BiomeSelection.haveCategories(context, BiomeCategory.ICY)
-                                    // inverted icy check
-                                    && !(BiomeSelection.hasName(context, "icy", "ice", "frozen")
-                                    || (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
-                                || (BiomeSelection.haveCategories(context, BiomeCategory.MOUNTAIN)
-                                    && !BiomeSelection.hasName(context, "icy", "ice", "frozen")
-                                    && (BiomeSelection.hasName(context, "snow") || context.getBiome().getBaseTemperature() < 0)))
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.SNOW_DUNGEONS,
+                                () -> !BiomeSelection.hasName(context, "icy", "ice", "frozen", "glacier", "glacial") &&
+                                        (BiomeSelection.hasName(context, "snow") ||
+                                        BiomeSelection.haveCategories(context, BiomeCategory.ICY) ||
+                                        (BiomeSelection.haveCategories(context, BiomeCategory.MOUNTAIN) && context.getBiome().getBaseTemperature() < 0)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.snowDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.SNOW_DUNGEONS_PLACED));
 
         GeneralUtils.addToBiome("icy_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.ICY_DUNGEONS,
-                                () -> (BiomeSelection.haveCategories(context, BiomeCategory.ICY)
-                                    || BiomeSelection.haveCategories(context, BiomeCategory.MOUNTAIN))
-                                && (BiomeSelection.hasName(context, "icy", "ice", "frozen")
-                                || (context.getBiome().getBaseTemperature() < 0 && !BiomeSelection.hasName(context, "snow"))))
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.ICY_DUNGEONS,
+                                () -> BiomeSelection.hasName(context, "icy", "ice", "frozen", "glacier", "glacial") &&
+                                    (BiomeSelection.haveCategories(context, BiomeCategory.ICY) ||
+                                    (BiomeSelection.haveCategories(context, BiomeCategory.MOUNTAIN) && context.getBiome().getBaseTemperature() < 0)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.icyDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.ICY_DUNGEONS_PLACED));
 
         // Vegetal to match Nether Mineshafts
         GeneralUtils.addToBiome("nether_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.NETHER_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.NETHER_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.netherDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RSConfiguredFeatures.NETHER_DUNGEONS_PLACED));
@@ -94,7 +90,7 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("end_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.END_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.END_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.THEEND)
                                 && !BiomeSelection.isBiome(context, Biomes.THE_END, Biomes.SMALL_END_ISLANDS))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.endDungeonAttemptsPerChunk != 0,
@@ -104,7 +100,7 @@ public final class Dungeons {
         // All due to BiomeModification API being per feature instead of an event like Forge's Biome Modification event.
         GeneralUtils.addToBiome("ocean_neutral_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN)
                                 && (!BiomeSelection.hasName(context, "cold", "frozen", "snow", "ice", "warm", "hot", "tropic", "lukewarm") || // Thanks to vanilla oceans all being same temperature...
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
@@ -114,7 +110,7 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("ocean_cold_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN)
                                 && (BiomeSelection.hasName(context, "cold") || // Thanks to vanilla oceans all being same temperature...
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
@@ -124,7 +120,7 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("ocean_frozen_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN)
                                 && (BiomeSelection.hasName(context, "frozen", "snow", "ice") || // Thanks to vanilla oceans all being same temperature...
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
@@ -134,7 +130,7 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("ocean_lukewarm_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN)
                                 && (BiomeSelection.hasName(context, "lukewarm") || // Thanks to vanilla oceans all being same temperature...
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
@@ -144,16 +140,12 @@ public final class Dungeons {
 
         GeneralUtils.addToBiome("ocean_warm_dungeons",
                 (context) -> 
-                        genericDungeonCheck(context, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.OCEAN)
                                 && (BiomeSelection.hasName(context, "warm", "hot", "tropic") || // Thanks to vanilla oceans all being same temperature...
                                 (!BiomeSelection.hasNamespace(context, "minecraft")
                                         && context.getBiome().getBaseTemperature() >= 1.5f)))
                         && RepurposedStructures.RSAllConfig.RSDungeonsConfig.attemptsPerChunk.oceanDungeonAttemptsPerChunk != 0,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS_PLACED));
-    }
-
-    private static boolean genericDungeonCheck(BiomeSelectionContext context, ConfiguredFeature<?,?> configuredFeatures, Supplier<Boolean> condition) {
-        return BiomeSelection.isBiomeAllowed(context, configuredFeatures, condition);
     }
 }

@@ -88,8 +88,10 @@ public final class Outposts {
 
         if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostSnowyAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_SNOWY,
-                    () -> (BiomeSelection.hasNameTemp(event, "snow") || BiomeSelection.isBiomeTemp(event, Biomes.GROVE) ||
-                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MOUNTAIN) && !BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "frozen")))))
+                    () -> BiomeSelection.isBiomeTemp(event, Biomes.GROVE) ||
+                            (!BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                                ((BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) && BiomeSelection.hasNameTemp(event, "snow")) ||
+                                (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && (event.biome.getBaseTemperature() < 0 || BiomeSelection.hasNameTemp(event, "snow")))))))
         {
             event.addStructure(RSConfiguredStructures.OUTPOST_SNOWY);
             event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
@@ -97,7 +99,9 @@ public final class Outposts {
 
         if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostIcyAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_ICY,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MOUNTAIN) && BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "frozen")))
+                    () -> BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                            (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) ||
+                            (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && event.biome.getBaseTemperature() < 0))))
         {
             event.addStructure(RSConfiguredStructures.OUTPOST_ICY);
             event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());
@@ -106,7 +110,7 @@ public final class Outposts {
         if (RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostTaigaAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_TAIGA,
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && !BiomeSelection.isBiomeTemp(event, Biomes.GROVE) &&
-                    !BiomeSelection.hasNameTemp(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")))
+                    !BiomeSelection.hasNameTemp(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "glacial", "frozen")))
         {
             event.addStructure(RSConfiguredStructures.OUTPOST_TAIGA);
             event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());

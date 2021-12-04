@@ -14,6 +14,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,6 +143,12 @@ public final class BiomeSelection {
     public static boolean isBiomeAllowedTemp(TemporaryBiomeInjection.BiomeInjectionHelper context, StructureFeature<?> structureFeature, Supplier<Boolean> defaultCondition) {
         return (BiomeSelection.isBiomeAllowedTemp(context, structureFeature, Registry.STRUCTURE_FEATURE) ||
                 (!BiomeSelection.isBiomeDisallowedTemp(context, structureFeature, Registry.STRUCTURE_FEATURE) &&
+                        defaultCondition.get()));
+    }
+
+    public static boolean isBiomeAllowedPlacedFeature(BiomeSelectionContext context, PlacedFeature placedFeature, Supplier<Boolean> defaultCondition) {
+        return (BiomeSelection.isBiomeAllowed(context, placedFeature, BuiltinRegistries.PLACED_FEATURE) ||
+                (!BiomeSelection.isBiomeDisallowed(context, placedFeature, BuiltinRegistries.PLACED_FEATURE) &&
                         defaultCondition.get()));
     }
 

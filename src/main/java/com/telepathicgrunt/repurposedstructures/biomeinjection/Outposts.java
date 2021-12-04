@@ -93,7 +93,7 @@ public final class Outposts {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_SNOWY,
                             () -> (BiomeSelection.hasName(context, "snow")
-                            || (BiomeSelection.haveCategories(context, BiomeCategory.ICY) && !(BiomeSelection.hasName(context, "ice", "icy", "glacier", "frozen"))))
+                            || (BiomeSelection.haveCategories(context, BiomeCategory.ICY) && !(BiomeSelection.hasName(context, "ice", "icy", "glacier", "glacial", "frozen"))))
                                 && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostSnowyAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_SNOWY));
@@ -102,7 +102,7 @@ public final class Outposts {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_ICY,
                             () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY)
-                            && BiomeSelection.hasName(context, "ice", "icy", "glacier", "frozen")
+                            && BiomeSelection.hasName(context, "ice", "icy", "glacier", "glacial", "frozen")
                             && BiomeSelection.doesNotHaveStructureType(context, RSStructureTagMap.STRUCTURE_TAGS.OVERWORLD_OUTPOST))
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostIcyAverageChunkDistance != 1001,
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_ICY));
@@ -111,7 +111,7 @@ public final class Outposts {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSStructures.OUTPOST_TAIGA,
                             () -> BiomeSelection.haveCategories(context, BiomeCategory.TAIGA)
-                            && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "frozen")
+                            && !BiomeSelection.hasName(context, "giant", "redwood", "snow", "ice", "icy", "glacier", "glacial", "frozen")
                         && RepurposedStructures.RSAllConfig.RSOutpostsConfig.outpostTaigaAverageChunkDistance != 1001),
                 context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.OUTPOST_TAIGA));
 
