@@ -1,3 +1,10 @@
+### **(V.3.1.6 Changes) (1.18.0 Minecraft)**
+
+#### Misc:
+Fixed issue with deep copying the Structure Settings in chunk generators. (This is needed to allow RS's dimension allow/disallow configs to work) 
+ This was keeping AE2 meteors from spawning. 
+
+
 ### **(V.3.1.5 Changes) (1.18.0 Minecraft)**
 
 #### Configs:
