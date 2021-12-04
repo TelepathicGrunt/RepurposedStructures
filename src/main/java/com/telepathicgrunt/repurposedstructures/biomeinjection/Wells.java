@@ -16,7 +16,7 @@ public final class Wells {
     public static void addWells(BiomeLoadingEvent event) {
 
         if (RSWellsConfig.wellBadlandsRarityPerChunk.get() != 10000 &&
-                    genericWellCheck(event, RSConfiguredFeatures.BADLANDS_WELL_PLACED,
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.BADLANDS_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MESA)))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES)
@@ -24,7 +24,7 @@ public final class Wells {
         }
         
         if (RSWellsConfig.wellNetherRarityPerChunk.get() != 10000 &&
-            genericWellCheck(event, RSConfiguredFeatures.NETHER_WELL_PLACED,
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.NETHER_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER)))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES)
@@ -32,7 +32,7 @@ public final class Wells {
         }
 
         if (RSWellsConfig.wellSnowRarityPerChunk.get() != 10000 &&
-            genericWellCheck(event, RSConfiguredFeatures.SNOW_WELL_PLACED,
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.SNOW_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) ||
                     BiomeSelection.hasName(event, "snow")))
         {
@@ -41,7 +41,7 @@ public final class Wells {
         }
 
         if (RSWellsConfig.wellMossyStoneRarityPerChunk.get() != 10000 &&
-            genericWellCheck(event, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED,
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.SWAMP, Biome.BiomeCategory.JUNGLE) ||
                     (BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted"))))
         {
@@ -50,27 +50,20 @@ public final class Wells {
         }
 
         if (RSWellsConfig.wellForestRarityPerChunk.get() != 10000 &&
-            genericWellCheck(event, RSConfiguredFeatures.FOREST_WELL_PLACED,
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.FOREST_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
                     !BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
         {
-
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.FOREST_WELL_PLACED);
         }
 
         if (RSWellsConfig.wellMushroomRarityPerChunk.get() != 10000 &&
-            genericWellCheck(event, RSConfiguredFeatures.MUSHROOM_WELL_PLACED,
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MUSHROOM)))
         {
-
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.MUSHROOM_WELL_PLACED);
         }
-    }
-
-    private static boolean genericWellCheck(BiomeLoadingEvent context, PlacedFeature placedFeature, Supplier<Boolean> condition) {
-        return BiomeSelection.isBiomeAllowed(context, placedFeature,
-                () -> RSConfiguredFeatures.RS_WELLS.stream().noneMatch(pf -> BiomeSelection.hasFeature(context, pf)) && condition.get());
     }
 }

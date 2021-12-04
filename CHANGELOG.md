@@ -1,3 +1,23 @@
+### **(V.4.0.2 Changes) (1.18.0 Minecraft)**
+
+#### Configs:
+Autoupdated configs to have best compat with Terralith.
+
+#### Outposts:
+Fixed Snowy and Icy Outposts spawning in non-cold biomes by mistake. Should be better now.
+
+#### Pyramids:
+Fixed Snowy and Icy Pyramids spawning in non-cold biomes by mistake. Should be better now.
+
+#### Dungeons:
+Fixed Snowy and Icy Dungeons spawning in wrong biomes by mistake. Should be better now.
+
+Fixed multiple kinds of RS dungeons unable to spawn in same biome when using config to force them into same biome.
+
+#### Mansions:
+Fixed multiple kinds of RS Mansions unable to spawn in same biome when using config to force them into same biome.
+
+
 ### **(V.4.0.1 Changes) (1.18.0 Minecraft)**
 
 #### Misc:

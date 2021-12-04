@@ -28,16 +28,19 @@ public final class Pyramids {
 
         if (RSPyramidsConfig.pyramidIcyAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_ICY.get(),
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MOUNTAIN) &&
-                    (BiomeSelection.hasNameTemp(event, "icy", "ice", "frozen") || (event.biome.getBaseTemperature() < 0 && !BiomeSelection.hasNameTemp(event, "snow")))))
+                    () -> BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                            (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) ||
+                            (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && event.biome.getBaseTemperature() < 0))))
         {
             event.addStructure(RSConfiguredStructures.PYRAMID_ICY);
         }
 
         if (RSPyramidsConfig.pyramidSnowyAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_SNOWY.get(),
-                    () -> BiomeSelection.isBiomeTemp(event, Biomes.GROVE) || (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY, Biome.BiomeCategory.MOUNTAIN) && !(BiomeSelection.hasNameTemp(event, "icy", "ice", "frozen") || (event.biome.getBaseTemperature() < 0 && !BiomeSelection.hasNameTemp(event, "snow")))) ||
-                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && event.biome.getPrecipitation() == Biome.Precipitation.SNOW)))
+                    () -> BiomeSelection.isBiomeTemp(event, Biomes.GROVE) ||
+                            (!BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                                ((BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) && BiomeSelection.hasNameTemp(event, "snow")) ||
+                                (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && (event.biome.getBaseTemperature() < 0 || BiomeSelection.hasNameTemp(event, "snow")))))))
         {
             event.addStructure(RSConfiguredStructures.PYRAMID_SNOWY);
         }
@@ -73,7 +76,7 @@ public final class Pyramids {
         if (RSPyramidsConfig.pyramidFlowerForestAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_FLOWER_FOREST.get(),
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.FOREST) && !BiomeSelection.isBiomeTemp(event, Biomes.SUNFLOWER_PLAINS) &&
-                    BiomeSelection.hasNameTemp(event, "flower", "blossom")))
+                    BiomeSelection.hasNameTemp(event, "flower", "blossom", "bloom")))
         {
             event.addStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST);
         }

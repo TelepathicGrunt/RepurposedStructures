@@ -17,68 +17,69 @@ public final class Dungeons {
     public static void addDungeons(BiomeLoadingEvent event) {
 
         if (RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.JUNGLE_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.JUNGLE_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.JUNGLE)))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.JUNGLE_DUNGEONS_PLACED);
         }
         
         if (RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.BADLANDS_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.BADLANDS_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MESA)))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.BADLANDS_DUNGEONS_PLACED);
         }
         
         if (RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
                 BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.DARK_FOREST_DUNGEONS_PLACED);
         }
-        
+
         if (RSDungeonsConfig.desertDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.DESERT_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.DESERT_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.DESERT)))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.DESERT_DUNGEONS_PLACED);
         }
-        
-        if (RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0)
-        {
-            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_DUNGEONS_PLACED,
+
+        if (RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get() != 0 &&
+                BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MUSHROOM_DUNGEONS_PLACED,
                         () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MUSHROOM)))
-            {
-                event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.MUSHROOM_DUNGEONS_PLACED);
-            }
+        {
+            event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.MUSHROOM_DUNGEONS_PLACED);
         }
         
         if (RSDungeonsConfig.swampDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.SWAMP_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.SWAMP_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.SWAMP)))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.SWAMP_DUNGEONS_PLACED);
         }
 
         if (RSDungeonsConfig.icyDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.ICY_DUNGEONS_PLACED,
-                () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) &&
-                (BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow")))))
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.ICY_DUNGEONS_PLACED,
+                    () -> BiomeSelection.hasName(event, "icy", "ice", "frozen", "glacier", "glacial") &&
+                            (BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) ||
+                            (BiomeSelection.haveCategories(event, Biome.BiomeCategory.MOUNTAIN) && event.getClimate().temperature < 0))))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.ICY_DUNGEONS_PLACED);
         }
         
         if (RSDungeonsConfig.snowDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.SNOW_DUNGEONS_PLACED,
-                () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) &&
-                !(BiomeSelection.hasName(event, "icy", "ice", "frozen") || (event.getClimate().temperature < 0 && !BiomeSelection.hasName(event, "snow")))))
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.SNOW_DUNGEONS_PLACED,
+                    () -> !BiomeSelection.hasName(event, "icy", "ice", "frozen", "glacier", "glacial") &&
+                            (BiomeSelection.hasName(event, "snow") ||
+                            BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) ||
+                            (BiomeSelection.haveCategories(event, Biome.BiomeCategory.MOUNTAIN) && event.getClimate().temperature < 0))))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.SNOW_DUNGEONS_PLACED);
         }
         
         if (RSDungeonsConfig.netherDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.NETHER_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.NETHER_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER)))
         {
             // Vegetal to match Nether Mineshafts
@@ -86,7 +87,7 @@ public final class Dungeons {
         }
         
         if (RSDungeonsConfig.endDungeonAttemptsPerChunk.get() != 0 &&
-            genericDungeonCheck(event, RSConfiguredFeatures.END_DUNGEONS_PLACED,
+            BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.END_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.THEEND) &&
                 !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS)))
         {
@@ -96,7 +97,7 @@ public final class Dungeons {
         if (RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get() != 0)
         {
             // Thanks to vanilla oceans all being same temperature, we have to use the has Namespace to correctly get them.
-            if(genericDungeonCheck(event, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS_PLACED,
+            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.OCEAN) &&
                     (BiomeSelection.hasName(event, "lukewarm") ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && event.getClimate().temperature >= 0.9f && event.getClimate().temperature < 1.5f))))
@@ -104,7 +105,7 @@ public final class Dungeons {
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.OCEAN_LUKEWARM_DUNGEONS_PLACED);
             }
 
-            if(genericDungeonCheck(event, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS_PLACED,
+            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.OCEAN_WARM_DUNGEONS_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.OCEAN) &&
                     ((BiomeSelection.hasName(event, "hot", "tropic", "warm") && !BiomeSelection.hasName(event, "lukewarm")) ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && event.getClimate().temperature >= 1.5f))))
@@ -112,7 +113,7 @@ public final class Dungeons {
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.OCEAN_WARM_DUNGEONS_PLACED);
             }
 
-            if(genericDungeonCheck(event, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS_PLACED,
+            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.OCEAN_COLD_DUNGEONS_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.OCEAN) &&
                     (BiomeSelection.hasName(event, "cold") ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && event.getClimate().temperature >= 0.0f && event.getClimate().temperature < 0.5f))))
@@ -120,7 +121,7 @@ public final class Dungeons {
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.OCEAN_COLD_DUNGEONS_PLACED);
             }
 
-            if(genericDungeonCheck(event, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS_PLACED,
+            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.OCEAN) &&
                     (BiomeSelection.hasName(event, "frozen", "snow", "ice") ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && event.getClimate().temperature >= 0.9f && event.getClimate().temperature < 1.5f))))
@@ -128,7 +129,7 @@ public final class Dungeons {
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).add(() -> RSConfiguredFeatures.OCEAN_FROZEN_DUNGEONS_PLACED);
             }
 
-            if(genericDungeonCheck(event, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS_PLACED,
+            if(BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.OCEAN_NEUTRAL_DUNGEONS_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.OCEAN) &&
                     (!BiomeSelection.hasName(event, "hot", "tropic", "warm", "cold", "frozen", "snow", "ice") ||
                     (!BiomeSelection.hasNamespace(event, "minecraft") && event.getClimate().temperature >= 0.5f && event.getClimate().temperature < 0.9f))))
