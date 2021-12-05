@@ -17,6 +17,7 @@ curseforge {
         relations {
             requiredDependency 'cloth-config'
             requiredDependency 'fabric-api'
+            optionalDependency 'no-null-processors'
         }
 
         mainArtifact(remapJar) {
