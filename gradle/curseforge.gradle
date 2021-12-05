@@ -10,6 +10,10 @@ curseforge {
         addGameVersion("1.18")
         addGameVersion("Forge")
 
+        relations {
+            optionalDependency 'no-null-processors'
+        }
+
         mainArtifact(jar) {
             displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
         }
