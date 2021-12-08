@@ -1,3 +1,9 @@
+### **(V.3.1.8 Changes) (1.18.0 Minecraft)**
+
+#### Configs:
+Refined RS config default entries for Terralith compat
+
+
 ### **(V.3.1.7 Changes) (1.18.0 Minecraft)**
 
 #### Configs:

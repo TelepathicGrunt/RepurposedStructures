@@ -175,7 +175,15 @@ public class RSAllowDisallowOmegaConfig implements Config {
             configVersion = 4;
         }
 
-        configVersion = 4;
+        if(configVersion == 4) {
+            removeEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:alpine_highlands");
+            removeEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:alpine_highlands");
+            removeEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:alpine_highlands");
+            removeEntries(allowedBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_highlands");
+            configVersion = 5;
+        }
+
+        configVersion = 5;
         Config.super.save();
     }
 
