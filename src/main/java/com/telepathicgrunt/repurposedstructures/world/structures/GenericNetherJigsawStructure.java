@@ -64,7 +64,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
                         placementPos = GeneralUtils.getLowestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), config.canPlaceOnLiquid);
                     }
 
-                    if (placementPos.getY() >= context.chunkGenerator().getGenDepth() || placementPos.getY() <= context.chunkGenerator().getSeaLevel() + 1) {
+                    if (placementPos.getY() >= GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()) || placementPos.getY() <= context.chunkGenerator().getSeaLevel() + 1) {
                         structurePiecesBuilder.moveInsideHeights(random, context.chunkGenerator().getSeaLevel() + config.ledgeSpotOffset, context.chunkGenerator().getSeaLevel() + (config.ledgeSpotOffset + 1));
                     }
                     else {

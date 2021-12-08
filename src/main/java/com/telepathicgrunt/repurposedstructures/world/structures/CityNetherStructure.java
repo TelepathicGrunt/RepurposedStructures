@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
@@ -51,7 +52,7 @@ public class CityNetherStructure extends GenericJigsawStructure {
                     mutable.set(curChunkX << 4, context.chunkGenerator().getSeaLevel() + 10, curChunkZ << 4);
                     NoiseColumn blockView = context.chunkGenerator().getBaseColumn(mutable.getX(), mutable.getZ(), context.heightAccessor());
                     int minValidSpace = 65;
-                    int maxHeight = Math.min(context.chunkGenerator().getGenDepth(), context.chunkGenerator().getSeaLevel() + minValidSpace);
+                    int maxHeight = Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), context.chunkGenerator().getSeaLevel() + minValidSpace);
 
                     while(mutable.getY() < maxHeight) {
                         BlockState state = blockView.getBlock(mutable.getY());

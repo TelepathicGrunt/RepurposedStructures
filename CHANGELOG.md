@@ -3,6 +3,9 @@
 #### Configs:
 Refined RS config default entries for Terralith compat
 
+#### Misc:
+Fixed issue where several structures could be placed wrong if world height is changed significantly in the dimension.
+
 
 ### **(V.3.1.7 Changes) (1.18.0 Minecraft)**
 
