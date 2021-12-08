@@ -256,7 +256,15 @@ public class RSBiomeDimConfig implements Config {
             configVersion = 8;
         }
 
-        configVersion = 8;
+        if(configVersion == 8) {
+            removeEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:alpine_highlands");
+            removeEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:alpine_highlands");
+            removeEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:alpine_highlands");
+            removeEntries(allowedBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_highlands");
+            configVersion = 9;
+        }
+
+        configVersion = 9;
         Config.super.save();
     }
 
