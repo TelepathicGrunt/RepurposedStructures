@@ -6,6 +6,8 @@ Refined RS config default entries for Terralith compat
 #### Misc:
 Fixed issue where several structures could be placed wrong if world height is changed significantly in the dimension.
 
+Fixed several Nether Structures being set too low and even inside the lava ocean.
+
 
 ### **(V.4.0.4 Changes) (1.18.0 Minecraft)**
 
