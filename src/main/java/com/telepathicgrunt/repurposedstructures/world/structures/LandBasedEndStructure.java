@@ -43,7 +43,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
     }
 
     protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
-        return getTerrainHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(context.chunkGenerator().getGenDepth(), 50);
+        return getTerrainHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), 50);
     }
 
     // must be on land
@@ -52,7 +52,7 @@ public class LandBasedEndStructure extends GenericJigsawStructure {
         int zPos = chunkPos1.z << 4;
         int height = chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
 
-        BlockPos pos = new BlockPos(xPos, chunkGenerator.getGenDepth(), zPos);
+        BlockPos pos = new BlockPos(xPos, GeneralUtils.getMaxTerrainLimit(chunkGenerator), zPos);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         for(Direction direction : Direction.Plane.HORIZONTAL) {
             mutable.set(pos).move(direction, 16);

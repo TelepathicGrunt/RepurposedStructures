@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.math.Vector3f;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.Mutable;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedDistanceJigsawStructureCodeConfig;
 import net.minecraft.core.Direction;
@@ -41,7 +42,7 @@ public class StrongholdEndStructure extends AdvancedDistanceJigsawStructure {
             return false;
 
         ChunkPos chunkPos = context.chunkPos();
-        int minLandHeight = Math.min(context.chunkGenerator().getGenDepth(), context.chunkGenerator().getMinY() + 45);
+        int minLandHeight = Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), context.chunkGenerator().getMinY() + 45);
         int xPos = chunkPos.getMinBlockX();
         int zPos = chunkPos.getMinBlockZ();
         int landHeight = Integer.MAX_VALUE;

@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.mojang.math.Vector3f;
 import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.Mutable;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
@@ -106,7 +107,7 @@ public class MineshaftEndStructure extends MineshaftStructure {
     private void analyzeLand(ChunkGenerator chunkGenerator, int xPos, int zPos, BlockPos.MutableBlockPos islandTopBottomThickness, LevelHeightAccessor heightLimitView) {
         NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(xPos, zPos, heightLimitView);
         int minY = chunkGenerator.getMinY();
-        int rangeHeight = chunkGenerator.getGenDepth();
+        int rangeHeight = GeneralUtils.getMaxTerrainLimit(chunkGenerator);
         int maxY = minY + rangeHeight;
         BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos(xPos, maxY, zPos);
         boolean isInIsland = false;
