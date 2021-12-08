@@ -36,6 +36,10 @@ public class RSAllowDisallowOmegaConfig implements Config {
         }
 
         if(configVersion == 2) {
+            configVersion = 3;
+        }
+
+        if(configVersion == 3) {
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_badlands", "terralith:snowy_badlands");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_snow", "terralith:gravel_desert");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_desert", "terralith:red_oasis");
@@ -168,9 +172,10 @@ public class RSAllowDisallowOmegaConfig implements Config {
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:moonlight_valley");
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:rocky_shrubland");
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:shrubland");
+            configVersion = 4;
         }
 
-        configVersion = 3;
+        configVersion = 4;
         Config.super.save();
     }
 
