@@ -115,7 +115,12 @@ public class RSBiomeDimConfig implements Config {
             configVersion = 6;
         }
 
-        if(configVersion == 6) {
+        // Oops. have to skip this number
+        if(configVersion == 6){
+            configVersion = 7;
+        }
+
+        if(configVersion == 7) {
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_badlands", "terralith:snowy_badlands");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_snow", "terralith:gravel_desert");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_desert", "terralith:red_oasis");
@@ -248,9 +253,10 @@ public class RSBiomeDimConfig implements Config {
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:moonlight_valley");
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:rocky_shrubland");
             addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:shrubland");
+            configVersion = 8;
         }
 
-        configVersion = 7;
+        configVersion = 8;
         Config.super.save();
     }
 
@@ -458,5 +464,5 @@ public class RSBiomeDimConfig implements Config {
             "\n"+
             "\n// for internal use only. Do not change this."
     )
-    public int configVersion = 7;
+    public int configVersion = 7; // DO NOT TOUCH ANYMORE
 }

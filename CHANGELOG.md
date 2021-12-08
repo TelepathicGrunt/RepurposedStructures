@@ -1,3 +1,9 @@
+### **(V.4.0.4 Changes) (1.18.0 Minecraft)**
+
+#### Configs:
+Fix the autoupdating for configs to have best compat with Terralith not working
+
+
 ### **(V.4.0.3 Changes) (1.18.0 Minecraft)**
 
 #### Misc:
