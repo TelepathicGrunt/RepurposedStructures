@@ -1,3 +1,9 @@
+### **(V.3.1.9 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Hard require 1.18.1 Minecraft and 0.12.9 Fabric Loader to help keep people safer.
+
+
 ### **(V.3.1.8 Changes) (1.18.0 Minecraft)**
 
 #### Configs:
