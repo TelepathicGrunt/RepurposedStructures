@@ -3,8 +3,18 @@
 #### Misc:
 Hard require 1.18.1 Minecraft and 0.12.9 Fabric Loader to help keep people safer.
 
+#### Cities:
+Fixed Nether City having some rooms with an empty chest instead of having loot.
+
+Nerfed rate of Netherite Ingot quite a bit from Nether Cities loot.
+
 #### Fortresses:
 Jungle Fortress loot now has its tools and armor slightly damaged. The extremely rare diamond tools/armor is usually heavily damaged.
+
+#### Villages:
+Fixed some Zombified Piglins not spawning in Zombified Crimson/Warped Villages.
+
+Crimson/Warped Villages's tannery building now has Lava Cauldrons.
 
 
 ### **(V.3.1.8 Changes) (1.18.0 Minecraft)**
