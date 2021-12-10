@@ -26,15 +26,6 @@ import static java.lang.Integer.parseInt;
  */
 public class DataBlockProcessor extends StructureProcessor {
 
-    private enum DATA_PROCESSOR_MODE {
-        PILLARS("-");
-
-        private final String symbol;
-        DATA_PROCESSOR_MODE(String symbol) {
-            this.symbol = symbol;
-        }
-    }
-
     public static final Codec<DataBlockProcessor> CODEC = Codec.unit(DataBlockProcessor::new);
     private DataBlockProcessor() { }
 
@@ -47,8 +38,8 @@ public class DataBlockProcessor extends StructureProcessor {
 
             try {
                 // Pillar mode activated
-                if(metadata.contains(DATA_PROCESSOR_MODE.PILLARS.symbol)) {
-                    String[] splitString = metadata.split(DATA_PROCESSOR_MODE.PILLARS.symbol);
+                if(metadata.contains("-")) {
+                    String[] splitString = metadata.split("-");
 
                     // Parses the data block's field to get direction, blockstate, and depth
                     Direction direction = Direction.valueOf(splitString[0].toUpperCase(Locale.ROOT));

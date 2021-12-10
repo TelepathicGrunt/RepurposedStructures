@@ -1,3 +1,9 @@
+### **(V.4.0.6 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Hard require 1.18.1 MC and 38.0.17 Forge to help keep people safer.
+
+
 ### **(V.4.0.5 Changes) (1.18.0 Minecraft)**
 
 #### Configs:
