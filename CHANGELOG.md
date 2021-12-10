@@ -3,6 +3,9 @@
 #### Misc:
 Hard require 1.18.1 Minecraft and 0.12.9 Fabric Loader to help keep people safer.
 
+#### Fortresses:
+Jungle Fortress loot now has its tools and armor slightly damaged. The extremely rare diamond tools/armor is usually heavily damaged.
+
 
 ### **(V.3.1.8 Changes) (1.18.0 Minecraft)**
 

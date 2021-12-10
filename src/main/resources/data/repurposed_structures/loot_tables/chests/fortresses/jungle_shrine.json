@@ -184,6 +184,13 @@
           "weight": 1,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.2,
+                "max": 0.7
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -198,6 +205,13 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -214,6 +228,13 @@
           "weight": 5,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -228,6 +249,13 @@
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -244,6 +272,13 @@
           "weight": 5,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -258,6 +293,13 @@
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.2,
+                "max": 0.7
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -274,6 +316,13 @@
           "weight": 5,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.2,
+                "max": 0.7
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -288,6 +337,13 @@
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -304,6 +360,13 @@
           "weight": 1,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -318,6 +381,13 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -334,6 +404,13 @@
           "weight": 1,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -348,6 +425,13 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -364,6 +448,13 @@
           "weight": 3,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -378,6 +469,13 @@
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -394,6 +492,13 @@
           "weight": 3,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -408,6 +513,13 @@
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -424,6 +536,13 @@
           "weight": 3,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -438,6 +557,13 @@
           "type": "minecraft:item",
           "weight": 3,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {

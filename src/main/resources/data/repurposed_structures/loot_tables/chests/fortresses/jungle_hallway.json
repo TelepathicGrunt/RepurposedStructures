@@ -206,13 +206,29 @@
         {
           "name": "minecraft:stone_sword",
           "type": "minecraft:item",
-          "weight": 12
+          "weight": 12,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:leather_boots",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -229,6 +245,13 @@
           "weight": 5,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -243,6 +266,13 @@
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
@@ -259,6 +289,13 @@
           "weight": 5,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            },
+            {
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": -10.0,
@@ -271,67 +308,184 @@
         {
           "name": "minecraft:chainmail_boots",
           "type": "minecraft:item",
-          "weight": 5
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
-          "weight": 5
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_leggings",
           "type": "minecraft:item",
-          "weight": 5
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_helmet",
           "type": "minecraft:item",
-          "weight": 5
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:stone_pickaxe",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:stone_shovel",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.9,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_sword",
           "type": "minecraft:item",
-          "weight": 5
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_boots",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:iron_shovel",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.7,
+                "max": 1
+              }
+            }
+          ]
         }
       ]
     },
