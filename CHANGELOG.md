@@ -22,6 +22,9 @@ Added rare chance of Otherside Music Disc to all RS Dungeons loot tables.
 #### Strongholds:
 Added rare chance of Otherside Music Disc to all RS Strongholds's hallway loot table.
 
+#### Bastions:
+Underground Bastion's bridge, other, and skeleton horse stable chest loot tables now has a tiny chance for Amethyst Shards.
+
 
 ### **(V.4.0.5 Changes) (1.18.0 Minecraft)**
 
