@@ -1,7 +1,20 @@
 ### **(V.4.0.6 Changes) (1.18.1 Minecraft)**
 
 #### Misc:
-Hard require 1.18.1 MC and 38.0.17 Forge to help keep people safer.
+Hard require 1.18.1 MC and 39.0.0 Forge to help keep people safer.
+
+#### Cities:
+Fixed Nether City having some rooms with an empty chest instead of having loot.
+
+Nerfed rate of Netherite Ingot quite a bit from Nether Cities loot.
+
+#### Fortresses:
+Jungle Fortress loot now has its tools and armor slightly damaged. The extremely rare diamond tools/armor is usually heavily damaged.
+
+#### Villages:
+Fixed some Zombified Piglins not spawning in Zombified Crimson/Warped Villages.
+
+Crimson/Warped Villages's tannery building now has Lava Cauldrons.
 
 
 ### **(V.4.0.5 Changes) (1.18.0 Minecraft)**
