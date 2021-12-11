@@ -263,6 +263,7 @@
         {
           "name": "minecraft:redstone_block",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -278,6 +279,7 @@
         {
           "name": "minecraft:iron_block",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -293,6 +295,7 @@
         {
           "name": "minecraft:redstone",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -308,6 +311,7 @@
         {
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -323,6 +327,7 @@
         {
           "name": "minecraft:obsidian",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -338,6 +343,7 @@
         {
           "name": "minecraft:amethyst_shard",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -353,6 +359,7 @@
         {
           "name": "minecraft:deepslate_redstone_ore",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -368,6 +375,7 @@
         {
           "name": "minecraft:bone_block",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
