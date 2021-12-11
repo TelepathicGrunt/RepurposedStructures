@@ -240,7 +240,7 @@ public class RepurposedStructures {
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
             // Not superflat overworld. Do normal behavior now
-            else{
+            else {
                 for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
                     boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverLevel, ForgeRegistries.STRUCTURE_FEATURES.getKey(structureFeatureEntry.getKey()));
                     if (isWorldBlacklisted){
