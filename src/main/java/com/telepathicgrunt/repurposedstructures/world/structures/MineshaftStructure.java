@@ -44,7 +44,7 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
         int chunkZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
         SharedSeedRandom msRandom = new SharedSeedRandom();
-        int maxRadius = radius != 100 ? radius : 50000;
+        int maxRadius = radius < 100 ? radius : 50000;
 
         for(SharedSeedRandom chunkRandom = new SharedSeedRandom(); currentRadius <= maxRadius; ++currentRadius) {
             for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
