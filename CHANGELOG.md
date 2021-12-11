@@ -16,6 +16,12 @@ Fixed some Zombified Piglins not spawning in Zombified Crimson/Warped Villages.
 
 Crimson/Warped Villages's tannery building now has Lava Cauldrons.
 
+#### Dungeons:
+Added rare chance of Otherside Music Disc to all RS Dungeons loot tables.
+
+#### Strongholds:
+Added rare chance of Otherside Music Disc to all RS Strongholds's hallway loot table.
+
 
 ### **(V.4.0.5 Changes) (1.18.0 Minecraft)**
 

@@ -229,6 +229,11 @@
           "weight": 1
         },
         {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:music_disc_otherside"
+        },
+        {
           "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
           "weight": 1
