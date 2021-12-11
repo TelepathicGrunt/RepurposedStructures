@@ -5,6 +5,8 @@ Hotfix to try and reduced locate radius for RS structures based on how common th
   Should help reduce some lag with some structure locating stuff within worlds created by certain world overhaul mods 
   that make some biomes super rare or non-existent while saying the biome will spawn when it doesnt.
 
+This is final update for 1.16.5 unless there's a security issue.
+
 
 ### **(V.3.4.6 Changes) (1.16.5 Minecraft)**
 
