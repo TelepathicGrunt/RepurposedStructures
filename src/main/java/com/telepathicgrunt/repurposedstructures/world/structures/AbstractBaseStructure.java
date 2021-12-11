@@ -52,8 +52,9 @@ public abstract class AbstractBaseStructure<C extends IFeatureConfig> extends St
         int chunkX = blockPos.getX() >> 4;
         int chunkZ = blockPos.getZ() >> 4;
         int currentRadius = 0;
+        int maxRadius = radius != 100 ? radius : 50000/structureConfig.spacing();
 
-        for(SharedSeedRandom chunkRandom = new SharedSeedRandom(); currentRadius <= 100000; ++currentRadius) {
+        for(SharedSeedRandom chunkRandom = new SharedSeedRandom(); currentRadius <= maxRadius; ++currentRadius) {
             for(int xRadius = -currentRadius; xRadius <= currentRadius; ++xRadius) {
                 boolean xEdge = xRadius == -currentRadius || xRadius == currentRadius;
 
