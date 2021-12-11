@@ -20,6 +20,6 @@ public class LocateCommandMixin {
             require = 0
     )
     private static int repurposedstructures_increaseLocateSearchRadius(int constant) {
-        return 10000;
+        return 4000;
     }
 }
