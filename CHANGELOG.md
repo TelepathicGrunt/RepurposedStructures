@@ -1,3 +1,10 @@
+### **(V.3.1.10 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Fixed issue where adding a rs_pieces_spawn_counts entry in a datapack that does not have a required piece would make the RS structure not fully generate.
+ Now the 1.18.1 More Villagers Datapack works properly: https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-more-villagers-datapack
+
+
 ### **(V.3.1.9 Changes) (1.18.1 Minecraft)**
 
 #### Misc:

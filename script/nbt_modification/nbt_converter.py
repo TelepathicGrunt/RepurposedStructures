@@ -14,6 +14,7 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "repurposed_structures:village/" : "repurposed_structures:villages/"
 }
 conversion_exact_dict = {
 }

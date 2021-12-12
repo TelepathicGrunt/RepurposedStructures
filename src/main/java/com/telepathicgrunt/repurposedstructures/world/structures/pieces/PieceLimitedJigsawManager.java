@@ -120,7 +120,7 @@ public class PieceLimitedJigsawManager {
             List<PoolElementStructurePiece> components = new ArrayList<>();
             components.add(startPiece);
             Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces = RepurposedStructures.structurePieceCountsManager.getRequirePieces(structureID);
-            boolean runOnce = requiredPieces == null;
+            boolean runOnce = requiredPieces == null || requiredPieces.isEmpty();;
             Map<ResourceLocation, Integer> currentPieceCounter = new HashMap<>();
             for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces, currentPieceCounter); attempts++) {
                 if (attempts == 100) {
