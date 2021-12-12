@@ -59,6 +59,7 @@ repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
     maven { url "https://www.cursemaven.com" }
     //maven { url = "https://maven.blamejared.com/" }
+    flatDir { dirs 'deps' }
 }
 
 dependencies {
@@ -67,26 +68,27 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     }
 
-    //compileOnly
+    runtimeOnly fg.deobf("patrigan:loadnbtblock:1.18.1-2.0.0")
+
+    // 1.18.1
+    //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
+    //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3562165")
+
+    // 1.16.5
     //runtimeOnly fg.deobf("curse.maven:simply_cats-332910:3498688")
-    //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3533703")
     //runtimeOnly fg.deobf("curse.maven:bountiful-309516:3239647")
     //runtimeOnly fg.deobf("curse.maven:kotlin_forge-351264:3452303")
-
-
     // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3523829")
     // runtimeOnly fg.deobf("curse.maven:caves_api-441706:3512246")
     // runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3476138")
     // runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3494919")
     // runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3412586")
-
     // runtimeOnly fg.deobf("curse.maven:relics-445274:3470411")
     // runtimeOnly fg.deobf("curse.maven:curios-309927:3456953")
     // runtimeOnly fg.deobf("curse.maven:vampirism-233029:3475085")
     // runtimeOnly fg.deobf("curse.maven:farmers_delight-398521:3418719")
     // runtimeOnly fg.deobf("curse.maven:tardus-290247:3482231")
     // runtimeOnly fg.deobf("curse.maven:etched-491890:3364913")
-    // runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3466080")
     // runtimeOnly fg.deobf("curse.maven:pneumaticcraftrepressurized-281849:3470048")
     // runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3431122")
     // runtimeOnly fg.deobf("curse.maven:jellyfishing-397703:3458825")

@@ -172,6 +172,7 @@ public class RepurposedStructures {
     public void registerDatapackListener(final AddReloadListenerEvent event) {
         //loads the RS specific json files for mob spawner chances
         event.addListener(RepurposedStructures.mobSpawnerManager);
+        event.addListener(RepurposedStructures.structurePieceCountsManager);
     }
 
     public void biomeModification(final BiomeLoadingEvent event) {

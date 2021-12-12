@@ -1,3 +1,12 @@
+### **(V.4.0.7 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Fixed rs_pieces_spawn_counts resourcelistener not actually hooked up.
+ This is required for specific RS datapacks to work properly and restrict how many added buildings can spawn in a single village to prevent overcrowding.
+ Example of this is the 1.18.1 More Villagers Datapack: https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-more-villagers-datapack
+ This fix will make sure that datapack does not spawn more than 1 florist house in a single RS village.
+
+
 ### **(V.4.0.6 Changes) (1.18.1 Minecraft)**
 
 #### Misc:
