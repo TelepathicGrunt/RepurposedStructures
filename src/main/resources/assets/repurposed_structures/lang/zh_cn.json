@@ -40,14 +40,14 @@
     "filled_map.repurposed_structures:city_nether": "下界城地图",
     "filled_map.repurposed_structures:ruins_nether": "下界废墟地图",
     "filled_map.repurposed_structures:fortress_jungle": "丛林要塞地图",
-    "filled_map.repurposed_structures:mansion_birch": "白桦府邸地图",
+    "filled_map.repurposed_structures:mansion_birch": "白桦林府邸地图",
     "filled_map.repurposed_structures:mansion_desert": "沙漠府邸地图",
     "filled_map.repurposed_structures:mansion_jungle": "丛林府邸地图",
     "filled_map.repurposed_structures:mansion_savanna": "热带草原府邸地图",
     "filled_map.repurposed_structures:mansion_oak": "橡木林府邸地图",
     "filled_map.repurposed_structures:mansion_snowy": "雪地府邸地图",
     "filled_map.repurposed_structures:mansion_taiga": "针叶林府邸地图",
-    "filled_map.repurposed_structures:stronghold_end": "末地要塞地图",
+    "filled_map.repurposed_structures:stronghold_end": "末地地下要塞地图",
     "filled_map.repurposed_structures:pyramid_end": "末地神殿地图"
     
      "text.autoconfig.repurposed_structures-fabric/general_configs.title": "世界生成重构 (Repurposed Structures/RS) 配置",
