@@ -1,3 +1,24 @@
+### **(V.3.1.11 Changes) (1.18.1 Minecraft)**
+
+#### Configs:
+Corrected configs to say that RS Mineshafts and Dungeons will NOT replace vanilla's.
+
+#### Mineshafts:
+Nether Mineshafts can exposed Ancient Debris again now.
+
+Wall blocks in Mineshafts will connect to top wall properly now.
+
+Mineshafts will be sunken into terrain a bit better to reduce destruction of surfaces.
+
+#### Lang:
+With special help from others, ko_kr.json is added and zh_cn.json is improved!
+
+#### Misc:
+Bumped mixin compat level to java 17.
+
+Fixed a potential incompatibility with Cyanide mod.
+
+
 ### **(V.3.1.10 Changes) (1.18.1 Minecraft)**
 
 #### Misc:

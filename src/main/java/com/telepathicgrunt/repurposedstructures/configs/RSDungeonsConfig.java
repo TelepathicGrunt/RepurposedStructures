@@ -27,10 +27,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in Badlands biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int badlandsDungeonAttemptsPerChunk = 6;
 
@@ -40,10 +38,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in Dark Forest biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int darkForestDungeonAttemptsPerChunk = 8;
 
@@ -53,10 +49,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in Desert biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int desertDungeonAttemptsPerChunk = 8;
 
@@ -66,10 +60,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in Jungle biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int jungleDungeonAttemptsPerChunk = 8;
 
@@ -79,10 +71,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in Mushroom biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int mushroomDungeonAttemptsPerChunk = 8;
 
@@ -92,10 +82,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in snowy biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int snowDungeonAttemptsPerChunk = 8;
 
@@ -105,10 +93,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in icy biomes (non-ocean biomes that are super cold or has frozen/ice/icy in name)
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int icyDungeonAttemptsPerChunk = 8;
 
@@ -118,10 +104,8 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
-                Replaces vanilla dungeon in Swamp biomes.
                 Spawn attempts per chunk.
-                0 for no Dungeons at all and 1000 for max spawnrate.
-                Note: When set to 0, Vanilla Dungeons spawns again.""")
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int swampDungeonAttemptsPerChunk = 8;
 
@@ -158,10 +142,7 @@ public class RSDungeonsConfig implements ConfigData {
                 Add ocean themed dungeon to ocean biomes. Will spawn on
                 ocean floor and in water filled caves and ravines.
                 Spawn attempts per chunk.
-                0 for no dungeons at all and 1000 for max spawnrate.
-                Note: Vanilla Dungeons will still generate if this
-                is on which is unlike the other dungeons from this mod
-                as those would normally replace the Vanilla Dungeons.""")
+                0 for no dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int oceanDungeonAttemptsPerChunk = 3;
 

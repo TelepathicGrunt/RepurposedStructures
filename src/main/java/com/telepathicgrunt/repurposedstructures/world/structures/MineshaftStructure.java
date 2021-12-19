@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedJigsawStructureCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
@@ -8,17 +9,21 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
 
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -86,14 +91,25 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
                 topClipOff,
                 bottomClipOff,
                 (structurePiecesBuilder, pieces) -> {
-                    int xPos = context.chunkPos().getMiddleBlockX();
-                    int zPos = context.chunkPos().getMiddleBlockZ();
-                    int justBelowTerrain = context.chunkGenerator().getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()) - 15;
+                    int justBelowTerrain = getTerrainHeight(context.chunkPos().getMiddleBlockPosition(0), context.chunkGenerator(), context.heightAccessor()) - 15;
                     int finalJustBelowTerrain = Math.max(justBelowTerrain, bottomClipOff);
-                    int currentHeight = pieces.get(0).getBoundingBox().minY();
-                    if(finalJustBelowTerrain < topClipOff && finalJustBelowTerrain < currentHeight) {
-                        pieces.forEach(piece -> piece.move(0, finalJustBelowTerrain - currentHeight, 0));
+                    Optional<PoolElementStructurePiece> topPiece = pieces.stream().max(Comparator.comparingInt(piece -> piece.getBoundingBox().maxY()));
+                    if(topPiece.isPresent() && finalJustBelowTerrain < topClipOff && finalJustBelowTerrain < topPiece.get().getBoundingBox().maxY()) {
+                        pieces.forEach(piece -> piece.move(0, finalJustBelowTerrain - topPiece.get().getBoundingBox().maxY(), 0));
                     }
                 });
+    }
+
+    private static int getTerrainHeight(BlockPos centerPos, ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView) {
+        int height = chunkGenerator.getFirstOccupiedHeight(centerPos.getX(), centerPos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, heightLimitView);
+
+        BlockPos pos = new BlockPos(centerPos.getX(), GeneralUtils.getMaxTerrainLimit(chunkGenerator), centerPos.getZ());
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+        for(Direction direction : Direction.Plane.HORIZONTAL) {
+            mutable.set(pos).move(direction, 16);
+            height = Math.min(height, chunkGenerator.getFirstOccupiedHeight(mutable.getX(), mutable.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, heightLimitView));
+        }
+
+        return height;
     }
 }

@@ -33,10 +33,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Birch biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int birchMineshaftSpawnrate = 10;
 
@@ -46,10 +44,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Jungle biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int jungleMineshaftSpawnrate = 10;
 
@@ -59,10 +55,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Desert biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int desertMineshaftSpawnrate = 10;
 
@@ -72,10 +66,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Mountain (Extreme Hills) biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int stoneMineshaftSpawnrate = 20;
 
@@ -85,10 +77,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Savanna biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int savannaMineshaftSpawnrate = 20;
 
@@ -98,11 +88,9 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Snowy/Icy biomes.
                 Note: Snowy Taiga Biomes will get Ice Mineshaft instead of Taiga theme.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int icyMineshaftSpawnrate = 20;
 
@@ -112,10 +100,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Ocean biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int oceanMineshaftSpawnrate = 15;
 
@@ -125,10 +111,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Taiga biomes.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int taigaMineshaftSpawnrate = 10;
 
@@ -138,10 +122,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Swamps.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int swampMineshaftSpawnrate = 10;
 
@@ -151,10 +133,8 @@ public class RSMineshaftsConfig implements ConfigData {
 
 
 
-                Replaces Mineshafts in Dark Forests.
                 How often Mineshafts will spawn.
-                0 for no Mineshafts and 1000 for max spawnrate.
-                Note: Set this to 0 and restart to spawn Vanilla Mineshafts.""")
+                0 for no Mineshafts and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
         public int darkForestMineshaftSpawnrate = 10;
 

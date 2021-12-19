@@ -31,7 +31,7 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                 // only run the connection code in adjacent spots
                 if(Math.abs(x) + Math.abs(z) != 1) continue;
 
-                for(int y = -2; y <= 0; y++) {
+                for(int y = 0; y >= -2; y--) {
                     currentBlockMutable.set(context.origin()).move(x, y, z);
                     if (currentChunkPos.x != currentBlockMutable.getX() >> 4 || currentChunkPos.z != currentBlockMutable.getZ() >> 4) {
                         currentChunk = context.level().getChunk(currentBlockMutable);
