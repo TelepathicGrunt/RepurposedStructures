@@ -1,3 +1,12 @@
+### **(V.3.0.12 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Fixed incompatibility with Cyanide mod for good. Hopefully.
+
+Locating stuff like Locate Command or Explorer Maps will now no longer spend more than 30 seconds trying to find an RS structure.
+ This time before aborting the locating can be increased or decreased by editing the locateMaxTime config in the Misc section of my config.
+
+
 ### **(V.3.1.11 Changes) (1.18.1 Minecraft)**
 
 #### Configs:
