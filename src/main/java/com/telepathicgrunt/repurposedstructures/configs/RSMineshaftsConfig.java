@@ -75,9 +75,8 @@ public class RSMineshaftsConfig {
 
         builder.comment("-----------------------------------------------------------------------------------------",
                 " Controls the probability of spawning a Repurposed Structures Mineshafts per chunk.",
-                " Will replace Vanilla Mineshafts with RS's themed Mineshafts if both would've been in same biome.",
-                " 0 is no Mineshafts while 1000 is max spawnrate.",
-                " Note: Vanilla Mineshafts will spawn again if a RS Mineshafts's entry is set to 0 for the biome.");
+                " Does NOT replace vanilla Mineshafts at all.",
+                " 0 is no Mineshafts while 1000 is max spawnrate.");
         builder.push("Spawnrate");
 
         birchMineshaftSpawnrate = builder
