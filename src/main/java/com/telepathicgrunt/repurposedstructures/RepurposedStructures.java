@@ -4,24 +4,9 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Bastions;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Cities;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Fortresses;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Igloos;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Mansions;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Mineshafts;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Outposts;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Pyramids;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.RuinedPortals;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Ruins;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Shipwrecks;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Strongholds;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Temples;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.TemporaryBiomeInjection;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.Villages;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.WitchHuts;
 import com.telepathicgrunt.repurposedstructures.configs.*;
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
@@ -116,6 +101,7 @@ public class RepurposedStructures {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSRuinedPortalsConfig.GENERAL_SPEC, "repurposed_structures-forge/ruined_portals.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSRuinsConfig.GENERAL_SPEC, "repurposed_structures-forge/ruins.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSPyramidsConfig.GENERAL_SPEC, "repurposed_structures-forge/pyramids.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSMiscConfig.GENERAL_SPEC, "repurposed_structures-forge/misc.toml");
 
         // Register the setup method for modloading
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;

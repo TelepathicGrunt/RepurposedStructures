@@ -18,7 +18,6 @@
     "resources.ReloadableResourceManagerImplAccessor",
     "structures.EnderEyeStrongholdLocatingMixin",
     "structures.ListPoolElementAccessor",
-    "structures.LocateCommandMixin",
     "structures.SinglePoolElementAccessor",
     "structures.StructureFeatureAccessor",
     "structures.StructureFeaturesAccessor",
