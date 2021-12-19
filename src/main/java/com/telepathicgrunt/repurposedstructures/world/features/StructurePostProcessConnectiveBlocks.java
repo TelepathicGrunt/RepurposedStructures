@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.WallBlock;

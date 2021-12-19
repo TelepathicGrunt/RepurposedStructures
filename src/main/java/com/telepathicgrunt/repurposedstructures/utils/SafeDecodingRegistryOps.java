@@ -12,8 +12,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.RegistryReadOps;
+import net.minecraft.resources.RegistryResourceAccess;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.util.Map;
 import java.util.Optional;
@@ -29,8 +31,8 @@ public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
     private final RegistryAccess dynamicRegistryManager;
     private final Map<ResourceKey<? extends Registry<?>>, ValueHolder<?>> valueHolders;
 
-    public SafeDecodingRegistryOps(DynamicOps<T> delegate, RegistryAccess dynamicRegistryManager) {
-        super(delegate, null, dynamicRegistryManager, Maps.newIdentityHashMap());
+    public SafeDecodingRegistryOps(DynamicOps<T> delegate, ResourceManager resourceManager, RegistryAccess dynamicRegistryManager) {
+        super(delegate, RegistryResourceAccess.forResourceManager(resourceManager), dynamicRegistryManager, Maps.newIdentityHashMap());
         this.dynamicRegistryManager = dynamicRegistryManager;
         this.valueHolders = Maps.newIdentityHashMap();
     }
