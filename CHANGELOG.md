@@ -1,3 +1,9 @@
+### **(V.3.0.12 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Fixed incompatibility with Cyanide mod for good. Hopefully.
+
+
 ### **(V.3.1.11 Changes) (1.18.1 Minecraft)**
 
 #### Configs:
