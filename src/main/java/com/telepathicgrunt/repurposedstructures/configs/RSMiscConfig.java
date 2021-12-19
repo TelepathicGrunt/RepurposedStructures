@@ -18,6 +18,6 @@ public class RSMiscConfig {
 				.comment("\n How long before giving up should locate command, explorer maps, and other locating stuff",
 						" do when locating a Repurposed Structures's structure. This is in seconds.")
 				.translation("repurposedstructures.locatemaxtime")
-				.defineInRange("locateMaxTime", 30, 1, Double.MAX_VALUE);
+				.defineInRange("locateMaxTime", 30D, 1D, 1000000D);
 	}
 }
