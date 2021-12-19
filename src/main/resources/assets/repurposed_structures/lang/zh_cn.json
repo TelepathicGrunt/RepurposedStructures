@@ -48,7 +48,7 @@
     "filled_map.repurposed_structures:mansion_snowy": "雪地府邸地图",
     "filled_map.repurposed_structures:mansion_taiga": "针叶林府邸地图",
     "filled_map.repurposed_structures:stronghold_end": "末地地下要塞地图",
-    "filled_map.repurposed_structures:pyramid_end": "末地神殿地图"
+    "filled_map.repurposed_structures:pyramid_end": "末地神殿地图",
     
      "text.autoconfig.repurposed_structures-fabric/general_configs.title": "世界生成重构 (Repurposed Structures/RS) 配置",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Biome/Dimension/Modded Loot": "生物群系/维度/战利品",
@@ -74,7 +74,7 @@
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.importModdedItems": "将模组物品导入RS的战利品箱",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.importModdedItems.@PrefixText": "\n将原版世界生成的已有模组物品战利品表加入到RS的战利品表里。 比如: 在雪地神殿能获得在原版沙漠神庙能获得的所有物品",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.blacklistedRSLoottablesFromImportingModdedItems": "导入物品战利品表黑名单",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.blacklistedRSLoottablesFromImportingModdedItems.@PrefixText": "\n为你想要关闭模组物品自动导入代码的战利品表添加标识符。用逗号","分隔。比如：\"repurposed_structures:chests/mansion/birch,repurposed_structures:chests/mineshafts/jungle\"",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.blacklistedRSLoottablesFromImportingModdedItems.@PrefixText": "\n为你想要关闭模组物品自动导入代码的战利品表添加标识符。用逗号\",\"分隔。比如：\"repurposed_structures:chests/mansion/birch,repurposed_structures:chests/mineshafts/jungle\"",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.seeConfigFileForBiomeAndDimensionAllowDisallow": "生物群系和维度的生成权限",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSAllowDisallowConfig.seeConfigFileForBiomeAndDimensionAllowDisallow.@PrefixText": "\n如果你在找开/关RS结构在具体某个维度或者生物群系的功能且你现在在游戏内的配置界面，请在config文件夹找到名为 biome_dimension_allow_disallow_configs.json5 的文件。Cloth Config API 不能显示映射所以你需要编辑配置文件本身。",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSNaturalMobSpawningConfig.seeConfigFileForStructureNaturalMobSpawning": "生物生成",
@@ -82,7 +82,7 @@
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSBastionsConfig.bastionUndergroundAverageChunkDistance.@PrefixText": "\n地下堡垒遗迹在主世界非海洋和非沙滩生物群系的稀有度。\n 1为生成在大多数区块，1001为不生成。",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSBastionsConfig.bastionUndergroundAverageChunkDistance": "地下堡垒废遗迹平均间隔",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk": "每个区块的生成尝试次数",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk.@PrefixText": "\n为生成地牢，每个区块的生成尝试次数。将会替代在原生物群系的原版地牢，海洋、下界和末地除外。\n 0为不生成地牢，1000为最大生成几率。\n注意：当设为0时，原版地牢仍会生成在原生物群系。"
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk.@PrefixText": "\n为生成地牢，每个区块的生成尝试次数。将会替代在原生物群系的原版地牢，海洋、下界和末地除外。\n 0为不生成地牢，1000为最大生成几率。\n注意：当设为0时，原版地牢仍会生成在原生物群系。",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk": "恶地地牢",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk": "黑森林地牢",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk": "沙漠地牢",
