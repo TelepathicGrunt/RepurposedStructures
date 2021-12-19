@@ -16,6 +16,10 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = new RSNaturalMobSpawningConfig();
 
+    @ConfigEntry.Category("Misc")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSMiscConfig RSMiscConfig = new RSMiscConfig();
+
     @ConfigEntry.Category("Bastions")
     @ConfigEntry.Gui.TransitiveObject
     public RSBastionsConfig RSBastionsConfig = new RSBastionsConfig();

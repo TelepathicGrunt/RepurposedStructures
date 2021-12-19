@@ -307,9 +307,12 @@
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWellsConfig.snowWellRarityPerChunk": "Snow Well",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWellsConfig.mushroomWellRarityPerChunk": "Mushroom Well",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsOakAverageChunkDistance.@PrefixText": "\nHow rare are Witch Hut structures.\n 1 for spawning in most chunks and 1001 for none. ",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsBirchAverageChunkDistance":  "Birch Witch Huts Average Spacing",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance":  "Dark Forest Witch Huts Average Spacing",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance":  "Giant Tree Taiga Witch Huts Average Spacing",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsOakAverageChunkDistance":  "Oak Witch Huts Average Spacing",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance":  "Taiga Witch Huts Average Spacing"
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsBirchAverageChunkDistance": "Birch Witch Huts Average Spacing",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance": "Dark Forest Witch Huts Average Spacing",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance": "Giant Tree Taiga Witch Huts Average Spacing",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsOakAverageChunkDistance": "Oak Witch Huts Average Spacing",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance": "Taiga Witch Huts Average Spacing",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.category.Misc": "Misc",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSMiscConfig.locateMaxTime.@PrefixText": "How long before giving up should locate command, explorer maps, and other locating stuff do when locating a Repurposed Structures's structure. This is in seconds.",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSMiscConfig.locateMaxTime": "Locating Max time"
 }
