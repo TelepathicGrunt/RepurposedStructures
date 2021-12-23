@@ -1,3 +1,9 @@
+### **(V.3.0.13 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Optimized structure bounds checking for my mixins that prevents some features from spawning inside my structures.
+
+
 ### **(V.3.0.12 Changes) (1.18.1 Minecraft)**
 
 #### Misc:
