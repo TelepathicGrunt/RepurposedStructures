@@ -45,7 +45,7 @@ public class RSPyramidsConfig {
 
 		pyramidMushroomAverageChunkDistance = builder
 			.translation("repurposedstructures.pyramidmushroomaveragechunkdistance")
-			.defineInRange("pyramidMushroomAverageChunkDistance", 24, 1, 1001);
+			.defineInRange("pyramidMushroomAverageChunkDistance", 37, 1, 1001);
 
 		pyramidOceanAverageChunkDistance = builder
 			.translation("repurposedstructures.pyramidoceanaveragechunkdistance")
