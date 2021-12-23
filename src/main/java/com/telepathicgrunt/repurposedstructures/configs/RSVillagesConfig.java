@@ -140,7 +140,7 @@ public class RSVillagesConfig implements ConfigData {
                 How rare are Mushroom Villages.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int villageMushroomAverageChunkDistance = 24;
+        public int villageMushroomAverageChunkDistance = 37;
         // regexpos1
     }
 

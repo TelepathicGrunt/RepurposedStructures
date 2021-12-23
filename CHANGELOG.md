@@ -1,5 +1,9 @@
 ### **(V.3.0.13 Changes) (1.18.1 Minecraft)**
 
+#### Configs:
+Changed the default config spawnrate for Mushroom Wells, Mushroom Villages, and Mushroom Pyramids to be more rare.
+ This is because Mushroom biomes are larger in 1.18.
+
 #### Misc:
 Optimized structure bounds checking for my mixins that prevents some features from spawning inside my structures.
 
