@@ -7,6 +7,8 @@ Changed the default config spawnrate for Mushroom Wells, Mushroom Villages, and 
 #### Misc:
 Optimized structure bounds checking for my mixins that prevents some features from spawning inside my structures.
 
+Optimized the Jigsaw Blocks attaching part of my structure layout generation a bit.
+
 
 ### **(V.4.0.9 Changes) (1.18.1 Minecraft)**
 

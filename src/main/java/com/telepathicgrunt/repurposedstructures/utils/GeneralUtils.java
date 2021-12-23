@@ -14,6 +14,7 @@ import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
@@ -35,6 +36,8 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.JigsawBlock;
+import net.minecraft.world.level.block.entity.JigsawBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -43,6 +46,7 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
 
 import java.io.BufferedReader;
@@ -234,6 +238,23 @@ public final class GeneralUtils {
         for(StructurePiece structurePiece : pieces) {
             structurePiece.move(xOffset, 0, zOffset);
         }
+    }
+
+    //////////////////////////////////////////////
+
+    // More optimized with checking if the jigsaw blocks can connect
+    public static boolean canJigsawsAttach(StructureTemplate.StructureBlockInfo jigsaw1, StructureTemplate.StructureBlockInfo jigsaw2) {
+        FrontAndTop prop1 = jigsaw1.state.getValue(JigsawBlock.ORIENTATION);
+        FrontAndTop prop2 = jigsaw2.state.getValue(JigsawBlock.ORIENTATION);
+        String joint = jigsaw1.nbt.getString("joint");
+        if(joint.isEmpty()) {
+            joint = prop1.front().getAxis().isHorizontal() ? "aligned" : "rollable";
+        }
+
+        boolean isRollable = joint.equals("rollable");
+        return prop1.front() == prop2.front().getOpposite() &&
+                (isRollable || prop1.top() == prop2.top()) &&
+                jigsaw1.nbt.getString("target").equals(jigsaw2.nbt.getString("name"));
     }
 
     //////////////////////////////////////////////
