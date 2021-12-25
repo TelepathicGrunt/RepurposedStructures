@@ -18,7 +18,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
 version = "${mod_version}+${mc_version}"
-group = "com.telepathicgrunt.${modid}"
+group = "com.telepathicgrunt"
 archivesBaseName = "${modid}_forge"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
