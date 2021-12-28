@@ -22,16 +22,6 @@ public class WaterloggingFixProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
-
-        // ONLY RUN THIS IF STRUCTURE'S BLOCK IS A DRY WATERLOGGABLE BLOCK
-        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if (infoIn2.state.hasProperty(BlockStateProperties.WATERLOGGED) && !infoIn2.state.getValue(BlockStateProperties.WATERLOGGED)) {
-            ChunkAccess currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
-            if (worldReader.getFluidState(infoIn2.pos).is(FluidTags.WATER)) {
-                currentChunk.setBlockState(infoIn2.pos, Blocks.STONE.defaultBlockState(), false);
-            }
-        }
-
         return infoIn2;
     }
 

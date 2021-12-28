@@ -29,7 +29,9 @@
     "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",
     "structures.StructurePoolMixin",
+    "structures.StructureProcessorAccessor",
     "structures.StructureSettingsAccessor",
+    "structures.StructureTemplateMixin",
     "structures.TemplateAccessor",
     "world.ChunkGeneratorMixin",
     "world.StructuresConfigMixin"
