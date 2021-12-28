@@ -20,11 +20,12 @@ public class StructureTemplateMixin {
             method = "placeInWorld(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructurePlaceSettings;Ljava/util/Random;I)Z",
             at = @At(value = "HEAD")
     )
-    private void repurposedstructures_preventAutoWaterlogging(ServerLevelAccessor serverLevelAccessor, BlockPos blockPos1, BlockPos blockPos2,
-                                                    StructurePlaceSettings structurePlaceSettings, Random random,
-                                                    int flag, CallbackInfoReturnable<Boolean> cir)
-    {
-        if(structurePlaceSettings.getProcessors().stream().anyMatch(processor -> ((StructureProcessorAccessor)processor).callGetType() == RSProcessors.WATERLOGGING_FIX_PROCESSOR)) {
+    private void repurposedstructures_preventAutoWaterlogging(ServerLevelAccessor serverLevelAccessor, BlockPos blockPos1,
+                                                              BlockPos blockPos2, StructurePlaceSettings structurePlaceSettings,
+                                                              Random random, int flag, CallbackInfoReturnable<Boolean> cir) {
+
+        if(structurePlaceSettings.getProcessors().stream().anyMatch(processor ->
+                ((StructureProcessorAccessor)processor).callGetType() == RSProcessors.WATERLOGGING_FIX_PROCESSOR)) {
             structurePlaceSettings.setKeepLiquids(false);
         }
     }
