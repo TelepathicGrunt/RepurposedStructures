@@ -31,6 +31,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.world.WaterloggingFixWorldSavedData;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -114,6 +115,7 @@ public class RepurposedStructures {
         forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
         forgeBus.addListener(MobMapTrades::onWandererTradesEvent);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
+        forgeBus.addListener(WaterloggingFixWorldSavedData::worldTick);
         // GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
         modEventBus.addListener(this::setup);

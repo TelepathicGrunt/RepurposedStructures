@@ -62,7 +62,10 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
         }
 
         // Already did a check to make sure all entries do not have a negative weight earlier.
-        float totalWeight = (float)spawnerMobEntries.stream().mapToDouble(mobEntry -> mobEntry.weight).sum();
+        float totalWeight = 0;
+        for(MobSpawnerObj mobSpawnerObj : spawnerMobEntries) {
+            totalWeight += mobSpawnerObj.weight;
+        }
         if(totalWeight == 0) {
             return null;
         }
