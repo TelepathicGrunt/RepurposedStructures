@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin;
+package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;

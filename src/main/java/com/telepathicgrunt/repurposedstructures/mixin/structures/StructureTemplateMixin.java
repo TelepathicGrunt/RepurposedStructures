@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
-import com.telepathicgrunt.repurposedstructures.mixin.StructureProcessorAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ServerLevelAccessor;
