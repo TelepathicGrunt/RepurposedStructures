@@ -1,23 +1,24 @@
 {
   "config": {
-	  "pillar_state": {
-        "Properties": {
-          "axis": "y"
-        },
-        "Name": "minecraft:warped_hyphae"
-	  },
-	  "fence_state": {
-        "Properties": {
-          "north": "false",
-          "south": "false",
-          "east": "false",
-          "west": "false",
-          "waterlogged": "false"
-        },
-        "Name": "minecraft:warped_fence"
-	  },
-	  "target_floor_block": "minecraft:warped_planks",
-	  "is_water_based": false
+    "arch_block": "minecraft:warped_hyphae",
+    "pillar_state": {
+      "Properties": {
+        "axis": "y"
+      },
+      "Name": "minecraft:warped_hyphae"
+    },
+    "fence_state": {
+      "Properties": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      },
+      "Name": "minecraft:warped_fence"
+    },
+    "target_floor_block": "minecraft:warped_planks",
+    "is_water_based": false
   },
   "type": "repurposed_structures:mineshaft_supports"
 }

@@ -4,6 +4,11 @@
 Changed the default config spawnrate for Mushroom Wells, Mushroom Villages, and Mushroom Pyramids to be more rare.
  This is because Mushroom biomes are larger in 1.18.
 
+#### Mineshafts:
+Tried improving Mineshafts to have a bit less broken arches.
+
+Mineshafts will try to make certain they do not place a ton of blocks in view of the sky even in rivers and oceans.
+
 #### Misc:
 Optimized structure bounds checking for my mixins that prevents some features from spawning inside my structures.
 
