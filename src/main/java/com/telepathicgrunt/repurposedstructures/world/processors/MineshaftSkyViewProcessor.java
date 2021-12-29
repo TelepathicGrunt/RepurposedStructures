@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -26,14 +27,17 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
 
         // Mimic Mineshaft rails visible even in sky if block below is solid
         if(structureBlockInfoWorld.state.is(Blocks.RAIL) && worldView.getBlockState(structureBlockInfoWorld.pos.below()).canOcclude()) {
-            return structureBlockInfoWorld;
+            boolean waterlogged = worldView.getBlockState(structureBlockInfoWorld.pos).getFluidState().is(FluidTags.WATER);
+
+            return new StructureTemplate.StructureBlockInfo(
+                    structureBlockInfoWorld.pos,
+                    structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, waterlogged),
+                    structureBlockInfoWorld.nbt);
         }
 
         // Will not place blocks if out in open and visible to sky.
-        if (!structureBlockInfoWorld.state.is(Blocks.CAVE_AIR) || worldView.getBlockState(structureBlockInfoWorld.pos).getFluidState().is(FluidTags.WATER)) {
-            if(structureBlockInfoWorld.pos.getY() > worldView.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos.getX(), structureBlockInfoWorld.pos.getZ())) {
-                return null;
-            }
+        if(structureBlockInfoWorld.pos.getY() >= worldView.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos.getX(), structureBlockInfoWorld.pos.getZ())) {
+            return null;
         }
 
         return structureBlockInfoWorld;

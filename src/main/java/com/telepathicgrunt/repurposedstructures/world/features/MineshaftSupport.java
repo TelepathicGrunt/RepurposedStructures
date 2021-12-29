@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Mineshaft
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -31,17 +32,37 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(jigsawPos);
         WorldGenLevel world = context.level();
         ChunkAccess chunk = world.getChunk(mutable);
+        BlockState removalState = context.config().waterBased ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState();
 
         // Repair arch if we can at this spot (doesn't repair all arches. That requires a redesign of these jigsaw mineshafts)
-        if (chunk.getBlockState(mutable.above(3)).canOcclude()) {
-            for(int  i = 0; i <= 1; i++) {
-                if(!chunk.getBlockState(mutable.move(Direction.UP)).getMaterial().blocksMotion()) {
+        if (!world.getBlockState(mutable).is(context.config().targetFloorState)) {
+            for(int i = 0; i <= 1; i++) {
+                if(chunk.getBlockState(mutable.move(Direction.UP)).getBlock() != context.config().fenceState.getBlock()) {
                     chunk.setBlockState(mutable, context.config().fenceState, false);
                 }
             }
         }
+        else {
+            for(int i = 0; i <= 2; i++) {
+                BlockState checkArchState = chunk.getBlockState(mutable.move(Direction.UP));
+                if(i < 2 ? checkArchState.getBlock() == context.config().fenceState.getBlock() : checkArchState.getBlock() == context.config().archBlock) {
+                    chunk.setBlockState(mutable, removalState, false);
+                }
+            }
+            for(Direction direction : Direction.Plane.HORIZONTAL) {
+                mutable.move(direction);
+                if(new ChunkPos(mutable).equals(chunk.getPos())) {
+                    BlockState checkArchState = chunk.getBlockState(mutable);
+                    if(checkArchState.getBlock() == context.config().archBlock) {
+                        chunk.setBlockState(mutable, removalState, false);
+                    }
+                }
+                mutable.move(direction.getOpposite());
+            }
+        }
 
         // Only do support if floor block is placed
+        mutable.set(jigsawPos);
         if(world.getBlockState(mutable).is(context.config().targetFloorState)) {
             if (world.canSeeSkyFromBelowWater(mutable.above())) {
                 return false;
@@ -81,7 +102,8 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                     chunk.setBlockState(pillarPos, pillarBlockFinal, false);
                     pillarPos.move(Direction.DOWN);
                 }
-            } else {
+            }
+            else {
                 mutable.set(jigsawPos);
                 if (!chunk.getBlockState(mutable.above(context.config().waterBased ? 4 : 3)).canOcclude()) {
 
