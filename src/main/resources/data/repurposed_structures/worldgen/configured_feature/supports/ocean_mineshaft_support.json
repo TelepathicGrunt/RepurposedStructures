@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:acacia_log",
+    "arch_block": "minecraft:dark_prismarine",
     "pillar_state": {
       "Name": "minecraft:dark_prismarine"
     },

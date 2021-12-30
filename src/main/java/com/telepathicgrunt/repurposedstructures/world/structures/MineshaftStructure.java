@@ -95,7 +95,8 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
                     int finalJustBelowTerrain = Math.max(justBelowTerrain, bottomClipOff);
                     Optional<PoolElementStructurePiece> topPiece = pieces.stream().max(Comparator.comparingInt(piece -> piece.getBoundingBox().maxY()));
                     if(topPiece.isPresent() && finalJustBelowTerrain < topClipOff && finalJustBelowTerrain < topPiece.get().getBoundingBox().maxY()) {
-                        pieces.forEach(piece -> piece.move(0, finalJustBelowTerrain - topPiece.get().getBoundingBox().maxY(), 0));
+                        int topPieceMaxY = topPiece.get().getBoundingBox().maxY();
+                        pieces.forEach(piece -> piece.move(0, finalJustBelowTerrain - topPieceMaxY, 0));
                     }
                 });
     }

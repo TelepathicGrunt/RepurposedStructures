@@ -30,6 +30,7 @@ public class NoLavaFallsInStructuresMixin {
                 mutable.set(context.origin()).move(face);
                 if (GeneralUtils.inStructureBounds(context.level(), SectionPos.of(mutable), RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
                     cir.setReturnValue(false);
+                    break;
                 }
             }
         }

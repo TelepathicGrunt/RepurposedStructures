@@ -9,13 +9,9 @@
     },
     "fence_state": {
       "Properties": {
-        "north": "false",
-        "south": "false",
-        "east": "false",
-        "west": "false",
-        "waterlogged": "false"
+        "axis": "y"
       },
-      "Name": "minecraft:dark_oak_fence"
+      "Name": "minecraft:dark_oak_log"
     },
     "target_floor_block": "minecraft:dark_oak_planks",
     "is_water_based": false

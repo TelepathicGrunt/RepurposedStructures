@@ -35,7 +35,8 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         BlockState removalState = context.config().waterBased ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState();
 
         // Repair arch if we can at this spot (doesn't repair all arches. That requires a redesign of these jigsaw mineshafts)
-        if (!world.getBlockState(mutable).is(context.config().targetFloorState)) {
+        BlockState archBlock = world.getBlockState(mutable.above(3));
+        if (archBlock.getBlock() == context.config().archBlock) {
             for(int i = 0; i <= 1; i++) {
                 if(chunk.getBlockState(mutable.move(Direction.UP)).getBlock() != context.config().fenceState.getBlock()) {
                     chunk.setBlockState(mutable, context.config().fenceState, false);
