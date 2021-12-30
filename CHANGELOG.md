@@ -5,9 +5,13 @@ Changed the default config spawnrate for Mushroom Wells, Mushroom Villages, and 
  This is because Mushroom biomes are larger in 1.18.
 
 #### Mineshafts:
-Tried improving Mineshafts to have a bit less broken arches.
+Tried improving Mineshafts to have a bit less broken arches. More work may be done in the future for the other RS Mineshaft arches not affected by this change.
 
 Mineshafts will try to make certain they do not place a ton of blocks in view of the sky even in rivers and oceans.
+
+Attempt to try and make Mineshaft pillars and chains spawn better and 4 way pieces will now replace air to look better in caves.
+
+Fixed Birch Mineshaft stairs not closing off fluids properly.
 
 #### Misc:
 Optimized structure bounds checking for my mixins that prevents some features from spawning inside my structures.
