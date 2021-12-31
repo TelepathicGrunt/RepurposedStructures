@@ -13,6 +13,15 @@ Attempt to try and make Mineshaft pillars and chains spawn better and 4 way piec
 
 Fixed Birch Mineshaft stairs not closing off fluids properly.
 
+#### Outposts:
+Nerfed amount of loot from End Outpost's Shulker Boxes and made armor/swords more uncommon.
+
+#### Pyramids:
+End Pyramid chests spawns slightly less Ender Pearls.
+
+#### Strongholds:
+In End Strongholds, reduce amount of loot Shulker Boxes being spawn just a bit.
+
 #### Misc:
 Optimized structure bounds checking for my mixins that prevents some features from spawning inside my structures.
 
