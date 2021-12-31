@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin.features;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.SectionPos;
@@ -26,14 +27,11 @@ public class NoLavaFallsInStructuresMixin {
     private void repurposedstructures_noLavaInStructures(FeaturePlaceContext<SpringConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
         if(context.config().state.is(FluidTags.LAVA)) {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-            SectionPos chunkPos;
             for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
-                chunkPos = SectionPos.of(mutable);
-                for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
-                    if (!context.level().startsForFeature(chunkPos, structure).isEmpty()) {
-                        cir.setReturnValue(false);
-                    }
+                if (GeneralUtils.inStructureBounds(context.level(), SectionPos.of(mutable), RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
+                    cir.setReturnValue(false);
+                    break;
                 }
             }
         }

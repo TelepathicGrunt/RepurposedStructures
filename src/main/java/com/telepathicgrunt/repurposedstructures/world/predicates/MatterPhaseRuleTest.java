@@ -45,6 +45,9 @@ public class MatterPhaseRuleTest extends RuleTest {
             case AIR_RAIL_OR_CHAIN:
                 if(state.isAir() || state.is(Blocks.CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
                 break;
+            case LIQUID_RAIL_OR_CHAIN:
+                if(!state.getFluidState().isEmpty() || state.is(Blocks.CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
+                break;
         }
 
         if(invertCondition) {
@@ -63,7 +66,8 @@ public class MatterPhaseRuleTest extends RuleTest {
         SOLID("SOLID"),
         LIQUID("LIQUID"),
         AIR("AIR"),
-        AIR_RAIL_OR_CHAIN("AIR_RAIL_OR_CHAIN");
+        AIR_RAIL_OR_CHAIN("AIR_RAIL_OR_CHAIN"),
+        LIQUID_RAIL_OR_CHAIN("LIQUID_RAIL_OR_CHAIN");
 
         private final String name;
 

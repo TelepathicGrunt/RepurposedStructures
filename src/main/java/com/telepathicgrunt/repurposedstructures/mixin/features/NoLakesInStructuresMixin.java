@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin.features;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
@@ -21,11 +22,8 @@ public class NoLakesInStructuresMixin {
             cancellable = true
     )
     private void repurposedstructures_noLakesInStructures(FeaturePlaceContext<BlockStateConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
-        SectionPos chunkPos = SectionPos.of(context.origin());
-        for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.NO_LAKES)) {
-            if (!context.level().startsForFeature(chunkPos, structure).isEmpty()) {
-                cir.setReturnValue(false);
-            }
+        if (GeneralUtils.inStructureBounds(context.level(), SectionPos.of(context.origin()), RSStructureTagMap.STRUCTURE_TAGS.NO_LAKES)) {
+            cir.setReturnValue(false);
         }
     }
 }

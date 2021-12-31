@@ -177,22 +177,5 @@ public class RepurposedStructures implements ModInitializer {
     public static void setupBiomeModifications() {
         Dungeons.addDungeons();
         Wells.addWells();
-
-        // Biome Modification API from Fabric API does not work with structures right now.
-//        Mineshafts.addMineshafts();
-//        Strongholds.addStrongholds();
-//        Outposts.addOutposts();
-//        Shipwrecks.addShipwrecks();
-//        Fortresses.addJungleFortress();
-//        Temples.addTemples();
-//        Pyramids.addPyramids();
-//        Igloos.addIgloos();
-//        Villages.addVillages();
-//        RuinedPortals.addRuinedPortals();
-//        Ruins.addRuins();
-//        Cities.addCities();
-//        Mansions.addMansions();
-//        WitchHuts.addWitchHuts();
-//        Bastions.addBastions();
     }
 }

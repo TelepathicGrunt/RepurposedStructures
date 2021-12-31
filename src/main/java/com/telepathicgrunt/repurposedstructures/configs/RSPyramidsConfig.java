@@ -85,7 +85,7 @@ public class RSPyramidsConfig implements ConfigData {
                 How rare are Mushroom Pyramid in Mushroom biomes.
                 1 for spawning in most chunks and 1001 for none.""")
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-        public int pyramidMushroomAverageChunkDistance = 24;
+        public int pyramidMushroomAverageChunkDistance = 37;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
