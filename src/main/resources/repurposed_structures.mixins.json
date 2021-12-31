@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
+    "structures.StructureProcessorAccessor",
     "entities.CatEntityMixin",
     "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
     "entities.ShulkerEntityInvoker",
@@ -27,6 +28,7 @@
     "structures.StructurePoolMixin",
     "structures.StructureSettingsAccessor",
     "structures.StructureTemplateAccessor",
+    "structures.StructureTemplateMixin",
     "world.ChunkGeneratorAccessor"
   ],
   "client": [

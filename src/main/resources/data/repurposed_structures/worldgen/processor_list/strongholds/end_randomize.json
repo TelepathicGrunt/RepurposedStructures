@@ -16,7 +16,7 @@
           },
           "input_predicate": {
             "block": "minecraft:shulker_box",
-            "probability": 0.1,
+            "probability": 0.4,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

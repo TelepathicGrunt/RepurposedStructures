@@ -35,7 +35,7 @@
       "processor_type": "repurposed_structures:mineshaft_sky_view_processor"
     },
     {
-      "processor_type": "repurposed_structures:close_off_air_sources_processor",
+      "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
           "block" : "minecraft:stripped_birch_wood",

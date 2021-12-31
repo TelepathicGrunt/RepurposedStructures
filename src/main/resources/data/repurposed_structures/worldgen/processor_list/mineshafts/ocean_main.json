@@ -45,6 +45,27 @@
           "output_state": {
             "Name": "minecraft:structure_void"
           },
+          "position_predicate": {
+            "min_chance": 0,
+            "max_chance": 1,
+            "min_dist": 0,
+            "max_dist": 1,
+            "axis": "y",
+            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "location_predicate": {
+            "phase_to_test_for": "LIQUID_RAIL_OR_CHAIN",
+            "invert_condition": false,
+            "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
           "input_predicate": {
             "predicate_type": "minecraft:always_true"
           },

@@ -48,7 +48,7 @@ public class RSWellsConfig {
 
 			wellMushroomRarityPerChunk = builder
 				.translation("repurposedstructures.mushroomwellrarityperchunk")
-				.defineInRange("mushroomWellRarityPerChunk", 350, 1, 10000);
+				.defineInRange("mushroomWellRarityPerChunk", 450, 1, 10000);
 		builder.pop();
 	}
 }
