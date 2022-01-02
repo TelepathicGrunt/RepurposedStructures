@@ -41,6 +41,7 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
@@ -57,6 +58,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -359,5 +361,41 @@ public final class GeneralUtils {
         }
 
         return map;
+    }
+
+    ////////////////////////////
+
+    private static final CodecCache<PlacedFeature> placedFeatureCodecCache = CodecCache.of(PlacedFeature.DIRECT_CODEC);
+
+    /**
+     Will serialize (if possible) both features and check if they are the same feature.
+     If cannot serialize, compare the feature itself to see if it is the same.
+     */
+    public static boolean serializeAndCompareFeature(PlacedFeature placedFeature1, PlacedFeature placedFeature2) {
+        // PlacedFeature doesn't implement equals() so just check the reference.
+        if (placedFeature1 == placedFeature2) return true;
+
+        Optional<JsonElement> optionalJsonElement1 = encode(placedFeature1);
+        if (optionalJsonElement1.isEmpty()) return false;
+
+        Optional<JsonElement> optionalJsonElement2 = encode(placedFeature2);
+        if (optionalJsonElement2.isEmpty()) return false;
+
+        // Compare the JSON to see if it's the exact same ConfiguredFeature.
+        JsonElement featureJson1 = optionalJsonElement1.get();
+        JsonElement featureJson2 = optionalJsonElement2.get();
+        return featureJson1.equals(featureJson2);
+    }
+
+    public static String getCacheStats() {
+        return placedFeatureCodecCache.getStats();
+    }
+
+    public static void clearCache() {
+        placedFeatureCodecCache.clear();
+    }
+
+    public static Optional<JsonElement> encode(PlacedFeature feature) {
+        return placedFeatureCodecCache.get(feature);
     }
 }

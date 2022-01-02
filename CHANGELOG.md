@@ -1,5 +1,12 @@
 ### **(V.4.1.0 Changes) (1.18.1 Minecraft)**
 
+#### Dungeons:
+Deep Dungeons are now added that spawn from -10 to -60. Will replace Vanilla Dungeons below y = 0.
+
+Nether Dungeon's secret banner is now red colored while Deep Dungeon has the dark grey banner instead. 
+
+Fixed Icy Dungeon configs not showing up.
+
 #### Mineshafts:
 RS Mineshaft arches should not be broken up weirdly as much anymore.
 

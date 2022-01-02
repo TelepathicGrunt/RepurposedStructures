@@ -46,6 +46,7 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -108,6 +109,7 @@ public class RepurposedStructures {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         forgeBus.addListener(this::biomeModification);
+        forgeBus.addListener(this::serverStarted);
         forgeBus.addListener(this::registerDatapackListener);
         forgeBus.addListener(EventPriority.HIGHEST, this::deepCopyDimensionalSpacing);
         forgeBus.addListener(this::addDimensionalSpacing);
@@ -136,7 +138,6 @@ public class RepurposedStructures {
             RSConfiguredStructures.registerStructureFeatures();
             RSStructureTagMap.setupTags();
             RSGlobalLootModifier.registerLootData();
-            BiomeSelection.setupOverworldBiomesSet();
             BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
             MobSpawningOverTime.setupMobSpawningMaps();
 
@@ -164,6 +165,10 @@ public class RepurposedStructures {
     public void biomeModification(final BiomeLoadingEvent event) {
         //Add our structures and features
         RepurposedStructures.addFeaturesAndStructuresToBiomes(event);
+    }
+
+    public void serverStarted(final ServerStartedEvent event) {
+        GeneralUtils.clearCache();
     }
 
     /**

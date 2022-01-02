@@ -23,24 +23,8 @@ public final class RSFeatures {
 
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
 
-	public static final RegistryObject<Feature<NbtDungeonConfig>> BADLANDS_DUNGEONS = FEATURES.register("dungeons_badlands", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> DARK_FOREST_DUNGEONS = FEATURES.register("dungeons_dark_forest", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> DESERT_DUNGEONS = FEATURES.register("dungeons_desert", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> END_DUNGEONS = FEATURES.register("dungeons_end", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> NETHER_DUNGEONS = FEATURES.register("dungeons_nether", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> SNOW_DUNGEONS = FEATURES.register("dungeons_snow", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> ICY_DUNGEONS = FEATURES.register("dungeons_icy", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> SWAMP_DUNGEONS = FEATURES.register("dungeons_swamp", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> MUSHROOM_DUNGEONS = FEATURES.register("dungeons_mushroom", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> JUNGLE_DUNGEONS = FEATURES.register("dungeons_jungle", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	public static final RegistryObject<Feature<NbtDungeonConfig>> OCEAN_DUNGEONS = FEATURES.register("dungeons_ocean", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
-	
-	public static final RegistryObject<Feature<NbtFeatureConfig>> BADLANDS_WELL = FEATURES.register("well_badlands", NbtFeature::new);
-	public static final RegistryObject<Feature<NbtFeatureConfig>> NETHER_WELL = FEATURES.register("well_nether", NbtFeature::new);
-	public static final RegistryObject<Feature<NbtFeatureConfig>> SNOW_WELL = FEATURES.register("well_snow", NbtFeature::new);
-  	public static final RegistryObject<Feature<NbtFeatureConfig>> MOSSY_STONE_WELL = FEATURES.register("well_mossy_stone", NbtFeature::new);
-	public static final RegistryObject<Feature<NbtFeatureConfig>> FOREST_WELL = FEATURES.register("well_forest", NbtFeature::new);
-	public static final RegistryObject<Feature<NbtFeatureConfig>> MUSHROOM_WELL = FEATURES.register("well_mushroom", NbtFeature::new);
+	public static final RegistryObject<Feature<NbtDungeonConfig>> NBT_DUNGEON = FEATURES.register("nbt_dungeon", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
+	public static final RegistryObject<Feature<NbtFeatureConfig>> NBT_FEATURE = FEATURES.register("nbt_feature", NbtFeature::new);
 
 	public static final RegistryObject<Feature<NoneFeatureConfiguration>> WITHER_SKELETON_WITH_BOW = FEATURES.register("wither_skeleton_with_bow", WitherSkeletonWithBow::new);
 	public static final RegistryObject<Feature<NoneFeatureConfiguration>> SHULKER_MOB = FEATURES.register("shulker_mob", ShulkerMob::new);

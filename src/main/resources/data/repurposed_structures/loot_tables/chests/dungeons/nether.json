@@ -473,7 +473,7 @@
           "functions": [
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:7},{Pattern:flo,Color:7},{Pattern:flo,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:7},{Pattern:bts,Color:15},{Pattern:bts,Color:15},{Pattern:bts,Color:7},{Pattern:cbo,Color:7},{Pattern:bo,Color:7},{Pattern:cbo,Color:15}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:14},{Pattern:flo,Color:14},{Pattern:flo,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:14},{Pattern:bts,Color:15},{Pattern:bts,Color:15},{Pattern:bts,Color:14},{Pattern:cbo,Color:14},{Pattern:bo,Color:14},{Pattern:cbo,Color:15}]}}"
             }
           ]
         },

@@ -37,7 +37,7 @@ public final class RSConfiguredFeatures {
     public static List<PlacedFeature> RS_DUNGEONS = new ArrayList<>();
 
     private static final NbtDungeonConfig BADLANDS_DUNGEON_CONFIG = new NbtDungeonConfig("badlands", EMPTY_ID);
-    public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.BADLANDS_DUNGEONS.get().configured(BADLANDS_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> BADLANDS_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(BADLANDS_DUNGEON_CONFIG);
     public static PlacedFeature BADLANDS_DUNGEONS_PLACED = BADLANDS_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.badlandsDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -47,7 +47,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig DARK_FOREST_DUNGEON_CONFIG = new NbtDungeonConfig("dark_forest", new ResourceLocation(RepurposedStructures.MODID, "dungeons/dark_forest_post_process"));
-    public static ConfiguredFeature<?, ?> DARK_FOREST_DUNGEONS = RSFeatures.DARK_FOREST_DUNGEONS.get().configured(DARK_FOREST_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> DARK_FOREST_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(DARK_FOREST_DUNGEON_CONFIG);
     public static PlacedFeature DARK_FOREST_DUNGEONS_PLACED = DARK_FOREST_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -57,7 +57,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig DESERT_DUNGEON_CONFIG = new NbtDungeonConfig("desert", EMPTY_ID);
-    public static ConfiguredFeature<?, ?> DESERT_DUNGEONS = RSFeatures.DESERT_DUNGEONS.get().configured(DESERT_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> DESERT_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(DESERT_DUNGEON_CONFIG);
     public static PlacedFeature DESERT_DUNGEONS_PLACED = DESERT_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.desertDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -66,8 +66,18 @@ public final class RSConfiguredFeatures {
                     VerticalAnchor.absolute(RSDungeonsConfig.desertDungeonMaxHeight.get())),
             BiomeFilter.biome());
 
+    private static final NbtDungeonConfig DEEP_DUNGEON_CONFIG = new NbtDungeonConfig("deep", "deep", EMPTY_ID, 11, false, 0);
+    public static ConfiguredFeature<?, ?> DEEP_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(DEEP_DUNGEON_CONFIG);
+    public static PlacedFeature DEEP_DUNGEONS_PLACED = DEEP_DUNGEONS.placed(
+            UnlimitedCountPlacement.of(RSDungeonsConfig.deepDungeonAttemptsPerChunk.get()),
+            InSquarePlacement.spread(),
+            HeightRangePlacement.uniform(
+                    VerticalAnchor.absolute(RSDungeonsConfig.deepDungeonMinHeight.get()),
+                    VerticalAnchor.absolute(RSDungeonsConfig.deepDungeonMaxHeight.get())),
+            BiomeFilter.biome());
+
     private static final NbtDungeonConfig END_DUNGEON_CONFIG = new NbtDungeonConfig("end", "shulker_boxes", EMPTY_ID, 20, Blocks.SHULKER_BOX.defaultBlockState());
-    public static ConfiguredFeature<?, ?> END_DUNGEONS = RSFeatures.END_DUNGEONS.get().configured(END_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> END_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(END_DUNGEON_CONFIG);
     public static PlacedFeature END_DUNGEONS_PLACED = END_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.endDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -77,7 +87,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig NETHER_DUNGEON_CONFIG = new NbtDungeonConfig("nether", EMPTY_ID);
-    public static ConfiguredFeature<?, ?> NETHER_DUNGEONS = RSFeatures.NETHER_DUNGEONS.get().configured(NETHER_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> NETHER_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(NETHER_DUNGEON_CONFIG);
     public static PlacedFeature NETHER_DUNGEONS_PLACED = NETHER_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.netherDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -87,7 +97,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig SNOW_DUNGEON_CONFIG = new NbtDungeonConfig("snow", EMPTY_ID);
-    public static ConfiguredFeature<?, ?> SNOW_DUNGEONS = RSFeatures.SNOW_DUNGEONS.get().configured(SNOW_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> SNOW_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(SNOW_DUNGEON_CONFIG);
     public static PlacedFeature SNOW_DUNGEONS_PLACED = SNOW_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.snowDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -97,7 +107,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig ICY_DUNGEON_CONFIG = new NbtDungeonConfig("icy", EMPTY_ID);
-    public static ConfiguredFeature<?, ?> ICY_DUNGEONS = RSFeatures.ICY_DUNGEONS.get().configured(ICY_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> ICY_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(ICY_DUNGEON_CONFIG);
     public static PlacedFeature ICY_DUNGEONS_PLACED = ICY_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.icyDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -107,7 +117,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig SWAMP_DUNGEON_CONFIG = new NbtDungeonConfig("swamp", EMPTY_ID);
-    public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.SWAMP_DUNGEONS.get().configured(SWAMP_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> SWAMP_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(SWAMP_DUNGEON_CONFIG);
     public static PlacedFeature SWAMP_DUNGEONS_PLACED = SWAMP_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.swampDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -117,7 +127,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig MUSHROOM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom"), "mushroom", "mushroom", new ResourceLocation(RepurposedStructures.MODID, "dungeons/mushroom"), EMPTY_ID);
-    public static ConfiguredFeature<?, ?> MUSHROOM_DUNGEONS = RSFeatures.MUSHROOM_DUNGEONS.get().configured(MUSHROOM_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> MUSHROOM_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(MUSHROOM_DUNGEON_CONFIG);
     public static PlacedFeature MUSHROOM_DUNGEONS_PLACED = MUSHROOM_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.mushroomDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -128,7 +138,7 @@ public final class RSConfiguredFeatures {
 
 
     private static final NbtDungeonConfig JUNGLE_DUNGEON_CONFIG = new NbtDungeonConfig("jungle", new ResourceLocation(RepurposedStructures.MODID, "dungeons/jungle_post_process"));
-    public static ConfiguredFeature<?, ?> JUNGLE_DUNGEONS = RSFeatures.JUNGLE_DUNGEONS.get().configured(JUNGLE_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> JUNGLE_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(JUNGLE_DUNGEON_CONFIG);
     public static PlacedFeature JUNGLE_DUNGEONS_PLACED = JUNGLE_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.jungleDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -138,7 +148,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig NEUTRAL_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_neutral_ocean"), "ocean", "ocean_neutral", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_neutral"), EMPTY_ID, 55, true, -1);
-    public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configured(NEUTRAL_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(NEUTRAL_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_NEUTRAL_DUNGEONS_PLACED = OCEAN_NEUTRAL_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -148,7 +158,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig COLD_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_cold_ocean"), "ocean", "ocean_cold", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_cold"), EMPTY_ID, 55, true, -1);
-    public static ConfiguredFeature<?, ?> OCEAN_COLD_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configured(COLD_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> OCEAN_COLD_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(COLD_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_COLD_DUNGEONS_PLACED = OCEAN_COLD_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -158,7 +168,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig FROZEN_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_frozen_ocean"), "ocean", "ocean_frozen", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_frozen"), EMPTY_ID, 55, true, -1);
-    public static ConfiguredFeature<?, ?> OCEAN_FROZEN_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configured(FROZEN_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> OCEAN_FROZEN_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(FROZEN_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_FROZEN_DUNGEONS_PLACED = OCEAN_FROZEN_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -168,7 +178,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig LUKEWARM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_lukewarm_ocean"), "ocean", "ocean_lukewarm", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"), EMPTY_ID, 55, true, -1);
-    public static ConfiguredFeature<?, ?> OCEAN_LUKEWARM_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configured(LUKEWARM_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> OCEAN_LUKEWARM_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(LUKEWARM_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_LUKEWARM_DUNGEONS_PLACED = OCEAN_LUKEWARM_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -178,7 +188,7 @@ public final class RSConfiguredFeatures {
             BiomeFilter.biome());
 
     private static final NbtDungeonConfig WARM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_warm_ocean"), "ocean", "ocean_warm", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_warm"), EMPTY_ID, 55, true, -1);
-    public static ConfiguredFeature<?, ?> OCEAN_WARM_DUNGEONS = RSFeatures.OCEAN_DUNGEONS.get().configured(WARM_DUNGEON_CONFIG);
+    public static ConfiguredFeature<?, ?> OCEAN_WARM_DUNGEONS = RSFeatures.NBT_DUNGEON.get().configured(WARM_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_WARM_DUNGEONS_PLACED = OCEAN_WARM_DUNGEONS.placed(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
             InSquarePlacement.spread(),
@@ -193,7 +203,7 @@ public final class RSConfiguredFeatures {
     // Need this field for dimension/biome blacklisting
     public static List<PlacedFeature> RS_WELLS = new ArrayList<>();
 
-    public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.BADLANDS_WELL.get()
+    public static ConfiguredFeature<?, ?> BADLANDS_WELL = RSFeatures.NBT_FEATURE.get()
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_badlands"),
                     false,
@@ -206,7 +216,7 @@ public final class RSConfiguredFeatures {
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome());
 
-    public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NETHER_WELL.get()
+    public static ConfiguredFeature<?, ?> NETHER_WELL = RSFeatures.NBT_FEATURE.get()
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_nether"),
                     false,
@@ -222,7 +232,7 @@ public final class RSConfiguredFeatures {
             SnapToLowerNonAirPlacement.snapToLowerNonAir(),
             BiomeFilter.biome());
 
-    public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.SNOW_WELL.get()
+    public static ConfiguredFeature<?, ?> SNOW_WELL = RSFeatures.NBT_FEATURE.get()
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_snow"),
                     false,
@@ -235,7 +245,7 @@ public final class RSConfiguredFeatures {
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome());
 
-    public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.MOSSY_STONE_WELL.get()
+    public static ConfiguredFeature<?, ?> MOSSY_STONE_WELL = RSFeatures.NBT_FEATURE.get()
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_mossy_stone"),
                     true,
@@ -248,7 +258,7 @@ public final class RSConfiguredFeatures {
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome());
 
-    public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.FOREST_WELL.get()
+    public static ConfiguredFeature<?, ?> FOREST_WELL = RSFeatures.NBT_FEATURE.get()
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_forest"),
                     true,
@@ -261,7 +271,7 @@ public final class RSConfiguredFeatures {
             PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
             BiomeFilter.biome());
 
-    public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.MUSHROOM_WELL.get()
+    public static ConfiguredFeature<?, ?> MUSHROOM_WELL = RSFeatures.NBT_FEATURE.get()
             .configured(new NbtFeatureConfig(
                     new ResourceLocation(RepurposedStructures.MODID, "well_mushroom"),
                     false,
@@ -280,6 +290,7 @@ public final class RSConfiguredFeatures {
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS_PLACED));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS_PLACED));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_desert"), DESERT_DUNGEONS_PLACED));
+        RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_deep"), DEEP_DUNGEONS_PLACED));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS_PLACED));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS_PLACED));
         RS_DUNGEONS.add(Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS_PLACED));
@@ -306,6 +317,7 @@ public final class RSConfiguredFeatures {
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_desert"), DESERT_DUNGEONS);
+        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_deep"), DEEP_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS);
         Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS);

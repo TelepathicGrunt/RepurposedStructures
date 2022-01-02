@@ -10,6 +10,7 @@ public class RSDungeonsConfig {
 	public static ForgeConfigSpec.IntValue badlandsDungeonAttemptsPerChunk;
 	public static ForgeConfigSpec.IntValue darkForestDungeonAttemptsPerChunk;
 	public static ForgeConfigSpec.IntValue desertDungeonAttemptsPerChunk;
+	public static ForgeConfigSpec.IntValue deepDungeonAttemptsPerChunk;
 	public static ForgeConfigSpec.IntValue jungleDungeonAttemptsPerChunk;
 	public static ForgeConfigSpec.IntValue mushroomDungeonAttemptsPerChunk;
 	public static ForgeConfigSpec.IntValue snowDungeonAttemptsPerChunk;
@@ -22,6 +23,7 @@ public class RSDungeonsConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> badlandsDungeonMinHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> darkForestDungeonMinHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> desertDungeonMinHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> deepDungeonMinHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> jungleDungeonMinHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> mushroomDungeonMinHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> snowDungeonMinHeight;
@@ -34,6 +36,7 @@ public class RSDungeonsConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> badlandsDungeonMaxHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> darkForestDungeonMaxHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> desertDungeonMaxHeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> deepDungeonMaxHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> jungleDungeonMaxHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> mushroomDungeonMaxHeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> snowDungeonMaxHeight;
@@ -59,7 +62,7 @@ public class RSDungeonsConfig {
 
 		builder.comment("-----------------------------------------------------------------------------------------",
 				" How many positions Repurposed Structures Dungeons will pick per chunk to check if it can spawn at those positions.",
-				" Does NOT replace vanilla Dungeons at all.",
+				" Does NOT replace vanilla Dungeons at all. Except for Deep Dungeon which replaces Vanilla Dungeons below y = 0",
 				" 0 for no Dungeons at all and 1000 for max Dungeon spawnrate.");
 		builder.push("AttemptsPerChunk");
 
@@ -75,6 +78,10 @@ public class RSDungeonsConfig {
 				.translation("repurposedstructures.desertdungeonattemptsperchunk")
 				.defineInRange("desertDungeonAttemptsPerChunk", 8, 0, 1000);
 
+			deepDungeonAttemptsPerChunk = builder
+				.translation("repurposedstructures.deepdungeonattemptsperchunk")
+				.defineInRange("deepDungeonAttemptsPerChunk", 4, 0, 1000);
+
 			jungleDungeonAttemptsPerChunk = builder
 				.translation("repurposedstructures.jungledungeonattemptsperchunk")
 				.defineInRange("jungleDungeonAttemptsPerChunk", 8, 0, 1000);
@@ -88,8 +95,8 @@ public class RSDungeonsConfig {
 				.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			icyDungeonAttemptsPerChunk = builder
-				.translation("repurposedstructures.snowdungeonattemptsperchunk")
-				.defineInRange("snowDungeonAttemptsPerChunk", 8, 0, 1000);
+				.translation("repurposedstructures.icydungeonattemptsperchunk")
+				.defineInRange("icyDungeonAttemptsPerChunk", 8, 0, 1000);
 
 			swampDungeonAttemptsPerChunk = builder
 				.translation("repurposedstructures.swampdungeonattemptsperchunk")
@@ -106,7 +113,6 @@ public class RSDungeonsConfig {
 			oceanDungeonAttemptsPerChunk = builder
 				.translation("repurposedstructures.oceandungeonattemptsperchunk")
 				.defineInRange("oceanDungeonAttemptsPerChunk", 3, 0, 1000);
-
 
 		builder.pop();
 
@@ -127,6 +133,10 @@ public class RSDungeonsConfig {
 			desertDungeonMinHeight = builder
 				.translation("repurposedstructures.desertdungeonminheight")
 				.define("desertDungeonMinHeight", 35);
+
+			deepDungeonMinHeight = builder
+				.translation("repurposedstructures.deepdungeonminheight")
+				.define("deepDungeonMinHeight", -60);
 
 			jungleDungeonMinHeight = builder
 				.translation("repurposedstructures.jungledungeonminheight")
@@ -179,6 +189,10 @@ public class RSDungeonsConfig {
 			desertDungeonMaxHeight = builder
 				.translation("repurposedstructures.desertdungeonmaxheight")
 				.define("desertDungeonMaxHeight", 255);
+
+			deepDungeonMaxHeight = builder
+				.translation("repurposedstructures.deepdungeonmaxheight")
+				.define("deepDungeonMaxHeight", -10);
 
 			jungleDungeonMaxHeight = builder
 				.translation("repurposedstructures.jungledungeonmaxheight")
