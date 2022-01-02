@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/icy/arch",
+  "fallback": "repurposed_structures:mineshafts/icy/arch",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:supports/icy_mineshaft",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

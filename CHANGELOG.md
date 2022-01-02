@@ -1,3 +1,13 @@
+### **(V.4.1.0 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+RS Mineshaft arches should not be broken up weirdly as much anymore.
+
+Fixed several RS Mineshafts having 1 incorrectly rotated arch block.
+
+Fixed some arches placing incorrect blocks in RS Mineshafts.
+
+
 ### **(V.4.0.10 Changes) (1.18.1 Minecraft)**
 
 #### Configs:

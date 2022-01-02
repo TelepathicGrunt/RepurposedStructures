@@ -14,7 +14,8 @@ public class MineshaftSupportConfig implements FeatureConfiguration {
             BlockState.CODEC.fieldOf("pillar_state").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.pillarState),
             BlockState.CODEC.fieldOf("fence_state").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.fenceState),
             Registry.BLOCK.byNameCodec().fieldOf("target_floor_block").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.targetFloorState),
-            Codec.BOOL.fieldOf("is_water_based").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.waterBased)
+            Codec.BOOL.fieldOf("is_water_based").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.waterBased),
+            Codec.BOOL.fieldOf("arch_only").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.archOnly)
             ).apply(configInstance, MineshaftSupportConfig::new));
 
     public final Block archBlock;
@@ -22,12 +23,14 @@ public class MineshaftSupportConfig implements FeatureConfiguration {
     public final BlockState fenceState;
     public final Block targetFloorState;
     public final boolean waterBased;
+    public final boolean archOnly;
 
-    public MineshaftSupportConfig(Block archBlock, BlockState pillarState, BlockState fenceState, Block targetFloorState, boolean waterBased) {
+    public MineshaftSupportConfig(Block archBlock, BlockState pillarState, BlockState fenceState, Block targetFloorState, boolean waterBased, boolean archOnly) {
         this.archBlock = archBlock;
         this.pillarState = pillarState;
         this.fenceState = fenceState;
         this.targetFloorState = targetFloorState;
         this.waterBased = waterBased;
+        this.archOnly = archOnly;
     }
 }
