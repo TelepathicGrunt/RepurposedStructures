@@ -6,13 +6,14 @@
     },
     "fence_state": {
       "Properties": {
-        "north": "false",
-        "south": "false",
-        "east": "false",
-        "west": "false",
-        "waterlogged": "false"
+        "north": "none",
+        "south": "none",
+        "east": "none",
+        "west": "none",
+        "waterlogged": "false",
+        "up": true
       },
-      "Name": "minecraft:nether_brick_fence"
+      "Name": "minecraft:nether_brick_wall"
     },
     "target_floor_block": "minecraft:nether_bricks",
     "is_water_based": false

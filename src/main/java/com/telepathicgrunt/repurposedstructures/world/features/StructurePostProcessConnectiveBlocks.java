@@ -23,7 +23,6 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
 
         BlockPos.MutableBlockPos currentBlockMutable = new BlockPos.MutableBlockPos();
-        BlockPos.MutableBlockPos offsetMutable = new BlockPos.MutableBlockPos();
         ChunkPos currentChunkPos = new ChunkPos(context.origin());
         ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x, currentChunkPos.z);
         for(int x = -1; x <= 1; x++) {
@@ -39,52 +38,62 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                     }
 
                     BlockState currentBlock = currentChunk.getBlockState(currentBlockMutable);
-                    if(currentBlock.getBlock() instanceof WallBlock) {
-                        BlockState currentState = currentBlock.getBlock().defaultBlockState();
-                        for(Direction direction : Direction.values()) {
-                            offsetMutable.set(currentBlockMutable).move(direction);
-                            if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
-                                continue;
-                            }
-                            BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
-                            currentState  = currentState.updateShape(
-                                    direction,
-                                    sideBlock,
-                                    context.level(),
-                                    currentBlockMutable,
-                                    offsetMutable
-                            );
-                        }
-                        if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
-                            currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, currentBlock.getValue(BlockStateProperties.WATERLOGGED));
-                        }
-                        context.level().setBlock(currentBlockMutable, currentState, 3);
-                    }
-                    else if(currentBlock.getBlock() instanceof FenceBlock) {
-                        BlockState currentState = currentBlock.getBlock().defaultBlockState();
-                        for(Direction direction : Direction.Plane.HORIZONTAL) {
-                            offsetMutable.set(currentBlockMutable).move(direction);
-                            if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
-                                continue;
-                            }
-                            BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
-                            currentState  = currentState.updateShape(
-                                    direction,
-                                    sideBlock,
-                                    context.level(),
-                                    currentBlockMutable,
-                                    offsetMutable
-                            );
-                        }
-                        if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
-                            currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, currentBlock.getValue(BlockStateProperties.WATERLOGGED));
-                        }
-                        context.level().setBlock(currentBlockMutable, currentState, 3);
+                    if(currentBlock.getBlock() instanceof FenceBlock || currentBlock.getBlock() instanceof WallBlock) {
+                        placeConnectBlock(context, currentBlockMutable, currentChunkPos, currentChunk, currentBlock);
                     }
                 }
             }
         }
 
         return true;
+    }
+
+    protected static void placeConnectBlock(FeaturePlaceContext<?> context, BlockPos.MutableBlockPos currentBlockMutable, ChunkPos currentChunkPos, ChunkAccess currentChunk, BlockState incomingBlockState) {
+        BlockPos.MutableBlockPos offsetMutable = new BlockPos.MutableBlockPos();
+        if(incomingBlockState.getBlock() instanceof WallBlock) {
+            BlockState currentState = incomingBlockState.getBlock().defaultBlockState();
+            for(Direction direction : Direction.values()) {
+                offsetMutable.set(currentBlockMutable).move(direction);
+                if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
+                    continue;
+                }
+                BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
+                currentState  = currentState.updateShape(
+                        direction,
+                        sideBlock,
+                        context.level(),
+                        currentBlockMutable,
+                        offsetMutable
+                );
+            }
+            if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
+                currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, incomingBlockState.getValue(BlockStateProperties.WATERLOGGED));
+            }
+            context.level().setBlock(currentBlockMutable, currentState, 3);
+        }
+        else if(incomingBlockState.getBlock() instanceof FenceBlock) {
+            BlockState currentState = incomingBlockState.getBlock().defaultBlockState();
+            for(Direction direction : Direction.Plane.HORIZONTAL) {
+                offsetMutable.set(currentBlockMutable).move(direction);
+                if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
+                    continue;
+                }
+                BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
+                currentState  = currentState.updateShape(
+                        direction,
+                        sideBlock,
+                        context.level(),
+                        currentBlockMutable,
+                        offsetMutable
+                );
+            }
+            if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
+                currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, incomingBlockState.getValue(BlockStateProperties.WATERLOGGED));
+            }
+            context.level().setBlock(currentBlockMutable, currentState, 3);
+        }
+        else {
+            context.level().setBlock(currentBlockMutable, incomingBlockState, 3);
+        }
     }
 }

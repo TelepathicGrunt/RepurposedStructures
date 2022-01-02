@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/stone/arch",
+  "fallback": "repurposed_structures:mineshafts/stone/arch",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:supports/stone_mineshaft",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}
