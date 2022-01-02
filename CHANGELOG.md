@@ -1,4 +1,19 @@
-### **(V.3.0.13 Changes) (1.18.1 Minecraft)**
+### **(V.3.2.0 Changes) (1.18.1 Minecraft)**
+
+#### Dungeons:
+Deep Dungeons are now added that spawn from -10 to -60. Will replace Vanilla Dungeons below y = 0.
+
+Nether Dungeon's secret banner is now red colored while Deep Dungeon has the dark grey banner instead.
+
+#### Mineshafts:
+RS Mineshaft arches should not be broken up weirdly as much anymore.
+
+Fixed several RS Mineshafts having 1 incorrectly rotated arch block.
+
+Fixed some arches placing incorrect blocks in RS Mineshafts.
+
+
+### **(V.3.1.13 Changes) (1.18.1 Minecraft)**
 
 #### Configs:
 Changed the default config spawnrate for Mushroom Wells, Mushroom Villages, and Mushroom Pyramids to be more rare.
@@ -28,7 +43,7 @@ Optimized structure bounds checking for my mixins that prevents some features fr
 Optimized the Jigsaw Blocks attaching part of my structures layout generation a bit.
 
 
-### **(V.3.0.12 Changes) (1.18.1 Minecraft)**
+### **(V.3.1.12 Changes) (1.18.1 Minecraft)**
 
 #### Misc:
 Fixed incompatibility with Cyanide mod for good. Hopefully.

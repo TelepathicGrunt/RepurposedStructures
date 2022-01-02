@@ -4,19 +4,18 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.minecraft.world.level.biome.Biome.BiomeCategory;
+import net.minecraft.world.level.biome.Biome;
 
 public final class Cities {
     private Cities() {}
 
-    public static void addCities() {
+    public static void addCities(BiomeInjection.BiomeInjectionHelper event) {
 
-        GeneralUtils.addToBiome("city_nether",
-                (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.CITY_NETHER,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
-                        && RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.CITY_NETHER));
+        if (RepurposedStructures.RSAllConfig.RSCitiesConfig.cityNetherAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.CITY_NETHER,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
+        {
+            event.addStructure(RSConfiguredStructures.CITY_NETHER);
+        }
     }
 }

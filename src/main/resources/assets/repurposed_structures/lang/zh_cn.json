@@ -82,7 +82,7 @@
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSBastionsConfig.bastionUndergroundAverageChunkDistance.@PrefixText": "\n地下堡垒遗迹在主世界非海洋和非沙滩生物群系的稀有度。\n 1为生成在大多数区块，1001为不生成。",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSBastionsConfig.bastionUndergroundAverageChunkDistance": "地下堡垒废遗迹平均间隔",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk": "每个区块的生成尝试次数",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk.@PrefixText": "\n为生成地牢，每个区块的生成尝试次数。将会替代在原生物群系的原版地牢，海洋、下界和末地除外。\n 0为不生成地牢，1000为最大生成几率。\n注意：当设为0时，原版地牢仍会生成在原生物群系。",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk.@PrefixText": "\n为生成地牢，每个区块的生成尝试次数。将会替代在原生物群系的原版地牢，海洋、下界和末地除外。\n 0为不生成地牢，1000为最大生成几率。\n注意：当设为0时，原版地牢仍会生成在原生物群系。 Except for Deep Dungeon which replaces Vanilla Dungeons below y = 0",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.badlandsDungeonAttemptsPerChunk": "恶地地牢",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.darkForestDungeonAttemptsPerChunk": "黑森林地牢",
     "text.autoconfig.repurposed_structures-fabric/general_configs.option.RSDungeonsConfig.attemptsPerChunk.desertDungeonAttemptsPerChunk": "沙漠地牢",

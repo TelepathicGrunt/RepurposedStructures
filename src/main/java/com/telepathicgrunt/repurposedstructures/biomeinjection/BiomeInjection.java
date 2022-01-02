@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.biomeinjection.temp;
+package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -11,8 +11,8 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public final class TemporaryBiomeInjection {
-    private TemporaryBiomeInjection() {}
+public final class BiomeInjection {
+    private BiomeInjection() {}
 
     public static void addStructureToBiomes(Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> structureToMultiMap, Registry<Biome> biomeRegistry) {
         addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Bastions::addBastions);

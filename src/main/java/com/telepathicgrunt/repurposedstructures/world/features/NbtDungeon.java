@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeo
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -54,13 +55,13 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         ResourceLocation nbtRL = GeneralUtils.getRandomEntry(context.config().nbtResourcelocationsAndWeights, context.random());
 
         StructureManager structureManager = context.level().getLevel().getStructureManager();
-        StructureTemplate template = structureManager.getOrCreate(nbtRL);
-        if(template == null) {
+        Optional<StructureTemplate> template = structureManager.get(nbtRL);
+        if(template.isEmpty()) {
             RepurposedStructures.LOGGER.error("Identifier to the specified nbt file was not found! : {}", nbtRL);
             return false;
         }
         Rotation rotation = Rotation.getRandom(context.random());
-        BlockPos size = new BlockPos(template.getSize());
+        BlockPos size = new BlockPos(template.get().getSize());
 
         // For proper offsetting the dungeon so it rotate properly around position parameter.
         BlockPos halfLengths = new BlockPos(
@@ -150,7 +151,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             Optional<StructureProcessorList> processor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().processor);
             processor.orElse(ProcessorLists.EMPTY).list().forEach(placementsettings::addProcessor); // add all processors
             BlockPos finalPos = mutable.set(position).move(-halfLengths.getX(), 0, -halfLengths.getZ());
-            template.placeInWorld(context.level(), finalPos, finalPos, placementsettings, context.random(), Block.UPDATE_INVISIBLE);
+            template.get().placeInWorld(context.level(), finalPos, finalPos, placementsettings, context.random(), Block.UPDATE_INVISIBLE);
 
             // Post-processors
             // For all processors that are sensitive to neighboring blocks such as vines.
@@ -158,7 +159,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             placementsettings.clearProcessors();
             Optional<StructureProcessorList> postProcessor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().postProcessor);
             postProcessor.orElse(ProcessorLists.EMPTY).list().forEach(placementsettings::addProcessor); // add all post processors
-            List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template).repurposedstructures_getPalettes(), mutable).blocks();
+            List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template.get()).repurposedstructures_getPalettes(), mutable).blocks();
             StructureTemplate.processBlockInfos(context.level(), mutable, mutable, placementsettings, list);
 
             spawnLootBlocks(context.level(), context.random(), position, context.config(), fullLengths, halfLengthsRotated, mutable);

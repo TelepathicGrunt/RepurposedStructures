@@ -41,7 +41,7 @@
         {
           "name": "minecraft:lead",
           "type": "minecraft:item",
-          "weight":20
+          "weight": 20
         },
         {
           "name": "minecraft:book",

@@ -4,9 +4,9 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.telepathicgrunt.repurposedstructures.biomeinjection.BiomeInjection;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.temp.TemporaryBiomeInjection;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSNaturalMobSpawningOmegaConfig;
@@ -113,7 +113,7 @@ public class RepurposedStructures implements ModInitializer {
             // We will inject our structures into that map/multimap
             Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
             ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
-            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, minecraftServer.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
+            BiomeInjection.addStructureToBiomes(tempStructureToMultiMap, minecraftServer.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
 
             // for debugging purposes
 //            StringBuilder stringBuilder = new StringBuilder();
