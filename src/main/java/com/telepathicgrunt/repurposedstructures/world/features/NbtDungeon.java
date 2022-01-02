@@ -55,15 +55,14 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
         StructureManager structureManager = context.level().getLevel().getStructureManager();
         Optional<StructureTemplate> template = structureManager.get(nbtRL);
-        Rotation rotation = Rotation.getRandom(context.random());
-
         if(template.isEmpty()) {
             RepurposedStructures.LOGGER.error("Identifier to the specified nbt file was not found! : {}", nbtRL);
             return false;
         }
+        Rotation rotation = Rotation.getRandom(context.random());
+        BlockPos size = new BlockPos(template.get().getSize());
 
         // For proper offsetting the dungeon so it rotate properly around position parameter.
-        BlockPos size = new BlockPos(template.get().getSize());
         BlockPos halfLengths = new BlockPos(
                 size.getX() / 2,
                 size.getY() / 2,

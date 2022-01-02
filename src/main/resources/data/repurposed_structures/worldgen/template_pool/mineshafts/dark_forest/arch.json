@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:mineshafts/dark_forest/arch",
+  "fallback": "repurposed_structures:mineshafts/dark_forest/arch",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:supports/dark_forest_mineshaft",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

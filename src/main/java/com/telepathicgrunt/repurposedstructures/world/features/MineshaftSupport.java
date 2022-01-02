@@ -38,9 +38,10 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         if (world.getBlockState(mutable.above(3)).getBlock() == context.config().archBlock) {
             for(int i = 0; i <= 1; i++) {
                 if(chunk.getBlockState(mutable.move(Direction.UP)).getBlock() != context.config().fenceState.getBlock()) {
-                    chunk.setBlockState(mutable, context.config().fenceState, false);
+                    StructurePostProcessConnectiveBlocks.placeConnectBlock(context, mutable, chunk.getPos(), chunk, context.config().fenceState);
                 }
             }
+            return true;
         }
         else {
             for(int i = 0; i <= 2; i++) {
@@ -59,6 +60,10 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                 }
                 mutable.move(direction.getOpposite());
             }
+        }
+
+        if(context.config().archOnly) {
+            return true;
         }
 
         // Only do support if floor block is placed
