@@ -21,25 +21,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public final class RSFeatures {
     private RSFeatures() {}
 
-    //Static instance of our structure so we can reference it and add it to biomes easily.
-    public static Feature<NbtDungeonConfig> BADLANDS_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> DARK_FOREST_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> DESERT_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> END_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> NETHER_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> SNOW_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> ICY_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> SWAMP_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> MUSHROOM_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> JUNGLE_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-    public static Feature<NbtDungeonConfig> OCEAN_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
-
-    public static Feature<NbtFeatureConfig> BADLANDS_WELL = new NbtFeature();
-    public static Feature<NbtFeatureConfig> NETHER_WELL = new NbtFeature();
-    public static Feature<NbtFeatureConfig> SNOW_WELL = new NbtFeature();
-    public static Feature<NbtFeatureConfig> MOSSY_STONE_WELL = new NbtFeature();
-    public static Feature<NbtFeatureConfig> FOREST_WELL = new NbtFeature();
-    public static Feature<NbtFeatureConfig> MUSHROOM_WELL = new NbtFeature();
+    public static Feature<NbtDungeonConfig> NBT_DUNGEONS = new NbtDungeon(NbtDungeonConfig.CODEC);
+    public static Feature<NbtFeatureConfig> NBT_FEATURE = new NbtFeature();
 
     public static Feature<NoneFeatureConfiguration> WITHER_SKELETON_WITH_BOW = new WitherSkeletonWithBow();
     public static Feature<NoneFeatureConfiguration> SHULKER_MOB = new ShulkerMob();
@@ -67,24 +50,8 @@ public final class RSFeatures {
     public static Feature<MineshaftSupportConfig> MINESHAFT_SUPPORTS = new MineshaftSupport(MineshaftSupportConfig.CODEC);
 
     public static void registerFeatures() {
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_badlands"), BADLANDS_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_dark_forest"), DARK_FOREST_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_desert"), DESERT_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_end"), END_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_nether"), NETHER_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_snow"), SNOW_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_icy"), ICY_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_swamp"), SWAMP_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_mushroom"), MUSHROOM_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_jungle"), JUNGLE_DUNGEONS);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "dungeons_ocean"), OCEAN_DUNGEONS);
-
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "well_badlands"), BADLANDS_WELL);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "well_nether"), NETHER_WELL);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "well_snow"), SNOW_WELL);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "well_mossy_stone"), MOSSY_STONE_WELL);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "well_forest"), FOREST_WELL);
-        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "well_mushroom"), MUSHROOM_WELL);
+        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "nbt_dungeon"), NBT_DUNGEONS);
+        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "nbt_feature"), NBT_FEATURE);
 
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "wither_skeleton_with_bow"), WITHER_SKELETON_WITH_BOW);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "shulker_mob"), SHULKER_MOB);

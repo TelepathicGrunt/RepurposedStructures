@@ -4,29 +4,27 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.minecraft.world.level.biome.Biome.BiomeCategory;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 
 public final class Strongholds {
     private Strongholds() {}
 
-    public static void addStrongholds() {
+    public static void addStrongholds(BiomeInjection.BiomeInjectionHelper event) {
 
-        GeneralUtils.addToBiome("nether_stronghold",
-                (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.STRONGHOLD_NETHER,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
-                        && RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STRONGHOLD_NETHER));
+        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.STRONGHOLD_NETHER,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
+        {
+            event.addStructure(RSConfiguredStructures.STRONGHOLD_NETHER);
+        }
 
-        GeneralUtils.addToBiome("stronghold_end",
-                (context) -> 
-						BiomeSelection.isBiomeAllowed(context, RSStructures.STRONGHOLD_END,
-                                () -> BiomeSelection.haveCategories(context, BiomeCategory.THEEND)
-                                && !BiomeSelection.isBiome(context, Biomes.SMALL_END_ISLANDS))
-						&& RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance != 10001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.STRONGHOLD_END));
-
+        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.STRONGHOLD_END,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) &&
+                    !BiomeSelection.isBiomeTemp(event, Biomes.SMALL_END_ISLANDS)))
+        {
+            event.addStructure(RSConfiguredStructures.STRONGHOLD_END);
+        }
     }
 }

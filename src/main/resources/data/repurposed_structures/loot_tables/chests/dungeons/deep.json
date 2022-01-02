@@ -24,12 +24,12 @@
           "weight": 2
         },
         {
-          "name": "minecraft:music_disc_13",
+          "name": "minecraft:music_disc_stal",
           "type": "minecraft:item",
           "weight": 15
         },
         {
-          "name": "minecraft:music_disc_blocks",
+          "name": "minecraft:music_disc_11",
           "type": "minecraft:item",
           "weight": 15
         },
@@ -42,6 +42,21 @@
           "name": "minecraft:lead",
           "type": "minecraft:item",
           "weight": 20
+        },
+        {
+          "name": "minecraft:golden_horse_armor",
+          "type": "minecraft:item",
+          "weight": 5
+        },
+        {
+          "name": "minecraft:iron_horse_armor",
+          "type": "minecraft:item",
+          "weight": 8
+        },
+        {
+          "name": "minecraft:diamond_horse_armor",
+          "type": "minecraft:item",
+          "weight": 3
         },
         {
           "name": "minecraft:book",
@@ -68,7 +83,7 @@
       },
       "entries": [
         {
-          "name": "minecraft:gold_ingot",
+          "name": "minecraft:copper_ingot",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -83,7 +98,7 @@
           ]
         },
         {
-          "name": "minecraft:gold_nugget",
+          "name": "minecraft:raw_copper",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -113,7 +128,22 @@
           ]
         },
         {
-          "name": "minecraft:red_dye",
+          "name": "minecraft:poisonous_potato",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:glow_berries",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -133,7 +163,7 @@
           "weight": 10
         },
         {
-          "name": "minecraft:redstone",
+          "name": "minecraft:raw_iron",
           "type": "minecraft:item",
           "weight": 15,
           "functions": [
@@ -155,17 +185,17 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 4.0,
+                "min": 2.0,
+                "max": 8.0,
                 "type": "minecraft:uniform"
               }
             }
           ]
         },
         {
-          "name": "minecraft:dead_bush",
+          "name": "minecraft:raw_gold",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -178,15 +208,15 @@
           ]
         },
         {
-          "name": "minecraft:stick",
+          "name": "minecraft:amethyst_shard",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 6.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               }
             }
@@ -271,21 +301,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "minecraft:red_sand",
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
         }
       ]
     },
@@ -315,7 +330,7 @@
           "functions": [
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:1},{Pattern:flo,Color:1},{Pattern:flo,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:1},{Pattern:bts,Color:15},{Pattern:bts,Color:15},{Pattern:bts,Color:1},{Pattern:cbo,Color:7},{Pattern:bo,Color:1},{Pattern:cbo,Color:15}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:7},{Pattern:flo,Color:7},{Pattern:flo,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:15},{Pattern:tts,Color:7},{Pattern:bts,Color:15},{Pattern:bts,Color:15},{Pattern:bts,Color:7},{Pattern:cbo,Color:7},{Pattern:bo,Color:7},{Pattern:cbo,Color:15}]}}"
             }
           ]
         },

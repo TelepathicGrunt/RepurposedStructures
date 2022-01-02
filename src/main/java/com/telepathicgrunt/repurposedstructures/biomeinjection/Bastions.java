@@ -4,19 +4,18 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.minecraft.world.level.biome.Biome.BiomeCategory;
+import net.minecraft.world.level.biome.Biome;
 
 public final class Bastions {
     private Bastions() {}
 
-    public static void addBastions() {
+    public static void addBastions(BiomeInjection.BiomeInjectionHelper event) {
 
-        GeneralUtils.addToBiome("bastion_underground",
-                (context) ->
-                        BiomeSelection.isBiomeAllowed(context, RSStructures.BASTION_UNDERGROUND,
-                                () -> !BiomeSelection.haveCategories(context, BiomeCategory.OCEAN, BiomeCategory.BEACH, BiomeCategory.NETHER, BiomeCategory.NONE, BiomeCategory.THEEND))
-                        && RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance != 10001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BASTION_UNDERGROUND));
+        if (RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance != 10001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.BASTION_UNDERGROUND,
+                () -> !BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.BEACH, Biome.BiomeCategory.OCEAN, Biome.BiomeCategory.NETHER, Biome.BiomeCategory.THEEND, Biome.BiomeCategory.NONE)))
+        {
+            event.addStructure(RSConfiguredStructures.BASTION_UNDERGROUND);
+        }
     }
 }

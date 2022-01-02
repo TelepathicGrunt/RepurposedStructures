@@ -15,28 +15,28 @@ public final class Wells {
 
         GeneralUtils.addToBiome("badlands_well",
                 (context) ->
-                        BiomeSelection.isBiomeAllowedPlacedFeature(context, RSConfiguredFeatures.BADLANDS_WELL_PLACED,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.BADLANDS_WELL_PLACED,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MESA))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.badlandsWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.BADLANDS_WELL_PLACED));
 
         GeneralUtils.addToBiome("nether_well",
                 (context) ->
-                        BiomeSelection.isBiomeAllowedPlacedFeature(context, RSConfiguredFeatures.NETHER_WELL_PLACED,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.NETHER_WELL_PLACED,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.NETHER))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.netherWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.NETHER_WELL_PLACED));
 
         GeneralUtils.addToBiome("snow_well",
                 (context) ->
-                        BiomeSelection.isBiomeAllowedPlacedFeature(context, RSConfiguredFeatures.SNOW_WELL_PLACED,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.SNOW_WELL_PLACED,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.ICY) || BiomeSelection.hasName(context, "snow") || BiomeSelection.isBiome(context, Biomes.GROVE))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.snowWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.SNOW_WELL_PLACED));
 
         GeneralUtils.addToBiome("mossy_stone_well",
                 (context) ->
-                        BiomeSelection.isBiomeAllowedPlacedFeature(context, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED,
                                 () ->  BiomeSelection.haveCategories(context, BiomeCategory.SWAMP, BiomeCategory.JUNGLE)
                                 || (BiomeSelection.haveCategories(context, BiomeCategory.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.mossyStoneWellRarityPerChunk != 10000,
@@ -44,7 +44,7 @@ public final class Wells {
 
         GeneralUtils.addToBiome("forest_well",
                 (context) ->
-                        BiomeSelection.isBiomeAllowedPlacedFeature(context, RSConfiguredFeatures.FOREST_WELL_PLACED,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.FOREST_WELL_PLACED,
                                 () -> (BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
                                 && !BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
                                 || BiomeSelection.isBiome(context, Biomes.MEADOW))
@@ -53,7 +53,7 @@ public final class Wells {
 
         GeneralUtils.addToBiome("mushroom_well",
                 (context) ->
-                        BiomeSelection.isBiomeAllowedPlacedFeature(context, RSConfiguredFeatures.MUSHROOM_WELL_PLACED,
+                        BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.MUSHROOM_WELL_PLACED,
                                 () -> BiomeSelection.haveCategories(context, BiomeCategory.MUSHROOM))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.mushroomWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.MUSHROOM_WELL_PLACED));

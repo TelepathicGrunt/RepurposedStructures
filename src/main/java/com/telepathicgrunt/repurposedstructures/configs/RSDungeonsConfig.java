@@ -60,6 +60,17 @@ public class RSDungeonsConfig implements ConfigData {
 
 
 
+                Spawn attempts per chunk. Replaces Vanilla Dungeons below y = 0
+                0 for no Dungeons at all and 1000 for max spawnrate.""")
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
+        public int deepDungeonAttemptsPerChunk = 4;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+
+
+
                 Spawn attempts per chunk.
                 0 for no Dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
@@ -189,6 +200,16 @@ public class RSDungeonsConfig implements ConfigData {
 
                 Minimum Y height that this dungeon can spawn at.
                 Note: The dungeon will spawn between min and max y height set in config.""")
+        public int deepDungeonMinHeight = -60;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+
+
+
+                Minimum Y height that this dungeon can spawn at.
+                Note: The dungeon will spawn between min and max y height set in config.""")
         public int jungleDungeonMinHeight = 35;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
@@ -298,6 +319,17 @@ public class RSDungeonsConfig implements ConfigData {
                 Note: The dungeon will spawn between min and max y height set in config.
                 Setting this to below min height config will make dungeon spawn only at min height.""")
         public int desertDungeonMaxHeight = 255;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+
+
+
+                Maximum Y height that this dungeon can spawn at.
+                Note: The dungeon will spawn between min and max y height set in config.
+                Setting this to below min height config will make dungeon spawn only at min height.""")
+        public int deepDungeonMaxHeight = -10;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart
