@@ -68,7 +68,7 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     }
 
-    runtimeOnly fg.deobf("patrigan:loadnbtblock:1.18.1-2.0.0")
+    runtimeOnly fg.deobf("patrigan:loadnbtblock:1.18.1-2.0.2")
 
     // 1.18.1
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
