@@ -1,3 +1,9 @@
+### **(V.3.2.1 Changes) (1.18.1 Minecraft)**
+
+#### Witch Huts:
+Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's Witch Hut bounding box for spawning Witches and black Cats.
+
+
 ### **(V.3.2.0 Changes) (1.18.1 Minecraft)**
 
 #### Dungeons:
