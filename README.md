@@ -16,14 +16,14 @@ repositories {
 
 &nbsp;
 
-Don't forget to change 2.0.0 with the actual latest version of this mod.
+Don't forget to change \<modversion> with the actual latest version of this mod.
 
 <blockquote>
 dependencies {
 
 ...
 
-&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:2.0.0+1.16.5"
+&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:\<modversion>+1.18.1"
 
 }</blockquote>
 
