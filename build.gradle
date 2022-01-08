@@ -58,8 +58,6 @@ minecraft {
 repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
     maven { url "https://www.cursemaven.com" }
-    //maven { url = "https://maven.blamejared.com/" }
-    flatDir { dirs 'deps' }
 }
 
 dependencies {
@@ -68,7 +66,7 @@ dependencies {
         annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     }
 
-    runtimeOnly fg.deobf("patrigan:loadnbtblock:1.18.1-2.0.2")
+    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures:1.2.1+1.18.1")
 
     // 1.18.1
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
