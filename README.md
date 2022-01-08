@@ -14,7 +14,7 @@ For developers that want to add RS to their mod's workspace:
 
 &nbsp;
 
-Don't forget to change 3.0.0 with the actual latest version of this mod.
+Don't forget to change \<modversion> with the actual latest version of this mod.
 
 <blockquote>dependencies {
 
@@ -22,7 +22,7 @@ Don't forget to change 3.0.0 with the actual latest version of this mod.
 &nbsp; ...
 
 
-&nbsp; implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:1.16.5-3.0.0-forge")
+&nbsp; implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:\<modversion>+1.18.1")
 
 
 }</blockquote>
