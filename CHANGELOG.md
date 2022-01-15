@@ -1,5 +1,8 @@
 ### **(V.4.1.1 Changes) (1.18.1 Minecraft)**
 
+#### Lang:
+Added en_us entries for explorer maps to any RS structures.
+
 #### Witch Huts:
 Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's Witch Hut bounding box for spawning Witches and black Cats.
 
