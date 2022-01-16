@@ -5,7 +5,7 @@
     {
       "weight": 2,
       "element": {
-        "feature": "minecraft:pile_snow",
+        "feature": "repurposed_structures:decor/icy_ruins_powder_snow",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

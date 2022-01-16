@@ -44,5 +44,7 @@ public final class MobMapTrades {
     public static void onWandererTradesEvent(WandererTradesEvent event) {
         if(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001)
             event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(38, RSStructures.BASTION_UNDERGROUND.get(), MapDecoration.Type.BANNER_GRAY, 1, 100));
+//        if(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001)
+//            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(42, RSStructures.o.get(), MapDecoration.Type.BANNER_GRAY, 1, 200));
     }
 }

@@ -30,6 +30,18 @@
         "feature": "repurposed_structures:ruins_land_warm"
       }
     },
+    "in_ruins_land_cold": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:ruins_land_cold"
+      }
+    },
+    "in_ruins_land_icy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:ruins_land_icy"
+      }
+    },
     "in_ruins_nether": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -43,6 +55,12 @@
     ],
     [
       "in_ruins_land_warm"
+    ],
+    [
+      "in_ruins_cold"
+    ],
+    [
+      "in_ruins_icy"
     ],
     [
       "in_ruins_nether"

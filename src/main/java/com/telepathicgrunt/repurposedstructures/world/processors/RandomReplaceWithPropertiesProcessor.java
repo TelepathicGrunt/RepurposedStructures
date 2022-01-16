@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -50,9 +51,9 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
         if(infoIn2.state.getBlock() == inputBlock) {
             BlockPos worldPos = infoIn2.pos;
-            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setSeed(worldPos.asLong() * worldPos.getY());
-
+            Random random = new Random();
+            int offSet = settings.getProcessors().indexOf(this);
+            random.setSeed(worldPos.asLong() * worldPos.getY() * offSet);
             if(random.nextFloat() < probability) {
                 if(outputBlock.isPresent()) {
                     BlockState newBlockState = outputBlock.get().defaultBlockState();

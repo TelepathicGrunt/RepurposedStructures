@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:brown_banner"
+    },
+    "title": {
+      "translate": "Skyward Cities"
+    },
+    "description": {
+      "translate": "Enter an Overworld City"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 500
+  },
+  "criteria": {
+    "city_overworld": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:city_overworld"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "city_overworld"
+    ]
+  ]
+}

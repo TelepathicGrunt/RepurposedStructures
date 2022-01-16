@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.BubbleColumnProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.TickBlocksProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
@@ -27,7 +27,7 @@ public final class RSProcessors {
     private RSProcessors() {}
 
     public static StructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
-    public static StructureProcessorType<BubbleColumnProcessor> BUBBLE_COLUMN_PROCESSOR = () -> BubbleColumnProcessor.CODEC;
+    public static StructureProcessorType<TickBlocksProcessor> TICK_BLOCKS_PROCESSOR = () -> TickBlocksProcessor.CODEC;
     public static StructureProcessorType<MineshaftSkyViewProcessor> MINESHAFT_SKY_VIEW_PROCESSOR = () -> MineshaftSkyViewProcessor.CODEC;
     public static StructureProcessorType<DataBlockProcessor> DATA_BLOCK_PROCESSOR = () -> DataBlockProcessor.CODEC;
     public static StructureProcessorType<StructureVoidProcessor> STRUCTURE_VOID_PROCESSOR = () -> StructureVoidProcessor.CODEC;
@@ -48,7 +48,7 @@ public final class RSProcessors {
 
     public static void registerProcessors() {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "air_processor"), AIR_PROCESSOR);
-        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "bubble_column_processor"), BUBBLE_COLUMN_PROCESSOR);
+        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "tick_blocks_processor"), TICK_BLOCKS_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_sky_view_processor"), MINESHAFT_SKY_VIEW_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "data_block_processor"), DATA_BLOCK_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "structure_void_processor"), STRUCTURE_VOID_PROCESSOR);

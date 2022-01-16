@@ -80,9 +80,7 @@
     },
     {
       "input_block": "minecraft:melon",
-      "output_blocks": [
-        "minecraft:pumpkin"
-      ],
+      "output_block": "minecraft:pumpkin",
       "probability": 0.2,
       "processor_type": "repurposed_structures:random_replace_with_properties_processor"
     },
@@ -98,9 +96,7 @@
     },
     {
       "input_block": "minecraft:melon",
-      "output_blocks": [
-        "minecraft:hay_block"
-      ],
+      "output_block": "minecraft:hay_block",
       "probability": 0.4,
       "processor_type": "repurposed_structures:random_replace_with_properties_processor"
     },
@@ -185,10 +181,32 @@
         "minecraft:grindstone",
         "minecraft:smithing_table",
         "minecraft:stone_cutter",
-        "minecraft:lectern"
+        "minecraft:lectern",
+        "minecraft:cauldron"
       ],
-      "probability": 0.91,
+      "probability": 0.9,
       "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Properties": {
+              "level": "3"
+            },
+            "Name": "minecraft:water_cauldron"
+          },
+          "input_predicate": {
+            "block": "minecraft:blast_furnace",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
     },
     {
       "input_block": "minecraft:terracotta",
