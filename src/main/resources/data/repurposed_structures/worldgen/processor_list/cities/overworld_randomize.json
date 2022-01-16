@@ -1,15 +1,15 @@
 {
   "processors": [
     {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "output_block": "minecraft:mossy_cobblestone",
+      "input_block": "minecraft:cobblestone",
+      "threshold": 0.4,
+      "xz_scale": 0.45,
+      "y_scale": 0.45
+    },
+    {
       "rules": [
-        {
-          "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
-          "input_block": "minecraft:mossy_cobblestone",
-          "output_block": "minecraft:cobblestone",
-          "threshold": 0.5,
-          "xz_scale": 0.1,
-          "y_scale": 0.1
-        },
         {
           "output_state": {
             "Name": "minecraft:coal_ore"
@@ -79,14 +79,43 @@
       "processor_type": "minecraft:rule"
     },
     {
+      "input_block": "minecraft:melon",
+      "output_blocks": [
+        "minecraft:pumpkin"
+      ],
+      "probability": 0.2,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "input_block": "minecraft:melon",
+      "output_blocks": [
+        "minecraft:jack_o_lantern",
+        "minecraft:carved_pumpkin",
+        "minecraft:dried_kelp_block"
+      ],
+      "probability": 0.2,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "input_block": "minecraft:melon",
+      "output_blocks": [
+        "minecraft:hay_block"
+      ],
+      "probability": 0.4,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:loom"
+            "Properties": {
+              "age": "2"
+            },
+            "Name": "minecraft:sweet_berry_bush"
           },
           "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
+            "block": "minecraft:wheat",
+            "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -95,11 +124,14 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:composter"
+            "Properties": {
+              "age": "7"
+            },
+            "Name": "minecraft:carrots"
           },
           "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
+            "block": "minecraft:wheat",
+            "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -108,11 +140,14 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:barrel"
+            "Properties": {
+              "age": "7"
+            },
+            "Name": "minecraft:potatoes"
           },
           "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
+            "block": "minecraft:wheat",
+            "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -121,95 +156,65 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:smoker"
+            "Properties": {
+              "age": "3"
+            },
+            "Name": "minecraft:beetroots"
           },
           "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
+            "block": "minecraft:wheat",
+            "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:cartography_table"
-          },
-          "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:fletching_table"
-          },
-          "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:grindstone"
-          },
-          "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:smithing_table"
-          },
-          "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:stone_cutter"
-          },
-          "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:lectern"
-          },
-          "input_predicate": {
-            "block": "minecraft:blast_furnace",
-            "probability": 0.095,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "input_block": "minecraft:blast_furnace",
+      "output_blocks": [
+        "minecraft:loom",
+        "minecraft:composter",
+        "minecraft:barrel",
+        "minecraft:smoker",
+        "minecraft:cartography_table",
+        "minecraft:fletching_table",
+        "minecraft:grindstone",
+        "minecraft:smithing_table",
+        "minecraft:stone_cutter",
+        "minecraft:lectern"
+      ],
+      "probability": 0.91,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "input_block": "minecraft:terracotta",
+      "output_blocks": [
+        "minecraft:red_terracotta",
+        "minecraft:white_terracotta",
+        "minecraft:orange_terracotta",
+        "minecraft:magenta_terracotta",
+        "minecraft:light_blue_terracotta",
+        "minecraft:yellow_terracotta",
+        "minecraft:lime_terracotta",
+        "minecraft:pink_terracotta",
+        "minecraft:gray_terracotta",
+        "minecraft:light_gray_terracotta",
+        "minecraft:cyan_terracotta",
+        "minecraft:purple_terracotta",
+        "minecraft:blue_terracotta",
+        "minecraft:brown_terracotta",
+        "minecraft:green_terracotta",
+        "minecraft:black_terracotta"
+      ],
+      "probability": 0.9,
+      "processor_type": "repurposed_structures:random_replace_with_properties_processor"
+    },
+    {
+      "rules": [
         {
           "output_state": {
             "Name": "minecraft:jukebox"

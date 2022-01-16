@@ -78,6 +78,15 @@ public class RepurposedStructures {
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
+        //TODO: fix some pathfinding spots in overworld city
+        //TODO: light up more spots in overworld city
+        //TODO: fix rotation in overworld city
+        //TODO: fix stairs in crossbow top in overworld city
+        //TODO: fix why villagers cannot get professions in overworld city
+        //TODO: fix missing stairs in one bridge (steep) in overworld city
+        //TODO: create powder snow feature for icy ruins
+        //TODO: test dark forest pyramid in worldgen and find out why daylight sensor isn't working
+
         // Classload and create custom registry. Other mods should add to this custom registry in FMLCommonSetupEvent.
         JSONConditionsRegistry.registerTestJSONCondition();
 
