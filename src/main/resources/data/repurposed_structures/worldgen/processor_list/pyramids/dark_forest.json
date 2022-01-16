@@ -1,0 +1,21 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:moss_carpet",
+      "output_block": "minecraft:air",
+      "threshold": 0.5,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:data_block_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:air_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
+    }
+  ]
+}

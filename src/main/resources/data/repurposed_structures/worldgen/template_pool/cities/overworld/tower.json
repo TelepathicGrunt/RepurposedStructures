@@ -1,0 +1,186 @@
+{
+  "name": "repurposed_structures:cities/overworld/tower",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_l1",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_l2a",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_l2b",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 9,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_l3",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 12,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_l4",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s1",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s2a",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s2b",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s2c",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s2d",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s2e",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s3a",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s3b",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s3c",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s3d",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 6,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s3e",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 9,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s4a",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 9,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s4b",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 9,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s4c",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 9,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tower_piece_s4d",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}
