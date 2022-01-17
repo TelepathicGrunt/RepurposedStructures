@@ -119,7 +119,7 @@ public final class Outposts {
         if (RSOutpostsConfig.outpostOakAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.OUTPOST_OAK.get(),
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    !(BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted"))))
+                    !(BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony"))))
         {
             event.addStructure(RSConfiguredStructures.OUTPOST_OAK);
             event.removeStructure(StructureFeaturesAccessor.getPILLAGER_OUTPOST());

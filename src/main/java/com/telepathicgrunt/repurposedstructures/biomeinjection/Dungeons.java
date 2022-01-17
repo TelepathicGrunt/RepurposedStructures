@@ -39,7 +39,7 @@ public final class Dungeons {
         if (RSDungeonsConfig.darkForestDungeonAttemptsPerChunk.get() != 0 &&
             BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.DARK_FOREST_DUNGEONS_PLACED,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
-                BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
+                BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_STRUCTURES).add(() -> RSConfiguredFeatures.DARK_FOREST_DUNGEONS_PLACED);
         }

@@ -23,8 +23,8 @@ public final class Cities {
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.CITY_OVERWORLD.get(),
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.JUNGLE) &&
                     event.biome.getPrecipitation() != Biome.Precipitation.SNOW) &&
-                    !BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted") &&
-                    !BiomeSelection.isBiomeTemp(event, Biomes.SPARSE_JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.FLOWER_FOREST, Biomes.WINDSWEPT_FOREST, Biomes.TAIGA))
+                    !BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony") &&
+                    !BiomeSelection.isBiomeTemp(event, Biomes.SPARSE_JUNGLE, Biomes.BAMBOO_JUNGLE, Biomes.FOREST, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.FLOWER_FOREST, Biomes.WINDSWEPT_FOREST, Biomes.TAIGA, Biomes.GROVE))
         {
             event.addStructure(RSConfiguredStructures.CITY_OVERWORLD);
         }

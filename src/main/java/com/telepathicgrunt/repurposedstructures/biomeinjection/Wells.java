@@ -40,7 +40,7 @@ public final class Wells {
         if (RSWellsConfig.wellMossyStoneRarityPerChunk.get() != 10000 &&
                 BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.SWAMP, Biome.BiomeCategory.JUNGLE) ||
-                    (BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted"))))
+                    (BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) && BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony"))))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED);
@@ -49,7 +49,7 @@ public final class Wells {
         if (RSWellsConfig.wellForestRarityPerChunk.get() != 10000 &&
                 BiomeSelection.isBiomeAllowed(event, RSConfiguredFeatures.FOREST_WELL_PLACED,
                     () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
-                    !BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted")))
+                    !BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.getGeneration().getFeatures(GenerationStep.Decoration.SURFACE_STRUCTURES)
                     .add(() -> RSConfiguredFeatures.FOREST_WELL_PLACED);

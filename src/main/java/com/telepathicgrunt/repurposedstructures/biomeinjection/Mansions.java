@@ -28,7 +28,7 @@ public final class Mansions {
         if (RSMansionsConfig.mansionOakAverageChunkDistance.get() != 1001 &&
                 BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_OAK.get(),
                         () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                        !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted")))
+                        !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.addStructure(RSConfiguredStructures.MANSION_OAK);
         }

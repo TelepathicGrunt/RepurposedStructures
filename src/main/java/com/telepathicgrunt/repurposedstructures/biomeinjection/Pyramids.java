@@ -29,7 +29,7 @@ public final class Pyramids {
         if (RSPyramidsConfig.pyramidDarkForestAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_DARK_FOREST.get(),
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted")))
+                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.addStructure(RSConfiguredStructures.PYRAMID_DARK_FOREST);
         }
