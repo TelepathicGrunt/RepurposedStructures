@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSBastionsConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSCitiesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
@@ -44,7 +45,7 @@ public final class MobMapTrades {
     public static void onWandererTradesEvent(WandererTradesEvent event) {
         if(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001)
             event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(38, RSStructures.BASTION_UNDERGROUND.get(), MapDecoration.Type.BANNER_GRAY, 1, 100));
-//        if(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001)
-//            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(42, RSStructures.o.get(), MapDecoration.Type.BANNER_GRAY, 1, 200));
+        if(RSCitiesConfig.citiesOverworldAverageChunkDistance.get() != 10001)
+            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(42, RSStructures.CITY_OVERWORLD.get(), MapDecoration.Type.MANSION, 1, 200));
     }
 }

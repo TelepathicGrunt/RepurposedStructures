@@ -6,6 +6,7 @@ public class RSCitiesConfig {
 	public static final ForgeConfigSpec GENERAL_SPEC;
 
 	public static ForgeConfigSpec.IntValue citiesNetherAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue citiesOverworldAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -19,5 +20,11 @@ public class RSCitiesConfig {
 						" 1 for spawning in most chunks and 1001 for none.")
 				.translation("repurposedstructures.citiesnetheraveragechunkdistance")
 				.defineInRange("citiesNetherAverageChunkDistance", 110, 1, 1001);
+
+		citiesOverworldAverageChunkDistance = builder
+				.comment("\n Average distance between spawn attempts for Overworld Cities.",
+						" 1 for spawning in most chunks and 10001 for none.")
+				.translation("repurposedstructures.citiesoverworldaveragechunkdistance")
+				.defineInRange("citiesOverworldAverageChunkDistance", 1250, 1, 10001);
 	}
 }

@@ -95,7 +95,9 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                 }
             }
 
-            return maxTerrainHeight - minTerrainHeight <= config.allowTerrainHeightRange;
+            if(maxTerrainHeight - minTerrainHeight > config.allowTerrainHeightRange) {
+                return false;
+            }
         }
 
         if (config.cannotSpawnInWater) {
@@ -103,7 +105,10 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
             int landHeight = context.chunkGenerator().getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
             NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), context.heightAccessor());
             BlockState topBlock = columnOfBlocks.getBlock(centerOfChunk.getY() + landHeight);
-            return topBlock.getFluidState().isEmpty();
+
+            if(!topBlock.getFluidState().isEmpty()) {
+                return false;
+            }
         }
 
         return true;

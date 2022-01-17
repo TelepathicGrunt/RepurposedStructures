@@ -43,6 +43,7 @@ public final class RSStructureTagMap {
         OUTPOST_AVOID_STRUCTURE,
         VILLAGE_AVOID_STRUCTURE,
         END_MINESHAFT_AVOID_STRUCTURE,
+        MANSION_AVOID_STRUCTURE,
         
         // Other
         NO_LAKES,
@@ -137,13 +138,13 @@ public final class RSStructureTagMap {
 
         addTags(RSStructures.CITY_NETHER.get(), Stream.of(STRUCTURE_TAGS.CITIES, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
 
-        addTags(RSStructures.MANSION_BIRCH.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.MANSION_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.MANSION_OAK.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.MANSION_SAVANNA.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.MANSION_TAIGA.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.MANSION_DESERT.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
-        addTags(RSStructures.MANSION_SNOWY.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_BIRCH.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_OAK.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_SAVANNA.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_TAIGA.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_DESERT.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.MANSION_SNOWY.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
 
         addTags(RSStructures.WITCH_HUTS_OAK.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         addTags(RSStructures.WITCH_HUTS_TAIGA.get(), Stream.of(STRUCTURE_TAGS.WITCH_HUTS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
@@ -159,6 +160,7 @@ public final class RSStructureTagMap {
         addTags(StructureFeature.PILLAGER_OUTPOST, Stream.of(STRUCTURE_TAGS.VILLAGE_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.STRONGHOLD, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.END_CITY, Stream.of(STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()));
+        addTags(StructureFeature.END_CITY, Stream.of(STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE).collect(Collectors.toSet()));
     }
 
 

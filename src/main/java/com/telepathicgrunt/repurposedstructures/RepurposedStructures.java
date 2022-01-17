@@ -78,8 +78,6 @@ public class RepurposedStructures {
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
-        //TODO: test dark forest pyramid in worldgen and find out why daylight sensor isn't working
-
         // Classload and create custom registry. Other mods should add to this custom registry in FMLCommonSetupEvent.
         JSONConditionsRegistry.registerTestJSONCondition();
 
