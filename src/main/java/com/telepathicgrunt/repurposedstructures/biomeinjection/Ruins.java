@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSRuinsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -28,10 +29,25 @@ public final class Ruins {
         }
 
         if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_HOT,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_HOT,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
         {
             event.addStructure(RSConfiguredStructures.RUINS_LAND_HOT);
+        }
+
+        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandColdAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_COLD,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.EXTREME_HILLS, Biome.BiomeCategory.MOUNTAIN) &&
+                    event.biome.getPrecipitation() != Biome.Precipitation.SNOW))
+        {
+            event.addStructure(RSConfiguredStructures.RUINS_LAND_COLD);
+        }
+
+        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandIcyAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_ICY,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY)))
+        {
+            event.addStructure(RSConfiguredStructures.RUINS_LAND_ICY);
         }
     }
 }

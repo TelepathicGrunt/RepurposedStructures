@@ -40,6 +40,8 @@ public final class MobMapTrades {
         if(RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance != 10001)
             TradeOfferHelper.registerWanderingTraderOffers(2, (factories) -> factories.add(new VillagerTrades.TreasureMapForEmeralds(38, RSStructures.BASTION_UNDERGROUND, MapDecoration.Type.BANNER_GRAY, 1, 100)));
         if(RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.villageMushroomAverageChunkDistance != 1001)
-            TradeOfferHelper.registerWanderingTraderOffers(2, (factories) -> factories.add(new VillagerTrades.TreasureMapForEmeralds(50, RSStructures.VILLAGE_MUSHROOM, MapDecoration.Type.MANSION, 1, 100)));
+            TradeOfferHelper.registerWanderingTraderOffers(2, (factories) -> factories.add(new VillagerTrades.TreasureMapForEmeralds(45, RSStructures.VILLAGE_MUSHROOM, MapDecoration.Type.MANSION, 1, 100)));
+        if(RepurposedStructures.RSAllConfig.RSCitiesConfig.cityOverworldAverageChunkDistance != 10001)
+            TradeOfferHelper.registerWanderingTraderOffers(2, (factories) -> factories.add(new VillagerTrades.TreasureMapForEmeralds(52, RSStructures.CITY_OVERWORLD, MapDecoration.Type.MANSION, 1, 200)));
     }
 }

@@ -30,7 +30,7 @@ public class RSRuinsConfig implements ConfigData {
             How rare are Warm Land Ruins in Plains, Forests, Swamps, and non-snowy Taiga biomes.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int ruinsLandWarmAverageChunkDistance = 45;
+    public int ruinsLandWarmAverageChunkDistance = 52;
 
 
     @ConfigEntry.Gui.Tooltip(count = 0)
@@ -42,5 +42,29 @@ public class RSRuinsConfig implements ConfigData {
             How rare are Hot Land Ruins in Desert biomes.
             1 for spawning in most chunks and 1001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
-    public int ruinsLandHotAverageChunkDistance = 45;
+    public int ruinsLandHotAverageChunkDistance = 52;
+
+
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.RequiresRestart
+    @Comment("""
+
+
+
+            How rare are Cold Land Ruins in Taiga, Extreme Hills, and Mountain biomes that are not snowy.
+            1 for spawning in most chunks and 1001 for none.""")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+    public int ruinsLandColdAverageChunkDistance = 52;
+
+
+    @ConfigEntry.Gui.Tooltip(count = 0)
+    @ConfigEntry.Gui.RequiresRestart
+    @Comment("""
+
+
+
+            How rare are Icy Land Ruins in Icy biomes.
+            1 for spawning in most chunks and 1001 for none.""")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+    public int ruinsLandIcyAverageChunkDistance = 52;
 }

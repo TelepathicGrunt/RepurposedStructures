@@ -3,8 +3,32 @@
 #### Lang:
 Added en_us entries for explorer maps to any RS structures.
 
+#### Cities:
+Added Overworld City! If you are lucky, you can find a map to one from a Wandering Trader! Very expensive tho...
+
+May have fixed a bug that causes a very very rare chance of Nether Cities missing top pieces on their tower piece.
+
+#### Pyramids:
+Added Dark Forest Pyramid!
+
+#### Ruins:
+Added Cold Land Ruins and Icy Land Ruins!
+
+Made the config default value for the spawnrate of Warm Land Ruins and Hot Land Ruins slightly less.
+
+#### Igloos:
+Added Mushroom Igloos!
+
+Made the config default value for the spawnrate of Grassy Igloo and Stone Igloo slightly less.
+
 #### Witch Huts:
 Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's Witch Hut bounding box for spawning Witches and black Cats.
+
+#### Villages:
+Slightly reduced cost of maps to Mushroom Villages in Wandering Trader's trades.
+
+#### Misc:
+Fixed some structures not properly avoiding water.
 
 
 ### **(V.3.2.0 Changes) (1.18.1 Minecraft)**
