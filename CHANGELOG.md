@@ -8,6 +8,8 @@ Added Overworld City! If you are lucky, you can find a map to one from a Wanderi
 
 May have fixed a bug that causes a very very rare chance of Nether Cities missing top pieces on their tower piece.
 
+Replaced some full blocks with stairs in one of Nether City's steep bridge piece.
+
 #### Pyramids:
 Added Dark Forest Pyramid!
 
@@ -26,6 +28,11 @@ Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's W
 
 #### Villages:
 Slightly reduced cost of maps to Mushroom Villages in Wandering Trader's trades.
+
+#### Mineshafts:
+Fixed Birch Mineshaft not closing off fluids properly for some pieces.
+
+RS Mineshaft's 4 way piece keeps columns now.
 
 #### Misc:
 Fixed some structures not properly avoiding water.

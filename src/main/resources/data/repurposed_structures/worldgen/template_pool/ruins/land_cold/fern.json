@@ -1,0 +1,20 @@
+{
+  "name": "repurposed_structures:ruins/land_cold/fern",
+  "fallback": "repurposed_structures:ruins/land_cold/fern",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "feature": "repurposed_structures:dense_large_fern",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}
