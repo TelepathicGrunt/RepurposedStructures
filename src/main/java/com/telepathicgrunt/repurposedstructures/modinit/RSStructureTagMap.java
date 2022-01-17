@@ -160,7 +160,7 @@ public final class RSStructureTagMap {
         addTags(StructureFeature.PILLAGER_OUTPOST, Stream.of(STRUCTURE_TAGS.VILLAGE_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.STRONGHOLD, Stream.of(STRUCTURE_TAGS.BASTION_AVOID_STRUCTURE).collect(Collectors.toSet()));
         addTags(StructureFeature.END_CITY, Stream.of(STRUCTURE_TAGS.END_AVOID_STRUCTURE).collect(Collectors.toSet()));
-        addTags(StructureFeature.END_CITY, Stream.of(STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE).collect(Collectors.toSet()));
+        addTags(StructureFeature.WOODLAND_MANSION, Stream.of(STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE).collect(Collectors.toSet()));
     }
 
 

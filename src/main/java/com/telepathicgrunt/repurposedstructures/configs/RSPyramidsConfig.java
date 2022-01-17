@@ -34,8 +34,8 @@ public class RSPyramidsConfig {
 			.defineInRange("badlandsPyramidAverageChunkDistance", 40, 1, 1001);
 
 		pyramidDarkForestAverageChunkDistance = builder
-				.translation("repurposedstructures.pyramiddarkforestaveragechunkdistance")
-				.defineInRange("pyramidDarkForestAverageChunkDistance", 44, 1, 1001);
+			.translation("repurposedstructures.pyramiddarkforestaveragechunkdistance")
+			.defineInRange("pyramidDarkForestAverageChunkDistance", 44, 1, 1001);
 
 		pyramidSnowyAverageChunkDistance = builder
 			.translation("repurposedstructures.pyramidsnowyaveragechunkdistance")

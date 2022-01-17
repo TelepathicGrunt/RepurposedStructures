@@ -8,6 +8,8 @@ Added Overworld City! If you are lucky, you can find a map to one from a Wanderi
 
 May have fixed a bug that causes a very very rare chance of Nether Cities missing top pieces on their tower piece.
 
+Replaced some full blocks with stairs in one of Nether City's steep bridge piece.
+
 #### Pyramids:
 Added Dark Forest Pyramid!
 
@@ -25,6 +27,9 @@ Made the config default value for the spawnrate of Grassy Igloo and Stone Igloo 
 
 #### Witch Huts:
 Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's Witch Hut bounding box for spawning Witches and black Cats.
+
+#### Villages:
+Added maps to Mushroom Village to Wandering Trader's trade.
 
 #### Misc:
 Fixed some structures not properly avoiding water.
