@@ -1,4 +1,4 @@
-### **(V.3.2.1 Changes) (1.18.1 Minecraft)**
+### **(V.3.3.0 Changes) (1.18.1 Minecraft)**
 
 #### Lang:
 Added en_us entries for explorer maps to any RS structures.
@@ -36,6 +36,9 @@ RS Mineshaft's 4 way piece keeps columns now.
 
 #### Misc:
 Fixed some structures not properly avoiding water.
+
+#### Mod Compat:
+Fixed modded loot not being imported into some of RS chests.
 
 
 ### **(V.3.2.0 Changes) (1.18.1 Minecraft)**

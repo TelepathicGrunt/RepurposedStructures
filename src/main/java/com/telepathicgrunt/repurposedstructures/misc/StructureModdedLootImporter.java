@@ -48,26 +48,27 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/swamp"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/taiga"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/warped"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_treasure")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_bridge")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/other"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_other")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/bastion_hoglin_stable")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure")); // new Identifier("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/bastion_bridge")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/other"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/bastion_other")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/skeleton_horse_stable"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/bastion_hoglin_stable")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure")); // new ResourceLocation("minecraft:chests/end_city_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/overworld"), new ResourceLocation("minecraft:chests/village/village_plains_house")); // new ResourceLocation("minecraft:chests/end_city_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/badlands"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/dark_forest"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/desert"), new ResourceLocation("minecraft:chests/simple_dungeon"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/end"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/jungle"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/mushroom"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/nether"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/ocean"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/snow"), new ResourceLocation("minecraft:chests/simple_dungeon"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/swamp"), new ResourceLocation("minecraft:chests/simple_dungeon"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortresses/jungle_center"), new ResourceLocation("minecraft:chests/stronghold_crossing")); // new Identifier("minecraft:chests/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortresses/jungle_hallway"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new Identifier("minecraft:chests/nether_bridge"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortresses/jungle_shrine"), new ResourceLocation("minecraft:chests/stronghold_crossing")); // new Identifier("minecraft:chests/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/dungeons/end"), new ResourceLocation("minecraft:chests/simple_dungeon"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortresses/jungle_center"), new ResourceLocation("minecraft:chests/stronghold_crossing")); // new ResourceLocation("minecraft:chests/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortresses/jungle_hallway"), new ResourceLocation("minecraft:chests/stronghold_corridor")); // new ResourceLocation("minecraft:chests/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/fortresses/jungle_shrine"), new ResourceLocation("minecraft:chests/stronghold_crossing")); // new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/grassy"), new ResourceLocation("minecraft:chests/igloo_chest"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/stone"), new ResourceLocation("minecraft:chests/igloo_chest"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/mushroom"), new ResourceLocation("minecraft:chests/igloo_chest"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/birch"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/desert"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/jungle"), new ResourceLocation("minecraft:chests/woodland_mansion"));
@@ -88,50 +89,57 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/taiga"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/warped"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/outposts/end"), new ResourceLocation("minecraft:chests/end_city_treasure")); // "minecraft:chests/pillager_outpost"
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/badlands"), new ResourceLocation("minecraft:chests/desert_pyramid"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/nether"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/dark_forest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/snowy"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/icy"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/jungle"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/mushroom"), new ResourceLocation("minecraft:chests/desert_pyramid"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/ocean"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/giant_tree_taiga"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/flower_forest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/pyramids/end"), new ResourceLocation("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/nether"), new ResourceLocation("minecraft:chests/bastion_other")); // new Identifier("minecraft:chests/underwater_ruin_big"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_hot/large"), new ResourceLocation("minecraft:chests/village/village_desert_house"));  // new Identifier("minecraft:chests/underwater_ruin_big")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_hot/small"), new ResourceLocation("minecraft:chests/village/village_desert_house"));  // new Identifier("minecraft:chests/underwater_ruin_small")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_warm/large"), new ResourceLocation("minecraft:chests/village/village_plains_house"));  // new Identifier("minecraft:chests/underwater_ruin_big")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_warm/small"), new ResourceLocation("minecraft:chests/village/village_plains_house"));  // new Identifier("minecraft:chests/underwater_ruin_small")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portals/large_portal"), new ResourceLocation("minecraft:chests/ruined_portal"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portals/small_portal"), new ResourceLocation("minecraft:chests/ruined_portal"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/pyramids/ocean"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/pyramids/badlands"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/pyramids/nether"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/pyramids/end"), new ResourceLocation("minecraft:chests/end_city_treasure")); // "minecraft:chests/desert_pyramid"
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/pyramids/dark_forest"), new ResourceLocation("minecraft:chests/desert_pyramid"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/nether"), new ResourceLocation("minecraft:chests/bastion_other")); // new ResourceLocation("minecraft:chests/underwater_ruin_big"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_hot/large"), new ResourceLocation("minecraft:chests/village/village_desert_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_big")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_hot/small"), new ResourceLocation("minecraft:chests/village/village_desert_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_small")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_warm/large"), new ResourceLocation("minecraft:chests/village/village_plains_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_big")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_warm/small"), new ResourceLocation("minecraft:chests/village/village_plains_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_small")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_cold/large"), new ResourceLocation("minecraft:chests/village/village_taiga_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_big")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_cold/small"), new ResourceLocation("minecraft:chests/village/village_taiga_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_small")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_icy/large"), new ResourceLocation("minecraft:chests/village/village_snowy_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_big")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruins/land_icy/small"), new ResourceLocation("minecraft:chests/village/village_snowy_house"));  // new ResourceLocation("minecraft:chests/underwater_ruin_small")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portals/end/large_portal"), new ResourceLocation("minecraft:chests/ruined_portal"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ruined_portals/end/small_portal"), new ResourceLocation("minecraft:chests/ruined_portal"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/crimson/map"), new ResourceLocation("minecraft:chests/shipwreck_map"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/crimson/supply"), new ResourceLocation("minecraft:chests/shipwreck_supply"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/crimson/treasure"), new ResourceLocation("minecraft:chests/shipwreck_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/end/map"), new ResourceLocation("minecraft:chests/shipwreck_map"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/end/supply"), new ResourceLocation("minecraft:chests/shipwreck_supply"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/end/treasure"), new ResourceLocation("minecraft:chests/end_city_treasure")); //  new Identifier("minecraft:chests/shipwreck_treasure"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/end/treasure"), new ResourceLocation("minecraft:chests/end_city_treasure")); //  new ResourceLocation("minecraft:chests/shipwreck_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/warped/map"), new ResourceLocation("minecraft:chests/shipwreck_map"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/warped/supply"), new ResourceLocation("minecraft:chests/shipwreck_supply"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/warped/treasure"), new ResourceLocation("minecraft:chests/shipwreck_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/shipwrecks/nether_bricks/treasure"), new ResourceLocation("minecraft:chests/shipwreck_treasure"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/stronghold/end_storage_room"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_crossing")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/stronghold/end_hallway"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_corridor")
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/stronghold/end_library"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_library")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/strongholds/end_storage_room"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_crossing")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/strongholds/end_hallway"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_corridor")
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "shulker_boxes/strongholds/end_library"), new ResourceLocation("minecraft:chests/end_city_treasure")); // new ResourceLocation("minecraft:chests/stronghold_library")
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/strongholds/nether_storage_room"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/strongholds/nether_hallway"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/strongholds/nether_library"), new ResourceLocation("minecraft:chests/stronghold_library"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/nether_basalt"), new ResourceLocation("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/nether_crimson"), new ResourceLocation("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/nether_soul"), new ResourceLocation("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/nether_warped"), new ResourceLocation("minecraft:chests/nether_bridge")); //  new Identifier("minecraft:chests/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/temples/nether_warped"), new ResourceLocation("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/nether_wasteland"), new ResourceLocation("minecraft:chests/nether_bridge")); // new Identifier("minecraft:chests/jungle_temple"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/nether_basalt"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/nether_crimson"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/nether_soul"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/nether_warped"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/nether_wasteland"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/basalt"), new ResourceLocation("minecraft:chests/nether_bridge")); // new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/crimson"), new ResourceLocation("minecraft:chests/nether_bridge")); // new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/soul"), new ResourceLocation("minecraft:chests/nether_bridge")); // new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/warped"), new ResourceLocation("minecraft:chests/nether_bridge")); //  new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/wasteland"), new ResourceLocation("minecraft:chests/nether_bridge")); // new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/temples/warped"), new ResourceLocation("minecraft:chests/nether_bridge")); // new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/basalt"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/crimson"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/soul"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/warped"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/wasteland"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/badlands_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/birch_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/dark_forest_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
@@ -142,42 +150,43 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/swamp_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_cartographer"), new ResourceLocation("minecraft:chests/village/village_cartographer"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_fisher"), new ResourceLocation("minecraft:chests/village/village_fisher"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_tanner"), new ResourceLocation("minecraft:chests/village/village_tannery"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_tannery"), new ResourceLocation("minecraft:chests/village/village_tannery"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_weaponsmith"), new ResourceLocation("minecraft:chests/village/village_weaponsmith"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_cartographer"), new ResourceLocation("minecraft:chests/village/village_cartographer"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_fisher"), new ResourceLocation("minecraft:chests/village/village_fisher"));
-        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_tanner"), new ResourceLocation("minecraft:chests/village/village_tannery"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_tannery"), new ResourceLocation("minecraft:chests/village/village_tannery"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_weaponsmith"), new ResourceLocation("minecraft:chests/village/village_weaponsmith"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
 
         // For Better Strongholds compat datapack
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/armoury"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/common"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/crypt"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/grand_library"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/library_md"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/mess"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/prison_lg"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/trap"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/treasure"), new ResourceLocation("minecraft:chests/end_city_treasure"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/common"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/mess"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/armoury"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/crypt"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/prison_lg"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/trap"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/treasure"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/grand_library"), new ResourceLocation("minecraft:chests/stronghold_library"));
-        tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/library_md"), new ResourceLocation("minecraft:chests/stronghold_library"));
+        if(ModList.get().isLoaded("betterstrongholds")) {
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/armoury"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/common"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/crypt"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/grand_library"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/library_md"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/mess"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/prison_lg"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/trap"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/treasure"), new ResourceLocation("minecraft:chests/end_city_treasure"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/common"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/mess"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/armoury"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/crypt"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/prison_lg"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/trap"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/treasure"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/grand_library"), new ResourceLocation("minecraft:chests/stronghold_library"));
+            tableMap.put(new ResourceLocation("betterstrongholds", "chests/nether/library_md"), new ResourceLocation("minecraft:chests/stronghold_library"));
+        }
         return tableMap;
     }
 
 
 
     public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
-        if(RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.importModdedItems)
-        {
+        if(RepurposedStructures.RSAllConfig.RSAllowDisallowConfig.importModdedItems) {
             // Cache the result of the loottable to the id into our own map.
             ResourceLocation lootTableID = REVERSED_TABLES.computeIfAbsent(
                     currentLootTable,
@@ -199,8 +208,7 @@ public final class StructureModdedLootImporter {
         return new ArrayList<>();
     }
 
-    public static List<ItemStack> modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot)
-    {
+    public static List<ItemStack> modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
         ResourceLocation tableToImportLoot = TABLE_IMPORTS.get(lootTableID);
         if(tableToImportLoot == null) return originalLoot; // Safety net
 
