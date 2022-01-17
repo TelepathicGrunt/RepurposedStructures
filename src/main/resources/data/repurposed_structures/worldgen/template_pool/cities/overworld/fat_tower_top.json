@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:cities/overworld/fat_tower_top",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:cities/overworld/fat_tower_top",
   "elements": [
     {
       "weight": 1,

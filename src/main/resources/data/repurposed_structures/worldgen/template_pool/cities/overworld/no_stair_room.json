@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:cities/overworld/no_stair_room",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:cities/overworld/no_stair_room",
   "elements": [
     {
       "weight": 2,

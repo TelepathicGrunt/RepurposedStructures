@@ -6,6 +6,8 @@ Added en_us entries for explorer maps to any RS structures.
 #### Cities:
 Added Overworld City! If you are lucky, you can find a map to one from a Wandering Trader! Very expensive tho...
 
+May have fixed a bug that causes a very very rare chance of Nether Cities missing top pieces on their tower piece.
+
 #### Pyramids:
 Added Dark Forest Pyramid!
 

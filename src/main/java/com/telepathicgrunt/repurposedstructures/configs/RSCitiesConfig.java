@@ -25,6 +25,6 @@ public class RSCitiesConfig {
 				.comment("\n Average distance between spawn attempts for Overworld Cities.",
 						" 1 for spawning in most chunks and 10001 for none.")
 				.translation("repurposedstructures.citiesoverworldaveragechunkdistance")
-				.defineInRange("citiesOverworldAverageChunkDistance", 1250, 1, 10001);
+				.defineInRange("citiesOverworldAverageChunkDistance", 1200, 1, 10001);
 	}
 }
