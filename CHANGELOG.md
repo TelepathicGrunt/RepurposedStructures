@@ -1,4 +1,4 @@
-### **(V.4.1.1 Changes) (1.18.1 Minecraft)**
+### **(V.4.2.0 Changes) (1.18.1 Minecraft)**
 
 #### Lang:
 Added en_us entries for explorer maps to any RS structures.
