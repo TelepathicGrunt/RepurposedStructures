@@ -1,3 +1,9 @@
+### **(V.4.2.1 Changes) (1.18.1 Minecraft)**
+
+#### Major:
+Fixed crash due to missing refmap for mixins
+
+
 ### **(V.4.2.0 Changes) (1.18.1 Minecraft)**
 
 #### Lang:
