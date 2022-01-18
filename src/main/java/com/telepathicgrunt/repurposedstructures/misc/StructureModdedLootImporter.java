@@ -224,7 +224,7 @@ public class StructureModdedLootImporter extends LootModifier {
             }
         }
         if(invalidLootTableFound) {
-            throw new RuntimeException("Unknown import/target loot tables found for Repurposed Structures. See logs.");
+            RepurposedStructures.LOGGER.error("Unknown import/target loot tables found for Repurposed Structures. See above logs.");
         }
     }
 

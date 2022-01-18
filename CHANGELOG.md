@@ -1,3 +1,9 @@
+### **(V.4.2.2 Changes) (1.18.1 Minecraft)**
+
+#### Major:
+Turned off erroring on missing RS loot tables as I forgot to remove that debug code. Aaaaaaaaaaaa
+
+
 ### **(V.4.2.1 Changes) (1.18.1 Minecraft)**
 
 #### Major:

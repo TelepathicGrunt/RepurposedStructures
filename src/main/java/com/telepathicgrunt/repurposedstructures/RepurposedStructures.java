@@ -169,7 +169,7 @@ public class RepurposedStructures {
 
     public void serverStarted(final ServerStartedEvent event) {
         GeneralUtils.clearCache();
-        StructureModdedLootImporter.checkLoottables(event.getServer());
+        //StructureModdedLootImporter.checkLoottables(event.getServer());
     }
 
     /**
