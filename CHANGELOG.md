@@ -40,6 +40,8 @@ Fixed some structures not properly avoiding water.
 Changed all RS ConfiguredStructure registry names to match the base structure registry names.
   This has no impact on player's worlds. It is safe. This is only for internal use or people creating their own datapacks replacing my structures for whatever reason.
 
+RS Structures will not spawn now if they will get cut off by top of world's limit.
+
 #### Mod Compat:
 Fixed modded loot not being imported into some of RS chests.
 
