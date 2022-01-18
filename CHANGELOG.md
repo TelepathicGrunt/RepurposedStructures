@@ -34,6 +34,9 @@ Added maps to Mushroom Village to Wandering Trader's trade.
 #### Misc:
 Fixed some structures not properly avoiding water.
 
+Changed all RS ConfiguredStructure registry names to match the base structure registry names.
+  This has no impact on player's worlds. It is safe. This is only for internal use or people creating their own datapacks replacing my structures for whatever reason.
+
 #### Mod Compat:
 Fixed modded loot not being imported into RS chests.
 
