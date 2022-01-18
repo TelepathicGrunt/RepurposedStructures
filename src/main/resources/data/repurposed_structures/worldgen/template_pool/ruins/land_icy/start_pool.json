@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:ruins/land_icy/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_icy/big_brick_1",
+        "processors": "repurposed_structures:ruins/land_icy_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_icy/big_brick_2",
+        "processors": "repurposed_structures:ruins/land_icy_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_icy/big_brick_3",
+        "processors": "repurposed_structures:ruins/land_icy_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:ruins/land_icy/big_brick_4",
+        "processors": "repurposed_structures:ruins/land_icy_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

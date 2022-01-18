@@ -120,4 +120,16 @@ public class RSPyramidsConfig implements ConfigData {
                 """)
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
         public int pyramidFlowerForestAverageChunkDistance = 34;
+
+        @ConfigEntry.Gui.Tooltip(count = 0)
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("""
+
+
+
+                How rare are Dark Forest Pyramid in Dark Forest or other spooky forest biomes.
+                1 for spawning in most chunks and 1001 for none.
+                """)
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1001)
+        public int pyramidDarkForestAverageChunkDistance = 44;
 }

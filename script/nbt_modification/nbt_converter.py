@@ -4,8 +4,20 @@ import collections.abc
 import os
 
 # https://pypi.org/project/Python-NBT/
+'''
+  "red_nether_brick": "oak",
+    "nether_brick": "oak",
+    "polished_blackstone_brick": "spruce",
+    "redstone_": "",
+    "red_stained_glass": "glass",
+    "city/nether": "city/overworld",
+    "cities/nether": "cities/overworld"
 
-
+    "minecraft:red_wall_banner": "minecraft:brown_wall_banner",
+    "minecraft:crimson_hyphae": "minecraft:oak_wood",
+    "minecraft:red_nether_bricks": "minecraft:oak_wood",
+    "minecraft:polished_blackstone_bricks": "minecraft:oak_planks"
+'''
 #--------------------------------------------------------------------------------------------
 
 blockPalette = {""}
@@ -14,7 +26,6 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:village/" : "repurposed_structures:villages/"
 }
 conversion_exact_dict = {
 }
@@ -29,7 +40,6 @@ def string_replacer(nbt_string):
         for key, replacement in conversion_partial_dict.items():
             if key in nbt_string.value:
                 nbt_string.value = nbt_string.value.replace(key, replacement)
-                return
 
 def property_replacer(nbt_key, nbt_string, property_name, value_to_replace, new_value):
     if nbt_key == property_name:
@@ -58,13 +68,18 @@ def traverse_dicts(nbt_list):
                 entry[1].value = entry[1].value + 2
         '''
 
+        nbt_list.pop('SleepingX', None)
+        nbt_list.pop('SleepingY', None)
+        nbt_list.pop('SleepingZ', None)
+        
         for key, entry in nbt_list.items():
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
             elif isinstance(entry, nbt.NBTTagString):
                 string_replacer(entry)
 
-            # property_replacer(key, entry, "waterlogged", True, False)
+            property_replacer(key, entry, "PersistenceRequired", 0, 1)
+            property_replacer(key, entry, "joint", "rollable", "aligned")
 
 
     elif isinstance(nbt_list, nbt.NBTTagList) or isinstance(nbt_list, nbt.NBTTagCompound):

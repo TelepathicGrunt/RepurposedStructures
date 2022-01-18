@@ -164,6 +164,11 @@ public class PieceLimitedJigsawManager {
 
             components.forEach(structurePiecesBuilder::addPiece);
             structureBoundsAdjuster.accept(structurePiecesBuilder, components);
+
+            // Do not generate if out of bounds
+            if(structurePiecesBuilder.getBoundingBox().maxY() > context.heightAccessor().getMaxBuildHeight()) {
+                structurePiecesBuilder.clear();
+            }
         });
     }
 

@@ -65,14 +65,12 @@ public class SafeDecodingRegistryOps<T> extends RegistryReadOps<T> {
                             .map((supplier) -> Pair.of(supplier, pair.getSecond()));
                 }
                 catch (Exception e) {
-                    RepurposedStructures.LOGGER.error(
-                            """
+                    return DataResult.error("""
 
-                            Repurposed Structures: Crash is about to occur because an entry in a datapack does not exist in a registry or failed to resolve an entry.
-                            Entry failed to be resolved: {}
-                            Registry being used: {}""".indent(1),
-                            registryKey, object);
-                    throw e;
+                            Repurposed Structures: Entry failed to be parsed.
+                            This is usually due to using a mod compat datapack without the other mod being on.
+                            Entry failed to be resolved: %s
+                            Registry being used: %s""".formatted(registryKey, object).indent(1));
                 }
             }
         }

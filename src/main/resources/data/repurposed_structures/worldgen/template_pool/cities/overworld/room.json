@@ -1,0 +1,60 @@
+{
+  "name": "repurposed_structures:cities/overworld/room",
+  "fallback": "repurposed_structures:cities/overworld/no_stair_room",
+  "elements": [
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/large_room_s",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/large_room_ns",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/medium_room_s",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/medium_room_ns",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/tiny_room_ns",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/overworld/bridge_end",
+        "processors": "repurposed_structures:cities/overworld_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

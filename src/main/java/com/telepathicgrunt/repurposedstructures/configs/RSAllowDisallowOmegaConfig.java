@@ -27,6 +27,9 @@ public class RSAllowDisallowOmegaConfig implements Config {
     public void save() {
 
         if(configVersion == 1) {
+            addEntries(disallowedDimensions, "repurposed_structures:dungeons_neutral_ocean", "the_bumblezone:the_bumblezone");
+            addEntries(disallowedDimensions, "repurposed_structures:dungeons_neutral_ocean", "the_aether:the_aether");
+            addEntries(disallowedDimensions, "repurposed_structures:dungeons_neutral_ocean", "agape:.+");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_neutral_ocean", "terrestria:lush_desert");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_lukewarm_ocean", "terrestria:lush_desert");
             addEntries(disallowedBiomes, "repurposed_structures:dungeons_frozen_ocean", "terrestria:lush_desert");
@@ -183,7 +186,25 @@ public class RSAllowDisallowOmegaConfig implements Config {
             configVersion = 5;
         }
 
-        configVersion = 5;
+        if(configVersion == 5) {
+            addEntries(disallowedBiomes, "repurposed_structures:city_overworld", "terralith:.+");
+            addEntries(disallowedBiomes, "repurposed_structures:city_overworld", "byg:.+");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "terralith:amethyst_rainforest");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "terralith:jungle_mountains");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "terralith:rocky_jungle");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:orchard");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:coniferous_forest");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:coniferous_forest_hills");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:cherry_blossom_forest");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:tropical_rainforest");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:tropical_rainforest_hills");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:ebony_woods");
+            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:ebony_hills");
+            addEntries(allowedBiomes, "repurposed_structures:pyramid_dark_forest", "byg:ancient_forest");
+            configVersion = 6;
+        }
+
+        configVersion = 6;
         Config.super.save();
     }
 
@@ -238,12 +259,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // RS's dungeons and wells identifiers can be found here on GitHub:
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
-    public final Map<String, String> disallowedDimensions = Stream.of(
-            new AbstractMap.SimpleEntry<>("all",
-                    "the_bumblezone:the_bumblezone, " +
-                    "the_aether:the_aether, " +
-                    "agape:.+")
-    ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    public final Map<String, String> disallowedDimensions = new HashMap<>();
 
     @Comment("""
 
@@ -354,5 +370,5 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
             // for internal use only. Do not change this."""
     )
-    public int configVersion = 3;
+    public int configVersion = 1;
 }

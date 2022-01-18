@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSIgloosConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -21,11 +22,18 @@ public final class Igloos {
         }
 
         if (RepurposedStructures.RSAllConfig.RSIgloosConfig.stoneIglooAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_STONE,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
-                        BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_STONE,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
+                    BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
         {
             event.addStructure(RSConfiguredStructures.IGLOO_STONE);
+        }
+
+        if (RepurposedStructures.RSAllConfig.RSIgloosConfig.mushroomIglooAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_MUSHROOM,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MUSHROOM)))
+        {
+            event.addStructure(RSConfiguredStructures.IGLOO_MUSHROOM);
         }
     }
 }

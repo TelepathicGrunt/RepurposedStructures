@@ -14,7 +14,7 @@ public final class WitchHuts {
         if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsOakAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_OAK,
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted")))
+                    !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.addStructure(RSConfiguredStructures.WITCH_HUTS_OAK);
         }
@@ -37,7 +37,7 @@ public final class WitchHuts {
         if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_DARK_FOREST,
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted")))
+                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.addStructure(RSConfiguredStructures.WITCH_HUTS_DARK_FOREST);
         }

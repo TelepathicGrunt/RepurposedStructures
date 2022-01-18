@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSPyramidsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
@@ -26,11 +27,19 @@ public final class Pyramids {
             event.addStructure(RSConfiguredStructures.PYRAMID_BADLANDS);
         }
 
+        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidDarkForestAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_DARK_FOREST,
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
+                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        {
+            event.addStructure(RSConfiguredStructures.PYRAMID_DARK_FOREST);
+        }
+
         if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidIcyAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_ICY,
                     () -> BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
-                            (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) ||
-                            (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && event.biome.getBaseTemperature() < 0))))
+                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) ||
+                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && event.biome.getBaseTemperature() < 0))))
         {
             event.addStructure(RSConfiguredStructures.PYRAMID_ICY);
         }
@@ -38,9 +47,9 @@ public final class Pyramids {
         if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidSnowyAverageChunkDistance != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_SNOWY,
                     () -> BiomeSelection.isBiomeTemp(event, Biomes.GROVE) ||
-                            (!BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
-                                ((BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) && BiomeSelection.hasNameTemp(event, "snow")) ||
-                                (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && (event.biome.getBaseTemperature() < 0 || BiomeSelection.hasNameTemp(event, "snow")))))))
+                    (!BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                        ((BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) && BiomeSelection.hasNameTemp(event, "snow")) ||
+                        (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && (event.biome.getBaseTemperature() < 0 || BiomeSelection.hasNameTemp(event, "snow")))))))
         {
             event.addStructure(RSConfiguredStructures.PYRAMID_SNOWY);
         }

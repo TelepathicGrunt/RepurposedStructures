@@ -1,3 +1,51 @@
+### **(V.3.3.0 Changes) (1.18.1 Minecraft)**
+
+#### Lang:
+Added en_us entries for explorer maps to any RS structures.
+
+#### Cities:
+Added Overworld City! If you are lucky, you can find a map to one from a Wandering Trader! Very expensive tho...
+
+May have fixed a bug that causes a very very rare chance of Nether Cities missing top pieces on their tower piece.
+
+Replaced some full blocks with stairs in one of Nether City's steep bridge piece.
+
+#### Pyramids:
+Added Dark Forest Pyramid!
+
+#### Ruins:
+Added Cold Land Ruins and Icy Land Ruins!
+
+Made the config default value for the spawnrate of Warm Land Ruins and Hot Land Ruins slightly less.
+
+#### Igloos:
+Added Mushroom Igloos!
+
+Made the config default value for the spawnrate of Grassy Igloo and Stone Igloo slightly less.
+
+#### Witch Huts:
+Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's Witch Hut bounding box for spawning Witches and black Cats.
+
+#### Villages:
+Slightly reduced cost of maps to Mushroom Villages in Wandering Trader's trades.
+
+#### Mineshafts:
+Fixed Birch Mineshaft not closing off fluids properly for some pieces.
+
+RS Mineshaft's 4 way piece keeps columns now.
+
+#### Misc:
+Fixed some structures not properly avoiding water.
+
+Changed all RS ConfiguredStructure registry names to match the base structure registry names.
+  This has no impact on player's worlds. It is safe. This is only for internal use or people creating their own datapacks replacing my structures for whatever reason.
+
+RS Structures will not spawn now if they will get cut off by top of world's limit.
+
+#### Mod Compat:
+Fixed modded loot not being imported into some of RS chests.
+
+
 ### **(V.3.2.0 Changes) (1.18.1 Minecraft)**
 
 #### Dungeons:

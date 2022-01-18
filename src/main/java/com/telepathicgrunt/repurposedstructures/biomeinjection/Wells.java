@@ -38,7 +38,7 @@ public final class Wells {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED,
                                 () ->  BiomeSelection.haveCategories(context, BiomeCategory.SWAMP, BiomeCategory.JUNGLE)
-                                || (BiomeSelection.haveCategories(context, BiomeCategory.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted")))
+                                || (BiomeSelection.haveCategories(context, BiomeCategory.FOREST) && BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.mossyStoneWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.MOSSY_STONE_WELL_PLACED));
 
@@ -46,7 +46,7 @@ public final class Wells {
                 (context) ->
                         BiomeSelection.isBiomeAllowed(context, RSConfiguredFeatures.FOREST_WELL_PLACED,
                                 () -> (BiomeSelection.haveCategories(context, BiomeCategory.FOREST)
-                                && !BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted"))
+                                && !BiomeSelection.hasName(context, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony"))
                                 || BiomeSelection.isBiome(context, Biomes.MEADOW))
                         && RepurposedStructures.RSAllConfig.RSWellsConfig.forestWellRarityPerChunk != 10000,
                 context -> context.getGenerationSettings().addBuiltInFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, RSConfiguredFeatures.FOREST_WELL_PLACED));
