@@ -79,7 +79,7 @@ public final class Mineshafts {
         if (RSMineshaftsConfig.darkForestMineshaftSpawnrate.get() != 0 &&
             genericMineshaftCheck(event, RSStructures.MINESHAFT_DARK_FOREST.get(),
                     () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted")))
+                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
         {
             event.addStructure(RSConfiguredStructures.MINESHAFT_DARK_FOREST);
         }

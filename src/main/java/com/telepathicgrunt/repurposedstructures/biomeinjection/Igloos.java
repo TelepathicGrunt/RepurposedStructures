@@ -21,11 +21,18 @@ public final class Igloos {
         }
 
         if (RSIgloosConfig.stoneIglooAverageChunkDistance.get() != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_STONE.get(),
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
-                        BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_STONE.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
+                    BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
         {
             event.addStructure(RSConfiguredStructures.IGLOO_STONE);
+        }
+
+        if (RSIgloosConfig.mushroomIglooAverageChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_MUSHROOM.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MUSHROOM)))
+        {
+            event.addStructure(RSConfiguredStructures.IGLOO_MUSHROOM);
         }
     }
 }

@@ -9,6 +9,8 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
+import java.util.Objects;
+
 public final class RSConfiguredStructures {
     private RSConfiguredStructures() {}
 
@@ -33,6 +35,7 @@ public final class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> FORTRESS_JUNGLE = RSStructures.FORTRESS_JUNGLE.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> IGLOO_GRASSY = RSStructures.IGLOO_GRASSY.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> IGLOO_STONE = RSStructures.IGLOO_STONE.get().configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> IGLOO_MUSHROOM = RSStructures.IGLOO_MUSHROOM.get().configured(FeatureConfiguration.NONE);
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> TEMPLE_NETHER_WASTELAND = RSStructures.TEMPLE_NETHER_WASTELAND.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> TEMPLE_NETHER_BASALT = RSStructures.TEMPLE_NETHER_BASALT.get().configured(FeatureConfiguration.NONE);
@@ -55,6 +58,7 @@ public final class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> OUTPOST_END = RSStructures.OUTPOST_END.get().configured(FeatureConfiguration.NONE);
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> PYRAMID_BADLANDS = RSStructures.PYRAMID_BADLANDS.get().configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> PYRAMID_DARK_FOREST = RSStructures.PYRAMID_DARK_FOREST.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> PYRAMID_SNOWY = RSStructures.PYRAMID_SNOWY.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> PYRAMID_END = RSStructures.PYRAMID_END.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> PYRAMID_ICY = RSStructures.PYRAMID_ICY.get().configured(FeatureConfiguration.NONE);
@@ -87,8 +91,11 @@ public final class RSConfiguredStructures {
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_NETHER = RSStructures.RUINS_NETHER.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_WARM = RSStructures.RUINS_LAND_WARM.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_HOT = RSStructures.RUINS_LAND_HOT.get().configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_COLD = RSStructures.RUINS_LAND_COLD.get().configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_ICY = RSStructures.RUINS_LAND_ICY.get().configured(FeatureConfiguration.NONE);
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> CITY_NETHER = RSStructures.CITY_NETHER.get().configured(FeatureConfiguration.NONE);
+    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> CITY_OVERWORLD = RSStructures.CITY_OVERWORLD.get().configured(FeatureConfiguration.NONE);
 
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> MANSION_BIRCH = RSStructures.MANSION_BIRCH.get().configured(FeatureConfiguration.NONE);
     public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> MANSION_JUNGLE = RSStructures.MANSION_JUNGLE.get().configured(FeatureConfiguration.NONE);
@@ -109,98 +116,107 @@ public final class RSConfiguredStructures {
     public static void registerStructureFeatures() {
         Registry<ConfiguredStructureFeature<?, ?>> registry = BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "birch_mineshaft"), MINESHAFT_BIRCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "desert_mineshaft"), MINESHAFT_DESERT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_mineshaft"), MINESHAFT_END);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_mineshaft"), MINESHAFT_NETHER);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_mineshaft"), MINESHAFT_CRIMSON);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_mineshaft"), MINESHAFT_WARPED);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "icy_mineshaft"), MINESHAFT_ICY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_mineshaft"), MINESHAFT_JUNGLE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ocean_mineshaft"), MINESHAFT_OCEAN);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "savanna_mineshaft"), MINESHAFT_SAVANNA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stone_mineshaft"), MINESHAFT_STONE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_mineshaft"), MINESHAFT_DARK_FOREST);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_mineshaft"), MINESHAFT_SWAMP);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "taiga_mineshaft"), MINESHAFT_TAIGA);
+        registerConfiguredStructure(registry, MINESHAFT_BIRCH);
+        registerConfiguredStructure(registry, MINESHAFT_DESERT);
+        registerConfiguredStructure(registry, MINESHAFT_END);
+        registerConfiguredStructure(registry, MINESHAFT_NETHER);
+        registerConfiguredStructure(registry, MINESHAFT_CRIMSON);
+        registerConfiguredStructure(registry, MINESHAFT_WARPED);
+        registerConfiguredStructure(registry, MINESHAFT_ICY);
+        registerConfiguredStructure(registry, MINESHAFT_JUNGLE);
+        registerConfiguredStructure(registry, MINESHAFT_OCEAN);
+        registerConfiguredStructure(registry, MINESHAFT_SAVANNA);
+        registerConfiguredStructure(registry, MINESHAFT_STONE);
+        registerConfiguredStructure(registry, MINESHAFT_DARK_FOREST);
+        registerConfiguredStructure(registry, MINESHAFT_SWAMP);
+        registerConfiguredStructure(registry, MINESHAFT_TAIGA);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_stronghold"), STRONGHOLD_NETHER);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
+        registerConfiguredStructure(registry, STRONGHOLD_NETHER);
+        registerConfiguredStructure(registry, STRONGHOLD_END);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_fortress"), FORTRESS_JUNGLE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "grassy_igloo"), IGLOO_GRASSY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stone_igloo"), IGLOO_STONE);
+        registerConfiguredStructure(registry, FORTRESS_JUNGLE);
+        registerConfiguredStructure(registry, IGLOO_GRASSY);
+        registerConfiguredStructure(registry, IGLOO_STONE);
+        registerConfiguredStructure(registry, IGLOO_MUSHROOM);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_wasteland_temple"), TEMPLE_NETHER_WASTELAND);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_basalt_temple"), TEMPLE_NETHER_BASALT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_warped_temple"), TEMPLE_NETHER_WARPED);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_crimson_temple"), TEMPLE_NETHER_CRIMSON);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_soul_temple"), TEMPLE_NETHER_SOUL);
+        registerConfiguredStructure(registry, TEMPLE_NETHER_WASTELAND);
+        registerConfiguredStructure(registry, TEMPLE_NETHER_BASALT);
+        registerConfiguredStructure(registry, TEMPLE_NETHER_WARPED);
+        registerConfiguredStructure(registry, TEMPLE_NETHER_CRIMSON);
+        registerConfiguredStructure(registry, TEMPLE_NETHER_SOUL);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_brick_outpost"), OUTPOST_NETHER_BRICK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_outpost"), OUTPOST_WARPED);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_outpost"), OUTPOST_CRIMSON);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_birch"), OUTPOST_BIRCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_jungle"), OUTPOST_JUNGLE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_giant_tree_taiga"), OUTPOST_GIANT_TREE_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_desert"), OUTPOST_DESERT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_badlands"), OUTPOST_BADLANDS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_snowy"), OUTPOST_SNOWY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_icy"), OUTPOST_ICY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "outpost_end"), OUTPOST_END);
+        registerConfiguredStructure(registry, OUTPOST_NETHER_BRICK);
+        registerConfiguredStructure(registry, OUTPOST_WARPED);
+        registerConfiguredStructure(registry, OUTPOST_CRIMSON);
+        registerConfiguredStructure(registry, OUTPOST_BIRCH);
+        registerConfiguredStructure(registry, OUTPOST_JUNGLE);
+        registerConfiguredStructure(registry, OUTPOST_GIANT_TREE_TAIGA);
+        registerConfiguredStructure(registry, OUTPOST_DESERT);
+        registerConfiguredStructure(registry, OUTPOST_BADLANDS);
+        registerConfiguredStructure(registry, OUTPOST_SNOWY);
+        registerConfiguredStructure(registry, OUTPOST_ICY);
+        registerConfiguredStructure(registry, OUTPOST_TAIGA);
+        registerConfiguredStructure(registry, OUTPOST_OAK);
+        registerConfiguredStructure(registry, OUTPOST_END);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_pyramid"), PYRAMID_NETHER);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_temple"), PYRAMID_BADLANDS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_mushroom"), PYRAMID_MUSHROOM);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "pyramid_flower_forest"), PYRAMID_FLOWER_FOREST);
+        registerConfiguredStructure(registry, PYRAMID_NETHER);
+        registerConfiguredStructure(registry, PYRAMID_DARK_FOREST);
+        registerConfiguredStructure(registry, PYRAMID_BADLANDS);
+        registerConfiguredStructure(registry, PYRAMID_SNOWY);
+        registerConfiguredStructure(registry, PYRAMID_END);
+        registerConfiguredStructure(registry, PYRAMID_ICY);
+        registerConfiguredStructure(registry, PYRAMID_JUNGLE);
+        registerConfiguredStructure(registry, PYRAMID_MUSHROOM);
+        registerConfiguredStructure(registry, PYRAMID_OCEAN);
+        registerConfiguredStructure(registry, PYRAMID_GIANT_TREE_TAIGA);
+        registerConfiguredStructure(registry, PYRAMID_FLOWER_FOREST);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "end_shipwreck"), SHIPWRECK_END);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "nether_bricks_shipwreck"), SHIPWRECK_NETHER_BRICKS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_shipwreck"), SHIPWRECK_CRIMSON);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_shipwreck"), SHIPWRECK_WARPED);
+        registerConfiguredStructure(registry, SHIPWRECK_END);
+        registerConfiguredStructure(registry, SHIPWRECK_NETHER_BRICKS);
+        registerConfiguredStructure(registry, SHIPWRECK_CRIMSON);
+        registerConfiguredStructure(registry, SHIPWRECK_WARPED);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "badlands_village"), VILLAGE_BADLANDS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "birch_village"), VILLAGE_BIRCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "dark_forest_village"), VILLAGE_DARK_FOREST);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "jungle_village"), VILLAGE_JUNGLE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "swamp_village"), VILLAGE_SWAMP);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mountains_village"), VILLAGE_MOUNTAINS);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "giant_taiga_village"), VILLAGE_GIANT_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "crimson_village"), VILLAGE_CRIMSON);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "warped_village"), VILLAGE_WARPED);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), VILLAGE_MUSHROOM);
+        registerConfiguredStructure(registry, VILLAGE_BADLANDS);
+        registerConfiguredStructure(registry, VILLAGE_BIRCH);
+        registerConfiguredStructure(registry, VILLAGE_DARK_FOREST);
+        registerConfiguredStructure(registry, VILLAGE_JUNGLE);
+        registerConfiguredStructure(registry, VILLAGE_SWAMP);
+        registerConfiguredStructure(registry, VILLAGE_MOUNTAINS);
+        registerConfiguredStructure(registry, VILLAGE_GIANT_TAIGA);
+        registerConfiguredStructure(registry, VILLAGE_CRIMSON);
+        registerConfiguredStructure(registry, VILLAGE_WARPED);
+        registerConfiguredStructure(registry, VILLAGE_OAK);
+        registerConfiguredStructure(registry, VILLAGE_MUSHROOM);
         // regexpos2
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT);
+        registerConfiguredStructure(registry, RUINED_PORTAL_END);
+        registerConfiguredStructure(registry, RUINS_NETHER);
+        registerConfiguredStructure(registry, RUINS_LAND_WARM);
+        registerConfiguredStructure(registry, RUINS_LAND_HOT);
+        registerConfiguredStructure(registry, RUINS_LAND_COLD);
+        registerConfiguredStructure(registry, RUINS_LAND_ICY);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER);
+        registerConfiguredStructure(registry, CITY_NETHER);
+        registerConfiguredStructure(registry, CITY_OVERWORLD);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_oak"), MANSION_OAK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY);
+        registerConfiguredStructure(registry, MANSION_BIRCH);
+        registerConfiguredStructure(registry, MANSION_JUNGLE);
+        registerConfiguredStructure(registry, MANSION_OAK);
+        registerConfiguredStructure(registry, MANSION_SAVANNA);
+        registerConfiguredStructure(registry, MANSION_TAIGA);
+        registerConfiguredStructure(registry, MANSION_DESERT);
+        registerConfiguredStructure(registry, MANSION_SNOWY);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_oak"), WITCH_HUTS_OAK);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_birch"), WITCH_HUTS_BIRCH);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST);
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA);
+        registerConfiguredStructure(registry, WITCH_HUTS_OAK);
+        registerConfiguredStructure(registry, WITCH_HUTS_TAIGA);
+        registerConfiguredStructure(registry, WITCH_HUTS_BIRCH);
+        registerConfiguredStructure(registry, WITCH_HUTS_DARK_FOREST);
+        registerConfiguredStructure(registry, WITCH_HUTS_GIANT_TREE_TAIGA);
 
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND);
+        registerConfiguredStructure(registry, BASTION_UNDERGROUND);
+    }
+
+    private static void registerConfiguredStructure(Registry<ConfiguredStructureFeature<?, ?>> registry, ConfiguredStructureFeature<?, ?> configuredStructureFeature) {
+        Registry.register(registry, Objects.requireNonNull(configuredStructureFeature.feature.getRegistryName()), configuredStructureFeature);
     }
 }

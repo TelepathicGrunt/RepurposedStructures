@@ -28,10 +28,25 @@ public final class Ruins {
         }
 
         if (RSRuinsConfig.ruinsLandHotAverageChunkDistance.get() != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_HOT.get(),
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_HOT.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
         {
             event.addStructure(RSConfiguredStructures.RUINS_LAND_HOT);
+        }
+
+        if (RSRuinsConfig.ruinsLandColdAverageChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_COLD.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.EXTREME_HILLS, Biome.BiomeCategory.MOUNTAIN) &&
+                    event.biome.getPrecipitation() != Biome.Precipitation.SNOW))
+        {
+            event.addStructure(RSConfiguredStructures.RUINS_LAND_COLD);
+        }
+
+        if (RSRuinsConfig.ruinsLandIcyAverageChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_ICY.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY)))
+        {
+            event.addStructure(RSConfiguredStructures.RUINS_LAND_ICY);
         }
     }
 }

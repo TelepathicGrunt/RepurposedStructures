@@ -66,9 +66,20 @@ public final class PoolAdditionMerger {
 
             // Parse the given pool addition JSON objects and add their pool to the dynamic registry pool
             for (JsonElement jsonElement : entry.getValue()) {
-                AdditionalStructureTemplatePool.DIRECT_CODEC.parse(customRegistryOps, jsonElement)
-                        .resultOrPartial(messageString -> logBadData(entry.getKey(), messageString))
-                        .ifPresent(validPool -> mergeIntoExistingPool(validPool, poolRegistry.get(entry.getKey()), structureManager));
+                try {
+                    AdditionalStructureTemplatePool.DIRECT_CODEC.parse(customRegistryOps, jsonElement)
+                            .resultOrPartial(messageString -> logBadData(entry.getKey(), messageString))
+                            .ifPresent(validPool -> mergeIntoExistingPool(validPool, poolRegistry.get(entry.getKey()), structureManager));
+                }
+                catch (Exception e) {
+                    RepurposedStructures.LOGGER.error("""
+
+                            Repurposed Structures: Pool Addition json failed to be parsed.
+                            This is usually due to using a mod compat datapack without the other mod being on.
+                            Entry failed to be resolved: %s
+                            Registry being used: %s
+                            Error message is: %s""".formatted(entry.getKey(), poolRegistry, e.getMessage()).indent(1));
+                }
             }
         }
     }

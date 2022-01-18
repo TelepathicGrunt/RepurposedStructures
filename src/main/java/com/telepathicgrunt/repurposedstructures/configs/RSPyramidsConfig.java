@@ -7,6 +7,7 @@ public class RSPyramidsConfig {
 	
 	public static ForgeConfigSpec.IntValue pyramidNetherAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue pyramidBadlandsAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue pyramidDarkForestAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue pyramidSnowyAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue pyramidEndAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue pyramidIcyAverageChunkDistance;
@@ -31,6 +32,10 @@ public class RSPyramidsConfig {
 		pyramidBadlandsAverageChunkDistance = builder
 			.translation("repurposedstructures.badlandspyramidaveragechunkdistance")
 			.defineInRange("badlandsPyramidAverageChunkDistance", 40, 1, 1001);
+
+		pyramidDarkForestAverageChunkDistance = builder
+			.translation("repurposedstructures.pyramiddarkforestaveragechunkdistance")
+			.defineInRange("pyramidDarkForestAverageChunkDistance", 44, 1, 1001);
 
 		pyramidSnowyAverageChunkDistance = builder
 			.translation("repurposedstructures.pyramidsnowyaveragechunkdistance")

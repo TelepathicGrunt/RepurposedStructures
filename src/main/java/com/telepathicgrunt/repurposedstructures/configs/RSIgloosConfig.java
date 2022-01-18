@@ -7,6 +7,7 @@ public class RSIgloosConfig {
 	
 	public static ForgeConfigSpec.IntValue grassyIglooAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue stoneIglooAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue mushroomIglooAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -15,16 +16,22 @@ public class RSIgloosConfig {
 	}
 
 	private static void setupConfig(ForgeConfigSpec.Builder builder) {
-		grassyIglooAverageChunkDistance = builder
-				.comment("\n Average distance between spawn attempts for Grassy Igloos in Plains and Forests.",
-						" 1 for spawning in most chunks and 1001 for no spawn.")
-				.translation("repurposedstructures.grassyiglooaveragechunkdistance")
-				.defineInRange("grassyIglooAverageChunkDistance", 24, 1, 1001);
+		builder.comment("",
+				" Average distance between spawn attempts for Repurposed Structures Igloos.",
+				" 1 for spawning in most chunks and 1001 for none.");
 
-		stoneIglooAverageChunkDistance = builder
-				.comment("\n Average distance between spawn attempts for Stone Igloos in Giant Tree Taiga biomes.",
-						" 1 for spawning in most chunks and 1001 for no spawn.")
-				.translation("repurposedstructures.stoneiglooaveragechunkdistance")
-				.defineInRange("stoneIglooAverageChunkDistance", 24, 1, 1001);
+		builder.push("Igloos");
+			grassyIglooAverageChunkDistance = builder
+					.translation("repurposedstructures.grassyiglooaveragechunkdistance")
+					.defineInRange("grassyIglooAverageChunkDistance", 28, 1, 1001);
+
+			stoneIglooAverageChunkDistance = builder
+					.translation("repurposedstructures.stoneiglooaveragechunkdistance")
+					.defineInRange("stoneIglooAverageChunkDistance", 28, 1, 1001);
+
+		mushroomIglooAverageChunkDistance = builder
+					.translation("repurposedstructures.mushroomiglooaveragechunkdistance")
+					.defineInRange("mushroomIglooAverageChunkDistance", 39, 1, 1001);
+		builder.pop();
 	}
 }

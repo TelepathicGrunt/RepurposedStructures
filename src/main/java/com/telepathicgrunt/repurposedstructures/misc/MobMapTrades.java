@@ -1,8 +1,10 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSBastionsConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSCitiesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -44,5 +46,9 @@ public final class MobMapTrades {
     public static void onWandererTradesEvent(WandererTradesEvent event) {
         if(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001)
             event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(38, RSStructures.BASTION_UNDERGROUND.get(), MapDecoration.Type.BANNER_GRAY, 1, 100));
+        if(RSVillagesConfig.villageMushroomAverageChunkDistance.get() != 1001)
+            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(45, RSStructures.VILLAGE_MUSHROOM.get(), MapDecoration.Type.MANSION, 1, 100));
+        if(RSCitiesConfig.citiesOverworldAverageChunkDistance.get() != 10001)
+            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(52, RSStructures.CITY_OVERWORLD.get(), MapDecoration.Type.MANSION, 1, 200));
     }
 }

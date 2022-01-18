@@ -8,6 +8,8 @@ public class RSRuinsConfig {
 	public static ForgeConfigSpec.IntValue ruinsNetherAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue ruinsLandWarmAverageChunkDistance;
 	public static ForgeConfigSpec.IntValue ruinsLandHotAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue ruinsLandColdAverageChunkDistance;
+	public static ForgeConfigSpec.IntValue ruinsLandIcyAverageChunkDistance;
 
 	static {
 		ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
@@ -27,11 +29,19 @@ public class RSRuinsConfig {
 
 		ruinsLandWarmAverageChunkDistance = builder
 				.translation("repurposedstructures.ruinslandwarmaveragechunkdistance")
-				.defineInRange("ruinsLandWarmAverageChunkDistance", 45, 1, 1001);
+				.defineInRange("ruinsLandWarmAverageChunkDistance", 52, 1, 1001);
 
 		ruinsLandHotAverageChunkDistance = builder
 				.translation("repurposedstructures.ruinslandhotaveragechunkdistance")
-				.defineInRange("ruinsLandHotAverageChunkDistance", 45, 1, 1001);
+				.defineInRange("ruinsLandHotAverageChunkDistance", 52, 1, 1001);
+
+		ruinsLandColdAverageChunkDistance = builder
+				.translation("repurposedstructures.ruinslandcoldaveragechunkdistance")
+				.defineInRange("ruinsLandColdAverageChunkDistance", 52, 1, 1001);
+
+		ruinsLandIcyAverageChunkDistance = builder
+				.translation("repurposedstructures.ruinslandhotaveragechunkdistance")
+				.defineInRange("ruinsLandIcyAverageChunkDistance", 52, 1, 1001);
 		builder.pop();
 	}
 }

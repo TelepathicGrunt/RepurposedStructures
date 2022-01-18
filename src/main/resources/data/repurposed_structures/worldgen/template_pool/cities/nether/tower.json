@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:cities/nether/tower",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:cities/nether/tower",
   "elements": [
     {
       "weight": 2,

@@ -59,6 +59,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -114,6 +115,7 @@ public final class RSStructures {
 
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> IGLOO_GRASSY = addToStructureMaps("igloo_grassy", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "igloos/grassy_top")).setStructureSize(20).cannotSpawnInWater().build()));
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> IGLOO_STONE = addToStructureMaps("igloo_stone", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "igloos/stone_top")).setStructureSize(20).cannotSpawnInWater().build()));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> IGLOO_MUSHROOM = addToStructureMaps("igloo_mushroom", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "igloos/mushroom_top")).setStructureSize(20).cannotSpawnInWater().build()));
 
     //Temples
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> TEMPLE_NETHER_WASTELAND = addToStructureMaps("temple_nether_wasteland", () -> GenericNetherJigsawStructure.create(new GenericNetherJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "temples/nether_wasteland")).setStructureSize(8).canSpawnOnLiquid().build()));
@@ -139,6 +141,7 @@ public final class RSStructures {
 
     //Pyramids
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> PYRAMID_BADLANDS = addToStructureMaps("pyramid_badlands", () -> BuriableStructure.create(new BuriableStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "pyramids/badlands")).build()));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> PYRAMID_DARK_FOREST = addToStructureMaps("pyramid_dark_forest", () -> BuriableStructure.create(new BuriableStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "pyramids/dark_forest")).build()));
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> PYRAMID_SNOWY = addToStructureMaps("pyramid_snowy", () -> BuriableStructure.create(new BuriableStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "pyramids/snowy")).build()));
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> PYRAMID_ICY = addToStructureMaps("pyramid_icy", () -> BuriableStructure.create(new BuriableStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "pyramids/icy")).build()));
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> PYRAMID_JUNGLE = addToStructureMaps("pyramid_jungle", () -> BuriableStructure.create(new BuriableStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "pyramids/jungle")).setOffsetAmount(20).build()));
@@ -177,9 +180,12 @@ public final class RSStructures {
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> RUINS_NETHER = addToStructureMaps("ruins_nether", () -> GenericNetherJigsawStructure.create(new GenericNetherJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/nether/start_pool")).setStructureSize(1).searchForHighestLand().canSpawnOnLiquid().setLedgeSpotOffset(-1).setLiquidSpotOffset(-2).build()));
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_WARM = addToStructureMaps("ruins_land_warm", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_warm/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build()));
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build()));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_COLD = addToStructureMaps("ruins_land_cold", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_cold/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build()));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> RUINS_LAND_ICY = addToStructureMaps("ruins_land_icy", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_icy/start_pool")).setStructureSize(2).setTerrainHeightRadius(2).setAllowTerrainHeightRange(5).cannotSpawnInWater().build()));
 
     //Cities
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> CITY_NETHER = addToStructureMaps("city_nether", () -> CityNetherStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "cities/nether/start_pool")).setStructureSize(5).setStructureBlacklistRange(4).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet())).build()));
+    public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> CITY_OVERWORLD = addToStructureMaps("city_overworld", () -> GenericJigsawStructure.create(new GenericJigsawStructureCodeConfig.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "cities/overworld/start_pool")).setStructureSize(5).setStructureBlacklistRange(4).setAvoidStructuresSet(Stream.of(RSStructureTagMap.STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE).collect(Collectors.toSet())).cannotSpawnInWater().build()));
 
     //Mansions
     public static final RegistryObject<StructureFeature<NoneFeatureConfiguration>> MANSION_BIRCH = addToStructureMaps("mansion_birch", () -> MansionStructure.create(new MansionCodeConfig(MansionPieces.MANSIONTYPE.BIRCH)));
@@ -206,99 +212,104 @@ public final class RSStructures {
     }
 
     public static void setupStructures() {
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_birch"), MINESHAFT_BIRCH.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 399117345));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_dark_forest"), MINESHAFT_DARK_FOREST.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 2011511156));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_desert"), MINESHAFT_DESERT.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1990612785));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 2057488602));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether"), MINESHAFT_NETHER.get(), GenerationStep.Decoration.FLUID_SPRINGS, new StructureFeatureConfiguration(1, 0, 1220811654));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_crimson"), MINESHAFT_CRIMSON.get(), GenerationStep.Decoration.FLUID_SPRINGS, new StructureFeatureConfiguration(1, 0, 1153019610));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_warped"), MINESHAFT_WARPED.get(), GenerationStep.Decoration.FLUID_SPRINGS, new StructureFeatureConfiguration(1, 0, 1095888662));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_icy"), MINESHAFT_ICY.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1451015246));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_jungle"), MINESHAFT_JUNGLE.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1434412876));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_ocean"), MINESHAFT_OCEAN.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1774808662));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_savanna"), MINESHAFT_SAVANNA.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1960212212));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_stone"), MINESHAFT_STONE.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1436736620));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_swamp"), MINESHAFT_SWAMP.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 2037177700));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_taiga"), MINESHAFT_TAIGA.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1383003172));
+        addToStructureMaps(MINESHAFT_BIRCH.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 399117345));
+        addToStructureMaps(MINESHAFT_DARK_FOREST.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 2011511156));
+        addToStructureMaps(MINESHAFT_DESERT.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1990612785));
+        addToStructureMaps(MINESHAFT_END.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 2057488602));
+        addToStructureMaps(MINESHAFT_NETHER.get(), GenerationStep.Decoration.FLUID_SPRINGS, new StructureFeatureConfiguration(1, 0, 1220811654));
+        addToStructureMaps(MINESHAFT_CRIMSON.get(), GenerationStep.Decoration.FLUID_SPRINGS, new StructureFeatureConfiguration(1, 0, 1153019610));
+        addToStructureMaps(MINESHAFT_WARPED.get(), GenerationStep.Decoration.FLUID_SPRINGS, new StructureFeatureConfiguration(1, 0, 1095888662));
+        addToStructureMaps(MINESHAFT_ICY.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1451015246));
+        addToStructureMaps(MINESHAFT_JUNGLE.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1434412876));
+        addToStructureMaps(MINESHAFT_OCEAN.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1774808662));
+        addToStructureMaps(MINESHAFT_SAVANNA.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1960212212));
+        addToStructureMaps(MINESHAFT_STONE.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1436736620));
+        addToStructureMaps(MINESHAFT_SWAMP.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 2037177700));
+        addToStructureMaps(MINESHAFT_TAIGA.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, new StructureFeatureConfiguration(1, 0, 1383003172));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER.get(), GenerationStep.Decoration.TOP_LAYER_MODIFICATION, createSpacingAndSalt(RSStrongholdsConfig.strongholdNetherAverageChunkDistance.get(), 0.5f, 1731422513));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END.get(), GenerationStep.Decoration.STRONGHOLDS, new StructureFeatureConfiguration(RSStrongholdsConfig.strongholdEndAverageChunkDistance.get(), (int) (RSStrongholdsConfig.strongholdEndAverageChunkDistance.get() * 0.5f), 1922886435));
+        addToStructureMaps(STRONGHOLD_NETHER.get(), GenerationStep.Decoration.TOP_LAYER_MODIFICATION, createSpacingAndSalt(RSStrongholdsConfig.strongholdNetherAverageChunkDistance.get(), 0.5f, 1731422513));
+        addToStructureMaps(STRONGHOLD_END.get(), GenerationStep.Decoration.STRONGHOLDS, new StructureFeatureConfiguration(RSStrongholdsConfig.strongholdEndAverageChunkDistance.get(), (int) (RSStrongholdsConfig.strongholdEndAverageChunkDistance.get() * 0.5f), 1922886435));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "fortress_jungle"), FORTRESS_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSFortressesConfig.jungleFortressAverageChunkDistance.get(), 0.5f, 1464189157));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "igloo_grassy"), IGLOO_GRASSY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSIgloosConfig.grassyIglooAverageChunkDistance.get(), 0.5f, 1460835582));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "igloo_stone"), IGLOO_STONE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSIgloosConfig.stoneIglooAverageChunkDistance.get(), 0.5f, 1327429039));
+        addToStructureMaps(FORTRESS_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSFortressesConfig.jungleFortressAverageChunkDistance.get(), 0.5f, 1464189157));
+        addToTerraformingAndStructureMaps(IGLOO_GRASSY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSIgloosConfig.grassyIglooAverageChunkDistance.get(), 0.5f, 1460835582));
+        addToTerraformingAndStructureMaps(IGLOO_STONE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSIgloosConfig.stoneIglooAverageChunkDistance.get(), 0.5f, 1327429039));
+        addToTerraformingAndStructureMaps(IGLOO_MUSHROOM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSIgloosConfig.mushroomIglooAverageChunkDistance.get(), 0.5f, 1242234354));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_wasteland"), TEMPLE_NETHER_WASTELAND.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherWastelandTempleAverageChunkDistance.get(), 0.5f, 1435489909));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_soul"), TEMPLE_NETHER_SOUL.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherSoulTempleAverageChunkDistance.get(), 0.5f, 1799485937));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_basalt"), TEMPLE_NETHER_BASALT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherBasaltTempleAverageChunkDistance.get(), 0.5f, 1063117750));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_crimson"), TEMPLE_NETHER_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherCrimsonTempleAverageChunkDistance.get(), 0.5f, 1898896156));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "temple_nether_warped"), TEMPLE_NETHER_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherWarpedTempleAverageChunkDistance.get(), 0.5f, 1635542708));
+        addToStructureMaps(TEMPLE_NETHER_WASTELAND.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherWastelandTempleAverageChunkDistance.get(), 0.5f, 1435489909));
+        addToStructureMaps(TEMPLE_NETHER_SOUL.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherSoulTempleAverageChunkDistance.get(), 0.5f, 1799485937));
+        addToStructureMaps(TEMPLE_NETHER_BASALT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherBasaltTempleAverageChunkDistance.get(), 0.5f, 1063117750));
+        addToStructureMaps(TEMPLE_NETHER_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherCrimsonTempleAverageChunkDistance.get(), 0.5f, 1898896156));
+        addToStructureMaps(TEMPLE_NETHER_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSTemplesConfig.netherWarpedTempleAverageChunkDistance.get(), 0.5f, 1635542708));
 
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_nether_brick"), OUTPOST_NETHER_BRICK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostNetherBrickAverageChunkDistance.get(), 0.5f, 1305971394));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_warped"), OUTPOST_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostWarpedAverageChunkDistance.get(), 0.5f, 1928816918));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_crimson"), OUTPOST_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostCrimsonAverageChunkDistance.get(), 0.5f, 1951425662));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_birch"), OUTPOST_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostBirchAverageChunkDistance.get(), 0.5f, 1676743168));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_jungle"), OUTPOST_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostJungleAverageChunkDistance.get(), 0.5f, 548433028));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_giant_tree_taiga"), OUTPOST_GIANT_TREE_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostGiantTreeTaigaAverageChunkDistance.get(), 0.5f, 993252541));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_desert"), OUTPOST_DESERT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostDesertAverageChunkDistance.get(), 0.5f, 593099376));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_badlands"), OUTPOST_BADLANDS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostBadlandsAverageChunkDistance.get(), 0.5f, 1702026868));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_snowy"), OUTPOST_SNOWY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostSnowyAverageChunkDistance.get(), 0.5f, 849388460));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_icy"), OUTPOST_ICY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostIcyAverageChunkDistance.get(), 0.5f, 935294633));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_taiga"), OUTPOST_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostTaigaAverageChunkDistance.get(), 0.5f, 272805097));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_oak"), OUTPOST_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostOakAverageChunkDistance.get(), 0.5f, 698118385));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "outpost_end"), OUTPOST_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostEndAverageChunkDistance.get(), 0.5f, 831830630));
+        addToTerraformingAndStructureMaps(OUTPOST_NETHER_BRICK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostNetherBrickAverageChunkDistance.get(), 0.5f, 1305971394));
+        addToTerraformingAndStructureMaps(OUTPOST_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostWarpedAverageChunkDistance.get(), 0.5f, 1928816918));
+        addToTerraformingAndStructureMaps(OUTPOST_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostCrimsonAverageChunkDistance.get(), 0.5f, 1951425662));
+        addToTerraformingAndStructureMaps(OUTPOST_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostBirchAverageChunkDistance.get(), 0.5f, 1676743168));
+        addToTerraformingAndStructureMaps(OUTPOST_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostJungleAverageChunkDistance.get(), 0.5f, 548433028));
+        addToTerraformingAndStructureMaps(OUTPOST_GIANT_TREE_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostGiantTreeTaigaAverageChunkDistance.get(), 0.5f, 993252541));
+        addToTerraformingAndStructureMaps(OUTPOST_DESERT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostDesertAverageChunkDistance.get(), 0.5f, 593099376));
+        addToTerraformingAndStructureMaps(OUTPOST_BADLANDS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostBadlandsAverageChunkDistance.get(), 0.5f, 1702026868));
+        addToTerraformingAndStructureMaps(OUTPOST_SNOWY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostSnowyAverageChunkDistance.get(), 0.5f, 849388460));
+        addToTerraformingAndStructureMaps(OUTPOST_ICY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostIcyAverageChunkDistance.get(), 0.5f, 935294633));
+        addToTerraformingAndStructureMaps(OUTPOST_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostTaigaAverageChunkDistance.get(), 0.5f, 272805097));
+        addToTerraformingAndStructureMaps(OUTPOST_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostOakAverageChunkDistance.get(), 0.5f, 698118385));
+        addToTerraformingAndStructureMaps(OUTPOST_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSOutpostsConfig.outpostEndAverageChunkDistance.get(), 0.5f, 831830630));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_badlands"), PYRAMID_BADLANDS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidBadlandsAverageChunkDistance.get(), 0.5f, 1718729448));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_nether"), PYRAMID_NETHER.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidNetherAverageChunkDistance.get(), 0.5f, 2054372964));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_snowy"), PYRAMID_SNOWY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidSnowyAverageChunkDistance.get(), 0.5f, 1630533493));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_end"), PYRAMID_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidEndAverageChunkDistance.get(), 0.5f, 1145023315));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidIcyAverageChunkDistance.get(), 0.5f, 884076931));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidJungleAverageChunkDistance.get(), 0.5f, 1483015905));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_mushroom"), PYRAMID_MUSHROOM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidMushroomAverageChunkDistance.get(), 0.5f, 1035759391));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidOceanAverageChunkDistance.get(), 0.5f, 777281414));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_giant_tree_taiga"), PYRAMID_GIANT_TREE_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidGiantTreeTaigaAverageChunkDistance.get(), 0.5f, 1977974973));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_flower_forest"), PYRAMID_FLOWER_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidFlowerForestAverageChunkDistance.get(), 0.5f, 1984904323));
+        addToStructureMaps(PYRAMID_BADLANDS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidBadlandsAverageChunkDistance.get(), 0.5f, 1718729448));
+        addToStructureMaps(PYRAMID_DARK_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidDarkForestAverageChunkDistance.get(), 0.5f, 1983978348));
+        addToTerraformingAndStructureMaps(PYRAMID_NETHER.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidNetherAverageChunkDistance.get(), 0.5f, 2054372964));
+        addToStructureMaps(PYRAMID_SNOWY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidSnowyAverageChunkDistance.get(), 0.5f, 1630533493));
+        addToStructureMaps(PYRAMID_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidEndAverageChunkDistance.get(), 0.5f, 1145023315));
+        addToStructureMaps(PYRAMID_ICY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidIcyAverageChunkDistance.get(), 0.5f, 884076931));
+        addToStructureMaps(PYRAMID_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidJungleAverageChunkDistance.get(), 0.5f, 1483015905));
+        addToStructureMaps(PYRAMID_MUSHROOM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidMushroomAverageChunkDistance.get(), 0.5f, 1035759391));
+        addToStructureMaps(PYRAMID_OCEAN.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidOceanAverageChunkDistance.get(), 0.5f, 777281414));
+        addToStructureMaps(PYRAMID_GIANT_TREE_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidGiantTreeTaigaAverageChunkDistance.get(), 0.5f, 1977974973));
+        addToStructureMaps(PYRAMID_FLOWER_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSPyramidsConfig.pyramidFlowerForestAverageChunkDistance.get(), 0.5f, 1984904323));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end"), SHIPWRECK_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckEndAverageChunkDistance.get(), 0.5f, 1605500075));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks"), SHIPWRECK_NETHER_BRICKS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckNetherBricksAverageChunkDistance.get(), 0.5f, 2073308006));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_crimson"), SHIPWRECK_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckCrimsonAverageChunkDistance.get(), 0.5f, 1019716871));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_warped"), SHIPWRECK_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckWarpedAverageChunkDistance.get(), 0.5f, 2072979641));
+        addToStructureMaps(SHIPWRECK_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckEndAverageChunkDistance.get(), 0.5f, 1605500075));
+        addToStructureMaps(SHIPWRECK_NETHER_BRICKS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckNetherBricksAverageChunkDistance.get(), 0.5f, 2073308006));
+        addToStructureMaps(SHIPWRECK_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckCrimsonAverageChunkDistance.get(), 0.5f, 1019716871));
+        addToStructureMaps(SHIPWRECK_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSShipwrecksConfig.shipwreckWarpedAverageChunkDistance.get(), 0.5f, 2072979641));
 
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_badlands"), VILLAGE_BADLANDS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageBadlandsAverageChunkDistance.get(), 0.5f, 1319707555));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_birch"), VILLAGE_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageBirchAverageChunkDistance.get(), 0.5f, 1102567365));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_dark_oak"), VILLAGE_DARK_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageDarkForestAverageChunkDistance.get(), 0.5f, 1921339358));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_jungle"), VILLAGE_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageJungleAverageChunkDistance.get(), 0.5f, 1229975218));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_swamp"), VILLAGE_SWAMP.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageSwampAverageChunkDistance.get(), 0.5f, 1559650945));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_mountains"), VILLAGE_MOUNTAINS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageMountainsAverageChunkDistance.get(), 0.5f, 2010875989));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_giant_taiga"), VILLAGE_GIANT_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageGiantTaigaAverageChunkDistance.get(), 0.5f, 1559528842));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_crimson"), VILLAGE_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageCrimsonAverageChunkDistance.get(), 0.5f, 1854750198));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_warped"), VILLAGE_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageWarpedAverageChunkDistance.get(), 0.5f, 1298332136));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_oak"), VILLAGE_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageOakAverageChunkDistance.get(), 0.5f, 2112891039));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "village_mushroom"), VILLAGE_MUSHROOM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageMushroomAverageChunkDistance.get(), 0.5f, 1150624897));
+        addToTerraformingAndStructureMaps(VILLAGE_BADLANDS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageBadlandsAverageChunkDistance.get(), 0.5f, 1319707555));
+        addToTerraformingAndStructureMaps(VILLAGE_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageBirchAverageChunkDistance.get(), 0.5f, 1102567365));
+        addToTerraformingAndStructureMaps(VILLAGE_DARK_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageDarkForestAverageChunkDistance.get(), 0.5f, 1921339358));
+        addToTerraformingAndStructureMaps(VILLAGE_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageJungleAverageChunkDistance.get(), 0.5f, 1229975218));
+        addToTerraformingAndStructureMaps(VILLAGE_SWAMP.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageSwampAverageChunkDistance.get(), 0.5f, 1559650945));
+        addToTerraformingAndStructureMaps(VILLAGE_MOUNTAINS.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageMountainsAverageChunkDistance.get(), 0.5f, 2010875989));
+        addToTerraformingAndStructureMaps(VILLAGE_GIANT_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageGiantTaigaAverageChunkDistance.get(), 0.5f, 1559528842));
+        addToTerraformingAndStructureMaps(VILLAGE_CRIMSON.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageCrimsonAverageChunkDistance.get(), 0.5f, 1854750198));
+        addToTerraformingAndStructureMaps(VILLAGE_WARPED.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageWarpedAverageChunkDistance.get(), 0.5f, 1298332136));
+        addToTerraformingAndStructureMaps(VILLAGE_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageOakAverageChunkDistance.get(), 0.5f, 2112891039));
+        addToTerraformingAndStructureMaps(VILLAGE_MUSHROOM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSVillagesConfig.villageMushroomAverageChunkDistance.get(), 0.5f, 1150624897));
         // regexpos2
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruined_portal_end"), RUINED_PORTAL_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance.get(), 0.5f, 532404086));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"), RUINS_NETHER.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsNetherAverageChunkDistance.get(), 0.5f, 1336047555));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsLandWarmAverageChunkDistance.get(), 0.25f, 18646107));
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "ruins_land_hot"), RUINS_LAND_HOT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsLandHotAverageChunkDistance.get(), 0.25f, 1243670027));
+        addToStructureMaps(RUINED_PORTAL_END.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance.get(), 0.5f, 532404086));
+        addToTerraformingAndStructureMaps(RUINS_NETHER.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsNetherAverageChunkDistance.get(), 0.5f, 1336047555));
+        addToTerraformingAndStructureMaps(RUINS_LAND_WARM.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsLandWarmAverageChunkDistance.get(), 0.25f, 18646107));
+        addToTerraformingAndStructureMaps(RUINS_LAND_HOT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsLandHotAverageChunkDistance.get(), 0.25f, 1243670027));
+        addToTerraformingAndStructureMaps(RUINS_LAND_COLD.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsLandColdAverageChunkDistance.get(), 0.25f, 1065432023));
+        addToTerraformingAndStructureMaps(RUINS_LAND_ICY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSRuinsConfig.ruinsLandIcyAverageChunkDistance.get(), 0.25f, 298896106));
 
-        addToTerraformingAndStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "city_nether"), CITY_NETHER.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSCitiesConfig.citiesNetherAverageChunkDistance.get(), 0.5f, 2082652405));
+        addToTerraformingAndStructureMaps(CITY_NETHER.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSCitiesConfig.citiesNetherAverageChunkDistance.get(), 0.5f, 2082652405));
+        addToStructureMaps(CITY_OVERWORLD.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSCitiesConfig.citiesOverworldAverageChunkDistance.get(), 0.5f, 1225875111));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_birch"), MANSION_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionBirchAverageChunkDistance.get(), 0.5f, 182367035));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_jungle"), MANSION_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionJungleAverageChunkDistance.get(), 0.5f, 1267916621));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_oak"), MANSION_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionOakAverageChunkDistance.get(), 0.5f, 147853731));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_savanna"), MANSION_SAVANNA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionSavannaAverageChunkDistance.get(), 0.5f, 2024558925));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_taiga"), MANSION_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionTaigaAverageChunkDistance.get(), 0.5f, 418506505));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_desert"), MANSION_DESERT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionDesertAverageChunkDistance.get(), 0.5f, 724317387));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "mansion_snowy"), MANSION_SNOWY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionSnowyAverageChunkDistance.get(), 0.5f, 1115107889));
+        addToStructureMaps(MANSION_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionBirchAverageChunkDistance.get(), 0.5f, 182367035));
+        addToStructureMaps(MANSION_JUNGLE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionJungleAverageChunkDistance.get(), 0.5f, 1267916621));
+        addToStructureMaps(MANSION_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionOakAverageChunkDistance.get(), 0.5f, 147853731));
+        addToStructureMaps(MANSION_SAVANNA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionSavannaAverageChunkDistance.get(), 0.5f, 2024558925));
+        addToStructureMaps(MANSION_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionTaigaAverageChunkDistance.get(), 0.5f, 418506505));
+        addToStructureMaps(MANSION_DESERT.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionDesertAverageChunkDistance.get(), 0.5f, 724317387));
+        addToStructureMaps(MANSION_SNOWY.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSMansionsConfig.mansionSnowyAverageChunkDistance.get(), 0.5f, 1115107889));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_oak"), WITCH_HUTS_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsOakAverageChunkDistance.get(), 0.5f, 741641348));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_taiga"), WITCH_HUTS_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance.get(), 0.5f, 1925189659));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_birch"), WITCH_HUTS_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsBirchAverageChunkDistance.get(), 0.5f, 904634508));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_dark_forest"), WITCH_HUTS_DARK_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance.get(), 0.5f, 165100151));
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "witch_hut_giant_tree_taiga"), WITCH_HUTS_GIANT_TREE_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance.get(), 0.5f, 200289401));
+        addToStructureMaps(WITCH_HUTS_OAK.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsOakAverageChunkDistance.get(), 0.5f, 741641348));
+        addToStructureMaps(WITCH_HUTS_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance.get(), 0.5f, 1925189659));
+        addToStructureMaps(WITCH_HUTS_BIRCH.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsBirchAverageChunkDistance.get(), 0.5f, 904634508));
+        addToStructureMaps(WITCH_HUTS_DARK_FOREST.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance.get(), 0.5f, 165100151));
+        addToStructureMaps(WITCH_HUTS_GIANT_TREE_TAIGA.get(), GenerationStep.Decoration.SURFACE_STRUCTURES, createSpacingAndSalt(RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance.get(), 0.5f, 200289401));
 
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, createSpacingAndSalt(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get(), 0.5f, 1359301629));
+        addToStructureMaps(BASTION_UNDERGROUND.get(), GenerationStep.Decoration.UNDERGROUND_STRUCTURES, createSpacingAndSalt(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get(), 0.5f, 1359301629));
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();
@@ -308,24 +319,13 @@ public final class RSStructures {
         return new StructureFeatureConfiguration(averageSpacing, (int) (averageSpacing * percentageForMinSpacing), salt);
     }
 
-    public static <F extends StructureFeature<NoneFeatureConfiguration>> void addToTerraformingAndStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStep.Decoration stage, StructureFeatureConfiguration StructureFeatureConfiguration) {
+    public static <F extends StructureFeature<NoneFeatureConfiguration>> void addToTerraformingAndStructureMaps(F structure, GenerationStep.Decoration stage, StructureFeatureConfiguration StructureFeatureConfiguration) {
         StructureFeatureAccessor.setNOISE_AFFECTING_FEATURES(ImmutableList.<StructureFeature<?>>builder().addAll(StructureFeature.NOISE_AFFECTING_FEATURES).add(structure).build());
-        addToStructureMaps(resourceLocation, structure, stage, StructureFeatureConfiguration);
+        addToStructureMaps(structure, stage, StructureFeatureConfiguration);
     }
 
-    public static <C extends FeatureConfiguration, F extends StructureFeature<C>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStep.Decoration stage, StructureFeatureConfiguration StructureFeatureConfiguration, C config) {
-        StructureFeature.STRUCTURES_REGISTRY.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
-
-        // This is only for myself. Others should override step() in
-        // their structure's class to return their generation stage instead.
-        StructureFeatureAccessor.getSTEP().put(structure, stage);
-
-        StructureSettingsAccessor.setDEFAULTS(ImmutableMap.<StructureFeature<?>, StructureFeatureConfiguration>builder().putAll(StructureSettings.DEFAULTS).put(structure, StructureFeatureConfiguration).build());
-        RS_STRUCTURES.put(structure, StructureFeatureConfiguration);
-    }
-
-    public static <F extends StructureFeature<NoneFeatureConfiguration>> void addToStructureMaps(ResourceLocation resourceLocation, F structure, GenerationStep.Decoration stage, StructureFeatureConfiguration StructureFeatureConfiguration) {
-        StructureFeature.STRUCTURES_REGISTRY.put(resourceLocation.toString().toLowerCase(Locale.ROOT), structure);
+    public static <F extends StructureFeature<NoneFeatureConfiguration>> void addToStructureMaps(F structure, GenerationStep.Decoration stage, StructureFeatureConfiguration StructureFeatureConfiguration) {
+        StructureFeature.STRUCTURES_REGISTRY.put(Objects.requireNonNull(structure.getRegistryName()).toString().toLowerCase(Locale.ROOT), structure);
 
         // This is only for myself. Others should override step() in their structure's class to return their generation stage instead.
         StructureFeatureAccessor.getSTEP().put(structure, stage);

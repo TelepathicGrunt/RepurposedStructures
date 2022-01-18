@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2.0,
+        "max": 3.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "name": "minecraft:tipped_arrow",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:strong_harming\"}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:tipped_arrow",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:strong_poison\"}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

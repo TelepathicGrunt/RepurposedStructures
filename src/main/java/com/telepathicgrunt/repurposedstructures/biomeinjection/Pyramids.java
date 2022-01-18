@@ -26,6 +26,14 @@ public final class Pyramids {
             event.addStructure(RSConfiguredStructures.PYRAMID_BADLANDS);
         }
 
+        if (RSPyramidsConfig.pyramidDarkForestAverageChunkDistance.get() != 1001 &&
+            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_DARK_FOREST.get(),
+                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
+                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        {
+            event.addStructure(RSConfiguredStructures.PYRAMID_DARK_FOREST);
+        }
+
         if (RSPyramidsConfig.pyramidIcyAverageChunkDistance.get() != 1001 &&
             BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_ICY.get(),
                     () -> BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&

@@ -1,29 +1,40 @@
 package com.telepathicgrunt.repurposedstructures.world.processors;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 /**
- * Makes bubble columns continue to create their columns after structure gen
+ * Makes bubble columns continue to create their columns after structure gen and other ticking needed.
  */
-public class BubbleColumnProcessor extends StructureProcessor {
+public class TickBlocksProcessor extends StructureProcessor {
 
-    public static final Codec<BubbleColumnProcessor> CODEC = Codec.unit(BubbleColumnProcessor::new);
+    public static final Codec<TickBlocksProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+            Registry.BLOCK.byNameCodec().listOf().fieldOf("blocks_to_tick").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToTick)
+    ).apply(instance, instance.stable(TickBlocksProcessor::new)));
 
-    private BubbleColumnProcessor() {}
+    private final HashSet<Block> blocksToTick;
+
+    private TickBlocksProcessor(HashSet<Block> blocksToTick) {
+        this.blocksToTick = blocksToTick;
+    }
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        if(structureBlockInfoWorld.state.getBlock() == Blocks.BUBBLE_COLUMN) {
+        if(blocksToTick.contains(structureBlockInfoWorld.state.getBlock())) {
             ChunkAccess chunk = worldView.getChunk(structureBlockInfoWorld.pos);
 
             int minY = chunk.getMinBuildHeight();
@@ -38,6 +49,6 @@ public class BubbleColumnProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.BUBBLE_COLUMN_PROCESSOR;
+        return RSProcessors.TICK_BLOCKS_PROCESSOR;
     }
 }

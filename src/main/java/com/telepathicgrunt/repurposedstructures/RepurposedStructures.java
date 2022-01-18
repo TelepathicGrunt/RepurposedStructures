@@ -17,6 +17,7 @@ import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureSettingsAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.world.ChunkGeneratorAccessor;
@@ -29,7 +30,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
@@ -169,6 +169,7 @@ public class RepurposedStructures {
 
     public void serverStarted(final ServerStartedEvent event) {
         GeneralUtils.clearCache();
+        StructureModdedLootImporter.checkLoottables(event.getServer());
     }
 
     /**

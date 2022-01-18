@@ -77,6 +77,12 @@
       "conditions": {
         "feature": "repurposed_structures:pyramid_snowy"
       }
+    },
+    "in_pyramid_dark_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:pyramid_dark_forest"
+      }
     }
   },
   "requirements": [
@@ -109,6 +115,9 @@
     ],
     [
       "in_pyramid_snowy"
+    ],
+    [
+      "in_pyramid_dark_forest"
     ]
   ]
 }
