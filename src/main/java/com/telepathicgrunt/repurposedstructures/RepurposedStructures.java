@@ -78,8 +78,6 @@ public class RepurposedStructures {
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
-        //TODO: Make pool_additions/etc parsing more lenient and skip entries that relied on other mods being on.
-
         // Classload and create custom registry. Other mods should add to this custom registry in FMLCommonSetupEvent.
         JSONConditionsRegistry.registerTestJSONCondition();
 
