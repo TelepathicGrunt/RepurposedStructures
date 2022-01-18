@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:cities/overworld/tower_top",
-  "fallback": "repurposed_structures:cities/overworld/tower_top,,
+  "fallback": "repurposed_structures:cities/overworld/tower_top",
   "elements": [
     {
       "weight": 1,
