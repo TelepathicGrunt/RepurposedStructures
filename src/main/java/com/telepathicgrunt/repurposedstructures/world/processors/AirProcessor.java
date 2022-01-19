@@ -6,6 +6,8 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.WorldGenLevel;
@@ -36,15 +38,20 @@ public class AirProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+
         if (structureBlockInfoWorld.state.isAir()) {
+            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos))) {
+                return structureBlockInfoWorld;
+            }
+
             BlockPos currentPos = structureBlockInfoWorld.pos;
-            ChunkAccess currentChunk = worldView.getChunk(currentPos);
+            ChunkAccess currentChunk = levelReader.getChunk(currentPos);
             if (currentPos.getY() >= currentChunk.getMinBuildHeight() && currentPos.getY() < currentChunk.getMaxBuildHeight()) {
                 if(!blocksToIgnore.contains(currentChunk.getBlockState(currentPos).getBlock())) {
 
                     LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                    if((worldView instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinBuildHeight() && currentPos.getY() < levelHeightAccessor.getMaxBuildHeight())) {
+                    if((levelReader instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinBuildHeight() && currentPos.getY() < levelHeightAccessor.getMaxBuildHeight())) {
                         // Copy what vanilla ores do.
                         // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                         // even though everything seemed to be safe and fine.
