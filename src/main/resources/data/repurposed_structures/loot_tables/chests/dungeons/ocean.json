@@ -56,7 +56,7 @@
         {
           "name": "minecraft:nautilus_shell",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 16,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -71,12 +71,12 @@
         {
           "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 8
+          "weight": 9
         },
         {
           "name": "minecraft:prismarine_crystals",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 16,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -91,7 +91,7 @@
         {
           "name": "minecraft:prismarine_shard",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 16,
           "functions": [
             {
               "function": "minecraft:set_count",
