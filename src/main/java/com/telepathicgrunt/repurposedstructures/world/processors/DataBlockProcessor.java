@@ -8,6 +8,8 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.commands.arguments.blocks.BlockStateParser;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -30,9 +32,11 @@ public class DataBlockProcessor extends StructureProcessor {
     private DataBlockProcessor() { }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+
         BlockState blockState = structureBlockInfoWorld.state;
         if (blockState.is(Blocks.STRUCTURE_BLOCK)) {
+
             String metadata = structureBlockInfoWorld.nbt.getString("metadata");
             BlockPos worldPos = structureBlockInfoWorld.pos;
 
@@ -46,8 +50,12 @@ public class DataBlockProcessor extends StructureProcessor {
                     BlockStateParser blockArgumentParser = new BlockStateParser(new StringReader(splitString[1]), false);
                     blockArgumentParser.parse(true);
                     BlockState replacementState = blockArgumentParser.getState();
-                    BlockState currentBlock = worldView.getBlockState(worldPos);
+                    BlockState currentBlock = levelReader.getBlockState(worldPos);
                     BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
+
+                    if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(currentPos))) {
+                        return replacementState == null || replacementState.is(Blocks.STRUCTURE_VOID) ? null : new StructureTemplate.StructureBlockInfo(worldPos, replacementState, null);
+                    }
 
                     int depth = Integer.MAX_VALUE;
                     if(splitString.length > 2) {
@@ -59,8 +67,8 @@ public class DataBlockProcessor extends StructureProcessor {
 
                     int terrainY = Integer.MIN_VALUE;
                     if(direction == Direction.DOWN && depth == Integer.MAX_VALUE) {
-                        terrainY = GeneralUtils.getFirstLandYFromPos(worldView, worldPos);
-                        if(terrainY <= worldView.getMinBuildHeight()) {
+                        terrainY = GeneralUtils.getFirstLandYFromPos(levelReader, worldPos);
+                        if(terrainY <= levelReader.getMinBuildHeight()) {
                             // Replaces the data block itself
                             return replacementState == null || replacementState.is(Blocks.STRUCTURE_VOID) ? null : new StructureTemplate.StructureBlockInfo(worldPos, replacementState, null);
                         }
@@ -68,7 +76,7 @@ public class DataBlockProcessor extends StructureProcessor {
 
                     // Creates the pillars in the world that replaces air and liquids
                     while(!currentBlock.canOcclude() &&
-                            currentPos.getY() <= worldView.dimensionType().logicalHeight() &&
+                            currentPos.getY() <= levelReader.dimensionType().logicalHeight() &&
                             currentPos.getY() >= terrainY &&
                             currentPos.closerThan(worldPos, depth)
                     ) {
@@ -79,15 +87,15 @@ public class DataBlockProcessor extends StructureProcessor {
                             if(newPillarState2 == null) {
                                 break;
                             }
-                            newPillarState2 = processor.processBlock(worldView, pos, blockPos, newPillarState1, newPillarState2, structurePlacementData);
+                            newPillarState2 = processor.processBlock(levelReader, pos, blockPos, newPillarState1, newPillarState2, structurePlacementData);
                         }
 
                         if(newPillarState2 != null) {
-                            worldView.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state, false);
+                            levelReader.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state, false);
                         }
 
                         currentPos.move(direction);
-                        currentBlock = worldView.getBlockState(currentPos);
+                        currentBlock = levelReader.getBlockState(currentPos);
                     }
 
                     // Replaces the data block itself

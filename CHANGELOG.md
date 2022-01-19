@@ -1,3 +1,14 @@
+### **(V.3.0.1 Changes) (1.18.1 Minecraft)**
+
+#### Cities:
+Improved Overworld City's resistance to lightning from thunderstorms.
+
+Adjusted insides of two rooms in Overworld City to look a tad better.
+
+#### Misc:
+Fixed some processors that were placing blocks multiple times.
+
+
 ### **(V.3.3.0 Changes) (1.18.1 Minecraft)**
 
 #### Lang:
