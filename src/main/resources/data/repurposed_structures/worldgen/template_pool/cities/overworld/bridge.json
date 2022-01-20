@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:cities/overworld/bridge",
-  "fallback": "repurposed_structures:cities/overworld/no_stair_room",
+  "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
@@ -8,7 +8,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_0",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -17,7 +17,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_1",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -26,7 +26,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_2",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -35,7 +35,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_3",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -44,7 +44,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_4",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -53,7 +53,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_5",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -62,7 +62,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_6",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -71,7 +71,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_7",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -80,7 +80,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_8",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -89,7 +89,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_9",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -98,7 +98,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_10",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -107,7 +107,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_11",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -116,7 +116,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_piece_12",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {

@@ -4,6 +4,8 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -21,21 +23,24 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
     private RemoveFloatingBlocksProcessor() { }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos);
-        ChunkAccess cachedChunk = worldView.getChunk(mutable);
+        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(mutable))) {
+            return structureBlockInfoWorld;
+        }
 
         // attempts to remove invalid floating plants
+        ChunkAccess cachedChunk = levelReader.getChunk(mutable);
         if(structureBlockInfoWorld.state.isAir() || structureBlockInfoWorld.state.getMaterial().isLiquid()) {
 
             // set the block in the world so that canPlaceAt's result changes
             cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
-            BlockState aboveWorldState = worldView.getBlockState(mutable.move(Direction.UP));
+            BlockState aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
 
             // detects the invalidly placed blocks
-            while(mutable.getY() < worldView.getHeight() && !aboveWorldState.canSurvive(worldView, mutable)) {
+            while(mutable.getY() < levelReader.getHeight() && !aboveWorldState.canSurvive(levelReader, mutable)) {
                 cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
-                aboveWorldState = worldView.getBlockState(mutable.move(Direction.UP));
+                aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
             }
         }
 

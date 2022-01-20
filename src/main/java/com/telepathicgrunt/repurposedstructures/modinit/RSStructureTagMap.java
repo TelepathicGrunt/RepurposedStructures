@@ -77,11 +77,13 @@ public final class RSStructureTagMap {
 
         addTags(RSStructures.IGLOO_GRASSY.get(), Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
         addTags(RSStructures.IGLOO_STONE.get(), Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
+        addTags(RSStructures.IGLOO_MUSHROOM.get(), Stream.of(STRUCTURE_TAGS.IGLOO).collect(Collectors.toSet()));
 
         addTags(RSStructures.STRONGHOLD_NETHER.get(), Stream.of(STRUCTURE_TAGS.STRONGHOLD).collect(Collectors.toSet()));
         addTags(RSStructures.STRONGHOLD_END.get(), Stream.of(STRUCTURE_TAGS.STRONGHOLD, STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE).collect(Collectors.toSet()));
 
         addTags(RSStructures.PYRAMID_BADLANDS.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
+        addTags(RSStructures.PYRAMID_DARK_FOREST.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_NETHER.get(), Stream.of(STRUCTURE_TAGS.PYRAMID, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_SNOWY.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
         addTags(RSStructures.PYRAMID_END.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));
@@ -135,8 +137,11 @@ public final class RSStructureTagMap {
         addTags(RSStructures.RUINS_NETHER.get(), Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_DELTAS).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_LAND_WARM.get(), Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         addTags(RSStructures.RUINS_LAND_HOT.get(), Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.RUINS_LAND_COLD.get(), Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
+        addTags(RSStructures.RUINS_LAND_ICY.get(), Stream.of(STRUCTURE_TAGS.RUINS, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
 
         addTags(RSStructures.CITY_NETHER.get(), Stream.of(STRUCTURE_TAGS.CITIES, STRUCTURE_TAGS.GENERIC_AVOID_NETHER_STRUCTURE).collect(Collectors.toSet()));
+        addTags(RSStructures.CITY_OVERWORLD.get(), Stream.of(STRUCTURE_TAGS.CITIES, STRUCTURE_TAGS.OUTPOST_AVOID_STRUCTURE).collect(Collectors.toSet()));
 
         addTags(RSStructures.MANSION_BIRCH.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));
         addTags(RSStructures.MANSION_JUNGLE.get(), Stream.of(STRUCTURE_TAGS.MANSION, STRUCTURE_TAGS.MANSION_AVOID_STRUCTURE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));

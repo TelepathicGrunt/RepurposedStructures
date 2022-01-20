@@ -3,6 +3,7 @@
     {
       "nbt_piece_name" : "repurposed_structures:strongholds/nether/portal_room",
       "always_spawn_this_many" : 1,
+      "never_spawn_more_than_this_many": 1,
       "minimum_distance_from_center_piece": 9
     },
     {

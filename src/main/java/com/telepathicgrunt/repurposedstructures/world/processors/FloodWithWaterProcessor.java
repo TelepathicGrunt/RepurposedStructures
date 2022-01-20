@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -36,9 +37,13 @@ public class FloodWithWaterProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if(structureBlockInfoWorld.state.getFluidState().is(FluidTags.WATER)) {
-            tickWaterFluid(worldView, structureBlockInfoWorld);
+            tickWaterFluid(levelReader, structureBlockInfoWorld);
+            return structureBlockInfoWorld;
+        }
+
+        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos))) {
             return structureBlockInfoWorld;
         }
 
@@ -46,31 +51,31 @@ public class FloodWithWaterProcessor extends StructureProcessor {
             boolean flooded = false;
             if(structureBlockInfoWorld.state.isAir()) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
-                tickWaterFluid(worldView, structureBlockInfoWorld);
+                tickWaterFluid(levelReader, structureBlockInfoWorld);
                 flooded = true;
             }
             else if(structureBlockInfoWorld.state.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, true), structureBlockInfoWorld.nbt);
-                tickWaterFluid(worldView, structureBlockInfoWorld);
+                tickWaterFluid(levelReader, structureBlockInfoWorld);
                 flooded = true;
             }
             else if(structureBlockInfoWorld.state.getBlock() instanceof BushBlock) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
-                tickWaterFluid(worldView, structureBlockInfoWorld);
+                tickWaterFluid(levelReader, structureBlockInfoWorld);
                 flooded = true;
             }
 
             if(flooded) {
                 // enclose the new water block with cracked stonebrick
                 ChunkPos currentChunkPos = new ChunkPos(structureBlockInfoWorld.pos);
-                ChunkAccess currentChunk = worldView.getChunk(currentChunkPos.x, currentChunkPos.z);
+                ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
                 BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
                 for (Direction direction : Direction.values()) {
                     if(direction == Direction.UP) continue;
 
                     mutable.set(structureBlockInfoWorld.pos).move(direction);
                     if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
-                        currentChunk = worldView.getChunk(mutable);
+                        currentChunk = levelReader.getChunk(mutable);
                         currentChunkPos = new ChunkPos(mutable);
                     }
 
