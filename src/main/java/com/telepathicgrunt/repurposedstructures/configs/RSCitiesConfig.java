@@ -31,5 +31,5 @@ public class RSCitiesConfig implements ConfigData {
             How rare are Overworld Cities in Overworld biomes with generally large trees.
             1 for spawning in most chunks and 10001 for none.""")
     @ConfigEntry.BoundedDiscrete(min = 1, max = 10001)
-    public int cityOverworldAverageChunkDistance = 700;
+    public int cityOverworldAverageChunkDistance = 180;
 }
