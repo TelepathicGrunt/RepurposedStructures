@@ -1,12 +1,25 @@
 ### **(V.3.0.1 Changes) (1.18.1 Minecraft)**
 
 #### Cities:
+Changed default config value for Overworld Cities from 1200 to 700.
+  You'll have to edit the config yourself if you already started game with older v4.2.X versions of RS.
+
 Improved Overworld City's resistance to lightning from thunderstorms.
 
 Adjusted insides of two rooms in Overworld City to look a tad better.
 
+Fixed some top pieces not spawning in Overworld Cities because of bad logic in my required/maximum count piece controlling code.
+
+Fixed Overworld Cities not checking properly to not spawn near any RS or Vanilla Mansions.
+
+Fixed Bridge End pieces not spawning sometimes in Overworld and Nether Cities.
+
+Nether Cities now always have 3 branches at minimum.
+
 #### Misc:
 Fixed some processors that were placing blocks multiple times.
+
+Fixed required/maximum count piece controlling code (for rs_pieces_spawn_counts) so it now limits amount of pieces properly and not cause weird behavior.
 
 
 ### **(V.3.3.0 Changes) (1.18.1 Minecraft)**

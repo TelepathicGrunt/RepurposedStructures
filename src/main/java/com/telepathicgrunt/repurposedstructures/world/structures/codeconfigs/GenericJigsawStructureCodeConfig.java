@@ -21,11 +21,13 @@ public class GenericJigsawStructureCodeConfig {
     public final int fixedYSpawn;
     public final boolean useHeightmap;
     public final boolean cannotSpawnInWater;
+    public final Set<ResourceLocation> poolsThatIgnoreBounds;
 
     public GenericJigsawStructureCodeConfig(ResourceLocation poolID, int structureSize, int centerOffset, int biomeRange,
                                             int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                             int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit,
-                                            int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater)
+                                            int fixedYSpawn, boolean useHeightmap, boolean cannotSpawnInWater,
+                                            Set<ResourceLocation> poolsThatIgnoreBounds)
     {
         this.startPool = poolID;
         this.structureSize = structureSize;
@@ -39,6 +41,7 @@ public class GenericJigsawStructureCodeConfig {
         this.fixedYSpawn = fixedYSpawn;
         this.useHeightmap = useHeightmap;
         this.cannotSpawnInWater = cannotSpawnInWater;
+        this.poolsThatIgnoreBounds = poolsThatIgnoreBounds;
 
         RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
@@ -56,6 +59,7 @@ public class GenericJigsawStructureCodeConfig {
         protected int fixedYSpawn = 0;
         protected boolean useHeightmap = true;
         protected boolean cannotSpawnInWater = false;
+        protected Set<ResourceLocation> poolsThatIgnoreBounds;
 
         public Builder(ResourceLocation startPool) {
             this.startPool = startPool;
@@ -121,6 +125,11 @@ public class GenericJigsawStructureCodeConfig {
             return getThis();
         }
 
+        public T setPoolsThatIgnoreBounds(Set<ResourceLocation> poolsThatIgnoreBounds) {
+            this.poolsThatIgnoreBounds = poolsThatIgnoreBounds;
+            return getThis();
+        }
+
         public GenericJigsawStructureCodeConfig build() {
             return new GenericJigsawStructureCodeConfig(
                     startPool,
@@ -134,7 +143,8 @@ public class GenericJigsawStructureCodeConfig {
                     minHeightLimit,
                     fixedYSpawn,
                     useHeightmap,
-                    cannotSpawnInWater
+                    cannotSpawnInWater,
+                    poolsThatIgnoreBounds
             );
         }
     }

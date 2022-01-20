@@ -1,11 +1,11 @@
 {
-  "name": "repurposed_structures:cities/overworld/tower_top",
-  "fallback": "repurposed_structures:cities/overworld/tower_top",
+  "name": "repurposed_structures:cities/overworld/bridge_end",
+  "fallback": "repurposed_structures:cities/overworld/bridge_end",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:cities/overworld/small_tower_top",
+        "location": "repurposed_structures:cities/overworld/bridge_end",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

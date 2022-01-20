@@ -44,11 +44,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
+import java.util.Set;
 import java.util.function.BiConsumer;
 
 /**
@@ -70,6 +72,21 @@ public class PieceLimitedJigsawManager {
             boolean useHeightmap,
             int maxY,
             int minY,
+            BiConsumer<StructurePiecesBuilder, List<PoolElementStructurePiece>> structureBoundsAdjuster
+    ) {
+        return assembleJigsawStructure(context, jigsawConfig, structureID, startPos, doBoundaryAdjustments, useHeightmap, maxY, minY, new HashSet<>(), structureBoundsAdjuster);
+    }
+
+    public static Optional<PieceGenerator<NoneFeatureConfiguration>> assembleJigsawStructure(
+            PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context,
+            JigsawConfiguration jigsawConfig,
+            ResourceLocation structureID,
+            BlockPos startPos,
+            boolean doBoundaryAdjustments,
+            boolean useHeightmap,
+            int maxY,
+            int minY,
+            Set<ResourceLocation> poolsThatIgnoreBounds,
             BiConsumer<StructurePiecesBuilder, List<PoolElementStructurePiece>> structureBoundsAdjuster
     ) {
         // Get jigsaw pool registry
@@ -150,7 +167,7 @@ public class PieceLimitedJigsawManager {
                     boxOctree.addBox(AABB.of(pieceBoundingBox));
                     Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
-                    Assembler assembler = new Assembler(structureID, jigsawPoolRegistry, jigsawConfig.maxDepth(), context, components, random, requiredPieces, maxY, minY);
+                    Assembler assembler = new Assembler(structureID, jigsawPoolRegistry, jigsawConfig.maxDepth(), context, components, random, requiredPieces, maxY, minY, poolsThatIgnoreBounds);
                     assembler.availablePieces.addLast(startPieceEntry);
 
                     while (!assembler.availablePieces.isEmpty()) {
@@ -200,12 +217,14 @@ public class PieceLimitedJigsawManager {
         private final List<? super PoolElementStructurePiece> structurePieces;
         private final Random rand;
         public final Deque<Entry> availablePieces = Queues.newArrayDeque();
-        private final Map<ResourceLocation, Integer> pieceCounts;
+        private final Map<ResourceLocation, Integer> currentPieceCounts;
+        private final Map<ResourceLocation, Integer> maximumPieceCounts;
         private final Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces;
         private final int maxY;
         private final int minY;
+        private final Set<ResourceLocation> poolsThatIgnoreBounds;
 
-        public Assembler(ResourceLocation structureID, Registry<StructureTemplatePool> poolRegistry, int maxDepth, PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, List<? super PoolElementStructurePiece> structurePieces, Random rand, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, int maxY, int minY) {
+        public Assembler(ResourceLocation structureID, Registry<StructureTemplatePool> poolRegistry, int maxDepth, PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, List<? super PoolElementStructurePiece> structurePieces, Random rand, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, int maxY, int minY, Set<ResourceLocation> poolsThatIgnoreBounds) {
             this.structureID = structureID;
             this.poolRegistry = poolRegistry;
             this.maxDepth = maxDepth;
@@ -218,9 +237,13 @@ public class PieceLimitedJigsawManager {
 
             // Create map clone so we do not modify the original map.
             this.requiredPieces = requiredPieces == null ? new HashMap<>() : new HashMap<>(requiredPieces);
-            this.pieceCounts = new HashMap<>(RepurposedStructures.structurePieceCountsManager.getMaximumCountForPieces(structureID));
-            // pieceCounts will keep track of how many required pieces were spawned
-            this.requiredPieces.forEach((key, value) -> this.pieceCounts.putIfAbsent(key, value.getRequiredAmount()));
+            this.maximumPieceCounts = new HashMap<>(RepurposedStructures.structurePieceCountsManager.getMaximumCountForPieces(structureID));
+            this.poolsThatIgnoreBounds = poolsThatIgnoreBounds;
+
+            // pieceCounts will keep track of how many of the pieces we are checking were spawned
+            this.currentPieceCounts = new HashMap<>();
+            this.requiredPieces.forEach((key, value) -> this.currentPieceCounts.putIfAbsent(key, 0));
+            this.maximumPieceCounts.forEach((key, value) -> this.currentPieceCounts.putIfAbsent(key, 0));
         }
 
         public void generatePiece(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctree, int minY, int depth, boolean doBoundaryAdjustments, LevelHeightAccessor heightLimitView) {
@@ -271,19 +294,24 @@ public class PieceLimitedJigsawManager {
                     if (parentOctree.getValue() == null) {
                         parentOctree.setValue(new BoxOctree(AABB.of(pieceBoundingBox)));
                     }
-                } else {
+                }
+                else {
                     octreeToUse = boxOctree;
                     targetPieceBoundsTop = minY;
                 }
 
                 // Process the pool pieces, randomly choosing different pieces from the pool to spawn
                 if (depth != this.maxDepth) {
-                    StructurePoolElement generatedPiece = this.processList(new ArrayList<>(((StructurePoolAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView);
+                    StructurePoolElement generatedPiece = this.processList(new ArrayList<>(((StructurePoolAccessor)poolOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView, false);
                     if (generatedPiece != null) continue; // Stop here since we've already generated the piece
                 }
 
                 // Process the fallback pieces in the event none of the pool pieces work
-                this.processList(new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView);
+                boolean ignoreBounds = false;
+                if(poolsThatIgnoreBounds != null) {
+                    ignoreBounds = poolsThatIgnoreBounds.contains(jigsawBlockFallback);
+                }
+                this.processList(new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView, ignoreBounds);
             }
         }
 
@@ -303,7 +331,8 @@ public class PieceLimitedJigsawManager {
                 PoolElementStructurePiece piece,
                 int depth,
                 int targetPieceBoundsTop,
-                LevelHeightAccessor heightLimitView
+                LevelHeightAccessor heightLimitView,
+                boolean ignoreBounds
         ) {
             StructureTemplatePool.Projection piecePlacementBehavior = piece.getElement().getProjection();
             boolean isPieceRigid = piecePlacementBehavior == StructureTemplatePool.Projection.RIGID;
@@ -320,12 +349,10 @@ public class PieceLimitedJigsawManager {
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;
                 // Condition 2
                 Optional<ResourceLocation> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> {
-                    int currentCount = this.pieceCounts.get(key);
+                    int currentCount = this.currentPieceCounts.get(key);
                     StructurePieceCountsManager.RequiredPieceNeeds requiredPieceNeeds = this.requiredPieces.get(key);
                     int requireCount = requiredPieceNeeds == null ? 0 : requiredPieceNeeds.getRequiredAmount();
-                    int startCount = RepurposedStructures.structurePieceCountsManager.getMaximumCountForPieces(structureID).getOrDefault(key, requireCount);
-
-                    return currentCount > 0 && startCount - currentCount < requireCount;
+                    return currentCount < requireCount;
                 }).findFirst();
 
                 if (pieceNeededToSpawn.isPresent()) {
@@ -372,8 +399,8 @@ public class PieceLimitedJigsawManager {
                 ResourceLocation pieceName = null;
                 if(candidatePiece instanceof SinglePoolElement) {
                     pieceName = ((SinglePoolElementAccessor) candidatePiece).repurposedstructures_getTemplate().left().get();
-                    if (this.pieceCounts.containsKey(pieceName)) {
-                        if (this.pieceCounts.get(pieceName) <= 0) {
+                    if (this.currentPieceCounts.containsKey(pieceName) && this.maximumPieceCounts.containsKey(pieceName)) {
+                        if (this.currentPieceCounts.get(pieceName) >= this.maximumPieceCounts.get(pieceName)) {
                             // Remove this piece from the list of candidates and retry.
                             totalCount -= chosenPiecePair.getSecond();
                             candidatePieces.remove(chosenPiecePair);
@@ -394,7 +421,8 @@ public class PieceLimitedJigsawManager {
                         candidateHeightAdjustments = candidateJigsawBlocks.stream().mapToInt((pieceCandidateJigsawBlock) -> {
                             if (!tempCandidateBoundingBox.isInside(pieceCandidateJigsawBlock.pos.relative(JigsawBlock.getFrontFacing(pieceCandidateJigsawBlock.state)))) {
                                 return 0;
-                            } else {
+                            }
+                            else {
                                 ResourceLocation candidateTargetPool = new ResourceLocation(pieceCandidateJigsawBlock.nbt.getString("pool"));
                                 Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(candidateTargetPool);
                                 Optional<StructureTemplatePool> candidateTargetFallbackOptional = candidateTargetPoolOptional.flatMap((p_242843_1_) -> this.poolRegistry.getOptional(p_242843_1_.getFallback()));
@@ -403,7 +431,8 @@ public class PieceLimitedJigsawManager {
                                 return Math.max(tallestCandidateTargetPoolPieceHeight, tallestCandidateTargetFallbackPieceHeight);
                             }
                         }).max().orElse(0);
-                    } else {
+                    } 
+                    else {
                         candidateHeightAdjustments = 0;
                     }
 
@@ -430,7 +459,8 @@ public class PieceLimitedJigsawManager {
                             int adjustedCandidatePieceMinY;
                             if (isPieceRigid && isCandidateRigid) {
                                 adjustedCandidatePieceMinY = pieceMinY + candidateJigsawYOffsetNeeded;
-                            } else {
+                            }
+                            else {
                                 if (surfaceHeight == -1) {
                                     surfaceHeight = this.chunkGenerator.getFirstFreeHeight(jigsawBlockPos.getX(), jigsawBlockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
                                 }
@@ -461,7 +491,7 @@ public class PieceLimitedJigsawManager {
                             boolean validBounds = false;
 
                             // Make sure new piece fits within the chosen octree without intersecting any other piece.
-                            if (boxOctreeMutableObject.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctreeMutableObject.getValue().intersectsAnyBox(axisAlignedBBDeflated)) {
+                            if (ignoreBounds || (boxOctreeMutableObject.getValue().boundaryContains(axisAlignedBBDeflated) && !boxOctreeMutableObject.getValue().intersectsAnyBox(axisAlignedBBDeflated))) {
                                 boxOctreeMutableObject.getValue().addBox(axisAlignedBB);
                                 validBounds = true;
                             }
@@ -473,7 +503,8 @@ public class PieceLimitedJigsawManager {
                                 int groundLevelDelta;
                                 if (isCandidateRigid) {
                                     groundLevelDelta = newPieceGroundLevelDelta - candidateJigsawYOffsetNeeded;
-                                } else {
+                                }
+                                else {
                                     groundLevelDelta = candidatePiece.getGroundLevelDelta();
                                 }
 
@@ -491,9 +522,11 @@ public class PieceLimitedJigsawManager {
                                 int candidateJigsawBlockY;
                                 if (isPieceRigid) {
                                     candidateJigsawBlockY = pieceMinY + jigsawBlockRelativeY;
-                                } else if (isCandidateRigid) {
+                                }
+                                else if (isCandidateRigid) {
                                     candidateJigsawBlockY = adjustedCandidatePieceMinY + candidateJigsawBlockRelativeY;
-                                } else {
+                                }
+                                else {
                                     if (surfaceHeight == -1) {
                                         surfaceHeight = this.chunkGenerator.getFirstFreeHeight(jigsawBlockPos.getX(), jigsawBlockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView);
                                     }
@@ -527,8 +560,8 @@ public class PieceLimitedJigsawManager {
                                     this.availablePieces.addLast(new Entry(newPiece, boxOctreeMutableObject, targetPieceBoundsTop, depth + 1));
                                 }
                                 // Update piece count, if an entry exists for this piece
-                                if (pieceName != null && this.pieceCounts.containsKey(pieceName)) {
-                                    this.pieceCounts.put(pieceName, this.pieceCounts.get(pieceName) - 1);
+                                if (pieceName != null && this.currentPieceCounts.containsKey(pieceName)) {
+                                    this.currentPieceCounts.put(pieceName, this.currentPieceCounts.get(pieceName) + 1);
                                 }
                                 return candidatePiece;
                             }
