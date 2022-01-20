@@ -1,0 +1,12 @@
+{
+  "pieces_spawn_counts" : [
+    {
+      "nbt_piece_name" : "repurposed_structures:cities/nether/fat_tower_top",
+      "always_spawn_this_many" : 2
+    },
+    {
+      "nbt_piece_name" : "repurposed_structures:cities/nether/small_tower_top",
+      "always_spawn_this_many" : 2
+    }
+  ]
+}

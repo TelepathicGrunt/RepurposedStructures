@@ -16,9 +16,10 @@ public class GenericNetherJigsawStructureCodeConfig extends GenericJigsawStructu
                                                   int structureBlacklistRange, Set<RSStructureTagMap.STRUCTURE_TAGS> avoidStructuresSet,
                                                   int allowTerrainHeightRange, int terrainHeightRadius, int minHeightLimit, int fixedYSpawn,
                                                   boolean useHeightmap, boolean cannotSpawnInWater, boolean highestLandSearch,
-                                                  boolean canPlaceOnLiquid, int ledgeSpotOffset, int liquidSpotOffset)
+                                                  boolean canPlaceOnLiquid, int ledgeSpotOffset, int liquidSpotOffset,
+                                                  Set<ResourceLocation> poolsThatIgnoreBounds)
     {
-        super(startPool, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, minHeightLimit, fixedYSpawn, useHeightmap, cannotSpawnInWater);
+        super(startPool, structureSize, centerOffset, biomeRange, structureBlacklistRange, avoidStructuresSet, allowTerrainHeightRange, terrainHeightRadius, minHeightLimit, fixedYSpawn, useHeightmap, cannotSpawnInWater, poolsThatIgnoreBounds);
         this.highestLandSearch = highestLandSearch;
         this.canPlaceOnLiquid = canPlaceOnLiquid;
         this.ledgeSpotOffset = ledgeSpotOffset;
@@ -73,7 +74,8 @@ public class GenericNetherJigsawStructureCodeConfig extends GenericJigsawStructu
                     highestLandSearch,
                     canPlaceOnLiquid,
                     ledgeSpotOffset,
-                    liquidSpotOffset);
+                    liquidSpotOffset,
+                    poolsThatIgnoreBounds);
         }
     }
 }

@@ -127,6 +127,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                 config.useHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
+                config.poolsThatIgnoreBounds,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     pieces.get(0).move(0, config.centerOffset, 0);

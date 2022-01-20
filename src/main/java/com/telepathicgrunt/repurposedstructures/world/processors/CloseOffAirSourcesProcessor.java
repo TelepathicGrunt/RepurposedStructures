@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -48,11 +49,15 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
         ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
+        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(currentChunkPos)) {
+            return infoIn2;
+        }
+
         if(!infoIn2.state.getFluidState().isEmpty()) {
-            ChunkAccess currentChunk = worldReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
             Fluid currentFluid = infoIn2.state.getFluidState().getType();
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
@@ -65,7 +70,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                 }
 
                 if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
-                    currentChunk = worldReader.getChunk(mutable);
+                    currentChunk = levelReader.getChunk(mutable);
                     currentChunkPos = new ChunkPos(mutable);
                 }
 
@@ -73,7 +78,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                 // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                 // even though everything seemed to be safe and fine.
                 LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                if(worldReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
+                if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
                     int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
                     if (levelChunkSection == null) continue;

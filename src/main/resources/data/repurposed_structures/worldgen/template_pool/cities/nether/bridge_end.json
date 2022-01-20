@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:cities/nether/bridge_end",
+  "fallback": "repurposed_structures:cities/nether/bridge_end",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:cities/nether/bridge_end",
+        "processors": "repurposed_structures:cities/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
