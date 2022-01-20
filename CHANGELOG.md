@@ -1,7 +1,7 @@
 ### **(V.4.2.3 Changes) (1.18.1 Minecraft)**
 
 #### Cities:
-Changed default config value for Overworld Cities from 1200 to 700. 
+Changed default config value for Overworld Cities from 1200 to 180. 
   You'll have to edit the config yourself if you already started game with older v4.2.X versions of RS.
 
 Improved Overworld City's resistance to lightning from thunderstorms.
