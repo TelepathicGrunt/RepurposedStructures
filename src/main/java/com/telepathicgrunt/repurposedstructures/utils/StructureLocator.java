@@ -15,7 +15,7 @@ public final class StructureLocator {
     public static BlockPos returnClosestStronghold(BlockPos blockPos, ServerLevel world, BlockPos playerPos) {
         ChunkGenerator chunkGenerator = world.getChunkSource().getGenerator();
         BlockPos closestPos = blockPos;
-        for(StructureFeature<?> strongholdVariant : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.STRONGHOLD)) {
+        for(StructureFeature<?> strongholdVariant : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.CITIES)) {
             closestPos = returnCloserPos(closestPos, chunkGenerator.findNearestMapFeature(world, strongholdVariant, playerPos, 100, false), playerPos);
         }
         return closestPos;

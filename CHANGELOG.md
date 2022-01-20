@@ -14,6 +14,12 @@ Fixed Bridge End pieces not spawning sometimes in Overworld and Nether Cities.
 
 Nether Cities now always have 3 branches at minimum.
 
+#### Outposts:
+RS Outposts will not spawn near Overworld Cities now.
+
+#### Ruins:
+Cold and Icy Land Ruins will not let lake features spawn in them now.
+
 #### Misc:
 Fixed some processors that were placing blocks multiple times.
 
