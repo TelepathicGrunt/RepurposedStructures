@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.Mutable;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
+import net.minecraft.SharedConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -127,6 +128,7 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
                 config.useHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
+                config.poolsThatIgnoreBounds,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     pieces.get(0).move(0, config.centerOffset, 0);

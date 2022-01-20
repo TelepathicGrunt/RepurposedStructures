@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:cities/nether/room",
-  "fallback": "repurposed_structures:cities/nether/no_stair_room",
+  "fallback": "repurposed_structures:cities/nether/bridge_end",
   "elements": [
     {
       "weight": 7,
