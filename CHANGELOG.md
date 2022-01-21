@@ -1,3 +1,16 @@
+### **(V.4.2.4 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+End Mineshafts loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
+Instead, it'll have Beetroot Stew and more Chorus Fruit as replacements.
+
+#### Dungeons:
+End Dungeons loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
+Instead, it'll have Beetroot Stew and more Chorus Fruit as replacements.
+
+End Dungeon's End Portal block is now replaced with Crying Obsidian.
+
+
 ### **(V.4.2.3 Changes) (1.18.1 Minecraft)**
 
 #### Cities:
