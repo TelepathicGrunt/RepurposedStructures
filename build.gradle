@@ -89,7 +89,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	int projectId = 391366
 	String changelogText = new File("CHANGELOG.md").getText('UTF-8')
 
-	def mainFile = upload(projectId, jar)
+	def mainFile = upload(projectId, remapJar)
 	mainFile.changelog = changelogText
 	mainFile.changelogType = "markdown"
 	mainFile.releaseType = "release"
@@ -105,4 +105,5 @@ task buildAndRelease{}
 tasks.publish.mustRunAfter tasks.build
 tasks.publishCurseForge.mustRunAfter tasks.publish
 tasks.publishModrinth.mustRunAfter tasks.publish
+tasks.publishCurseForge.dependsOn("remapJar")
 tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)

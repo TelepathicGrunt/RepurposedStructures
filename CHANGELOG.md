@@ -1,3 +1,9 @@
+### **(V.3.3.3 Changes) (1.18.1 Minecraft)**
+
+#### Major:
+Fixed system for uploading to curseforge so curseforge gets proper non-dev jar. Sorry about that.
+
+
 ### **(V.3.3.2 Changes) (1.18.1 Minecraft)**
 
 #### Major:
