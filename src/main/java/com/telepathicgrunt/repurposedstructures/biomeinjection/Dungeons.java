@@ -1,21 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
-import com.google.gson.JsonElement;
 import com.telepathicgrunt.repurposedstructures.configs.RSDungeonsConfig;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.utils.BiomeSelection;
-import com.telepathicgrunt.repurposedstructures.utils.CodecCache;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-
-import java.util.Optional;
-import java.util.function.Supplier;
 
 public final class Dungeons {
     private Dungeons() {}

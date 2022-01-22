@@ -17,7 +17,6 @@ import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.MobSpawningOverTime;
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
 import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureSettingsAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.world.ChunkGeneratorAccessor;
@@ -153,6 +152,8 @@ public class RepurposedStructures {
                     structureMap.putAll(RSStructures.RS_STRUCTURES);
                 }
             });
+
+            //StructureSpacingDebugging.registerStructureDebugging(RSStructures.BASTION_UNDERGROUND);
         });
     }
 

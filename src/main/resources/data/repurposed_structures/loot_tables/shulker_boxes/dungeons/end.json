@@ -482,19 +482,9 @@
           ]
         },
         {
-          "name": "minecraft:chorus_flower",
+          "name": "minecraft:beetroot_soup",
           "type": "minecraft:item",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
+          "weight": 20
         },
         {
           "name": "minecraft:beetroot_seeds",
@@ -592,7 +582,7 @@
           ]
         },
         {
-          "name": "minecraft:chorus_plant",
+          "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [

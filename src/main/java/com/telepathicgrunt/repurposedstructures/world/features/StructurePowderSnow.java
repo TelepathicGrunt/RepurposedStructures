@@ -1,24 +1,16 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.primitives.Doubles;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.OpenSimplex2F;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureRangeConfig;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-
-import java.util.List;
-import java.util.Random;
 
 
 public class StructurePowderSnow extends Feature<StructureRangeConfig> {

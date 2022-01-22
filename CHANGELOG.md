@@ -1,3 +1,24 @@
+### **(V.4.2.4 Changes) (1.18.1 Minecraft)**
+
+#### Major:
+Now hard requires No Null Processor mod and NBT Deadlock Be Gone mod to help prevent issues during chunk pregenning or multiplayer gameplay.
+  These two mods fixes two nasty rare Minecraft bugs that impact structures/features. But it does affect some people so these two mods should help.
+
+#### Bastions:
+Changed default config value for Underground Bastions from 400 to 180.
+ You'll have to edit the config yourself to the new value if you already started game with any versions of RS older than v4.2.4.
+
+#### Mineshafts:
+End Mineshafts loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
+  Instead, it'll have Beetroot Soup and more Chorus Fruit as replacements.
+
+#### Dungeons:
+End Dungeons loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
+  Instead, it'll have Beetroot Soup and more Chorus Fruit as replacements.
+
+End Dungeon's End Portal block is now replaced with Crying Obsidian.
+
+
 ### **(V.4.2.3 Changes) (1.18.1 Minecraft)**
 
 #### Cities:
