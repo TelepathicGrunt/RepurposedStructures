@@ -8,9 +8,12 @@ buildscript {
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
         classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
     }
+}
+
+plugins {
+    id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
 apply plugin: 'net.minecraftforge.gradle'
@@ -113,11 +116,24 @@ mixin {
 apply from: 'gradle/processresources.gradle'
 apply from: 'gradle/manifest.gradle'
 apply from: 'gradle/maven.gradle'
-apply from: 'gradle/curseforge.gradle'
 apply from: 'gradle/modrinth.gradle'
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    apiToken = "$System.env.CURSEFORGEKEY"
+    int projectId = 368293
+    String changelogText = new File("CHANGELOG.md").getText('UTF-8')
+
+    def mainFile = upload(projectId, jar)
+    mainFile.changelog = changelogText
+    mainFile.changelogType = "markdown"
+    mainFile.releaseType = "release"
+    mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
+    mainFile.addRequirement("no-null-processors")
+    mainFile.addRequirement("feature-nbt-deadlock-be-gone")
+}
+
 
 task buildAndRelease{}
 tasks.publish.mustRunAfter tasks.build
-tasks.curseforge.mustRunAfter tasks.publish
+tasks.publishCurseForge.mustRunAfter tasks.publish
 tasks.publishModrinth.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.curseforge, tasks.publishModrinth)
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
