@@ -6,7 +6,6 @@ buildscript {
 		maven { url "https://plugins.gradle.org/m2/" }
 	}
 	dependencies {
-		classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.4.0"
 		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
 	}
 }
@@ -14,6 +13,7 @@ buildscript {
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'io.github.juuxel.loom-quiltflower-mini' version '1.1.0'
+	id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -49,17 +49,13 @@ if (project.use_third_party_mods) {
 	repositories {
 		maven {	url "https://nexus.resourcefulbees.com/repository/maven-public/" }
 		maven { url "https://www.cursemaven.com" }
-		//flatDir { dirs 'deps' }
 	}
 
 	dependencies {
-		//implementation group: 'org.openjdk.jol', name: 'jol-core', version: '0.16'
-		// Example usage: System.out.println(ClassLayout.parseClass(Gson.class).toPrintable());
-
-		modRuntimeOnly "com.telepathicgrunt:LoadNbtBlock:3.0.0+1.18-pre5"
 		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
-		//modRuntimeOnly "com.telepathicgrunt:Blame-Fabric:1.17-4.0.0-fabric"
-		//modRuntimeOnly "al:cyanide-fabric:1.17.1-1.2.1-pre.1-dev"
+		modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:1.4.1+1.18.1"
+		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:1.0.0+1.18.1"
+		modRuntimeOnly "com.telepathicgrunt:NoNullProcessors:2.0.1+1.18.1"
 
 		//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
 		//modRuntimeOnly "curse.maven:charm-318872:3393290"
@@ -87,11 +83,26 @@ jar {
 }
 
 apply from: 'gradle/maven.gradle'
-apply from: 'gradle/curseforge.gradle'
 apply from: 'gradle/modrinth.gradle'
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+	apiToken = "$System.env.CURSEFORGEKEY"
+	int projectId = 391366
+	String changelogText = new File("CHANGELOG.md").getText('UTF-8')
+
+	def mainFile = upload(projectId, jar)
+	mainFile.changelog = changelogText
+	mainFile.changelogType = "markdown"
+	mainFile.releaseType = "release"
+	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
+	mainFile.addRequirement("cloth-config")
+	mainFile.addRequirement("fabric-api")
+	mainFile.addRequirement("no-null-processors")
+	mainFile.addRequirement("feature-nbt-deadlock-be-gone")
+}
+
 
 task buildAndRelease{}
 tasks.publish.mustRunAfter tasks.build
-tasks.curseforge.mustRunAfter tasks.publish
+tasks.publishCurseForge.mustRunAfter tasks.publish
 tasks.publishModrinth.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.curseforge, tasks.publishModrinth)
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
