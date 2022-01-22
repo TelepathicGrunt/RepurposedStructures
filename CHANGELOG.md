@@ -1,5 +1,9 @@
 ### **(V.3.3.2 Changes) (1.18.1 Minecraft)**
 
+#### Major:
+Now hard requires No Null Processor mod and NBT Deadlock Be Gone mod to help prevent issues during chunk pregenning or multiplayer gameplay.
+  These two mods fixes two nasty rare Minecraft bugs that impact structures/features. But it does affect some people so these two mods should help.
+
 #### Mineshafts:
 End Mineshafts loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
   Instead, it'll have Beetroot Stew and more Chorus Fruit as replacements.

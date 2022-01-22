@@ -34,10 +34,9 @@
     "fabricloader": ">=0.12.9",
     "minecraft": ">=1.18.1",
     "fabric": ">=0.43.1",
-    "cloth-config2": ">=6.0.42"
-  },
-  "recommends": {
-    "no_null_processors": ">=1.0.0"
+    "cloth-config2": ">=6.0.42",
+    "no_null_processors": ">=1.0.0",
+    "feature_nbt_deadlock_be_gone": ">=1.0.0"
   },
   "custom": {
     "notify_gradle_properties_url": "https://raw.githubusercontent.com/TelepathicGrunt/RepurposedStructures-Fabric/latest-released/gradle.properties",
