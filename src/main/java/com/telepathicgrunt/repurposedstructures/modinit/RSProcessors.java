@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.TickBlocksProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
@@ -17,6 +16,7 @@ import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceAirOnlyP
 import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceLiquidOnlyProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.SpawnerRandomizingProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.StructureVoidProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.TickBlocksProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.WallVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.WaterloggingFixProcessor;
 import net.minecraft.core.Registry;

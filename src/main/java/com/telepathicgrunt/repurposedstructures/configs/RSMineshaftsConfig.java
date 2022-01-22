@@ -381,7 +381,7 @@ public class RSMineshaftsConfig implements ConfigData {
 
                 Max Y height of Mineshaft
                 If below min height, this will be read as min.""")
-        public int oceanMineshaftMaxHeight = 30;
+        public int oceanMineshaftMaxHeight = 25;
 
         @ConfigEntry.Gui.Tooltip(count = 0)
         @ConfigEntry.Gui.RequiresRestart

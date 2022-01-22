@@ -4,11 +4,8 @@ package com.telepathicgrunt.repurposedstructures.configs;
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
 
-import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class RSAllowDisallowOmegaConfig implements Config {
