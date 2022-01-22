@@ -19,6 +19,6 @@ public class RSBastionsConfig {
 						" biomes not tagged as ocean, beach, end, nether, or none category.",
 						" 1 for spawning in most chunks and 10001 for none.")
 				.translation("repurposedstructures.bastionundergroundaveragechunkdistance")
-				.defineInRange("bastionUndergroundAverageChunkDistance", 400, 1, 10001);
+				.defineInRange("bastionUndergroundAverageChunkDistance", 180, 1, 10001);
 	}
 }

@@ -240,7 +240,7 @@ public class RSMineshaftsConfig {
 
         oceanMineshaftMaxHeight = builder
                 .translation("repurposedstructures.oceanmineshaftmaxheight")
-                .define("oceanMineshaftMaxHeight", 30);
+                .define("oceanMineshaftMaxHeight", 25);
 
         netherMineshaftMaxHeight = builder
                 .translation("repurposedstructures.nethermineshaftmaxheight")
