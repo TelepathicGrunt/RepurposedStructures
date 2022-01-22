@@ -25,3 +25,13 @@ Taking existing vanilla structures and changing them up for extra variety!
     modId="forge"
     mandatory=true
     versionRange="[39.0.0,)"
+
+[[dependencies.repurposed_structures]]
+    modId="feature_nbt_deadlock_be_gone"
+    mandatory=true
+    versionRange="*"
+
+[[dependencies.repurposed_structures]]
+    modId="no_null_processors"
+    mandatory=true
+    versionRange="*"
