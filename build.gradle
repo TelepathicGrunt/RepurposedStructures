@@ -88,8 +88,9 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	apiToken = "$System.env.CURSEFORGEKEY"
 	int projectId = 391366
 	String changelogText = new File("CHANGELOG.md").getText('UTF-8')
+	File remappedJar = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
 
-	def mainFile = upload(projectId, jar)
+	def mainFile = upload(projectId, remappedJar)
 	mainFile.changelog = changelogText
 	mainFile.changelogType = "markdown"
 	mainFile.releaseType = "release"
