@@ -97,7 +97,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
         }
         blockpos$Mutable.set(context.origin());
         BlockPos offset = new BlockPos(-template.get().getSize().getX() / 2, context.config().heightOffset, -template.get().getSize().getZ() / 2);
-        template.get().placeInWorld(context.level(), blockpos$Mutable.offset(offset), blockpos$Mutable.offset(offset), placementsettings, context.random(), Block.UPDATE_INVISIBLE);
+        template.get().placeInWorld(context.level(), blockpos$Mutable.offset(offset), blockpos$Mutable.offset(offset), placementsettings, context.random(), Block.UPDATE_CLIENTS);
 
         return true;
     }
