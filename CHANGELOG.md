@@ -6,11 +6,11 @@ Now hard requires No Null Processor mod and NBT Deadlock Be Gone mod to help pre
 
 #### Mineshafts:
 End Mineshafts loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
-  Instead, it'll have Beetroot Stew and more Chorus Fruit as replacements.
+  Instead, it'll have Beetroot Soup and more Chorus Fruit as replacements.
 
 #### Dungeons:
 End Dungeons loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
- Instead, it'll have Beetroot Stew and more Chorus Fruit as replacements.
+ Instead, it'll have Beetroot Soup and more Chorus Fruit as replacements.
 
 End Dungeon's End Portal block is now replaced with Crying Obsidian.
 
