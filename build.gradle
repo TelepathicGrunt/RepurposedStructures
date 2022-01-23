@@ -72,6 +72,8 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:NoNullProcessors-Forge:2.0.2+1.18.1")
 
     // 1.18.1
+    runtimeOnly fg.deobf("curse.maven:shutup_experimental_settings-407174:3544525")
+    //runtimeOnly fg.deobf("curse.maven:terralith-513688:3606078")
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
     //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3562165")
 
@@ -127,7 +129,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     def mainFile = upload(projectId, jar)
     mainFile.changelog = changelogText
     mainFile.changelogType = "markdown"
-    mainFile.releaseType = "release"
+    mainFile.releaseType = "beta"
     mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
     mainFile.addRequirement("no-null-processors")
     mainFile.addRequirement("feature-nbt-deadlock-be-gone")

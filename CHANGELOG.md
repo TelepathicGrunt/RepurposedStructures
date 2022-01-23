@@ -1,3 +1,17 @@
+### **(V.4.2.5 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Ocean Mineshafts and End Mineshafts will no longer place blocks if it has an unobstructed view of the sky above.
+
+Ocean Mineshaft's default min y config value is now set to 5.
+
+#### Misc:
+Tried doing a slight optimization to make sure RS structures do not do any checks for spawning if the world's biome source
+ cannot spawn a biome that contains said structure. Let me know if any issues arise. (Probably not noticable)
+
+Fixed a rare null crash from my GeneralUtils.isFullCube code that is supposed to cache if a block is a full cube or not.
+
+
 ### **(V.4.2.4 Changes) (1.18.1 Minecraft)**
 
 #### Major:
