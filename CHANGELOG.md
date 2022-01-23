@@ -1,3 +1,9 @@
+### **(V.3.3.4 Changes) (1.18.1 Minecraft)**
+
+#### Misc:
+Fixed a rare null crash from my GeneralUtils.isFullCube code that is supposed to cache if a block is a full cube or not.
+
+
 ### **(V.3.3.3 Changes) (1.18.1 Minecraft)**
 
 #### Major:

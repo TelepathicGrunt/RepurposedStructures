@@ -62,6 +62,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -89,14 +90,12 @@ public final class GeneralUtils {
     }
 
     //////////////////////////////
-    private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new HashMap<>();
+
+    private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new ConcurrentHashMap<>();
 
     public static boolean isFullCube(BlockGetter world, BlockPos pos, BlockState state) {
-        if(!IS_FULLCUBE_MAP.containsKey(state)) {
-            boolean isFullCube = Block.isShapeFullBlock(state.getOcclusionShape(world, pos));
-            IS_FULLCUBE_MAP.put(state, isFullCube);
-        }
-        return IS_FULLCUBE_MAP.get(state);
+        if(state == null) return false;
+        return IS_FULLCUBE_MAP.computeIfAbsent(state, (stateIn) -> Block.isShapeFullBlock(stateIn.getOcclusionShape(world, pos)));
     }
 
     //////////////////////////////
