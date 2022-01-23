@@ -51,6 +51,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public class RepurposedStructures implements ModInitializer {
@@ -98,9 +100,11 @@ public class RepurposedStructures implements ModInitializer {
         ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
 
         // Controls the dimension blacklisting
-        ServerWorldEvents.LOAD.register(runAfterFabricAPIPhase, (MinecraftServer minecraftServer, ServerLevel serverWorld) -> {
+        ServerWorldEvents.LOAD.register(runAfterFabricAPIPhase, (MinecraftServer minecraftServer, ServerLevel serverLevel) -> {
             // We will need this a lot lol
-            StructureSettings worldStructureSettings = serverWorld.getChunkSource().getGenerator().getSettings();
+            StructureSettings worldStructureSettings = serverLevel.getChunkSource().getGenerator().getSettings();
+            Registry<Biome> biomeRegistry = serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+            Set<Biome> possibleBiomes = serverLevel.getChunkSource().getGenerator().getBiomeSource().possibleBiomes();
 
             //////////// BIOME BASED STRUCTURE SPAWNING ////////////
             /*
@@ -113,7 +117,7 @@ public class RepurposedStructures implements ModInitializer {
             // We will inject our structures into that map/multimap
             Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
             ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
-            BiomeInjection.addStructureToBiomes(tempStructureToMultiMap, minecraftServer.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
+            BiomeInjection.addStructureToBiomes(tempStructureToMultiMap, biomeRegistry);
 
             // for debugging purposes
 //            StringBuilder stringBuilder = new StringBuilder();
@@ -151,14 +155,21 @@ public class RepurposedStructures implements ModInitializer {
             Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(worldStructureSettings.structureConfig());
 
             // make absolutely sure superflat dimension cannot spawn RS structures
-            if (serverWorld.getChunkSource().getGenerator() instanceof FlatLevelSource && serverWorld.dimension().equals(Level.OVERWORLD)) {
+            if (serverLevel.getChunkSource().getGenerator() instanceof FlatLevelSource && serverLevel.dimension().equals(Level.OVERWORLD)) {
                 tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
             }
             // Not superflat overworld. Do normal behavior now
             else{
                 for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()) {
-                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverWorld, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
-                    if (isWorldBlacklisted) {
+                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverLevel, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
+
+                    // Remove structure spacing config if biome source cannot spawn biome.
+                    // Should help optimize the game to skip checking these structures as MC doesn't seem to do it by default? Weird.
+                    var validBiomesForStructure = serverLevel.getChunkSource().getGenerator().getSettings()
+                            .structures(structureFeatureEntry.getKey()).values().stream().map(biomeRegistry::get).
+                            collect(Collectors.toSet());
+
+                    if (isWorldBlacklisted || validBiomesForStructure.stream().noneMatch(possibleBiomes::contains)) {
                         // make absolutely sure dimension cannot spawn the RS structure
                         tempMap.remove(structureFeatureEntry.getKey());
                     }
