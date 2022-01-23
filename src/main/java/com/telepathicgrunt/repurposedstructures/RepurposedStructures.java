@@ -248,7 +248,7 @@ public class RepurposedStructures {
                             .structures(structureFeatureEntry.getKey()).values().stream().map(biomeRegistry::get).
                             collect(Collectors.toSet());
 
-                    if (isWorldBlacklisted) {
+                    if (isWorldBlacklisted || validBiomesForStructure.stream().noneMatch(possibleBiomes::contains)) {
                         // make absolutely sure dimension cannot spawn the RS structure
                         tempMap.remove(structureFeatureEntry.getKey());
                     }
