@@ -72,6 +72,7 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:NoNullProcessors-Forge:2.0.2+1.18.1")
 
     // 1.18.1
+    //runtimeOnly fg.deobf("curse.maven:terralith-513688:3606078")
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
     //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3562165")
 
