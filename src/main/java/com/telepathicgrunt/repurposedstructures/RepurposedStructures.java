@@ -64,6 +64,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Mod(RepurposedStructures.MODID)
@@ -193,6 +195,8 @@ public class RepurposedStructures {
 
             // We will need this a lot lol
             StructureSettings worldStructureSettings = serverLevel.getChunkSource().getGenerator().getSettings();
+            Registry<Biome> biomeRegistry = serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+            Set<Biome> possibleBiomes = serverLevel.getChunkSource().getGenerator().getBiomeSource().possibleBiomes();
 
             //////////// BIOME BASED STRUCTURE SPAWNING ////////////
             /*
@@ -205,7 +209,7 @@ public class RepurposedStructures {
             // We will inject our structures into that map/multimap
             Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
             ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
-            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY));
+            TemporaryBiomeInjection.addStructureToBiomes(tempStructureToMultiMap, biomeRegistry);
 
             // Turn the entire map and the inner multimaps to immutable to match the source code's require type
             ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> immutableOuterMap = ImmutableMap.builder();
@@ -237,7 +241,14 @@ public class RepurposedStructures {
             else {
                 for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()){
                     boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverLevel, ForgeRegistries.STRUCTURE_FEATURES.getKey(structureFeatureEntry.getKey()));
-                    if (isWorldBlacklisted){
+
+                    // Remove structure spacing config if biome source cannot spawn biome.
+                    // Should help optimize the game to skip checking these structures as MC doesn't seem to do it by default? Weird.
+                    var validBiomesForStructure = serverLevel.getChunkSource().getGenerator().getSettings()
+                            .structures(structureFeatureEntry.getKey()).values().stream().map(biomeRegistry::get).
+                            collect(Collectors.toSet());
+
+                    if (isWorldBlacklisted) {
                         // make absolutely sure dimension cannot spawn the RS structure
                         tempMap.remove(structureFeatureEntry.getKey());
                     }
