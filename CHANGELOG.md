@@ -1,3 +1,9 @@
+### **(V.4.2.6 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Fixed Ocean Mineshafts chests accidentally spawning Birch Mineshaft's loot tables
+
+
 ### **(V.4.2.5 Changes) (1.18.1 Minecraft)**
 
 #### Mineshafts:
