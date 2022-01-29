@@ -1,3 +1,15 @@
+### **(V.3.3.6 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Fixed Ocean Mineshafts chests accidentally spawning Birch Mineshaft's loot tables
+
+
+### **(V.3.3.5 Changes) (1.18.1 Minecraft)**
+
+#### Lang:
+Updated ru_ru.json lang file. (Special thanks to DrHesperus!)
+
+
 ### **(V.3.3.4 Changes) (1.18.1 Minecraft)**
 
 #### Mineshafts:
