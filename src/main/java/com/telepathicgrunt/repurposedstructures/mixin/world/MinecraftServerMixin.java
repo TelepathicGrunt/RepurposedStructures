@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.mixin.world;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.NoiseSettingsDeepCopier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;

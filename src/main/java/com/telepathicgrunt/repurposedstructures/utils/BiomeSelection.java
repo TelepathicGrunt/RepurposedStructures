@@ -1,8 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
-import com.google.common.collect.Multimap;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.biomeinjection.BiomeInjection;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -11,7 +9,6 @@ import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
