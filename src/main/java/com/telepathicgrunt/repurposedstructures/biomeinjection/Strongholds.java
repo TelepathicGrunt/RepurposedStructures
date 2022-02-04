@@ -10,21 +10,19 @@ import net.minecraft.world.level.biome.Biomes;
 public final class Strongholds {
     private Strongholds() {}
 
-    public static void addStrongholds(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addStrongholds() {
 
-        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.STRONGHOLD_NETHER,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
-        {
-            event.addStructure(RSConfiguredStructures.STRONGHOLD_NETHER);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.STRONGHOLD_NETHER, (event) ->
+            (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.nether.netherStrongholdAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.STRONGHOLD_NETHER,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.STRONGHOLD_END,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) &&
-                    !BiomeSelection.isBiomeTemp(event, Biomes.SMALL_END_ISLANDS)))
-        {
-            event.addStructure(RSConfiguredStructures.STRONGHOLD_END);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.STRONGHOLD_END, (event) ->
+            (RepurposedStructures.RSAllConfig.RSStrongholdsConfig.end.endStrongholdAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.STRONGHOLD_END,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.THEEND) &&
+                    !BiomeSelection.isBiome(event, Biomes.SMALL_END_ISLANDS)))
+        );
     }
 }

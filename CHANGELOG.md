@@ -1,3 +1,11 @@
+### **(V.3.3.7 Changes) (1.18.1 Minecraft)**
+
+#### Hotfix:
+Fixed issue where due to Fabric API 0.46.3+, Repurposed Structures was preventing other structure mod's from spawning.
+ Now RS is using more of Fabric API's stuff and moves my own code to fix this issue. 
+ As a result, Repurposed Structures now requires Fabric API to be 0.46.3 or newer.
+
+
 ### **(V.3.3.6 Changes) (1.18.1 Minecraft)**
 
 #### Mineshafts:

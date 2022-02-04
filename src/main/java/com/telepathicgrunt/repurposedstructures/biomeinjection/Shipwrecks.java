@@ -10,39 +10,35 @@ import net.minecraft.world.level.biome.Biomes;
 public final class Shipwrecks {
     private Shipwrecks() {}
 
-    public static void addShipwrecks(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addShipwrecks() {
 
-        if (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.endShipwreckAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.SHIPWRECK_END,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) &&
-                    !BiomeSelection.isBiomeTemp(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
-        {
-            event.addStructure(RSConfiguredStructures.SHIPWRECK_END);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.SHIPWRECK_END, (event) ->
+            (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.endShipwreckAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_END,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.THEEND) &&
+                    !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
+        );
 
         //Nether based Shipwrecks
-        if (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.crimsonShipwreckAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.SHIPWRECK_CRIMSON,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "crimson", "red_")))
-        {
-            event.addStructure(RSConfiguredStructures.SHIPWRECK_CRIMSON);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.SHIPWRECK_CRIMSON, (event) ->
+            (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.crimsonShipwreckAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_CRIMSON,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "crimson", "red_")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.warpedShipwreckAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.SHIPWRECK_WARPED,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "warped", "blue")))
-        {
-            event.addStructure(RSConfiguredStructures.SHIPWRECK_WARPED);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.SHIPWRECK_WARPED, (event) ->
+            (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.warpedShipwreckAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_WARPED,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "warped", "blue")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.netherBricksShipwreckAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.SHIPWRECK_NETHER_BRICKS,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    !BiomeSelection.hasNameTemp(event, "crimson", "red_", "warped", "blue")))
-        {
-            event.addStructure(RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.SHIPWRECK_NETHER_BRICKS, (event) ->
+            (RepurposedStructures.RSAllConfig.RSShipwrecksConfig.netherBricksShipwreckAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.SHIPWRECK_NETHER_BRICKS,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    !BiomeSelection.hasName(event, "crimson", "red_", "warped", "blue")))
+        );
     }
 }

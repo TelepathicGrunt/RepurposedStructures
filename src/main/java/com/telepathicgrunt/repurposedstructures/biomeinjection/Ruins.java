@@ -9,44 +9,39 @@ import net.minecraft.world.level.biome.Biome;
 public final class Ruins {
     private Ruins() {}
 
-    public static void addRuins(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addRuins() {
 
-        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsNetherAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_NETHER,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
-        {
-            event.addStructure(RSConfiguredStructures.RUINS_NETHER);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.RUINS_NETHER, (event) ->
+            (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsNetherAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_NETHER,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandWarmAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_WARM,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.SWAMP) &&
-                    !BiomeSelection.hasNameTemp(event, "snow", "ice", "frozen") &&
-                    event.biome.getBaseTemperature() >= 0.25f))
-        {
-            event.addStructure(RSConfiguredStructures.RUINS_LAND_WARM);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.RUINS_LAND_WARM, (event) ->
+            (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandWarmAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_WARM,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.SWAMP) &&
+                    !BiomeSelection.hasName(event, "snow", "ice", "frozen") &&
+                    event.getBiome().getBaseTemperature() >= 0.25f))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_HOT,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
-        {
-            event.addStructure(RSConfiguredStructures.RUINS_LAND_HOT);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.RUINS_LAND_HOT, (event) ->
+            (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandHotAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_HOT,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.DESERT)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandColdAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_COLD,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.EXTREME_HILLS, Biome.BiomeCategory.MOUNTAIN) &&
-                    event.biome.getPrecipitation() != Biome.Precipitation.SNOW))
-        {
-            event.addStructure(RSConfiguredStructures.RUINS_LAND_COLD);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.RUINS_LAND_COLD, (event) ->
+            (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandColdAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_COLD,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.EXTREME_HILLS, Biome.BiomeCategory.MOUNTAIN) &&
+                    event.getBiome().getPrecipitation() != Biome.Precipitation.SNOW))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandIcyAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINS_LAND_ICY,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY)))
-        {
-            event.addStructure(RSConfiguredStructures.RUINS_LAND_ICY);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.RUINS_LAND_ICY, (event) ->
+            (RepurposedStructures.RSAllConfig.RSRuinsConfig.ruinsLandIcyAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINS_LAND_ICY,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY)))
+        );
     }
 }

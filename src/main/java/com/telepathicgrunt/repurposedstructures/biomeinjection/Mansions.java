@@ -10,58 +10,52 @@ import net.minecraft.world.level.biome.Biomes;
 public final class Mansions {
     private Mansions() {}
 
-    public static void addMansions(BiomeInjection.BiomeInjectionHelper event) {
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionBirchAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_BIRCH,
-                    () -> BiomeSelection.hasNameTemp(event, "birch")))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_BIRCH);
-        }
+    public static void addMansions() {
 
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionJungleAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_JUNGLE,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.JUNGLE)))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_JUNGLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_BIRCH, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionBirchAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_BIRCH,
+            () -> BiomeSelection.hasName(event, "birch")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionOakAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_OAK,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                        !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_OAK);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_JUNGLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionJungleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_JUNGLE,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.JUNGLE)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionSavannaAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_SAVANNA,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.SAVANNA) &&
-                        !BiomeSelection.isBiomeTemp(event, Biomes.SAVANNA_PLATEAU)))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_SAVANNA);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_OAK, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionOakAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_OAK,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
+            !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionTaigaAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_TAIGA,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && event.biome.getPrecipitation() != Biome.Precipitation.SNOW &&
-                        !BiomeSelection.hasNameTemp(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "glacial", "frozen")))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_TAIGA);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_SAVANNA, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionSavannaAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_SAVANNA,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.SAVANNA) &&
+            !BiomeSelection.isBiome(event, Biomes.SAVANNA_PLATEAU)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionDesertAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_DESERT,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.DESERT)))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_DESERT);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_TAIGA, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionTaigaAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_TAIGA,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA) && event.getBiome().getPrecipitation() != Biome.Precipitation.SNOW &&
+            !BiomeSelection.hasName(event, "giant", "redwood", "snow", "ice", "icy", "glacier", "glacial", "frozen")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionSnowyAverageChunkDistance != 1001 &&
-                BiomeSelection.isBiomeAllowedTemp(event, RSStructures.MANSION_SNOWY,
-                        () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) ||
-                        (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && event.biome.getPrecipitation() == Biome.Precipitation.SNOW)))
-        {
-            event.addStructure(RSConfiguredStructures.MANSION_SNOWY);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_DESERT, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionDesertAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_DESERT,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.DESERT)))
+        );
+
+        BiomeInjection.addStructure(RSConfiguredStructures.MANSION_SNOWY, (event) ->
+            (RepurposedStructures.RSAllConfig.RSMansionsConfig.mansionSnowyAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.MANSION_SNOWY,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) ||
+            (BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA) && event.getBiome().getPrecipitation() == Biome.Precipitation.SNOW)))
+        );
     }
 }

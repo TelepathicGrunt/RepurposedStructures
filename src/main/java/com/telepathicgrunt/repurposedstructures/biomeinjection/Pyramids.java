@@ -10,91 +10,80 @@ import net.minecraft.world.level.biome.Biomes;
 public final class Pyramids {
     private Pyramids() {}
 
-    public static void addPyramids(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addPyramids() {
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidNetherAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_NETHER,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER)))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_NETHER);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_NETHER, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidNetherAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_NETHER,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidBadlandsAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_BADLANDS,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MESA)))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_BADLANDS);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_BADLANDS, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidBadlandsAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_BADLANDS,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MESA)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidDarkForestAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_DARK_FOREST,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_DARK_FOREST);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_DARK_FOREST, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidDarkForestAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_DARK_FOREST,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
+                    BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidIcyAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_ICY,
-                    () -> BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
-                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) ||
-                    (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && event.biome.getBaseTemperature() < 0))))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_ICY);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_ICY, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidIcyAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_ICY,
+                    () -> BiomeSelection.hasName(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                    (BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) ||
+                    (BiomeSelection.haveCategories(event, Biome.BiomeCategory.MOUNTAIN) && event.getBiome().getBaseTemperature() < 0))))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidSnowyAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_SNOWY,
-                    () -> BiomeSelection.isBiomeTemp(event, Biomes.GROVE) ||
-                    (!BiomeSelection.hasNameTemp(event, "ice", "icy", "glacier", "glacial", "frozen") &&
-                        ((BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.ICY) && BiomeSelection.hasNameTemp(event, "snow")) ||
-                        (BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MOUNTAIN) && (event.biome.getBaseTemperature() < 0 || BiomeSelection.hasNameTemp(event, "snow")))))))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_SNOWY);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_SNOWY, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidSnowyAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_SNOWY,
+                    () -> BiomeSelection.isBiome(event, Biomes.GROVE) ||
+                    (!BiomeSelection.hasName(event, "ice", "icy", "glacier", "glacial", "frozen") &&
+                        ((BiomeSelection.haveCategories(event, Biome.BiomeCategory.ICY) && BiomeSelection.hasName(event, "snow")) ||
+                        (BiomeSelection.haveCategories(event, Biome.BiomeCategory.MOUNTAIN) && (event.getBiome().getBaseTemperature() < 0 || BiomeSelection.hasName(event, "snow")))))))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidJungleAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_JUNGLE,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.JUNGLE)))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_JUNGLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_JUNGLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidJungleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_JUNGLE,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.JUNGLE)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidMushroomAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_MUSHROOM,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MUSHROOM)))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_MUSHROOM);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_MUSHROOM, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidMushroomAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_MUSHROOM,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MUSHROOM)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidOceanAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_OCEAN,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.OCEAN)))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_OCEAN);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_OCEAN, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidOceanAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_OCEAN,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.OCEAN)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidGiantTreeTaigaAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_GIANT_TREE_TAIGA,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidGiantTreeTaigaAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_GIANT_TREE_TAIGA,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood", "old_growth")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidFlowerForestAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_FLOWER_FOREST,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.FOREST) && !BiomeSelection.isBiomeTemp(event, Biomes.SUNFLOWER_PLAINS) &&
-                    BiomeSelection.hasNameTemp(event, "flower", "blossom", "bloom")))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_FLOWER_FOREST, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidFlowerForestAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_FLOWER_FOREST,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.PLAINS, Biome.BiomeCategory.FOREST) && !BiomeSelection.isBiome(event, Biomes.SUNFLOWER_PLAINS) &&
+                    BiomeSelection.hasName(event, "flower", "blossom", "bloom")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidEndAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.PYRAMID_END,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) &&
-                    !BiomeSelection.isBiomeTemp(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
-        {
-            event.addStructure(RSConfiguredStructures.PYRAMID_END);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.PYRAMID_END, (event) ->
+            (RepurposedStructures.RSAllConfig.RSPyramidsConfig.pyramidEndAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.PYRAMID_END,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.THEEND) &&
+                    !BiomeSelection.isBiome(event, Biomes.THE_END, Biomes.SMALL_END_ISLANDS, Biomes.END_BARRENS)))
+        );
     }
 }

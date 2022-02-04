@@ -10,89 +10,78 @@ import net.minecraft.world.level.biome.Biomes;
 public final class Villages {
     private Villages() {}
 
-    public static void addVillages(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addVillages() {
         
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.badlandsVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_BADLANDS,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MESA)))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_BADLANDS);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_BADLANDS, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.badlandsVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_BADLANDS,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MESA)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.birchVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_BIRCH,
-                    () -> BiomeSelection.hasNameTemp(event, "birch")))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_BIRCH);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_BIRCH, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.birchVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_BIRCH,
+                    () -> BiomeSelection.hasName(event, "birch")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.darkForestVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_DARK_FOREST,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_DARK_FOREST);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_DARK_FOREST, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.darkForestVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_DARK_FOREST,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
+                    BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.jungleVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_JUNGLE,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.JUNGLE)))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_JUNGLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_JUNGLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.jungleVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_JUNGLE,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.JUNGLE)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.swampVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_SWAMP,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.SWAMP)))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_SWAMP);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_SWAMP, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.swampVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_SWAMP,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.SWAMP)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.mountainsVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_MOUNTAINS,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.EXTREME_HILLS, Biome.BiomeCategory.MOUNTAIN)))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_MOUNTAINS);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_MOUNTAINS, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.mountainsVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_MOUNTAINS,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.EXTREME_HILLS, Biome.BiomeCategory.MOUNTAIN)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.giantTaigaVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_GIANT_TAIGA,
-                    () -> BiomeSelection.isBiomeTemp(event, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA) ||
-                    (!BiomeSelection.hasNamespaceTemp(event, "minecraft") && BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) && BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth"))))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_GIANT_TAIGA);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_GIANT_TAIGA, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.giantTaigaVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_GIANT_TAIGA,
+                    () -> BiomeSelection.isBiome(event, Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA) ||
+                    (!BiomeSelection.hasNamespace(event, "minecraft") && BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA) && BiomeSelection.hasName(event, "giant", "redwood", "old_growth"))))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.oakVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_OAK,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_OAK);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_OAK, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.oakVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_OAK,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
+                    !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.crimsonVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_CRIMSON,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "crimson", "red_")))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_CRIMSON);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_CRIMSON, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.crimsonVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_CRIMSON,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "crimson", "red_")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.warpedVillageAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_WARPED,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "warped", "blue")))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_WARPED);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_WARPED, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.warpedVillageAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_WARPED,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "warped", "blue")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.villageMushroomAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.VILLAGE_MUSHROOM,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MUSHROOM)))
-        {
-            event.addStructure(RSConfiguredStructures.VILLAGE_MUSHROOM);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.VILLAGE_MUSHROOM, (event) ->
+            (RepurposedStructures.RSAllConfig.RSVillagesConfig.spawnrate.villageMushroomAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.VILLAGE_MUSHROOM,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MUSHROOM)))
+        );
         // regexpos1
     }
 }

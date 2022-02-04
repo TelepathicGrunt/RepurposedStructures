@@ -2,66 +2,55 @@ package com.telepathicgrunt.repurposedstructures.biomeinjection;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.fabricmc.fabric.api.biome.v1.BiomeModification;
+import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public final class BiomeInjection {
     private BiomeInjection() {}
 
-    public static void addStructureToBiomes(Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> structureToMultiMap, Registry<Biome> biomeRegistry) {
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Bastions::addBastions);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Cities::addCities);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Fortresses::addJungleFortress);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Igloos::addIgloos);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Mansions::addMansions);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Mineshafts::addMineshafts);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Outposts::addOutposts);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Pyramids::addPyramids);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, RuinedPortals::addRuinedPortals);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Ruins::addRuins);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Shipwrecks::addShipwrecks);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Strongholds::addStrongholds);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Temples::addTemples);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, Villages::addVillages);
-        addConfiguredStructureEntries(structureToMultiMap, biomeRegistry, WitchHuts::addWitchHuts);
+    public static void addStructureToBiomes() {
+        Bastions.addBastions();
+        Cities.addCities();
+        Fortresses.addJungleFortress();
+        Igloos.addIgloos();
+        Mansions.addMansions();
+        Mineshafts.addMineshafts();
+        Outposts.addOutposts();
+        Pyramids.addPyramids();
+        RuinedPortals.addRuinedPortals();
+        Ruins.addRuins();
+        Shipwrecks.addShipwrecks();
+        Strongholds.addStrongholds();
+        Temples.addTemples();
+        Villages.addVillages();
+        WitchHuts.addWitchHuts();
     }
 
-    private static void addConfiguredStructureEntries(Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> structureToMultiMap, Registry<Biome> biomeRegistry, Consumer<BiomeInjectionHelper> structureAddition) {
-        for(Map.Entry<ResourceKey<Biome>, Biome> biomeEntry : biomeRegistry.entrySet()) {
-            structureAddition.accept(new BiomeInjectionHelper(biomeEntry, biomeRegistry, structureToMultiMap));
-        }
-    }
-
-    public static class BiomeInjectionHelper {
-        public final Biome biome;
-        public final ResourceKey<Biome> biomeKey;
-        public final Registry<Biome> biomeRegistry;
-        public final Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> structureToMultiMap;
-        public BiomeInjectionHelper(Map.Entry<ResourceKey<Biome>, Biome> biomeEntry, Registry<Biome> biomeRegistry, Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> structureToMultiMap) {
-            this.biome = biomeEntry.getValue();
-            this.biomeKey = biomeEntry.getKey();
-            this.biomeRegistry = biomeRegistry;
-            this.structureToMultiMap = structureToMultiMap;
-        }
-
-        public ResourceKey<Biome> getBiomeKey() {
-            return biomeRegistry.getResourceKey(biome).get();
-        }
-
-        public void addStructure(ConfiguredStructureFeature<?, ?> configuredStructureFeature) {
-            structureToMultiMap.computeIfAbsent(configuredStructureFeature.feature, (f) -> HashMultimap.create());
-            structureToMultiMap.get(configuredStructureFeature.feature).put(configuredStructureFeature, this.biomeKey);
-        }
-
-        public void removeStructure(ConfiguredStructureFeature<?, ?> configuredStructureFeature) {
-            Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> structureFeatureResourceKeyMultimap = structureToMultiMap.get(configuredStructureFeature.feature);
-            structureFeatureResourceKeyMultimap.remove(configuredStructureFeature, biomeKey);
-        }
+    public static void addStructure(ConfiguredStructureFeature<?,?> configuredStructureFeature, Predicate<BiomeSelectionContext> check) {
+        BiomeModifications.create(Registry.STRUCTURE_FEATURE.getKey(configuredStructureFeature.feature)).add(
+            ModificationPhase.ADDITIONS,
+            check,
+            context -> context.getGenerationSettings().addStructure(
+                ResourceKey.create(
+                    Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY,
+                    Registry.STRUCTURE_FEATURE.getKey(configuredStructureFeature.feature)
+                )
+            )
+    );
     }
 }

@@ -12,13 +12,12 @@ public final class Fortresses {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // JUNGLE FORTRESS //
 
-    public static void addJungleFortress(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addJungleFortress() {
 
-        if(RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.FORTRESS_JUNGLE,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.JUNGLE)))
-        {
-            event.addStructure(RSConfiguredStructures.FORTRESS_JUNGLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.FORTRESS_JUNGLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSFortressesConfig.jungleFortress.jungleFortressAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.FORTRESS_JUNGLE,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.JUNGLE)))
+        );
     }
 }

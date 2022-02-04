@@ -83,104 +83,62 @@ public class RepurposedStructures implements ModInitializer {
         RSConfiguredStructures.registerConfiguredStructures();
 
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
+        BiomeInjection.addStructureToBiomes();
         MobSpawningOverTime.setupMobSpawningMaps();
         setupBiomeModifications();
-        allowStructureSpawningPerDimension();
         PoolAdditionMerger.mergeAdditionPools();
         MobMapTrades.addMapTrades();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structurePieceCountsManager);
 
+        // Controls the dimension blacklisting
+        // Must run after fapi to undo its changes
+        ResourceLocation runAfterFabricAPIPhase = new ResourceLocation(RepurposedStructures.MODID, "run_after_fabric_api");
+        ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
+        ServerWorldEvents.LOAD.register(runAfterFabricAPIPhase, (MinecraftServer minecraftServer, ServerLevel serverLevel) ->
+                RepurposedStructures.runDimensionAllowingDisallowing(serverLevel));
+
         initialized = true;
     }
 
-    public static void allowStructureSpawningPerDimension() {
-        // This is for making sure our ServerWorldEvents.LOAD event always fires after Fabric API's so our changes don't get overwritten
-        ResourceLocation runAfterFabricAPIPhase = new ResourceLocation(RepurposedStructures.MODID, "run_after_fabric_api");
-        ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
+    public static void runDimensionAllowingDisallowing(ServerLevel serverLevel) {
+        // We will need this a lot lol
+        StructureSettings worldStructureSettings = serverLevel.getChunkSource().getGenerator().getSettings();
+        Registry<Biome> biomeRegistry = serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+        Set<Biome> possibleBiomes = serverLevel.getChunkSource().getGenerator().getBiomeSource().possibleBiomes();
 
-        // Controls the dimension blacklisting
-        ServerWorldEvents.LOAD.register(runAfterFabricAPIPhase, (MinecraftServer minecraftServer, ServerLevel serverLevel) -> {
-            // We will need this a lot lol
-            StructureSettings worldStructureSettings = serverLevel.getChunkSource().getGenerator().getSettings();
-            Registry<Biome> biomeRegistry = serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
-            Set<Biome> possibleBiomes = serverLevel.getChunkSource().getGenerator().getBiomeSource().possibleBiomes();
+        //////////// DIMENSION BASED STRUCTURE SPAWNING ////////////
 
-            //////////// BIOME BASED STRUCTURE SPAWNING ////////////
-            /*
-             * NOTE: BiomeModifications from Fabric API does not work in 1.18 currently.
-             * Instead, we will use the below to add our structure to overworld biomes.
-             * Remember, this is temporary until Fabric API finds a better solution for adding structures to biomes.
-             */
+        //add our structure spacing to all chunkgenerators including modded one and datapack ones.
+        // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
+        Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(worldStructureSettings.structureConfig());
 
-            // Grab the map that holds what ConfigureStructures a structure has and what biomes it can spawn in.
-            // We will inject our structures into that map/multimap
-            Map<StructureFeature<?>, Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> tempStructureToMultiMap = new HashMap<>();
-            ((StructureSettingsAccessor) worldStructureSettings).getConfiguredStructures().forEach((key, value) -> tempStructureToMultiMap.put(key, HashMultimap.create(value)));
-            BiomeInjection.addStructureToBiomes(tempStructureToMultiMap, biomeRegistry);
+        // make absolutely sure superflat dimension cannot spawn RS structures
+        if (serverLevel.getChunkSource().getGenerator() instanceof FlatLevelSource && serverLevel.dimension().equals(Level.OVERWORLD)) {
+            tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
+        }
+        // Not superflat overworld. Do normal behavior now
+        else {
+            for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()) {
+                boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverLevel, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
 
-            // for debugging purposes
-//            StringBuilder stringBuilder = new StringBuilder();
-//            tempStructureToMultiMap.forEach((key1, value1) -> value1.keySet().forEach(csf ->
-//                    stringBuilder
-//                            .append("\n ")
-//                            .append(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getKey(csf))
-//                            .append(" - ")
-//                            .append(tempStructureToMultiMap.get(csf.feature).get(csf).stream().map(ResourceKey::location).collect(Collectors.toList()))
-//            ));
-//
-//            RepurposedStructures.LOGGER.error("""
-//
-//                    Structure Maps to biomes:
-//                    {}
-//                    """,
-//                    stringBuilder);
+                // Remove structure spacing config if biome source cannot spawn biome.
+                // Should help optimize the game to skip checking these structures as MC doesn't seem to do it by default? Weird.
+                var validBiomesForStructure = serverLevel.getChunkSource().getGenerator().getSettings()
+                        .structures(structureFeatureEntry.getKey()).values().stream().map(biomeRegistry::get).
+                        collect(Collectors.toSet());
 
-            // Turn the entire map and the inner multimaps to immutable to match the source code's require type
-            ImmutableMap.Builder<StructureFeature<?>, ImmutableMultimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>>> immutableOuterMap = ImmutableMap.builder();
-            tempStructureToMultiMap.forEach((key, value) -> {
-                ImmutableMultimap.Builder<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> immutableInnerMultiMap = ImmutableMultimap.builder();
-                immutableInnerMultiMap.putAll(value);
-                immutableOuterMap.put(key, immutableInnerMultiMap.build());
-            });
-
-            // Set it in the field.
-            ((StructureSettingsAccessor) worldStructureSettings).setConfiguredStructures(immutableOuterMap.build());
-
-
-            //////////// DIMENSION BASED STRUCTURE SPAWNING ////////////
-
-            //add our structure spacing to all chunkgenerators including modded one and datapack ones.
-            // Need temp map as some mods use custom chunk generators with immutable maps in themselves.
-            Map<StructureFeature<?>, StructureFeatureConfiguration> tempMap = new HashMap<>(worldStructureSettings.structureConfig());
-
-            // make absolutely sure superflat dimension cannot spawn RS structures
-            if (serverLevel.getChunkSource().getGenerator() instanceof FlatLevelSource && serverLevel.dimension().equals(Level.OVERWORLD)) {
-                tempMap.keySet().removeAll(RSStructures.RS_STRUCTURES.keySet());
-            }
-            // Not superflat overworld. Do normal behavior now
-            else{
-                for(Map.Entry<StructureFeature<?>, StructureFeatureConfiguration> structureFeatureEntry : RSStructures.RS_STRUCTURES.entrySet()) {
-                    boolean isWorldBlacklisted = GeneralUtils.isBlacklistedForWorld(serverLevel, Registry.STRUCTURE_FEATURE.getKey(structureFeatureEntry.getKey()));
-
-                    // Remove structure spacing config if biome source cannot spawn biome.
-                    // Should help optimize the game to skip checking these structures as MC doesn't seem to do it by default? Weird.
-                    var validBiomesForStructure = serverLevel.getChunkSource().getGenerator().getSettings()
-                            .structures(structureFeatureEntry.getKey()).values().stream().map(biomeRegistry::get).
-                            collect(Collectors.toSet());
-
-                    if (isWorldBlacklisted || validBiomesForStructure.stream().noneMatch(possibleBiomes::contains)) {
-                        // make absolutely sure dimension cannot spawn the RS structure
-                        tempMap.remove(structureFeatureEntry.getKey());
-                    }
-                    else {
-                        // make absolutely sure dimension can spawn the RS structure
-                        tempMap.putIfAbsent(structureFeatureEntry.getKey(), structureFeatureEntry.getValue());
-                    }
+                if (isWorldBlacklisted || validBiomesForStructure.stream().noneMatch(possibleBiomes::contains)) {
+                    // make absolutely sure dimension cannot spawn the RS structure
+                    tempMap.remove(structureFeatureEntry.getKey());
+                }
+                else {
+                    // make absolutely sure dimension can spawn the RS structure
+                    tempMap.putIfAbsent(structureFeatureEntry.getKey(), structureFeatureEntry.getValue());
                 }
             }
-            ((StructureSettingsAccessor) worldStructureSettings).repurposedstructures_setStructureConfig(tempMap);
-        });
+        }
+        ((StructureSettingsAccessor) worldStructureSettings).repurposedstructures_setStructureConfig(tempMap);
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

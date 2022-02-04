@@ -10,13 +10,12 @@ import net.minecraft.world.level.biome.Biomes;
 public final class RuinedPortals {
     private RuinedPortals() {}
 
-    public static void addRuinedPortals(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addRuinedPortals() {
 
-        if (RepurposedStructures.RSAllConfig.RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.RUINED_PORTAL_END,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.THEEND) && !BiomeSelection.isBiomeTemp(event, Biomes.THE_END)))
-        {
-            event.addStructure(RSConfiguredStructures.RUINED_PORTAL_END);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.RUINED_PORTAL_END, (event) ->
+            (RepurposedStructures.RSAllConfig.RSRuinedPortalsConfig.ruinedPortalEndAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.RUINED_PORTAL_END,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.THEEND) && !BiomeSelection.isBiome(event, Biomes.THE_END)))
+        );
     }
 }

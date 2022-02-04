@@ -9,45 +9,40 @@ import net.minecraft.world.level.biome.Biome;
 public final class WitchHuts {
     private WitchHuts() {}
 
-    public static void addWitchHuts(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addWitchHuts() {
 
-        if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsOakAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_OAK,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    !BiomeSelection.hasNameTemp(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
-        {
-            event.addStructure(RSConfiguredStructures.WITCH_HUTS_OAK);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.WITCH_HUTS_OAK, (event) ->
+            (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsOakAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.WITCH_HUTS_OAK,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
+                    !BiomeSelection.hasName(event, "birch", "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_TAIGA,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA)  &&
-                    !BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
-        {
-            event.addStructure(RSConfiguredStructures.WITCH_HUTS_TAIGA);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.WITCH_HUTS_TAIGA, (event) ->
+            (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsTaigaAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.WITCH_HUTS_TAIGA,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA)  &&
+                    !BiomeSelection.hasName(event, "giant", "redwood", "old_growth")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsBirchAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_BIRCH,
-                    () -> BiomeSelection.hasNameTemp(event, "birch")))
-        {
-            event.addStructure(RSConfiguredStructures.WITCH_HUTS_BIRCH);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.WITCH_HUTS_BIRCH, (event) ->
+            (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsBirchAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.WITCH_HUTS_BIRCH,
+                    () -> BiomeSelection.hasName(event, "birch")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_DARK_FOREST,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST) &&
-                    BiomeSelection.hasNameTemp(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
-        {
-            event.addStructure(RSConfiguredStructures.WITCH_HUTS_DARK_FOREST);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.WITCH_HUTS_DARK_FOREST, (event) ->
+            (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsDarkForestAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.WITCH_HUTS_DARK_FOREST,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST) &&
+                    BiomeSelection.hasName(event, "dark", "spooky", "dead", "haunted", "evil", "witch", "ominous", "ebony")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
-                    BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
-        {
-            event.addStructure(RSConfiguredStructures.WITCH_HUTS_GIANT_TREE_TAIGA);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.WITCH_HUTS_GIANT_TREE_TAIGA, (event) ->
+            (RepurposedStructures.RSAllConfig.RSWitchHutsConfig.witchHutsGiantTreeTaigaAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.WITCH_HUTS_GIANT_TREE_TAIGA,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA) &&
+                    BiomeSelection.hasName(event, "giant", "redwood", "old_growth")))
+        );
     }
 }

@@ -57,6 +57,8 @@ if (project.use_third_party_mods) {
 		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:1.0.0+1.18.1"
 		modRuntimeOnly "com.telepathicgrunt:NoNullProcessors:2.0.1+1.18.1"
 
+		//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
+
 		//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
 		//modRuntimeOnly "curse.maven:charm-318872:3393290"
 		//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"

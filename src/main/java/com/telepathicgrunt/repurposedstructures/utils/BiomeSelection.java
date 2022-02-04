@@ -89,75 +89,14 @@ public final class BiomeSelection {
                 });
     }
 
-    @SafeVarargs
-    public static boolean isBiomeTemp(BiomeInjection.BiomeInjectionHelper context, ResourceKey<Biome>... keys) {
-        return Arrays.stream(keys).anyMatch(key -> context.getBiomeKey().equals(key));
+    public static boolean doesNotHaveStructureType(BiomeSelectionContext context, RSStructureTagMap.STRUCTURE_TAGS tag) {
+        return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().noneMatch(structure -> context
+                .hasStructure(ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, Registry.STRUCTURE_FEATURE.getKey(structure))));
     }
 
-    public static boolean hasNameTemp(BiomeInjection.BiomeInjectionHelper context, String... names) {
-        return Arrays.stream(names).anyMatch(name -> context.biomeKey.location().getPath().contains(name));
-    }
-
-    public static boolean hasNamespaceTemp(BiomeInjection.BiomeInjectionHelper context, String... namespace) {
-        return Arrays.stream(namespace).anyMatch(name -> context.getBiomeKey().location().getNamespace().contains(name));
-    }
-
-    public static boolean haveCategoriesTemp(BiomeInjection.BiomeInjectionHelper context, Biome.BiomeCategory... categories) {
-        Set<Biome.BiomeCategory> categorySet = new HashSet<>(Arrays.asList(categories));
-        return categorySet.contains(context.biome.getBiomeCategory());
-    }
-
-    public static boolean doesNotHaveStructureTypeTemp(BiomeInjection.BiomeInjectionHelper context, RSStructureTagMap.STRUCTURE_TAGS tag) {
-        return RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag).stream().noneMatch(structure -> {
-            Multimap<ConfiguredStructureFeature<?, ?>, ResourceKey<Biome>> structureFeatureResourceKeyMultimap = context.structureToMultiMap.get(structure);
-            if(structureFeatureResourceKeyMultimap == null) return false;
-            return structureFeatureResourceKeyMultimap.entries().stream().anyMatch(entry -> entry.getValue().equals(context.biomeKey));
-        });
-    }
-
-    public static boolean isBiomeAllowedTemp(BiomeInjection.BiomeInjectionHelper context, StructureFeature<?> structureFeature, Supplier<Boolean> defaultCondition) {
-        return (BiomeSelection.isBiomeAllowedTemp(context, structureFeature, Registry.STRUCTURE_FEATURE) ||
-                (!BiomeSelection.isBiomeDisallowedTemp(context, structureFeature, Registry.STRUCTURE_FEATURE) &&
+    public static boolean isBiomeAllowed(BiomeSelectionContext context, StructureFeature<?> structureFeature, Supplier<Boolean> defaultCondition) {
+        return (BiomeSelection.isBiomeAllowed(context, structureFeature, Registry.STRUCTURE_FEATURE) ||
+                (!BiomeSelection.isBiomeDisallowed(context, structureFeature, Registry.STRUCTURE_FEATURE) &&
                         defaultCondition.get()));
-    }
-
-    public static <T> boolean isBiomeAllowedTemp(BiomeInjection.BiomeInjectionHelper context, T worldgenObject, Registry<T> registry) {
-        ResourceLocation registryId = registry.getKey(worldgenObject);
-        String biomeID = context.biomeRegistry.getKey(context.biome).toString();
-        return BiomeDimensionAllowDisallow.BIOME_ALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
-                .anyMatch(pattern -> {
-                    if(pattern.pattern().startsWith("#")) {
-                        String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
-                        Biome.BiomeCategory category = Biome.BiomeCategory.byName(cleanedUpCategoryString);
-                        if(category == null) {
-                            RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome allow configs: {}", cleanedUpCategoryString);
-                        }
-                        else{
-                            return context.biome.getBiomeCategory().equals(category);
-                        }
-                    }
-
-                    return pattern.matcher(biomeID).matches();
-                });
-    }
-
-    public static <T> boolean isBiomeDisallowedTemp(BiomeInjection.BiomeInjectionHelper context, T worldgenObject, Registry<T> registry) {
-        ResourceLocation registryId = registry.getKey(worldgenObject);
-        String biomeID = context.biomeRegistry.getKey(context.biome).toString();
-        return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream()
-                .anyMatch(pattern -> {
-                    if(pattern.pattern().startsWith("#")) {
-                        String cleanedUpCategoryString = pattern.pattern().trim().toLowerCase(Locale.ROOT).replace("#", "");
-                        Biome.BiomeCategory category = Biome.BiomeCategory.byName(cleanedUpCategoryString);
-                        if(category == null) {
-                            RepurposedStructures.LOGGER.warn("Unknown biome category detected in one of the biome disallow configs: {}", cleanedUpCategoryString);
-                        }
-                        else{
-                            return context.biome.getBiomeCategory().equals(category);
-                        }
-                    }
-
-                    return pattern.matcher(biomeID).matches();
-                });
     }
 }

@@ -9,46 +9,41 @@ import net.minecraft.world.level.biome.Biome;
 public final class Temples {
     private Temples() {}
 
-    public static void addTemples(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addTemples() {
 
-        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherBasaltTempleAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "basalt", "blackstone")))
-        {
-            event.addStructure(RSConfiguredStructures.NETHER_BASALT_TEMPLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.NETHER_BASALT_TEMPLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherBasaltTempleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "basalt", "blackstone")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherCrimsonTempleAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "crimson", "red_")))
-        {
-            event.addStructure(RSConfiguredStructures.NETHER_CRIMSON_TEMPLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.NETHER_CRIMSON_TEMPLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherCrimsonTempleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "crimson", "red_")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWarpedTempleAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "warped", "blue")))
-        {
-            event.addStructure(RSConfiguredStructures.NETHER_WARPED_TEMPLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.NETHER_WARPED_TEMPLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWarpedTempleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "warped", "blue")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherSoulTempleAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    BiomeSelection.hasNameTemp(event, "soul")))
-        {
-            event.addStructure(RSConfiguredStructures.NETHER_SOUL_TEMPLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.NETHER_SOUL_TEMPLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherSoulTempleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    BiomeSelection.hasName(event, "soul")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWastelandTempleAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.TEMPLE_NETHER_BASALT,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.NETHER) &&
-                    !BiomeSelection.hasNameTemp(event, "basalt", "blackstone", "crimson", "red_", "warped", "blue", "soul")))
-        {
-            event.addStructure(RSConfiguredStructures.NETHER_WASTELAND_TEMPLE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.NETHER_WASTELAND_TEMPLE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSTemplesConfig.netherWastelandTempleAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.TEMPLE_NETHER_BASALT,
+                    () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER) &&
+                    !BiomeSelection.hasName(event, "basalt", "blackstone", "crimson", "red_", "warped", "blue", "soul")))
+        );
     }
 }

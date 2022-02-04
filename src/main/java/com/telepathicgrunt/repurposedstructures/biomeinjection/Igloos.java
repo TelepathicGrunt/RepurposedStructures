@@ -10,29 +10,26 @@ import net.minecraft.world.level.biome.Biomes;
 public final class Igloos {
     private Igloos() {}
 
-    public static void addIgloos(BiomeInjection.BiomeInjectionHelper event) {
+    public static void addIgloos() {
 
-        if (RepurposedStructures.RSAllConfig.RSIgloosConfig.grassyIglooAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_GRASSY,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.PLAINS) ||
-                    BiomeSelection.isBiomeTemp(event, Biomes.MEADOW)))
-        {
-            event.addStructure(RSConfiguredStructures.IGLOO_GRASSY);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.IGLOO_GRASSY, (event) ->
+            (RepurposedStructures.RSAllConfig.RSIgloosConfig.grassyIglooAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_GRASSY,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.PLAINS) ||
+            BiomeSelection.isBiome(event, Biomes.MEADOW)))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSIgloosConfig.stoneIglooAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_STONE,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.TAIGA) &&
-                    BiomeSelection.hasNameTemp(event, "giant", "redwood", "old_growth")))
-        {
-            event.addStructure(RSConfiguredStructures.IGLOO_STONE);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.IGLOO_STONE, (event) ->
+            (RepurposedStructures.RSAllConfig.RSIgloosConfig.stoneIglooAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_STONE,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.TAIGA) &&
+            BiomeSelection.hasName(event, "giant", "redwood", "old_growth")))
+        );
 
-        if (RepurposedStructures.RSAllConfig.RSIgloosConfig.mushroomIglooAverageChunkDistance != 1001 &&
-            BiomeSelection.isBiomeAllowedTemp(event, RSStructures.IGLOO_MUSHROOM,
-                    () -> BiomeSelection.haveCategoriesTemp(event, Biome.BiomeCategory.MUSHROOM)))
-        {
-            event.addStructure(RSConfiguredStructures.IGLOO_MUSHROOM);
-        }
+        BiomeInjection.addStructure(RSConfiguredStructures.IGLOO_MUSHROOM, (event) ->
+            (RepurposedStructures.RSAllConfig.RSIgloosConfig.mushroomIglooAverageChunkDistance != 1001 &&
+            BiomeSelection.isBiomeAllowed(event, RSStructures.IGLOO_MUSHROOM,
+            () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.MUSHROOM)))
+        );
     }
 }
