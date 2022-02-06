@@ -1,3 +1,11 @@
+### **(V.4.2.8 Changes) (1.18.1 Minecraft)**
+
+#### Mod Compat:
+Turn off logspam about missing End Remastered loot table if End Remastered isn't on. 
+ There was no issue with the mod or anything.
+ Just some logspam I forgot to turn off.
+
+
 ### **(V.4.2.7 Changes) (1.18.1 Minecraft)**
 
 #### Mod Compat:

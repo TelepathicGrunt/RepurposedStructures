@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class EndRemasteredDedicatedLoot {
+public class EndRemasteredDedicatedLoot {
     private EndRemasteredDedicatedLoot() {}
 
     public static boolean isEndRemasteredOn = false;
@@ -73,7 +73,7 @@ public final class EndRemasteredDedicatedLoot {
 
     protected static void handleDedicatedModCompat(List<ItemStack> currentLoot, LootContext oldLootContext){
         // Remove their eyes from the default importing and instead, import the correct eyes they really want for this structure.
-        if(isEndRemasteredOn){
+        if(isEndRemasteredOn) {
             // Remove incorrect End Remastered loot
             currentLoot.removeIf(itemStack -> itemStack.getItem().getRegistryName().getNamespace().equals("endrem"));
 
@@ -90,14 +90,16 @@ public final class EndRemasteredDedicatedLoot {
     }
 
     public static void checkLoottables(MinecraftServer minecraftServer) {
-        boolean invalidLootTableFound = false;
-        for(Map.Entry<ResourceLocation, ResourceLocation> entry : END_REMASTERED_DEDICATED_TABLE_IMPORTS.entrySet()) {
-            if(GeneralUtils.isInvalidLootTableFound(minecraftServer, entry)) {
-                invalidLootTableFound = true;
+        if(isEndRemasteredOn) {
+            boolean invalidLootTableFound = false;
+            for (Map.Entry<ResourceLocation, ResourceLocation> entry : END_REMASTERED_DEDICATED_TABLE_IMPORTS.entrySet()) {
+                if (GeneralUtils.isInvalidLootTableFound(minecraftServer, entry)) {
+                    invalidLootTableFound = true;
+                }
             }
-        }
-        if(invalidLootTableFound) {
-            RepurposedStructures.LOGGER.error("Unknown import/target loot tables found for Repurposed Structures. See above logs and report to TelepathicGrunt please.");
+            if (invalidLootTableFound) {
+                RepurposedStructures.LOGGER.error("Unknown import/target loot tables found for Repurposed Structures. See above logs and report to TelepathicGrunt please.");
+            }
         }
     }
 }
