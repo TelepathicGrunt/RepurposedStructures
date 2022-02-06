@@ -4,6 +4,9 @@
 Added back compat with End Remastered. Their custom eyes should show up in some Repurposed Structures's chest loot now.
  See here for what structure will have their eyes: https://github.com/TelepathicGrunt/RepurposedStructures/blob/latest-released/src/main/java/com/telepathicgrunt/repurposedstructures/misc/EndRemasteredDedicatedLoot.java
 
+#### Mineshafts:
+Fixed End Mineshaft not spawning Minecart.
+
 
 ### **(V.4.2.6 Changes) (1.18.1 Minecraft)**
 

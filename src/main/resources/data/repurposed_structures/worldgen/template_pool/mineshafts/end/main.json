@@ -20,8 +20,8 @@
     {
       "weight": 5,
       "element": {
-        "location": "repurposed_structures:mineshafts/end/tunnel_1",
-        "processors": "repurposed_structures:mineshafts/end_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/end_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -29,8 +29,8 @@
     {
       "weight": 5,
       "element": {
-        "location": "repurposed_structures:mineshafts/end/tunnel_2",
-        "processors": "repurposed_structures:mineshafts/end_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/end_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -38,8 +38,8 @@
     {
       "weight": 5,
       "element": {
-        "location": "repurposed_structures:mineshafts/end/tunnel_3",
-        "processors": "repurposed_structures:mineshafts/end_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/end_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -47,8 +47,8 @@
     {
       "weight": 5,
       "element": {
-        "location": "repurposed_structures:mineshafts/end/tunnel_4",
-        "processors": "repurposed_structures:mineshafts/end_main",
+        "location": "repurposed_structures:mineshafts/end/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/end_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
