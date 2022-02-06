@@ -1,3 +1,10 @@
+### **(V.3.3.9 Changes) (1.18.1 Minecraft)**
+
+#### Mod Compat:
+Deep/Icy Dungeon, Underground Bastion's treasure room chest, and Mushroom Villages now gets imported loot.
+ Hopefully I got all structures this time.
+
+
 ### **(V.3.3.8 Changes) (1.18.1 Minecraft)**
 
 #### Mineshafts:
