@@ -1,3 +1,14 @@
+### **(V.4.2.9 Changes) (1.18.1 Minecraft)**
+
+#### Mod Compat:
+Deep/Icy Dungeon, Underground Bastion's treasure room chest, and Mushroom Villages now gets imported loot.
+ Hopefully I got all structures this time.
+
+Added End Remastered eyes loot to all RS Dungeons's chests, Mushroom/Grassy Igloo's chests, and to RS Nether Outposts's chests.
+
+Turn off logspam about loot tables if Better Strongholds is on.
+
+
 ### **(V.4.2.8 Changes) (1.18.1 Minecraft)**
 
 #### Mod Compat:
