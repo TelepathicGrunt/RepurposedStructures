@@ -177,6 +177,8 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         return state.isAir() ||
                 (state.getMaterial().isLiquid() && !state.getFluidState().is(FluidTags.LAVA)) ||
                 state.getMaterial().equals(Material.REPLACEABLE_PLANT) ||
+                state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT) ||
+                state.getMaterial().equals(Material.REPLACEABLE_FIREPROOF_PLANT) ||
                 state.is(Blocks.COBWEB);
     }
 }

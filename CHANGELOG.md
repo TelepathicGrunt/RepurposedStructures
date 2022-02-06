@@ -1,3 +1,27 @@
+### **(V.3.3.8 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Fixed End Mineshaft not spawning Minecart.
+
+Adjusted look of the arch in End Mineshafts.
+
+Fixed Ocean Mineshafts sometimes having Rails that aren't waterlogged.
+
+Fixed Icy Mineshaft having Diorite Walls and not making support pillars/chains.
+
+Fixed Crimson Mineshaft not having fences at times.
+
+Reduces amount of Shroomlight in Crimson Mineshafts.
+
+Reduced amount of pieces in backend that RS Mineshafts need in order to function. Cleaner this way.
+
+Fixed support pillars for RS Mineshafts not replacing plants marked as replaceable that are water based/fire proof.
+
+Tried cleaning up the wall states for Ocean, Desert, Stone, and Swamp Mineshafts.
+
+Randomized removal of some rails in all RS Mineshafts for slightly better looks.
+
+
 ### **(V.3.3.7 Changes) (1.18.1 Minecraft)**
 
 #### Hotfix:
