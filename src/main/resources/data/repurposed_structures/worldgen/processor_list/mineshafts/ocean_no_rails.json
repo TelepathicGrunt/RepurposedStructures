@@ -1,0 +1,130 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:dark_prismarine"
+          },
+          "input_predicate": {
+            "block": "minecraft:sea_lantern",
+            "probability": 0.92,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "position_predicate": {
+            "min_chance": 0,
+            "max_chance": 1,
+            "min_dist": 3,
+            "max_dist": 4,
+            "axis": "y",
+            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          },
+          "input_predicate": {
+            "block": "minecraft:water",
+            "probability": 0.15,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          },
+          "input_predicate": {
+            "block": "minecraft:rail",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "position_predicate": {
+            "min_chance": 0,
+            "max_chance": 1,
+            "min_dist": 0,
+            "max_dist": 1,
+            "axis": "y",
+            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "location_predicate": {
+            "phase_to_test_for": "LIQUID_RAIL_OR_CHAIN",
+            "invert_condition": false,
+            "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "location_predicate": {
+            "phase_to_test_for": "AIR",
+            "invert_condition": false,
+            "predicate_type": "repurposed_structures:matter_phase_rule_test"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:chain",
+            "predicate_type": "minecraft:block_match"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:mineshaft_sky_view_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:close_off_air_sources_processor",
+      "weighted_list_of_replacement_blocks": [
+        {
+          "block" : "minecraft:prismarine",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
+    }
+  ]
+}

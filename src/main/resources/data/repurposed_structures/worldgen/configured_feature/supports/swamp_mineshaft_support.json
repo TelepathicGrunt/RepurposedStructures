@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:spruce_log",
+    "arch_blocks": ["minecraft:spruce_log"],
     "pillar_state": {
       "Name": "minecraft:mossy_stone_bricks"
     },

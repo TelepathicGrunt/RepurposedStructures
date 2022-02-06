@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:nether_bricks",
+    "arch_blocks": ["minecraft:nether_bricks", "minecraft:shroomlight"],
     "pillar_state": {
       "Name": "minecraft:cracked_nether_bricks"
     },

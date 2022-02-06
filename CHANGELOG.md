@@ -7,6 +7,17 @@ Added back compat with End Remastered. Their custom eyes should show up in some 
 #### Mineshafts:
 Fixed End Mineshaft not spawning Minecart.
 
+Adjusted look of the arch in End Mineshafts.
+
+Fixed Ocean Mineshafts sometimes having Rails that aren't waterlogged.
+
+Fixed Icy Mineshaft having Diorite Walls and not making support pillars/chains.
+
+Fixed Crimson Mineshaft not having fences at times.
+
+Reduces amount of Shroomlight in Crimson Mineshafts.
+
+Reduced amount of pieces in backend that RS Mineshafts need in order to function. Cleaner this way.
 
 ### **(V.4.2.6 Changes) (1.18.1 Minecraft)**
 

@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:jungle_log",
+    "arch_blocks": ["minecraft:jungle_log"],
     "pillar_state": {
       "Properties": {
         "axis": "y"

@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:stripped_spruce_log",
+    "arch_blocks": ["minecraft:stripped_spruce_log"],
     "pillar_state": {
       "Name": "minecraft:spruce_log"
     },

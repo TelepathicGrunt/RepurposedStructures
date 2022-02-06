@@ -33,19 +33,6 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:shroomlight"
-          },
-          "input_predicate": {
-            "block": "minecraft:crimson_stem",
-            "probability": 0.2,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
             "Name": "minecraft:crimson_planks"
           },
           "input_predicate": {

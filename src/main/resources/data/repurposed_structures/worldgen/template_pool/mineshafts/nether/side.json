@@ -11,8 +11,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/nether/tunnel_1",
-        "processors": "repurposed_structures:mineshafts/nether_main",
+        "location": "repurposed_structures:mineshafts/nether/tunnel_rails_1",
+        "processors": "repurposed_structures:mineshafts/nether_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -20,8 +20,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/nether/tunnel_2",
-        "processors": "repurposed_structures:mineshafts/nether_main",
+        "location": "repurposed_structures:mineshafts/nether/tunnel_rails_2",
+        "processors": "repurposed_structures:mineshafts/nether_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -29,8 +29,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/nether/tunnel_3",
-        "processors": "repurposed_structures:mineshafts/nether_main",
+        "location": "repurposed_structures:mineshafts/nether/tunnel_rails_3",
+        "processors": "repurposed_structures:mineshafts/nether_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -38,8 +38,8 @@
     {
       "weight": 10,
       "element": {
-        "location": "repurposed_structures:mineshafts/nether/tunnel_4",
-        "processors": "repurposed_structures:mineshafts/nether_main",
+        "location": "repurposed_structures:mineshafts/nether/tunnel_rails_4",
+        "processors": "repurposed_structures:mineshafts/nether_no_rails",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

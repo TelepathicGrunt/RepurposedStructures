@@ -35,10 +35,11 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         BlockState removalState = context.config().waterBased ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState();
 
         // Repair arch if we can at this spot (doesn't repair all arches. That requires a redesign of these jigsaw mineshafts)
-        if (world.getBlockState(mutable.above(3)).getBlock() == context.config().archBlock) {
+        if (context.config().archBlocks.contains(world.getBlockState(mutable.above(3)).getBlock())) {
             for(int i = 0; i <= 1; i++) {
                 if(chunk.getBlockState(mutable.move(Direction.UP)).getBlock() != context.config().fenceState.getBlock()) {
                     StructurePostProcessConnectiveBlocks.placeConnectBlock(context, mutable, chunk.getPos(), chunk, context.config().fenceState);
+                    blockOffAirIfWaterBased(context, mutable, world);
                 }
             }
             return true;
@@ -46,16 +47,18 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         else {
             for(int i = 0; i <= 2; i++) {
                 BlockState checkArchState = chunk.getBlockState(mutable.move(Direction.UP));
-                if(i < 2 ? checkArchState.getBlock() == context.config().fenceState.getBlock() : checkArchState.getBlock() == context.config().archBlock) {
+                if(i < 2 ? checkArchState.getBlock() == context.config().fenceState.getBlock() : context.config().archBlocks.contains(checkArchState.getBlock())) {
                     chunk.setBlockState(mutable, removalState, false);
+                    blockOffAirIfWaterBased(context, mutable, world);
                 }
             }
             for(Direction direction : Direction.Plane.HORIZONTAL) {
                 mutable.move(direction);
                 if(new ChunkPos(mutable).equals(chunk.getPos())) {
                     BlockState checkArchState = chunk.getBlockState(mutable);
-                    if(checkArchState.getBlock() == context.config().archBlock) {
+                    if(context.config().archBlocks.contains(checkArchState.getBlock())) {
                         chunk.setBlockState(mutable, removalState, false);
+                        blockOffAirIfWaterBased(context, mutable, world);
                     }
                 }
                 mutable.move(direction.getOpposite());
@@ -160,6 +163,17 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         return true;
     }
 
+    private void blockOffAirIfWaterBased(FeaturePlaceContext<MineshaftSupportConfig> context, BlockPos.MutableBlockPos mutable, WorldGenLevel world) {
+        if (context.config().waterBased) {
+            for(Direction direction : Direction.values()) {
+                mutable.move(direction);
+                if(world.getBlockState(mutable).isAir()) {
+                    world.setBlock(mutable, context.config().targetFloorState.defaultBlockState(), 3);
+                }
+                mutable.move(direction.getOpposite());
+            }
+        }
+    }
 
     protected boolean canReplace(BlockState state) {
         return state.isAir() ||

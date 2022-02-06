@@ -1,13 +1,13 @@
 {
   "config": {
-    "arch_block": "minecraft:packed_ice",
+    "arch_blocks": ["minecraft:packed_ice"],
     "pillar_state": {
       "Name": "minecraft:packed_ice"
     },
     "fence_state": {
       "Name": "minecraft:ice"
     },
-    "target_floor_block": "minecraft:ice",
+    "target_floor_block": "minecraft:packed_ice",
     "is_water_based": false,
     "arch_only": true
   },

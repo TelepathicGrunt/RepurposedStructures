@@ -81,7 +81,6 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                 if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
                     int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
-                    if (levelChunkSection == null) continue;
 
                     BlockState neighboringState = levelChunkSection.getBlockState(
                             SectionPos.sectionRelative(mutable.getX()),

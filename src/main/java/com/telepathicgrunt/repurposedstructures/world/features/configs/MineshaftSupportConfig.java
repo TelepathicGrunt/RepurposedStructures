@@ -7,10 +7,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 public class MineshaftSupportConfig implements FeatureConfiguration {
 
     public static final Codec<MineshaftSupportConfig> CODEC = RecordCodecBuilder.create((configInstance) -> configInstance.group(
-            Registry.BLOCK.byNameCodec().fieldOf("arch_block").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.archBlock),
+            Registry.BLOCK.byNameCodec().listOf().fieldOf("arch_blocks").xmap(HashSet::new, ArrayList::new).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.archBlocks),
             BlockState.CODEC.fieldOf("pillar_state").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.pillarState),
             BlockState.CODEC.fieldOf("fence_state").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.fenceState),
             Registry.BLOCK.byNameCodec().fieldOf("target_floor_block").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.targetFloorState),
@@ -18,15 +22,15 @@ public class MineshaftSupportConfig implements FeatureConfiguration {
             Codec.BOOL.fieldOf("arch_only").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.archOnly)
             ).apply(configInstance, MineshaftSupportConfig::new));
 
-    public final Block archBlock;
+    public final HashSet<Block> archBlocks;
     public final BlockState pillarState;
     public final BlockState fenceState;
     public final Block targetFloorState;
     public final boolean waterBased;
     public final boolean archOnly;
 
-    public MineshaftSupportConfig(Block archBlock, BlockState pillarState, BlockState fenceState, Block targetFloorState, boolean waterBased, boolean archOnly) {
-        this.archBlock = archBlock;
+    public MineshaftSupportConfig(HashSet<Block> archBlocks, BlockState pillarState, BlockState fenceState, Block targetFloorState, boolean waterBased, boolean archOnly) {
+        this.archBlocks = archBlocks;
         this.pillarState = pillarState;
         this.fenceState = fenceState;
         this.targetFloorState = targetFloorState;
