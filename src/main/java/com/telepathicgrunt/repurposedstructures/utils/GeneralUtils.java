@@ -18,6 +18,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.FallbackResourceManager;
@@ -47,6 +48,7 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -360,6 +362,21 @@ public final class GeneralUtils {
         }
 
         return map;
+    }
+
+    ////////////////////////////
+
+    public static boolean isInvalidLootTableFound(MinecraftServer minecraftServer, Map.Entry<ResourceLocation, ResourceLocation> entry) {
+        boolean invalidLootTableFound = false;
+        if(minecraftServer.getLootTables().get(entry.getKey()) == LootTable.EMPTY) {
+            RepurposedStructures.LOGGER.error("Unable to find loot table key: {}", entry.getKey());
+            invalidLootTableFound = true;
+        }
+        if(minecraftServer.getLootTables().get(entry.getValue()) == LootTable.EMPTY) {
+            RepurposedStructures.LOGGER.error("Unable to find loot table value: {}", entry.getValue());
+            invalidLootTableFound = true;
+        }
+        return invalidLootTableFound;
     }
 
     ////////////////////////////

@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.ItemStack;
@@ -211,19 +212,15 @@ public class StructureModdedLootImporter extends LootModifier {
     public static void checkLoottables(MinecraftServer minecraftServer) {
         boolean invalidLootTableFound = false;
         for(Map.Entry<ResourceLocation, ResourceLocation> entry : TABLE_IMPORTS.entrySet()) {
-            if(minecraftServer.getLootTables().get(entry.getKey()) == LootTable.EMPTY) {
-                RepurposedStructures.LOGGER.error("Unable to find loot table key: {}", entry.getKey());
-                invalidLootTableFound = true;
-            }
-            if(minecraftServer.getLootTables().get(entry.getValue()) == LootTable.EMPTY) {
-                RepurposedStructures.LOGGER.error("Unable to find loot table value: {}", entry.getValue());
+            if(GeneralUtils.isInvalidLootTableFound(minecraftServer, entry)) {
                 invalidLootTableFound = true;
             }
         }
         if(invalidLootTableFound) {
-            RepurposedStructures.LOGGER.error("Unknown import/target loot tables found for Repurposed Structures. See above logs.");
+            RepurposedStructures.LOGGER.error("Unknown import/target loot tables found for Repurposed Structures. See above logs and report to TelepathicGrunt please.");
         }
     }
+
 
     private static boolean isInBlacklist(ResourceLocation lootTableID){
         if(BLACKLISTED_LOOTTABLES == null){
