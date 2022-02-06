@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:crimson_stem",
+    "arch_blocks": ["minecraft:crimson_stem", "minecraft:shroomlight", "minecraft:crimson_planks"],
     "pillar_state": {
       "Properties": {
         "axis": "y"

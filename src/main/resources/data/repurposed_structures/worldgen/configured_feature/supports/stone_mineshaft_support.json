@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:stone",
+    "arch_blocks": ["minecraft:stone"],
     "pillar_state": {
       "Name": "minecraft:andesite"
     },

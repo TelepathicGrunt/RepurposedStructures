@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:purpur_pillar",
+    "arch_blocks": ["minecraft:purpur_pillar"],
     "pillar_state": {
       "Properties": {
         "axis": "z"

@@ -1,6 +1,6 @@
 {
   "config": {
-    "arch_block": "minecraft:chiseled_sandstone",
+    "arch_blocks": ["minecraft:chiseled_sandstone"],
     "pillar_state": {
       "Name": "minecraft:smooth_sandstone"
     },
