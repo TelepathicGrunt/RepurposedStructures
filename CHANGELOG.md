@@ -19,6 +19,13 @@ Reduces amount of Shroomlight in Crimson Mineshafts.
 
 Reduced amount of pieces in backend that RS Mineshafts need in order to function. Cleaner this way.
 
+Fixed support pillars for RS Mineshafts not replacing plants marked as replaceable that are water based/fire proof.
+
+Tried cleaning up the wall states for Ocean, Desert, Stone, and Swamp Mineshafts.
+
+Randomized removal of some rails in all RS Mineshafts for slightly better looks.
+
+
 ### **(V.4.2.6 Changes) (1.18.1 Minecraft)**
 
 #### Mineshafts:
