@@ -1,3 +1,11 @@
+### **(V.4.2.10 Changes) (1.18.1 Minecraft)**
+
+#### Config:
+Added config/repurposed_structures-forge/map_trade_configs.json5 file.
+ This config lets you add any structure map to any villager or wandering trader's available trades.
+ Note: Disabling a structure will not remove the map from the trades. You'll have to edit that config to remove the map for the disabled RS structure.
+
+
 ### **(V.4.2.9 Changes) (1.18.1 Minecraft)**
 
 #### Mod Compat:

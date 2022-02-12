@@ -9,7 +9,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
 
 public class MineshaftSupportConfig implements FeatureConfiguration {
 

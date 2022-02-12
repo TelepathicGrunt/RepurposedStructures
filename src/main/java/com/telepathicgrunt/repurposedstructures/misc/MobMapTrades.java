@@ -1,54 +1,176 @@
 package com.telepathicgrunt.repurposedstructures.misc;
 
-import com.telepathicgrunt.repurposedstructures.configs.RSBastionsConfig;
-import com.telepathicgrunt.repurposedstructures.configs.RSCitiesConfig;
-import com.telepathicgrunt.repurposedstructures.configs.RSFortressesConfig;
-import com.telepathicgrunt.repurposedstructures.configs.RSMansionsConfig;
-import com.telepathicgrunt.repurposedstructures.configs.RSVillagesConfig;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.apache.commons.lang3.EnumUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 public final class MobMapTrades {
     private MobMapTrades() {}
 
-    public static void onVillagerTradesEvent(VillagerTradesEvent event) {
-        if(event.getType() == VillagerProfession.CARTOGRAPHER) {
-            //level 3 trades
-            if(RSFortressesConfig.jungleFortressAverageChunkDistance.get() != 1001)
-                event.getTrades().get(3).add(new VillagerTrades.TreasureMapForEmeralds(13, RSStructures.FORTRESS_JUNGLE.get(), MapDecoration.Type.BANNER_GREEN, 12, 5));
+    public static final Map<VillagerProfession, List<MapTradeFinalized>> VILLAGER_MAP_TRADES = new HashMap<>();
+    public static final Map<WandingTraderTradeEntry.TRADE_TYPE, List<MapTradeFinalized>> WANDERING_TRADER_MAP_TRADES = new HashMap<>();
 
-            //level 4 trades
-            if(RSFortressesConfig.jungleFortressAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.FORTRESS_JUNGLE.get(), MapDecoration.Type.BANNER_GREEN, 12, 10));
+    public static void setupMapTrades() {
+        setupVillagerMap(VILLAGER_MAP_TRADES, RepurposedStructures.omegaMapTradeConfig.villagerMapTrades, "villager map trades");
+        setupWanderingTraderMap(WANDERING_TRADER_MAP_TRADES, RepurposedStructures.omegaMapTradeConfig.wanderingTraderMapTrades, "wandering trader map trades");
+    }
 
-            if(RSMansionsConfig.mansionBirchAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_BIRCH.get(), MapDecoration.Type.MANSION, 12, 10));
-            if(RSMansionsConfig.mansionDesertAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_DESERT.get(), MapDecoration.Type.MANSION, 12, 10));
-            if(RSMansionsConfig.mansionJungleAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_JUNGLE.get(), MapDecoration.Type.MANSION, 12, 10));
-            if(RSMansionsConfig.mansionOakAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_OAK.get(), MapDecoration.Type.MANSION, 12, 10));
-            if(RSMansionsConfig.mansionSavannaAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_SAVANNA.get(), MapDecoration.Type.MANSION, 12, 10));
-            if(RSMansionsConfig.mansionSnowyAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_SNOWY.get(), MapDecoration.Type.MANSION, 12, 10));
-            if(RSMansionsConfig.mansionTaigaAverageChunkDistance.get() != 1001)
-                event.getTrades().get(4).add(new VillagerTrades.TreasureMapForEmeralds(14, RSStructures.MANSION_TAIGA.get(), MapDecoration.Type.MANSION, 12, 10));
+    public static record MapTradeFinalized(StructureFeature<?> structureFeature, MapDecoration.Type mapIcon, int tradeLevel, int emeraldsRequired, int tradesAllowed, int xpReward) { }
+
+    // Needed so that config api can handle reading/writing the entry to and from file.
+    public static class VillagerTradeEntry {
+        public final String structure;
+        public final String mapIcon;
+        public final int tradeLevel;
+        public final int emeraldsRequired;
+        public final int tradesAllowed;
+        public final int xpReward;
+
+        public VillagerTradeEntry(String structure, String mapIcon, int tradeLevel, int emeraldsRequired, int tradesAllowed, int xpReward) {
+            this.structure = structure;
+            this.mapIcon = mapIcon;
+            this.tradeLevel = tradeLevel;
+            this.emeraldsRequired = emeraldsRequired;
+            this.tradesAllowed = tradesAllowed;
+            this.xpReward = xpReward;
         }
     }
 
+    // Needed so that config api can handle reading/writing the entry to and from file.
+    public static class WandingTraderTradeEntry {
+        public enum TRADE_TYPE {
+            RARE,
+            COMMON
+        }
+
+        public final String structure;
+        public final String mapIcon;
+        public final int emeraldsRequired;
+        public final int tradesAllowed;
+        public final int xpReward;
+
+        public WandingTraderTradeEntry(String structure, String mapIcon, int emeraldsRequired, int tradesAllowed, int xpReward) {
+            this.structure = structure;
+            this.mapIcon = mapIcon;
+            this.emeraldsRequired = emeraldsRequired;
+            this.tradesAllowed = tradesAllowed;
+            this.xpReward = xpReward;
+        }
+    }
+
+    private static void setupVillagerMap(Map<VillagerProfession, List<MapTradeFinalized>> tradeMapToFill,
+                                 Map<String, List<VillagerTradeEntry>> configMap,
+                                 String errorMsg) {
+
+        for(Map.Entry<String, List<VillagerTradeEntry>> configMapEntry : configMap.entrySet()) {
+
+            VillagerProfession villagerProfession = ForgeRegistries.PROFESSIONS.getValue(new ResourceLocation(configMapEntry.getKey()));
+            if(villagerProfession == null) {
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), errorMsg);
+                continue;
+            }
+
+            for(VillagerTradeEntry villagerTradeEntry : configMapEntry.getValue()) {
+                // Parse and make sure the entity type exists
+                StructureFeature<?> structureFeature = ForgeRegistries.STRUCTURE_FEATURES.getValue(new ResourceLocation(villagerTradeEntry.structure));
+                if(structureFeature == null) {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown Structure {} was found in the {} config. Skipping that entry...", villagerTradeEntry.structure, errorMsg);
+                    continue;
+                }
+
+                MapDecoration.Type mapIcon = EnumUtils.getEnum(MapDecoration.Type.class, villagerTradeEntry.mapIcon.toUpperCase(Locale.ROOT));
+                if(mapIcon == null) {
+                    mapIcon = MapDecoration.Type.MANSION;
+                }
+
+                MapTradeFinalized finalizedTrade = new MapTradeFinalized(
+                        structureFeature,
+                        mapIcon,
+                        villagerTradeEntry.tradeLevel,
+                        villagerTradeEntry.emeraldsRequired,
+                        villagerTradeEntry.tradesAllowed,
+                        villagerTradeEntry.xpReward);
+
+                if(!tradeMapToFill.containsKey(villagerProfession)) {
+                    tradeMapToFill.put(villagerProfession, new ArrayList<>());
+                }
+                tradeMapToFill.get(villagerProfession).add(finalizedTrade);
+            }
+        }
+    }
+
+    private static void setupWanderingTraderMap(Map<WandingTraderTradeEntry.TRADE_TYPE, List<MapTradeFinalized>> tradeMapToFill,
+                                 Map<String, List<WandingTraderTradeEntry>> configMap,
+                                 String errorMsg) {
+
+        for(Map.Entry<String, List<WandingTraderTradeEntry>> configMapEntry : configMap.entrySet()) {
+
+            WandingTraderTradeEntry.TRADE_TYPE tradeType = EnumUtils.getEnum(WandingTraderTradeEntry.TRADE_TYPE.class, configMapEntry.getKey());
+            if(tradeType == null) {
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), errorMsg);
+                continue;
+            }
+
+            for(WandingTraderTradeEntry wandingTraderTradeEntry : configMapEntry.getValue()) {
+                // Parse and make sure the entity type exists
+                StructureFeature<?> structureFeature = ForgeRegistries.STRUCTURE_FEATURES.getValue(new ResourceLocation(wandingTraderTradeEntry.structure));
+                if(structureFeature == null) {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown Structure {} was found in the {} config. Skipping that entry...", wandingTraderTradeEntry.structure, errorMsg);
+                    continue;
+                }
+
+                MapDecoration.Type mapIcon = EnumUtils.getEnum(MapDecoration.Type.class, wandingTraderTradeEntry.mapIcon.toUpperCase(Locale.ROOT));
+                if(mapIcon == null) {
+                    mapIcon = MapDecoration.Type.MANSION;
+                }
+
+                MapTradeFinalized finalizedTrade = new MapTradeFinalized(
+                        structureFeature,
+                        mapIcon,
+                        0,
+                        wandingTraderTradeEntry.emeraldsRequired,
+                        wandingTraderTradeEntry.tradesAllowed,
+                        wandingTraderTradeEntry.xpReward);
+
+                if(!tradeMapToFill.containsKey(tradeType)) {
+                    tradeMapToFill.put(tradeType, new ArrayList<>());
+                }
+                tradeMapToFill.get(tradeType).add(finalizedTrade);
+            }
+        }
+    }
+
+    public static void onVillagerTradesEvent(VillagerTradesEvent event) {
+        if (VILLAGER_MAP_TRADES.containsKey(event.getType())) {
+            for (MapTradeFinalized mapTrade : VILLAGER_MAP_TRADES.get(event.getType())) {
+                event.getTrades().get(mapTrade.tradeLevel()).add(new VillagerTrades.TreasureMapForEmeralds(mapTrade.emeraldsRequired(), mapTrade.structureFeature(), mapTrade.mapIcon(), mapTrade.tradesAllowed(), mapTrade.xpReward()));
+            }
+        }
+    }
 
     public static void onWandererTradesEvent(WandererTradesEvent event) {
-        if(RSBastionsConfig.bastionUndergroundAverageChunkDistance.get() != 10001)
-            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(38, RSStructures.BASTION_UNDERGROUND.get(), MapDecoration.Type.BANNER_GRAY, 1, 100));
-        if(RSVillagesConfig.villageMushroomAverageChunkDistance.get() != 1001)
-            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(45, RSStructures.VILLAGE_MUSHROOM.get(), MapDecoration.Type.MANSION, 1, 100));
-        if(RSCitiesConfig.citiesOverworldAverageChunkDistance.get() != 10001)
-            event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(52, RSStructures.CITY_OVERWORLD.get(), MapDecoration.Type.MANSION, 1, 200));
+        for (Map.Entry<WandingTraderTradeEntry.TRADE_TYPE, List<MapTradeFinalized>> tradeEntry : WANDERING_TRADER_MAP_TRADES.entrySet()) {
+            for (MapTradeFinalized mapTrade : tradeEntry.getValue()) {
+                if (tradeEntry.getKey() == WandingTraderTradeEntry.TRADE_TYPE.RARE) {
+                    event.getRareTrades().add(new VillagerTrades.TreasureMapForEmeralds(mapTrade.emeraldsRequired(), mapTrade.structureFeature(), mapTrade.mapIcon(), mapTrade.tradesAllowed(), mapTrade.xpReward()));
+                }
+                else if (tradeEntry.getKey() == WandingTraderTradeEntry.TRADE_TYPE.COMMON) {
+                    event.getGenericTrades().add(new VillagerTrades.TreasureMapForEmeralds(mapTrade.emeraldsRequired(), mapTrade.structureFeature(), mapTrade.mapIcon(), mapTrade.tradesAllowed(), mapTrade.xpReward()));
+                }
+            }
+        }
     }
 }

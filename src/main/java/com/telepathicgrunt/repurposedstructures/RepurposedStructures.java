@@ -76,6 +76,7 @@ public class RepurposedStructures {
 
     public static final RSBiomeDimConfig omegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
     public static final RSNaturalMobSpawningConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningConfig.class);
+    public static final RSMapTradeConfig omegaMapTradeConfig = OmegaConfig.register(RSMapTradeConfig.class);
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
@@ -142,6 +143,7 @@ public class RepurposedStructures {
             RSGlobalLootModifier.registerLootData();
             BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
             MobSpawningOverTime.setupMobSpawningMaps();
+            MobMapTrades.setupMapTrades();
 
             // Workaround for Terraforged
             BuiltinRegistries.NOISE_GENERATOR_SETTINGS.entrySet().forEach(settings -> {
