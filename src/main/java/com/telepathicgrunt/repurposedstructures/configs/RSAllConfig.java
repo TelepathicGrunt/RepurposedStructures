@@ -16,6 +16,10 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RSNaturalMobSpawningConfig RSNaturalMobSpawningConfig = new RSNaturalMobSpawningConfig();
 
+    @ConfigEntry.Category("Structure Map Trades")
+    @ConfigEntry.Gui.TransitiveObject
+    public RSMapTradeConfig RSMapTradeConfig = new RSMapTradeConfig();
+
     @ConfigEntry.Category("Misc")
     @ConfigEntry.Gui.TransitiveObject
     public RSMiscConfig RSMiscConfig = new RSMiscConfig();

@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
+import com.telepathicgrunt.repurposedstructures.configs.RSMapTradeOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSNaturalMobSpawningOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
@@ -58,6 +59,7 @@ public class RepurposedStructures implements ModInitializer {
 	public static RSAllConfig RSAllConfig = null;
     public static final RSAllowDisallowOmegaConfig omegaBiomeDimConfig = OmegaConfig.register(RSAllowDisallowOmegaConfig.class);
     public static final RSNaturalMobSpawningOmegaConfig omegaMobSpawnConfig = OmegaConfig.register(RSNaturalMobSpawningOmegaConfig.class);
+    public static final RSMapTradeOmegaConfig omegaMapTradeConfig = OmegaConfig.register(RSMapTradeOmegaConfig.class);
     public static boolean initialized = false;
 
 
@@ -81,6 +83,7 @@ public class RepurposedStructures implements ModInitializer {
         MobSpawningOverTime.setupMobSpawningMaps();
         setupBiomeModifications();
         PoolAdditionMerger.mergeAdditionPools();
+        MobMapTrades.setupMapTrades();
         MobMapTrades.addMapTrades();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structurePieceCountsManager);
