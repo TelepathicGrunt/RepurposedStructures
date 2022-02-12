@@ -46,7 +46,7 @@ public class RSMapTradeConfig implements Config {
     )
     public final Map<String, List<MobMapTrades.VillagerTradeEntry>> villagerMapTrades = new HashMap<>() {{
         put("minecraft:cartographer", Arrays.asList(
-                new MobMapTrades.VillagerTradeEntry("repurposed_structures:fortress_jungle", "BANNER_GREEN", 3, 13, 12, 5),
+                new MobMapTrades.VillagerTradeEntry("repurposed_structures:fortress_jungle", "BANNER_GREEN", 3, 13, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:fortress_jungle", "BANNER_GREEN", 4, 14, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_birch", "MANSION", 4, 14, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_desert", "MANSION", 4, 14, 12, 10),
