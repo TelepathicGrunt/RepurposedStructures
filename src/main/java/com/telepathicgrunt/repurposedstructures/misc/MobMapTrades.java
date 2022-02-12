@@ -24,8 +24,8 @@ public final class MobMapTrades {
     public static final Map<WandingTraderTradeEntry.TRADE_TYPE, List<MapTradeFinalized>> WANDERING_TRADER_MAP_TRADES = new HashMap<>();
 
     public static void setupMapTrades() {
-        setupVillagerMap(VILLAGER_MAP_TRADES, RepurposedStructures.omegaMapTradeConfig.villagerMapTrades, "villager map trades");
-        setupWanderingTraderMap(WANDERING_TRADER_MAP_TRADES, RepurposedStructures.omegaMapTradeConfig.wanderingTraderMapTrades, "wandering trader map trades");
+        setupVillagerMap(RepurposedStructures.omegaMapTradeConfig.villagerMapTrades);
+        setupWanderingTraderMap(RepurposedStructures.omegaMapTradeConfig.wanderingTraderMapTrades);
     }
 
     public static record MapTradeFinalized(StructureFeature<?> structureFeature, MapDecoration.Type mapIcon, int tradeLevel, int emeraldsRequired, int tradesAllowed, int xpReward) { }
@@ -71,15 +71,13 @@ public final class MobMapTrades {
         }
     }
 
-    private static void setupVillagerMap(Map<VillagerProfession, List<MapTradeFinalized>> tradeMapToFill,
-                                 Map<String, List<VillagerTradeEntry>> configMap,
-                                 String errorMsg) {
+    private static void setupVillagerMap(Map<String, List<VillagerTradeEntry>> configMap) {
 
         for(Map.Entry<String, List<VillagerTradeEntry>> configMapEntry : configMap.entrySet()) {
 
             VillagerProfession villagerProfession = ForgeRegistries.PROFESSIONS.getValue(new ResourceLocation(configMapEntry.getKey()));
             if(villagerProfession == null) {
-                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), errorMsg);
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), "villager map trades");
                 continue;
             }
 
@@ -87,7 +85,7 @@ public final class MobMapTrades {
                 // Parse and make sure the entity type exists
                 StructureFeature<?> structureFeature = ForgeRegistries.STRUCTURE_FEATURES.getValue(new ResourceLocation(villagerTradeEntry.structure));
                 if(structureFeature == null) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown Structure {} was found in the {} config. Skipping that entry...", villagerTradeEntry.structure, errorMsg);
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown Structure {} was found in the {} config. Skipping that entry...", villagerTradeEntry.structure, "villager map trades");
                     continue;
                 }
 
@@ -104,23 +102,21 @@ public final class MobMapTrades {
                         villagerTradeEntry.tradesAllowed,
                         villagerTradeEntry.xpReward);
 
-                if(!tradeMapToFill.containsKey(villagerProfession)) {
-                    tradeMapToFill.put(villagerProfession, new ArrayList<>());
+                if(!MobMapTrades.VILLAGER_MAP_TRADES.containsKey(villagerProfession)) {
+                    MobMapTrades.VILLAGER_MAP_TRADES.put(villagerProfession, new ArrayList<>());
                 }
-                tradeMapToFill.get(villagerProfession).add(finalizedTrade);
+                MobMapTrades.VILLAGER_MAP_TRADES.get(villagerProfession).add(finalizedTrade);
             }
         }
     }
 
-    private static void setupWanderingTraderMap(Map<WandingTraderTradeEntry.TRADE_TYPE, List<MapTradeFinalized>> tradeMapToFill,
-                                 Map<String, List<WandingTraderTradeEntry>> configMap,
-                                 String errorMsg) {
+    private static void setupWanderingTraderMap(Map<String, List<WandingTraderTradeEntry>> configMap) {
 
         for(Map.Entry<String, List<WandingTraderTradeEntry>> configMapEntry : configMap.entrySet()) {
 
             WandingTraderTradeEntry.TRADE_TYPE tradeType = EnumUtils.getEnum(WandingTraderTradeEntry.TRADE_TYPE.class, configMapEntry.getKey());
             if(tradeType == null) {
-                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), errorMsg);
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Unknown key {} was found in the {} config. Skipping that entry...", configMapEntry.getKey(), "wandering trader map trades");
                 continue;
             }
 
@@ -128,7 +124,7 @@ public final class MobMapTrades {
                 // Parse and make sure the entity type exists
                 StructureFeature<?> structureFeature = ForgeRegistries.STRUCTURE_FEATURES.getValue(new ResourceLocation(wandingTraderTradeEntry.structure));
                 if(structureFeature == null) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown Structure {} was found in the {} config. Skipping that entry...", wandingTraderTradeEntry.structure, errorMsg);
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures (second): Unknown Structure {} was found in the {} config. Skipping that entry...", wandingTraderTradeEntry.structure, "wandering trader map trades");
                     continue;
                 }
 
@@ -145,10 +141,10 @@ public final class MobMapTrades {
                         wandingTraderTradeEntry.tradesAllowed,
                         wandingTraderTradeEntry.xpReward);
 
-                if(!tradeMapToFill.containsKey(tradeType)) {
-                    tradeMapToFill.put(tradeType, new ArrayList<>());
+                if(!MobMapTrades.WANDERING_TRADER_MAP_TRADES.containsKey(tradeType)) {
+                    MobMapTrades.WANDERING_TRADER_MAP_TRADES.put(tradeType, new ArrayList<>());
                 }
-                tradeMapToFill.get(tradeType).add(finalizedTrade);
+                MobMapTrades.WANDERING_TRADER_MAP_TRADES.get(tradeType).add(finalizedTrade);
             }
         }
     }
