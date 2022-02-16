@@ -1,3 +1,13 @@
+### **(V.4.2.11 Changes) (1.18.1 Minecraft)**
+
+#### Optimization:
+Slightly optimized natural mob spawning over time for RS's structure checks.
+
+#### Config:
+Fixed Savanna Mansion maps not showing up as a villager trade due to typo in config. 
+ (Config should auto fix that one typo next time you run the game)
+
+
 ### **(V.4.2.10 Changes) (1.18.1 Minecraft)**
 
 #### Config:

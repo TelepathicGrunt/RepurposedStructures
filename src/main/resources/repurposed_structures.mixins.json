@@ -8,7 +8,7 @@
     "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
-    "features.LessjungleBushInStructuresMixin",
+    "features.LessJungleBushInStructuresMixin",
     "features.NoBasaltColumnsInStructuresMixin",
     "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",

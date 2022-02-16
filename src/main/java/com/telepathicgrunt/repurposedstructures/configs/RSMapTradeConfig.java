@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api.Comment;
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api.Config;
 import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -28,8 +29,33 @@ public class RSMapTradeConfig implements Config {
         // Add logic here when adding new mob spawn structures to config."
         // The logic needs to do a putIfAbsent to add the missing structures between the config versions when updating."
 
-        configVersion = 1;
+        if(configVersion == 1) {
+            removeEntries(villagerMapTrades, "minecraft:cartographer", "repurposed_structures:mansion_savannna");
+            addEntries(villagerMapTrades, "minecraft:cartographer", new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_savanna", "MANSION", 4, 14, 12, 10));
+        }
+
+        configVersion = 2;
         Config.super.save();
+    }
+
+    private void addEntries(Map<String, List<MobMapTrades.VillagerTradeEntry>> map, String key, MobMapTrades.VillagerTradeEntry entry){
+        // assign entry
+        if(!map.containsKey(key) || map.get(key).stream().noneMatch(e -> e.structure.equals(entry.structure))) {
+            List<MobMapTrades.VillagerTradeEntry> newList = new ArrayList<>();
+            newList.add(entry);
+            if(map.containsKey(key)) {
+                newList.addAll(map.get(key));
+            }
+            map.put(key, newList);
+        }
+    }
+
+    private void removeEntries(Map<String, List<MobMapTrades.VillagerTradeEntry>> map, String key, String entry){
+        if (map.containsKey(key)) {
+            List<MobMapTrades.VillagerTradeEntry> newList = new ArrayList<>(map.get(key));
+            newList.removeIf(listEntry -> listEntry.structure.equals(entry));
+            map.put(key, newList);
+        }
     }
 
     @Comment("""
@@ -52,7 +78,7 @@ public class RSMapTradeConfig implements Config {
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_desert", "MANSION", 4, 14, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_jungle", "MANSION", 4, 14, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_oak", "MANSION", 4, 14, 12, 10),
-                new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_savannna", "MANSION", 4, 14, 12, 10),
+                new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_savanna", "MANSION", 4, 14, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_snowy", "MANSION", 4, 14, 12, 10),
                 new MobMapTrades.VillagerTradeEntry("repurposed_structures:mansion_taiga", "MANSION", 4, 14, 12, 10)
         ));
