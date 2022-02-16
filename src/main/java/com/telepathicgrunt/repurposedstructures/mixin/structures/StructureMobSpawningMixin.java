@@ -18,7 +18,7 @@ public class StructureMobSpawningMixin {
 
     @Inject(
             method = "getMobsAt(Lnet/minecraft/world/level/biome/Biome;Lnet/minecraft/world/level/StructureFeatureManager;Lnet/minecraft/world/entity/MobCategory;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/util/random/WeightedRandomList;",
-            at = @At(value = "HEAD"),
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/StructureFeatureManager;getStructureWithPieceAt(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/levelgen/feature/StructureFeature;)Lnet/minecraft/world/level/levelgen/structure/StructureStart;", ordinal = 0),
             cancellable = true
     )
     private void repurposedstructures_structureMobs(Biome biome, StructureFeatureManager accessor, MobCategory group, BlockPos pos, CallbackInfoReturnable<WeightedRandomList<MobSpawnSettings.SpawnerData>> cir) {
