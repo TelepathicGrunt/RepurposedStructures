@@ -4,24 +4,11 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:brown_mushroom"
+            "Name": "minecraft:packed_ice"
           },
           "input_predicate": {
-            "block": "minecraft:red_mushroom",
-            "probability": 0.08,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:air"
-          },
-          "input_predicate": {
-            "block": "minecraft:red_mushroom",
-            "probability": 0.88,
+            "block": "minecraft:blue_ice",
+            "probability": 0.02,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -34,16 +21,20 @@
     {
       "processor_type": "repurposed_structures:pillar_processor",
       "direction": "DOWN",
+      "pillar_processor_list": "repurposed_structures:pyramids/icy",
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
             "Name": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:brown_mushroom_block"
+            "Name": "minecraft:packed_ice"
           }
         }
       ]
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }

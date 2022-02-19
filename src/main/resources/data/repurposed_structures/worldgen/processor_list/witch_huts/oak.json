@@ -9,15 +9,12 @@
             "Name": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:prismarine"
+            "Name": "minecraft:oak_log",
+            "Properties": {
+              "axis": "y"
+            }
           }
         }
-      ]
-    },
-    {
-      "processor_type": "repurposed_structures:tick_blocks_processor",
-      "blocks_to_tick": [
-        "minecraft:bubble_column"
       ]
     }
   ]

@@ -58,6 +58,7 @@ if (project.use_third_party_mods) {
 		modRuntimeOnly "com.telepathicgrunt:NoNullProcessors:2.0.1+1.18.1"
 
 		modRuntimeOnly "curse.maven:shutup_experimental_settings-401978:3545078"
+		modRuntimeOnly "curse.maven:cyanide-543444:3538092"
 
 		//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
 

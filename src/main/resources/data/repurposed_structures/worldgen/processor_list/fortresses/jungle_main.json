@@ -109,6 +109,8 @@
     },
     {
       "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_processor_list": "repurposed_structures:fortresses/jungle_main",
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
@@ -118,9 +120,7 @@
             "Name": "minecraft:stone_bricks"
           }
         }
-      ],
-      "pillar_processor_list": "repurposed_structures:fortresses/jungle_main",
-      "direction": "DOWN"
+      ]
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",

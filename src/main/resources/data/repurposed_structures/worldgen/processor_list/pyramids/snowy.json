@@ -9,16 +9,13 @@
             "Name": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:prismarine"
+            "Name": "minecraft:snow_block"
           }
         }
       ]
     },
     {
-      "processor_type": "repurposed_structures:tick_blocks_processor",
-      "blocks_to_tick": [
-        "minecraft:bubble_column"
-      ]
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }

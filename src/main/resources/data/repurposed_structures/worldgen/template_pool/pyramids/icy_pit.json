@@ -6,9 +6,9 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:pyramids/icy_pit",
-        "processors": "repurposed_structures:pyramids/generic",
+        "processors": "repurposed_structures:pyramids/icy_pit",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]
