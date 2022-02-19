@@ -75,7 +75,6 @@ public class PillarProcessor extends StructureProcessor {
             BlockPos worldPos = structureBlockInfoWorld.pos;
 
             BlockState replacementState = pillarTriggerAndReplacementBlocks.get(blockState);
-            BlockState currentBlock = levelReader.getBlockState(worldPos);
             BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
             StructureProcessorList structureProcessorList = null;
             if(processorList != null && !processorList.equals(EMPTY_RL)) {
@@ -97,6 +96,7 @@ public class PillarProcessor extends StructureProcessor {
             }
 
             // Creates the pillars in the world that replaces air and liquids
+            BlockState currentBlock = levelReader.getBlockState(worldPos.below());
             while(!currentBlock.canOcclude() &&
                 currentPos.getY() <= levelReader.dimensionType().logicalHeight() &&
                 currentPos.getY() >= terrainY &&

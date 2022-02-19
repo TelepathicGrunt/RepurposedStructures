@@ -34,7 +34,7 @@
     {
       "processor_type": "repurposed_structures:pillar_processor",
       "direction": "DOWN",
-      "pillar_processor_list": "repurposed_structures:pyramids/icy",
+      "pillar_processor_list": "repurposed_structures:pyramids/icy_pillar",
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
