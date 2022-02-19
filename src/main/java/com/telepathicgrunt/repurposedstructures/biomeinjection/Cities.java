@@ -18,7 +18,7 @@ public final class Cities {
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.NETHER)))
         );
 
-        BiomeInjection.addStructure(RSConfiguredStructures.CITY_NETHER, (event) ->
+        BiomeInjection.addStructure(RSConfiguredStructures.CITY_OVERWORLD, (event) ->
                 RepurposedStructures.RSAllConfig.RSCitiesConfig.cityOverworldAverageChunkDistance != 10001 &&
                 BiomeSelection.isBiomeAllowed(event, RSStructures.CITY_OVERWORLD,
                 () -> BiomeSelection.haveCategories(event, Biome.BiomeCategory.FOREST, Biome.BiomeCategory.TAIGA, Biome.BiomeCategory.JUNGLE) &&

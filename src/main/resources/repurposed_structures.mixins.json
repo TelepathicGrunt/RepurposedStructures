@@ -33,9 +33,7 @@
     "structures.StructureProcessorAccessor",
     "structures.StructureSettingsAccessor",
     "structures.StructureTemplateMixin",
-    "structures.TemplateAccessor",
-    "world.MinecraftServerMixin",
-    "world.StructuresConfigMixin"
+    "structures.TemplateAccessor"
   ],
   "client": [
     "blocks.StructureBlockScreenMixin"

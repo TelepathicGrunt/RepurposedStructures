@@ -282,9 +282,13 @@ public final class RSStructures {
 
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND).step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES).defaultConfig(new StructureFeatureConfiguration(RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance, (int) (RepurposedStructures.RSAllConfig.RSBastionsConfig.bastionUndergroundAverageChunkDistance * 0.5f), 1359301629)).register();
 
-        RS_STRUCTURES.putAll(StructureSettings.DEFAULTS);
-        RS_STRUCTURES.putAll(FabricStructureImpl.STRUCTURE_TO_CONFIG_MAP); // Override DEFAULT_STRUCTURES by default for same key as FabricStructureImpl is what is used for worldgen
-        RS_STRUCTURES.keySet().removeIf(key -> key.getFeatureName() == null || !key.getFeatureName().contains(RepurposedStructures.MODID));
+        StructureSettings.DEFAULTS.entrySet().stream()
+                .filter(entry -> entry.getKey().getFeatureName() == null || !entry.getKey().getFeatureName().contains(RepurposedStructures.MODID))
+                .forEach(entry -> RS_STRUCTURES.put(entry.getKey(), entry.getValue()));
+
+        FabricStructureImpl.STRUCTURE_TO_CONFIG_MAP.entrySet().stream()
+                .filter(entry -> entry.getKey().getFeatureName() == null || !entry.getKey().getFeatureName().contains(RepurposedStructures.MODID))
+                .forEach(entry -> RS_STRUCTURES.put(entry.getKey(), entry.getValue()));
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();

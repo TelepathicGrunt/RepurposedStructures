@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.RegistryLookupCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
@@ -25,6 +26,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class PillarProcessor extends StructureProcessor {
+    private static final ResourceLocation EMPTY_RL = new ResourceLocation("minecraft", "empty");
 
     public static final Codec<PillarProcessor> CODEC  = RecordCodecBuilder.create((instance) -> instance.group(
             RegistryLookupCodec.create(Registry.PROCESSOR_LIST_REGISTRY)
@@ -36,12 +38,12 @@ public class PillarProcessor extends StructureProcessor {
                     .fieldOf("pillar_trigger_and_replacements")
                     .forGetter((processor) -> processor.pillarTriggerAndReplacementBlocks),
             ResourceLocation.CODEC
-                    .optionalFieldOf("pillar_processor_list", null)
+                    .optionalFieldOf("pillar_processor_list", EMPTY_RL)
                     .forGetter(processor -> processor.processorList),
             Direction.CODEC
                     .optionalFieldOf("direction", Direction.DOWN)
                     .forGetter(processor -> processor.direction),
-            Codec.intRange(0, 1)
+            Codec.INT
                     .optionalFieldOf("pillar_length", 1000)
                     .forGetter(config -> config.pillarLength))
     .apply(instance, instance.stable(PillarProcessor::new)));
@@ -76,7 +78,7 @@ public class PillarProcessor extends StructureProcessor {
             BlockState currentBlock = levelReader.getBlockState(worldPos);
             BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
             StructureProcessorList structureProcessorList = null;
-            if(processorList != null) {
+            if(processorList != null && !processorList.equals(EMPTY_RL)) {
                 structureProcessorList = processorListRegistry.get(processorList);
             }
 
