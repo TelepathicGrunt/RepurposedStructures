@@ -60,8 +60,8 @@ public abstract class AbstractBaseStructure<C extends FeatureConfiguration> exte
                 for(int zRadius = -currentRadius; zRadius <= currentRadius; ++zRadius) {
                     boolean zEdge = zRadius == -currentRadius || zRadius == currentRadius;
                     if (xEdge || zEdge) {
-                        int trueChunkX = chunkX + spacing  * xRadius;
-                        int trueChunkZ = chunkZ + spacing  * zRadius;
+                        int trueChunkX = chunkX + spacing * xRadius;
+                        int trueChunkZ = chunkZ + spacing * zRadius;
                         ChunkPos chunkpos = this.getPotentialFeatureChunk(structureConfig, seed, trueChunkX, trueChunkZ);
                         StructureCheckResult structurecheckresult = structureManager.checkStructurePresence(chunkpos, this, skipExistingChunks);
                         if (structurecheckresult != StructureCheckResult.START_NOT_PRESENT) {

@@ -69,7 +69,7 @@ public class RSVillagesConfig {
 
 		villageMushroomAverageChunkDistance = builder
 			.translation("repurposedstructures.villagemushroomaveragechunkdistance")
-			.defineInRange("villageMushroomAverageChunkDistance", 47, 1, 1001);
+			.defineInRange("villageMushroomAverageChunkDistance", 41, 1, 1001);
 
 		villageGiantTaigaAverageChunkDistance = builder
 			.translation("repurposedstructures.gianttaigavillageaveragechunkdistance")

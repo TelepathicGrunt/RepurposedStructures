@@ -73,6 +73,9 @@ dependencies {
 
     // 1.18.1
     runtimeOnly fg.deobf("curse.maven:shutup_experimental_settings-407174:3544525")
+    //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3650285")
+    //runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3659567")
+    //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3652542")
     //runtimeOnly fg.deobf("curse.maven:endremastered-404183:3600701")
     //runtimeOnly fg.deobf("curse.maven:terralith-513688:3606078")
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
@@ -85,8 +88,6 @@ dependencies {
     // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3523829")
     // runtimeOnly fg.deobf("curse.maven:caves_api-441706:3512246")
     // runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3476138")
-    // runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3494919")
-    // runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3412586")
     // runtimeOnly fg.deobf("curse.maven:relics-445274:3470411")
     // runtimeOnly fg.deobf("curse.maven:curios-309927:3456953")
     // runtimeOnly fg.deobf("curse.maven:vampirism-233029:3475085")
