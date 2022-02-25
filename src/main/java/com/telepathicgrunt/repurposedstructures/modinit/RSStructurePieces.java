@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MirroringSingleJigsawPiece;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElementType;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType;
 
 
 public final class RSStructurePieces {

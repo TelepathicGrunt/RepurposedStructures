@@ -12,7 +12,6 @@ public class BuriableStructureCodeConfig {
 
     public BuriableStructureCodeConfig(ResourceLocation startPool, int offsetAmount, boolean onLand, boolean cannotSpawnInWater) {
         this.startPool = startPool;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(this.startPool);
         this.offsetAmount = offsetAmount;
         this.onLand = onLand;
         this.cannotSpawnInWater = cannotSpawnInWater;

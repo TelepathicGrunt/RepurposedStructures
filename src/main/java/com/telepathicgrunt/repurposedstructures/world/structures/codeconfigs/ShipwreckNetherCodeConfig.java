@@ -11,7 +11,6 @@ public class ShipwreckNetherCodeConfig {
     public ShipwreckNetherCodeConfig(ResourceLocation startPool, int sealevelOffset) {
         this.startPool = startPool;
         this.sealevelOffset = sealevelOffset;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     public static class Builder<T extends Builder<T>> {

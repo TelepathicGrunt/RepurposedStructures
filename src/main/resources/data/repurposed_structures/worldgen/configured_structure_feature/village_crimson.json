@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:villages/crimson",
+    "size": 6,
+    "search_for_highest_land": true,
+    "valid_biome_radius_check": 1,
+    "structure_blacklist_radius_check": 10,
+    "structures_to_avoid": "#repurposed_structures:avoiding/nether_villages_cannot_be_near"
+  },
+  "biomes": "#repurposed_structures:has_structure/villages/crimson",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}

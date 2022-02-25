@@ -1,0 +1,13 @@
+{
+  "type": "repurposed_structures:mineshaft_generic",
+  "config": {
+    "probability": 0.0015,
+    "start_pool": "repurposed_structures:mineshafts/ocean/start_pool",
+    "size": 9,
+    "max_y": 30,
+    "min_y": 5
+  },
+  "biomes": "#repurposed_structures:has_structure/mineshafts/ocean",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

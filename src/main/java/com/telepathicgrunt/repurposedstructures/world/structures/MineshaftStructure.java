@@ -1,9 +1,11 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedJigsawStructureCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -31,19 +33,8 @@ import java.util.function.Predicate;
 
 public class MineshaftStructure extends AdvancedJigsawStructure {
 
-    public MineshaftStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(locationCheckPredicate, pieceCreationPredicate);
-    }
-
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static MineshaftStructure create(MineshaftCodeConfig mineshaftCodeConfig) {
-        final Mutable<MineshaftStructure> box = new MutableObject<>();
-        final MineshaftStructure finalInstance = new MineshaftStructure(
-                (context) -> box.getValue().isFeatureChunk(context, mineshaftCodeConfig),
-                (context) -> box.getValue().generatePieces(context, mineshaftCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
+    public MineshaftStructure() {
+        super(RSMineshaftConfig.CODEC);
     }
 
     protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {

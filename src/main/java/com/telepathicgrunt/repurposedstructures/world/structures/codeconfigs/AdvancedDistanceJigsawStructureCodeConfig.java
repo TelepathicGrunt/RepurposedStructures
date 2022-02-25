@@ -12,8 +12,6 @@ public class AdvancedDistanceJigsawStructureCodeConfig extends AdvancedJigsawStr
                                                      int distanceFromWorldOrigin) {
         super(poolID, structureSize, biomeRange, maxY, minY, clipOutOfBoundsPieces, verticalRange);
         this.distanceFromWorldOrigin = distanceFromWorldOrigin;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     public static class Builder<T extends Builder<T>> extends AdvancedJigsawStructureCodeConfig.Builder<T> {

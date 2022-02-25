@@ -6,18 +6,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
@@ -526,7 +525,7 @@ public class MansionPieces{
         }
 
         public void generate(RegistryAccess dynamicRegistryManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionPieces.MansionParameters mansionParameters, MANSIONTYPE type) {
-            WritableRegistry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+            Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
             MansionPieces.GenerationPiece generationPiece = new MansionPieces.GenerationPiece();
             generationPiece.position = pos;
             generationPiece.rotation = rotation;
@@ -683,7 +682,7 @@ public class MansionPieces{
 
         }
 
-        private void addRoof(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> list, MansionPieces.GenerationPiece generationPiece, MansionPieces.FlagMatrix flagMatrix, Direction direction, int i, int j, int k, int l, MANSIONTYPE type) {
+        private void addRoof(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> list, MansionPieces.GenerationPiece generationPiece, MansionPieces.FlagMatrix flagMatrix, Direction direction, int i, int j, int k, int l, MANSIONTYPE type) {
             int m = i;
             int n = j;
             Direction direction2 = direction;
@@ -711,7 +710,7 @@ public class MansionPieces{
 
         }
 
-        private void method_15055(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation rotation, MansionPieces.FlagMatrix flagMatrix,  MansionPieces.FlagMatrix flagMatrix2, MANSIONTYPE type) {
+        private void method_15055(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation rotation, MansionPieces.FlagMatrix flagMatrix,  MansionPieces.FlagMatrix flagMatrix2, MANSIONTYPE type) {
             int k;
             int l;
             BlockPos blockPos7;
@@ -867,18 +866,18 @@ public class MansionPieces{
 
         }
 
-        private void addEntrance(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
+        private void addEntrance(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
             Direction direction = generationPiece.rotation.rotate(Direction.WEST);
             structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/entrance", generationPiece.position.relative(direction, 9), generationPiece.rotation, Mirror.NONE, type));
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), 16);
         }
 
-        private void method_15052(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
+        private void method_15052(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
             structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + generationPiece.template, generationPiece.position.relative(generationPiece.rotation.rotate(Direction.EAST), 7), generationPiece.rotation, Mirror.NONE, type));
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), 8);
         }
 
-        private void method_15058(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
+        private void method_15058(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), -1);
             structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/wall_corner", generationPiece.position, generationPiece.rotation, Mirror.NONE, type));
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), -7);
@@ -892,7 +891,7 @@ public class MansionPieces{
             generationPiece.rotation = generationPiece.rotation.getRotated(Rotation.COUNTERCLOCKWISE_90);
         }
 
-        private void addSmallRoom(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, RoomCollection roomCollection, MANSIONTYPE type) {
+        private void addSmallRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, RoomCollection roomCollection, MANSIONTYPE type) {
             Rotation blockRotation2 = Rotation.NONE;
             String string = roomCollection.get1x1(this.random);
             if (direction != Direction.EAST) {
@@ -914,7 +913,7 @@ public class MansionPieces{
             structurePieces.add(getJigsawPiece(poolRegistry, string, blockPos3, blockRotation2, Mirror.NONE, type));
         }
 
-        private void addMediumRoom(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, boolean staircase, MANSIONTYPE type) {
+        private void addMediumRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, boolean staircase, MANSIONTYPE type) {
             BlockPos blockPos15;
             if (direction2 == Direction.EAST && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
@@ -970,7 +969,7 @@ public class MansionPieces{
 
         }
 
-        private void addBigRoom(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, MANSIONTYPE type) {
+        private void addBigRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, MANSIONTYPE type) {
             int i = 0;
             int j = 0;
             Rotation blockRotation2 = blockRotation;
@@ -1013,12 +1012,12 @@ public class MansionPieces{
             structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2(this.random), blockPos2, blockRotation2, blockMirror, type));
         }
 
-        private void addBigSecretRoom(WritableRegistry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, RoomCollection roomCollection, MANSIONTYPE type) {
+        private void addBigSecretRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, RoomCollection roomCollection, MANSIONTYPE type) {
             BlockPos blockPos2 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
             structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2Secret(this.random), blockPos2, blockRotation, Mirror.NONE, type));
         }
 
-        private StructurePiece getJigsawPiece(WritableRegistry<StructureTemplatePool> poolRegistry, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror, MANSIONTYPE type) {
+        private StructurePiece getJigsawPiece(Registry<StructureTemplatePool> poolRegistry, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror, MANSIONTYPE type) {
             ResourceLocation resourceLocation = new ResourceLocation(poolPath.toLowerCase(Locale.ROOT));
             StructureTemplatePool pool = poolRegistry.get(resourceLocation);
             StructurePoolElement poolEntry;

@@ -9,7 +9,6 @@ public class StartPoolOnlyCodeConfig {
 
     public StartPoolOnlyCodeConfig(ResourceLocation poolID) {
         this.startPool = poolID;
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     public static class Builder<T extends Builder<T>> {

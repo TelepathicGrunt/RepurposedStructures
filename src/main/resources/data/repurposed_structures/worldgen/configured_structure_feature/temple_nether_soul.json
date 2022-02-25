@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:temples/nether_soul",
+    "size": 1,
+    "can_spawn_on_liquid": true
+  },
+  "biomes": "#repurposed_structures:has_structure/temples_nether_soul",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

@@ -42,8 +42,6 @@ public class GenericJigsawStructureCodeConfig {
         this.useHeightmap = useHeightmap;
         this.cannotSpawnInWater = cannotSpawnInWater;
         this.poolsThatIgnoreBounds = poolsThatIgnoreBounds;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     public static class Builder<T extends Builder<T>> {

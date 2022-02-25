@@ -22,8 +22,6 @@ public class AdvancedJigsawStructureCodeConfig {
         this.minY = minY;
         this.clipOutOfBoundsPieces = clipOutOfBoundsPieces;
         this.verticalRange = verticalRange;
-
-        RSStructures.RS_STRUCTURE_START_PIECES.add(startPool);
     }
 
     public static class Builder<T extends Builder<T>> {

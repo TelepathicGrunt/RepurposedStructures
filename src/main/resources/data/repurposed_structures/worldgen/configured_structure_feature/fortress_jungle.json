@@ -1,0 +1,63 @@
+{
+  "type": "repurposed_structures:advanced_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:fortresses/jungle/start_pool",
+    "size": 10,
+    "max_y": 65,
+    "min_y": 56,
+    "vertical_distance_from_start_piece": 33,
+    "do_not_remove_out_of_bounds_pieces": true,
+    "valid_biome_radius_check": 4
+  },
+  "biomes": "#repurposed_structures:has_structure/fortresses/jungle",
+  "adapt_noise": false,
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:wither_skeleton",
+          "weight": 1,
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "type": "minecraft:skeleton",
+          "weight": 10,
+          "minCount": 1,
+          "maxCount": 3
+        },
+        {
+          "type": "minecraft:zombie",
+          "weight": 10,
+          "minCount": 1,
+          "maxCount": 4
+        },
+        {
+          "type": "minecraft:spider",
+          "weight": 10,
+          "minCount": 1,
+          "maxCount": 3
+        },
+        {
+          "type": "minecraft:creeper",
+          "weight": 5,
+          "minCount": 1,
+          "maxCount": 2
+        },
+        {
+          "type": "minecraft:enderman",
+          "weight": 3,
+          "minCount": 1,
+          "maxCount": 2
+        },
+        {
+          "type": "minecraft:witch",
+          "weight": 2,
+          "minCount": 1,
+          "maxCount": 2
+        }
+      ]
+    }
+  }
+}
