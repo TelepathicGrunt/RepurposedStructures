@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:mineshaft_generic",
+  "type": "repurposed_structures:mineshaft_nether_generic",
   "config": {
     "probability": 0.004,
     "start_pool": "repurposed_structures:mineshafts/crimson/start_pool",

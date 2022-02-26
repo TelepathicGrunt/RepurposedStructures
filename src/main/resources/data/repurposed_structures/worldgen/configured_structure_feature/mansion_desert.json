@@ -1,0 +1,12 @@
+{
+  "type": "repurposed_structures:mansion_structure",
+  "config": {
+    "type": "DESERT",
+    "foundation_block": {
+      "Name": "minecraft:sandstone"
+    }
+  },
+  "biomes": "#repurposed_structures:has_structure/mansions/desert",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

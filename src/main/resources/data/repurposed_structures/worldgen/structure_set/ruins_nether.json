@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:ruins_nether",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1933599015,
+    "spacing": 35,
+    "separation": 17,
+    "type": "minecraft:random_spread"
+  }
+}

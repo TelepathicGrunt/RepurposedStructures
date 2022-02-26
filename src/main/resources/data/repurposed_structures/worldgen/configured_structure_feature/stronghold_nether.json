@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:advanced_distance_jigsaw_structure",
+  "type": "repurposed_structures:stronghold_nether",
   "config": {
     "distance_from_origin": 2817,
     "start_pool": "repurposed_structures:strongholds/nether/start_pool",

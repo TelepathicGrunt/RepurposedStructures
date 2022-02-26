@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:cities/overworld/start_pool",
+    "size": 5,
+    "cannot_spawn_in_water": true,
+    "structure_blacklist_radius_check": 4,
+    "structures_to_avoid": "#repurposed_structures:avoiding/overworld_city_cannot_be_near",
+    "pools_that_ignore_boundaries": [
+      "repurposed_structures:cities/overworld/bridge_end",
+      "repurposed_structures:cities/overworld/tower_top",
+      "repurposed_structures:cities/overworld/fat_tower_top"
+    ]
+  },
+  "biomes": "#repurposed_structures:has_structure/cities/overworld",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

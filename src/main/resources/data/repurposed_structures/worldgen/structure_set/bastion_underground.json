@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:bastion_underground",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 618127296,
+    "spacing": 180,
+    "separation": 90,
+    "type": "minecraft:random_spread"
+  }
+}
