@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.mixin.entities;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
@@ -47,9 +49,9 @@ public abstract class CatEntityMixin extends Mob {
         BlockPos pos = blockPosition();
 
         if (serverLevel != null) {
-            Registry<StructureSet> structureSetRegistry = serverLevel.registryAccess().registryOrThrow(Registry.STRUCTURE_SET_REGISTRY);
-            for (ConfiguredStructureFeature<?, ?> configuredStructureFeature : structureSetRegistry.get(RSStructures.WITCH_HUTS_OVERWORLD).structures().stream().map(e -> e.structure().value()).collect(Collectors.toList())) {
-                if(serverLevel.structureFeatureManager().getStructureAt(pos, configuredStructureFeature).isValid()) {
+            Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = serverLevel.registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
+            for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getTag(RSTags.SPAWNS_BLACK_CATS).get()) {
+                if(serverLevel.structureFeatureManager().getStructureAt(pos, configuredStructureFeature.value()).isValid()) {
                     setCatType(Cat.TYPE_ALL_BLACK);
                     setPersistenceRequired();
                     return;

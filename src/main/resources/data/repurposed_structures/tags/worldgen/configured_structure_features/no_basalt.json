@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+	  "repurposed_structures:mineshaft_nether",
+	  "repurposed_structures:mineshaft_crimson",
+	  "repurposed_structures:mineshaft_warped",
+	  "repurposed_structures:temple_nether_basalt",
+	  "repurposed_structures:shipwreck_nether_bricks",
+	  "repurposed_structures:outpost_nether_brick",
+	  "repurposed_structures:village_crimson",
+	  "repurposed_structures:village_warped",
+	  "repurposed_structures:ruins_nether"
+  ]
+}

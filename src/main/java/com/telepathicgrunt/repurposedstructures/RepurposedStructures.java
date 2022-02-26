@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.biomeinjection.BiomeInjection;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Dungeons;
 import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
@@ -16,6 +15,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
@@ -45,6 +45,7 @@ public class RepurposedStructures implements ModInitializer {
         AutoConfig.register(RSAllConfig.class, JanksonConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
+        RSTags.initTags();
         RSPlacements.registerPlacements();
         RSFeatures.registerFeatures();
         RSProcessors.registerProcessors();
@@ -54,7 +55,6 @@ public class RepurposedStructures implements ModInitializer {
         RSConfiguredFeatures.registerPlacedFeatures();
 
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
-        BiomeInjection.addStructureToBiomes();
         setupBiomeModifications();
         PoolAdditionMerger.mergeAdditionPools();
         MobMapTrades.addMapTrades();

@@ -56,32 +56,6 @@ public final class RSStructures {
     public static StructureFeature<?> CITY_NETHER_STRUCTURE = new CityNetherStructure<>(RSGenericNetherConfig.CODEC);
     public static StructureFeature<?> MANSION_STRUCTURE = new MansionStructure<>(RSMansionConfig.CODEC);
 
-    public static ResourceKey<StructureSet> VILLAGES_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "villages_overworld"));
-    public static ResourceKey<StructureSet> MANSIONS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mansions_overworld"));
-    public static ResourceKey<StructureSet> PYRAMIDS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "pyramids_overworld"));
-    public static ResourceKey<StructureSet> RUINS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "ruins_overworld"));
-    public static ResourceKey<StructureSet> WITCH_HUTS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_overworld"));
-    public static ResourceKey<StructureSet> BASTIONS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "bastions_overworld"));
-
-    public static List<ResourceKey<ConfiguredStructureFeature<?,?>>> LESS_JUNGLE_BUSH = List.of(
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "village_jungle"))
-    );
-    public static List<ResourceKey<ConfiguredStructureFeature<?,?>>> NO_LAVAFALLS = Arrays.asList(
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_icy")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"))
-    );
-    public static List<ResourceKey<ConfiguredStructureFeature<?,?>>> NO_BASALT_COLUMNS = Arrays.asList(
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_crimson")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_warped")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "temple_nether_basalt")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "outpost_nether_brick")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "village_crimson")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "village_warped")),
-            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"))
-    );
-
     public static void registerStructures() {
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "generic_underground_jigsaw_structure"), GENERIC_UNDERGROUND_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES).register();
