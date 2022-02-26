@@ -51,7 +51,7 @@
     "filled_map.repurposed_structures:pyramid_end": "End Pyramid Map",
 
     "text.autoconfig.repurposed_structures-fabric/general_configs.title": "Repurposed Structures Config Menu",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.category.Biome/Dimension/Modded Loot": "Biome/Dimension/Modded Loot",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.category.Features Biome/Dimension": "Features Biome/Dimension",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Structure Natural Mob Spawning": "Structure Natural Mob Spawning",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Bastions": "Bastions",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Dungeons": "Dungeons",

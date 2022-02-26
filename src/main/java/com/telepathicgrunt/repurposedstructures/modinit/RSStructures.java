@@ -15,10 +15,15 @@ import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStr
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSAdvancedConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSAdvancedDistanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSBuriableConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericNetherConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMansionConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftEndConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckEndConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckNetherConfig;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -43,13 +48,13 @@ public final class RSStructures {
     public static StructureFeature<?> ADVANCED_JIGSAW_STRUCTURE = new AdvancedJigsawStructure<>(RSAdvancedConfig.CODEC);
     public static StructureFeature<?> MINESHAFT_GENERIC = new MineshaftStructure<>(RSMineshaftConfig.CODEC);
     public static StructureFeature<?> MINESHAFT_NETHER_GENERIC = new MineshaftStructure<>(RSMineshaftConfig.CODEC);
-    public static StructureFeature<?> MINESHAFT_END = new MineshaftEndStructure();
-    public static StructureFeature<?> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure();
-    public static StructureFeature<?> STRONGHOLD_END = new StrongholdEndStructure();
-    public static StructureFeature<?> SHIPWRECK_NETHER_STRUCTURE = new ShipwreckNetherStructure();
-    public static StructureFeature<?> SHIPWRECK_END_STRUCTURE = new ShipwreckEndStructure();
-    public static StructureFeature<?> CITY_NETHER_STRUCTURE = new CityNetherStructure();
-    public static StructureFeature<?> MANSION_STRUCTURE = new MansionStructure();
+    public static StructureFeature<?> MINESHAFT_END = new MineshaftEndStructure<>(RSMineshaftEndConfig.CODEC);
+    public static StructureFeature<?> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure<>(RSAdvancedDistanceConfig.CODEC);
+    public static StructureFeature<?> STRONGHOLD_END = new StrongholdEndStructure<>(RSAdvancedDistanceConfig.CODEC);
+    public static StructureFeature<?> SHIPWRECK_NETHER_STRUCTURE = new ShipwreckNetherStructure<>(RSShipwreckNetherConfig.CODEC);
+    public static StructureFeature<?> SHIPWRECK_END_STRUCTURE = new ShipwreckEndStructure<>(RSShipwreckEndConfig.CODEC);
+    public static StructureFeature<?> CITY_NETHER_STRUCTURE = new CityNetherStructure<>(RSGenericNetherConfig.CODEC);
+    public static StructureFeature<?> MANSION_STRUCTURE = new MansionStructure<>(RSMansionConfig.CODEC);
 
     public static ResourceKey<StructureSet> VILLAGES_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "villages_overworld"));
     public static ResourceKey<StructureSet> MANSIONS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mansions_overworld"));

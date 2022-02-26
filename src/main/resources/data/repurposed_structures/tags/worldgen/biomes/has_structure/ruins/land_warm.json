@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:birch_forest"
+    "#repurposed_structures:collections/plains",
+    "#repurposed_structures:collections/swamps"
   ]
 }

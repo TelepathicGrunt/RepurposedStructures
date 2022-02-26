@@ -25,13 +25,6 @@ public final class BiomeDimensionAllowDisallow {
 
     public static void setupAllowDisallowMaps() {
         // init maps with all structures/some configuredfeatures and blank lists
-        RSStructures.RS_STRUCTURES.forEach((key, value) -> {
-            ResourceLocation id = Registry.STRUCTURE_FEATURE.getKey(key);
-            DIMENSION_DISALLOW.put(id, new ArrayList<>());
-            DIMENSION_ALLOW.put(id, new ArrayList<>());
-            BIOME_ALLOW.put(id, new ArrayList<>());
-            BIOME_DISALLOW.put(id, new ArrayList<>());
-        });
         RSConfiguredFeatures.RS_DUNGEONS.forEach((placedFeature) -> {
             ResourceLocation id = BuiltinRegistries.PLACED_FEATURE.getKey(placedFeature);
             DIMENSION_DISALLOW.put(id, new ArrayList<>());
@@ -48,10 +41,10 @@ public final class BiomeDimensionAllowDisallow {
         });
 
         // Parse and add all the allow/disallows
-        setupMap(DIMENSION_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedDimensions, "dimension disallow");
-        setupMap(DIMENSION_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedDimensions, "dimension allow");
-        setupMap(BIOME_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedBiomes, "biome disallow");
-        setupMap(BIOME_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedBiomes, "biome allow");
+        setupMap(DIMENSION_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedFeatureDimensions, "dimension disallow");
+        setupMap(DIMENSION_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedFeatureDimensions, "dimension allow");
+        setupMap(BIOME_DISALLOW, RepurposedStructures.omegaBiomeDimConfig.disallowedFeatureBiomes, "biome disallow");
+        setupMap(BIOME_ALLOW, RepurposedStructures.omegaBiomeDimConfig.allowedFeatureBiomes, "biome allow");
     }
 
     private static void setupMap(Map<ResourceLocation, List<Pattern>> mapToFillWithPatterns, Map<String, String> configMap, String errorMsg) {

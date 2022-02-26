@@ -13,18 +13,17 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolEleme
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.SafeDecodingRegistryOps;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.WritableRegistry;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.world.level.levelgen.feature.structures.ListPoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.pools.ListPoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
@@ -59,9 +58,9 @@ public final class PoolAdditionMerger {
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
     private static void parsePoolsAndBeginMerger(Map<ResourceLocation, List<JsonElement>> poolAdditionJSON, ResourceManager resourceManager, RegistryAccess dynamicRegistryManager, StructureManager structureManager) {
-        WritableRegistry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+        Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
         // A RegistryOps that doesn't break everything under the sun and can take a DynamicRegistryManager instead of DynamicRegistryManager.Impl.
-        SafeDecodingRegistryOps<JsonElement> customRegistryOps = new SafeDecodingRegistryOps<>(JsonOps.INSTANCE, resourceManager, dynamicRegistryManager);
+        RegistryOps<JsonElement> customRegistryOps = RegistryOps.create(JsonOps.INSTANCE, dynamicRegistryManager);
 
         // Will iterate over all of our found pool additions and make sure the target pool exists before we parse our JSON objects
         for (Map.Entry<ResourceLocation, List<JsonElement>> entry : poolAdditionJSON.entrySet()) {

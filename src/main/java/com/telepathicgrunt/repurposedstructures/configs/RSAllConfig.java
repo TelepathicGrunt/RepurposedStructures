@@ -8,9 +8,9 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = "repurposed_structures-fabric/general_configs")
 public class RSAllConfig implements ConfigData {
 
-    @ConfigEntry.Category("Structure Map Trades")
+    @ConfigEntry.Category("Misc")
     @ConfigEntry.Gui.TransitiveObject
-    public RSMapTradeConfig RSMapTradeConfig = new RSMapTradeConfig();
+    public RSMiscConfig RSMiscConfig = new RSMiscConfig();
 
     @ConfigEntry.Category("Dungeons")
     @ConfigEntry.Gui.TransitiveObject

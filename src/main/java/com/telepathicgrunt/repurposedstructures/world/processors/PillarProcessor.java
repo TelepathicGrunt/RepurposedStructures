@@ -8,8 +8,7 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.ProcessorLists;
-import net.minecraft.resources.RegistryLookupCodec;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
@@ -29,7 +28,7 @@ public class PillarProcessor extends StructureProcessor {
     private static final ResourceLocation EMPTY_RL = new ResourceLocation("minecraft", "empty");
 
     public static final Codec<PillarProcessor> CODEC  = RecordCodecBuilder.create((instance) -> instance.group(
-            RegistryLookupCodec.create(Registry.PROCESSOR_LIST_REGISTRY)
+            RegistryOps.retrieveRegistry(Registry.PROCESSOR_LIST_REGISTRY)
                     .forGetter((processor) -> processor.processorListRegistry),
             Codec.mapPair(BlockState.CODEC.fieldOf("trigger"), BlockState.CODEC.fieldOf("replacement"))
                     .codec().listOf()

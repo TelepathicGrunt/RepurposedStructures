@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "minecraft:birch_forest"
+    "#repurposed_structures:collections/hills",
+    "#repurposed_structures:collections/meadows",
+    "#repurposed_structures:collections/taigas"
   ]
 }

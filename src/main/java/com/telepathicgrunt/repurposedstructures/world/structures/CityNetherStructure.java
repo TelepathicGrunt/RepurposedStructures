@@ -1,49 +1,31 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericNetherConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import org.apache.commons.lang3.mutable.Mutable;
-import org.apache.commons.lang3.mutable.MutableObject;
 
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
-public class CityNetherStructure extends GenericJigsawStructure {
+public class CityNetherStructure <C extends RSGenericNetherConfig> extends GenericJigsawStructure<C> {
 
-    public CityNetherStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(locationCheckPredicate, pieceCreationPredicate);
+    public CityNetherStructure(Codec<C> codec) {
+        super(codec, CityNetherStructure::isCityNetherFeatureChunk, CityNetherStructure::generateCityNetherPieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static CityNetherStructure create(GenericJigsawStructureCodeConfig genericJigsawStructureCodeConfig) {
-        final Mutable<CityNetherStructure> box = new MutableObject<>();
-        final CityNetherStructure finalInstance = new CityNetherStructure(
-                (context) -> box.getValue().isFeatureChunk(context, genericJigsawStructureCodeConfig),
-                (context) -> box.getValue().generatePieces(context, genericJigsawStructureCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
-    }
-
-
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
+    protected static <CC extends RSGenericNetherConfig> boolean isCityNetherFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         ChunkPos chunkPos = context.chunkPos();
 
         // do cheaper checks first
-        if(super.isFeatureChunk(context, config)) {
+        if(GenericJigsawStructure.isGenericFeatureChunk(context)) {
 
             // make sure land is open enough for city
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
@@ -71,19 +53,20 @@ public class CityNetherStructure extends GenericJigsawStructure {
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
+    public static <CC extends RSGenericNetherConfig> Optional<PieceGenerator<CC>> generateCityNetherPieces(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel(), context.chunkPos().getMinBlockZ());
 
-        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                config.startPool.unwrapKey().get().location(),
                 blockpos,
                 false,
                 false,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (structurePiecesBuilder, pieces) -> pieces.get(0).move(0, config.centerOffset, 0));
+                config.poolsThatIgnoreBoundaries,
+                (structurePiecesBuilder, pieces) -> pieces.get(0).move(0, config.centerYOffset, 0));
     }
 }

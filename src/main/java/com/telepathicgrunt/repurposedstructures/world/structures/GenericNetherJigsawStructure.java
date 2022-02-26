@@ -16,7 +16,7 @@ import java.util.Optional;
 public class GenericNetherJigsawStructure <C extends RSGenericNetherConfig> extends GenericJigsawStructure<C> {
 
     public GenericNetherJigsawStructure(Codec<C> codec) {
-        super(codec, GenericNetherJigsawStructure::isFeatureChunk, GenericNetherJigsawStructure::generateNetherPieces);
+        super(codec, GenericNetherJigsawStructure::isGenericFeatureChunk, GenericNetherJigsawStructure::generateNetherPieces);
     }
 
     public static <CC extends RSGenericNetherConfig> Optional<PieceGenerator<CC>> generateNetherPieces(PieceGeneratorSupplier.Context<CC> context) {
@@ -32,6 +32,7 @@ public class GenericNetherJigsawStructure <C extends RSGenericNetherConfig> exte
                 !config.doNotUseHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
+                config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
                     pieces.get(0).move(0, config.centerYOffset, 0);

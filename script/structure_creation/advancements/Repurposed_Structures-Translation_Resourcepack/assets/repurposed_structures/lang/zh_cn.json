@@ -51,7 +51,7 @@
     "filled_map.repurposed_structures:pyramid_end": "末地神殿地图",
     
      "text.autoconfig.repurposed_structures-fabric/general_configs.title": "世界生成重构 (Repurposed Structures/RS) 配置",
-    "text.autoconfig.repurposed_structures-fabric/general_configs.category.Biome/Dimension/Modded Loot": "生物群系/维度/战利品",
+    "text.autoconfig.repurposed_structures-fabric/general_configs.category.Features Biome/Dimension": "生物群系/维度/战利品",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Structure Natural Mob Spawning": "自然生物生成",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Bastions": "堡垒遗迹",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Dungeons": "地牢",

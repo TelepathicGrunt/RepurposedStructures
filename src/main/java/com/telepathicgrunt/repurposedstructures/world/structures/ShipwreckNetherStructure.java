@@ -1,51 +1,34 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.ShipwreckNetherCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckNetherConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import org.apache.commons.lang3.mutable.Mutable;
-import org.apache.commons.lang3.mutable.MutableObject;
 
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 
-public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
+public class ShipwreckNetherStructure <C extends RSShipwreckNetherConfig> extends AbstractBaseStructure<C> {
+
     // Special thanks to cannon_foddr and miguelforge for allowing me to use their nether shipwreck design!
-
-    public ShipwreckNetherStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
+    public ShipwreckNetherStructure(Codec<C> codec) {
+        super(codec, ShipwreckNetherStructure::isShipwreckNetherFeatureChunk, ShipwreckNetherStructure::generateShipwreckNetherPieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static ShipwreckNetherStructure create(ShipwreckNetherCodeConfig shipwreckNetherCodeConfig) {
-        final Mutable<ShipwreckNetherStructure> box = new MutableObject<>();
-        final ShipwreckNetherStructure finalInstance = new ShipwreckNetherStructure(
-                (context) -> box.getValue().isFeatureChunk(context, shipwreckNetherCodeConfig),
-                (context) -> box.getValue().generatePieces(context, shipwreckNetherCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
-    }
-
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, ShipwreckNetherCodeConfig config) {
+    protected static <CC extends RSShipwreckNetherConfig> boolean isShipwreckNetherFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         ChunkPos chunkPos = context.chunkPos();
         BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel() + 1, chunkPos.getMinBlockZ());
+        CC config = context.config();
 
         int checkRadius = 16;
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
@@ -62,35 +45,24 @@ public class ShipwreckNetherStructure extends AbstractBaseStructure<NoneFeatureC
             }
         }
 
-        //cannot be near any other structure
-        int structureCheckRadius = 3;
-        for (int curChunkX = chunkPos.x - structureCheckRadius; curChunkX <= chunkPos.x + structureCheckRadius; curChunkX++) {
-            for (int curChunkZ = chunkPos.z - structureCheckRadius; curChunkZ <= chunkPos.z + structureCheckRadius; curChunkZ++) {
-                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.SHIPWRECK_AVOID_NETHER_STRUCTURE)) {
-                    if(structureFeature == this) continue;
-
-                    StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(structureFeature);
-                    if(structureConfig != null && structureConfig.spacing() > 8) {
-                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, context.seed(), curChunkX, curChunkZ);
-                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                            return false;
-                        }
-                    }
-                }
+        //cannot be near other specified structure
+        for (ResourceKey<StructureSet> structureSetToAvoid : config.structureSetToAvoid) {
+            if (context.chunkGenerator().hasFeatureChunkInRange(structureSetToAvoid, context.seed(), chunkPos.x, chunkPos.z, config.structureAvoidRadius)) {
+                return false;
             }
         }
 
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, ShipwreckNetherCodeConfig config) {
+    public static <CC extends RSShipwreckNetherConfig> Optional<PieceGenerator<CC>> generateShipwreckNetherPieces(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel() + config.sealevelOffset, context.chunkPos().getMinBlockZ());
 
-        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), 6),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                config.startPool.unwrapKey().get().location(),
                 blockpos,
                 false,
                 false,

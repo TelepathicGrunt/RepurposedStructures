@@ -30,23 +30,5 @@
   "Find all new Strongholds!": "모든 새로운 근거지를 찾으세요!",
   "Find all new Temples!": "모든 새로운 사원을 찾으세요!",
   "Find all new Villages!": "모든 새로운 마을을 찾으세요!",
-  "Find all new Witch Huts!": "모든 새로운 마녀 오두막을 찾으세요!",
-
-  "filled_map.bastion_remnant": "보루 잔해 지도",
-  "filled_map.endcity": "엔드 도시 지도",
-  "filled_map.fortress": "네더 요새 지도",
-  "filled_map.ruined_portal": "무너진 차원 문 지도",
-  "filled_map.repurposed_structures:bastion_underground": "지하 보루 지도",
-  "filled_map.repurposed_structures:city_nether": "네더 도시 지도",
-  "filled_map.repurposed_structures:ruins_nether": "네더 폐허 지도",
-  "filled_map.repurposed_structures:fortress_jungle": "정글 요새 지도",
-  "filled_map.repurposed_structures:mansion_birch": "자작나무 삼림 대저택 지도",
-  "filled_map.repurposed_structures:mansion_desert": "사막 삼림 대저택 지도",
-  "filled_map.repurposed_structures:mansion_jungle": "정글 삼림 대저택 지도",
-  "filled_map.repurposed_structures:mansion_savanna": "사바나 삼림 대저택 지도",
-  "filled_map.repurposed_structures:mansion_oak": "참나무 삼림 대저택 지도",
-  "filled_map.repurposed_structures:mansion_snowy": "눈 덮인 삼림 대저택 지도",
-  "filled_map.repurposed_structures:mansion_taiga": "타이가 삼림 대저택 지도",
-  "filled_map.repurposed_structures:stronghold_end": "엔드 근거지 지도",
-  "filled_map.repurposed_structures:pyramid_end": "엔드 피라미드 지도"
+  "Find all new Witch Huts!": "모든 새로운 마녀 오두막을 찾으세요!"
 }

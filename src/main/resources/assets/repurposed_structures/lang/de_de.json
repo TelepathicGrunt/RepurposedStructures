@@ -30,23 +30,5 @@
     "Find all new Strongholds!": "Finden Sie alle neuen Festung!",
     "Find all new Temples!": "Finden Sie alle neuen Tempel!",
     "Find all new Villages!": "Finden Sie alle neuen Dorf!",
-    "Find all new Witch Huts!": "Finden Sie alle neuen Hexenhaus!",
-
-    "filled_map.bastion_remnant": "Bastion-Karte",
-    "filled_map.endcity": "Endsiedlungs-Karte",
-    "filled_map.fortress": "Netherfestungs-Karte",
-    "filled_map.ruined_portal": "Portalruinen-Karte",
-    "filled_map.repurposed_structures:bastion_underground": "Untergrund-Bastion-Karte",
-    "filled_map.repurposed_structures:city_nether": "Nethersiedlungs-Karte",
-    "filled_map.repurposed_structures:ruins_nether": "Netherruinen-Karte",
-    "filled_map.repurposed_structures:fortress_jungle": "Dschungelfestungs-Karte",
-    "filled_map.repurposed_structures:mansion_birch": "Birkenanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_desert": "Wüstenanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_jungle": "Dschungelanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_savanna": "Savannenanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_oak": "Eichenanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_snowy": "Schneeanwesen-Karte",
-    "filled_map.repurposed_structures:mansion_taiga": "Taigaanwesen-Karte",
-    "filled_map.repurposed_structures:stronghold_end": "Ende der Festungen-Karte",
-    "filled_map.repurposed_structures:pyramid_end": "Ende der Pyramiden-Karte"
+    "Find all new Witch Huts!": "Finden Sie alle neuen Hexenhaus!"
 }

@@ -25,14 +25,14 @@ import java.util.function.Predicate;
 public class GenericJigsawStructure <C extends RSGenericConfig> extends AbstractBaseStructure<C> {
 
     public GenericJigsawStructure(Codec<C> codec) {
-        super(codec, GenericJigsawStructure::isFeatureChunk, GenericJigsawStructure::generatePieces);
+        super(codec, GenericJigsawStructure::isGenericFeatureChunk, GenericJigsawStructure::generateGenericPieces);
     }
 
     public GenericJigsawStructure(Codec<C> codec, Predicate<PieceGeneratorSupplier.Context<C>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<C>, Optional<PieceGenerator<C>>> pieceCreationPredicate) {
         super(codec, locationCheckPredicate, pieceCreationPredicate);
     }
 
-    protected static <CC extends RSGenericConfig> boolean isFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+    protected static <CC extends RSGenericConfig> boolean isGenericFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         ChunkPos chunkPos = context.chunkPos();
         CC config = context.config();
 
@@ -90,7 +90,7 @@ public class GenericJigsawStructure <C extends RSGenericConfig> extends Abstract
         return true;
     }
 
-    public static <CC extends RSGenericConfig> Optional<PieceGenerator<CC>> generatePieces(PieceGeneratorSupplier.Context<CC> context) {
+    public static <CC extends RSGenericConfig> Optional<PieceGenerator<CC>> generateGenericPieces(PieceGeneratorSupplier.Context<CC> context) {
         CC config = context.config();
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.setFixedYSpawn, context.chunkPos().getMinBlockZ());
         return PieceLimitedJigsawManager.assembleJigsawStructure(

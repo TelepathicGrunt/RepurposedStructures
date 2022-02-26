@@ -51,7 +51,7 @@
   "filled_map.repurposed_structures:pyramid_end": "엔드 피라미드 지도",
 
   "text.autoconfig.repurposed_structures-fabric/general_configs.title": "Repurposed Structures 설정 메뉴",
-  "text.autoconfig.repurposed_structures-fabric/general_configs.category.Biome/Dimension/Modded Loot": "생물군계/차원/수정된 전리품",
+  "text.autoconfig.repurposed_structures-fabric/general_configs.category.Features Biome/Dimension": "생물군계/차원/수정된 전리품",
   "text.autoconfig.repurposed_structures-fabric/general_configs.category.Structure Natural Mob Spawning": "구조물 자연 몹 스폰",
   "text.autoconfig.repurposed_structures-fabric/general_configs.category.Bastions": "보루",
   "text.autoconfig.repurposed_structures-fabric/general_configs.category.Dungeons": "던전",

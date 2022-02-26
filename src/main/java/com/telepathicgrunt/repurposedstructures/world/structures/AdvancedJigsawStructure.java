@@ -23,14 +23,14 @@ import java.util.function.Predicate;
 public class AdvancedJigsawStructure <C extends RSAdvancedConfig> extends AbstractBaseStructure<C> {
 
     public AdvancedJigsawStructure(Codec<C> codec) {
-        super(codec, AdvancedJigsawStructure::isFeatureChunk, AdvancedJigsawStructure::generatePieces);
+        super(codec, AdvancedJigsawStructure::isAdvancedFeatureChunk, AdvancedJigsawStructure::generateAdvancedPieces);
     }
 
     public AdvancedJigsawStructure(Codec<C> codec, Predicate<PieceGeneratorSupplier.Context<C>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<C>, Optional<PieceGenerator<C>>> pieceCreationPredicate) {
         super(codec, locationCheckPredicate, pieceCreationPredicate);
     }
 
-    protected static <CC extends RSAdvancedConfig> boolean isFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+    protected static <CC extends RSAdvancedConfig> boolean isAdvancedFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         ChunkPos chunkPos = context.chunkPos();
         CC config = context.config();
 
@@ -57,7 +57,7 @@ public class AdvancedJigsawStructure <C extends RSAdvancedConfig> extends Abstra
         return true;
     }
 
-    public static <CC extends RSAdvancedConfig> Optional<PieceGenerator<CC>> generatePieces(PieceGeneratorSupplier.Context<CC> context) {
+    public static <CC extends RSAdvancedConfig> Optional<PieceGenerator<CC>> generateAdvancedPieces(PieceGeneratorSupplier.Context<CC> context) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
         CC config = context.config();
 
@@ -90,6 +90,7 @@ public class AdvancedJigsawStructure <C extends RSAdvancedConfig> extends Abstra
                 false,
                 topClipOff,
                 bottomClipOff,
+                config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {});
     }
 }

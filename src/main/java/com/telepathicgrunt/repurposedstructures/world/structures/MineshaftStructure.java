@@ -22,12 +22,18 @@ import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplie
 
 import java.util.Comparator;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 
 public class MineshaftStructure <C extends RSMineshaftConfig> extends AdvancedJigsawStructure<C> {
 
     public MineshaftStructure(Codec<C> codec) {
         super(codec, MineshaftStructure::isMineshaftFeatureChunk, MineshaftStructure::generateMineshaftPieces);
+    }
+
+    public MineshaftStructure(Codec<C> codec, Predicate<PieceGeneratorSupplier.Context<C>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<C>, Optional<PieceGenerator<C>>> pieceCreationPredicate) {
+        super(codec, locationCheckPredicate, pieceCreationPredicate);
     }
 
     protected static <CC extends RSMineshaftConfig> boolean isMineshaftFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
@@ -39,7 +45,7 @@ public class MineshaftStructure <C extends RSMineshaftConfig> extends AdvancedJi
         }
 
         Holder<Biome> biomeAtSpot = context.chunkGenerator().getNoiseBiome(QuartPos.fromBlock(context.chunkPos().getMiddleBlockX()), QuartPos.fromBlock(50), QuartPos.fromBlock(context.chunkPos().getMiddleBlockZ()));
-        return context.validBiome().test(biomeAtSpot) && AdvancedJigsawStructure.isFeatureChunk(context);
+        return context.validBiome().test(biomeAtSpot) && AdvancedJigsawStructure.isAdvancedFeatureChunk(context);
     }
 
     public static <CC extends RSMineshaftConfig> Optional<PieceGenerator<CC>> generateMineshaftPieces(PieceGeneratorSupplier.Context<CC> context) {
@@ -75,6 +81,7 @@ public class MineshaftStructure <C extends RSMineshaftConfig> extends AdvancedJi
                 false,
                 topClipOff,
                 bottomClipOff,
+                config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     int justBelowTerrain = getTerrainHeight(context.chunkPos().getMiddleBlockPosition(0), context.chunkGenerator(), context.heightAccessor()) - 15;
                     int finalJustBelowTerrain = Math.max(justBelowTerrain, bottomClipOff);

@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "#repurposed_structures:collections/any_forests",
+    "#repurposed_structures:collections/badlands",
+    "#repurposed_structures:collections/caves",
+    "#repurposed_structures:collections/deserts",
+    "#repurposed_structures:collections/giant_taigas",
+    "#repurposed_structures:collections/hills",
+    "#repurposed_structures:collections/icy",
+    "#repurposed_structures:collections/jungles",
+    "#repurposed_structures:collections/meadows",
+    "#repurposed_structures:collections/mountains",
+    "#repurposed_structures:collections/mushrooms",
+    "#repurposed_structures:collections/plains",
+    "#repurposed_structures:collections/savannas",
+    "#repurposed_structures:collections/snowy_forests",
+    "#repurposed_structures:collections/snowy_plains",
+    "#repurposed_structures:collections/snowy_mountains",
+    "#repurposed_structures:collections/swamps",
+    "#repurposed_structures:collections/taigas"
+  ]
+}

@@ -2,16 +2,15 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMansionConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Tuple;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
@@ -27,39 +26,19 @@ import java.util.Locale;
 import java.util.Random;
 
 public class MansionPieces{
-    public enum MANSIONTYPE {
-        BIRCH(Blocks.DARK_OAK_WOOD.defaultBlockState()),
-        OAK(Blocks.DARK_OAK_WOOD.defaultBlockState()),
-        TAIGA(Blocks.COBBLESTONE.defaultBlockState()),
-        JUNGLE(Blocks.MOSSY_COBBLESTONE.defaultBlockState()),
-        SAVANNA(Blocks.DARK_OAK_WOOD.defaultBlockState()),
-        SNOWY(Blocks.SNOW_BLOCK.defaultBlockState()),
-        DESERT(Blocks.SANDSTONE.defaultBlockState());
-
-        private final BlockState foundationBlock;
-
-        MANSIONTYPE(BlockState foundationBlock) {
-            this.foundationBlock = foundationBlock;
-        }
-
-        public BlockState getFoundationBlock() {
-            return foundationBlock;
-        }
-    }
-
-    public static void createMansionLayout(RegistryAccess dynamicRegistryManager, StructureManager manager, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, Random random, MANSIONTYPE type) {
+    public static <C extends RSMansionConfig> void createMansionLayout(RegistryAccess dynamicRegistryManager, StructureManager manager, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, Random random, C config) {
         MansionPieces.MansionParameters mansionParameters = new MansionPieces.MansionParameters(random);
-        MansionPieces.LayoutGenerator layoutGenerator = new MansionPieces.LayoutGenerator(manager, random);
-        layoutGenerator.generate(dynamicRegistryManager, pos, rotation, pieces, mansionParameters, type);
+        MansionPieces.LayoutGenerator<C> layoutGenerator = new MansionPieces.LayoutGenerator<>(manager, random, config);
+        layoutGenerator.generate(dynamicRegistryManager, pos, rotation, pieces, mansionParameters);
     }
 
-    abstract static class RoomCollection {
+    abstract static class RoomCollection <C extends RSMansionConfig> {
         protected final String floor;
-        protected final MANSIONTYPE type;
+        protected final C config;
 
-        private RoomCollection(String floor, MANSIONTYPE type) {
+        private RoomCollection(String floor, C config) {
             this.floor = floor;
-            this.type = type;
+            this.config = config;
         }
 
         public abstract String get1x1(Random p_191104_1_);
@@ -77,110 +56,110 @@ public class MansionPieces{
         public abstract String get2x2Secret(Random p_191103_1_);
     }
 
-    static class FirstFloor extends MansionPieces.RoomCollection {
-        private FirstFloor(MANSIONTYPE type) {
-            super("first_floor", type);
+    static class FirstFloor <C extends RSMansionConfig> extends MansionPieces.RoomCollection<C> {
+        private FirstFloor(C config) {
+            super("first_floor", config);
         }
 
         public String get1x1(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x1_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x1_rooms";
         }
 
         public String get1x1Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x1_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x1_secret_rooms";
         }
 
         public String get1x2SideEntrance(Random random, boolean isStairs) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x2_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x2_rooms";
         }
 
         public String get1x2FrontEntrance(Random random, boolean isStairs) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x2_alternative_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x2_alternative_rooms";
         }
 
         public String get1x2Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x2_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x2_secret_rooms";
         }
 
         public String get2x2(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_2x2_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_2x2_rooms";
         }
 
         public String get2x2Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_2x2_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_2x2_secret_rooms";
         }
     }
 
 
-    static class SecondFloor extends MansionPieces.RoomCollection {
-        private SecondFloor(MANSIONTYPE type) {
-            super("second_floor", type);
+    static class SecondFloor <C extends RSMansionConfig> extends MansionPieces.RoomCollection<C> {
+        private SecondFloor(C config) {
+            super("second_floor", config);
         }
 
         public String get1x1(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x1_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x1_rooms";
         }
 
         public String get1x1Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x1_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x1_secret_rooms";
         }
 
         public String get1x2SideEntrance(Random random, boolean isStairs) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor +
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor +
                     (isStairs ? "_1x2_c_stairs" : "_1x2_rooms");
         }
 
         public String get1x2FrontEntrance(Random random, boolean isStairs) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor +
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor +
                     (isStairs ? "_1x2_d_stairs" : "_1x2_alternative_rooms");
         }
 
         public String get1x2Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x2_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x2_secret_rooms";
         }
 
         public String get2x2(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_2x2_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_2x2_rooms";
         }
 
         public String get2x2Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_2x2_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_2x2_secret_rooms";
         }
     }
 
-    static class ThirdFloor extends MansionPieces.RoomCollection {
-        private ThirdFloor(MANSIONTYPE type) {
-            super("third_floor", type);
+    static class ThirdFloor <C extends RSMansionConfig> extends MansionPieces.RoomCollection<C> {
+        private ThirdFloor(C config) {
+            super("third_floor", config);
         }
 
         public String get1x1(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x1_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x1_rooms";
         }
 
         public String get1x1Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x1_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x1_secret_rooms";
         }
 
         public String get1x2SideEntrance(Random random, boolean isStairs) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor +
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor +
                     (isStairs ? "_1x2_c_stairs" : "_1x2_rooms");
         }
 
         public String get1x2FrontEntrance(Random random, boolean isStairs) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor +
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor +
                     (isStairs ? "_1x2_d_stairs" : "_1x2_alternative_rooms");
         }
 
         public String get1x2Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_1x2_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_1x2_secret_rooms";
         }
 
         public String get2x2(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_2x2_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_2x2_rooms";
         }
 
         public String get2x2Secret(Random random) {
-            return RepurposedStructures.MODID + ":mansions/" + this.type + "/" + this.floor + "_2x2_secret_rooms";
+            return RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + this.floor + "_2x2_secret_rooms";
         }
     }
 
@@ -513,25 +492,27 @@ public class MansionPieces{
         }
     }
 
-    static class LayoutGenerator {
+    static class LayoutGenerator <C extends RSMansionConfig> {
         private final StructureManager manager;
         private final Random random;
+        private final C config;
         private int field_15446;
         private int field_15445;
 
-        public LayoutGenerator(StructureManager manager, Random random) {
+        public LayoutGenerator(StructureManager manager, Random random, C config) {
             this.manager = manager;
             this.random = random;
+            this.config = config;
         }
 
-        public void generate(RegistryAccess dynamicRegistryManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionPieces.MansionParameters mansionParameters, MANSIONTYPE type) {
+        public void generate(RegistryAccess dynamicRegistryManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionPieces.MansionParameters mansionParameters) {
             Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
             MansionPieces.GenerationPiece generationPiece = new MansionPieces.GenerationPiece();
             generationPiece.position = pos;
             generationPiece.rotation = rotation;
             generationPiece.template = "wall_flat";
             MansionPieces.GenerationPiece generationPiece2 = new MansionPieces.GenerationPiece();
-            this.addEntrance(poolRegistry, structurePieces, generationPiece, type);
+            this.addEntrance(poolRegistry, structurePieces, generationPiece);
             generationPiece2.position = generationPiece.position.above(8);
             generationPiece2.rotation = generationPiece.rotation;
             generationPiece2.template = "wall_window";
@@ -542,75 +523,75 @@ public class MansionPieces{
             this.field_15445 = mansionParameters.field_15441 + 1;
             int i = mansionParameters.field_15442 + 1;
             int j = mansionParameters.field_15441;
-            this.addRoof(poolRegistry, structurePieces, generationPiece, flagMatrix, Direction.SOUTH, this.field_15446, this.field_15445, i, j, type);
-            this.addRoof(poolRegistry, structurePieces, generationPiece2, flagMatrix, Direction.SOUTH, this.field_15446, this.field_15445, i, j, type);
+            this.addRoof(poolRegistry, structurePieces, generationPiece, flagMatrix, Direction.SOUTH, this.field_15446, this.field_15445, i, j);
+            this.addRoof(poolRegistry, structurePieces, generationPiece2, flagMatrix, Direction.SOUTH, this.field_15446, this.field_15445, i, j);
             MansionPieces.GenerationPiece generationPiece3 = new MansionPieces.GenerationPiece();
             generationPiece3.position = generationPiece.position.above(19);
             generationPiece3.rotation = generationPiece.rotation;
             generationPiece3.template = "wall_window";
             boolean bl = false;
 
-            int floor;
+            int floorLevel;
             for(int k = 0; k < flagMatrix2.m && !bl; ++k) {
-                for(floor = flagMatrix2.n - 1; floor >= 0 && !bl; --floor) {
-                    if (MansionPieces.MansionParameters.method_15047(flagMatrix2, floor, k)) {
+                for(floorLevel = flagMatrix2.n - 1; floorLevel >= 0 && !bl; --floorLevel) {
+                    if (MansionPieces.MansionParameters.method_15047(flagMatrix2, floorLevel, k)) {
                         generationPiece3.position = generationPiece3.position.relative(rotation.rotate(Direction.SOUTH), 8 + (k - this.field_15445) * 8);
-                        generationPiece3.position = generationPiece3.position.relative(rotation.rotate(Direction.EAST), (floor - this.field_15446) * 8);
-                        this.method_15052(poolRegistry, structurePieces, generationPiece3, type);
-                        this.addRoof(poolRegistry, structurePieces, generationPiece3, flagMatrix2, Direction.SOUTH, floor, k, floor, k, type);
+                        generationPiece3.position = generationPiece3.position.relative(rotation.rotate(Direction.EAST), (floorLevel - this.field_15446) * 8);
+                        this.method_15052(poolRegistry, structurePieces, generationPiece3);
+                        this.addRoof(poolRegistry, structurePieces, generationPiece3, flagMatrix2, Direction.SOUTH, floorLevel, k, floorLevel, k);
                         bl = true;
                     }
                 }
             }
 
-            this.method_15055(poolRegistry, structurePieces, pos.above(16), rotation, flagMatrix, flagMatrix2, type);
-            this.method_15055(poolRegistry, structurePieces, pos.above(27), rotation, flagMatrix2, null, type);
+            this.method_15055(poolRegistry, structurePieces, pos.above(16), rotation, flagMatrix, flagMatrix2);
+            this.method_15055(poolRegistry, structurePieces, pos.above(27), rotation, flagMatrix2, null);
 
-            RoomCollection[] roomCollections = new RoomCollection[]{
-                    new MansionPieces.FirstFloor(type),
-                    new MansionPieces.SecondFloor(type),
-                    new MansionPieces.ThirdFloor(type)
-            };
+            List<RoomCollection<C>> roomCollections = List.of(
+                new MansionPieces.FirstFloor<>(config),
+                new MansionPieces.SecondFloor<>(config),
+                new MansionPieces.ThirdFloor<>(config)
+            );
 
-            for(floor = 0; floor < 3; ++floor) {
-                BlockPos blockPos = pos.above(8 * floor + (floor == 2 ? 3 : 0));
-                MansionPieces.FlagMatrix flagMatrix3 = mansionParameters.field_15443[floor];
-                MansionPieces.FlagMatrix flagMatrix4 = floor == 2 ? flagMatrix2 : flagMatrix;
-                String string = floor == 0 ? "carpet_south_1" : "carpet_south_2";
-                String string2 = floor == 0 ? "carpet_west_1" : "carpet_west_2";
+            for(floorLevel = 0; floorLevel < 3; ++floorLevel) {
+                BlockPos blockPos = pos.above(8 * floorLevel + (floorLevel == 2 ? 3 : 0));
+                MansionPieces.FlagMatrix flagMatrix3 = mansionParameters.field_15443[floorLevel];
+                MansionPieces.FlagMatrix flagMatrix4 = floorLevel == 2 ? flagMatrix2 : flagMatrix;
+                String string = floorLevel == 0 ? "carpet_south_1" : "carpet_south_2";
+                String string2 = floorLevel == 0 ? "carpet_west_1" : "carpet_west_2";
 
                 for(int n = 0; n < flagMatrix4.m; ++n) {
                     for(int o = 0; o < flagMatrix4.n; ++o) {
                         if (flagMatrix4.get(o, n) == 1) {
                             BlockPos blockPos2 = blockPos.relative(rotation.rotate(Direction.SOUTH), 8 + (n - this.field_15445) * 8);
                             blockPos2 = blockPos2.relative(rotation.rotate(Direction.EAST), (o - this.field_15446) * 8);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + (floor == 0 ? "/corridor_floor" : "/corridor_floor_high"), blockPos2, rotation, Mirror.NONE, type));
+                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + (floorLevel == 0 ? "/corridor_floor" : "/corridor_floor_high"), blockPos2, rotation, Mirror.NONE));
                             if (flagMatrix4.get(o, n - 1) == 1 || (flagMatrix3.get(o, n - 1) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/carpet_north", blockPos2.relative(rotation.rotate(Direction.EAST), 1).above(), rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/carpet_north", blockPos2.relative(rotation.rotate(Direction.EAST), 1).above(), rotation, Mirror.NONE));
                             }
 
                             if (flagMatrix4.get(o + 1, n) == 1 || (flagMatrix3.get(o + 1, n) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/carpet_east", blockPos2.relative(rotation.rotate(Direction.SOUTH), 1).relative(rotation.rotate(Direction.EAST), 5).above(), rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/carpet_east", blockPos2.relative(rotation.rotate(Direction.SOUTH), 1).relative(rotation.rotate(Direction.EAST), 5).above(), rotation, Mirror.NONE));
                             }
 
                             if (flagMatrix4.get(o, n + 1) == 1 || (flagMatrix3.get(o, n + 1) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + string, blockPos2.relative(rotation.rotate(Direction.SOUTH), 5).relative(rotation.rotate(Direction.WEST), 1), rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/" + string, blockPos2.relative(rotation.rotate(Direction.SOUTH), 5).relative(rotation.rotate(Direction.WEST), 1), rotation, Mirror.NONE));
                             }
 
                             if (flagMatrix4.get(o - 1, n) == 1 || (flagMatrix3.get(o - 1, n) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + string2, blockPos2.relative(rotation.rotate(Direction.WEST), 1).relative(rotation.rotate(Direction.NORTH), 1), rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/" + string2, blockPos2.relative(rotation.rotate(Direction.WEST), 1).relative(rotation.rotate(Direction.NORTH), 1), rotation, Mirror.NONE));
                             }
                         }
                     }
                 }
 
-                String string3 = floor == 0 ? "indoors_wall_1" : "indoors_wall_2";
-                String string4 = floor == 0 ? "indoors_door_1" : "indoors_door_2";
+                String string3 = floorLevel == 0 ? "indoors_wall_1" : "indoors_wall_2";
+                String string4 = floorLevel == 0 ? "indoors_door_1" : "indoors_door_2";
                 List<Direction> list = Lists.newArrayList();
 
                 for(int p = 0; p < flagMatrix4.m; ++p) {
                     for(int q = 0; q < flagMatrix4.n; ++q) {
-                        boolean bl2 = floor == 2 && flagMatrix4.get(q, p) == 3;
+                        boolean bl2 = floorLevel == 2 && flagMatrix4.get(q, p) == 3;
                         if (flagMatrix4.get(q, p) == 2 || bl2) {
                             int r = flagMatrix3.get(q, p);
                             int s = r & 983040;
@@ -634,45 +615,45 @@ public class MansionPieces{
 
                             BlockPos blockPos3 = blockPos.relative(rotation.rotate(Direction.SOUTH), 8 + (p - this.field_15445) * 8);
                             blockPos3 = blockPos3.relative(rotation.rotate(Direction.EAST), -1 + (q - this.field_15446) * 8);
-                            if (MansionPieces.MansionParameters.method_15047(flagMatrix4, q - 1, p) && !mansionParameters.method_15039(flagMatrix4, q - 1, p, floor, t)) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + (direction2 == Direction.WEST ? string4 : string3), blockPos3, rotation, Mirror.NONE, type));
+                            if (MansionPieces.MansionParameters.method_15047(flagMatrix4, q - 1, p) && !mansionParameters.method_15039(flagMatrix4, q - 1, p, floorLevel, t)) {
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/" + (direction2 == Direction.WEST ? string4 : string3), blockPos3, rotation, Mirror.NONE));
                             }
 
                             BlockPos blockPos6;
                             if (flagMatrix4.get(q + 1, p) == 1 && !bl2) {
                                 blockPos6 = blockPos3.relative(rotation.rotate(Direction.EAST), 8);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + (direction2 == Direction.EAST ? string4 : string3), blockPos6, rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/" + (direction2 == Direction.EAST ? string4 : string3), blockPos6, rotation, Mirror.NONE));
                             }
 
-                            if (MansionPieces.MansionParameters.method_15047(flagMatrix4, q, p + 1) && !mansionParameters.method_15039(flagMatrix4, q, p + 1, floor, t)) {
+                            if (MansionPieces.MansionParameters.method_15047(flagMatrix4, q, p + 1) && !mansionParameters.method_15039(flagMatrix4, q, p + 1, floorLevel, t)) {
                                 blockPos6 = blockPos3.relative(rotation.rotate(Direction.SOUTH), 7);
                                 blockPos6 = blockPos6.relative(rotation.rotate(Direction.EAST), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + (direction2 == Direction.SOUTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/" + (direction2 == Direction.SOUTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                             }
 
                             if (flagMatrix4.get(q, p - 1) == 1 && !bl2) {
                                 blockPos6 = blockPos3.relative(rotation.rotate(Direction.NORTH), 1);
                                 blockPos6 = blockPos6.relative(rotation.rotate(Direction.EAST), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + (direction2 == Direction.NORTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + config + "/" + (direction2 == Direction.NORTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                             }
 
                             if (s == 65536) {
-                                this.addSmallRoom(poolRegistry, structurePieces, blockPos3, rotation, direction2, roomCollections[floor], type);
+                                this.addSmallRoom(poolRegistry, structurePieces, blockPos3, rotation, direction2, roomCollections.get(floorLevel));
                             } else {
                                 Direction direction4;
                                 if (s == 131072 && direction2 != null) {
-                                    direction4 = mansionParameters.method_15040(flagMatrix4, q, p, floor, t);
+                                    direction4 = mansionParameters.method_15040(flagMatrix4, q, p, floorLevel, t);
                                     boolean bl3 = (r & 4194304) == 4194304;
-                                    this.addMediumRoom(poolRegistry, structurePieces, blockPos3, rotation, direction4, direction2, roomCollections[floor], bl3, type);
+                                    this.addMediumRoom(poolRegistry, structurePieces, blockPos3, rotation, direction4, direction2, roomCollections.get(floorLevel), bl3);
                                 } else if (s == 262144 && direction2 != null && direction2 != Direction.UP) {
                                     direction4 = direction2.getClockWise();
-                                    if (!mansionParameters.method_15039(flagMatrix4, q + direction4.getStepX(), p + direction4.getStepZ(), floor, t)) {
+                                    if (!mansionParameters.method_15039(flagMatrix4, q + direction4.getStepX(), p + direction4.getStepZ(), floorLevel, t)) {
                                         direction4 = direction4.getOpposite();
                                     }
 
-                                    this.addBigRoom(poolRegistry, structurePieces, blockPos3, rotation, direction4, direction2, roomCollections[floor], type);
+                                    this.addBigRoom(poolRegistry, structurePieces, blockPos3, rotation, direction4, direction2, roomCollections.get(floorLevel));
                                 } else if (s == 262144 && direction2 == Direction.UP) {
-                                    this.addBigSecretRoom(poolRegistry, structurePieces, blockPos3, rotation, roomCollections[floor], type);
+                                    this.addBigSecretRoom(poolRegistry, structurePieces, blockPos3, rotation, roomCollections.get(floorLevel));
                                 }
                             }
                         }
@@ -682,17 +663,17 @@ public class MansionPieces{
 
         }
 
-        private void addRoof(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> list, MansionPieces.GenerationPiece generationPiece, MansionPieces.FlagMatrix flagMatrix, Direction direction, int i, int j, int k, int l, MANSIONTYPE type) {
+        private <C extends RSMansionConfig> void addRoof(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> list, MansionPieces.GenerationPiece generationPiece, MansionPieces.FlagMatrix flagMatrix, Direction direction, int i, int j, int k, int l) {
             int m = i;
             int n = j;
             Direction direction2 = direction;
 
             do {
                 if (!MansionPieces.MansionParameters.method_15047(flagMatrix, m + direction.getStepX(), n + direction.getStepZ())) {
-                    this.method_15058(poolRegistry, list, generationPiece, type);
+                    this.method_15058(poolRegistry, list, generationPiece);
                     direction = direction.getClockWise();
                     if (m != k || n != l || direction2 != direction) {
-                        this.method_15052(poolRegistry, list, generationPiece, type);
+                        this.method_15052(poolRegistry, list, generationPiece);
                     }
                 } else if (MansionPieces.MansionParameters.method_15047(flagMatrix, m + direction.getStepX(), n + direction.getStepZ()) && MansionPieces.MansionParameters.method_15047(flagMatrix, m + direction.getStepX() + direction.getCounterClockWise().getStepX(), n + direction.getStepZ() + direction.getCounterClockWise().getStepZ())) {
                     this.method_15060(generationPiece);
@@ -703,14 +684,14 @@ public class MansionPieces{
                     m += direction.getStepX();
                     n += direction.getStepZ();
                     if (m != k || n != l || direction2 != direction) {
-                        this.method_15052(poolRegistry, list, generationPiece, type);
+                        this.method_15052(poolRegistry, list, generationPiece);
                     }
                 }
             } while(m != k || n != l || direction2 != direction);
 
         }
 
-        private void method_15055(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation rotation, MansionPieces.FlagMatrix flagMatrix,  MansionPieces.FlagMatrix flagMatrix2, MANSIONTYPE type) {
+        private void method_15055(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation rotation, MansionPieces.FlagMatrix flagMatrix,  MansionPieces.FlagMatrix flagMatrix2) {
             int k;
             int l;
             BlockPos blockPos7;
@@ -722,27 +703,27 @@ public class MansionPieces{
                     blockPos7 = blockPos7.relative(rotation.rotate(Direction.EAST), (l - this.field_15446) * 8);
                     bl3 = flagMatrix2 != null && MansionPieces.MansionParameters.method_15047(flagMatrix2, l, k);
                     if (MansionPieces.MansionParameters.method_15047(flagMatrix, l, k) && !bl3) {
-                        structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof", blockPos7.above(3), rotation, Mirror.NONE, type));
+                        structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof", blockPos7.above(3), rotation, Mirror.NONE));
                         if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_front", blockPos15, rotation, Mirror.NONE, type));
+                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_front", blockPos15, rotation, Mirror.NONE));
                         }
 
                         if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l - 1, k)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 0);
                             blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
                         }
 
                         if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_front", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
                         }
 
                         if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
                             blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                         }
                     }
                 }
@@ -758,38 +739,38 @@ public class MansionPieces{
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall", blockPos15, rotation, Mirror.NONE));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l - 1, k)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                                 if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 2);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall_corner", blockPos15, rotation, Mirror.NONE, type));
+                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall_corner", blockPos15, rotation, Mirror.NONE));
                                 }
 
                                 if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 8);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                                 }
                             }
 
@@ -797,13 +778,13 @@ public class MansionPieces{
                                 if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 2);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
                                 }
 
                                 if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 8);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
                                 }
                             }
                         }
@@ -822,20 +803,20 @@ public class MansionPieces{
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_corner", blockPos24, rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_corner", blockPos24, rotation, Mirror.NONE));
                             }
                             else if (MansionPieces.MansionParameters.method_15047(flagMatrix, l + 1, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 5);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_inner_corner", blockPos24, rotation, Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_inner_corner", blockPos24, rotation, Mirror.NONE));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
                             }
                             else if (MansionPieces.MansionParameters.method_15047(flagMatrix, l + 1, k - 1)) {
                                 blockPos24 = blockPos7.relative(rotation.rotate(Direction.EAST), 9);
                                 blockPos24 = blockPos24.relative(rotation.rotate(Direction.NORTH), 2);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                             }
                         }
 
@@ -844,20 +825,20 @@ public class MansionPieces{
                             blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 0);
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
                             }
                             else if (MansionPieces.MansionParameters.method_15047(flagMatrix, l - 1, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 8);
                                 blockPos24 = blockPos24.relative(rotation.rotate(Direction.WEST), 3);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
                             }
 
                             if (!MansionPieces.MansionParameters.method_15047(flagMatrix, l, k - 1)) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
                             }
                             else if (MansionPieces.MansionParameters.method_15047(flagMatrix, l - 1, k - 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 1);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
                             }
                         }
                     }
@@ -866,20 +847,20 @@ public class MansionPieces{
 
         }
 
-        private void addEntrance(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
+        private void addEntrance(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece) {
             Direction direction = generationPiece.rotation.rotate(Direction.WEST);
-            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/entrance", generationPiece.position.relative(direction, 9), generationPiece.rotation, Mirror.NONE, type));
+            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/entrance", generationPiece.position.relative(direction, 9), generationPiece.rotation, Mirror.NONE));
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), 16);
         }
 
-        private void method_15052(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
-            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/" + generationPiece.template, generationPiece.position.relative(generationPiece.rotation.rotate(Direction.EAST), 7), generationPiece.rotation, Mirror.NONE, type));
+        private void method_15052(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece) {
+            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/" + generationPiece.template, generationPiece.position.relative(generationPiece.rotation.rotate(Direction.EAST), 7), generationPiece.rotation, Mirror.NONE));
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), 8);
         }
 
-        private void method_15058(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece, MANSIONTYPE type) {
+        private void method_15058(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, MansionPieces.GenerationPiece generationPiece) {
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), -1);
-            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + type + "/wall_corner", generationPiece.position, generationPiece.rotation, Mirror.NONE, type));
+            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.config.mansionType + "/wall_corner", generationPiece.position, generationPiece.rotation, Mirror.NONE));
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), -7);
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.WEST), -6);
             generationPiece.rotation = generationPiece.rotation.getRotated(Rotation.CLOCKWISE_90);
@@ -891,7 +872,7 @@ public class MansionPieces{
             generationPiece.rotation = generationPiece.rotation.getRotated(Rotation.COUNTERCLOCKWISE_90);
         }
 
-        private void addSmallRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, RoomCollection roomCollection, MANSIONTYPE type) {
+        private void addSmallRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, RoomCollection<C> roomCollection) {
             Rotation blockRotation2 = Rotation.NONE;
             String string = roomCollection.get1x1(this.random);
             if (direction != Direction.EAST) {
@@ -910,66 +891,66 @@ public class MansionPieces{
             blockRotation2 = blockRotation2.getRotated(blockRotation);
             blockPos2 = blockPos2.rotate(blockRotation);
             BlockPos blockPos3 = blockPos.offset(blockPos2.getX(), 0, blockPos2.getZ());
-            structurePieces.add(getJigsawPiece(poolRegistry, string, blockPos3, blockRotation2, Mirror.NONE, type));
+            structurePieces.add(getJigsawPiece(poolRegistry, string, blockPos3, blockRotation2, Mirror.NONE));
         }
 
-        private void addMediumRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, boolean staircase, MANSIONTYPE type) {
+        private void addMediumRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection<C> roomCollection, boolean staircase) {
             BlockPos blockPos15;
             if (direction2 == Direction.EAST && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE));
             } else if (direction2 == Direction.EAST && direction == Direction.NORTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.LEFT_RIGHT, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.LEFT_RIGHT));
             } else if (direction2 == Direction.WEST && direction == Direction.NORTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
             } else if (direction2 == Direction.WEST && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.FRONT_BACK, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.FRONT_BACK));
             } else if (direction2 == Direction.SOUTH && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.LEFT_RIGHT, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.LEFT_RIGHT));
             } else if (direction2 == Direction.SOUTH && direction == Direction.WEST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
             } else if (direction2 == Direction.NORTH && direction == Direction.WEST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.FRONT_BACK, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.FRONT_BACK));
             } else if (direction2 == Direction.NORTH && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
             } else if (direction2 == Direction.SOUTH && direction == Direction.NORTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.NORTH), 8);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE));
             } else if (direction2 == Direction.NORTH && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 14);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
             } else if (direction2 == Direction.WEST && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 15);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
             } else if (direction2 == Direction.EAST && direction == Direction.WEST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.WEST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
             } else if (direction2 == Direction.UP && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 15);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
             } else if (direction2 == Direction.UP && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.NORTH), 0);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation, Mirror.NONE, type));
+                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation, Mirror.NONE));
             }
 
         }
 
-        private void addBigRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, MANSIONTYPE type) {
+        private void addBigRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection<C> roomCollection) {
             int i = 0;
             int j = 0;
             Rotation blockRotation2 = blockRotation;
@@ -1009,21 +990,21 @@ public class MansionPieces{
 
             BlockPos blockPos2 = blockPos.relative(blockRotation.rotate(Direction.EAST), i);
             blockPos2 = blockPos2.relative(blockRotation.rotate(Direction.SOUTH), j);
-            structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2(this.random), blockPos2, blockRotation2, blockMirror, type));
+            structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2(this.random), blockPos2, blockRotation2, blockMirror));
         }
 
-        private void addBigSecretRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, RoomCollection roomCollection, MANSIONTYPE type) {
+        private void addBigSecretRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, RoomCollection<C> roomCollection) {
             BlockPos blockPos2 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
-            structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2Secret(this.random), blockPos2, blockRotation, Mirror.NONE, type));
+            structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2Secret(this.random), blockPos2, blockRotation, Mirror.NONE));
         }
 
-        private StructurePiece getJigsawPiece(Registry<StructureTemplatePool> poolRegistry, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror, MANSIONTYPE type) {
+        private StructurePiece getJigsawPiece(Registry<StructureTemplatePool> poolRegistry, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror) {
             ResourceLocation resourceLocation = new ResourceLocation(poolPath.toLowerCase(Locale.ROOT));
             StructureTemplatePool pool = poolRegistry.get(resourceLocation);
             StructurePoolElement poolEntry;
 
             if(pool == null || pool.size() == 0) {
-                RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate mansion piece at spot.", resourceLocation + " - Mansion type: " + type);
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate mansion piece at spot.", resourceLocation + " - Mansion type: " + this.config.mansionType);
                 poolEntry = StructurePoolElement.empty().apply(StructureTemplatePool.Projection.RIGID);
             }
             else {
