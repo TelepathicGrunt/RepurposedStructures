@@ -4,7 +4,11 @@
     "probability": 0.006,
     "start_pool": "repurposed_structures:mineshafts/end/start_pool",
     "size": 11,
-    "min_island_thickness_allowed": 30
+    "min_island_thickness_allowed": 30,
+    "structure_set_avoid_radius_check": 6,
+    "structure_set_to_avoid": [
+      "repurposed_structures:strongholds_end"
+    ]
   },
   "biomes": "#repurposed_structures:has_structure/mineshafts/end",
   "adapt_noise": false,

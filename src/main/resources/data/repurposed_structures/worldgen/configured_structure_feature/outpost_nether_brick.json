@@ -2,8 +2,7 @@
   "type": "repurposed_structures:generic_nether_jigsaw_structure",
   "config": {
     "start_pool": "repurposed_structures:outposts/nether_brick/base_plates",
-    "size": 11,
-    "can_spawn_on_liquid": true
+    "size": 11
   },
   "biomes": "#repurposed_structures:has_structure/outposts_nether_brick",
   "adapt_noise": true,

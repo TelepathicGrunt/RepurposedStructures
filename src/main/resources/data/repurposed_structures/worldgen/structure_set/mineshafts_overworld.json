@@ -39,22 +39,6 @@
     {
       "structure": "repurposed_structures:mineshaft_taiga",
       "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:mineshaft_crimson",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:mineshaft_nether",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:mineshaft_warped",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:mineshaft_end",
-      "weight": 1
     }
   ],
   "placement": {

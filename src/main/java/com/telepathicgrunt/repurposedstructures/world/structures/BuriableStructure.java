@@ -1,48 +1,32 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.BuriableStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSBuriableConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import org.apache.commons.lang3.mutable.Mutable;
-import org.apache.commons.lang3.mutable.MutableObject;
 
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 
-public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
+public class BuriableStructure <C extends RSBuriableConfig> extends AbstractBaseStructure<C> {
 
-    public BuriableStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
-    }
-
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static BuriableStructure create(BuriableStructureCodeConfig buriableStructureCodeConfig) {
-        final Mutable<BuriableStructure> box = new MutableObject<>();
-        final BuriableStructure finalInstance = new BuriableStructure(
-                (context) -> box.getValue().isFeatureChunk(context, buriableStructureCodeConfig),
-                (context) -> box.getValue().generatePieces(context, buriableStructureCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
+    public BuriableStructure(Codec<C> codec) {
+        super(codec, BuriableStructure::isFeatureChunk, BuriableStructure::generatePieces);
     }
 
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, BuriableStructureCodeConfig config) {
+    protected static <CC extends RSBuriableConfig> boolean isFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
         if(config.cannotSpawnInWater) {
             BlockPos cornerOfSpawnChunk = context.chunkPos().getWorldPosition();
             int landHeight = context.chunkGenerator().getFirstOccupiedHeight(cornerOfSpawnChunk.getX(), cornerOfSpawnChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
@@ -54,14 +38,14 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, BuriableStructureCodeConfig config) {
+    public static <CC extends RSBuriableConfig> Optional<PieceGenerator<CC>> generatePieces(PieceGeneratorSupplier.Context<CC> context) {
         BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel(), context.chunkPos().getMinBlockZ());
+        CC config = context.config();
 
-        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), 11),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                config.startPool.unwrapKey().get().location(),
                 blockpos,
                 false,
                 false,
@@ -69,7 +53,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
                 Integer.MIN_VALUE,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
-                    Heightmap.Types heightMapToUse = config.onLand ? Heightmap.Types.WORLD_SURFACE_WG : Heightmap.Types.OCEAN_FLOOR_WG;
+                    Heightmap.Types heightMapToUse = config.useOceanHeightmap ? Heightmap.Types.OCEAN_FLOOR_WG : Heightmap.Types.WORLD_SURFACE_WG;
 
                     BoundingBox box = pieces.get(0).getBoundingBox();
                     int highestLandPos = context.chunkGenerator().getBaseHeight(box.minX(), box.minZ(), heightMapToUse, context.heightAccessor());
@@ -77,7 +61,7 @@ public class BuriableStructure extends AbstractBaseStructure<NoneFeatureConfigur
                     highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.maxX(), box.minZ(), heightMapToUse, context.heightAccessor()));
                     highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.maxX(), box.maxZ(), heightMapToUse, context.heightAccessor()));
 
-                    if(!config.onLand) {
+                    if(config.useOceanHeightmap) {
                         int maxHeightForSubmerging = context.chunkGenerator().getSeaLevel() - box.getYSpan();
                         highestLandPos = Math.min(highestLandPos, maxHeightForSubmerging);
                     }

@@ -6,11 +6,6 @@ import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
-import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
-import it.unimi.dsi.fastutil.longs.LongSet;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -19,35 +14,26 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Registry;
-import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackResources;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.resources.FallbackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.chunk.ChunkStatus;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
-import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
 
@@ -269,32 +255,6 @@ public final class GeneralUtils {
     }
     //////////////////////////////////////////////
 
-    // Early exits at first found piece and some chunk caching to speed up search a bit
-    public static boolean inStructureBounds(WorldGenLevel level, SectionPos refSectionPos, RSStructureTagMap.STRUCTURE_TAGS structureTag) {
-        ChunkAccess refChunk = level.getChunk(refSectionPos.x(), refSectionPos.z(), ChunkStatus.STRUCTURE_REFERENCES);
-        Map<Long, ChunkAccess> startsChunks = new Long2ObjectOpenHashMap<>();
-
-        for (StructureFeature<?> structure : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(structureTag)) {
-            LongSet longset = refChunk.getReferencesForFeature(structure);
-
-            for (long longPos : longset) {
-                ChunkAccess startsChunk = startsChunks.computeIfAbsent(longPos, l -> {
-                    SectionPos startsSectionPos = SectionPos.of(new ChunkPos(longPos), level.getMinSection());
-                    return level.getChunk(startsSectionPos.x(), startsSectionPos.z(), ChunkStatus.STRUCTURE_STARTS);
-                });
-
-                StructureStart<?> structureStart = startsChunk.getStartForFeature(structure);
-                if (structureStart != null && structureStart.isValid()) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    //////////////////////////////////////////////
-
     /**
      * Obtains all of the file streams for all files found in all datapacks with the given id.
      *
@@ -303,16 +263,17 @@ public final class GeneralUtils {
     public static List<InputStream> getAllFileStreams(ResourceManager resourceManager, ResourceLocation fileID) throws IOException {
         List<InputStream> fileStreams = new ArrayList<>();
 
-        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
-        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
-
-        // Find the file with the given id and add its filestream to the list
-        for (PackResources resourcePack : allResourcePacks) {
-            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
-                if (inputStream != null) fileStreams.add(inputStream);
-            }
-        }
+        // TODO: reimplemtent
+//        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
+//        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
+//
+//        // Find the file with the given id and add its filestream to the list
+//        for (PackResources resourcePack : allResourcePacks) {
+//            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+//                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
+//                if (inputStream != null) fileStreams.add(inputStream);
+//            }
+//        }
 
         // Return filestream of all files matching id path
         return fileStreams;

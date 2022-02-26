@@ -1,8 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.mojang.datafixers.util.Either;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,5 +17,5 @@ public interface SinglePoolElementAccessor {
     Either<ResourceLocation, StructureTemplate> repurposedstructures_getTemplate();
 
     @Accessor("processors")
-    Supplier<StructureProcessorList> repurposedstructures_getProcessors();
+    Holder<StructureProcessorList> repurposedstructures_getProcessors();
 }

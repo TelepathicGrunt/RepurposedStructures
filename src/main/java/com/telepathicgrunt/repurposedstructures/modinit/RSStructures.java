@@ -14,32 +14,68 @@ import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftStruct
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSAdvancedConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSBuriableConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericNetherConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftConfig;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public final class RSStructures {
     private RSStructures() {}
 
-    public static StructureFeature<NoneFeatureConfiguration> GENERIC_JIGSAW_STRUCTURE = new GenericJigsawStructure();
-    public static StructureFeature<NoneFeatureConfiguration> GENERIC_UNDERGROUND_JIGSAW_STRUCTURE = new GenericJigsawStructure();
-    public static StructureFeature<NoneFeatureConfiguration> GENERIC_NETHER_JIGSAW_STRUCTURE = new GenericNetherJigsawStructure();
-    public static StructureFeature<NoneFeatureConfiguration> BURIABLE_STRUCTURE = new BuriableStructure();
-    public static StructureFeature<NoneFeatureConfiguration> LAND_BASED_END_STRUCTURE = new LandBasedEndStructure();
-    public static StructureFeature<NoneFeatureConfiguration> ADVANCED_JIGSAW_STRUCTURE = new AdvancedJigsawStructure();
-    public static StructureFeature<NoneFeatureConfiguration> MINESHAFT_GENERIC = new MineshaftStructure();
-    public static StructureFeature<NoneFeatureConfiguration> MINESHAFT_NETHER_GENERIC = new MineshaftStructure();
-    public static StructureFeature<NoneFeatureConfiguration> MINESHAFT_END = new MineshaftEndStructure();
-    public static StructureFeature<NoneFeatureConfiguration> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure();
-    public static StructureFeature<NoneFeatureConfiguration> STRONGHOLD_END = new StrongholdEndStructure();
-    public static StructureFeature<NoneFeatureConfiguration> SHIPWRECK_NETHER_STRUCTURE = new ShipwreckNetherStructure();
-    public static StructureFeature<NoneFeatureConfiguration> SHIPWRECK_END_STRUCTURE = new ShipwreckEndStructure();
-    public static StructureFeature<NoneFeatureConfiguration> CITY_NETHER_STRUCTURE = new CityNetherStructure();
-    public static StructureFeature<NoneFeatureConfiguration> MANSION_STRUCTURE = new MansionStructure();
+    public static StructureFeature<?> GENERIC_JIGSAW_STRUCTURE = new GenericJigsawStructure<>(RSGenericConfig.CODEC);
+    public static StructureFeature<?> GENERIC_UNDERGROUND_JIGSAW_STRUCTURE = new GenericJigsawStructure<>(RSGenericConfig.CODEC);
+    public static StructureFeature<?> GENERIC_NETHER_JIGSAW_STRUCTURE = new GenericNetherJigsawStructure<>(RSGenericNetherConfig.CODEC);
+    public static StructureFeature<?> BURIABLE_STRUCTURE = new BuriableStructure<>(RSBuriableConfig.CODEC);
+    public static StructureFeature<?> LAND_BASED_END_STRUCTURE = new LandBasedEndStructure<>(RSGenericConfig.CODEC);
+    public static StructureFeature<?> ADVANCED_JIGSAW_STRUCTURE = new AdvancedJigsawStructure<>(RSAdvancedConfig.CODEC);
+    public static StructureFeature<?> MINESHAFT_GENERIC = new MineshaftStructure<>(RSMineshaftConfig.CODEC);
+    public static StructureFeature<?> MINESHAFT_NETHER_GENERIC = new MineshaftStructure<>(RSMineshaftConfig.CODEC);
+    public static StructureFeature<?> MINESHAFT_END = new MineshaftEndStructure();
+    public static StructureFeature<?> STRONGHOLD_NETHER = new AdvancedDistanceJigsawStructure();
+    public static StructureFeature<?> STRONGHOLD_END = new StrongholdEndStructure();
+    public static StructureFeature<?> SHIPWRECK_NETHER_STRUCTURE = new ShipwreckNetherStructure();
+    public static StructureFeature<?> SHIPWRECK_END_STRUCTURE = new ShipwreckEndStructure();
+    public static StructureFeature<?> CITY_NETHER_STRUCTURE = new CityNetherStructure();
+    public static StructureFeature<?> MANSION_STRUCTURE = new MansionStructure();
+
+    public static ResourceKey<StructureSet> VILLAGES_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "villages_overworld"));
+    public static ResourceKey<StructureSet> MANSIONS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mansions_overworld"));
+    public static ResourceKey<StructureSet> PYRAMIDS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "pyramids_overworld"));
+    public static ResourceKey<StructureSet> RUINS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "ruins_overworld"));
+    public static ResourceKey<StructureSet> WITCH_HUTS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "witch_huts_overworld"));
+    public static ResourceKey<StructureSet> BASTIONS_OVERWORLD = ResourceKey.create(Registry.STRUCTURE_SET_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "bastions_overworld"));
+
+    public static List<ResourceKey<ConfiguredStructureFeature<?,?>>> LESS_JUNGLE_BUSH = List.of(
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "village_jungle"))
+    );
+    public static List<ResourceKey<ConfiguredStructureFeature<?,?>>> NO_LAVAFALLS = Arrays.asList(
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_icy")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"))
+    );
+    public static List<ResourceKey<ConfiguredStructureFeature<?,?>>> NO_BASALT_COLUMNS = Arrays.asList(
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_crimson")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_warped")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "temple_nether_basalt")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_bricks")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "outpost_nether_brick")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "village_crimson")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "village_warped")),
+            ResourceKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "ruins_nether"))
+    );
 
     public static void registerStructures() {
         FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();

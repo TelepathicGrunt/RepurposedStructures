@@ -6,8 +6,10 @@
     "set_fixed_y_spawn": -45,
     "do_not_use_heightmap": true,
     "valid_biome_radius_check": 7,
-    "structure_blacklist_radius_check": 5,
-    "structures_to_avoid": "#repurposed_structures:avoiding/underground_bastion_cannot_be_near"
+    "structure_set_avoid_radius_check": 5,
+    "structure_set_to_avoid": [
+      "minecraft:strongholds"
+    ]
   },
   "biomes": "#repurposed_structures:has_structure/bastions/underground",
   "adapt_noise": false,

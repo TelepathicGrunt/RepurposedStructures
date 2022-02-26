@@ -12,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
-import net.minecraft.core.WritableRegistry;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -22,19 +21,20 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.EmptyPoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.JigsawJunction;
-import net.minecraft.world.level.levelgen.feature.structures.SinglePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import net.minecraft.world.level.levelgen.structure.pools.EmptyPoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.JigsawJunction;
+import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
@@ -63,8 +63,8 @@ public class PieceLimitedJigsawManager {
     // Record for entries
     public record Entry(PoolElementStructurePiece piece, MutableObject<BoxOctree> boxOctreeMutableObject, int topYLimit, int depth) { }
 
-    public static Optional<PieceGenerator<NoneFeatureConfiguration>> assembleJigsawStructure(
-            PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context,
+    public static <C extends FeatureConfiguration> Optional<PieceGenerator<C>> assembleJigsawStructure(
+            PieceGeneratorSupplier.Context<C> context,
             JigsawConfiguration jigsawConfig,
             ResourceLocation structureID,
             BlockPos startPos,
@@ -77,8 +77,8 @@ public class PieceLimitedJigsawManager {
         return assembleJigsawStructure(context, jigsawConfig, structureID, startPos, doBoundaryAdjustments, useHeightmap, maxY, minY, new HashSet<>(), structureBoundsAdjuster);
     }
 
-    public static Optional<PieceGenerator<NoneFeatureConfiguration>> assembleJigsawStructure(
-            PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context,
+    public static <C extends FeatureConfiguration> Optional<PieceGenerator<C>> assembleJigsawStructure(
+            PieceGeneratorSupplier.Context<C> context,
             JigsawConfiguration jigsawConfig,
             ResourceLocation structureID,
             BlockPos startPos,
@@ -90,7 +90,7 @@ public class PieceLimitedJigsawManager {
             BiConsumer<StructurePiecesBuilder, List<PoolElementStructurePiece>> structureBoundsAdjuster
     ) {
         // Get jigsaw pool registry
-        WritableRegistry<StructureTemplatePool> jigsawPoolRegistry = context.registryAccess().ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+        Registry<StructureTemplatePool> jigsawPoolRegistry = context.registryAccess().ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
 
         // Get a random orientation for the starting piece
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
@@ -98,9 +98,10 @@ public class PieceLimitedJigsawManager {
         Rotation rotation = Rotation.getRandom(random);
 
         // Get starting pool
-        StructureTemplatePool startPool = jigsawConfig.startPool().get();
+        StructureTemplatePool startPool = jigsawConfig.startPool().value();
         if(startPool == null || startPool.size() == 0) {
             RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent start pool in structure: {}  Crash is imminent", structureID);
+            throw new RuntimeException("Repurposed Structures: Empty or nonexistent start pool in structure: " + structureID + " Crash is imminent");
         }
 
         // Grab a random starting piece from the start pool. This is just the piece design itself, without rotation or position information.
@@ -138,7 +139,7 @@ public class PieceLimitedJigsawManager {
             List<PoolElementStructurePiece> components = new ArrayList<>();
             components.add(startPiece);
             Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces = RepurposedStructures.structurePieceCountsManager.getRequirePieces(structureID);
-            boolean runOnce = requiredPieces == null || requiredPieces.isEmpty();;
+            boolean runOnce = requiredPieces == null || requiredPieces.isEmpty();
             Map<ResourceLocation, Integer> currentPieceCounter = new HashMap<>();
             for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces, currentPieceCounter); attempts++) {
                 if (attempts == 100) {
@@ -209,7 +210,6 @@ public class PieceLimitedJigsawManager {
 
 
     public static final class Assembler {
-        private final ResourceLocation structureID;
         private final Registry<StructureTemplatePool> poolRegistry;
         private final int maxDepth;
         private final ChunkGenerator chunkGenerator;
@@ -224,8 +224,7 @@ public class PieceLimitedJigsawManager {
         private final int minY;
         private final Set<ResourceLocation> poolsThatIgnoreBounds;
 
-        public Assembler(ResourceLocation structureID, Registry<StructureTemplatePool> poolRegistry, int maxDepth, PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, List<? super PoolElementStructurePiece> structurePieces, Random rand, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, int maxY, int minY, Set<ResourceLocation> poolsThatIgnoreBounds) {
-            this.structureID = structureID;
+        public <C extends FeatureConfiguration> Assembler(ResourceLocation structureID, Registry<StructureTemplatePool> poolRegistry, int maxDepth, PieceGeneratorSupplier.Context<C> context, List<? super PoolElementStructurePiece> structurePieces, Random rand, Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces, int maxY, int minY, Set<ResourceLocation> poolsThatIgnoreBounds) {
             this.poolRegistry = poolRegistry;
             this.maxDepth = maxDepth;
             this.chunkGenerator = context.chunkGenerator();

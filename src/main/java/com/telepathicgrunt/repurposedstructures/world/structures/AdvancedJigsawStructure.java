@@ -1,50 +1,42 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSAdvancedConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import org.apache.commons.lang3.mutable.Mutable;
-import org.apache.commons.lang3.mutable.MutableObject;
 
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
+public class AdvancedJigsawStructure <C extends RSAdvancedConfig> extends AbstractBaseStructure<C> {
 
-    public AdvancedJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
+    public AdvancedJigsawStructure(Codec<C> codec) {
+        super(codec, AdvancedJigsawStructure::isFeatureChunk, AdvancedJigsawStructure::generatePieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static AdvancedJigsawStructure create(AdvancedJigsawStructureCodeConfig advancedJigsawStructureCodeConfig) {
-        final Mutable<AdvancedJigsawStructure> box = new MutableObject<>();
-        final AdvancedJigsawStructure finalInstance = new AdvancedJigsawStructure(
-                (context) -> box.getValue().isFeatureChunk(context, advancedJigsawStructureCodeConfig),
-                (context) -> box.getValue().generatePieces(context, advancedJigsawStructureCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
+    public AdvancedJigsawStructure(Codec<C> codec, Predicate<PieceGeneratorSupplier.Context<C>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<C>, Optional<PieceGenerator<C>>> pieceCreationPredicate) {
+        super(codec, locationCheckPredicate, pieceCreationPredicate);
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedJigsawStructureCodeConfig config) {
+    protected static <CC extends RSAdvancedConfig> boolean isFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         ChunkPos chunkPos = context.chunkPos();
+        CC config = context.config();
 
         if(!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
-            for (int curChunkX = chunkPos.x - config.biomeRange; curChunkX <= chunkPos.x + config.biomeRange; curChunkX++) {
-                for (int curChunkZ = chunkPos.z - config.biomeRange; curChunkZ <= chunkPos.z + config.biomeRange; curChunkZ++) {
+            for (int curChunkX = chunkPos.x - config.biomeRadius; curChunkX <= chunkPos.x + config.biomeRadius; curChunkX++) {
+                for (int curChunkZ = chunkPos.z - config.biomeRadius; curChunkZ <= chunkPos.z + config.biomeRadius; curChunkZ++) {
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
                     int structureStartHeight = random.nextInt(config.maxY - config.minY) + config.minY;
@@ -55,13 +47,22 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
             }
         }
 
+        //cannot be near other specified structure
+        for (ResourceKey<StructureSet> structureSetToAvoid : config.structureSetToAvoid) {
+            if (context.chunkGenerator().hasFeatureChunkInRange(structureSetToAvoid, context.seed(), chunkPos.x, chunkPos.z, config.structureAvoidRadius)) {
+                return false;
+            }
+        }
+
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedJigsawStructureCodeConfig config) {
+    public static <CC extends RSAdvancedConfig> Optional<PieceGenerator<CC>> generatePieces(PieceGeneratorSupplier.Context<CC> context) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
+        CC config = context.config();
+
         if(config.maxY - config.minY <= 0) {
-            RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this));
+            RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + config.startPool.unwrapKey().get().location());
         }
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
         random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
@@ -80,26 +81,15 @@ public class AdvancedJigsawStructure extends AbstractBaseStructure<NoneFeatureCo
             bottomClipOff = structureStartHeight - config.verticalRange;
         }
 
-//            long startTime = System.currentTimeMillis();
-//            for(int i = 0; i < 50; i++) {
-//                this.pieces.clear();
-
-        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                config.startPool.unwrapKey().get().location(),
                 blockpos,
                 false,
                 false,
                 topClipOff,
                 bottomClipOff,
                 (structurePiecesBuilder, pieces) -> {});
-
-//            }
-//            long endTime = System.currentTimeMillis();
-//            long duration = (endTime - startTime);
-//            RepurposedStructures.LOGGER.warn("Time taken {} milliseconds at {}, {} for {}", duration, chunkPos1.x, chunkPos1.z, startPool);
-
     }
 }

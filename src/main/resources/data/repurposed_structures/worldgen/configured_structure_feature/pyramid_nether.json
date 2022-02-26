@@ -3,8 +3,7 @@
   "config": {
     "start_pool": "repurposed_structures:pyramids/nether",
     "size": 1,
-	"search_for_highest_land": true,
-	"can_spawn_on_liquid": true
+	"search_for_highest_land": true
   },
   "biomes": "#repurposed_structures:has_structure/pyramids/nether",
   "adapt_noise": true,

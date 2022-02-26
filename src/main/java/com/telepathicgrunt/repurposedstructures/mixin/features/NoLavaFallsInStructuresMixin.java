@@ -1,11 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.mixin.features;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.mixin.world.WorldGenRegionAccessor;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.SectionPos;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.SpringFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.SpringConfiguration;
@@ -28,9 +31,13 @@ public class NoLavaFallsInStructuresMixin {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
-                if (GeneralUtils.inStructureBounds(context.level(), SectionPos.of(mutable), RSStructureTagMap.STRUCTURE_TAGS.NO_LAVAFALLS)) {
-                    cir.setReturnValue(false);
-                    break;
+                for (ResourceKey<ConfiguredStructureFeature<?, ?>> key : RSStructures.NO_LAVAFALLS) {
+                    StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
+                    ConfiguredStructureFeature<?, ?> configuredStructureFeature = structureFeatureManager.registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY).get(key);
+                    if(structureFeatureManager.getStructureAt(mutable, configuredStructureFeature).isValid()) {
+                        cir.setReturnValue(false);
+                        return;
+                    }
                 }
             }
         }

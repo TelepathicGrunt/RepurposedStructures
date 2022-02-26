@@ -1,10 +1,9 @@
 {
-  "type": "repurposed_structures:generic_netehr_jigsaw_structure",
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
   "config": {
     "start_pool": "repurposed_structures:ruins/nether/start_pool",
     "size": 1,
     "search_for_highest_land": true,
-    "can_spawn_on_liquid": true,
     "ledge_spot_offset": -1,
     "liquid_spot_offset": -2
   },

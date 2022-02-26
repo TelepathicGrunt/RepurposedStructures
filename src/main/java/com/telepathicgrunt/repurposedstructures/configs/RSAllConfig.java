@@ -12,10 +12,6 @@ public class RSAllConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public RSMapTradeConfig RSMapTradeConfig = new RSMapTradeConfig();
 
-    @ConfigEntry.Category("Misc")
-    @ConfigEntry.Gui.TransitiveObject
-    public RSMiscConfig RSMiscConfig = new RSMiscConfig();
-
     @ConfigEntry.Category("Dungeons")
     @ConfigEntry.Gui.TransitiveObject
     public RSDungeonsConfig RSDungeonsConfig = new RSDungeonsConfig();

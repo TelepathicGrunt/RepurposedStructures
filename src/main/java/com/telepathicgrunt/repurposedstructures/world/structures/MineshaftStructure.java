@@ -3,56 +3,51 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.AdvancedJigsawStructureCodeConfig;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Holder;
+import net.minecraft.core.QuartPos;
 import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import org.apache.commons.lang3.mutable.Mutable;
-import org.apache.commons.lang3.mutable.MutableObject;
 
 import java.util.Comparator;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 
-public class MineshaftStructure extends AdvancedJigsawStructure {
+public class MineshaftStructure <C extends RSMineshaftConfig> extends AdvancedJigsawStructure<C> {
 
-    public MineshaftStructure() {
-        super(RSMineshaftConfig.CODEC);
+    public MineshaftStructure(Codec<C> codec) {
+        super(codec, MineshaftStructure::isMineshaftFeatureChunk, MineshaftStructure::generateMineshaftPieces);
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {
-        StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(this);
-        if(structureConfig != null) {
-            WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setLargeFeatureSeed(context.seed() + structureConfig.salt(), context.chunkPos().x, context.chunkPos().z);
-            double d = (config.probability / 10000D);
-            return random.nextDouble() < d;
+    protected static <CC extends RSMineshaftConfig> boolean isMineshaftFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+        WorldgenRandom worldgenRandom = new WorldgenRandom(new LegacyRandomSource(0L));
+        worldgenRandom.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        double chance = (context.config()).probability;
+        if(worldgenRandom.nextDouble() >= chance) {
+            return false;
         }
-        return false;
+
+        Holder<Biome> biomeAtSpot = context.chunkGenerator().getNoiseBiome(QuartPos.fromBlock(context.chunkPos().getMiddleBlockX()), QuartPos.fromBlock(50), QuartPos.fromBlock(context.chunkPos().getMiddleBlockZ()));
+        return context.validBiome().test(biomeAtSpot) && AdvancedJigsawStructure.isFeatureChunk(context);
     }
 
-    @Override
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, AdvancedJigsawStructureCodeConfig config) {
+    public static <CC extends RSMineshaftConfig> Optional<PieceGenerator<CC>> generateMineshaftPieces(PieceGeneratorSupplier.Context<CC> context) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
+        CC config = context.config();
+
         if(config.maxY - config.minY <= 0) {
-            RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + Registry.STRUCTURE_FEATURE.getKey(this));
+            RepurposedStructures.LOGGER.error("MinY should always be less than MaxY or else a crash will occur or no pieces will spawn. Problematic structure is:" + config.startPool.unwrapKey().get().location());
         }
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
         random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
@@ -71,11 +66,10 @@ public class MineshaftStructure extends AdvancedJigsawStructure {
             bottomClipOff = structureStartHeight - config.verticalRange;
         }
 
-        ResourceLocation structureID = Registry.STRUCTURE_FEATURE.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                config.startPool.unwrapKey().get().location(),
                 blockpos,
                 false,
                 false,

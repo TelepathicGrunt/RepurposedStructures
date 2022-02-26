@@ -4,7 +4,7 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "world.ChunkGeneratorAccessor",
+    "world.WorldGenRegionAccessor",
     "blocks.RailBlockMixin",
     "entities.CatEntityMixin",
     "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
@@ -33,7 +33,8 @@
     "structures.StructureProcessorAccessor",
     "structures.StructureSettingsAccessor",
     "structures.StructureTemplateMixin",
-    "structures.TemplateAccessor"
+    "structures.TemplateAccessor",
+    "world.ChunkGeneratorAccessor"
   ],
   "client": [
     "blocks.StructureBlockScreenMixin"

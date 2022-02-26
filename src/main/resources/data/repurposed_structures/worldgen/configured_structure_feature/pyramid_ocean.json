@@ -3,7 +3,7 @@
   "config": {
     "start_pool": "repurposed_structures:pyramids/ocean",
     "size": 3,
-	"can_spawn_in_water": true,
+	"can_spawn_in_liquid": true,
 	"use_ocean_heightmap": true
   },
   "biomes": "#repurposed_structures:has_structure/pyramids/ocean",

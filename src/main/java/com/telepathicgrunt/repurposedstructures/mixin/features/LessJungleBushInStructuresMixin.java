@@ -1,8 +1,11 @@
 package com.telepathicgrunt.repurposedstructures.mixin.features;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.minecraft.core.SectionPos;
+import com.telepathicgrunt.repurposedstructures.mixin.world.WorldGenRegionAccessor;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -26,8 +29,13 @@ public class LessJungleBushInStructuresMixin {
         if(context.config().foliagePlacer instanceof BushFoliagePlacer && context.config().minimumSize.minClippedHeight().orElse(0) < 2) {
             // Rate for removal of bush
             if(context.random().nextFloat() < 0.9f) {
-                if (GeneralUtils.inStructureBounds(context.level(), SectionPos.of(context.origin()), RSStructureTagMap.STRUCTURE_TAGS.LESS_JUNGLE_BUSH)) {
-                    cir.setReturnValue(false);
+                for (ResourceKey<ConfiguredStructureFeature<?, ?>> key : RSStructures.LESS_JUNGLE_BUSH) {
+                    StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
+                    ConfiguredStructureFeature<?, ?> configuredStructureFeature = structureFeatureManager.registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY).get(key);
+                    if(structureFeatureManager.getStructureAt(context.origin(), configuredStructureFeature).isValid()) {
+                        cir.setReturnValue(false);
+                        return;
+                    }
                 }
             }
         }
