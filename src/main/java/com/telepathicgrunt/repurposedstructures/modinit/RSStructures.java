@@ -25,16 +25,9 @@ import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMines
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckEndConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckNetherConfig;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
-import net.minecraft.world.level.levelgen.structure.StructureSet;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 public final class RSStructures {
