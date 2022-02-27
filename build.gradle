@@ -54,7 +54,7 @@ if (project.use_third_party_mods) {
 	dependencies {
 		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
 		//modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:1.4.1+1.18.1"
-		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:2.0.0+1.18.2-rc1"
+		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:${project.NBTDBG_version}"
 
 		//modRuntimeOnly "curse.maven:shutup_experimental_settings-401978:3545078"
 		//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
