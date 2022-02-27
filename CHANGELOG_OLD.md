@@ -1,3 +1,206 @@
+### **(V.3.3.11 Changes) (1.18.1 Minecraft)**
+
+#### Optimization:
+Slightly optimized natural mob spawning over time for RS's structure checks.
+
+#### Config:
+Fixed Savanna Mansion maps not showing up as a villager trade due to typo in config.
+(Config should auto fix that one typo next time you run the game)
+
+
+### **(V.3.3.10 Changes) (1.18.1 Minecraft)**
+
+#### Config:
+Added config/repurposed_structures-fabric/map_trade_configs.json5 file.
+This config lets you add any structure map to any villager or wandering trader's available trades.
+Note: Disabling a structure will not remove the map from the trades. You'll have to edit that config to remove the map for the disabled RS structure.
+
+
+### **(V.3.3.9 Changes) (1.18.1 Minecraft)**
+
+#### Mod Compat:
+Deep/Icy Dungeon, Underground Bastion's treasure room chest, and Mushroom Villages now gets imported loot.
+Hopefully I got all structures this time.
+
+
+### **(V.3.3.8 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Fixed End Mineshaft not spawning Minecart.
+
+Adjusted look of the arch in End Mineshafts.
+
+Fixed Ocean Mineshafts sometimes having Rails that aren't waterlogged.
+
+Fixed Icy Mineshaft having Diorite Walls and not making support pillars/chains.
+
+Fixed Crimson Mineshaft not having fences at times.
+
+Reduces amount of Shroomlight in Crimson Mineshafts.
+
+Reduced amount of pieces in backend that RS Mineshafts need in order to function. Cleaner this way.
+
+Fixed support pillars for RS Mineshafts not replacing plants marked as replaceable that are water based/fire proof.
+
+Tried cleaning up the wall states for Ocean, Desert, Stone, and Swamp Mineshafts.
+
+Randomized removal of some rails in all RS Mineshafts for slightly better looks.
+
+
+### **(V.3.3.7 Changes) (1.18.1 Minecraft)**
+
+#### Hotfix:
+Fixed issue where due to Fabric API 0.46.3+, Repurposed Structures was preventing other structure mod's from spawning.
+Now RS is using more of Fabric API's stuff and moves my own code to fix this issue.
+As a result, Repurposed Structures now requires Fabric API to be 0.46.3 or newer.
+
+
+### **(V.3.3.6 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Fixed Ocean Mineshafts chests accidentally spawning Birch Mineshaft's loot tables
+
+
+### **(V.3.3.5 Changes) (1.18.1 Minecraft)**
+
+#### Lang:
+Updated ru_ru.json lang file. (Special thanks to DrHesperus!)
+
+
+### **(V.3.3.4 Changes) (1.18.1 Minecraft)**
+
+#### Mineshafts:
+Ocean Mineshafts and End Mineshafts will no longer place blocks if it has an unobstructed view of the sky above.
+
+Ocean Mineshaft's default min y config value is now set to 5.
+
+#### Misc:
+Tried doing a slight optimization to make sure RS structures do not do any checks for spawning if the world's biome source
+cannot spawn a biome that contains said structure. Let me know if any issues arise. (Probably not noticable)
+
+Fixed a rare null crash from my GeneralUtils.isFullCube code that is supposed to cache if a block is a full cube or not.
+
+
+### **(V.3.3.3 Changes) (1.18.1 Minecraft)**
+
+#### Major:
+Fixed system for uploading to curseforge so curseforge gets proper non-dev jar. Sorry about that.
+
+
+### **(V.3.3.2 Changes) (1.18.1 Minecraft)**
+
+#### Major:
+Now hard requires No Null Processor mod and NBT Deadlock Be Gone mod to help prevent issues during chunk pregenning or multiplayer gameplay.
+These two mods fixes two nasty rare Minecraft bugs that impact structures/features. But it does affect some people so these two mods should help.
+
+#### Bastions:
+Changed default config value for Underground Bastions from 400 to 180.
+You'll have to edit the config yourself to the new value if you already started game with any versions of RS older than v3.3.2.
+
+#### Mineshafts:
+End Mineshafts loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
+Instead, it'll have Beetroot Soup and more Chorus Fruit as replacements.
+
+#### Dungeons:
+End Dungeons loot table no longer has Chorus Flower or Chorus Plant which is not supposed to be obtainable in survival.
+Instead, it'll have Beetroot Soup and more Chorus Fruit as replacements.
+
+End Dungeon's End Portal block is now replaced with Crying Obsidian.
+
+
+### **(V.3.3.1 Changes) (1.18.1 Minecraft)**
+
+#### Cities:
+Changed default config value for Overworld Cities from 1200 to 180.
+You'll have to edit the config yourself if you already started game with older v4.2.X versions of RS.
+
+Improved Overworld City's resistance to lightning from thunderstorms.
+
+Adjusted insides of two rooms in Overworld City to look a tad better.
+
+Fixed some top pieces not spawning in Overworld Cities because of bad logic in my required/maximum count piece controlling code.
+
+Fixed Overworld Cities not checking properly to not spawn near any RS or Vanilla Mansions.
+
+Fixed Bridge End pieces not spawning sometimes in Overworld and Nether Cities.
+
+Nether Cities now always have 3 branches at minimum.
+
+#### Outposts:
+RS Outposts will not spawn near Overworld Cities now.
+
+#### Ruins:
+Cold and Icy Land Ruins will not let lake features spawn in them now.
+
+#### Misc:
+Fixed some processors that were placing blocks multiple times.
+
+Fixed required/maximum count piece controlling code (for rs_pieces_spawn_counts) so it now limits amount of pieces properly and not cause weird behavior.
+
+
+### **(V.3.3.0 Changes) (1.18.1 Minecraft)**
+
+#### Lang:
+Added en_us entries for explorer maps to any RS structures.
+
+#### Cities:
+Added Overworld City! If you are lucky, you can find a map to one from a Wandering Trader! Very expensive tho...
+
+May have fixed a bug that causes a very very rare chance of Nether Cities missing top pieces on their tower piece.
+
+Replaced some full blocks with stairs in one of Nether City's steep bridge piece.
+
+#### Pyramids:
+Added Dark Forest Pyramid!
+
+#### Ruins:
+Added Cold Land Ruins and Icy Land Ruins!
+
+Made the config default value for the spawnrate of Warm Land Ruins and Hot Land Ruins slightly less.
+
+#### Igloos:
+Added Mushroom Igloos!
+
+Made the config default value for the spawnrate of Grassy Igloo and Stone Igloo slightly less.
+
+#### Witch Huts:
+Expanded RS Witch Hit bounding boxes 2 blocks higher to better match vanilla's Witch Hut bounding box for spawning Witches and black Cats.
+
+#### Villages:
+Slightly reduced cost of maps to Mushroom Villages in Wandering Trader's trades.
+
+#### Mineshafts:
+Fixed Birch Mineshaft not closing off fluids properly for some pieces.
+
+RS Mineshaft's 4 way piece keeps columns now.
+
+#### Misc:
+Fixed some structures not properly avoiding water.
+
+Changed all RS ConfiguredStructure registry names to match the base structure registry names.
+This has no impact on player's worlds. It is safe. This is only for internal use or people creating their own datapacks replacing my structures for whatever reason.
+
+RS Structures will not spawn now if they will get cut off by top of world's limit.
+
+#### Mod Compat:
+Fixed modded loot not being imported into some of RS chests.
+
+
+### **(V.3.2.0 Changes) (1.18.1 Minecraft)**
+
+#### Dungeons:
+Deep Dungeons are now added that spawn from -10 to -60. Will replace Vanilla Dungeons below y = 0.
+
+Nether Dungeon's secret banner is now red colored while Deep Dungeon has the dark grey banner instead.
+
+#### Mineshafts:
+RS Mineshaft arches should not be broken up weirdly as much anymore.
+
+Fixed several RS Mineshafts having 1 incorrectly rotated arch block.
+
+Fixed some arches placing incorrect blocks in RS Mineshafts.
+
+
 ### **(V.3.1.13 Changes) (1.18.1 Minecraft)**
 
 #### Configs:

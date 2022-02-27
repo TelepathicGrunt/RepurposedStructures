@@ -1,23 +1,23 @@
 {
   "structures": [
     {
-      "structure": "repurposed_structures:witch_huts_oak",
+      "structure": "repurposed_structures:witch_hut_oak",
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:witch_huts_taiga",
+      "structure": "repurposed_structures:witch_hut_taiga",
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:witch_huts_birch",
+      "structure": "repurposed_structures:witch_hut_birch",
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:witch_huts_dark_forest",
+      "structure": "repurposed_structures:witch_hut_dark_forest",
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:witch_huts_giant_tree_taiga",
+      "structure": "repurposed_structures:witch_hut_giant_tree_taiga",
       "weight": 1
     }
   ],
