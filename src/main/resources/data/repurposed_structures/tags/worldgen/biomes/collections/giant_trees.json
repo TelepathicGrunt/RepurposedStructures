@@ -4,6 +4,50 @@
     "minecraft:old_growth_pine_taiga",
     "minecraft:old_growth_spruce_taiga",
     "minecraft:bamboo_jungle",
-    "minecraft:jungle"
+    "minecraft:jungle",
+    {
+      "id": "terralith:amethyst_rainforest",
+      "required": false
+    },
+    {
+      "id": "terralith:jungle_mountains",
+      "required": false
+    },
+    {
+      "id": "terralith:rocky_jungle",
+      "required": false
+    },
+    {
+      "id": "byg:orchard",
+      "required": false
+    },
+    {
+      "id": "byg:coniferous_forest",
+      "required": false
+    },
+    {
+      "id": "byg:coniferous_forest_hills",
+      "required": false
+    },
+    {
+      "id": "byg:cherry_blossom_forest",
+      "required": false
+    },
+    {
+      "id": "byg:tropical_rainforest",
+      "required": false
+    },
+    {
+      "id": "byg:tropical_rainforest_hills",
+      "required": false
+    },
+    {
+      "id": "byg:ebony_woods",
+      "required": false
+    },
+    {
+      "id": "byg:ebony_hills",
+      "required": false
+    }
   ]
 }

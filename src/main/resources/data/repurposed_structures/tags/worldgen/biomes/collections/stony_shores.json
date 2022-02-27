@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "minecraft:stony_shore"
+    "minecraft:stony_shore",
+    {
+      "id": "terralith:gravel_desert",
+      "required": false
+    }
   ]
 }

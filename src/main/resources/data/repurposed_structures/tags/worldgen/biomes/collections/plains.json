@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "minecraft:plains",
-    "minecraft:sunflower_plains"
+    "minecraft:sunflower_plains",
+    {
+      "id": "terralith:brushland",
+      "required": false
+    }
   ]
 }

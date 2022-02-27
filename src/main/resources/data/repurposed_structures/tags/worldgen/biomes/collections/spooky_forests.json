@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "minecraft:dark_forest"
+    "minecraft:dark_forest",
+    {
+      "id": "terralith:mirage_isles",
+      "required": false
+    },
+    {
+      "id": "byg:ancient_forest",
+      "required": false
+    }
   ]
 }
