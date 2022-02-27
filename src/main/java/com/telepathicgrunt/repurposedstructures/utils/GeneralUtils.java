@@ -6,6 +6,8 @@ import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
 import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -16,6 +18,9 @@ import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackResources;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.resources.FallbackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
@@ -263,17 +268,16 @@ public final class GeneralUtils {
     public static List<InputStream> getAllFileStreams(ResourceManager resourceManager, ResourceLocation fileID) throws IOException {
         List<InputStream> fileStreams = new ArrayList<>();
 
-        // TODO: reimplemtent
-//        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedPacks().get(fileID.getNamespace());
-//        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
-//
-//        // Find the file with the given id and add its filestream to the list
-//        for (PackResources resourcePack : allResourcePacks) {
-//            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
-//                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
-//                if (inputStream != null) fileStreams.add(inputStream);
-//            }
-//        }
+        FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedManagers().get(fileID.getNamespace());
+        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
+
+        // Find the file with the given id and add its filestream to the list
+        for (PackResources resourcePack : allResourcePacks) {
+            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
+                if (inputStream != null) fileStreams.add(inputStream);
+            }
+        }
 
         // Return filestream of all files matching id path
         return fileStreams;
