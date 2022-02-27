@@ -2,7 +2,7 @@
   "structures": [
     {
       "structure": "repurposed_structures:mineshaft_crimson",
-      "weight": 1
+      "weight": 100
     },
     {
       "structure": "repurposed_structures:mineshaft_nether",
@@ -10,7 +10,7 @@
     },
     {
       "structure": "repurposed_structures:mineshaft_warped",
-      "weight": 1
+      "weight": 100
     }
   ],
   "placement": {

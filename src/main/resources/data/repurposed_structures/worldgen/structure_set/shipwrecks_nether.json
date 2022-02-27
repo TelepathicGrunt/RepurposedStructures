@@ -2,7 +2,7 @@
   "structures": [
     {
       "structure": "repurposed_structures:shipwreck_nether_bricks",
-      "weight": 1
+      "weight": 100
     },
     {
       "structure": "repurposed_structures:shipwreck_crimson",
@@ -10,7 +10,7 @@
     },
     {
       "structure": "repurposed_structures:shipwreck_warped",
-      "weight": 1
+      "weight": 100
     }
   ],
   "placement": {

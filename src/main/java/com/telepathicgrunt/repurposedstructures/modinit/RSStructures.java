@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureFeatureAccessor;
 import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedDistanceJigsawStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.AdvancedJigsawStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.BuriableStructure;
@@ -24,7 +25,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMines
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftEndConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckEndConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckNetherConfig;
-import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
@@ -50,21 +51,37 @@ public final class RSStructures {
     public static StructureFeature<?> MANSION_STRUCTURE = new MansionStructure<>(RSMansionConfig.CODEC);
 
     public static void registerStructures() {
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "generic_underground_jigsaw_structure"), GENERIC_UNDERGROUND_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "generic_nether_jigsaw_structure"), GENERIC_NETHER_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "buriable_structure"), BURIABLE_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "land_based_end_structure"), LAND_BASED_END_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "advanced_jigsaw_structure"), ADVANCED_JIGSAW_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_generic"), MINESHAFT_GENERIC).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether_generic"), MINESHAFT_NETHER_GENERIC).step(GenerationStep.Decoration.FLUID_SPRINGS).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER).step(GenerationStep.Decoration.TOP_LAYER_MODIFICATION).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END).step(GenerationStep.Decoration.STRONGHOLDS).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_structure"), SHIPWRECK_NETHER_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end_structure"), SHIPWRECK_END_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "city_nether_structure"), CITY_NETHER_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
-        FabricStructureBuilder.create(new ResourceLocation(RepurposedStructures.MODID, "mansion_structure"), MANSION_STRUCTURE).step(GenerationStep.Decoration.SURFACE_STRUCTURES).register();
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "generic_underground_jigsaw_structure"), GENERIC_UNDERGROUND_JIGSAW_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "generic_nether_jigsaw_structure"), GENERIC_NETHER_JIGSAW_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "buriable_structure"), BURIABLE_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "land_based_end_structure"), LAND_BASED_END_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "advanced_jigsaw_structure"), ADVANCED_JIGSAW_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_generic"), MINESHAFT_GENERIC);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_nether_generic"), MINESHAFT_NETHER_GENERIC);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "stronghold_nether"), STRONGHOLD_NETHER);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_structure"), SHIPWRECK_NETHER_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end_structure"), SHIPWRECK_END_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "city_nether_structure"), CITY_NETHER_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mansion_structure"), MANSION_STRUCTURE);
+
+        StructureFeatureAccessor.getSTEP().put(GENERIC_JIGSAW_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(GENERIC_UNDERGROUND_JIGSAW_STRUCTURE, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(GENERIC_NETHER_JIGSAW_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(BURIABLE_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(LAND_BASED_END_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(ADVANCED_JIGSAW_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MINESHAFT_GENERIC, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MINESHAFT_NETHER_GENERIC, GenerationStep.Decoration.FLUID_SPRINGS);
+        StructureFeatureAccessor.getSTEP().put(MINESHAFT_END, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(STRONGHOLD_NETHER, GenerationStep.Decoration.TOP_LAYER_MODIFICATION);
+        StructureFeatureAccessor.getSTEP().put(STRONGHOLD_END, GenerationStep.Decoration.STRONGHOLDS);
+        StructureFeatureAccessor.getSTEP().put(SHIPWRECK_NETHER_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(SHIPWRECK_END_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(CITY_NETHER_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MANSION_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();
