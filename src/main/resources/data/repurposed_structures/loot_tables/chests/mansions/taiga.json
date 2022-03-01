@@ -274,6 +274,17 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "name": "minecraft:yellow_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:4},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11}]}}"
+            }
+          ]
+        },
+        {
           "name": "minecraft:pink_banner",
           "type": "minecraft:item",
           "weight": 1,
