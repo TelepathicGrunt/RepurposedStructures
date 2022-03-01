@@ -26,7 +26,7 @@ public class GenericNetherJigsawStructure <C extends RSGenericNetherConfig> exte
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(config.startPool, config.size),
-                config.startPool.unwrapKey().get().location(),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 !config.doNotUseHeightmap,
                 !config.doNotUseHeightmap,
@@ -35,7 +35,6 @@ public class GenericNetherJigsawStructure <C extends RSGenericNetherConfig> exte
                 config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
-                    pieces.get(0).move(0, config.centerYOffset, 0);
 
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
@@ -49,11 +48,15 @@ public class GenericNetherJigsawStructure <C extends RSGenericNetherConfig> exte
                     }
 
                     if (placementPos.getY() >= GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()) || placementPos.getY() <= context.chunkGenerator().getSeaLevel() + 1) {
-                        structurePiecesBuilder.moveInsideHeights(random, context.chunkGenerator().getSeaLevel() + config.ledgeSpotOffset, context.chunkGenerator().getSeaLevel() + (config.ledgeSpotOffset + 1));
+                        int yDiff = (context.chunkGenerator().getSeaLevel() + config.ledgeSpotOffset) - pieces.get(0).getBoundingBox().minY();
+                        pieces.forEach(piece -> piece.move(0, yDiff, 0));
                     }
                     else {
-                        structurePiecesBuilder.moveInsideHeights(random, placementPos.getY() + config.liquidSpotOffset, placementPos.getY() + (config.liquidSpotOffset + 1));
+                        int yDiff = (placementPos.getY() + config.ledgeSpotOffset) - pieces.get(0).getBoundingBox().minY();
+                        pieces.forEach(piece -> piece.move(0, yDiff, 0));
                     }
+
+                    pieces.forEach(piece -> piece.move(0, config.centerYOffset, 0));
                 });
     }
 }

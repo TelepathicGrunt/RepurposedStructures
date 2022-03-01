@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 
@@ -45,7 +46,7 @@ public class BuriableStructure <C extends RSBuriableConfig> extends AbstractBase
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(config.startPool, config.size),
-                config.startPool.unwrapKey().get().location(),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 false,
                 false,
@@ -56,10 +57,10 @@ public class BuriableStructure <C extends RSBuriableConfig> extends AbstractBase
                     Heightmap.Types heightMapToUse = config.useOceanHeightmap ? Heightmap.Types.OCEAN_FLOOR_WG : Heightmap.Types.WORLD_SURFACE_WG;
 
                     BoundingBox box = pieces.get(0).getBoundingBox();
-                    int highestLandPos = context.chunkGenerator().getBaseHeight(box.minX(), box.minZ(), heightMapToUse, context.heightAccessor());
-                    highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.minX(), box.maxZ(), heightMapToUse, context.heightAccessor()));
-                    highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.maxX(), box.minZ(), heightMapToUse, context.heightAccessor()));
-                    highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getBaseHeight(box.maxX(), box.maxZ(), heightMapToUse, context.heightAccessor()));
+                    int highestLandPos = context.chunkGenerator().getFirstOccupiedHeight(box.minX(), box.minZ(), heightMapToUse, context.heightAccessor());
+                    highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(box.minX(), box.maxZ(), heightMapToUse, context.heightAccessor()));
+                    highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(box.maxX(), box.minZ(), heightMapToUse, context.heightAccessor()));
+                    highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(box.maxX(), box.maxZ(), heightMapToUse, context.heightAccessor()));
 
                     if(config.useOceanHeightmap) {
                         int maxHeightForSubmerging = context.chunkGenerator().getSeaLevel() - box.getYSpan();
@@ -68,7 +69,10 @@ public class BuriableStructure <C extends RSBuriableConfig> extends AbstractBase
 
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
-                    structurePiecesBuilder.moveInsideHeights(random, highestLandPos - (config.offsetAmount + 1), highestLandPos - config.offsetAmount);
+                    int heightDiff = highestLandPos - box.minY();
+                    for(StructurePiece structurePiece : pieces) {
+                        structurePiece.move(0, heightDiff + (config.offsetAmount), 0);
+                    }
                 });
     }
 }

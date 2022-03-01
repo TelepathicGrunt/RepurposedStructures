@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:generic_nether_jigsaw_structure",
   "config": {
-    "start_pool": "repurposed_structures:villages/warped",
+    "start_pool": "repurposed_structures:villages/warped/town_centers",
     "size": 6,
     "search_for_highest_land": true,
     "valid_biome_radius_check": 1,

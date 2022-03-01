@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSAdvancedDistanceConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
@@ -52,20 +53,20 @@ public class AdvancedDistanceJigsawStructure <C extends RSAdvancedDistanceConfig
 
         int topClipOff;
         int bottomClipOff;
-        if(config.verticalRange == null) {
+        if(config.verticalRange.isEmpty()) {
             // Help make sure the Jigsaw Blocks have room to spawn new pieces if structure is right on edge of maxY or topYLimit
             topClipOff = config.clipOutOfBoundsPieces ? config.maxY + 5 : Integer.MAX_VALUE;
             bottomClipOff = config.clipOutOfBoundsPieces ? config.minY - 5 : Integer.MIN_VALUE;
         }
         else{
-            topClipOff = structureStartHeight + config.verticalRange;
-            bottomClipOff = structureStartHeight - config.verticalRange;
+            topClipOff = structureStartHeight + config.verticalRange.get();
+            bottomClipOff = structureStartHeight - config.verticalRange.get();
         }
 
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(config.startPool, config.size),
-                config.startPool.unwrapKey().get().location(),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 false,
                 false,

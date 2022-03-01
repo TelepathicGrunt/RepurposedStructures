@@ -16,6 +16,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackResources;
@@ -37,6 +38,8 @@ import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -226,6 +229,19 @@ public final class GeneralUtils {
 
     private static boolean isReplaceableByStructures(BlockState blockState) {
         return blockState.isAir() || blockState.getMaterial().isLiquid() || blockState.getMaterial().isReplaceable();
+    }
+
+    //////////////////////////////////////////////
+
+    private static ConcurrentHashMap<FeatureConfiguration, ResourceLocation> CACHED_CONFIG_TO_CSF_RL = new ConcurrentHashMap<>();
+
+    public static ResourceLocation getCsfNameForConfig(FeatureConfiguration config, RegistryAccess registries) {
+        return CACHED_CONFIG_TO_CSF_RL.computeIfAbsent(config, c -> registries.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY)
+                .entrySet().stream().filter(entry -> entry.getValue().config == config).findFirst().get().getKey().location());
+    }
+
+    public static void clearCachedConfigToCsfRlMap() {
+        CACHED_CONFIG_TO_CSF_RL.clear();
     }
 
     //////////////////////////////////////////////

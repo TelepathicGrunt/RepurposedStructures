@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
@@ -65,6 +66,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         });
         this.StructureToPieceCountsObjs = mapBuilder;
         cachedRequirePiecesMap.clear();
+        GeneralUtils.clearCachedConfigToCsfRlMap();
         StructurePieceCountsAdditionsMerger.performCountsAdditionsDetectionAndMerger(manager);
     }
 

@@ -4,7 +4,7 @@
     "start_pool": "repurposed_structures:outposts/nether_brick/base_plates",
     "size": 11
   },
-  "biomes": "#repurposed_structures:has_structure/outposts_nether_brick",
+  "biomes": "#repurposed_structures:has_structure/outposts/nether_brick",
   "adapt_noise": true,
   "spawn_overrides": {
     "monster": {

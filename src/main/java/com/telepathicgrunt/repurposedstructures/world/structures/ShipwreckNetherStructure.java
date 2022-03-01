@@ -62,7 +62,7 @@ public class ShipwreckNetherStructure <C extends RSShipwreckNetherConfig> extend
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(config.startPool, config.size),
-                config.startPool.unwrapKey().get().location(),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 false,
                 false,

@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:generic_jigsaw_structure",
   "config": {
-    "start_pool": "repurposed_structures:villages/jungle",
+    "start_pool": "repurposed_structures:villages/jungle/town_centers",
     "size": 8,
     "valid_biome_radius_check": 1,
     "terrain_height_radius_check": 2,

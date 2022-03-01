@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 public class RSMineshaftConfig extends RSAdvancedConfig {
 
@@ -21,7 +22,7 @@ public class RSMineshaftConfig extends RSAdvancedConfig {
             Codec.INT.fieldOf("max_y").orElse(Integer.MAX_VALUE).forGetter(config -> config.maxY),
             Codec.INT.fieldOf("min_y").orElse(Integer.MIN_VALUE).forGetter(config -> config.minY),
             Codec.BOOL.fieldOf("do_not_remove_out_of_bounds_pieces").orElse(false).forGetter(config -> config.clipOutOfBoundsPieces),
-            Codec.INT.fieldOf("vertical_distance_from_start_piece").orElse(0).forGetter(config -> config.verticalRange),
+            Codec.INT.optionalFieldOf("vertical_distance_from_start_piece").forGetter(config -> config.verticalRange),
             Codec.intRange(0, 100).fieldOf("valid_biome_radius_check").orElse(0).forGetter(config -> config.biomeRadius),
             Codec.intRange(0, 100).fieldOf("structure_set_avoid_radius_check").orElse(0).forGetter(config -> config.structureAvoidRadius),
             ResourceKey.codec(Registry.STRUCTURE_SET_REGISTRY).listOf().fieldOf("structure_set_to_avoid").orElse(new ArrayList<>()).forGetter(config -> config.structureSetToAvoid),
@@ -33,7 +34,7 @@ public class RSMineshaftConfig extends RSAdvancedConfig {
 
     public RSMineshaftConfig(Holder<StructureTemplatePool> startPool, int size,
                              int maxY, int minY, boolean clipOutOfBoundsPieces,
-                             Integer verticalRange, int biomeRadius, int structureAvoidRadius,
+                             Optional<Integer> verticalRange, int biomeRadius, int structureAvoidRadius,
                              List<ResourceKey<StructureSet>> structureSetToAvoid,
                              HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
                              float probability) {

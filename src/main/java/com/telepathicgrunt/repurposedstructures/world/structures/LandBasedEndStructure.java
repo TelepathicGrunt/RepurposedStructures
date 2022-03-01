@@ -52,7 +52,7 @@ public class LandBasedEndStructure <C extends RSGenericConfig> extends GenericJi
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(config.startPool, config.size),
-                config.startPool.unwrapKey().get().location(),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 !config.doNotUseHeightmap,
                 !config.doNotUseHeightmap,
@@ -61,7 +61,6 @@ public class LandBasedEndStructure <C extends RSGenericConfig> extends GenericJi
                 config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
-                    pieces.get(0).move(0, config.centerYOffset, 0);
 
                     BoundingBox box = pieces.get(0).getBoundingBox();
                     BlockPos centerPos = new BlockPos(box.getCenter());
@@ -80,7 +79,6 @@ public class LandBasedEndStructure <C extends RSGenericConfig> extends GenericJi
                     int parentHeight = pieces.get(0).getBoundingBox().minY();
                     int offsetAmount = (avgHeight - parentHeight) + config.centerYOffset;
                     pieces.forEach(child -> child.move(0, offsetAmount, 0));
-                    GeneralUtils.centerAllPieces(centerPos, pieces);
                 });
     }
 }

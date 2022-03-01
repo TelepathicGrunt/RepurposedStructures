@@ -2,9 +2,10 @@
   "type": "repurposed_structures:generic_nether_jigsaw_structure",
   "config": {
     "start_pool": "repurposed_structures:temples/nether_crimson",
-    "size": 1
+    "size": 1,
+    "center_y_offset": -4
   },
-  "biomes": "#repurposed_structures:has_structure/temples_nether_crimson",
+  "biomes": "#repurposed_structures:has_structure/temples/nether_crimson",
   "adapt_noise": false,
   "spawn_overrides": {}
 }

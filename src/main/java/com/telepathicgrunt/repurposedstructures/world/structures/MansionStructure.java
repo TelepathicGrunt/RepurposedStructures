@@ -25,6 +25,7 @@ import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer;
+import net.minecraft.world.level.material.Material;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,6 +119,10 @@ public class MansionStructure <C extends RSMansionConfig> extends AbstractBaseSt
 
             for(int x = box.minX(); x <= box.maxX(); ++x) {
                 for(int z = box.minZ(); z <= box.maxZ(); ++z) {
+                    if (chunkPos.x != x >> 4 || chunkPos.z != z >> 4) {
+                        continue;
+                    }
+
                     mutableBlockPos.set(x, structureBottomY, z);
                     if(mansionStructurePiece.pillarOnlyToLand) {
                         terrainY = GeneralUtils.getFirstLandYFromPos(level, mutableBlockPos.below());
@@ -135,7 +140,13 @@ public class MansionStructure <C extends RSMansionConfig> extends AbstractBaseSt
                             }
 
                             BlockPos blockPos2 = new BlockPos(x, currentY, z);
-                            if (!level.isEmptyBlock(blockPos2) && !level.getBlockState(blockPos2).getMaterial().isLiquid()) {
+                            Material material = level.getBlockState(blockPos2).getMaterial();
+                            if (!level.isEmptyBlock(blockPos2) &&
+                                !material.isLiquid() &&
+                                material != Material.REPLACEABLE_PLANT &&
+                                material != Material.REPLACEABLE_FIREPROOF_PLANT &&
+                                material != Material.REPLACEABLE_WATER_PLANT)
+                            {
                                 break;
                             }
 

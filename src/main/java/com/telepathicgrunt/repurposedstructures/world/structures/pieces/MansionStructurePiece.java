@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.telepathicgrunt.repurposedstructures.mixin.structures.PoolElementStructurePieceAccessor;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -9,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
@@ -44,6 +46,10 @@ public class MansionStructurePiece extends PoolElementStructurePiece {
         this.pillarOnlyToLand = tag.getBoolean("pillar_only_to_land");
     }
 
+    @Override
+    public StructurePieceType getType() {
+        return RSStructurePieces.MANSION_STRUCTURE_PIECE;
+    }
 
     @Override
     protected void addAdditionalSaveData(StructurePieceSerializationContext structurePieceSerializationContext, CompoundTag compoundTag) {

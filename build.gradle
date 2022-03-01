@@ -100,7 +100,6 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
 	mainFile.addRequirement("cloth-config")
 	mainFile.addRequirement("fabric-api")
-	mainFile.addRequirement("no-null-processors")
 	mainFile.addRequirement("feature-nbt-deadlock-be-gone")
 }
 

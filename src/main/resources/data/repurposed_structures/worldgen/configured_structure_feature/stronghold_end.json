@@ -6,6 +6,7 @@
     "size": 15,
     "max_y": 5,
     "min_y": 4,
+    "do_not_remove_out_of_bounds_pieces": true,
     "vertical_distance_from_start_piece": 45
   },
   "biomes": "#repurposed_structures:has_structure/strongholds/end",

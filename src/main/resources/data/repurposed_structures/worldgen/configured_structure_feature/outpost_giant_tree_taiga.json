@@ -10,7 +10,7 @@
       "minecraft:villages"
     ]
   },
-  "biomes": "#repurposed_structures:has_structure/outposts/giant_trees_taiga",
+  "biomes": "#repurposed_structures:has_structure/outposts/giant_tree_taiga",
   "adapt_noise": true,
   "spawn_overrides": {
     "monster": {

@@ -3,7 +3,7 @@
   "config": {
     "start_pool": "repurposed_structures:pyramids/jungle",
     "size": 3,
-	"offset_amount": 20
+	"offset_amount": -3
   },
   "biomes": "#repurposed_structures:has_structure/pyramids/jungle",
   "adapt_noise": false,

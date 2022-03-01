@@ -11,7 +11,7 @@ public final class RSTags {
     public static void initTags() {}
 
     public static TagKey<ConfiguredStructureFeature<?, ?>> SPAWNS_BLACK_CATS = TagKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "spawns_black_cats"));
+            new ResourceLocation(RepurposedStructures.MODID, "spawn_black_cats"));
 
     public static TagKey<ConfiguredStructureFeature<?, ?>> NO_LAKES = TagKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "no_lakes"));

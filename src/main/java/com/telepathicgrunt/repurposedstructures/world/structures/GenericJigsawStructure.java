@@ -96,7 +96,7 @@ public class GenericJigsawStructure <C extends RSGenericConfig> extends Abstract
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
                 new JigsawConfiguration(config.startPool, config.size),
-                config.startPool.unwrapKey().get().location(),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 !config.doNotUseHeightmap,
                 !config.doNotUseHeightmap,
