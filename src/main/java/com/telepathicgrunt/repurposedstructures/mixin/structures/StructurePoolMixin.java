@@ -24,7 +24,6 @@ public class StructurePoolMixin {
         return 5000;
     }
 
-    // TODO: check if name is still correct
     /**
      * Increases the weight limit that mojang slapped on that was a workaround for https://bugs.mojang.com/browse/MC-203131
      * @author - TelepathicGrunt

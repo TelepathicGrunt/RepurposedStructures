@@ -1,3 +1,2 @@
 accessWidener v1 named
 accessible class net/minecraft/world/entity/npc/VillagerTrades$TreasureMapForEmeralds
-accessible method net/minecraft/resources/RegistryReadOps <init> (Lcom/mojang/serialization/DynamicOps;Lnet/minecraft/resources/RegistryResourceAccess;Lnet/minecraft/core/RegistryAccess;Ljava/util/IdentityHashMap;)V
