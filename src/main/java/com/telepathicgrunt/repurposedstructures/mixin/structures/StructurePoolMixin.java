@@ -30,7 +30,7 @@ public class StructurePoolMixin {
      * @return - The higher weight that is a more reasonable limit.
      */
     @ModifyConstant(
-            method = "method_28886",
+            method = "m_69266_",
             constant = @Constant(intValue = 150),
             remap = false,
             require = 0
