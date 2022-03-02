@@ -1,0 +1,135 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_polished_blackstone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:blackstone",
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:air"
+          },
+          "input_predicate": {
+            "block": "minecraft:weeping_vines",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 0,
+      "pillar_processor_list": "repurposed_structures:pyramids/nether",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 1,
+      "pillar_processor_list": "repurposed_structures:pyramids/nether",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:orange_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 2,
+      "pillar_processor_list": "repurposed_structures:pyramids/nether",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:yellow_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 3,
+      "pillar_processor_list": "repurposed_structures:pyramids/nether",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:lime_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 4,
+      "pillar_processor_list": "repurposed_structures:pyramids/nether",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:blue_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:pyramids/nether",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:purple_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:spawner_randomizing_processor",
+      "rs_spawner_resourcelocation": "repurposed_structures:pyramids/nether"
+    }
+  ]
+}

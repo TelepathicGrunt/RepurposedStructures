@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:pyramids/nether",
+    "size": 1,
+	"search_for_highest_land": true
+  },
+  "biomes": "#repurposed_structures:has_structure/pyramids/nether",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}

@@ -30,23 +30,5 @@
     "Find all new Strongholds!": "Encontre todas as novas fortalezas!",
     "Find all new Temples!": "Encontre todos os novos templos!",
     "Find all new Villages!": "Encontre todas as novas vilas!",
-    "Find all new Witch Huts!": "Encontre todas as novas cabanas de bruxa!",
-
-    "filled_map.bastion_remnant": "Mapa de restos de bastião",
-    "filled_map.endcity": "Mapa de cidade do end",
-    "filled_map.fortress": "Mapa de fortaleza do nether",
-    "filled_map.ruined_portal": "Mapa de ruínas de portal",
-    "filled_map.repurposed_structures:bastion_underground": "Mapa de bastião subterrâneo",
-    "filled_map.repurposed_structures:city_nether": "Mapa de cidade do nether",
-    "filled_map.repurposed_structures:ruins_nether": "Made de ruínas do nether",
-    "filled_map.repurposed_structures:fortress_jungle": "Mapa de fortaleza da selva",
-    "filled_map.repurposed_structures:mansion_birch": "Mapa de mansão de bétula",
-    "filled_map.repurposed_structures:mansion_desert": "Mapa de mansão do deserto",
-    "filled_map.repurposed_structures:mansion_jungle": "Mapa de mansão da selva",
-    "filled_map.repurposed_structures:mansion_savanna": "Mapa de mansão da savana",
-    "filled_map.repurposed_structures:mansion_oak": "Mapa de mansão de carvalho",
-    "filled_map.repurposed_structures:mansion_snowy": "Mapa de mansão nevada",
-    "filled_map.repurposed_structures:mansion_taiga": "Mapa de mansão da taiga",
-    "filled_map.repurposed_structures:stronghold_end": "Mapa de Fortaleza da Fim",
-    "filled_map.repurposed_structures:pyramid_end": "Mapa de pirâmide da Fim"
+    "Find all new Witch Huts!": "Encontre todas as novas cabanas de bruxa!"
 }

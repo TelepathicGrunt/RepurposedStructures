@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:stronghold_nether",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 319889469,
+    "spacing": 100,
+    "separation": 50,
+    "type": "minecraft:random_spread"
+  }
+}

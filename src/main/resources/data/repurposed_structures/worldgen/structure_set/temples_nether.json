@@ -1,0 +1,30 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:temple_nether_wasteland",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:temple_nether_basalt",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:temple_nether_warped",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:temple_nether_crimson",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:temple_nether_soul",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 449097286,
+    "spacing": 27,
+    "separation": 13,
+    "type": "minecraft:random_spread"
+  }
+}

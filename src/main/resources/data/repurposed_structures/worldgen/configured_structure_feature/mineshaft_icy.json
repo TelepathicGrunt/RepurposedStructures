@@ -1,0 +1,13 @@
+{
+  "type": "repurposed_structures:mineshaft_generic",
+  "config": {
+    "probability": 0.001,
+    "start_pool": "repurposed_structures:mineshafts/icy/start_pool",
+    "size": 9,
+    "max_y": 150,
+    "min_y": 35
+  },
+  "biomes": "#repurposed_structures:has_structure/mineshafts/icy",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

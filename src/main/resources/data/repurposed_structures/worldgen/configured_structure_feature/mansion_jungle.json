@@ -1,0 +1,16 @@
+{
+  "type": "repurposed_structures:mansion_structure",
+  "config": {
+    "type": "JUNGLE",
+    "foundation_block": {
+      "Name": "minecraft:mossy_cobblestone"
+    },
+    "structure_set_avoid_radius_check": 4,
+    "structure_set_to_avoid": [
+      "minecraft:woodland_mansions"
+    ]
+  },
+  "biomes": "#repurposed_structures:has_structure/mansions/jungle",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

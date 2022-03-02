@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:pyramid_end",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1651947933,
+    "spacing": 68,
+    "separation": 34,
+    "type": "minecraft:random_spread"
+  }
+}

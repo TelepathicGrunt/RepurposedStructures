@@ -1,0 +1,26 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:ruins_land_warm",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:ruins_land_hot",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:ruins_land_cold",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:ruins_land_icy",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1612645903,
+    "spacing": 44,
+    "separation": 15,
+    "type": "minecraft:random_spread"
+  }
+}

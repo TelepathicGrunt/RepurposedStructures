@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:buriable_structure",
+  "config": {
+    "start_pool": "repurposed_structures:pyramids/giant_tree_taiga",
+    "size": 3,
+    "offset_amount": -3
+  },
+  "biomes": "#repurposed_structures:has_structure/pyramids/giant_tree_taiga",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

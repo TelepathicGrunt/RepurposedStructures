@@ -1,17 +1,12 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.math.Vector3f;
-import com.telepathicgrunt.repurposedstructures.configs.RSMineshaftsConfig;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.Mutable;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.MineshaftCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftEndConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,70 +14,36 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Comparator;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 
-public class MineshaftEndStructure extends MineshaftStructure {
+public class MineshaftEndStructure <C extends RSMineshaftEndConfig> extends MineshaftStructure<C> {
 
-    public MineshaftEndStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(locationCheckPredicate, pieceCreationPredicate);
+    public MineshaftEndStructure(Codec<C> codec) {
+        super(codec, MineshaftEndStructure::isMineshaftEndFeatureChunk, MineshaftEndStructure::generateMineshaftEndPieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static MineshaftEndStructure create(MineshaftCodeConfig mineshaftCodeConfig) {
-        final Mutable<MineshaftEndStructure> box = new Mutable<>();
-        final MineshaftEndStructure finalInstance = new MineshaftEndStructure(
-                (context) -> box.getValue().isFeatureChunk(context, mineshaftCodeConfig),
-                (context) -> box.getValue().generatePieces(context, mineshaftCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
-    }
-
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {
-        boolean superCheck = super.isFeatureChunk(context, config);
+    protected static <CC extends RSMineshaftEndConfig> boolean isMineshaftEndFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+        boolean superCheck = MineshaftStructure.isMineshaftFeatureChunk(context);
         if(!superCheck)
             return false;
 
-        //cannot be near end strongholds
-        int structureCheckRadius = 6;
-        ChunkPos chunkPos = context.chunkPos();
-        for (int curChunkX = chunkPos.x - structureCheckRadius; curChunkX <= chunkPos.x + structureCheckRadius; curChunkX++) {
-            for (int curChunkZ = chunkPos.z - structureCheckRadius; curChunkZ <= chunkPos.z + structureCheckRadius; curChunkZ++) {
-                for(StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(RSStructureTagMap.STRUCTURE_TAGS.END_MINESHAFT_AVOID_STRUCTURE)) {
-                    if(structureFeature == this) continue;
+        CC config = context.config();
 
-                    StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(structureFeature);
-                    if(structureConfig != null && structureConfig.spacing() > 10) {
-                        ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, context.seed(), curChunkX, curChunkZ);
-                        if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-
-        int minThickness = RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
+        int minThickness = config.minIslandThickness;
         if(minThickness == 0)
             return true;
 
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        int xPos = chunkPos.getMinBlockX();
-        int zPos = chunkPos.getMinBlockZ();
+        int xPos = context.chunkPos().getMinBlockX();
+        int zPos = context.chunkPos().getMinBlockZ();
 
         int landHeight = Integer.MAX_VALUE;
         // Surrounding far terrain is more likely to fail the check and exit early.
@@ -99,12 +60,12 @@ public class MineshaftEndStructure extends MineshaftStructure {
         return islandTopBottomThickness.getZ() >= minThickness;
     }
 
-    private int getHeightAt(ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView, int xPos, int zPos, int landHeight) {
+    private static int getHeightAt(ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView, int xPos, int zPos, int landHeight) {
         landHeight = Math.min(landHeight, chunkGenerator.getFirstOccupiedHeight(xPos, zPos, Heightmap.Types.WORLD_SURFACE_WG, heightLimitView));
         return landHeight;
     }
 
-    private void analyzeLand(ChunkGenerator chunkGenerator, int xPos, int zPos, BlockPos.MutableBlockPos islandTopBottomThickness, LevelHeightAccessor heightLimitView) {
+    private static void analyzeLand(ChunkGenerator chunkGenerator, int xPos, int zPos, BlockPos.MutableBlockPos islandTopBottomThickness, LevelHeightAccessor heightLimitView) {
         NoiseColumn columnOfBlocks = chunkGenerator.getBaseColumn(xPos, zPos, heightLimitView);
         int minY = chunkGenerator.getMinY();
         int rangeHeight = GeneralUtils.getMaxTerrainLimit(chunkGenerator);
@@ -141,12 +102,13 @@ public class MineshaftEndStructure extends MineshaftStructure {
         islandTopBottomThickness.set(islandTopBottomThickness.getX(), islandTopBottomThickness.getY(), thickness);
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, MineshaftCodeConfig config) {
+    public static <CC extends RSMineshaftEndConfig> Optional<PieceGenerator<CC>> generateMineshaftEndPieces(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
         analyzeLand(context.chunkGenerator(), blockpos.getX(), blockpos.getZ(), islandTopBottomThickness, context.heightAccessor());
 
-        int minThickness = RSMineshaftsConfig.endMineshaftMinIslandThickness.get();
+        int minThickness = config.minIslandThickness;
         int maxY = 53;
         int minY = 15;
         if(minThickness == 0) {
@@ -164,17 +126,17 @@ public class MineshaftEndStructure extends MineshaftStructure {
             }
         }
 
-        ResourceLocation structureID = ForgeRegistries.STRUCTURE_FEATURES.getKey(this);
         int finalMaxY = maxY;
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize.get()),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 false,
                 false,
                 maxY,
                 minY,
+                config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     Optional<PoolElementStructurePiece> highestPiece = pieces.stream().max(Comparator.comparingInt(p -> p.getBoundingBox().maxY()));
                     int topY = highestPiece.map(poolElementStructurePiece -> poolElementStructurePiece.getBoundingBox().maxY()).orElseGet(blockpos::getY);

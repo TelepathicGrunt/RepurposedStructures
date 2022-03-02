@@ -1,12 +1,18 @@
 package com.telepathicgrunt.repurposedstructures.mixin.features;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.mixin.world.WorldGenRegionAccessor;
+import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
+import net.minecraft.world.level.levelgen.structure.StructureStart;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,8 +32,18 @@ public class LessJungleBushInStructuresMixin {
         if(context.config().foliagePlacer instanceof BushFoliagePlacer && context.config().minimumSize.minClippedHeight().orElse(0) < 2) {
             // Rate for removal of bush
             if(context.random().nextFloat() < 0.9f) {
-                if (GeneralUtils.inStructureBounds(context.level(), SectionPos.of(context.origin()), RSStructureTagMap.STRUCTURE_TAGS.LESS_JUNGLE_BUSH)) {
-                    cir.setReturnValue(false);
+                SectionPos sectionPos = SectionPos.of(context.origin());
+                ChunkAccess chunkAccess = context.level().getChunk(context.origin());
+
+                Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
+                StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
+
+                for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getTag(RSTags.LESS_JUNGLE_BUSHES).get()) {
+                    StructureStart startForFeature = structureFeatureManager.getStartForFeature(sectionPos, configuredStructureFeature.value(), chunkAccess);
+                    if (startForFeature != null && startForFeature.isValid()) {
+                        cir.setReturnValue(false);
+                        return;
+                    }
                 }
             }
         }

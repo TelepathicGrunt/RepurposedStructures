@@ -1,0 +1,50 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:mineshaft_birch",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_dark_forest",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_desert",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_icy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_jungle",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_ocean",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_savanna",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_stone",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_swamp",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_taiga",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 129417040,
+    "spacing": 1,
+    "separation": 0,
+    "type": "minecraft:random_spread"
+  }
+}

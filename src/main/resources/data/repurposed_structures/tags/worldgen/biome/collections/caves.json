@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:dripstone_caves",
+    "minecraft:lush_caves",
+    {
+      "id": "terralith:cave/frostfire_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/ice_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/fungal_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/desert_caves",
+      "required": false
+    }
+  ]
+}

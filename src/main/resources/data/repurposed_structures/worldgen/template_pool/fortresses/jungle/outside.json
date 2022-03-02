@@ -14,7 +14,7 @@
         "location": "repurposed_structures:fortresses/jungle/straight_outside",
         "processors": "repurposed_structures:fortresses/jungle_main",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -23,7 +23,7 @@
         "location": "repurposed_structures:fortresses/jungle/4_way_outside",
         "processors": "repurposed_structures:fortresses/jungle_main",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -32,7 +32,7 @@
         "location": "repurposed_structures:fortresses/jungle/4_way_outside_large",
         "processors": "repurposed_structures:fortresses/jungle_main",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -41,7 +41,7 @@
         "location": "repurposed_structures:fortresses/jungle/stairs_outside",
         "processors": "repurposed_structures:fortresses/jungle_main",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -50,7 +50,7 @@
         "location": "repurposed_structures:fortresses/jungle/spawner",
         "processors": "repurposed_structures:fortresses/jungle_main",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]

@@ -24,7 +24,7 @@ public final class RSFeatures {
 
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
 
-	public static final RegistryObject<Feature<NbtDungeonConfig>> NBT_DUNGEON = FEATURES.register("nbt_dungeon", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
+	public static final RegistryObject<Feature<NbtDungeonConfig>> NBT_DUNGEONS = FEATURES.register("nbt_dungeon", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryObject<Feature<NbtFeatureConfig>> NBT_FEATURE = FEATURES.register("nbt_feature", NbtFeature::new);
 
 	public static final RegistryObject<Feature<NoneFeatureConfiguration>> WITHER_SKELETON_WITH_BOW = FEATURES.register("wither_skeleton_with_bow", WitherSkeletonWithBow::new);

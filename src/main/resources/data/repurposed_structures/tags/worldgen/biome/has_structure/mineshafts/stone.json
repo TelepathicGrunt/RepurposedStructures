@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#repurposed_structures:collections/hills",
+    "#repurposed_structures:collections/mountains",
+    "#repurposed_structures:collections/meadows",
+    "#repurposed_structures:collections/stony_shores",
+    "#repurposed_structures:collections/rocky_mountains"
+  ]
+}

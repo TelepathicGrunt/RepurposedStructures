@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:village_crimson",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:village_warped",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 2010691245,
+    "spacing": 30,
+    "separation": 15,
+    "type": "minecraft:random_spread"
+  }
+}

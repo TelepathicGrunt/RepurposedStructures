@@ -1,0 +1,30 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:witch_hut_oak",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_taiga",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_birch",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_dark_forest",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_giant_tree_taiga",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 2043830143,
+    "spacing": 53,
+    "separation": 26,
+    "type": "minecraft:random_spread"
+  }
+}

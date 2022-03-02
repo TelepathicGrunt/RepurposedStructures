@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:buriable_structure",
+  "config": {
+    "start_pool": "repurposed_structures:pyramids/badlands",
+    "size": 3,
+    "offset_amount": -3
+  },
+  "biomes": "#repurposed_structures:has_structure/pyramids/badlands",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

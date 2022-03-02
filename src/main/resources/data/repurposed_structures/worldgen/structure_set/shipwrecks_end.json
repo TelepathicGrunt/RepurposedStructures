@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:shipwreck_end",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 185161978,
+    "spacing": 24,
+    "separation": 12,
+    "type": "minecraft:random_spread"
+  }
+}

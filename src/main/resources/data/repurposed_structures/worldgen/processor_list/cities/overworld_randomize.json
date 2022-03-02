@@ -250,13 +250,35 @@
       "processor_type": "minecraft:rule"
     },
     {
-      "processor_type": "repurposed_structures:data_block_processor"
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 15,
+      "pillar_processor_list": "repurposed_structures:cities/overworld_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:cobblestone"
+          }
+        }
+      ]
     },
     {
-      "processor_type": "repurposed_structures:air_processor"
-    },
-    {
-      "processor_type": "repurposed_structures:structure_void_processor"
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_processor_list": "repurposed_structures:cities/overworld_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:orange_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:cobblestone"
+          }
+        }
+      ]
     },
     {
       "processor_type": "repurposed_structures:waterlogging_fix_processor"

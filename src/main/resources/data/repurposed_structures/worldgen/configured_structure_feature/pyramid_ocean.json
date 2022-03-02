@@ -1,0 +1,13 @@
+{
+  "type": "repurposed_structures:buriable_structure",
+  "config": {
+    "start_pool": "repurposed_structures:pyramids/ocean",
+    "size": 3,
+	"can_spawn_in_liquid": true,
+	"use_ocean_heightmap": true,
+    "offset_amount": -3
+  },
+  "biomes": "#repurposed_structures:has_structure/pyramids/ocean",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

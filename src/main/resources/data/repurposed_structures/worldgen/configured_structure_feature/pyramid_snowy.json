@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:buriable_structure",
+  "config": {
+    "start_pool": "repurposed_structures:pyramids/snowy",
+    "size": 3,
+    "offset_amount": -3
+  },
+  "biomes": "#repurposed_structures:has_structure/pyramids/snowy",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

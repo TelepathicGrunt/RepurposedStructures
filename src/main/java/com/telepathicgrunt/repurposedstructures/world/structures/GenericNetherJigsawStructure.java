@@ -1,75 +1,62 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.Mutable;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericNetherJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericNetherConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
-public class GenericNetherJigsawStructure extends GenericJigsawStructure {
+public class GenericNetherJigsawStructure <C extends RSGenericNetherConfig> extends GenericJigsawStructure<C> {
 
-    public GenericNetherJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(locationCheckPredicate, pieceCreationPredicate);
+    public GenericNetherJigsawStructure(Codec<C> codec) {
+        super(codec, GenericNetherJigsawStructure::isGenericFeatureChunk, GenericNetherJigsawStructure::generateNetherPieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static GenericNetherJigsawStructure create(GenericNetherJigsawStructureCodeConfig genericNetherJigsawStructureCodeConfig) {
-        final Mutable<GenericNetherJigsawStructure> box = new Mutable<>();
-        final GenericNetherJigsawStructure finalInstance = new GenericNetherJigsawStructure(
-                (context) -> box.getValue().isFeatureChunk(context, genericNetherJigsawStructureCodeConfig),
-                (context) -> box.getValue().generatePieces(context, genericNetherJigsawStructureCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
-    }
+    public static <CC extends RSGenericNetherConfig> Optional<PieceGenerator<CC>> generateNetherPieces(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
+        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.setFixedYSpawn, context.chunkPos().getMinBlockZ());
 
-    protected Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericNetherJigsawStructureCodeConfig config) {
-        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
-
-        ResourceLocation structureID = ForgeRegistries.STRUCTURE_FEATURES.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize.get()),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
-                config.useHeightmap,
-                config.useHeightmap,
+                !config.doNotUseHeightmap,
+                !config.doNotUseHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
+                config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
-                    pieces.get(0).move(0, config.centerOffset, 0);
 
                     WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
                     random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
                     BlockPos placementPos;
 
                     if(config.highestLandSearch) {
-                        placementPos = GeneralUtils.getHighestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), config.canPlaceOnLiquid);
+                        placementPos = GeneralUtils.getHighestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), !config.cannotSpawnInLiquid);
                     }
                     else{
-                        placementPos = GeneralUtils.getLowestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), config.canPlaceOnLiquid);
+                        placementPos = GeneralUtils.getLowestLand(context.chunkGenerator(), structurePiecesBuilder.getBoundingBox(), context.heightAccessor(), !config.cannotSpawnInLiquid);
                     }
 
                     if (placementPos.getY() >= GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()) || placementPos.getY() <= context.chunkGenerator().getSeaLevel() + 1) {
-                        structurePiecesBuilder.moveInsideHeights(random, context.chunkGenerator().getSeaLevel() + config.ledgeSpotOffset, context.chunkGenerator().getSeaLevel() + (config.ledgeSpotOffset + 1));
+                        int yDiff = (context.chunkGenerator().getSeaLevel() + config.ledgeSpotOffset) - pieces.get(0).getBoundingBox().minY();
+                        pieces.forEach(piece -> piece.move(0, yDiff, 0));
                     }
                     else {
-                        structurePiecesBuilder.moveInsideHeights(random, placementPos.getY() + config.liquidSpotOffset, placementPos.getY() + (config.liquidSpotOffset + 1));
+                        int yDiff = (placementPos.getY() + config.ledgeSpotOffset) - pieces.get(0).getBoundingBox().minY();
+                        pieces.forEach(piece -> piece.move(0, yDiff, 0));
                     }
+
+                    pieces.forEach(piece -> piece.move(0, config.centerYOffset, 0));
                 });
     }
 }

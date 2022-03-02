@@ -1,58 +1,46 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructureTagMap;
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.Mutable;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.GenericJigsawStructureCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGenericConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
+public class GenericJigsawStructure <C extends RSGenericConfig> extends AbstractBaseStructure<C> {
 
-    public GenericJigsawStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
+    public GenericJigsawStructure(Codec<C> codec) {
+        super(codec, GenericJigsawStructure::isGenericFeatureChunk, GenericJigsawStructure::generateGenericPieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static GenericJigsawStructure create(GenericJigsawStructureCodeConfig genericJigsawStructureCodeConfig) {
-        final Mutable<GenericJigsawStructure> box = new Mutable<>();
-        final GenericJigsawStructure finalInstance = new GenericJigsawStructure(
-            (context) -> box.getValue().isFeatureChunk(context, genericJigsawStructureCodeConfig),
-            (context) -> box.getValue().generatePieces(context, genericJigsawStructureCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
+    public GenericJigsawStructure(Codec<C> codec, Predicate<PieceGeneratorSupplier.Context<C>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<C>, Optional<PieceGenerator<C>>> pieceCreationPredicate) {
+        super(codec, locationCheckPredicate, pieceCreationPredicate);
     }
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
+    protected static <CC extends RSGenericConfig> boolean isGenericFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         ChunkPos chunkPos = context.chunkPos();
+        CC config = context.config();
 
         if (!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
-            for (int curChunkX = chunkPos.x - config.biomeRange; curChunkX <= chunkPos.x + config.biomeRange; curChunkX++) {
-                for (int curChunkZ = chunkPos.z - config.biomeRange; curChunkZ <= chunkPos.z + config.biomeRange; curChunkZ++) {
-                    int yValue = config.useHeightmap ?
-                            config.fixedYSpawn + context.chunkGenerator().getFirstFreeHeight(curChunkX << 4, curChunkZ << 4, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor())
-                            : config.fixedYSpawn;
-                    Biome biome = context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler());
+            for (int curChunkX = chunkPos.x - config.biomeRadius; curChunkX <= chunkPos.x + config.biomeRadius; curChunkX++) {
+                for (int curChunkZ = chunkPos.z - config.biomeRadius; curChunkZ <= chunkPos.z + config.biomeRadius; curChunkZ++) {
+                    int yValue = config.doNotUseHeightmap ? config.setFixedYSpawn : config.setFixedYSpawn + context.chunkGenerator().getFirstFreeHeight(curChunkX << 4, curChunkZ << 4, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
                     }
@@ -61,46 +49,34 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
         }
 
         //cannot be near other specified structure
-        for (int curChunkX = chunkPos.x - config.structureBlacklistRange; curChunkX <= chunkPos.x + config.structureBlacklistRange; curChunkX++) {
-            for (int curChunkZ = chunkPos.z - config.structureBlacklistRange; curChunkZ <= chunkPos.z + config.structureBlacklistRange; curChunkZ++) {
-                for (RSStructureTagMap.STRUCTURE_TAGS tag : config.avoidStructuresSet) {
-                    for (StructureFeature<?> structureFeature : RSStructureTagMap.REVERSED_TAGGED_STRUCTURES.get(tag)) {
-                        if (structureFeature == this) continue;
-
-                        StructureFeatureConfiguration structureConfig = context.chunkGenerator().getSettings().getConfig(structureFeature);
-                        if (structureConfig != null && structureConfig.spacing() > 8) {
-                            ChunkPos chunkPos2 = structureFeature.getPotentialFeatureChunk(structureConfig, context.seed(), curChunkX, curChunkZ);
-                            if (curChunkX == chunkPos2.x && curChunkZ == chunkPos2.z) {
-                                return false;
-                            }
-                        }
-                    }
-                }
+        for (ResourceKey<StructureSet> structureSetToAvoid : config.structureSetToAvoid) {
+            if (context.chunkGenerator().hasFeatureChunkInRange(structureSetToAvoid, context.seed(), chunkPos.x, chunkPos.z, config.structureAvoidRadius)) {
+                return false;
             }
         }
 
-        if (config.allowTerrainHeightRange != -1) {
+        if (config.allowedTerrainHeightRange != -1) {
             int maxTerrainHeight = Integer.MIN_VALUE;
             int minTerrainHeight = Integer.MAX_VALUE;
 
-            for (int curChunkX = chunkPos.x - config.terrainHeightRadius; curChunkX <= chunkPos.x + config.terrainHeightRadius; curChunkX++) {
-                for (int curChunkZ = chunkPos.z - config.terrainHeightRadius; curChunkZ <= chunkPos.z + config.terrainHeightRadius; curChunkZ++) {
+            for (int curChunkX = chunkPos.x - config.terrainHeightCheckRadius; curChunkX <= chunkPos.x + config.terrainHeightCheckRadius; curChunkX++) {
+                for (int curChunkZ = chunkPos.z - config.terrainHeightCheckRadius; curChunkZ <= chunkPos.z + config.terrainHeightCheckRadius; curChunkZ++) {
                     int height = context.chunkGenerator().getBaseHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);
 
-                    if (minTerrainHeight < config.minHeightLimit) {
+                    if (minTerrainHeight < config.minYAllowed) {
                         return false;
                     }
                 }
             }
 
-            if(maxTerrainHeight - minTerrainHeight > config.allowTerrainHeightRange) {
+            if(maxTerrainHeight - minTerrainHeight > config.allowedTerrainHeightRange) {
                 return false;
             }
         }
 
-        if (config.cannotSpawnInWater) {
+        if (config.cannotSpawnInLiquid) {
             BlockPos centerOfChunk = chunkPos.getMiddleBlockPosition(0);
             int landHeight = context.chunkGenerator().getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
             NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), context.heightAccessor());
@@ -114,23 +90,22 @@ public class GenericJigsawStructure extends AbstractBaseStructure<NoneFeatureCon
         return true;
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, GenericJigsawStructureCodeConfig config) {
-        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.fixedYSpawn, context.chunkPos().getMinBlockZ());
-
-        ResourceLocation structureID = ForgeRegistries.STRUCTURE_FEATURES.getKey(this);
+    public static <CC extends RSGenericConfig> Optional<PieceGenerator<CC>> generateGenericPieces(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
+        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), config.setFixedYSpawn, context.chunkPos().getMinBlockZ());
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), config.structureSize.get()),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
-                config.useHeightmap,
-                config.useHeightmap,
+                !config.doNotUseHeightmap,
+                !config.doNotUseHeightmap,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                config.poolsThatIgnoreBounds,
+                config.poolsThatIgnoreBoundaries,
                 (structurePiecesBuilder, pieces) -> {
                     GeneralUtils.centerAllPieces(blockpos, pieces);
-                    pieces.get(0).move(0, config.centerOffset, 0);
+                    pieces.get(0).move(0, config.centerYOffset, 0);
                 });
     }
 }

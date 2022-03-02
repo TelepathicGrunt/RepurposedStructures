@@ -5,7 +5,6 @@
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
     "entities.CatEntityMixin",
-    "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessJungleBushInStructuresMixin",
@@ -16,20 +15,18 @@
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
-    "structures.EnderEyeStrongholdLocatingMixin",
     "structures.ListPoolElementAccessor",
+    "structures.LocateCommandMixin",
+    "structures.PoolElementStructurePieceAccessor",
     "structures.SinglePoolElementAccessor",
     "structures.StructureFeatureAccessor",
-    "structures.StructureFeaturesAccessor",
     "structures.StructureManagerAccessor",
-    "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",
     "structures.StructurePoolMixin",
     "structures.StructureProcessorAccessor",
-    "structures.StructureSettingsAccessor",
-    "structures.StructureTemplateAccessor",
     "structures.StructureTemplateMixin",
-    "world.ChunkGeneratorAccessor"
+    "structures.TemplateAccessor",
+    "world.WorldGenRegionAccessor"
   ],
   "client": [
     "blocks.StructureBlockScreenMixin"

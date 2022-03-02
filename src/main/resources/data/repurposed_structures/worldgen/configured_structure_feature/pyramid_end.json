@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:land_based_end_structure",
+  "config": {
+    "start_pool": "repurposed_structures:pyramids/end",
+    "size": 3,
+	"center_y_offset": -1
+  },
+  "biomes": "#repurposed_structures:has_structure/pyramids/end",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

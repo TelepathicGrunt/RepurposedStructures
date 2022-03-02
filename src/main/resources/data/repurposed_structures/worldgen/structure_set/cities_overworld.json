@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:city_overworld",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 346349343,
+    "spacing": 180,
+    "separation": 90,
+    "type": "minecraft:random_spread"
+  }
+}

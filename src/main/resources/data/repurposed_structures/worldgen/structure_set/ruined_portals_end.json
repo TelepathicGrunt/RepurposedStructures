@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:ruined_portal_end",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1048250904,
+    "spacing": 57,
+    "separation": 23,
+    "type": "minecraft:random_spread"
+  }
+}

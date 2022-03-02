@@ -2,8 +2,6 @@ package com.telepathicgrunt.repurposedstructures.misc;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
-import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
-import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
 
@@ -25,13 +23,6 @@ public final class BiomeDimensionAllowDisallow {
 
     public static void setupAllowDisallowMaps() {
         // init maps with all structures/some configuredfeatures and blank lists
-        RSStructures.RS_STRUCTURES.forEach((key, value) -> {
-            ResourceLocation id = Registry.STRUCTURE_FEATURE.getKey(key);
-            DIMENSION_DISALLOW.put(id, new ArrayList<>());
-            DIMENSION_ALLOW.put(id, new ArrayList<>());
-            BIOME_ALLOW.put(id, new ArrayList<>());
-            BIOME_DISALLOW.put(id, new ArrayList<>());
-        });
         RSConfiguredFeatures.RS_DUNGEONS.forEach((placedFeature) -> {
             ResourceLocation id = BuiltinRegistries.PLACED_FEATURE.getKey(placedFeature);
             DIMENSION_DISALLOW.put(id, new ArrayList<>());

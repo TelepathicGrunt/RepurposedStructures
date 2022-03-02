@@ -1,0 +1,46 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:outpost_birch",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_jungle",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_giant_tree_taiga",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_desert",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_badlands",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_snowy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_icy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_taiga",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_oak",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 411702122,
+    "spacing": 49,
+    "separation": 24,
+    "type": "minecraft:random_spread"
+  }
+}

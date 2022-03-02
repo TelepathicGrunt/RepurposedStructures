@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:outpost_end",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1047041233,
+    "spacing": 61,
+    "separation": 30,
+    "type": "minecraft:random_spread"
+  }
+}

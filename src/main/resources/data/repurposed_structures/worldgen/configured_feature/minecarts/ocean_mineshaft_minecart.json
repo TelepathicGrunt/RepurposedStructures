@@ -1,7 +1,7 @@
 {
   "config": {
     "minecart_nbt_file": "repurposed_structures:mineshafts/ocean/minecart",
-    "is_water_based": true
+	"is_water_based": true
   },
   "type": "repurposed_structures:mineshaft_minecarts"
 }

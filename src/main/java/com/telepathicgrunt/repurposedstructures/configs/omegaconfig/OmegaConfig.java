@@ -88,7 +88,6 @@ public class OmegaConfig {
         }
 
         // get inner-class fields
-        // TODO: recursively get inner classes?
         for (Class<?> innerClass : configClass.getDeclaredClasses()) {
             for (Field field : innerClass.getDeclaredFields()) {
                 addFieldComments(field, keyToComments);

@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
@@ -60,7 +61,7 @@ public class StructureChains extends Feature<StructureTargetConfig> {
 
             //attaches lantern at end at a rare chance
             if(mutable.getY() != world.getMinBuildHeight() + 3 && context.random().nextFloat() < 0.075f && world.isEmptyBlock(mutable)) {
-                if(world.getBiome(mutable).getBiomeCategory() == Biome.BiomeCategory.NETHER) {
+                if(world.getBiome(mutable).is(BiomeTags.IS_NETHER)) {
                     world.setBlock(mutable, Blocks.SOUL_LANTERN.defaultBlockState().setValue(LanternBlock.HANGING, true), 2);
                 }
                 else{

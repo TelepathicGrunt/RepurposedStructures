@@ -30,23 +30,5 @@
     "Find all new Strongholds!": "Bütün Yeni Zindanları Bul!",
     "Find all new Temples!": "Bütün Yeni Tapınakları Bul!",
     "Find all new Villages!": "Bütün Yeni Köyleri Bul!",
-    "Find all new Witch Huts!": "Bütün Yeni Cadı Kulubelerini Bul!",
-
-    "filled_map.bastion_remnant": "Burç Kalıntısı Haritası",
-    "filled_map.endcity": "Sondaki Şehrin Haritası",
-    "filled_map.fortress": "Nether Kalesi Haritası",
-    "filled_map.ruined_portal": "Yıkık Portal Haritası",
-    "filled_map.repurposed_structures:bastion_underground": "Yeraltı burcu haritası",
-    "filled_map.repurposed_structures:city_nether": "Nether Şehri Haritası",
-    "filled_map.repurposed_structures:ruins_nether": "Nether Yıkıntısı Haritası",
-    "filled_map.repurposed_structures:fortress_jungle": "Balta Girmemiş Orman Kalesi Haritası",
-    "filled_map.repurposed_structures:mansion_birch": "Huş Konağı Haritası",
-    "filled_map.repurposed_structures:mansion_desert": "Çöl Konağı Haritası",
-    "filled_map.repurposed_structures:mansion_jungle": "Balta Girmemiş Orman Haritası",
-    "filled_map.repurposed_structures:mansion_savanna": "Ova Konağı Haritası",
-    "filled_map.repurposed_structures:mansion_oak": "Meşe Konağı Haritası",
-    "filled_map.repurposed_structures:mansion_snowy": "Karlı Konak Haritası",
-    "filled_map.repurposed_structures:mansion_taiga": "Tayga Konağı Haritası",
-    "filled_map.repurposed_structures:stronghold_end": "Sonu Kale Haritası",
-    "filled_map.repurposed_structures:pyramid_end": "Bitiş Piramidi Haritası"
+    "Find all new Witch Huts!": "Bütün Yeni Cadı Kulubelerini Bul!"
 }

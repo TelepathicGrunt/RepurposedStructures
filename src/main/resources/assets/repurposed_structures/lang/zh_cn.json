@@ -30,23 +30,5 @@
     "Find all new Strongholds!": "找到所有新地下要塞",
     "Find all new Temples!": "找到所有新神庙",
     "Find all new Villages!": "找到所有新村庄",
-    "Find all new Witch Huts!": "找到所有新女巫小屋",
-
-    "filled_map.bastion_remnant": "堡垒遗迹地图",
-    "filled_map.endcity": "末地城地图",
-    "filled_map.fortress": "下界要塞地图",
-    "filled_map.ruined_portal": "传送门遗迹地图",
-    "filled_map.repurposed_structures:bastion_underground": "地下堡垒遗迹地图",
-    "filled_map.repurposed_structures:city_nether": "下界城地图",
-    "filled_map.repurposed_structures:ruins_nether": "下界废墟地图",
-    "filled_map.repurposed_structures:fortress_jungle": "丛林要塞地图",
-    "filled_map.repurposed_structures:mansion_birch": "白桦林府邸地图",
-    "filled_map.repurposed_structures:mansion_desert": "沙漠府邸地图",
-    "filled_map.repurposed_structures:mansion_jungle": "丛林府邸地图",
-    "filled_map.repurposed_structures:mansion_savanna": "热带草原府邸地图",
-    "filled_map.repurposed_structures:mansion_oak": "橡木林府邸地图",
-    "filled_map.repurposed_structures:mansion_snowy": "雪地府邸地图",
-    "filled_map.repurposed_structures:mansion_taiga": "针叶林府邸地图",
-    "filled_map.repurposed_structures:stronghold_end": "末地地下要塞地图",
-    "filled_map.repurposed_structures:pyramid_end": "末地神殿地图"
+    "Find all new Witch Huts!": "找到所有新女巫小屋"
 }

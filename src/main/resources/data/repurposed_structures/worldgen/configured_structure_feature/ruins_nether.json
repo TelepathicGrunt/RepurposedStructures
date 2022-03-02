@@ -1,0 +1,13 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:ruins/nether/start_pool",
+    "size": 1,
+    "search_for_highest_land": true,
+    "ledge_spot_offset": -1,
+    "liquid_spot_offset": -2
+  },
+  "biomes": "#repurposed_structures:has_structure/ruins/nether",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}

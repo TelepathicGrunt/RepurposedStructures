@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "config": {
+    "start_pool": "repurposed_structures:villages/dark_forest/town_centers",
+    "size": 6,
+    "valid_biome_radius_check": 1,
+    "terrain_height_radius_check": 2,
+    "allowed_terrain_height_range": 22,
+    "structure_set_avoid_radius_check": 6,
+    "structure_set_to_avoid": [
+      "minecraft:villages",
+      "minecraft:pillager_outposts"
+    ]
+  },
+  "biomes": "#repurposed_structures:has_structure/villages/dark_forest",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}

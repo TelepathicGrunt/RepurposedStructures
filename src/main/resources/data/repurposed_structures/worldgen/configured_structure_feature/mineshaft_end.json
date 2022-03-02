@@ -1,0 +1,34 @@
+{
+  "type": "repurposed_structures:mineshaft_end",
+  "config": {
+    "probability": 0.006,
+    "start_pool": "repurposed_structures:mineshafts/end/start_pool",
+    "size": 11,
+    "min_island_thickness_allowed": 30,
+    "structure_set_avoid_radius_check": 6,
+    "structure_set_to_avoid": [
+      "repurposed_structures:strongholds_end"
+    ]
+  },
+  "biomes": "#repurposed_structures:has_structure/mineshafts/end",
+  "adapt_noise": false,
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:endermite",
+          "weight": 10,
+          "minCount": 2,
+          "maxCount": 5
+        },
+        {
+          "type": "minecraft:enderman",
+          "weight": 5,
+          "minCount": 1,
+          "maxCount": 3
+        }
+      ]
+    }
+  }
+}

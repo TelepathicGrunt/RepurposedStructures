@@ -1,0 +1,13 @@
+{
+  "type": "repurposed_structures:mineshaft_nether_generic",
+  "config": {
+    "probability": 0.004,
+    "start_pool": "repurposed_structures:mineshafts/nether/start_pool",
+    "size": 10,
+    "max_y": 17,
+    "min_y": 6
+  },
+  "biomes": "#repurposed_structures:has_structure/mineshafts/nether",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

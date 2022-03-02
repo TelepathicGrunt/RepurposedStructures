@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:snowy_plains",
+    {
+      "id": "terralith:alpine_grove",
+      "required": false
+    },
+    {
+      "id": "terralith:cold_shrubland",
+      "required": false
+    },
+    {
+      "id": "terralith:snowy_badlands",
+      "required": false
+    },
+    {
+      "id": "terralith:snowy_shield",
+      "required": false
+    }
+  ]
+}

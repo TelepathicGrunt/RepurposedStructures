@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:flower_forest",
+    {
+      "id": "terralith:blooming_plateau",
+      "required": false
+    },
+    {
+      "id": "terralith:blooming_valley",
+      "required": false
+    }
+  ]
+}

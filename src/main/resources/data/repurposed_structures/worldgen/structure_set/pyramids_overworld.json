@@ -1,0 +1,46 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:pyramid_badlands",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_dark_forest",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_snowy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_icy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_jungle",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_mushroom",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_ocean",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_giant_tree_taiga",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:pyramid_flower_forest",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1755529804,
+    "spacing": 40,
+    "separation": 20,
+    "type": "minecraft:random_spread"
+  }
+}

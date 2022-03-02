@@ -1,49 +1,61 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
+import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.Mutable;
-import com.telepathicgrunt.repurposedstructures.world.structures.codeconfigs.StartPoolOnlyCodeConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckEndConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 
-public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConfiguration> {
+public class ShipwreckEndStructure <C extends RSShipwreckEndConfig> extends AbstractBaseStructure<C> {
+
     // Special thanks to cannon_foddr for allowing me to use his End Shipwreck design!
-
-    public ShipwreckEndStructure(Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheckPredicate, Function<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>, Optional<PieceGenerator<NoneFeatureConfiguration>>> pieceCreationPredicate) {
-        super(NoneFeatureConfiguration.CODEC, locationCheckPredicate, pieceCreationPredicate);
+    public ShipwreckEndStructure(Codec<C> codec) {
+        super(codec, ShipwreckEndStructure::isShipwreckEndFeatureChunk, ShipwreckEndStructure::generateShipwreckEndPieces);
     }
 
-    // Need this constructor wrapper so we can hackly call `this` in the predicates that Minecraft requires in constructors
-    public static ShipwreckEndStructure create(StartPoolOnlyCodeConfig startPoolOnlyCodeConfig) {
-        final Mutable<ShipwreckEndStructure> box = new Mutable<>();
-        final ShipwreckEndStructure finalInstance = new ShipwreckEndStructure(
-                (context) -> box.getValue().isFeatureChunk(context, startPoolOnlyCodeConfig),
-                (context) -> box.getValue().generatePieces(context, startPoolOnlyCodeConfig)
-        );
-        box.setValue(finalInstance);
-        return finalInstance;
-    }
+    protected static <CC extends RSShipwreckEndConfig> boolean isShipwreckEndFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+        // Check to see if there some air where the structure wants to spawn.
+        // Doesn't account for rotation of structure.
+        ChunkPos chunkPos = context.chunkPos();
+        BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel() + 1, chunkPos.getMinBlockZ());
+        CC config = context.config();
 
-    protected boolean isFeatureChunk(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, StartPoolOnlyCodeConfig config) {
-        return getGenerationHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), 20);
+        int checkRadius = 16;
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+
+        for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8) {
+            for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8) {
+                NoiseColumn blockView = context.chunkGenerator().getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), context.heightAccessor());
+                for(int yOffset = 0; yOffset <= 30; yOffset += 5) {
+                    mutable.set(blockPos).move(xOffset, yOffset, zOffset);
+                    if (!blockView.getBlock(mutable.getY()).isAir()) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        //cannot be near other specified structure
+        for (ResourceKey<StructureSet> structureSetToAvoid : config.structureSetToAvoid) {
+            if (context.chunkGenerator().hasFeatureChunkInRange(structureSetToAvoid, context.seed(), chunkPos.x, chunkPos.z, config.structureAvoidRadius)) {
+                return false;
+            }
+        }
+
+        return getGenerationHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), config.minYAllowed);
     }
 
     private static int getGenerationHeight(ChunkPos chunkPos1, ChunkGenerator chunkGenerator, LevelHeightAccessor heightLimitView) {
@@ -56,27 +68,22 @@ public class ShipwreckEndStructure extends AbstractBaseStructure<NoneFeatureConf
         return Math.min(Math.min(heightmap1, heightmap2), Math.min(heightmap3, heightmap4));
     }
 
-    public Optional<PieceGenerator<NoneFeatureConfiguration>> generatePieces(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, StartPoolOnlyCodeConfig config) {
-        BlockPos blockpos = new BlockPos(context.chunkPos().getMinBlockX(), 64, context.chunkPos().getMinBlockZ());
+    public static <CC extends RSShipwreckEndConfig> Optional<PieceGenerator<CC>> generateShipwreckEndPieces(PieceGeneratorSupplier.Context<CC> context) {
+        CC config = context.config();
+        BlockPos blockpos = new BlockPos(
+                context.chunkPos().getMinBlockX(),
+                getGenerationHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()),
+                context.chunkPos().getMinBlockZ());
 
-        ResourceLocation structureID = ForgeRegistries.STRUCTURE_FEATURES.getKey(this);
         return PieceLimitedJigsawManager.assembleJigsawStructure(
                 context,
-                new JigsawConfiguration(() -> context.registryAccess().registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY).get(config.startPool), 5),
-                structureID,
+                new JigsawConfiguration(config.startPool, config.size),
+                GeneralUtils.getCsfNameForConfig(config, context.registryAccess()),
                 blockpos,
                 false,
                 false,
                 Integer.MAX_VALUE,
                 Integer.MIN_VALUE,
-                (structurePiecesBuilder, pieces) -> {
-                    GeneralUtils.centerAllPieces(blockpos, pieces);
-                    WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-                    random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
-                    BlockPos blockPos = new BlockPos(pieces.get(0).getBoundingBox().getCenter());
-                    int highestLandPos = context.chunkGenerator().getBaseHeight(blockPos.getX(), blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-                    highestLandPos = Math.max(30, highestLandPos);
-                    structurePiecesBuilder.moveInsideHeights(random, highestLandPos - 5, highestLandPos - 3);
-                });
+                (structurePiecesBuilder, pieces) -> GeneralUtils.centerAllPieces(blockpos, pieces));
     }
 }

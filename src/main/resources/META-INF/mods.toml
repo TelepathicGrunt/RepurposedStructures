@@ -19,19 +19,14 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[dependencies.repurposed_structures]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.1,1.19)"
+    versionRange="[1.18.2,1.19)"
 
 [[dependencies.repurposed_structures]]
     modId="forge"
     mandatory=true
-    versionRange="[39.0.0,)"
+    versionRange="[40.0.0,)"
 
 [[dependencies.repurposed_structures]]
     modId="feature_nbt_deadlock_be_gone"
-    mandatory=true
-    versionRange="*"
-
-[[dependencies.repurposed_structures]]
-    modId="no_null_processors"
     mandatory=true
     versionRange="*"

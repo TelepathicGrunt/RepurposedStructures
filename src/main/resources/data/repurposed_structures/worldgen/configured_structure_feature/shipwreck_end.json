@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:shipwreck_end_structure",
+  "config": {
+    "start_pool": "repurposed_structures:shipwrecks/end",
+    "size": 1,
+    "min_y_allowed": 20
+  },
+  "biomes": "#repurposed_structures:has_structure/shipwrecks/end",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}

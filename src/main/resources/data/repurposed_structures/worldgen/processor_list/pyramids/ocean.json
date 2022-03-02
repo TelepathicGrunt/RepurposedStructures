@@ -1,10 +1,18 @@
 {
   "processors": [
     {
-      "processor_type": "repurposed_structures:data_block_processor"
-    },
-    {
-      "processor_type": "repurposed_structures:air_processor"
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:prismarine"
+          }
+        }
+      ]
     },
     {
       "processor_type": "repurposed_structures:tick_blocks_processor",

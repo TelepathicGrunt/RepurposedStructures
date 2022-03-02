@@ -8,7 +8,7 @@
         "location": "repurposed_structures:cities/overworld/large_room_ns",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -17,7 +17,7 @@
         "location": "repurposed_structures:cities/overworld/medium_room_ns",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -26,7 +26,7 @@
         "location": "repurposed_structures:cities/overworld/tiny_room_ns",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -35,7 +35,7 @@
         "location": "repurposed_structures:cities/overworld/bridge_end",
         "processors": "repurposed_structures:cities/overworld_randomize",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]

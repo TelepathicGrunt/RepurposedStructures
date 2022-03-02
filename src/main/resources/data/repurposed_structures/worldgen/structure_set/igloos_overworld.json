@@ -1,0 +1,22 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:igloo_grassy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:igloo_stone",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:igloo_mushroom",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 626760262,
+    "spacing": 36,
+    "separation": 18,
+    "type": "minecraft:random_spread"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:mineshaft_crimson",
+      "weight": 100
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_nether",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_warped",
+      "weight": 100
+    }
+  ],
+  "placement": {
+    "salt": 129435040,
+    "spacing": 1,
+    "separation": 0,
+    "type": "minecraft:random_spread"
+  }
+}
