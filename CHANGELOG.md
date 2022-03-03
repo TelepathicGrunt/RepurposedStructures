@@ -1,3 +1,9 @@
+### **(V.4.0.1 Changes) (1.18.2 Minecraft)**
+
+#### Mineshafts:
+Fixed Jungle Mineshafts having too much Cobwebs.
+
+
 ### **(V.4.0.0 Changes) (1.18.2 Minecraft)**
 
 #### BETA: 
