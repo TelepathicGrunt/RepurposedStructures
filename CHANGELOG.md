@@ -1,5 +1,8 @@
 ### **(V.5.0.1 Changes) (1.18.2 Minecraft)**
 
+#### Major:
+Fixed world unable to be entered with this mod on.
+
 #### Strongholds:
 Fixed Nether and End Stronghold unable to be found with Eyes of Ender.
 
