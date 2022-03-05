@@ -1,9 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
 import com.google.gson.annotations.Expose;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class VillagerMapObj {
     @Expose
@@ -27,7 +24,10 @@ public class VillagerMapObj {
     @Expose
     public final int xpReward;
 
-    public VillagerMapObj(String structure, String mapIcon, String mapName, int tradeLevel, int emeraldsRequired, int tradesAllowed, int xpReward) {
+    @Expose
+    public final int spawnRegionSearchRadius;
+
+    public VillagerMapObj(String structure, String mapIcon, String mapName, int tradeLevel, int emeraldsRequired, int tradesAllowed, int xpReward, int spawnRegionSearchRadius) {
         this.structure = structure;
         this.mapIcon = mapIcon;
         this.mapName = mapName;
@@ -35,5 +35,6 @@ public class VillagerMapObj {
         this.emeraldsRequired = emeraldsRequired;
         this.tradesAllowed = tradesAllowed;
         this.xpReward = xpReward;
+        this.spawnRegionSearchRadius = spawnRegionSearchRadius;
     }
 }

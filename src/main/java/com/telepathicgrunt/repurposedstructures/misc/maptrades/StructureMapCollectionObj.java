@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class StructureMapCollectionObj {
     @Expose
-    public Map<ResourceLocation, List<VillagerMapObj>> villagerMaps;
+    public Map<String, List<VillagerMapObj>> villagerMaps;
 
     @Expose
     public Map<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> wanderingTraderMap;
 
-    public StructureMapCollectionObj(Map<ResourceLocation, List<VillagerMapObj>> villagerMapObjs, Map<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> wanderingTraderMapObjs) {
+    public StructureMapCollectionObj(Map<String, List<VillagerMapObj>> villagerMapObjs, Map<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> wanderingTraderMapObjs) {
         this.villagerMaps = villagerMapObjs;
         this.wanderingTraderMap = wanderingTraderMapObjs;
     }

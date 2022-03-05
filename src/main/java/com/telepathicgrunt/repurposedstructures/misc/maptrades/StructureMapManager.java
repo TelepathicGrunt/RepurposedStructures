@@ -18,7 +18,7 @@ import java.util.Map;
 public class StructureMapManager extends SimpleJsonResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
 
-    public Map<ResourceLocation, List<VillagerMapObj>> VILLAGER_MAP_TRADES = new HashMap<>();
+    public Map<String, List<VillagerMapObj>> VILLAGER_MAP_TRADES = new HashMap<>();
     public Map<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> WANDERING_TRADER_MAP_TRADES = new HashMap<>();
 
     public StructureMapManager() {
@@ -27,7 +27,7 @@ public class StructureMapManager extends SimpleJsonResourceReloadListener {
 
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
-        ImmutableMap.Builder<ResourceLocation, List<VillagerMapObj>> builderVillager = ImmutableMap.builder();
+        ImmutableMap.Builder<String, List<VillagerMapObj>> builderVillager = ImmutableMap.builder();
         ImmutableMap.Builder<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> builderWandering = ImmutableMap.builder();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {

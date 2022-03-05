@@ -16,11 +16,11 @@ public final class StructureMapTradesEvents {
 
     public static void onVillagerTradesEvent(VillagerTradesEvent event) {
         ResourceLocation currentVillager = ForgeRegistries.PROFESSIONS.getKey(event.getType());
-        if (RepurposedStructures.structureMapManager.VILLAGER_MAP_TRADES.containsKey(currentVillager)) {
-            for (VillagerMapObj mapTrade : RepurposedStructures.structureMapManager.VILLAGER_MAP_TRADES.get(currentVillager)) {
+        if (currentVillager != null && RepurposedStructures.structureMapManager.VILLAGER_MAP_TRADES.containsKey(currentVillager.toString())) {
+            for (VillagerMapObj mapTrade : RepurposedStructures.structureMapManager.VILLAGER_MAP_TRADES.get(currentVillager.toString())) {
                 MapDecoration.Type icon;
                 try {
-                    icon = MapDecoration.Type.valueOf(mapTrade.mapIcon.toLowerCase(Locale.ROOT));
+                    icon = MapDecoration.Type.valueOf(mapTrade.mapIcon.toUpperCase(Locale.ROOT));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(e);
@@ -33,7 +33,8 @@ public final class StructureMapTradesEvents {
                         mapTrade.mapName,
                         icon,
                         mapTrade.tradesAllowed,
-                        mapTrade.xpReward));
+                        mapTrade.xpReward,
+                        mapTrade.spawnRegionSearchRadius));
             }
         }
     }
@@ -57,7 +58,8 @@ public final class StructureMapTradesEvents {
                             mapTrade.mapName,
                             icon,
                             mapTrade.tradesAllowed,
-                            mapTrade.xpReward));
+                            mapTrade.xpReward,
+                            mapTrade.spawnRegionSearchRadius));
                 }
                 else if (tradeEntry.getKey() == WanderingTraderMapObj.TRADE_TYPE.COMMON) {
                     event.getGenericTrades().add(new StructureSpecificMaps.TreasureMapForEmeralds(
@@ -66,7 +68,8 @@ public final class StructureMapTradesEvents {
                             mapTrade.mapName,
                             icon,
                             mapTrade.tradesAllowed,
-                            mapTrade.xpReward));
+                            mapTrade.xpReward,
+                            mapTrade.spawnRegionSearchRadius));
                 }
             }
         }

@@ -32,8 +32,9 @@ public class StructureSpecificMaps {
         private final MapDecoration.Type destinationType;
         private final int maxUses;
         private final int villagerXp;
+        private final int spawnRegionSearchRadius;
 
-        public TreasureMapForEmeralds(int emeraldCost, String csf, String displayName, MapDecoration.Type mapIcon, int maxUse, int xp) {
+        public TreasureMapForEmeralds(int emeraldCost, String csf, String displayName, MapDecoration.Type mapIcon, int maxUse, int xp, int spawnRegionSearchRadius) {
             this.emeraldCost = emeraldCost;
 
             if(csf.startsWith("#")) {
@@ -49,6 +50,7 @@ public class StructureSpecificMaps {
             this.destinationType = mapIcon;
             this.maxUses = maxUse;
             this.villagerXp = xp;
+            this.spawnRegionSearchRadius = spawnRegionSearchRadius;
         }
 
         @Nullable
@@ -58,13 +60,13 @@ public class StructureSpecificMaps {
                 return null;
             }
             else if (this.destinationTag != null) {
-                blockpos = serverlevel.findNearestMapFeature(this.destinationTag, entity.blockPosition(), 100, true);
+                blockpos = serverlevel.findNearestMapFeature(this.destinationTag, entity.blockPosition(), spawnRegionSearchRadius, true);
 
             }
             else {
                 Registry<ConfiguredStructureFeature<?, ?>> registry = serverlevel.registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
                 HolderSet<ConfiguredStructureFeature<?, ?>> holderset = HolderSet.direct(registry.getHolderOrThrow(destination));
-                Pair<BlockPos, Holder<ConfiguredStructureFeature<?, ?>>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapFeature(serverlevel, holderset, entity.blockPosition(), 100, true);
+                Pair<BlockPos, Holder<ConfiguredStructureFeature<?, ?>>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapFeature(serverlevel, holderset, entity.blockPosition(), spawnRegionSearchRadius, true);
                 if (pairResult != null) {
                     blockpos = pairResult.getFirst();
                 }

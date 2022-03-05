@@ -33,7 +33,10 @@ public class WanderingTraderMapObj {
     @Expose
     public final int xpReward;
 
-    public WanderingTraderMapObj(TRADE_TYPE tradeType, String structure, String mapIcon, String mapName, int emeraldsRequired, int tradesAllowed, int xpReward) {
+    @Expose
+    public final int spawnRegionSearchRadius;
+
+    public WanderingTraderMapObj(TRADE_TYPE tradeType, String structure, String mapIcon, String mapName, int emeraldsRequired, int tradesAllowed, int xpReward, int spawnRegionSearchRadius) {
         this.tradeType = tradeType;
         this.structure = structure;
         this.mapIcon = mapIcon;
@@ -41,5 +44,6 @@ public class WanderingTraderMapObj {
         this.emeraldsRequired = emeraldsRequired;
         this.tradesAllowed = tradesAllowed;
         this.xpReward = xpReward;
+        this.spawnRegionSearchRadius = spawnRegionSearchRadius;
     }
 }

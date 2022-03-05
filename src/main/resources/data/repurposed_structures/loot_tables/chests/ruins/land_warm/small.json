@@ -178,6 +178,12 @@
               "decoration": "banner_gray",
               "zoom": 2,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Underground Bastion Map"
+              }
             }
           ]
         }
