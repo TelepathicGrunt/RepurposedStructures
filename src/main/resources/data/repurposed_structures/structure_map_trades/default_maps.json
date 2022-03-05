@@ -1,0 +1,59 @@
+{
+  "villagerMaps" : {
+    "minecraft:cartographer": [
+      {
+        "tradeLevel": 4,
+        "structure" : "repurposed_structures:fortress_jungle",
+        "mapName": "Jungle Fortress Map",
+        "mapIcon": "BANNER_GREEN",
+        "emeraldsRequired": 14,
+        "tradesAllowed": 12,
+        "xpReward": 10
+      },
+      {
+        "tradeLevel": 4,
+        "structure": "#repurposed_structures:collections/mansions",
+        "mapName": "RS Mansion Map",
+        "mapIcon": "MANSION",
+        "emeraldsRequired": 14,
+        "tradesAllowed": 12,
+        "xpReward": 10
+      },
+      {
+        "tradeLevel": 4,
+        "structure": "#repurposed_structures:spawn_black_cats",
+        "mapName": "RS Witch Hut Map",
+        "mapIcon": "BANNER_BLACK",
+        "emeraldsRequired": 14,
+        "tradesAllowed": 12,
+        "xpReward": 10
+      }
+    ]
+  },
+  "wanderingTraderMap" : {
+    "rare": [
+      {
+        "structure": "repurposed_structures:bastion_underground",
+        "mapIcon": "BANNER_GRAY",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 100
+      },
+      {
+        "structure": "repurposed_structures:village_mushroom",
+        "mapIcon": "MANSION",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 100
+      },
+      {
+        "structure": "repurposed_structures:city_overworld",
+        "mapIcon": "MANSION",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 200
+      }
+    ],
+    "common": []
+  }
+}

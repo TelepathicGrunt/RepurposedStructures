@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.structurepiececounter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

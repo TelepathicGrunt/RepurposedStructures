@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.mobspawner;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;

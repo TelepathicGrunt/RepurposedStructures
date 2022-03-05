@@ -8,13 +8,14 @@ import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSWellsConfig;
 import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.OmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
-import com.telepathicgrunt.repurposedstructures.misc.EndRemasteredDedicatedLoot;
-import com.telepathicgrunt.repurposedstructures.misc.JSONConditionsRegistry;
-import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
-import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
-import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
-import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
+import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
+import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.JSONConditionsRegistry;
+import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
+import com.telepathicgrunt.repurposedstructures.misc.mobspawner.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
+import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSGlobalLootModifier;
@@ -48,6 +49,7 @@ public class RepurposedStructures {
 
     public static final RSBiomeDimConfig omegaBiomeDimConfig = OmegaConfig.register(RSBiomeDimConfig.class);
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
+    public static StructureMapManager structureMapManager = new StructureMapManager();
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
@@ -68,8 +70,8 @@ public class RepurposedStructures {
         forgeBus.addListener(this::biomeModification);
         forgeBus.addListener(this::serverStarted);
         forgeBus.addListener(this::registerDatapackListener);
-        forgeBus.addListener(MobMapTrades::onVillagerTradesEvent);
-        forgeBus.addListener(MobMapTrades::onWandererTradesEvent);
+        forgeBus.addListener(StructureMapTradesEvents::onVillagerTradesEvent);
+        forgeBus.addListener(StructureMapTradesEvents::onWandererTradesEvent);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
         // GeneralUtils.registerStructureDebugging(RSStructures.STONEBRICK_STRONGHOLD);
 
@@ -99,6 +101,7 @@ public class RepurposedStructures {
     public void registerDatapackListener(final AddReloadListenerEvent event) {
         //loads the RS specific json files for mob spawner chances
         event.addListener(RepurposedStructures.mobSpawnerManager);
+        event.addListener(RepurposedStructures.structureMapManager);
         event.addListener(RepurposedStructures.structurePieceCountsManager);
     }
 

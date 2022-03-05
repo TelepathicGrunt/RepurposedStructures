@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.mobspawner;
 
 import com.google.gson.annotations.Expose;
 import net.minecraft.resources.ResourceLocation;

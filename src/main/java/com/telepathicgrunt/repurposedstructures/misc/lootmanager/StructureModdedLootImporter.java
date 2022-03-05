@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
 import com.google.gson.JsonObject;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;

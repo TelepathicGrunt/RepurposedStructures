@@ -1,8 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.misc.DetectRSLootTables;
-import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.DetectRSLootTables;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
