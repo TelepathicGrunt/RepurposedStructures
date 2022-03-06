@@ -1,3 +1,9 @@
+### **(V.5.0.2 Changes) (1.18.2 Minecraft)**
+
+#### Villages:
+Optimized finding Mushroom Villages a bit.
+
+
 ### **(V.5.0.1 Changes) (1.18.2 Minecraft)**
 
 #### Major:
@@ -8,7 +14,6 @@ Fixed Nether and End Stronghold unable to be found with Eyes of Ender.
 
 #### Pyramids:
 Fixed Ocean Pyramid unable to be found by dolphins.
-
 
 ### **(V.5.0.0 Changes) (1.18.2 Minecraft)**
 
