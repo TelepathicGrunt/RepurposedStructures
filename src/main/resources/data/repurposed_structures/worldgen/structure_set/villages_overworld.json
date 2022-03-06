@@ -13,11 +13,11 @@
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:village_jungle",
+      "structure": "repurposed_structures:village_giant_taiga",
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:village_swamp",
+      "structure": "repurposed_structures:village_jungle",
       "weight": 1
     },
     {
@@ -25,15 +25,11 @@
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:village_giant_taiga",
-      "weight": 1
-    },
-    {
       "structure": "repurposed_structures:village_oak",
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:village_mushroom",
+      "structure": "repurposed_structures:village_swamp",
       "weight": 1
     }
   ],
