@@ -36,10 +36,10 @@
                 "feature": "repurposed_structures:village_crimson"
             }
         },
-        "in_village_dark_oak": {
+        "in_village_dark_forest": {
             "trigger": "minecraft:location",
             "conditions": {
-                "feature": "repurposed_structures:village_dark_oak"
+                "feature": "repurposed_structures:village_dark_forest"
             }
         },
         "in_village_giant_taiga": {
@@ -96,7 +96,7 @@
             "in_village_crimson"
         ],
         [
-            "in_village_dark_oak"
+            "in_village_dark_forest"
         ],
         [
             "in_village_giant_taiga"

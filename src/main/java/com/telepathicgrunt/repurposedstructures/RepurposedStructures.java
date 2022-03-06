@@ -12,8 +12,8 @@ import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDe
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.JSONConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
-import com.telepathicgrunt.repurposedstructures.misc.mobspawner.MobSpawnerManager;
-import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.pooladditions.PoolAdditionMerger;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
