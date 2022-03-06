@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:village_mushroom",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 408231499,
+    "spacing": 35,
+    "separation": 15,
+    "type": "minecraft:random_spread"
+  }
+}
