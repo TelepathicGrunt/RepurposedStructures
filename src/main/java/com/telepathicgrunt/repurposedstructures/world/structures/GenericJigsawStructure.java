@@ -36,17 +36,6 @@ public class GenericJigsawStructure <C extends RSGenericConfig> extends Abstract
         ChunkPos chunkPos = context.chunkPos();
         CC config = context.config();
 
-        if (config.cannotSpawnInLiquid) {
-            BlockPos centerOfChunk = chunkPos.getMiddleBlockPosition(0);
-            int landHeight = context.chunkGenerator().getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-            NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), context.heightAccessor());
-            BlockState topBlock = columnOfBlocks.getBlock(centerOfChunk.getY() + landHeight);
-
-            if(!topBlock.getFluidState().isEmpty()) {
-                return false;
-            }
-        }
-
         if (!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
             for (int curChunkX = chunkPos.x - config.biomeRadius; curChunkX <= chunkPos.x + config.biomeRadius; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - config.biomeRadius; curChunkZ <= chunkPos.z + config.biomeRadius; curChunkZ++) {
@@ -56,6 +45,17 @@ public class GenericJigsawStructure <C extends RSGenericConfig> extends Abstract
                         return false;
                     }
                 }
+            }
+        }
+
+        if (config.cannotSpawnInLiquid) {
+            BlockPos centerOfChunk = chunkPos.getMiddleBlockPosition(0);
+            int landHeight = context.chunkGenerator().getFirstOccupiedHeight(centerOfChunk.getX(), centerOfChunk.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+            NoiseColumn columnOfBlocks = context.chunkGenerator().getBaseColumn(centerOfChunk.getX(), centerOfChunk.getZ(), context.heightAccessor());
+            BlockState topBlock = columnOfBlocks.getBlock(centerOfChunk.getY() + landHeight);
+
+            if(!topBlock.getFluidState().isEmpty()) {
+                return false;
             }
         }
 
