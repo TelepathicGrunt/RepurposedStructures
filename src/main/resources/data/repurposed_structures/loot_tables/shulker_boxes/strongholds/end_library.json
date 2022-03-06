@@ -124,6 +124,12 @@
               "decoration": "banner_gray",
               "zoom": 1,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "End Pyramid Map"
+              }
             }
           ]
         },
@@ -138,6 +144,12 @@
               "decoration": "banner_magenta",
               "zoom": 1,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "End City Map"
+              }
             }
           ]
         }

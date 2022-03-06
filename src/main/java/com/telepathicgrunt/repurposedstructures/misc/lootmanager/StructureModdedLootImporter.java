@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.BuilderAccessor;

@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.resources;
 
-import com.telepathicgrunt.repurposedstructures.misc.StructureModdedLootImporter;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;

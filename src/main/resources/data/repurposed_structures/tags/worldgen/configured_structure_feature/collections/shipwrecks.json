@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "repurposed_structures:shipwreck_crimson",
+    "repurposed_structures:shipwreck_end",
+    "repurposed_structures:shipwreck_nether_bricks",
+    "repurposed_structures:shipwreck_warped"
+  ]
+}

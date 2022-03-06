@@ -90,6 +90,12 @@
               "decoration": "banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Nether Ruins Map"
+              }
             }
           ]
         }
@@ -113,6 +119,12 @@
               "decoration": "banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Bastion Remnant Map"
+              }
             }
           ]
         }
@@ -136,6 +148,12 @@
               "decoration": "banner_gray",
               "zoom": 2,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Nether City Map"
+              }
             }
           ]
         }

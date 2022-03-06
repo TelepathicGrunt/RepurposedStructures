@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.structurepiececounter;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;

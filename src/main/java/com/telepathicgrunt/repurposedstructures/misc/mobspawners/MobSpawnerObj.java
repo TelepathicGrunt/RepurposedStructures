@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc;
+package com.telepathicgrunt.repurposedstructures.misc.mobspawners;
 
 import com.google.gson.annotations.Expose;
 import net.minecraft.core.Registry;

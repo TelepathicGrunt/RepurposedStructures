@@ -14,6 +14,12 @@
               "decoration": "banner_magenta",
               "zoom": 1,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "End City Map"
+              }
             }
           ]
         }
@@ -153,6 +159,12 @@
               "decoration": "banner_black",
               "zoom": 1,
               "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "End Stronghold Map"
+              }
             }
           ]
         }

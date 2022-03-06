@@ -1,0 +1,58 @@
+{
+  "villagerMaps" : {
+    "minecraft:cartographer": [
+      {
+        "tradeLevel": 2,
+        "structure" : "repurposed_structures:fortress_jungle",
+        "mapName": "Jungle Fortress Map",
+        "mapIcon": "BANNER_GREEN",
+        "emeraldsRequired": 14,
+        "tradesAllowed": 12,
+        "xpReward": 10,
+        "spawnRegionSearchRadius": 50
+      },
+      {
+        "tradeLevel": 3,
+        "structure": "#repurposed_structures:collections/mansions",
+        "mapName": "RS Mansion Map",
+        "mapIcon": "MANSION",
+        "emeraldsRequired": 14,
+        "tradesAllowed": 12,
+        "xpReward": 10,
+        "spawnRegionSearchRadius": 50
+      }
+    ]
+  },
+  "wanderingTraderMap" : {
+    "rare": [
+      {
+        "structure": "repurposed_structures:bastion_underground",
+        "mapName": "Underground Bastion Map",
+        "mapIcon": "BANNER_GRAY",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 100,
+        "spawnRegionSearchRadius": 50
+      },
+      {
+        "structure": "repurposed_structures:village_mushroom",
+        "mapName": "Mushroom Village Map",
+        "mapIcon": "MANSION",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 100,
+        "spawnRegionSearchRadius": 50
+      },
+      {
+        "structure": "repurposed_structures:city_overworld",
+        "mapName": "Overworld City Map",
+        "mapIcon": "MANSION",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 200,
+        "spawnRegionSearchRadius": 50
+      }
+    ],
+    "common": []
+  }
+}

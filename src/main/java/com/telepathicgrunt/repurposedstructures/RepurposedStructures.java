@@ -5,10 +5,11 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
-import com.telepathicgrunt.repurposedstructures.misc.MobMapTrades;
-import com.telepathicgrunt.repurposedstructures.misc.MobSpawnerManager;
-import com.telepathicgrunt.repurposedstructures.misc.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.misc.StructurePieceCountsManager;
+import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
+import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
+import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
+import com.telepathicgrunt.repurposedstructures.misc.pooladditions.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConfiguredFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
@@ -33,6 +34,7 @@ public class RepurposedStructures implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "repurposed_structures";
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
+    public static StructureMapManager structureMapManager = new StructureMapManager();
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
 	public static RSAllConfig RSAllConfig = null;
@@ -57,8 +59,9 @@ public class RepurposedStructures implements ModInitializer {
         BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
         setupBiomeModifications();
         PoolAdditionMerger.mergeAdditionPools();
-        MobMapTrades.addMapTrades();
+        StructureMapTradesEvents.setupTradeEvent();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structureMapManager);
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structurePieceCountsManager);
 
         // Controls the dimension blacklisting
