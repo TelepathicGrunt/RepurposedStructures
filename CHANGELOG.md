@@ -3,6 +3,9 @@
 #### Mineshafts:
 Fixed Jungle Mineshafts having too much Cobwebs.
 
+#### Villages:
+Optimized finding Mushroom Villages a bit.
+
 
 ### **(V.4.0.0 Changes) (1.18.2 Minecraft)**
 
