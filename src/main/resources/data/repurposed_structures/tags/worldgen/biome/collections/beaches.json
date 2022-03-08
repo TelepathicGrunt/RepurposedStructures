@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:is_beach"
+    "#minecraft:is_beach",
+    {
+      "id": "forge:beach",
+      "required": false
+    },
+    {
+      "id": "c:beach",
+      "required": false
+    }
   ]
 }

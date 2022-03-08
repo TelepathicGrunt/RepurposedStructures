@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:is_hill"
+    "#minecraft:is_hill",
+    {
+      "id": "forge:hills",
+      "required": false
+    },
+    {
+      "id": "c:hills",
+      "required": false
+    }
   ]
 }

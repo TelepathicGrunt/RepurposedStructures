@@ -3,6 +3,9 @@
 #### Villages:
 Optimized finding Mushroom Villages a bit.
 
+#### Tags:
+Fixed tags so now Eyes of Ender locates Nether/End Stronghold and Dolphins can find Ocean Pyramids.
+
 
 ### **(V.5.0.1 Changes) (1.18.2 Minecraft)**
 

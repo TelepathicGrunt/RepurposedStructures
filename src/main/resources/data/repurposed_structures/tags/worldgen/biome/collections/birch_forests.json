@@ -6,6 +6,14 @@
     {
       "id": "terralith:temperate_highlands",
       "required": false
+    },
+    {
+      "id": "byg:aspen_forest",
+      "required": false
+    },
+    {
+      "id": "byg:temperate_grove",
+      "required": false
     }
   ]
 }

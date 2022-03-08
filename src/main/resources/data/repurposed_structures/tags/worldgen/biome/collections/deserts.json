@@ -1,6 +1,22 @@
 {
   "replace": false,
   "values": [
-    "minecraft:desert"
+    "minecraft:desert",
+    {
+      "id": "byg:mojave_desert",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:lush_desert",
+      "required": false
+    },
+    {
+      "id": "forge:sandy",
+      "required": false
+    },
+    {
+      "id": "c:sandy",
+      "required": false
+    }
   ]
 }

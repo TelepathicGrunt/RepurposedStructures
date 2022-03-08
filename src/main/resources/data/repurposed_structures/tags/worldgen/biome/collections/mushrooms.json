@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
-    "minecraft:mushroom_fields"
+    "minecraft:mushroom_fields",
+    {
+      "id": "biomesoplenty:fungal_jungle",
+      "required": false
+    },
+    {
+      "id": "forge:mushroom",
+      "required": false
+    },
+    {
+      "id": "c:mushroom",
+      "required": false
+    }
   ]
 }

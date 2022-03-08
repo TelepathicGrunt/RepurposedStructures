@@ -22,6 +22,10 @@
       "required": false
     },
     {
+      "id": "byg:cika_woods",
+      "required": false
+    },
+    {
       "id": "byg:coniferous_forest",
       "required": false
     },
@@ -39,6 +43,10 @@
     },
     {
       "id": "byg:tropical_rainforest_hills",
+      "required": false
+    },
+    {
+      "id": "byg:redwood_thicket",
       "required": false
     },
     {
