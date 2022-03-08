@@ -2,6 +2,14 @@
   "replace": false,
   "values": [
     "minecraft:end_highlands",
-    "minecraft:end_midlands"
+    "minecraft:end_midlands",
+    {
+      "id": "forge:end",
+      "required": false
+    },
+    {
+      "id": "c:end",
+      "required": false
+    }
   ]
 }

@@ -8,7 +8,11 @@
       "required": false
     },
     {
-      "id": "terralith:white_cliffs",
+      "id": "byg:aspen_forest",
+      "required": false
+    },
+    {
+      "id": "byg:temperate_grove",
       "required": false
     }
   ]

@@ -5,6 +5,10 @@
     {
       "id": "terralith:gravel_desert",
       "required": false
+    },
+    {
+      "id": "biomesoplenty:cold_desert",
+      "required": false
     }
   ]
 }

@@ -17,6 +17,18 @@
     {
       "id": "terralith:snowy_shield",
       "required": false
+    },
+    {
+      "id": "biomesoplenty:snowy_fir_clearing",
+      "required": false
+    },
+    {
+      "id": "forge:snowy",
+      "required": false
+    },
+    {
+      "id": "c:snowy",
+      "required": false
     }
   ]
 }

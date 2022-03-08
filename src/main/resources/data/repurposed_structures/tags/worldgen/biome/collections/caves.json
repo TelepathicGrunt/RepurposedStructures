@@ -18,6 +18,14 @@
     {
       "id": "terralith:cave/desert_caves",
       "required": false
+    },
+    {
+      "id": "forge:underground",
+      "required": false
+    },
+    {
+      "id": "c:underground",
+      "required": false
     }
   ]
 }

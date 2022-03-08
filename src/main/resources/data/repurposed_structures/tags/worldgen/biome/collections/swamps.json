@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "minecraft:swamp"
+    "minecraft:swamp",
+    {
+      "id": "forge:swamp",
+      "required": false
+    },
+    {
+      "id": "c:swamp",
+      "required": false
+    }
   ]
 }

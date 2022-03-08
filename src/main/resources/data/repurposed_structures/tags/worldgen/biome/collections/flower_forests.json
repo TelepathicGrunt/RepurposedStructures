@@ -9,6 +9,42 @@
     {
       "id": "terralith:blooming_valley",
       "required": false
+    },
+    {
+      "id": "byg:cherry_blossom_forest",
+      "required": false
+    },
+    {
+      "id": "byg:allium_fields",
+      "required": false
+    },
+    {
+      "id": "byg:amaranth_fields",
+      "required": false
+    },
+    {
+      "id": "byg:rose_fields",
+      "required": false
+    },
+    {
+      "id": "byg:cherry_blossom_forest",
+      "required": false
+    },
+    {
+      "id": "byg:orchard",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:cherry_blossom_grove",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:lavender_field",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:lavender_forest",
+      "required": false
     }
   ]
 }

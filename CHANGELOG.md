@@ -6,6 +6,9 @@ Fixed Jungle Mineshafts having too much Cobwebs.
 #### Villages:
 Optimized finding Mushroom Villages a bit.
 
+#### Tags:
+Fixed tags so now Eyes of Ender locates Nether/End Stronghold and Dolphins can find Ocean Pyramids.
+
 
 ### **(V.4.0.0 Changes) (1.18.2 Minecraft)**
 

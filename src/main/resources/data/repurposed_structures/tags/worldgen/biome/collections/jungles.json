@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:is_jungle"
+    "#minecraft:is_jungle",
+    {
+      "id": "forge:jungle",
+      "required": false
+    },
+    {
+      "id": "c:jungle",
+      "required": false
+    }
   ]
 }

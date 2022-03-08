@@ -6,6 +6,14 @@
     {
       "id": "terralith:brushland",
       "required": false
+    },
+    {
+      "id": "forge:plains",
+      "required": false
+    },
+    {
+      "id": "c:plains",
+      "required": false
     }
   ]
 }

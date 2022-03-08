@@ -22,6 +22,10 @@
       "required": false
     },
     {
+      "id": "byg:cika_woods",
+      "required": false
+    },
+    {
       "id": "byg:coniferous_forest",
       "required": false
     },
@@ -42,11 +46,23 @@
       "required": false
     },
     {
+      "id": "byg:redwood_thicket",
+      "required": false
+    },
+    {
       "id": "byg:ebony_woods",
       "required": false
     },
     {
       "id": "byg:ebony_hills",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:redwood_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:coniferous_forest",
       "required": false
     }
   ]

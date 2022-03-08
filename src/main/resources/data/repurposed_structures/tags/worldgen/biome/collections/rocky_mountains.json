@@ -48,6 +48,10 @@
     {
       "id": "terralith:valley_clearing",
       "required": false
+    },
+    {
+      "id": "biomesoplenty:crag",
+      "required": false
     }
   ]
 }

@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "minecraft:ice_spikes",
-    "minecraft:frozen_peaks"
+    "minecraft:frozen_peaks",
+    {
+      "id": "byg:shattered_glacier",
+      "required": false
+    }
   ]
 }

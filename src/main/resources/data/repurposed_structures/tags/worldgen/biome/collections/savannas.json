@@ -19,6 +19,14 @@
     {
       "id": "terralith:sakura_valley",
       "required": false
+    },
+    {
+      "id": "forge:savanna",
+      "required": false
+    },
+    {
+      "id": "c:savanna",
+      "required": false
     }
   ]
 }
