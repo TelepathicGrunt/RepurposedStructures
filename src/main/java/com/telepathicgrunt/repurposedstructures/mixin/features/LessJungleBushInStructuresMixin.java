@@ -38,7 +38,7 @@ public class LessJungleBushInStructuresMixin {
                 Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
                 StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
 
-                for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getTag(RSTags.LESS_JUNGLE_BUSHES).get()) {
+                for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.LESS_JUNGLE_BUSHES)) {
                     StructureStart startForFeature = structureFeatureManager.getStartForFeature(sectionPos, configuredStructureFeature.value(), chunkAccess);
                     if (startForFeature != null && startForFeature.isValid()) {
                         cir.setReturnValue(false);
