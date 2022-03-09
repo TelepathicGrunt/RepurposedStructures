@@ -34,7 +34,7 @@ public class NoLavaFallsInStructuresMixin {
                 Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
                 StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
 
-                for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getTag(RSTags.NO_LAVAFALLS).get()) {
+                for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAVAFALLS)) {
                     if (structureFeatureManager.getStructureAt(mutable, configuredStructureFeature.value()).isValid()) {
                         cir.setReturnValue(false);
                         return;

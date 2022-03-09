@@ -33,7 +33,7 @@ public class NoLakesInStructuresMixin {
         Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
         StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
 
-        for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getTag(RSTags.NO_LAKES).get()) {
+        for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAKES)) {
             StructureStart startForFeature = structureFeatureManager.getStartForFeature(sectionPos, configuredStructureFeature.value(), chunkAccess);
             if (startForFeature != null && startForFeature.isValid()) {
                 cir.setReturnValue(false);

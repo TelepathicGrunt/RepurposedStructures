@@ -17,6 +17,14 @@
     {
       "id": "c:sandy",
       "required": false
+    },
+    {
+      "id": "forge:desert",
+      "required": false
+    },
+    {
+      "id": "c:desert",
+      "required": false
     }
   ]
 }
