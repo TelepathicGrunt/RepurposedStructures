@@ -22,10 +22,16 @@ import os
 
 blockPalette = {""}
 
-originalBiome = ""
-newBiome = ""
+originalBiome = "taiga"
+newBiome = "giant_taiga"
 string_blacklist = []
 conversion_partial_dict = {
+    "dark_oak_log": "spruce_wood",
+    "spruce_wood": "cobblestone",
+    "cobblestone": "cobblestone",
+    "potted_cornflower": "potted_fern",
+    "blue": "gray",
+    "cyan": "gray"
 }
 conversion_exact_dict = {
 }
