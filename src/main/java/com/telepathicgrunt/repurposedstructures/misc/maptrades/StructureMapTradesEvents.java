@@ -44,7 +44,7 @@ public final class StructureMapTradesEvents {
             for (WanderingTraderMapObj mapTrade : tradeEntry.getValue()) {
                 MapDecoration.Type icon;
                 try {
-                    icon = MapDecoration.Type.valueOf(mapTrade.mapIcon.toLowerCase(Locale.ROOT));
+                    icon = MapDecoration.Type.valueOf(mapTrade.mapIcon.toUpperCase(Locale.ROOT));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(e);
