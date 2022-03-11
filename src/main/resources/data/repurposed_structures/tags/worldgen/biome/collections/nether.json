@@ -9,6 +9,10 @@
     {
       "id": "c:nether",
       "required": false
+    },
+    {
+      "id": "c:in_nether",
+      "required": false
     }
   ]
 }

@@ -9,6 +9,10 @@
     {
       "id": "c:hills",
       "required": false
+    },
+    {
+      "id": "c:extreme_hills",
+      "required": false
     }
   ]
 }

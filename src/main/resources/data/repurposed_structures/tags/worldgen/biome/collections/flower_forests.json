@@ -45,6 +45,10 @@
     {
       "id": "biomesoplenty:lavender_forest",
       "required": false
+    },
+    {
+      "id": "c:flower_forests",
+      "required": false
     }
   ]
 }

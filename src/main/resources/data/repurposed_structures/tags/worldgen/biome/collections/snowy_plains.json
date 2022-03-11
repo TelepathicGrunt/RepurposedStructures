@@ -29,6 +29,10 @@
     {
       "id": "c:snowy",
       "required": false
+    },
+    {
+      "id": "c:snowy_plains",
+      "required": false
     }
   ]
 }
