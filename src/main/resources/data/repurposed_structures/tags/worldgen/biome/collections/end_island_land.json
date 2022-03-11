@@ -8,7 +8,11 @@
       "required": false
     },
     {
-      "id": "c:end",
+      "id": "c:in_the_end",
+      "required": false
+    },
+    {
+      "id": "c:end_islands",
       "required": false
     }
   ]

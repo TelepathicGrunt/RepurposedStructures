@@ -26,6 +26,10 @@
     {
       "id": "c:underground",
       "required": false
+    },
+    {
+      "id": "c:caves",
+      "required": false
     }
   ]
 }
