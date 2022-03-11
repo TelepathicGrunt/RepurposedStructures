@@ -19,7 +19,7 @@ task publishModrinth (type: TaskModrinthUpload){
     projectId = 'QDNS5oAT'
     versionName = "Repurposed Structures"
     versionNumber = project.version
-    versionType = "BETA"
+    versionType = "RELEASE"
     uploadFile = jar
     changelog = fileContents
     addGameVersion('1.18.2')

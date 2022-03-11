@@ -1,10 +1,15 @@
 ### **(V.5.0.2 Changes) (1.18.2 Minecraft)**
 
+NOTE: Do not update any 1.18.1 or older world to 1.18.2 because all chunks with ANY modded structure from any mod will be nuked and  regenerated.
+ Wait till Forge fixes this MC bug before updating old worlds.
+
 #### Villages:
 Optimized finding Mushroom Villages a bit.
 
 #### Tags:
 Fixed tags so now Eyes of Ender locates Nether/End Stronghold and Dolphins can find Ocean Pyramids.
+
+Updated tags to include modded biomes much better.
 
 
 ### **(V.5.0.1 Changes) (1.18.2 Minecraft)**
