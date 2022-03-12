@@ -1,6 +1,0 @@
-village
-icy
-villages/ice/town_center
-8
-y
-villages_overworld

@@ -42,7 +42,7 @@ while restart:
         "warped": "repurposed_structures:villages/warped/randomizer"
     }
 
-    folderName = f"{datapack_location}\\Repurposed_Structures-{mod_name.replace(' ', '_')}_v1"
+    folderName = f"{datapack_location}\\Repurposed_Structures-{mod_name.replace(' ', '_')}"
     data_location = f"{folderName}\\data"
 
     #-------------------------------------------------------------------------------------------
@@ -52,18 +52,18 @@ while restart:
             os.path.join(folderName, 'pack.mcmeta'),
             [mod_name])
     
-    for variant, processor in structure_variants:
+    for variant in structure_variants:
         createFile(
             os.path.join('template', 'piece_count.json'),
             os.path.join(data_location, 'repurposed_structures', 'rs_pieces_spawn_counts_additions', f'{structure_type}_{variant}.json'),
             [mod_namespace, variant, piece_name])
 
         createFile(
-            os.path.join('template', 'piece_count.json'),
+            os.path.join('template', 'template_pool.json'),
             os.path.join(data_location, 'repurposed_structures', 'pool_additions', 'villages', variant, 'houses.json'),
-            [f'villages/{variant}/houses', mod_namespace, variant, piece_name, processor])
+            [f'villages/{variant}/houses', mod_namespace, variant, piece_name, structure_variants[variant]])
 
-        os.makedirs(os.path.dirname(data_location, mod_namespace, "structures", "villages", variant), exist_ok=True)
+        os.makedirs(os.path.dirname(os.path.join(data_location, mod_namespace, "structures", "villages", variant, "")), exist_ok=True)
 
 
     print('\n\nFINISHED!')
