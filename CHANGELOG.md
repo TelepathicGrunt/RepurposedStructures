@@ -1,3 +1,11 @@
+### **(V.5.0.3 Changes) (1.18.2 Minecraft)**
+
+#### Configs:
+Clarified in the dimension/biome configs that they do not work for RS structures because those are datapack stuff. 
+ These dimension/biome configs only affect Repurposed Structures's Wells and Dungeons.
+ The config names for the dimension/biome config file is also changed to make it painfully clear it's for features.
+
+
 ### **(V.5.0.2 Changes) (1.18.2 Minecraft)**
 
 NOTE: Do not update any 1.18.1 or older world to 1.18.2 because all chunks with ANY modded structure from any mod will be nuked and  regenerated.
