@@ -53,7 +53,7 @@ while restart:
         [structure_type_plural, structure_variant, start_pool, structure_size, 'true' if adjusts_surface == 'y' else 'false'])
 
     # Structure Set
-    path = os.path.join(forge_src, data_folder, 'worldgen', 'configured_structure_feature', f'{structure_set}.json')
+    path = os.path.join(forge_src, data_folder, 'worldgen', 'structure_set', f'{structure_set}.json')
     with open(path, 'r+') as file:
         jsonData = json.load(file)
         jsonData['structures'].append({ 
@@ -63,7 +63,7 @@ while restart:
         file.seek(0)
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
-    path = os.path.join(fabric_src, data_folder, 'worldgen', 'configured_structure_feature', f'{structure_set}.json')
+    path = os.path.join(fabric_src, data_folder, 'worldgen', 'structure_set', f'{structure_set}.json')
     with open(path, 'r+') as file:
         jsonData = json.load(file)
         jsonData['structures'].append({ 
