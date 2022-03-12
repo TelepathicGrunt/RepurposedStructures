@@ -53,19 +53,17 @@ if (project.use_third_party_mods) {
 
 	dependencies {
 		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
-		//modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:1.4.1+1.18.1"
+		modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:2.0.0+1.18.2"
 		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:${project.NBTDBG_version}"
 
-		//modRuntimeOnly "curse.maven:shutup_experimental_settings-401978:3545078"
+		modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
+		//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
+
 		//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
-
 		//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
-
 		//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
-		//modRuntimeOnly "curse.maven:charm-318872:3393290"
 		//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
 		//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
-		//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
 		//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
 		//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
 	}
