@@ -4,6 +4,9 @@
 Clarified in the dimension/biome configs that they do not work for RS structures because those are datapack stuff.
  These dimension/biome configs only affect Repurposed Structures's Wells and Dungeons.
 
+#### Tags:
+Simplified some configured structure feature tags internally.
+
 
 ### **(V.4.0.1 Changes) (1.18.2 Minecraft)**
 
