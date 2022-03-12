@@ -12,6 +12,8 @@ Slightly reduced how messy Giant taiga Villages are.
 
 Fixed town center pieces for Swamp Villages being a block too high.
 
+Mountain Villages can spawn in Jagged Peaks biome now.
+
 #### Tags:
 Simplified some configured structure feature tags internally.
 
