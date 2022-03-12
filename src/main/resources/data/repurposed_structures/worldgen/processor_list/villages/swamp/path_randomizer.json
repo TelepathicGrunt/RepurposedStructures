@@ -17,24 +17,11 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:coarse_dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt_path",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
             "Name": "minecraft:moss_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
-            "probability": 0.1,
+            "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -50,7 +37,7 @@
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
-            "probability": 0.1,
+            "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

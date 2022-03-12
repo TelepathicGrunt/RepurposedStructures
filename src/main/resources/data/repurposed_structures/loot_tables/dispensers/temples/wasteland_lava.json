@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:lava_bucket",
+          "type": "minecraft:item",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}
