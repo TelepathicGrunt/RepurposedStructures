@@ -1,0 +1,106 @@
+from pathlib import Path
+from os.path import exists
+import os
+import sys
+import random
+import json
+
+fabric_src = 'C:\Users\MSI Laptop\Documents\ModWorkspace\RepurposedStructures-Fabric\src'
+forge_src = 'C:\Users\MSI Laptop\Documents\ModWorkspace\RepurposedStructures\src'
+data_folder = os.path.join('main', 'resources', 'data', 'repurposed_structures')
+
+def createFile(input_path, output_path, regex_list):
+    file_content = ''
+    with open(input_path, 'r') as file:
+        file_content = file.read()
+        for i in range(len(regex_list)):
+           file_content = file_content.replace('$' + (i + 1), regex_list[i])
+
+    path = os.path.join(forge_src, output_path)
+    if not exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w') as codefile1:
+            codefile1.write(file_content)
+
+    path = os.path.join(fabric_src, output_path)
+    if not exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w') as codefile2:
+            codefile2.write(file_content)
+        
+
+#--------------------------------------------------------------------------------------------
+
+restart = True
+while restart:
+    
+    structure_type = input("\nstructure type (village, etc)\n").strip()
+    structure_type_plural = structure_type if structure_type.endswith('s') else ((structure_type[:-1] + 'ies') if structure_type.endswith('y') else (structure_type + 's'));
+    structure_variant = input("\nstructure variant (jungle, etc)\n").strip()
+
+    start_pool = input("\nstart pool path (What's after the :)\n").strip()
+    structure_size = input("\nsize of structure\n")
+    adjusts_surface = input("\nadjusts surface (y/n)\n")
+
+    structure_set = input("\nstructure set path to add to (name of json file without .json)\n")
+
+    #-------------------------------------------------------------------------------------------
+
+    # Configured Structure Feature
+    createFile(
+        os.path.join('template', 'configured_structure_feature.json'),
+        os.path.join(data_folder, 'worldgen', 'configured_structure_feature', structure_type + '_' + structure_variant + '.json'),
+        [structure_type_plural, structure_variant, start_pool, structure_size, True if adjusts_surface is 'y' else False])
+
+    # Structure Set
+    path = os.path.join(forge_src, data_folder, 'worldgen', 'configured_structure_feature', structure_set + '.json')
+    with open(path, 'r+') as file:
+        jsonData = json.load(file)
+        jsonData['structures'].append({ 
+            'structure': 'repurposed_structrues:' + structure_type_plural + '_' + structure_variant,
+            'weight': 1
+        })
+        file.seek(0)
+        file.write(json.dumps(jsonData, indent=2))
+        file.truncate()
+    path = os.path.join(fabric_src, data_folder, 'worldgen', 'configured_structure_feature', structure_set + '.json')
+    with open(path, 'r+') as file:
+        jsonData = json.load(file)
+        jsonData['structures'].append({ 
+            'structure': 'repurposed_structrues:' + structure_type_plural + '_' + structure_variant,
+            'weight': 1
+        })
+        file.seek(0)
+        file.write(json.dumps(jsonData, indent=2))
+        file.truncate()
+
+    # Template Pool
+    createFile(
+        os.path.join('template', 'template_pool.json'),
+        os.path.join(data_folder, 'worldgen', 'template_pool', start_pool + '.json'),
+        [start_pool])
+
+    # Configured Structure Feature Tag
+    path = os.path.join(forge_src, data_folder, 'tags', 'worldgen', 'configured_structure_feature', 'collections', structure_type_plural + '.json')
+    with open(path, 'r+') as file:
+        jsonData = json.load(file)
+        jsonData['values'].append('repurposed_structrues:' + structure_type + '_' + structure_variant)
+        file.seek(0)
+        file.write(json.dumps(jsonData, indent=2))
+        file.truncate()
+    path = os.path.join(fabric_src, data_folder, 'tags', 'worldgen', 'configured_structure_feature', 'collections', structure_type_plural + '.json')
+    with open(path, 'r+') as file:
+        jsonData = json.load(file)
+        jsonData['values'].append('repurposed_structrues:' + structure_type + '_' + structure_variant)
+        file.seek(0)
+        file.write(json.dumps(jsonData, indent=2))
+        file.truncate()
+
+    # Biome Tags
+    createFile(
+        os.path.join('template', 'biome_tag.json'),
+        os.path.join(data_folder, 'tags', 'worldgen', 'biomes', 'has_structure', structure_type_plural, structure_variant + '.json'),
+        [])
+
+    print('\n\nFINISHED!')
+    print('\nRESTARTING!\n\n')
