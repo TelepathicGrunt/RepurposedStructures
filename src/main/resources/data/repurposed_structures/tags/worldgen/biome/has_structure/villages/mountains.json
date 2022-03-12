@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "minecraft:jagged_peaks",
     "#repurposed_structures:collections/hills"
   ]
 }
