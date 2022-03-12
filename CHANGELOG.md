@@ -5,6 +5,11 @@ Clarified in the dimension/biome configs that they do not work for RS structures
  These dimension/biome configs only affect Repurposed Structures's Wells and Dungeons.
  The config names for the dimension/biome config file is also changed to make it painfully clear it's for features.
 
+#### Tags:
+Simplified some configured structure feature tags internally.
+
+Added tag to make sure RS underground bastion, villages, mansions, and witch huts would not let PneumaticCraft's oil lake spawn inside them. 
+
 
 ### **(V.5.0.2 Changes) (1.18.2 Minecraft)**
 
