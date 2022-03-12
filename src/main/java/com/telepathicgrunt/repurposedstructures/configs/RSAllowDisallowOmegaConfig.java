@@ -77,33 +77,35 @@ public class RSAllowDisallowOmegaConfig implements Config {
     }
 
 
-
     @Comment("""
 
 
 
 
 
-            // In the key part, specify the name of the structures or configuredfeatures from
+
+
+            // In the key part, specify the name of the features from
             // Repurposed Structures that you want to affect. Then in the value part, add the identifiers
-            // or regex for the dimension that you want Repurposed Structures stuff to NOT spawn in.
-            
+            // or regex for the dimension that you want Repurposed Structures features to NOT spawn in.
+            // DOES NOT WORK FOR STRUCTURES! Only for features which are dungeons and wells.
+
             // Separate multiple entries with a comma.
             // Example usage (the actual config entry to edit are the lines not starting with // further down):
             //  "disallowedDimensions": {
-            //    "repurposed_structures:village_birch": "minecraft:overworld, awesome_mod:.+"
+            //    "repurposed_structures:dungeons_badlands": "minecraft:overworld, awesome_mod:.+"
             //  }
-            
-            // In this example, no Birch village will spawn in the overworld because we specified that dimension's identifier.
-            // Then the village will not spawn in any of awesome_mod's dimension because "awesome_mod:.+" is regex that will
+
+            // In this example, no Badlands Dungeon will spawn in the overworld because we specified that dimension's identifier.
+            // Then the dungeon will not spawn in any of awesome_mod's dimension because "awesome_mod:.+" is regex that will
             // match all dimensions that starts with "awesome_mod:" in their identifier. Powerful stuff!
-            
+
             // Use "all" as the key to affect all of RS's structures and configuredfeatures.
             // You can find dimension identifiers by doing "/execute in" command in game.
             // All of RS's structure identifiers can be found by doing "/locate" command in game.
             // RS's dungeons and wells identifiers can be found here on GitHub:
-            //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
-            """)
+            //  https://github.com/TelepathicGrunt/RepurposedStructures/blob/27c8c23d5b6ee1ba1f894df874d62e5982d39fd5/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L251-L273"""
+    )
     public final Map<String, String> disallowedFeatureDimensions = new HashMap<>();
 
     @Comment("""
@@ -112,30 +114,32 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
 
 
-            // RS's Structures and ConfiguredFeatures has default settings of what dimensions they are added to.
+
+
+            // RS's features has default settings of what dimensions they are added to.
             // This allowedDimensions config is for adding them to more dimension or for overriding disallowedDimensions config.
-            // NOTE: A Structure or ConfiguredFeature must be added to both the dimension and to the biomes in the dimension to spawn.
-            
-            // In the key part, specify the name of the structures or configuredfeatures from
+            // NOTE: A feature must be added to both the dimension and to the biomes in the dimension to spawn.
+            // DOES NOT WORK FOR STRUCTURES! Only for features which are dungeons and wells.
+
+            // In the key part, specify the name of the features from
             // Repurposed Structures that you want to affect. Then in the value part, add the identifiers
             // or regex for the dimension that you want Repurposed Structures stuff to ALWAYS spawn in.
-            
+
             // Separate multiple entries with a comma.
             // Example usage (the actual config entry to edit are the lines not starting with // further down):
             //  "allowedDimensions": {
-            //    "repurposed_structures:stronghold_nether": "minecraft:overworld, firey_realms:.+"
+            //    "repurposed_structures:dungeons_badlands": "minecraft:overworld, firey_realms:.+"
             //  },
-             
-            // In this example, Nether Strongholds will spawn in the overworld because we specified that dimension's identifier.
-            // Then the Nether Strongholds will also spawn in any of awesome_mod's dimension because "firey_realms:.+" is regex that will
+
+            // In this example, Badlands Dungeons will spawn in the overworld because we specified that dimension's identifier.
+            // Then the Badlands Dungeons will also spawn in any of awesome_mod's dimension because "firey_realms:.+" is regex that will
             // match all dimensions that starts with "firey_realms:" in their identifier. Powerful stuff!
-            
-            // Use "all" as the key to affect all of RS's structures and configuredfeatures.
+
+            // Use "all" as the key to affect all of RS's features.
             // You can find dimension identifiers by doing "/execute in" command in game.
-            // All of RS's structure identifiers can be found by doing "/locate" command in game.
             // RS's dungeons and wells identifiers can be found here on GitHub:
-            //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
-            """)
+            //  https://github.com/TelepathicGrunt/RepurposedStructures/blob/1ffe99074dcdecee9e2d5e8cc90520644a7ee1cd/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L293-L315"""
+    )
     public final Map<String, String> allowedFeatureDimensions = new HashMap<>();
 
     @Comment("""
@@ -144,30 +148,30 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
 
 
-            // RS's Structures and ConfiguredFeatures has default settings of what biomes they are added to.
+
+
+            // RS's features has default settings of what biomes they are added to.
             // This disallowedBiomes config is for overriding that internal default setting.
-            
-            // In the key part, specify the name of the structures or configuredfeatures from
+            // DOES NOT WORK FOR STRUCTURES! Only for features which are dungeons and wells.
+
+            // In the key part, specify the name of the features from
             // Repurposed Structures that you want to affect. Then in the value part, add the identifiers
             // or regex for the biomes that you want Repurposed Structures stuff to NOT spawn in.
-            
+
             // Separate multiple entries with a comma.
             // Example usage (the actual config entry to edit are the lines not starting with // further down):
             //  "disallowedBiomes": {
-            //    "repurposed_structures:bastion_underground": "minecraft:flower_forest, peaceful_lands:.+"
+            //    "repurposed_structures:dungeons_badlands": "minecraft:eroded_badlands, peaceful_lands:.+"
             //  }
-            
-            // In this example, Underground Bastions are remvoed from Flower Forest biome because we specified that biomes's identifier.
-            // Then the Underground Bastions will also be removed from all of peaceful_lands's biomes because "peaceful_lands:.+" is regex
+
+            // In this example, Badlands Dungeons are removed from Flower Forest biome because we specified that biomes's identifier.
+            // Then the Badlands Dungeons will also be removed from all of peaceful_lands's biomes because "peaceful_lands:.+" is regex
             // that will match all biomes that starts with "peaceful_lands:" in their identifier. Powerful stuff!
-            // Then it will remove the Underground Bastions from all mushroom category biomes including both modded and vanilla's.
-            
-            // Use "all" as the key to affect all of RS's structures and configuredfeatures.
+            // Use "all" as the key to affect all of RS's features.
             // You can find biome identifiers by doing "/locatebiome" command in game.
-            // All of RS's structure identifiers can be found by doing "/locate" command in game.
             // RS's dungeons and wells identifiers can be found here on GitHub:
-            //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
-            """)
+            //  https://github.com/TelepathicGrunt/RepurposedStructures/blob/1ffe99074dcdecee9e2d5e8cc90520644a7ee1cd/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L293-L315"""
+    )
     public final Map<String, String> disallowedFeatureBiomes = new HashMap<>();
 
     @Comment("""
@@ -176,31 +180,32 @@ public class RSAllowDisallowOmegaConfig implements Config {
 
 
 
-            // RS's Structures and ConfiguredFeatures has default settings of what biomes they are added to.
+
+
+            // RS's features has default settings of what biomes they are added to.
             // This allowedBiomes config is for adding them to more biomes or for overriding disallowedBiomes config.
-            // NOTE: A Structure or ConfiguredFeature must be added to both the dimension and to the biomes in the dimension to spawn.
-            
-            // In the key part, specify the name of the structures or configuredfeatures from
+            // NOTE: A feature must be added to both the dimension and to the biomes in the dimension to spawn.
+            // DOES NOT WORK FOR STRUCTURES! Only for features which are dungeons and wells.
+
+            // In the key part, specify the name of the features from
             // Repurposed Structures that you want to affect. Then in the value part, add the identifiers
             // or regex for the biomes that you want Repurposed Structures stuff to ALWAYS spawn in.
-            
+
             // Separate multiple entries with a comma.
             // Example usage (the actual config entry to edit are the lines not starting with // further down):
             //  "allowedBiomes": {
-            //    "repurposed_structures:mansion_taiga": "minecraft:badlands, fantasy_overworld:.+"
+            //    "repurposed_structures:mansion_taiga": "minecraft:desert, fantasy_overworld:.+"
             //  }
-            
-            // In this example, Taiga Mansions will spawn in the one Badlands biome because we specified that biomes's identifier.
-            // Then the Taiga Mansions will also spawn in all of fantasy_overworld's biomes because "fantasy_overworld:.+" is regex
+
+            // In this example, Badlands Dungeons will spawn in the one Desert biome because we specified that biomes's identifier.
+            // Then the Badlands Dungeons will also spawn in all of fantasy_overworld's biomes because "fantasy_overworld:.+" is regex
             // that will match all biomes that starts with "fantasy_overworld:" in their identifier. Powerful stuff!
-            // Then it will add the Taiga Mansion to all Desert category biomes including both modded and vanilla's.
-            
-            // Use "all" as the key to affect all of RS's structures and configuredfeatures.
+
+            // Use "all" as the key to affect all of RS's features.
             // You can find biome identifiers by doing "/locatebiome" command in game.
-            // All of RS's structure identifiers can be found by doing "/locate" command in game.
             // RS's dungeons and wells identifiers can be found here on GitHub:
-            //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
-            """)
+             //  https://github.com/TelepathicGrunt/RepurposedStructures/blob/1ffe99074dcdecee9e2d5e8cc90520644a7ee1cd/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L293-L315"""
+    )
     public final Map<String, String> allowedFeatureBiomes = new HashMap<>();
 
     @Comment("""
