@@ -50,7 +50,7 @@ while restart:
     createFile(
         os.path.join('template', 'configured_structure_feature.json'),
         os.path.join(data_folder, 'worldgen', 'configured_structure_feature', f'{structure_type}_{structure_variant}.json'),
-        [structure_type_plural, structure_variant, start_pool, structure_size, True if adjusts_surface == 'y' else False])
+        [structure_type_plural, structure_variant, start_pool, structure_size, 'true' if adjusts_surface == 'y' else 'false'])
 
     # Structure Set
     path = os.path.join(forge_src, data_folder, 'worldgen', 'configured_structure_feature', f'{structure_set}.json')
