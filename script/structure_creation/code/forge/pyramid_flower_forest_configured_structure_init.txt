@@ -1,1 +1,0 @@
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_FLOWER_FOREST = RSStructures.PYRAMID_FLOWER_FOREST.get().configured(IFeatureConfig.NONE);

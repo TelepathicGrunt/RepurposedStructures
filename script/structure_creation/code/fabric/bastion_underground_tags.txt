@@ -1,1 +1,0 @@
-        addTags(RSStructures.BASTION_UNDERGROUND, Stream.of(STRUCTURE_TAGS.BASTION).collect(Collectors.toSet()));

@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_OCEAN = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_ocean"), 11, 0, 0, 0, new HashSet<>());

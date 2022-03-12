@@ -1,6 +1,0 @@
-        if (RepurposedStructures.RSStrongholdsConfig.maxChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.STRONGHOLD_END.get(),
-                    () -> ))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.STRONGHOLD_END);
-        }

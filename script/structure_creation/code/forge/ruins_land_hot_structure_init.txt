@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> RUINS_LAND_HOT = addToStructureMaps("ruins_land_hot", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "ruins/land_hot"), 2, 0, 0, 0, new HashSet<>())));

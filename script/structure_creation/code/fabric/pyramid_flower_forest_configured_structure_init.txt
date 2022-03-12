@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_FLOWER_FOREST = RSStructures.PYRAMID_FLOWER_FOREST.configure(FeatureConfig.DEFAULT);

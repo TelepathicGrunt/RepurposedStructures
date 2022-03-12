@@ -1,6 +1,0 @@
-        if ( &&
-            RepurposedStructures.RSTemplesConfig.pyramidGiantTreeTaigaAverageChunkDistance.get() != 1001 &&
-            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidGiantTreeTaigaToModdedBiomes.get()))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_GIANT_TREE_TAIGA);
-        }

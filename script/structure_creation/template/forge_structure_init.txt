@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> $1 = addToStructureMaps("$2", () -> (new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "$3")).setStructureSize($4).build()));

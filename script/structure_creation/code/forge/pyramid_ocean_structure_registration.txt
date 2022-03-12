@@ -1,1 +1,0 @@
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_ocean"), PYRAMID_OCEAN.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidOceanAverageChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidOceanAverageChunkDistance.get() * 0.5f), 777281414));

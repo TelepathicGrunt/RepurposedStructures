@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_ICY = RSStructures.PYRAMID_ICY.configure(FeatureConfig.DEFAULT);

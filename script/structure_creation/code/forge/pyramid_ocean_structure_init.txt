@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_OCEAN = addToStructureMaps("pyramid_ocean", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_ocean"), 11, 0, 0, 0, new HashSet<>())));

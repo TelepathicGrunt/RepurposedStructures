@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_GIANT_TREE_TAIGA = addToStructureMaps("pyramid_giant_tree_taiga", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_giant_tree_taiga"), 11, 0, 0, 0, new HashSet<>())));

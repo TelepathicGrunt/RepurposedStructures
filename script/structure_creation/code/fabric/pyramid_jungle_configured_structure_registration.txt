@@ -1,1 +1,0 @@
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_jungle"), PYRAMID_JUNGLE);

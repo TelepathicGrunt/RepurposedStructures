@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_GIANT_TREE_TAIGA = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_giant_tree_taiga"), 11, 0, 0, 0, new HashSet<>());

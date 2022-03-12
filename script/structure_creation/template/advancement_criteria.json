@@ -1,6 +1,0 @@
-    "in_$1": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "feature": "repurposed_structures:$1"
-      }
-    }

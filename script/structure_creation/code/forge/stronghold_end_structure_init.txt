@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> STRONGHOLD_END = addToStructureMaps("stronghold_end", () -> (new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/start_pool")).setStructureSize(12).build()));

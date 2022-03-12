@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<NoneFeatureConfiguration, ? extends StructureFeature<NoneFeatureConfiguration>> $1 = RSStructures.$1.configured(FeatureConfiguration.NONE);

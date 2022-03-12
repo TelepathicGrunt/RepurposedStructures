@@ -1,7 +1,0 @@
-        GeneralUtils.addToBiome("stronghold_end",
-                (context) -> 
-						&& BiomeSelection.isBiomeAllowed(context, RSStructures.stronghold_end,
-                                () -> )
-						&& RepurposedStructures.RSAllConfig.RSStrongholdsConfig.averageChunkDistance.strongholdEndAverageChunkDistance != 10001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.stronghold_end));
-				

@@ -1,1 +1,0 @@
-        addTags(RSStructures.VILLAGE_MUSHROOM, Stream.of(STRUCTURE_TAGS.VILLAGE, STRUCTURE_TAGS.NO_LAKES).collect(Collectors.toSet()));

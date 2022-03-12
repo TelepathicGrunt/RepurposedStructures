@@ -1,1 +1,0 @@
-        addTags(RSStructures.STRONGHOLD_END, Stream.of(STRUCTURE_TAGS.Y, STRUCTURE_TAGS.STRONGHOLD, STRUCTURE_TAGS.END_MINESHAFT_AVOID).collect(Collectors.toSet()));

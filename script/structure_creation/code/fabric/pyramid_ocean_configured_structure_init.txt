@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_OCEAN = RSStructures.PYRAMID_OCEAN.configure(FeatureConfig.DEFAULT);

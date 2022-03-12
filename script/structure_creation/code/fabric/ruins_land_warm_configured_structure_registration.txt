@@ -1,1 +1,0 @@
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "ruins_land_warm"), RUINS_LAND_WARM);

@@ -1,6 +1,0 @@
-        if (RepurposedStructures.$1.maxChunkDistance.get() != 1001 &&
-            BiomeSelection.isBiomeAllowed(event, RSStructures.$2.get(),
-                    () -> ))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.$2);
-        }

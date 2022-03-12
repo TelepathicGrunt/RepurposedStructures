@@ -1,7 +1,0 @@
-        GeneralUtils.addToBiome("$1",
-                (context) -> 
-						BiomeSelection.isBiomeAllowed(context, RSStructures.$1,
-                                () -> )
-						&& RepurposedStructures.RSAllConfig.$2.$3 != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.$1));
-				

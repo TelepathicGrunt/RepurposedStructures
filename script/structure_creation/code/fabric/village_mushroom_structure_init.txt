@@ -1,1 +1,0 @@
-    public static StructureFeature<NoneFeatureConfiguration> VILLAGE_MUSHROOM = new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "villages/mushroom/town_center")).setStructureSize(8).build();

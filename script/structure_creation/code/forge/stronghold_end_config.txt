@@ -1,6 +1,0 @@
-		public ConfigValueListener<Integer> strongholdEndAverageChunkDistance;
-
-                strongholdEndAverageChunkDistance = subscriber.subscribe(builder
-                    .comment(Add End Outposts to modded End biomes.)
-                    .translation("repurposedstructures.config.STRONGHOLD_END.strongholdendaveragechunkdistance")
-                    .defineInRange("strongholdEndAverageChunkDistance", How rare are End Strongholds in End biome's islands. 1 for spawning in most chunks and 10001 for none. , 1, 1001));

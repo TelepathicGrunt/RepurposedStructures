@@ -1,6 +1,0 @@
-		public ConfigValueListener<Integer> $1;
-
-                $1 = subscriber.subscribe(builder
-                    .comment("\n$3")
-                    .translation("repurposedstructures.config.$4.$2")
-                    .defineInRange("$1", $5, 1, 1001));

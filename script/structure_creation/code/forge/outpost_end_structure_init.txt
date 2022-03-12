@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> OUTPOST_END = addToStructureMaps("outpost_end", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "outposts/outpost_end"), 11, 0, 0, 0, new HashSet<>())));

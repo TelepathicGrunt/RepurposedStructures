@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_JUNGLE = RSStructures.PYRAMID_JUNGLE.configure(FeatureConfig.DEFAULT);

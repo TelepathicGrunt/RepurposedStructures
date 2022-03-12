@@ -1,1 +1,0 @@
-        $1(new ResourceLocation(RepurposedStructures.MODID, "$2"), $3.get(), GenerationStage.Decoration.$4, createSpacingAndSalt(RepurposedStructures.$5.$6.get(), 0.5f, $7));

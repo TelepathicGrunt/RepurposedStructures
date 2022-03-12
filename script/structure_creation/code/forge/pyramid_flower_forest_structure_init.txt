@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> PYRAMID_FLOWER_FOREST = addToStructureMaps("pyramid_flower_forest", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "temples/pyramid_flower_forest"), 11, 0, 0, 0, new HashSet<>())));

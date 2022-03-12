@@ -1,1 +1,0 @@
-        addTags(RSStructures.$1, Stream.of($2).collect(Collectors.toSet()));

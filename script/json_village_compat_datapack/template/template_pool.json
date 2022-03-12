@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:$1",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 6,
+      "element": {
+        "location": "$2:villages/$3/$4",
+        "processors": "%5",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

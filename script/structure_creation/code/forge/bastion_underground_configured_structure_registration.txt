@@ -1,1 +1,0 @@
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "bastion_underground"), BASTION_UNDERGROUND);

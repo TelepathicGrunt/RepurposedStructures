@@ -1,7 +1,0 @@
-        GeneralUtils.addToBiome("VILLAGE_MUSHROOM",
-                (context) -> 
-						BiomeSelection.isBiomeAllowed(context, RSStructures.VILLAGE_MUSHROOM,
-                                () -> )
-						&& RepurposedStructures.RSAllConfig.RSVillagessConfig.villageMushroomAverageChunkDistance != 1001,
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.VILLAGE_MUSHROOM));
-				

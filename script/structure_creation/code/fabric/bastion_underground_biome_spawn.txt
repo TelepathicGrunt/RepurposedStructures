@@ -1,5 +1,0 @@
-        GeneralUtils.addToBiome("bastion_underground",
-                (context) -> 
-						&& BiomeSelection.isBiomeAllowed(context, "pyramids")
-                        && RepurposedStructures.RSAllConfig.RSBastionsConfig.maxChunkDistance.bastionUndergroundAverageChunkDistance != 10001),
-                context -> context.getGenerationSettings().addBuiltInStructure(RSConfiguredStructures.BASTION_UNDERGROUND));

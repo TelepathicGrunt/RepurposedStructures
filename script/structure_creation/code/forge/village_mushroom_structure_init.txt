@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> VILLAGE_MUSHROOM = addToStructureMaps("village_mushroom", () -> (new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "villages/mushroom/town_center")).setStructureSize(8).build()));

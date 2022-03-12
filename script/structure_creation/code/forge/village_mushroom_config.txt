@@ -1,6 +1,0 @@
-		public ConfigValueListener<Integer> villageMushroomAverageChunkDistance;
-
-                villageMushroomAverageChunkDistance = subscriber.subscribe(builder
-                    .comment(How rare are Mushroom Villages. 1 for spawning in most chunks and 10001 for none. )
-                    .translation("repurposedstructures.config.VILLAGE_MUSHROOM.villagemushroomaveragechunkdistance")
-                    .defineInRange("villageMushroomAverageChunkDistance", 20, 1, 1001));

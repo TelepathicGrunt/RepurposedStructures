@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> RUINS_LAND_HOT = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "ruins/land_hot"), 2, 0, 0, 0, new HashSet<>());

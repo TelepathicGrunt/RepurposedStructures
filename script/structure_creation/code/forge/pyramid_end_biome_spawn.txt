@@ -1,6 +1,0 @@
-        if ( &&
-            RepurposedStructures.RSTemplesConfig.pyramidEndAverageChunkDistance.get() != 1001 &&
-            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidEndToModdedBiomes.get()))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_END);
-        }

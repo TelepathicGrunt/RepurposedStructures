@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> OUTPOST_END = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "outposts/outpost_end"), 11, 0, 0, 0, new HashSet<>());

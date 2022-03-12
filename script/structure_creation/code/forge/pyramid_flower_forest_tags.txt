@@ -1,1 +1,0 @@
-        addTags(RSStructures.PYRAMID_FLOWER_FOREST.get(), Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));

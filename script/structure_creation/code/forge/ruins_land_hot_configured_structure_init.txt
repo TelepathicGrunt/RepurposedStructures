@@ -1,1 +1,0 @@
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> RUINS_LAND_HOT = RSStructures.RUINS_LAND_HOT.get().configured(IFeatureConfig.NONE);

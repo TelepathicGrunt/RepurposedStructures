@@ -1,1 +1,0 @@
-        addTags(RSStructures.RUINS_LAND_HOT.get(), Stream.of(STRUCTURE_TAGS.RUIN).collect(Collectors.toSet()));

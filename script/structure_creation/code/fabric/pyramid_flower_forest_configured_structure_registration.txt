@@ -1,1 +1,0 @@
-        Registry.register(registry, new Identifier(RepurposedStructures.MODID, "pyramid_flower_forest"), PYRAMID_FLOWER_FOREST);

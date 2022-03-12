@@ -1,1 +1,0 @@
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "$1"), $2);

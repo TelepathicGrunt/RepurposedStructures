@@ -1,1 +1,0 @@
-        Registry.register(registry, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);

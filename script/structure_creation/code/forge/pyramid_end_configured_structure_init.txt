@@ -1,1 +1,0 @@
-    public static StructureFeature<NoFeatureConfig, ? extends Structure<NoFeatureConfig>> PYRAMID_END = RSStructures.PYRAMID_END.get().configure(IFeatureConfig.NO_FEATURE_CONFIG);

@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_MUSHROOM = RSStructures.PYRAMID_MUSHROOM.configure(FeatureConfig.DEFAULT);

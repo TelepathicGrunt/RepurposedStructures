@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> PYRAMID_END = RSStructures.PYRAMID_END.configure(FeatureConfig.DEFAULT);

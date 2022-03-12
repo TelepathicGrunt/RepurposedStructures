@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> STRONGHOLD_END = new GenericJigsawStructure.Builder<>(new ResourceLocation(RepurposedStructures.MODID, "strongholds/end/start_pool")).setStructureSize(12).build();

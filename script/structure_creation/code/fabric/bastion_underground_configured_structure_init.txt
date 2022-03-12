@@ -1,1 +1,0 @@
-    public static ConfiguredStructureFeature<DefaultFeatureConfig, ? extends StructureFeature<DefaultFeatureConfig>> BASTION_UNDERGROUND = RSStructures.BASTION_UNDERGROUND.configure(FeatureConfig.DEFAULT);

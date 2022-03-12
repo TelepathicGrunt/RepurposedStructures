@@ -1,1 +1,0 @@
-        addToStructureMaps(new ResourceLocation(RepurposedStructures.MODID, "pyramid_icy"), PYRAMID_ICY.get(), GenerationStage.Decoration.SURFACE_STRUCTURES, new StructureSeparationSettings(RepurposedStructures.RSTemplesConfig.pyramidIcyAverageChunkDistance.get(), (int) (RepurposedStructures.RSTemplesConfig.pyramidIcyAverageChunkDistance.get() * 0.5f), 884076931));

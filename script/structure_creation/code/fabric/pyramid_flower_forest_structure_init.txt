@@ -1,1 +1,0 @@
-    public static StructureFeature<DefaultFeatureConfig> PYRAMID_FLOWER_FOREST = new GenericJigsawStructure(new Identifier(RepurposedStructures.MODID, "temples/pyramid_flower_forest"), 11, 0, 0, 0, new HashSet<>());

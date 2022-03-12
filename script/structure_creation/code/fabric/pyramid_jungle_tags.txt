@@ -1,1 +1,0 @@
-        addTags(RSStructures.PYRAMID_JUNGLE, Stream.of(STRUCTURE_TAGS.PYRAMID).collect(Collectors.toSet()));

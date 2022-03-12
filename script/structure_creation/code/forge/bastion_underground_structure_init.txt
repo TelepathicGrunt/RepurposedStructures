@@ -1,1 +1,0 @@
-    public static final RegistryObject<Structure<NoFeatureConfig>> BASTION_UNDERGROUND = addToStructureMaps("bastion_underground", () -> (new GenericJigsawStructure(new ResourceLocation(RepurposedStructures.MODID, "bastions/bastion_underground"), 11, 0, 0, 0, new HashSet<>())));

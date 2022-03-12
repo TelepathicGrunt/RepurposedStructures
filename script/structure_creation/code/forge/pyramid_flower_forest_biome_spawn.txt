@@ -1,6 +1,0 @@
-        if ( &&
-            RepurposedStructures.RSTemplesConfig.pyramidFlowerForestAverageChunkDistance.get() != 1001 &&
-            (BiomeSelection.hasNamespace(event, "minecraft") || RepurposedStructures.RSTemplesConfig.addPyramidFlowerForestToModdedBiomes.get()))
-        {
-            event.getGeneration().getStructures().add(() -> RSConfiguredStructures.PYRAMID_FLOWER_FOREST);
-        }
