@@ -22,6 +22,7 @@ def getListOfFiles(dirName):
 
 restart = True
 while restart:
+    mc_version = "1.18.2"
     version = input("\ncompat_datapack_version\n").strip()
 
     #-------------------------------------------------------------------------------------------
@@ -39,12 +40,12 @@ while restart:
     shutil.copyfile("pack.mcmeta", path)
     with open(path, 'r+') as file:
         jsonData = json.load(file)
-        jsonData['pack']['description'] = f"Repurposed Structures - Config Datapack v{version}"
+        jsonData['pack']['description'] = f"Repurposed Structures - Config Datapack ${mc_version} v{version}"
         file.seek(0)
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
 
-    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
+    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-${mc_version.replace('.', '_')}-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
 
     print('\n\nFINISHED!')
     print('\nRESTARTING!\n\n')
