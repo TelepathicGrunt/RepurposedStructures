@@ -99,7 +99,7 @@ while restart:
     # Biome Tags
     createFile(
         os.path.join('template', 'biome_tag.json'),
-        os.path.join(data_folder, 'tags', 'worldgen', 'biomes', 'has_structure', structure_type_plural, f'{structure_variant}.json'),
+        os.path.join(data_folder, 'tags', 'worldgen', 'biome', 'has_structure', structure_type_plural, f'{structure_variant}.json'),
         [])
 
     print('\n\nFINISHED!')

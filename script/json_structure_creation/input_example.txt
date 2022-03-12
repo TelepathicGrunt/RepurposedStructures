@@ -1,15 +1,6 @@
-village_mushroom
+village
+icy
+villages/ice/town_center
 8
-villages/mushroom/town_center
-SURFACE_STRUCTURE
-RSVillagesConfig
-How rare are Mushroom Villages. 1 for spawning in most chunks and 10001 for none. 
-20
 y
-VILLAGE
-NO_LAKES
-exit
-villages
-y
-C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures-Fabric\src
-C:\Users\MSI Laptop\Documents\ModdingWorkspace\RepurposedStructures\src
+villages_overworld

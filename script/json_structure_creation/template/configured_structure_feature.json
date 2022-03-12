@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:generic_jigsaw_structure",
   "config": {
-    "start_pool": $3,
+    "start_pool": "$3",
     "size": $4
   },
   "biomes": "#repurposed_structures:has_structure/$1/$2",
