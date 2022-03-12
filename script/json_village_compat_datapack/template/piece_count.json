@@ -1,8 +1,4 @@
 {
   "pieces_spawn_counts" : [
-    {
-      "nbt_piece_name" : "$1:villages/$2/$3",
-      "never_spawn_more_than_this_many": 1
-    }
   ]
 }

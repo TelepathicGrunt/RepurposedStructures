@@ -23,17 +23,15 @@ import os
 blockPalette = {""}
 
 originalBiome = "taiga"
-newBiome = "giant_taiga"
+newBiome = "swamp"
 string_blacklist = []
 conversion_partial_dict = {
-    "dark_oak_log": "spruce_wood",
-    "spruce_wood": "cobblestone",
-    "cobblestone": "cobblestone",
-    "potted_cornflower": "potted_fern",
-    "blue": "gray",
-    "cyan": "gray"
+    "spruce": "spruce",
+    "poppy": "blue_orchid",
+    "cobblestone": "brown_terracotta"
 }
 conversion_exact_dict = {
+    "minecraft:grass": "minecraft:stone_bricks"
 }
 #-------------------------------------------------------------------------------------------
 

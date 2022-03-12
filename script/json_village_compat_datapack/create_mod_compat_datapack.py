@@ -18,6 +18,20 @@ def createFile(input_path, output_path, regex_list):
             codefile1.write(file_content)
         
 
+def createPoolFile(input_path, output_path, regex_list):
+    file_content = ''
+    with open(input_path, 'r') as file:
+        file_content = file.read()
+        for i in range(len(regex_list)):
+           file_content = file_content.replace(f'${i + 1}', regex_list[i])
+
+    path = os.path.join(datapack_location, output_path)
+    if not exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w') as codefile1:
+            codefile1.write(file_content)
+        
+
 #--------------------------------------------------------------------------------------------
 
 restart = True
@@ -25,7 +39,12 @@ while restart:
     
     mod_name = input("\nThe name of the mod to make compat with\n").strip()
     mod_namespace = input("\nThe modid of the mod to make compat with\n").strip()
-    piece_name = input("\nName of the nbt file\n").strip()
+    
+    n = int(input("Enter number of pieces per village: "))
+    piece_names = []
+    for i in range(0, n):
+        piece_names.append(input("\nName of the nbt file\n").strip())
+
     structure_type = "village"
     structure_type_plural = structure_type if structure_type.endswith('s') else ((structure_type[:-1] + 'ies') if structure_type.endswith('y') else (structure_type + 's'));
     structure_variants = {
@@ -53,16 +72,41 @@ while restart:
             [mod_name])
     
     for variant in structure_variants:
-        createFile(
-            os.path.join('template', 'piece_count.json'),
-            os.path.join(data_location, 'repurposed_structures', 'rs_pieces_spawn_counts_additions', f'{structure_type}_{variant}.json'),
-            [mod_namespace, variant, piece_name])
+        path = os.path.join(os.path.join('template', 'piece_count.json'))
+        with open(path, 'r+') as file:
+            jsonData = json.load(file)
+            for piece_name in piece_names:
+                jsonData['pieces_spawn_counts'].append({
+                    "nbt_piece_name" : f"{mod_namespace}:villages/{variant}/{piece_name}",
+                    "never_spawn_more_than_this_many": 1
+                })
+            path = os.path.join(datapack_location, os.path.join(data_location, 'repurposed_structures', 'rs_pieces_spawn_counts_additions', f'{structure_type}_{variant}.json'))
+            if not exists(path):
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                with open(path, 'w') as outputFile:
+                    outputFile.write(json.dumps(jsonData, indent=2))
+                        
 
-        createFile(
-            os.path.join('template', 'template_pool.json'),
-            os.path.join(data_location, 'repurposed_structures', 'pool_additions', 'villages', variant, 'houses.json'),
-            [f'villages/{variant}/houses', mod_namespace, variant, piece_name, structure_variants[variant]])
-
+        path = os.path.join(os.path.join('template', 'template_pool.json'))
+        with open(path, 'r+') as file:
+            jsonData = json.load(file)
+            jsonData['name'] = f"repurposed_structures:villages/{variant}/houses"
+            for piece_name in piece_names:
+                jsonData['elements'].append({
+                    "weight": 6,
+                    "element": {
+                        "location": f"{mod_namespace}:villages/{variant}/{piece_name}",
+                        "processors": f"{structure_variants[variant]}",
+                        "projection": "rigid",
+                        "element_type": "minecraft:legacy_single_pool_element"
+                    }
+                })
+            path = os.path.join(datapack_location, os.path.join(data_location, 'repurposed_structures', 'pool_additions', 'villages', variant, 'houses.json'))
+            if not exists(path):
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                with open(path, 'w') as outputFile:
+                    outputFile.write(json.dumps(jsonData, indent=2))
+                        
         os.makedirs(os.path.dirname(os.path.join(data_location, mod_namespace, "structures", "villages", variant, "")), exist_ok=True)
 
 
