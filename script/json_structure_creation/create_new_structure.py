@@ -99,5 +99,39 @@ while restart:
         os.path.join(data_folder, 'tags', 'worldgen', 'biome', 'has_structure', structure_type_plural, f'{structure_variant}.json'),
         [])
 
+    # Advancements
+    path = os.path.join(forge_src, data_folder, 'advancements', f'{structure_type_plural}.json')
+    if path.exists(path):
+        with open(path, 'r+') as file:
+            jsonData = json.load(file)
+            jsonData['criteria'][f'in_{structure_type}_{structure_variant}'] = {
+                "trigger": "minecraft:location",
+                "conditions": {
+                    "feature": f'repurposed_structures:{structure_type}_{structure_variant}'
+                }
+            }
+            jsonData['requirements'].append(
+                [f'in_{structure_type}_{structure_variant}']
+            )
+            file.seek(0)
+            file.write(json.dumps(jsonData, indent=2))
+            file.truncate()
+    path = os.path.join(fabric_src, data_folder, 'advancements', f'{structure_type_plural}.json')
+    if path.exists(path):
+        with open(path, 'r+') as file:
+            jsonData = json.load(file)
+            jsonData['criteria'][f'in_{structure_type}_{structure_variant}'] = {
+                "trigger": "minecraft:location",
+                "conditions": {
+                    "feature": f'repurposed_structures:{structure_type}_{structure_variant}'
+                }
+            }
+            jsonData['requirements'].append(
+                [f'in_{structure_type}_{structure_variant}']
+            )
+            file.seek(0)
+            file.write(json.dumps(jsonData, indent=2))
+            file.truncate()
+
     print('\n\nFINISHED!')
     print('\nRESTARTING!\n\n')
