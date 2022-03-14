@@ -69,13 +69,13 @@ dependencies {
 
     runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures:2.0.0+1.18.2")
     runtimeOnly fg.deobf("com.telepathicgrunt:FeatureNBTDeadlockBeGone-Forge:2.0.0+1.18.2")
+    runtimeOnly fg.deobf("curse.maven:shutup_experimental_settings-407174:3544525")
 
     // 1.18.2
     //runtimeOnly fg.deobf("curse.maven:pneumaticcraft_repressurized-281849:3682893")
     //runtimeOnly fg.deobf("curse.maven:patchouli-306770:3680301")
 
     // 1.18.1
-    //runtimeOnly fg.deobf("curse.maven:shutup_experimental_settings-407174:3544525")
     //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3650285")
     //runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3659567")
     //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3652542")
