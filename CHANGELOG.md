@@ -1,3 +1,9 @@
+### **(V.5.0.4 Changes) (1.18.2 Minecraft)**
+
+#### Misc:
+Updated to work on 40.0.18 Forge. They did some breaking changes.
+
+
 ### **(V.5.0.3 Changes) (1.18.2 Minecraft)**
 
 #### Configs:

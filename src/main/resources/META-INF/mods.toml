@@ -24,7 +24,7 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[dependencies.repurposed_structures]]
     modId="forge"
     mandatory=true
-    versionRange="[40.0.0,)"
+    versionRange="[40.0.18,)"
 
 [[dependencies.repurposed_structures]]
     modId="feature_nbt_deadlock_be_gone"
