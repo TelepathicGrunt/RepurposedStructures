@@ -1,10 +1,13 @@
 ### **(V.4.0.3 Changes) (1.18.2 Minecraft)**
 
+#### Tags:
+Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
+
 #### Mod Compat:
 Added dedicated compat with importing End Remastered's eyes into correct Repurposed Structures's structures.
 
-#### Tags:
-Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
+The rs_spawner json file's entries now can have `"optional": true` to make the entry no longer error if the mob is not present in the registry.
+  Good for marking modded mobs as optional when overriding the rs_spawner json files so that you can later remove that mod and not cause the json file to explode.
 
 
 ### **(V.4.0.2 Changes) (1.18.2 Minecraft)**
