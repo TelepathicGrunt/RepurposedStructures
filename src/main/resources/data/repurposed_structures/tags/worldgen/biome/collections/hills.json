@@ -3,11 +3,7 @@
   "values": [
     "#minecraft:is_hill",
     {
-      "id": "forge:hills",
-      "required": false
-    },
-    {
-      "id": "c:hills",
+      "id": "forge:is_hills",
       "required": false
     },
     {

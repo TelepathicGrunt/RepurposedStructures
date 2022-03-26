@@ -1,3 +1,12 @@
+### **(V.4.0.3 Changes) (1.18.2 Minecraft)**
+
+#### Mod Compat:
+Added dedicated compat with importing End Remastered's eyes into correct Repurposed Structures's structures.
+
+#### Tags:
+Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
+
+
 ### **(V.4.0.2 Changes) (1.18.2 Minecraft)**
 
 #### Configs:

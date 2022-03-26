@@ -232,7 +232,7 @@ public final class StructureModdedLootImporter {
         if(tableToImportLoot == null) return originalLoot; // Safety net
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
-        LootContext newContext = copyLootContextWithNewQueryID(context);
+        LootContext newContext = copyLootContext(context);
         List<ItemStack> newlyGeneratedLoot = newContext.getLootTable(tableToImportLoot).getRandomItems(newContext);
 
         // Remove all vanilla loot so we only have modded loot
@@ -241,12 +241,15 @@ public final class StructureModdedLootImporter {
             return itemKey != null && itemKey.location().getNamespace().equals("minecraft");
         });
 
+        // Intercept and modify the loot based on other mods being on
+        EndRemasteredDedicatedLoot.handleDedicatedModCompat(newlyGeneratedLoot, lootTableID, context);
+
         // Add modded loot to my structure's chests
         originalLoot.addAll(newlyGeneratedLoot);
         return originalLoot;
     }
 
-    private static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext) {
+    protected static LootContext copyLootContext(LootContext oldLootContext) {
         LootContext.Builder newContextBuilder = new LootContext.Builder(oldLootContext.getLevel())
                 .withRandom(oldLootContext.getRandom())
                 .withLuck(oldLootContext.getLuck());

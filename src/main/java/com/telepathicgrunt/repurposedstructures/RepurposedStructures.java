@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.biomeinjection.Wells;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSAllowDisallowOmegaConfig;
 import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
 import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
@@ -24,6 +25,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import org.apache.logging.log4j.LogManager;
@@ -69,6 +71,9 @@ public class RepurposedStructures implements ModInitializer {
         ResourceLocation runAfterFabricAPIPhase = new ResourceLocation(RepurposedStructures.MODID, "run_after_fabric_api");
         ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
         initialized = true;
+
+        //For mod compat by checking if other mod is on
+        EndRemasteredDedicatedLoot.isEndRemasteredOn = FabricLoader.getInstance().isModLoaded("endrem");
     }
 
 
