@@ -37,7 +37,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
                 for(int i = spawnerMobEntries.size() - 1; i >= 0; i--) {
                     MobSpawnerObj entry = spawnerMobEntries.get(i);
                     entry.setEntityType();
-                    if(entry.weight == 0) {
+                    if(entry.weight == 0 || entry.entityType == null) {
                         // Make 0 remove the mob automatically so it doesn't spawn.
                         spawnerMobEntries.remove(i);
                     }
