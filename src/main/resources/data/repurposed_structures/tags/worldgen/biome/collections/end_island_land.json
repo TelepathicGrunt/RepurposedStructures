@@ -4,7 +4,7 @@
     "minecraft:end_highlands",
     "minecraft:end_midlands",
     {
-      "id": "forge:end",
+      "id": "forge:is_end",
       "required": false
     },
     {

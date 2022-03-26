@@ -1,3 +1,9 @@
+### **(V.5.0.5 Changes) (1.18.2 Minecraft)**
+
+#### Tags:
+Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
+
+
 ### **(V.5.0.4 Changes) (1.18.2 Minecraft)**
 
 #### Misc:

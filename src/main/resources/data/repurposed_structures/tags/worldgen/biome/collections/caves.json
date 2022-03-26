@@ -20,7 +20,7 @@
       "required": false
     },
     {
-      "id": "forge:underground",
+      "id": "forge:is_underground",
       "required": false
     },
     {

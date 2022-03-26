@@ -8,7 +8,7 @@
       "required": false
     },
     {
-      "id": "forge:plains",
+      "id": "forge:is_plains",
       "required": false
     },
     {
