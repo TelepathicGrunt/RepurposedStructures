@@ -6,6 +6,14 @@
     {
       "id": "byg:shattered_glacier",
       "required": false
+    },
+    {
+      "id": "forge:is_icy",
+      "required": false
+    },
+    {
+      "id": "c:icy",
+      "required": false
     }
   ]
 }

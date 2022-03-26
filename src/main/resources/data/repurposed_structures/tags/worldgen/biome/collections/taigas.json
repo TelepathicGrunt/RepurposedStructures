@@ -65,14 +65,6 @@
     {
       "id": "byg:maple_taiga",
       "required": false
-    },
-    {
-      "id": "forge:coniferous",
-      "required": false
-    },
-    {
-      "id": "c:coniferous",
-      "required": false
     }
   ]
 }

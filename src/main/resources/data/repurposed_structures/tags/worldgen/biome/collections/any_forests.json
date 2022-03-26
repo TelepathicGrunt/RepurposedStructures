@@ -3,7 +3,7 @@
   "values": [
     "#minecraft:is_forest",
     {
-      "id": "forge:forest",
+      "id": "forge:is_forest",
       "required": false
     },
     {

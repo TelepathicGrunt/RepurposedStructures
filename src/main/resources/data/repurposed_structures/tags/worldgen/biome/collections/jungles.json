@@ -3,11 +3,11 @@
   "values": [
     "#minecraft:is_jungle",
     {
-      "id": "forge:jungle",
+      "id": "forge:is_jungle",
       "required": false
     },
     {
-      "id": "c:jungle",
+      "id": "c:in_jungle",
       "required": false
     }
   ]

@@ -52,6 +52,10 @@
     {
       "id": "biomesoplenty:crag",
       "required": false
+    },
+    {
+      "id": "byg:canadian_shield",
+      "required": false
     }
   ]
 }

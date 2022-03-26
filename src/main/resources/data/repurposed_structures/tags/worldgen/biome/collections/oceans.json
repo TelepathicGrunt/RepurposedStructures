@@ -4,11 +4,15 @@
     "#minecraft:is_ocean",
     "#minecraft:is_deep_ocean",
     {
-      "id": "forge:ocean",
+      "id": "forge:is_ocean",
       "required": false
     },
     {
       "id": "c:ocean",
+      "required": false
+    },
+    {
+      "id": "c:deep_ocean",
       "required": false
     }
   ]

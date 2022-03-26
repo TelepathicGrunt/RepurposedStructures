@@ -23,7 +23,7 @@
       "required": false
     },
     {
-      "id": "forge:snowy",
+      "id": "forge:is_snowy",
       "required": false
     },
     {
