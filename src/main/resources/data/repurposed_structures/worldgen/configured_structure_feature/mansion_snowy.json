@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:mansion_structure",
   "config": {
-    "type": "SNOWY",
+    "type": "snowy",
     "foundation_block": {
       "Name": "minecraft:snow_block"
     },

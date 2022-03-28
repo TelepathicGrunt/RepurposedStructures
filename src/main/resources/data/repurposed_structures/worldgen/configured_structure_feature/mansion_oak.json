@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:mansion_structure",
   "config": {
-    "type": "OAK",
+    "type": "oak",
     "foundation_block": {
       "Name": "minecraft:dark_oak_wood",
       "Properties": {

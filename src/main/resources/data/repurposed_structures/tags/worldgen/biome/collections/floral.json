@@ -11,18 +11,6 @@
       "required": false
     },
     {
-      "id": "byg:cherry_blossom_forest",
-      "required": false
-    },
-    {
-      "id": "byg:cherry_blossom_forest",
-      "required": false
-    },
-    {
-      "id": "byg:orchard",
-      "required": false
-    },
-    {
       "id": "byg:is_floral",
       "required": false
     },

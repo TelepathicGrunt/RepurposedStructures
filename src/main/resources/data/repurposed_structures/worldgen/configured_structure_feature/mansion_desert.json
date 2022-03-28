@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:mansion_structure",
   "config": {
-    "type": "DESERT",
+    "type": "desert",
     "foundation_block": {
       "Name": "minecraft:sandstone"
     },
