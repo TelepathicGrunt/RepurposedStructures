@@ -1,0 +1,11 @@
+{
+  "type": "repurposed_structures:monument_structure",
+  "config": {
+    "type": "ocean",
+    "structure_set_avoid_radius_check": 0,
+    "structure_set_to_avoid": []
+  },
+  "biomes": "#repurposed_structures:has_structure/mansions/birch",
+  "adapt_noise": false,
+  "spawn_overrides": {}
+}
