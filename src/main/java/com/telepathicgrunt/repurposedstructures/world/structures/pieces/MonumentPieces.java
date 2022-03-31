@@ -25,10 +25,10 @@ public class MonumentPieces {
     private MonumentPieces() {
     }
 
-    public static <CC extends RSMonumentConfig> List<StructurePiece> createMonumentBuilding(RegistryAccess registryAccess, StructureManager structureManager, Random random, int x, int y, int z, Direction direction, CC config) {
+    public static <CC extends RSMonumentConfig> List<StructurePiece> createMonumentBuilding(RegistryAccess registryAccess, StructureManager structureManager, Random random, int x, int y, int z, CC config) {
         Registry<StructureTemplatePool> poolRegistry = registryAccess.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
         List<StructurePiece> pieces = new ArrayList<>();
-        MonumentBuilding mainBuilding = new MonumentPieces.MonumentBuilding(poolRegistry, structureManager, random, direction, config.monumentType);
+        MonumentBuilding mainBuilding = new MonumentPieces.MonumentBuilding(poolRegistry, structureManager, random, config.monumentType);
         mainBuilding.addMainBody(pieces, poolRegistry, structureManager, random, Rotation.NONE, config.monumentType);
         pieces.addAll(mainBuilding.childPieces);
         pieces.forEach(piece -> piece.move(x, y, z));
@@ -67,13 +67,6 @@ public class MonumentPieces {
                 .offset(9, 0, 35);
     }
 
-    private static Rotation getOpeningRotation(Direction direction) {
-        return switch (direction) {
-            case UP, DOWN, NORTH, SOUTH -> Rotation.NONE;
-            case EAST, WEST -> Rotation.CLOCKWISE_90;
-        };
-    }
-
     private static Rotation getOpeningRotationFull(Direction direction) {
         return switch (direction) {
             case UP, DOWN, NORTH -> Rotation.NONE;
@@ -88,7 +81,7 @@ public class MonumentPieces {
         private RoomGraph coreRoom;
         protected final List<StructurePiece> childPieces = Lists.newArrayList();
 
-        public MonumentBuilding(Registry<StructureTemplatePool> poolRegistry, StructureManager structureManager, Random random, Direction rotation, String type) {
+        public MonumentBuilding(Registry<StructureTemplatePool> poolRegistry, StructureManager structureManager, Random random, String type) {
             super(null);
 
             List<RoomGraph> graphList = this.generateRoomGraph(random);
