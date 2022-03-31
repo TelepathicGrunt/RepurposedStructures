@@ -6,17 +6,23 @@
           "output_state": {
             "Name": "minecraft:air"
           },
-          "position_predicate": {
-            "min_chance": 0.5,
-            "max_chance": 0,
-            "min_dist": 2,
-            "max_dist": 5,
-            "axis": "y",
-            "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
+          "input_predicate": {
+            "block": "minecraft:red_stained_glass",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:wet_sponge"
           },
           "input_predicate": {
-            "block": "minecraft:wet_sponge",
-            "predicate_type": "minecraft:block_match"
+            "block": "minecraft:red_stained_glass",
+            "probability": 0.75,
+            "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -24,6 +30,22 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 2,
+      "forced_placement": true,
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:wet_sponge"
+          }
+        }
+      ]
     },
     {
       "processor_type": "repurposed_structures:pillar_processor",
