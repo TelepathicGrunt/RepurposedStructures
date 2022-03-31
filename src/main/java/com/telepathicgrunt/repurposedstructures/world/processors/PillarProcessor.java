@@ -37,8 +37,8 @@ public class PillarProcessor extends StructureProcessor {
                     .forGetter((processor) -> processor.pillarTriggerAndReplacementBlocks),
             ResourceLocation.CODEC.optionalFieldOf("pillar_processor_list", EMPTY_RL).forGetter(processor -> processor.processorList),
             Direction.CODEC.optionalFieldOf("direction", Direction.DOWN).forGetter(processor -> processor.direction),
-                    Codec.INT.optionalFieldOf("pillar_length", 1000).forGetter(config -> config.pillarLength),
-                    Codec.BOOL.optionalFieldOf("forced_placement", false).forGetter(config -> config.forcePlacement))
+            Codec.INT.optionalFieldOf("pillar_length", 1000).forGetter(config -> config.pillarLength),
+            Codec.BOOL.optionalFieldOf("forced_placement", false).forGetter(config -> config.forcePlacement))
     .apply(instance, instance.stable(PillarProcessor::new)));
 
     public final Registry<StructureProcessorList> processorListRegistry;
@@ -82,7 +82,7 @@ public class PillarProcessor extends StructureProcessor {
             }
 
             int terrainY = Integer.MIN_VALUE;
-            if(direction == Direction.DOWN) {
+            if(direction == Direction.DOWN && !forcePlacement) {
                 terrainY = GeneralUtils.getFirstLandYFromPos(levelReader, worldPos);
                 if(terrainY <= levelReader.getMinBuildHeight() && pillarLength + 2 >= worldPos.getY() - levelReader.getMinBuildHeight()) {
                     // Replaces the data block itself
