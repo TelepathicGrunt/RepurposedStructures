@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:monument_structure",
+  "type": "repurposed_structures:monument_generic",
   "config": {
     "type": "jungle",
     "valid_biome_radius_check": 3,
