@@ -21,8 +21,6 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,7 +65,18 @@ public class MonumentStructure<C extends RSMonumentConfig> extends AbstractBaseS
         random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
 
         BlockPos centerPoint = chunkPos.getMiddleBlockPosition(0);
-        int finalheight = config.fixedYSpawn.orElse(context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX(), centerPoint.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
+        int finalheight;
+        if (config.fixedYSpawn.isPresent()) {
+            finalheight = config.fixedYSpawn.get();
+        }
+        else {
+            int highestLandPos = context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX(), centerPoint.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() + 29, centerPoint.getZ() + 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
+            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() - 29, centerPoint.getZ() + 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
+            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() + 29, centerPoint.getZ() - 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
+            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() - 29, centerPoint.getZ() - 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
+            finalheight = highestLandPos;
+        }
 
         if(finalheight <= context.chunkGenerator().getMinY())
             return Optional.empty();

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:monument_jungle",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 412325774,
+    "spacing": 125,
+    "separation": 65,
+    "type": "minecraft:random_spread"
+  }
+}
