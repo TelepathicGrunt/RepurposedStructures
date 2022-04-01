@@ -1,7 +1,9 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.mixin.StructurePieceAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.PoolElementStructurePieceAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMonumentConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MonumentPieces;
@@ -21,6 +23,10 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -70,12 +76,13 @@ public class MonumentStructure<C extends RSMonumentConfig> extends AbstractBaseS
             finalheight = config.fixedYSpawn.get();
         }
         else {
-            int highestLandPos = context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX(), centerPoint.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+            int centerHight = context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX(), centerPoint.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+            int highestLandPos = centerHight;
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() + 29, centerPoint.getZ() + 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() - 29, centerPoint.getZ() + 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() + 29, centerPoint.getZ() - 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() - 29, centerPoint.getZ() - 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
-            finalheight = highestLandPos;
+            finalheight = (int)((highestLandPos - centerHight) / 1.25f) + centerHight;
         }
 
         if(finalheight <= context.chunkGenerator().getMinY())
@@ -109,6 +116,12 @@ public class MonumentStructure<C extends RSMonumentConfig> extends AbstractBaseS
 
                     // center
                     poolPiece.move(mainOffset.getX(), 0, mainOffset.getZ());
+
+                    // fix piece bounding boxes
+                    if (poolPiece.getElement() instanceof SinglePoolElement singlePoolElement) {
+                        StructureTemplate structuretemplate = ((SinglePoolElementAccessor)singlePoolElement).callGetTemplate(context.structureManager());
+                        ((StructurePieceAccessor)poolPiece).setBoundingBox(structuretemplate.getBoundingBox((new StructurePlaceSettings()).setRotation(rotation), poolPiece.getPosition()));
+                    }
                 }
             }
             list.forEach(structurePiecesBuilder::addPiece);

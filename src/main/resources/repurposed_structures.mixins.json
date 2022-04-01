@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
+    "StructurePieceAccessor",
     "entities.CatEntityMixin",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
