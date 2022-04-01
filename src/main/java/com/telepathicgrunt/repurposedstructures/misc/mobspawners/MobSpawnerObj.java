@@ -30,7 +30,7 @@ public class MobSpawnerObj {
 
     public void setEntityType() throws Exception {
         ResourceLocation entity_id = new ResourceLocation(this.name);
-        if(Registry.ENTITY_TYPE.getOptional(entity_id).isEmpty()) {
+        if(Registry.ENTITY_TYPE.getOptional(entity_id).isPresent()) {
             entityType = Registry.ENTITY_TYPE.get(entity_id);
         }
         else if(!optional) {

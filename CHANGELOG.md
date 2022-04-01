@@ -1,4 +1,7 @@
-### **(V.4.0.3 Changes) (1.18.2 Minecraft)**
+### **(V.4.1.0 Changes) (1.18.2 Minecraft)**
+
+#### Monuments:
+Added Jungle Monument! Can be found from Cartographer's map trades too!
 
 #### Tags:
 Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
