@@ -12,6 +12,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.LandBasedEndStr
 import com.telepathicgrunt.repurposedstructures.world.structures.MansionStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftStructure;
+import com.telepathicgrunt.repurposedstructures.world.structures.MonumentStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckEndStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
@@ -23,6 +24,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSGener
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMansionConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMineshaftEndConfig;
+import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMonumentConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckEndConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSShipwreckNetherConfig;
 import net.minecraft.core.Registry;
@@ -49,6 +51,8 @@ public final class RSStructures {
     public static StructureFeature<?> SHIPWRECK_END_STRUCTURE = new ShipwreckEndStructure<>(RSShipwreckEndConfig.CODEC);
     public static StructureFeature<?> CITY_NETHER_STRUCTURE = new CityNetherStructure<>(RSGenericNetherConfig.CODEC);
     public static StructureFeature<?> MANSION_STRUCTURE = new MansionStructure<>(RSMansionConfig.CODEC);
+    public static StructureFeature<?> MONUMENT_GENERIC = new MonumentStructure<>(RSMonumentConfig.CODEC);
+    public static StructureFeature<?> MONUMENT_NETHER = new MonumentStructure<>(RSMonumentConfig.CODEC);
 
     public static void registerStructures() {
         Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE);
@@ -66,6 +70,8 @@ public final class RSStructures {
         Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_end_structure"), SHIPWRECK_END_STRUCTURE);
         Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "city_nether_structure"), CITY_NETHER_STRUCTURE);
         Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mansion_structure"), MANSION_STRUCTURE);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "monument_generic"), MONUMENT_GENERIC);
+        Registry.register(Registry.STRUCTURE_FEATURE, new ResourceLocation(RepurposedStructures.MODID, "monument_nether"), MONUMENT_NETHER);
 
         StructureFeatureAccessor.getSTEP().put(GENERIC_JIGSAW_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         StructureFeatureAccessor.getSTEP().put(GENERIC_UNDERGROUND_JIGSAW_STRUCTURE, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
@@ -82,6 +88,8 @@ public final class RSStructures {
         StructureFeatureAccessor.getSTEP().put(SHIPWRECK_END_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         StructureFeatureAccessor.getSTEP().put(CITY_NETHER_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         StructureFeatureAccessor.getSTEP().put(MANSION_STRUCTURE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MONUMENT_GENERIC, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MONUMENT_NETHER, GenerationStep.Decoration.FLUID_SPRINGS);
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();

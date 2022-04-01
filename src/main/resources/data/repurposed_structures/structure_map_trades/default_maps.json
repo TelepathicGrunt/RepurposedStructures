@@ -8,7 +8,17 @@
         "mapIcon": "BANNER_GREEN",
         "emeraldsRequired": 14,
         "tradesAllowed": 12,
-        "xpReward": 10,
+        "xpReward": 5,
+        "spawnRegionSearchRadius": 50
+      },
+      {
+        "tradeLevel": 2,
+        "structure": "#repurposed_structures:collections/monuments",
+        "mapName": "RS Monument Map",
+        "mapIcon": "MONUMENT",
+        "emeraldsRequired": 13,
+        "tradesAllowed": 12,
+        "xpReward": 5,
         "spawnRegionSearchRadius": 50
       },
       {

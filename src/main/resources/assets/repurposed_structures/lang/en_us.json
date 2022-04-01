@@ -19,6 +19,7 @@
     "RS Ruins": "RS Ruins",
     "RS Shipwrecks": "RS Shipwrecks",
     "RS Strongholds": "RS Strongholds",
+    "RS Monuments": "RS Monuments",
     "RS Temples": "RS Temples",
     "RS Villages": "RS Villages",
     "RS Witch Huts": "RS Witch Huts",
@@ -30,6 +31,7 @@
     "Find all new Ruins!": "Find all new Ruins!",
     "Find all new Shipwrecks!": "Find all new Shipwrecks!",
     "Find all new Strongholds!": "Find all new Strongholds!",
+    "Find all new Monuments!": "Find all new Monuments!",
     "Find all new Temples!": "Find all new Temples!",
     "Find all new Villages!": "Find all new Villages!",
     "Find all new Witch Huts!": "Find all new Witch Huts!",
@@ -48,6 +50,7 @@
     "End Stronghold Map": "End Stronghold Map",
     "Nether Ruins Map": "Nether Ruins Map",
     "End Pyramid Map": "End Pyramid Map",
+    "RS Monument Map": "RS Monument Map",
 
     "text.autoconfig.repurposed_structures-fabric/general_configs.title": "Repurposed Structures Config Menu",
     "text.autoconfig.repurposed_structures-fabric/general_configs.category.Features Biome/Dimension": "Features Biome/Dimension",

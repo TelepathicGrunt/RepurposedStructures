@@ -22,16 +22,12 @@ import os
 
 blockPalette = {""}
 
-originalBiome = "taiga"
-newBiome = "swamp"
+originalBiome = "ocean"
+newBiome = "jungle"
 string_blacklist = []
 conversion_partial_dict = {
-    "spruce": "spruce",
-    "poppy": "blue_orchid",
-    "cobblestone": "brown_terracotta"
 }
 conversion_exact_dict = {
-    "minecraft:grass": "minecraft:stone_bricks"
 }
 #-------------------------------------------------------------------------------------------
 
@@ -83,7 +79,7 @@ def traverse_dicts(nbt_list):
                 string_replacer(entry)
 
             property_replacer(key, entry, "PersistenceRequired", 0, 1)
-            property_replacer(key, entry, "joint", "rollable", "aligned")
+            #property_replacer(key, entry, "joint", "rollable", "aligned")
 
 
     elif isinstance(nbt_list, nbt.NBTTagList) or isinstance(nbt_list, nbt.NBTTagCompound):

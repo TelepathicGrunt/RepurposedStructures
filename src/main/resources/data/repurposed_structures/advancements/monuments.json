@@ -1,0 +1,33 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:wet_sponge"
+    },
+    "title": {
+      "translate": "RS Monuments"
+    },
+    "description": {
+      "translate": "Find all new Monuments!"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 150
+  },
+  "criteria": {
+    "in_monument_jungle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_jungle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_monument_jungle"
+    ]
+  ]
+}
