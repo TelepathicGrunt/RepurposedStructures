@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:monuments/desert/rooms/double_xy",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:monuments/desert/rooms/double_xy",
+        "processors": "repurposed_structures:monuments/desert_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

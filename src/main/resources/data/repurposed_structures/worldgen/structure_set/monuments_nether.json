@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:monument_nether",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 322115398,
+    "spacing": 125,
+    "separation": 75,
+    "type": "minecraft:random_spread"
+  }
+}

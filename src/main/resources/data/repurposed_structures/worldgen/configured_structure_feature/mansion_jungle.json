@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:mansion_structure",
   "config": {
-    "type": "JUNGLE",
+    "type": "jungle",
     "foundation_block": {
       "Name": "minecraft:mossy_cobblestone"
     },

@@ -23,11 +23,38 @@
       "conditions": {
         "feature": "repurposed_structures:monument_jungle"
       }
+    },
+    "in_monument_icy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_icy"
+      }
+    },
+    "in_monument_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_nether"
+      }
+    },
+    "in_monument_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_desert"
+      }
     }
   },
   "requirements": [
     [
       "in_monument_jungle"
+    ],
+    [
+      "in_monument_icy"
+    ],
+    [
+      "in_monument_nether"
+    ],
+    [
+      "in_monument_desert"
     ]
   ]
 }

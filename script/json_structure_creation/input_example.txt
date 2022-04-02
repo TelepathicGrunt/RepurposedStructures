@@ -4,3 +4,10 @@ villages/ice/town_center
 8
 y
 villages_overworld
+
+monument
+nether
+na
+0
+n
+monuments_nether

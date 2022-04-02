@@ -22,8 +22,8 @@ import os
 
 blockPalette = {""}
 
-originalBiome = "ocean"
-newBiome = "jungle"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
 }

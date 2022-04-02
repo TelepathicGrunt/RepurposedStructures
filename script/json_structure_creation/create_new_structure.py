@@ -54,7 +54,7 @@ while restart:
     with open(path, 'r+') as file:
         jsonData = json.load(file)
         jsonData['structures'].append({ 
-            'structure': f'repurposed_structures:{structure_type_plural}_{structure_variant}',
+            'structure': f'repurposed_structures:{structure_type}_{structure_variant}',
             'weight': 1
         })
         file.seek(0)
@@ -64,7 +64,7 @@ while restart:
     with open(path, 'r+') as file:
         jsonData = json.load(file)
         jsonData['structures'].append({ 
-            'structure': f'repurposed_structures:{structure_type_plural}_{structure_variant}',
+            'structure': f'repurposed_structures:{structure_type}_{structure_variant}',
             'weight': 1
         })
         file.seek(0)
@@ -101,7 +101,7 @@ while restart:
 
     # Advancements
     path = os.path.join(forge_src, data_folder, 'advancements', f'{structure_type_plural}.json')
-    if path.exists(path):
+    if exists(path):
         with open(path, 'r+') as file:
             jsonData = json.load(file)
             jsonData['criteria'][f'in_{structure_type}_{structure_variant}'] = {
@@ -117,7 +117,7 @@ while restart:
             file.write(json.dumps(jsonData, indent=2))
             file.truncate()
     path = os.path.join(fabric_src, data_folder, 'advancements', f'{structure_type_plural}.json')
-    if path.exists(path):
+    if exists(path):
         with open(path, 'r+') as file:
             jsonData = json.load(file)
             jsonData['criteria'][f'in_{structure_type}_{structure_variant}'] = {
