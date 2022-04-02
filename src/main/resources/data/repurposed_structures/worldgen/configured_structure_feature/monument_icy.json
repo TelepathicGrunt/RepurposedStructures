@@ -2,6 +2,7 @@
   "type": "repurposed_structures:monument_generic",
   "config": {
     "type": "icy",
+    "center_terrain_height_weight": 1.4,
     "structure_set_avoid_radius_check": 3,
     "structure_set_to_avoid": [
       "repurposed_structures:mansions_overworld",
@@ -17,7 +18,7 @@
       "spawns": [
         {
           "type": "minecraft:stray",
-          "weight": 30,
+          "weight": 40,
           "minCount": 1,
           "maxCount": 3
         },
@@ -25,7 +26,7 @@
           "type": "minecraft:vex",
           "weight": 1,
           "minCount": 1,
-          "maxCount": 4
+          "maxCount": 2
         }
       ]
     }

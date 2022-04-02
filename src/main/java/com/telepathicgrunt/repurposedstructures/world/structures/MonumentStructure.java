@@ -73,13 +73,14 @@ public class MonumentStructure<C extends RSMonumentConfig> extends AbstractBaseS
             finalheight = config.fixedYSpawn.get();
         }
         else {
+            float centerWeight = config.centerTerrainHeightWeight.orElse(1F);
             int centerHight = context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX(), centerPoint.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
             int highestLandPos = centerHight;
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() + 29, centerPoint.getZ() + 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() - 29, centerPoint.getZ() + 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() + 29, centerPoint.getZ() - 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPoint.getX() - 29, centerPoint.getZ() - 29, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor()));
-            finalheight = (int)((highestLandPos - centerHight) / 1.25f) + centerHight;
+            finalheight = (int)((highestLandPos - centerHight) / centerWeight) + centerHight;
         }
 
         if(finalheight <= context.chunkGenerator().getMinY())
