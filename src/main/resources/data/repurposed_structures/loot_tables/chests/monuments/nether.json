@@ -29,19 +29,19 @@
           ]
         },
         {
-          "name": "minecraft:golden_apple",
-          "type": "minecraft:item",
-          "weight": 2
-        },
-        {
           "name": "minecraft:ancient_debris",
           "type": "minecraft:item",
           "weight": 3
         },
         {
+          "name": "minecraft:golden_apple",
+          "type": "minecraft:item",
+          "weight": 4
+        },
+        {
           "name": "minecraft:hopper",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -56,7 +56,7 @@
         {
           "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -65,7 +65,7 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 5
+          "weight": 10
         }
       ]
     },
@@ -77,7 +77,7 @@
       },
       "entries": [
         {
-          "name": "minecraft:sponge",
+          "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
@@ -85,6 +85,21 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:ghast_tear",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
                 "max": 4.0,
                 "type": "minecraft:uniform"
               }
@@ -92,15 +107,15 @@
           ]
         },
         {
-          "name": "minecraft:netherite_scrap",
+          "name": "minecraft:glowstone_dust",
           "type": "minecraft:item",
           "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 2.0,
+                "min": 2.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               }
             }

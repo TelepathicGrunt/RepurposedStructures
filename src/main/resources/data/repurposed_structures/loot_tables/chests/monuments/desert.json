@@ -16,7 +16,7 @@
         {
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -31,17 +31,17 @@
         {
           "name": "minecraft:golden_apple",
           "type": "minecraft:item",
-          "weight": 2
+          "weight": 4
         },
         {
           "name": "minecraft:gold_block",
           "type": "minecraft:item",
-          "weight": 3
+          "weight": 6
         },
         {
           "name": "minecraft:daylight_detector",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -56,7 +56,7 @@
         {
           "name": "minecraft:iron_pickaxe",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:enchant_randomly"
@@ -65,7 +65,7 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 5
+          "weight": 10
         }
       ]
     },

@@ -12,6 +12,23 @@
       "rules": [
         {
           "output_state": {
+            "Name": "minecraft:lava"
+          },
+          "position_predicate": {
+            "min_y_value": 0,
+            "max_y_value": 31,
+            "predicate_type": "repurposed_structures:y_value_pos_rule_test"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "Name": "minecraft:ancient_debris"
           },
           "input_predicate": {
@@ -29,7 +46,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
-            "probability": 0.45,
+            "probability": 0.85,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -42,7 +59,7 @@
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
-            "probability": 0.8,
+            "probability": 0.9,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -82,6 +99,9 @@
           }
         }
       ]
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }
