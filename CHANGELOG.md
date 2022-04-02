@@ -1,7 +1,7 @@
 ### **(V.5.1.0 Changes) (1.18.2 Minecraft)**
 
 #### Monuments:
-Added Jungle Monument! Can be found from Cartographer's map trades too!
+Added Jungle, Icy, Desert, and Nether Monuments! Can be found from Cartographer's map trades too!
 
 #### Tags:
 Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
