@@ -1,0 +1,24 @@
+{
+  "name": "repurposed_structures:monuments/icy/rooms/simple_pillar",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:monuments/icy/rooms/simple_pillar_1",
+        "processors": "repurposed_structures:monuments/icy_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:monuments/icy/rooms/simple_pillar_2",
+        "processors": "repurposed_structures:monuments/icy_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

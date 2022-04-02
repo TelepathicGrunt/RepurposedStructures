@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "repurposed_structures:monument_jungle",
+    "repurposed_structures:monument_icy",
+    "repurposed_structures:monument_nether",
+    "repurposed_structures:monument_desert"
+  ]
+}

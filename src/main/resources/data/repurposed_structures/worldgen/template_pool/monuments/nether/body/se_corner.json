@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:monuments/nether/body/se_corner",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:monuments/nether/body/se_corner",
+        "processors": "repurposed_structures:monuments/nether_randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -54,7 +54,8 @@ public final class RSStructures {
     public static RegistryObject<StructureFeature<?>> SHIPWRECK_END_STRUCTURE = STRUCTURE_FEATURES.register("shipwreck_end_structure", () -> new ShipwreckEndStructure<>(RSShipwreckEndConfig.CODEC));
     public static RegistryObject<StructureFeature<?>> CITY_NETHER_STRUCTURE = STRUCTURE_FEATURES.register("city_nether_structure", () -> new CityNetherStructure<>(RSGenericNetherConfig.CODEC));
     public static RegistryObject<StructureFeature<?>> MANSION_STRUCTURE = STRUCTURE_FEATURES.register("mansion_structure", () -> new MansionStructure<>(RSMansionConfig.CODEC));
-    public static RegistryObject<StructureFeature<?>> MONUMENT_STRUCTURE = STRUCTURE_FEATURES.register("monument_structure", () -> new MonumentStructure<>(RSMonumentConfig.CODEC));
+    public static RegistryObject<StructureFeature<?>> MONUMENT_GENERIC = STRUCTURE_FEATURES.register("monument_generic", () -> new MonumentStructure<>(RSMonumentConfig.CODEC));
+    public static RegistryObject<StructureFeature<?>> MONUMENT_NETHER = STRUCTURE_FEATURES.register("monument_nether", () -> new MonumentStructure<>(RSMonumentConfig.CODEC));
 
     public static void setupStructures() {
         StructureFeatureAccessor.getSTEP().put(GENERIC_JIGSAW_STRUCTURE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES);
@@ -72,7 +73,8 @@ public final class RSStructures {
         StructureFeatureAccessor.getSTEP().put(SHIPWRECK_END_STRUCTURE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES);
         StructureFeatureAccessor.getSTEP().put(CITY_NETHER_STRUCTURE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES);
         StructureFeatureAccessor.getSTEP().put(MANSION_STRUCTURE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES);
-        StructureFeatureAccessor.getSTEP().put(MONUMENT_STRUCTURE.get(), GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MONUMENT_GENERIC.get(), GenerationStep.Decoration.SURFACE_STRUCTURES);
+        StructureFeatureAccessor.getSTEP().put(MONUMENT_NETHER.get(), GenerationStep.Decoration.FLUID_SPRINGS);
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();

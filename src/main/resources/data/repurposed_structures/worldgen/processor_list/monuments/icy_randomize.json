@@ -1,0 +1,81 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:wet_sponge"
+          },
+          "input_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:wet_sponge",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:water"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_stained_glass",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:wet_sponge"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_stained_glass",
+            "probability": 0.75,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 2,
+      "forced_placement": true,
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:wet_sponge"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:light_blue_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:packed_ice"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
+    }
+  ]
+}

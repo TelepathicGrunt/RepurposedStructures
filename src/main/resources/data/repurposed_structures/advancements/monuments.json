@@ -1,0 +1,60 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:wet_sponge"
+    },
+    "title": {
+      "translate": "RS Monuments"
+    },
+    "description": {
+      "translate": "Find all new Monuments!"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 150
+  },
+  "criteria": {
+    "in_monument_jungle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_jungle"
+      }
+    },
+    "in_monument_icy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_icy"
+      }
+    },
+    "in_monument_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_nether"
+      }
+    },
+    "in_monument_desert": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "feature": "repurposed_structures:monument_desert"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_monument_jungle"
+    ],
+    [
+      "in_monument_icy"
+    ],
+    [
+      "in_monument_nether"
+    ],
+    [
+      "in_monument_desert"
+    ]
+  ]
+}
