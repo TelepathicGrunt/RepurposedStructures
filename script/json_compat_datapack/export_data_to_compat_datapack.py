@@ -45,7 +45,7 @@ while restart:
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
 
-    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-${mc_version.replace('.', '_')}-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
+    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-{mc_version.replace('.', '_')}-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
 
     print('\n\nFINISHED!')
     print('\nRESTARTING!\n\n')
