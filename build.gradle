@@ -103,8 +103,10 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 }
 
 task checkForRefmap() {
-    assert zipTree("./build/libs/repurposed_structures_forge-${project.mod_version}+${project.mc_version}.jar")
-            .matching { include "repurposed_structures.refmap.json" }.getSingleFile() != null
+    if (file("./build/libs/repurposed_structures_forge-${project.mod_version}+${project.mc_version}.jar").exists()) {
+        assert zipTree("./build/libs/repurposed_structures_forge-${project.mod_version}+${project.mc_version}.jar")
+                .matching { include "repurposed_structures.refmap.json" }.getSingleFile() != null
+    }
 }
 
 task buildAndRelease{}
