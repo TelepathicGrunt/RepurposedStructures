@@ -1,3 +1,9 @@
+### **(V.5.1.2 Changes) (1.18.2 Minecraft)**
+
+#### Misc:
+Fixed crash at startup due to missing mixin refmap. Don't know why it keeps disappearing on Forge builds... (I can't catch a break lol)
+
+
 ### **(V.5.1.1 Changes) (1.18.2 Minecraft)**
 
 #### Mod Compat:

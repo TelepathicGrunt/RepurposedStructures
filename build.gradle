@@ -34,16 +34,12 @@ minecraft {
         client {
             workingDirectory project.file('run')
             arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
         }
 
         server {
             workingDirectory project.file('run')
             arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
         }
 
@@ -51,8 +47,6 @@ minecraft {
             workingDirectory project.file('run')
             args '--mod', project.getProperty('modid'), '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods { repurposed_structures { source sourceSets.main } }
         }
     }
@@ -85,39 +79,7 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:terralith-513688:3606078")
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
     //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3562165")
-
-    // 1.16.5
-    //runtimeOnly fg.deobf("curse.maven:simply_cats-332910:3498688")
-    //runtimeOnly fg.deobf("curse.maven:bountiful-309516:3239647")
-    //runtimeOnly fg.deobf("curse.maven:kotlin_forge-351264:3452303")
-    // runtimeOnly fg.deobf("curse.maven:caves_and_cliffs_backport-417430:3523829")
-    // runtimeOnly fg.deobf("curse.maven:caves_api-441706:3512246")
-    // runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3476138")
-    // runtimeOnly fg.deobf("curse.maven:relics-445274:3470411")
-    // runtimeOnly fg.deobf("curse.maven:curios-309927:3456953")
-    // runtimeOnly fg.deobf("curse.maven:vampirism-233029:3475085")
-    // runtimeOnly fg.deobf("curse.maven:farmers_delight-398521:3418719")
-    // runtimeOnly fg.deobf("curse.maven:tardus-290247:3482231")
-    // runtimeOnly fg.deobf("curse.maven:etched-491890:3364913")
-    // runtimeOnly fg.deobf("curse.maven:pneumaticcraftrepressurized-281849:3470048")
-    // runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3431122")
-    // runtimeOnly fg.deobf("curse.maven:jellyfishing-397703:3458825")
-    // runtimeOnly fg.deobf("curse.maven:buzzierbees-355458:3226433")
-    // runtimeOnly fg.deobf("curse.maven:abnormalcore-382216:3457851")
-    // runtimeOnly fg.deobf("curse.maven:environmental-388992:3416597")
-    // runtimeOnly fg.deobf("curse.maven:ice_and_fire-264231:3441117")
-    // runtimeOnly fg.deobf("curse.maven:rat-323596:3319810")
-    // runtimeOnly fg.deobf("curse.maven:citadel-331936:3441028")
-    // runtimeOnly fg.deobf("curse.maven:savageandravage-381736:3226442")
-    // runtimeOnly fg.deobf("curse.maven:dungeonsgear-401247:3517064")
-    // runtimeOnly fg.deobf("vazkii.autoreglib:AutoRegLib:1.6-49.90")
-    // runtimeOnly fg.deobf("vazkii.quark:Quark:r2.4-316.1925") { transitive = false }
-    // runtimeOnly fg.deobf("curse.maven:hexlands_ii-522216:3444952")
-    // runtimeOnly fg.deobf("com.resourcefulbees:ResourcefulBees:1.16.5-0.9.9.7")
-    // runtimeOnly fg.deobf("curse.maven:tidbits-514057:3450123")
-    // runtimeOnly fg.deobf("curse.maven:charmreforged-430988:3214651")
 }
-
 
 mixin {
     add sourceSets.main, "${modid}.refmap.json"
@@ -140,9 +102,14 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.addRequirement("feature-nbt-deadlock-be-gone")
 }
 
+task checkForRefmap() {
+    assert zipTree("./build/libs/repurposed_structures_forge-${project.mod_version}+${project.mc_version}.jar")
+            .matching { include "repurposed_structures.refmap.json" }.getSingleFile() != null
+}
 
 task buildAndRelease{}
-tasks.publish.mustRunAfter tasks.build
+tasks.checkForRefmap.mustRunAfter tasks.build
+tasks.publish.mustRunAfter tasks.checkForRefmap
 tasks.publishCurseForge.mustRunAfter tasks.publish
 tasks.publishModrinth.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
