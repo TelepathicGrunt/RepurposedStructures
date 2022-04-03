@@ -26,6 +26,6 @@ public final class JSONConditionsRegistry {
     }
 
     private static <T, R extends Registry<T>> R createRegistry(ResourceKey<R> resourceKey) {
-        return ((WritableRegistry<R>)Registry.REGISTRY).register(resourceKey, (R)new MappedRegistry<T>(resourceKey, Lifecycle.stable(), null), Lifecycle.stable()).value();
+        return ((WritableRegistry<R>)Registry.REGISTRY).register(resourceKey, (R)new NonFreezingMapRegistry<>(resourceKey, Lifecycle.stable(), null), Lifecycle.stable()).value();
     }
 }

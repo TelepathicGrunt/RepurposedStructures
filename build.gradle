@@ -74,6 +74,8 @@ dependencies {
     // 1.18.2
     //runtimeOnly fg.deobf("curse.maven:pneumaticcraft_repressurized-281849:3682893")
     //runtimeOnly fg.deobf("curse.maven:patchouli-306770:3680301")
+    //runtimeOnly fg.deobf("curse.maven:waystones-245755:3684732")
+    //runtimeOnly fg.deobf("curse.maven:balm-531761:3710117")
 
     // 1.18.1
     //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:3650285")
