@@ -53,9 +53,6 @@ public class RepurposedStructures {
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
-        // Classload and create custom registry. Other mods should add to this custom registry in FMLCommonSetupEvent.
-        JSONConditionsRegistry.registerTestJSONCondition();
-
         // Setup configs
         FileUtils.getOrCreateDirectory(FMLPaths.CONFIGDIR.get().resolve("repurposed_structures-forge"), "repurposed_structures-forge");
 

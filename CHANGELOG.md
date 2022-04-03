@@ -1,3 +1,12 @@
+### **(V.5.1.1 Changes) (1.18.2 Minecraft)**
+
+#### Mod Compat:
+Fixed issue where Blay's Waystone may not be able to inject into RS Villages.
+ Issue was that I was creating the conditions registry at mod init and Waystones was registering their conditions in mod init as well.
+ Meaning there was a rare chance that Blay may run their registry code before I make the registry which causes the RS json files in Waystones to fail later.
+ Solution, RS now makes the conditions registry at game startup way before any mod init is ran.
+
+
 ### **(V.5.1.0 Changes) (1.18.2 Minecraft)**
 
 #### Monuments:

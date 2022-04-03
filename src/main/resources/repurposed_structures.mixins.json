@@ -4,7 +4,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
-    "structures.StructurePieceAccessor",
     "entities.CatEntityMixin",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
@@ -13,6 +12,7 @@
     "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoLavaFallsInStructuresMixin",
+    "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
@@ -22,6 +22,7 @@
     "structures.SinglePoolElementAccessor",
     "structures.StructureFeatureAccessor",
     "structures.StructureManagerAccessor",
+    "structures.StructurePieceAccessor",
     "structures.StructurePoolAccessor",
     "structures.StructurePoolMixin",
     "structures.StructureProcessorAccessor",
