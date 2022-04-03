@@ -53,7 +53,7 @@ if (project.use_third_party_mods) {
 
 	dependencies {
 		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
-		modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:2.0.0+1.18.2"
+		modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:2.0.1+1.18.2"
 		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:${project.NBTDBG_version}"
 
 		modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
