@@ -442,7 +442,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "bastion_remnant",
+              "destination": "repurposed_structures:explorer_maps/bastion_remnant",
               "decoration": "banner_black",
               "zoom": 2,
               "skip_existing_chunks": false

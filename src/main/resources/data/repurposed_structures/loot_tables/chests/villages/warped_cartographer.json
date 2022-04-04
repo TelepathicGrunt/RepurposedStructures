@@ -11,7 +11,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "fortresses",
+              "destination": "repurposed_structures:explorer_maps/nether_fortress",
               "decoration": "banner_red",
               "zoom": 2,
               "skip_existing_chunks": false
@@ -31,7 +31,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "bastion_remnant",
+              "destination": "repurposed_structures:explorer_maps/bastion_remnant",
               "decoration": "banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
@@ -51,7 +51,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:city_nether",
+              "destination": "repurposed_structures:explorer_maps/city_nether",
               "decoration": "banner_gray",
               "zoom": 2,
               "skip_existing_chunks": false

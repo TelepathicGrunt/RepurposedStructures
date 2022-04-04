@@ -39,9 +39,10 @@ public class ShipwreckEndStructure <C extends RSShipwreckEndConfig> extends Abst
         for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8) {
             for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8) {
                 NoiseColumn blockView = context.chunkGenerator().getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), context.heightAccessor());
-                for(int yOffset = 0; yOffset <= 30; yOffset += 5) {
-                    mutable.set(blockPos).move(xOffset, yOffset, zOffset);
-                    if (!blockView.getBlock(mutable.getY()).isAir()) {
+                int topY = context.chunkGenerator().getFirstOccupiedHeight(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+                for(int yOffset = 0; yOffset <= 10; yOffset += 5) {
+                    mutable.set(blockPos).move(xOffset, topY-yOffset, zOffset);
+                    if (blockView.getBlock(mutable.getY()).isAir()) {
                         return false;
                     }
                 }
