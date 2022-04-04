@@ -441,7 +441,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "endcity",
+              "destination": "repurposed_structures:explorer_maps/end_city",
               "decoration": "banner_magenta",
               "zoom": 1,
               "skip_existing_chunks": false

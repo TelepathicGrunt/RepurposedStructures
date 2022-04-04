@@ -30,7 +30,7 @@ public class ShipwreckEndStructure <C extends RSShipwreckEndConfig> extends Abst
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         ChunkPos chunkPos = context.chunkPos();
-        BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel() + 1, chunkPos.getMinBlockZ());
+        BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel(), chunkPos.getMinBlockZ());
         CC config = context.config();
 
         int checkRadius = 16;
@@ -39,9 +39,10 @@ public class ShipwreckEndStructure <C extends RSShipwreckEndConfig> extends Abst
         for(int xOffset = -checkRadius; xOffset <= checkRadius; xOffset += 8) {
             for(int zOffset = -checkRadius; zOffset <= checkRadius; zOffset += 8) {
                 NoiseColumn blockView = context.chunkGenerator().getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), context.heightAccessor());
-                for(int yOffset = 0; yOffset <= 30; yOffset += 5) {
-                    mutable.set(blockPos).move(xOffset, yOffset, zOffset);
-                    if (!blockView.getBlock(mutable.getY()).isAir()) {
+                int topY = context.chunkGenerator().getFirstOccupiedHeight(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+                for(int yOffset = 0; yOffset <= 10; yOffset += 5) {
+                    mutable.set(blockPos).move(xOffset, topY-yOffset, zOffset);
+                    if (blockView.getBlock(mutable.getY()).isAir()) {
                         return false;
                     }
                 }

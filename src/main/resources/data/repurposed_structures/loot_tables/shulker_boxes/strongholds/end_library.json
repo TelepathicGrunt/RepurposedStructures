@@ -120,7 +120,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:pyramid_end",
+              "destination": "repurposed_structures:explorer_maps/pyramid_end",
               "decoration": "banner_gray",
               "zoom": 1,
               "skip_existing_chunks": false
@@ -140,7 +140,7 @@
           "functions": [
             {
               "function": "minecraft:exploration_map",
-              "destination": "endcity",
+              "destination": "repurposed_structures:explorer_maps/end_city",
               "decoration": "banner_magenta",
               "zoom": 1,
               "skip_existing_chunks": false

@@ -1,3 +1,15 @@
+### **(V.5.1.3 Changes) (1.18.2 Minecraft)**
+
+#### Loot:
+Fixed all structure maps in RS loot tables (chests and shulker boxes) so that the structure maps actually locates structures now.
+ Issue was the way explorer maps gets what structure to track was changed in 1.18.2 and I did not realize it. 
+ If you downloaded a config datapack already, replace the loot table folder in it with v4 config datapack's loot table folder.
+ (Note: structures at the edge of the map's area may not show the icon for the structure's location. This is vanilla behavior. Don't ask why)
+
+#### Shipwrecks:
+Fixed End Shipwrecks not spawning.
+
+
 ### **(V.5.1.2 Changes) (1.18.2 Minecraft)**
 
 #### Misc:
