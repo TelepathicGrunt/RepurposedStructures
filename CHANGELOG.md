@@ -1,3 +1,9 @@
+### **(V.4.1.2 Changes) (1.18.2 Minecraft)**
+
+#### Shipwrecks:
+Fixed End Shipwrecks so they now actually spawn. Was off by one in calculation for checking for land.
+
+
 ### **(V.4.1.1 Changes) (1.18.2 Minecraft)**
 
 #### Loot:

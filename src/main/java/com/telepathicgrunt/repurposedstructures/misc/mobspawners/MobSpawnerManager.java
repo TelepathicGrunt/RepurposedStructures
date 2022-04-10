@@ -53,7 +53,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
                 RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse spawner mob list {}", fileIdentifier, e);
             }
         });
-        this.spawnerMap =  builder.build();
+        this.spawnerMap = builder.build();
     }
 
     public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {

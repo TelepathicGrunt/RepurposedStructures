@@ -30,7 +30,7 @@ public class ShipwreckEndStructure <C extends RSShipwreckEndConfig> extends Abst
         // Check to see if there some air where the structure wants to spawn.
         // Doesn't account for rotation of structure.
         ChunkPos chunkPos = context.chunkPos();
-        BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel() + 1, chunkPos.getMinBlockZ());
+        BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel(), chunkPos.getMinBlockZ());
         CC config = context.config();
 
         int checkRadius = 16;
