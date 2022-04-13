@@ -3,19 +3,19 @@
   "values": [
     "#minecraft:is_mountain",
     {
-      "id": "forge:is_mountain",
+      "id": "#forge:is_mountain",
       "required": false
     },
     {
-      "id": "c:mountain",
+      "id": "#c:mountain",
       "required": false
     },
     {
-      "id": "c:mountain_peak",
+      "id": "#c:mountain_peak",
       "required": false
     },
     {
-      "id": "c:mountain_slope",
+      "id": "#c:mountain_slope",
       "required": false
     }
   ]

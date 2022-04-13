@@ -7,15 +7,15 @@
       "required": false
     },
     {
-      "id": "forge:is_sandy",
+      "id": "#forge:is_sandy",
       "required": false
     },
     {
-      "id": "forge:is_desert",
+      "id": "#forge:is_desert",
       "required": false
     },
     {
-      "id": "c:desert",
+      "id": "#c:desert",
       "required": false
     }
   ]

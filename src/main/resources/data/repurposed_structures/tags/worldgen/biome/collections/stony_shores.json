@@ -11,7 +11,7 @@
       "required": false
     },
     {
-      "id": "c:stony_shores",
+      "id": "#c:stony_shores",
       "required": false
     }
   ]

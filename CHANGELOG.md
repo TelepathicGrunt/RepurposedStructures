@@ -1,3 +1,10 @@
+### **(V.5.1.4 Changes) (1.18.2 Minecraft)**
+
+#### Biome Tags:
+Fixed the biome tags that RS uses so it now spawns structures in modded/datapack biomes that are using forge's or c's namespaced tags.
+ If you're using an RS config datapack, the new v5 of the config datapack should have the updated data/repurposed_structures/tags/worldgen/biome/collections tags that should work now.
+
+
 ### **(V.5.1.3 Changes) (1.18.2 Minecraft)**
 
 #### Loot:

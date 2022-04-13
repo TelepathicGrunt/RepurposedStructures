@@ -23,15 +23,15 @@
       "required": false
     },
     {
-      "id": "forge:is_snowy",
+      "id": "#forge:is_snowy",
       "required": false
     },
     {
-      "id": "c:snowy",
+      "id": "#c:snowy",
       "required": false
     },
     {
-      "id": "c:snowy_plains",
+      "id": "#c:snowy_plains",
       "required": false
     }
   ]

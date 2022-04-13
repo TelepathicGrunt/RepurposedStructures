@@ -11,7 +11,7 @@
       "required": false
     },
     {
-      "id": "byg:is_floral",
+      "id": "#byg:is_floral",
       "required": false
     },
     {
@@ -27,7 +27,7 @@
       "required": false
     },
     {
-      "id": "c:floral",
+      "id": "#c:floral",
       "required": false
     }
   ]
