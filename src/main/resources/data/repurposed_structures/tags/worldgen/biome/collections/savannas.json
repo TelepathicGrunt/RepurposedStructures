@@ -21,11 +21,11 @@
       "required": false
     },
     {
-      "id": "forge:is_savanna",
+      "id": "#forge:is_savanna",
       "required": false
     },
     {
-      "id": "c:savanna",
+      "id": "#c:savanna",
       "required": false
     }
   ]

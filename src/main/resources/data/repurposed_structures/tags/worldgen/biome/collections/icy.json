@@ -8,11 +8,11 @@
       "required": false
     },
     {
-      "id": "forge:is_icy",
+      "id": "#forge:is_icy",
       "required": false
     },
     {
-      "id": "c:icy",
+      "id": "#c:icy",
       "required": false
     }
   ]

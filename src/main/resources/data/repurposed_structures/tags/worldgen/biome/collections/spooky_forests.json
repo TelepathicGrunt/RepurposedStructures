@@ -23,15 +23,15 @@
       "required": false
     },
     {
-      "id": "forge:is_spooky",
+      "id": "#forge:is_spooky",
       "required": false
     },
     {
-      "id": "forge:is_dead",
+      "id": "#forge:is_dead",
       "required": false
     },
     {
-      "id": "c:dead",
+      "id": "#c:dead",
       "required": false
     }
   ]

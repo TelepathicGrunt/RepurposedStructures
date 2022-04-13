@@ -8,11 +8,11 @@
       "required": false
     },
     {
-      "id": "forge:is_plains",
+      "id": "#forge:is_plains",
       "required": false
     },
     {
-      "id": "c:plains",
+      "id": "#c:plains",
       "required": false
     }
   ]

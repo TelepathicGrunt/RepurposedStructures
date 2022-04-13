@@ -3,15 +3,15 @@
   "values": [
     "#minecraft:is_nether",
     {
-      "id": "forge:is_nether",
+      "id": "#forge:is_nether",
       "required": false
     },
     {
-      "id": "c:nether",
+      "id": "#c:nether",
       "required": false
     },
     {
-      "id": "c:in_nether",
+      "id": "#c:in_nether",
       "required": false
     }
   ]

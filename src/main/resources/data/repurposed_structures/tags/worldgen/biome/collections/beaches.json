@@ -3,11 +3,11 @@
   "values": [
     "#minecraft:is_beach",
     {
-      "id": "forge:is_beach",
+      "id": "#forge:is_beach",
       "required": false
     },
     {
-      "id": "c:beach",
+      "id": "#c:beach",
       "required": false
     }
   ]

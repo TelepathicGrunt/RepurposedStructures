@@ -7,19 +7,19 @@
       "required": false
     },
     {
-      "id": "forge:is_mesa",
+      "id": "#forge:is_mesa",
       "required": false
     },
     {
-      "id": "c:in_mesa",
+      "id": "#c:in_mesa",
       "required": false
     },
     {
-      "id": "forge:is_badlands",
+      "id": "#forge:is_badlands",
       "required": false
     },
     {
-      "id": "c:badlands",
+      "id": "#c:badlands",
       "required": false
     }
   ]

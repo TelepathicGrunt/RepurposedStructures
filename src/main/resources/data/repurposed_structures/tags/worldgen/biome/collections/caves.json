@@ -20,15 +20,15 @@
       "required": false
     },
     {
-      "id": "forge:is_underground",
+      "id": "#forge:is_underground",
       "required": false
     },
     {
-      "id": "c:underground",
+      "id": "#c:underground",
       "required": false
     },
     {
-      "id": "c:caves",
+      "id": "#c:caves",
       "required": false
     }
   ]
