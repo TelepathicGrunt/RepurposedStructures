@@ -1,3 +1,9 @@
+### **(V.4.1.4 Changes) (1.18.2 Minecraft)**
+
+#### Biome Tags:
+Fixed "#byg:is_icy" entry in repurposed_structures:collections/icy biome tag so it includes icy byg biomes properly.
+
+
 ### **(V.4.1.3 Changes) (1.18.2 Minecraft)**
 
 #### Biome Tags:
