@@ -1,3 +1,9 @@
+### **(V.4.1.5 Changes) (1.18.2 Minecraft)**
+
+#### Map Trades:
+Fixed crash with Villager mods that add Villagers with more than 5 trade tiers. 
+
+
 ### **(V.4.1.4 Changes) (1.18.2 Minecraft)**
 
 #### Biome Tags:

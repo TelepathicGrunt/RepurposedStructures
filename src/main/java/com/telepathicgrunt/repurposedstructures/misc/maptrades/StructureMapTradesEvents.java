@@ -43,7 +43,7 @@ public final class StructureMapTradesEvents {
         for (Map.Entry<ResourceKey<VillagerProfession>, VillagerProfession> prof : Registry.VILLAGER_PROFESSION.entrySet()) {
             Int2ObjectMap<VillagerTrades.ItemListing[]> trades = VillagerTrades.TRADES.getOrDefault(prof.getValue(), new Int2ObjectOpenHashMap<>());
             Int2ObjectMap<List<VillagerTrades.ItemListing>> mutableTrades = new Int2ObjectOpenHashMap<>();
-            for (int i = 1; i < 6; i++) {
+            for (int i = 1; i <= trades.size(); i++) {
                 mutableTrades.put(i, NonNullList.create());
             }
             trades.int2ObjectEntrySet().forEach(e -> Arrays.stream(e.getValue()).forEach(mutableTrades.get(e.getIntKey())::add));
