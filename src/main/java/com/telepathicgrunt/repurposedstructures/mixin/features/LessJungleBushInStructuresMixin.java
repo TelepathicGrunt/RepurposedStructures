@@ -35,16 +35,12 @@ public class LessJungleBushInStructuresMixin {
             context.config().minimumSize.minClippedHeight().orElse(0) < 2)
         {
             // Rate for removal of bush
-            if(context.random().nextFloat() < 0.9f) {
-                SectionPos sectionPos = SectionPos.of(context.origin());
-                ChunkAccess chunkAccess = context.level().getChunk(context.origin());
-
+            if(context.random().nextFloat() < 0.85f) {
                 Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
                 StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
 
                 for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.LESS_JUNGLE_BUSHES)) {
-                    StructureStart startForFeature = structureFeatureManager.getStartForFeature(sectionPos, configuredStructureFeature.value(), chunkAccess);
-                    if (startForFeature != null && startForFeature.isValid()) {
+                    if (structureFeatureManager.getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
                         cir.setReturnValue(false);
                         return;
                     }
