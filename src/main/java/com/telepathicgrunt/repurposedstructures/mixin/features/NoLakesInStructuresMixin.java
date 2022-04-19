@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
@@ -27,6 +28,10 @@ public class NoLakesInStructuresMixin {
             cancellable = true
     )
     private void repurposedstructures_noLakesInStructures(FeaturePlaceContext<BlockStateConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
+        if(!(context.level() instanceof WorldGenRegion)) {
+            return;
+        }
+
         SectionPos sectionPos = SectionPos.of(context.origin());
         ChunkAccess chunkAccess = context.level().getChunk(context.origin());
 

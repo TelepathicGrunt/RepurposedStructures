@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
@@ -27,6 +28,10 @@ public class NoLavaFallsInStructuresMixin {
             cancellable = true
     )
     private void repurposedstructures_noLavaInStructures(FeaturePlaceContext<SpringConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
+        if(!(context.level() instanceof WorldGenRegion)) {
+            return;
+        }
+
         if(context.config().state.is(FluidTags.LAVA)) {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for(Direction face : Direction.Plane.HORIZONTAL) {
