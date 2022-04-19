@@ -4,6 +4,10 @@
 Fixed crash when certain features are spawned outside of worldgen. 
  (Made some mixins safer and only apply their changes when during worldgen)
 
+Fixed mixins that reduces amount of jungle bushes in some RS structures.
+
+Fixed mixins that removes lava lakes from spawning in some RS structures.
+
 
 ### **(V.4.1.5 Changes) (1.18.2 Minecraft)**
 
