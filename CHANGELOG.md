@@ -1,3 +1,10 @@
+### **(V.5.1.6 Changes) (1.18.2 Minecraft)**
+
+#### Misc:
+Fixed crash when certain features are spawned outside of worldgen.
+ (Made some mixins safer and only apply their changes when during worldgen)
+
+
 ### **(V.5.1.5 Changes) (1.18.2 Minecraft)**
 
 #### Biome Tags:

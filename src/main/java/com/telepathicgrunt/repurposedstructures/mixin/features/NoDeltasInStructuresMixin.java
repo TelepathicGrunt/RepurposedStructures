@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.world.WorldGenRegionAccess
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.level.levelgen.feature.DeltaFeature;
@@ -24,6 +25,10 @@ public class NoDeltasInStructuresMixin {
             cancellable = true
     )
     private void repurposedstructures_noDeltasInStructures(FeaturePlaceContext<DeltaFeatureConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
+        if(!(context.level() instanceof WorldGenRegion)) {
+            return;
+        }
+
         Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
         StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
         for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_BASALT)) {
