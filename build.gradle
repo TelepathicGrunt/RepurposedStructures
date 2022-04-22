@@ -55,11 +55,11 @@ dependencies {
 	modImplementation "maven.modrinth:modmenu:${libs.versions.mod.menu.get()}"
 	modApi "me.shedaniel.cloth:cloth-config-fabric:${libs.versions.cloth.config.get()}"
 
-	//modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
-	//modRuntimeOnly "com.telepathicgrunt:CommandStructures-Quilt:2.0.2+1.18.2"
-	//modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Quilt:${libs.versions.nbtdbg.get()}"
+	modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
+	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Quilt:2.0.2+1.18.2"
+	modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Quilt:${libs.versions.nbtdbg.get()}"
 
-	//modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
+	modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
 	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
 
 	//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
