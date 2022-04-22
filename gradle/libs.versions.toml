@@ -6,7 +6,7 @@ quilt_loader = "0.16.0-beta.8"
 
 quilted_fabric_api = "1.0.0-beta.8+0.51.1-1.18.2"
 cloth_config = "6.2.57"
-mod_menu = "3.0.1"
+mod_menu = "3.1.1"
 nbtdbg = "2.0.0+1.18.2"
 
 [libraries]
