@@ -21,6 +21,20 @@ loom {
 	accessWidenerPath = file("src/main/resources/repurposed_structures.accesswidener")
 }
 
+configurations.all {
+	resolutionStrategy.dependencySubstitution {
+		substitute module('net.fabricmc:fabric-loader') using module(libs.quilt.loader.get().toString())
+		all { DependencySubstitution dependency ->
+			if (dependency.requested instanceof ModuleComponentSelector && dependency.requested.group == 'net.fabricmc.fabric-api') {
+				if (dependency.requested.module == 'fabric-api')
+					dependency.useTarget libs.quilted.fabric.api.get().toString()
+				else
+					dependency.useTarget 'org.quiltmc.quilted-fabric-api' + ':' + dependency.requested.module + ':' + libs.versions.quilted.fabric.api.get()
+			}
+		}
+	}
+}
+
 repositories {
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://api.modrinth.com/maven/" }
