@@ -23,7 +23,7 @@ dependencies {
 
 ...
 
-&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:\<modversion>+1.18.1"
+&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Quilt:\<modversion>+1.18.1"
 
 }</blockquote>
 

@@ -1,8 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.configs;
 
 
-import draylar.omegaconfig.api.Comment;
-import draylar.omegaconfig.api.Config;
+import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api.Comment;
+import com.telepathicgrunt.repurposedstructures.configs.omegaconfig.api.Config;
 
 import java.util.HashMap;
 import java.util.Map;
