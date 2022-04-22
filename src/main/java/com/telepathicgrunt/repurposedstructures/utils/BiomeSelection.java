@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ public final class BiomeSelection {
         return Arrays.stream(keys).anyMatch(key -> context.getBiomeKey().equals(key));
     }
 
+    @SafeVarargs
     public static boolean haveCategories(BiomeSelectionContext context, TagKey<Biome>... tagKeys) {
         return Arrays.stream(tagKeys).anyMatch(context::hasTag);
     }
@@ -51,11 +51,5 @@ public final class BiomeSelection {
         ResourceLocation registryId = registry.getKey(worldgenObject);
         String biomeID = context.getBiomeKey().location().toString();
         return BiomeDimensionAllowDisallow.BIOME_DISALLOW.getOrDefault(registryId, new ArrayList<>()).stream().anyMatch(pattern -> pattern.matcher(biomeID).matches());
-    }
-
-    public static boolean isBiomeAllowed(BiomeSelectionContext context, StructureFeature<?> structureFeature, Supplier<Boolean> defaultCondition) {
-        return (BiomeSelection.isBiomeAllowed(context, structureFeature, Registry.STRUCTURE_FEATURE) ||
-                (!BiomeSelection.isBiomeDisallowed(context, structureFeature, Registry.STRUCTURE_FEATURE) &&
-                        defaultCondition.get()));
     }
 }

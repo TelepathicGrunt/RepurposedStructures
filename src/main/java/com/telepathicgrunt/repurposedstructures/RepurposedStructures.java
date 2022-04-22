@@ -21,15 +21,16 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import draylar.omegaconfig.OmegaConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.Event;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.loader.api.QuiltLoader;
+import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import org.quiltmc.qsl.base.api.event.Event;
+import org.quiltmc.qsl.lifecycle.api.event.ServerWorldLoadEvents;
+import org.quiltmc.qsl.resource.loader.api.ResourceLoader;
 
 
 public class RepurposedStructures implements ModInitializer {
@@ -45,7 +46,7 @@ public class RepurposedStructures implements ModInitializer {
 
 
     @Override
-    public void onInitialize() {
+    public void onInitialize(ModContainer mod) {
         AutoConfig.register(RSAllConfig.class, JanksonConfigSerializer::new);
         RSAllConfig = AutoConfig.getConfigHolder(RSAllConfig.class).getConfig();
 
@@ -62,18 +63,18 @@ public class RepurposedStructures implements ModInitializer {
         setupBiomeModifications();
         PoolAdditionMerger.mergeAdditionPools();
         StructureMapTradesEvents.setupTradeEvent();
-        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
-        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structureMapManager);
-        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structurePieceCountsManager);
+        ResourceLoader.get(PackType.SERVER_DATA).registerReloader(RepurposedStructures.mobSpawnerManager);
+        ResourceLoader.get(PackType.SERVER_DATA).registerReloader(RepurposedStructures.structureMapManager);
+        ResourceLoader.get(PackType.SERVER_DATA).registerReloader(RepurposedStructures.structurePieceCountsManager);
 
         // Controls the dimension blacklisting
         // Must run after fapi to undo its changes
         ResourceLocation runAfterFabricAPIPhase = new ResourceLocation(RepurposedStructures.MODID, "run_after_fabric_api");
-        ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
+        ServerWorldLoadEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
         initialized = true;
 
         //For mod compat by checking if other mod is on
-        EndRemasteredDedicatedLoot.isEndRemasteredOn = FabricLoader.getInstance().isModLoaded("endrem");
+        EndRemasteredDedicatedLoot.isEndRemasteredOn = QuiltLoader.isModLoaded("endrem");
     }
 
 

@@ -7,7 +7,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.features.DungeonFeatureAccessor;
-import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -16,12 +15,13 @@ import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
 import org.apache.logging.log4j.Level;
+import org.quiltmc.qsl.resource.loader.api.reloader.IdentifiableResourceReloader;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class MobSpawnerManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
+public class MobSpawnerManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloader {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
     private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
     private final ResourceLocation MOB_SPAWNER_MANAGER_ID = new ResourceLocation(RepurposedStructures.MODID, "mob_spawner_manager");
@@ -91,7 +91,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
     }
 
     @Override
-    public ResourceLocation getFabricId() {
+    public ResourceLocation getQuiltId() {
         return MOB_SPAWNER_MANAGER_ID;
     }
 }

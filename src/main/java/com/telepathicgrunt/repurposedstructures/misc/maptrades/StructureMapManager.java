@@ -5,17 +5,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import org.quiltmc.qsl.resource.loader.api.reloader.IdentifiableResourceReloader;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StructureMapManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
+public class StructureMapManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloader {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
     private final ResourceLocation STRUCTURE_MAP_MANAGER_ID = new ResourceLocation(RepurposedStructures.MODID, "structure_map_manager");
 
@@ -43,9 +43,9 @@ public class StructureMapManager extends SimpleJsonResourceReloadListener implem
         VILLAGER_MAP_TRADES =  builderVillager.build();
         WANDERING_TRADER_MAP_TRADES =  builderWandering.build();
     }
-
+    
     @Override
-    public ResourceLocation getFabricId() {
+    public ResourceLocation getQuiltId() {
         return STRUCTURE_MAP_MANAGER_ID;
     }
 }

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.telepathicgrunt",
+    "id": "repurposed_structures",
+    "version": "${version}",
+    "metadata": {
+      "name": "Repurposed Structures",
+      "description": "Adds more variations of vanilla structures and features!",
+      "contributors": {
+        "Me!": "TelepathicGrunt"
+      },
+      "license": "GNU Lesser General Public License v3.0",
+      "icon": "LGPL-3.0-or-later",
+      "contact": {
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric",
+        "issues": "https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/issues"
+      }
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "com.telepathicgrunt.repurposedstructures.RepurposedStructures",
+      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.16.0-"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=1.0.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.18.2"
+      },
+      {
+        "id": "cloth-config2",
+        "versions": ">=6.2.57"
+      },
+      {
+        "id": "cloth-feature_nbt_deadlock_be_gone",
+        "versions": "*"
+      }
+    ]
+  },
+  "accessWidener" : "repurposed_structures.accesswidener",
+  "mixin": "repurposed_structures.mixins.json"
+}

@@ -14,7 +14,6 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolEleme
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.RegistryOps;
@@ -27,6 +26,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import org.quiltmc.qsl.lifecycle.api.event.ServerLifecycleEvents;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +47,7 @@ public final class PoolAdditionMerger {
      * Call this at mod init so we can subscribe our pool merging to run at server startup as that's when the dynamic registry exists.
      */
     public static void mergeAdditionPools() {
-        ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer minecraftServer) -> {
+        ServerLifecycleEvents.STARTING.register((MinecraftServer minecraftServer) -> {
             ResourceManager resourceManager = ((StructureManagerAccessor) minecraftServer.getStructureManager()).repurposedstructures_getResourceManager();
             Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = GeneralUtils.getAllDatapacksJSONElement(resourceManager, GSON, DATA_TYPE, FILE_SUFFIX_LENGTH);
             parsePoolsAndBeginMerger(poolAdditionJSON, minecraftServer.registryAccess(), minecraftServer.getStructureManager());

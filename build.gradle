@@ -1,6 +1,3 @@
-import com.google.gson.Gson
-import net.fabricmc.loom.task.RemapJarTask
-
 buildscript {
 	repositories {
 		maven { url "https://plugins.gradle.org/m2/" }
@@ -11,16 +8,13 @@ buildscript {
 }
 
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
-	id 'io.github.juuxel.loom-quiltflower-mini' version '1.1.0'
+	alias(libs.plugins.quilt.loom)
+	id 'maven-publish'
 	id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
 archivesBaseName = project.archives_base_name
-version = "${project.mod_version}+${project.mc_version}"
+version = "${project.mod_version}+${libs.versions.minecraft.get()}"
 group = project.maven_group
 
 loom {
@@ -31,57 +25,56 @@ repositories {
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://api.modrinth.com/maven/" }
 	maven { url "https://jitpack.io" }
+	maven {	url "https://nexus.resourcefulbees.com/repository/maven-public/" }
+	maven { url "https://www.cursemaven.com" }
 }
 
 dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings minecraft.officialMojangMappings()
-	
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation ("maven.modrinth:modmenu:${project.mod_menu_version}") { transitive = false }
+	minecraft libs.minecraft
+	mappings( loom.layered {
+		addLayer quiltMappings.mappings("org.quiltmc:quilt-mappings:${libs.versions.quilt.mappings.get()}:v2")
+		officialMojangMappings()
+	})
+	modImplementation libs.quilt.loader
+	modImplementation libs.quilted.fabric.api
+	modImplementation ("maven.modrinth:modmenu:${libs.versions.mod.menu.get()}") { transitive = false }
 
-	modApi ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") { transitive = false }
-	modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}")
-}
+	modApi ("me.shedaniel.cloth:cloth-config-fabric:${libs.versions.cloth.config.get()}") { transitive = false }
+	modImplementation include("com.github.Draylar.omega-config:omega-config-base:${libs.versions.omega.config.get()}")
 
-if (project.use_third_party_mods) {
-	repositories {
-		maven {	url "https://nexus.resourcefulbees.com/repository/maven-public/" }
-		maven { url "https://www.cursemaven.com" }
-	}
+	modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
+	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:2.0.1+1.18.2"
+	modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:${libs.versions.nbtdbg.get()}"
 
-	dependencies {
-		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
-		modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:2.0.1+1.18.2"
-		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:${project.NBTDBG_version}"
+	modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
+	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
 
-		modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
-		//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
-
-		//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
-		//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
-		//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
-		//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
-		//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
-		//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
-		//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
-	}
+	//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
+	//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
+	//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
+	//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
+	//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
+	//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
+	//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
 }
 
 apply from: 'gradle/processresources.gradle'
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = "UTF-8"
-	it.options.release = 17
+	it.options.encoding = 'UTF-8'
+	it.options.release.set(17)
 }
 
 java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 	withSourcesJar()
 }
 
 jar {
-	from "LICENSE"
+	from("LICENSE") {
+		rename { "${it}_${archivesBaseName}"}
+	}
 }
 
 apply from: 'gradle/maven.gradle'
@@ -95,7 +88,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.changelog = changelogText
 	mainFile.changelogType = "markdown"
 	mainFile.releaseType = "release"
-	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
+	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${libs.versions.minecraft.get()} MC Quilt)"
 	mainFile.addRequirement("cloth-config")
 	mainFile.addRequirement("fabric-api")
 	mainFile.addRequirement("feature-nbt-deadlock-be-gone")
