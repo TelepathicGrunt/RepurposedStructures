@@ -25,7 +25,7 @@ bin/
 .classpath
 .project
 
-# fabric
+# quilt
 
 run/
 deps/
