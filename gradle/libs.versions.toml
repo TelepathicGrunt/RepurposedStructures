@@ -8,7 +8,7 @@ quilted_fabric_api = "1.0.0-beta.7+0.51.1-1.18.2"
 cloth_config = "6.2.57"
 omega_config = "1.0.8-1.17"
 mod_menu = "3.0.1"
-nbtdbg = "2.0.0+1.18.2-rc1"
+nbtdbg = "2.0.0+1.18.2"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
