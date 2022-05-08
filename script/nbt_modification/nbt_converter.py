@@ -22,12 +22,27 @@ import os
 
 blockPalette = {""}
 
-originalBiome = ""
-newBiome = ""
+originalBiome = "plains"
+newBiome = "oak"
 string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
+    "minecraft:village/plains/villagers": "minecraft:village/plains/villagers",
+    "minecraft:oak_planks": "minecraft:oak_wood",
+    "minecraft:oak_log": "minecraft:stripped_oak_log",
+    "minecraft:oak_stairs": "minecraft:oak_stairs",
+    "minecraft:oak_fence": "minecraft:oak_fence",
+    "minecraft:oak_pressure_plate": "minecraft:oak_pressure_plate",
+    "minecraft:oak_door": "minecraft:oak_door",
+    "minecraft:oak_trapdoor": "minecraft:oak_trapdoor",
+    "minecraft:glass_pane": "minecraft:glass_pane",
+    "minecraft:water_cauldron": "minecraft:water_cauldron",
+    "minecraft:torch": "minecraft:torch",
+    "minecraft:wall_torch": "minecraft:wall_torch",
+    "minecraft:white_carpet": "minecraft:brown_carpet",
+    "minecraft:orange_carpet": "minecraft:green_carpet",
+    "minecraft:cobblestone": "minecraft:terracotta"
 }
 #-------------------------------------------------------------------------------------------
 

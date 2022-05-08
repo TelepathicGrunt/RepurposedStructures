@@ -14,7 +14,7 @@ $ cd virtualenvironment
 $ python -m virtualenv nbt_converter
 
 # Switches the cmd to be in the project
-$ virtualenvironment\nbt_converter\Scripts\activate.bat
+$ nbt_converter\Scripts\activate.bat
 
 # Install package
 $ pip install Python-NBT
