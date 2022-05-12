@@ -1,3 +1,9 @@
+### **(V.4.1.7 Changes) (1.18.2 Minecraft)**
+
+#### Lang:
+it_it.json lang file added by Zano1999! Thank you!
+
+
 ### **(V.4.1.6 Changes) (1.18.2 Minecraft)**
 
 #### Misc:
