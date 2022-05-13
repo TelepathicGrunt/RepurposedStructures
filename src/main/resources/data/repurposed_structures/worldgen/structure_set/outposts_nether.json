@@ -2,11 +2,11 @@
   "structures": [
     {
       "structure": "repurposed_structures:outpost_nether_brick",
-      "weight": 100
+      "weight": 1
     },
     {
       "structure": "repurposed_structures:outpost_warped",
-      "weight": 1
+      "weight": 100
     },
     {
       "structure": "repurposed_structures:outpost_crimson",
@@ -15,8 +15,8 @@
   ],
   "placement": {
     "salt": 1104219583,
-    "spacing": 34,
-    "separation": 17,
+    "spacing": 65,
+    "separation": 25,
     "type": "minecraft:random_spread"
   }
 }

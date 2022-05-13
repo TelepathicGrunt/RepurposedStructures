@@ -1,5 +1,16 @@
 ### **(V.5.1.7 Changes) (1.18.2 Minecraft)**
 
+#### Outposts:
+Fixed Warped Outposts being very rare.
+
+#### Shipwrecks:
+Fixed Crimson Shipwreck being very rare.
+
+#### Nether Structures:
+Slightly decreased the spawnrates of all Nether Outposts, Nether Pyramid, Nether Ruins,
+ Nether Shipwrecks, Nether Temples, Nether Strongholds, Nether Mineshafts, and Nether Villages.
+ Hopefully this helps make the Nether a little less crowded.
+
 #### Lang:
 it_it.json lang file added by Zano1999! Thank you!
 
