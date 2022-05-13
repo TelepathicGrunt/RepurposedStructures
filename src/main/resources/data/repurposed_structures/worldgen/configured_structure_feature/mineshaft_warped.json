@@ -1,7 +1,7 @@
 {
   "type": "repurposed_structures:mineshaft_nether_generic",
   "config": {
-    "probability": 0.004,
+    "probability": 0.00275,
     "start_pool": "repurposed_structures:mineshafts/warped/start_pool",
     "size": 10,
     "max_y": 17,

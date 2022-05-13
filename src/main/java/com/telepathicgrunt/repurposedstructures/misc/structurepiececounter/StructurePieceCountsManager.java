@@ -33,7 +33,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     }
 
     @MethodsReturnNonnullByDefault
-    private List<StructurePieceCountsObj> getStructurePieceCountsObjs(JsonElement jsonElement) throws Exception {
+    private List<StructurePieceCountsObj> getStructurePieceCountsObjs(ResourceLocation fileIdentifier, JsonElement jsonElement) throws Exception {
         List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>() {}.getType());
         for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--) {
             StructurePieceCountsObj entry = piecesSpawnCounts.get(i);
@@ -47,7 +47,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
                         piecesSpawnCounts.remove(entry);
                     }
                 },
-                () -> RepurposedStructures.LOGGER.error("Error: Found " + entry.nbtPieceName + " entry has a condition that does not exist."));
+                () -> RepurposedStructures.LOGGER.error("Repurposed Structures Error: Found {} entry has a condition that does not exist. Extra info: {}", entry.nbtPieceName, fileIdentifier));
             }
         }
         return piecesSpawnCounts;
@@ -58,7 +58,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         Map<ResourceLocation, List<StructurePieceCountsObj>> mapBuilder = new HashMap<>();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
-                mapBuilder.put(fileIdentifier, getStructurePieceCountsObjs(jsonElement));
+                mapBuilder.put(fileIdentifier, getStructurePieceCountsObjs(fileIdentifier, jsonElement));
             }
             catch (Exception e) {
                 RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse rs_pieces_spawn_counts file {} - JSON looks like: {}", fileIdentifier, jsonElement, e);
@@ -73,7 +73,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     public void parseAndAddCountsJSONObj(ResourceLocation structureRL, List<JsonElement> jsonElements) {
         jsonElements.forEach(jsonElement -> {
             try {
-                this.StructureToPieceCountsObjs.computeIfAbsent(structureRL, rl -> new ArrayList<>()).addAll(getStructurePieceCountsObjs(jsonElement));
+                this.StructureToPieceCountsObjs.computeIfAbsent(structureRL, rl -> new ArrayList<>()).addAll(getStructurePieceCountsObjs(structureRL, jsonElement));
             }
             catch (Exception e) {
                 RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse rs_pieces_spawn_counts file {} - JSON looks like: {}", structureRL, jsonElement, e);

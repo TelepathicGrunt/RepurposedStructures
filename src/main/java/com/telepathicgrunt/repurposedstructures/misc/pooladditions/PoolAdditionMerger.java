@@ -156,7 +156,7 @@ public final class PoolAdditionMerger {
                         return optionalSupplier.get().get();
                     }
                     else {
-                        RepurposedStructures.LOGGER.error("Error: Found " + resourceLocation + " entry has a condition that does not exist.");
+                        RepurposedStructures.LOGGER.error("Repurposed Structures Error: Found {} entry has a condition that does not exist. Extra info: {}", resourceLocation, resourceLocation2);
                     }
                 }
                 return true;
