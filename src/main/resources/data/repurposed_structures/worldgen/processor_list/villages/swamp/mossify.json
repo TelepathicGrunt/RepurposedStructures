@@ -4,11 +4,11 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "Name": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:moss_carpet",
-            "probability": 0.15,
+            "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -95,6 +95,9 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
     }
   ]
 }

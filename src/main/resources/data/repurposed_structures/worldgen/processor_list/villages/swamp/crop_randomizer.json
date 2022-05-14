@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "Name": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:moss_carpet",
