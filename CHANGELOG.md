@@ -11,6 +11,18 @@ Slightly decreased the spawnrates of all Nether Outposts, Nether Pyramid, Nether
  Nether Shipwrecks, Nether Temples, Nether Strongholds, Nether Mineshafts, and Nether Villages.
  Hopefully this helps make the Nether a little less crowded.
 
+#### Villages:
+Fixed Badland Village's trapdoor plant pots to have grass block/podzol inside instead of air.
+
+Added stable_1 building to spawn in non-zombied Badlands Villages rarely.
+
+Dark Forest Village Churches and Stable buildings has some Granite Stairs/Slabs replaced with Dark Oak Stairs/Slabs
+
+Swamp Villages overall has their Moss Blocks on ground replaced with various terracotta blocks.
+ Moss Block and Moss Carpet has been removed from the outside of the Swamp Village's mud igloo houses and instead, has Moss Carpet on floor inside.
+
+Fixed Swamp Villages spawning Structure Void blocks sometimes.
+
 #### Lang:
 it_it.json lang file added by Zano1999! Thank you!
 

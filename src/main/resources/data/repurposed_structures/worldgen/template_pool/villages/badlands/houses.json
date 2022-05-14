@@ -120,6 +120,15 @@
       }
     },
     {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/badlands/zombie/houses/stable_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
       "weight": 10,
       "element": {
         "location": "repurposed_structures:villages/badlands/houses/saloon",
