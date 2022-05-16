@@ -3,6 +3,9 @@
 #### End Structures:
 End Pyramid, End Shipwreck, End Mineshaft, End Outpost, and End Ruined Portal all now generate only past 1000 blocks from the world center in the End.
 
+#### Dungeons:
+Set the default value for Ocean Dungeon's spawnrate from 3 to 2 in config/repurposed_structures-forge/dungeons.toml
+
 
 ### **(V.5.1.7 Changes) (1.18.2 Minecraft)**
 

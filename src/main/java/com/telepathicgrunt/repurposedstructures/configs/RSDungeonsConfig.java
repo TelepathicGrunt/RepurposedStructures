@@ -112,7 +112,7 @@ public class RSDungeonsConfig {
 
 			oceanDungeonAttemptsPerChunk = builder
 				.translation("repurposedstructures.oceandungeonattemptsperchunk")
-				.defineInRange("oceanDungeonAttemptsPerChunk", 3, 0, 1000);
+				.defineInRange("oceanDungeonAttemptsPerChunk", 2, 0, 1000);
 
 		builder.pop();
 

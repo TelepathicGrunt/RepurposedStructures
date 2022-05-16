@@ -150,7 +150,7 @@ public final class RSConfiguredFeatures {
                     VerticalAnchor.absolute(RSDungeonsConfig.jungleDungeonMaxHeight.get())),
             BiomeFilter.biome()));
 
-    private static final NbtDungeonConfig NEUTRAL_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_neutral_ocean"), "ocean", "ocean_neutral", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_neutral"), EMPTY_ID, 55, true, -1);
+    private static final NbtDungeonConfig NEUTRAL_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_neutral_ocean"), "ocean", "ocean_neutral", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_neutral"), EMPTY_ID, 54, true, -1);
     public static ConfiguredFeature<?, ?> OCEAN_NEUTRAL_DUNGEONS = new ConfiguredFeature<>(RSFeatures.NBT_DUNGEONS.get(), NEUTRAL_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_NEUTRAL_DUNGEONS_PLACED = new PlacedFeature(Holder.direct(OCEAN_NEUTRAL_DUNGEONS), List.of(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
@@ -160,7 +160,7 @@ public final class RSConfiguredFeatures {
                     VerticalAnchor.absolute(RSDungeonsConfig.oceanDungeonMaxHeight.get())),
             BiomeFilter.biome()));
 
-    private static final NbtDungeonConfig COLD_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_cold_ocean"), "ocean", "ocean_cold", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_cold"), EMPTY_ID, 55, true, -1);
+    private static final NbtDungeonConfig COLD_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_cold_ocean"), "ocean", "ocean_cold", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_cold"), EMPTY_ID, 54, true, -1);
     public static ConfiguredFeature<?, ?> OCEAN_COLD_DUNGEONS = new ConfiguredFeature<>(RSFeatures.NBT_DUNGEONS.get(), COLD_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_COLD_DUNGEONS_PLACED = new PlacedFeature(Holder.direct(OCEAN_COLD_DUNGEONS), List.of(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
@@ -170,7 +170,7 @@ public final class RSConfiguredFeatures {
                     VerticalAnchor.absolute(RSDungeonsConfig.oceanDungeonMaxHeight.get())),
             BiomeFilter.biome()));
 
-    private static final NbtDungeonConfig FROZEN_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_frozen_ocean"), "ocean", "ocean_frozen", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_frozen"), EMPTY_ID, 55, true, -1);
+    private static final NbtDungeonConfig FROZEN_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_frozen_ocean"), "ocean", "ocean_frozen", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_frozen"), EMPTY_ID, 54, true, -1);
     public static ConfiguredFeature<?, ?> OCEAN_FROZEN_DUNGEONS = new ConfiguredFeature<>(RSFeatures.NBT_DUNGEONS.get(), FROZEN_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_FROZEN_DUNGEONS_PLACED = new PlacedFeature(Holder.direct(OCEAN_FROZEN_DUNGEONS), List.of(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
@@ -180,7 +180,7 @@ public final class RSConfiguredFeatures {
                     VerticalAnchor.absolute(RSDungeonsConfig.oceanDungeonMaxHeight.get())),
             BiomeFilter.biome()));
 
-    private static final NbtDungeonConfig LUKEWARM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_lukewarm_ocean"), "ocean", "ocean_lukewarm", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"), EMPTY_ID, 55, true, -1);
+    private static final NbtDungeonConfig LUKEWARM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_lukewarm_ocean"), "ocean", "ocean_lukewarm", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"), EMPTY_ID, 54, true, -1);
     public static ConfiguredFeature<?, ?> OCEAN_LUKEWARM_DUNGEONS = new ConfiguredFeature<>(RSFeatures.NBT_DUNGEONS.get(), LUKEWARM_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_LUKEWARM_DUNGEONS_PLACED = new PlacedFeature(Holder.direct(OCEAN_LUKEWARM_DUNGEONS), List.of(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
@@ -190,7 +190,7 @@ public final class RSConfiguredFeatures {
                     VerticalAnchor.absolute(RSDungeonsConfig.oceanDungeonMaxHeight.get())),
             BiomeFilter.biome()));
 
-    private static final NbtDungeonConfig WARM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_warm_ocean"), "ocean", "ocean_warm", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_warm"), EMPTY_ID, 55, true, -1);
+    private static final NbtDungeonConfig WARM_DUNGEON_CONFIG = new NbtDungeonConfig(new ResourceLocation(RepurposedStructures.MODID, "dungeons_warm_ocean"), "ocean", "ocean_warm", new ResourceLocation(RepurposedStructures.MODID, "dungeons/ocean_warm"), EMPTY_ID, 54, true, -1);
     public static ConfiguredFeature<?, ?> OCEAN_WARM_DUNGEONS = new ConfiguredFeature<>(RSFeatures.NBT_DUNGEONS.get(), WARM_DUNGEON_CONFIG);
     public static PlacedFeature OCEAN_WARM_DUNGEONS_PLACED = new PlacedFeature(Holder.direct(OCEAN_WARM_DUNGEONS), List.of(
             UnlimitedCountPlacement.of(RSDungeonsConfig.oceanDungeonAttemptsPerChunk.get()),
