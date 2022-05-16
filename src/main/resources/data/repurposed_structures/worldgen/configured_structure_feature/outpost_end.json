@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:generic_jigsaw_structure",
+  "type": "repurposed_structures:land_based_end_structure",
   "config": {
     "start_pool": "repurposed_structures:outposts/end/base_plates",
     "size": 11,

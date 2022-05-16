@@ -33,6 +33,13 @@ public class ShipwreckEndStructure <C extends RSShipwreckEndConfig> extends Abst
         BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), context.chunkGenerator().getSeaLevel(), chunkPos.getMinBlockZ());
         CC config = context.config();
 
+        int radius = config.distanceFromOrigin;
+        int xBlockPos = context.chunkPos().getMinBlockX();
+        int zBlockPos = context.chunkPos().getMinBlockZ();
+        if((xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) <= radius * radius) {
+            return false;
+        }
+
         int checkRadius = 16;
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 

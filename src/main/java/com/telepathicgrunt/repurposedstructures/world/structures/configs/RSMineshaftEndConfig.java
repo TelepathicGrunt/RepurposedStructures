@@ -28,18 +28,22 @@ public class RSMineshaftEndConfig extends RSMineshaftConfig {
             ResourceKey.codec(Registry.STRUCTURE_SET_REGISTRY).listOf().fieldOf("structure_set_to_avoid").orElse(new ArrayList<>()).forGetter(config -> config.structureSetToAvoid),
             ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.poolsThatIgnoreBoundaries),
             Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter(config -> config.probability),
-            Codec.intRange(0, 1000).fieldOf("min_island_thickness_allowed").orElse(0).forGetter(config -> config.minIslandThickness)
+            Codec.intRange(0, 1000).fieldOf("min_island_thickness_allowed").orElse(0).forGetter(config -> config.minIslandThickness),
+            Codec.INT.fieldOf("distance_from_origin").orElse(0).forGetter(config -> config.distanceFromOrigin)
     ).apply(instance, RSMineshaftEndConfig::new));
 
     public final int minIslandThickness;
+    public final int distanceFromOrigin;
 
     public RSMineshaftEndConfig(Holder<StructureTemplatePool> startPool, int size,
                                 int maxY, int minY, boolean clipOutOfBoundsPieces,
                                 Optional<Integer> verticalRange, int biomeRadius, int structureAvoidRadius,
                                 List<ResourceKey<StructureSet>> structureSetToAvoid,
                                 HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
-                                float probability, int minIslandThickness) {
+                                float probability, int minIslandThickness,
+                                int distanceFromOrigin) {
         super(startPool, size, maxY, minY, clipOutOfBoundsPieces, verticalRange, biomeRadius, structureAvoidRadius, structureSetToAvoid, poolsThatIgnoreBoundaries, probability);
         this.minIslandThickness = minIslandThickness;
+        this.distanceFromOrigin = distanceFromOrigin;
     }
 }

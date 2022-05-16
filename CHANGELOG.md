@@ -1,3 +1,9 @@
+### **(V.4.1.8 Changes) (1.18.2 Minecraft)**
+
+#### End Structures:
+End Pyramid, End Shipwreck, End Mineshaft, End Outpost, and End Ruined Portal all now generate only past 1000 blocks from the world center in the End.
+
+
 ### **(V.4.1.7 Changes) (1.18.2 Minecraft)**
 
 #### Outposts:
