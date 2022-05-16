@@ -4,6 +4,7 @@
     "probability": 0.006,
     "start_pool": "repurposed_structures:mineshafts/end/start_pool",
     "size": 11,
+    "distance_from_origin": 1000,
     "min_island_thickness_allowed": 30,
     "structure_set_avoid_radius_check": 6,
     "structure_set_to_avoid": [

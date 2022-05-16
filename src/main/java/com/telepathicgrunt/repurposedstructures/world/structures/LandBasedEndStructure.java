@@ -26,6 +26,13 @@ public class LandBasedEndStructure <C extends RSGenericConfig> extends GenericJi
     }
 
     protected static <CC extends RSGenericConfig> boolean isLandFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+        int radius = 1000;
+        int xBlockPos = context.chunkPos().getMinBlockX();
+        int zBlockPos = context.chunkPos().getMinBlockZ();
+        if((xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) <= radius * radius) {
+            return false;
+        }
+
         return GenericJigsawStructure.isGenericFeatureChunk(context) && getTerrainHeight(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()) >= Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), 50);
     }
 

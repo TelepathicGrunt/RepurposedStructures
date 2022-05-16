@@ -32,14 +32,23 @@ public class MineshaftEndStructure <C extends RSMineshaftEndConfig> extends Mine
 
     protected static <CC extends RSMineshaftEndConfig> boolean isMineshaftEndFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
         boolean superCheck = MineshaftStructure.isMineshaftFeatureChunk(context);
-        if(!superCheck)
+        if(!superCheck) {
             return false;
+        }
 
         CC config = context.config();
 
+        int radius = config.distanceFromOrigin;
+        int xBlockPos = context.chunkPos().getMinBlockX();
+        int zBlockPos = context.chunkPos().getMinBlockZ();
+        if((xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) <= radius * radius) {
+            return false;
+        }
+
         int minThickness = config.minIslandThickness;
-        if(minThickness == 0)
+        if(minThickness == 0) {
             return true;
+        }
 
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
         int xPos = context.chunkPos().getMinBlockX();
