@@ -155,7 +155,7 @@ public class RSDungeonsConfig implements ConfigData {
                 Spawn attempts per chunk.
                 0 for no dungeons at all and 1000 for max spawnrate.""")
         @ConfigEntry.BoundedDiscrete(min = 0, max = 1000)
-        public int oceanDungeonAttemptsPerChunk = 3;
+        public int oceanDungeonAttemptsPerChunk = 2;
 
     }
 
