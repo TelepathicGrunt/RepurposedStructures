@@ -22,27 +22,20 @@ import os
 
 blockPalette = {""}
 
-originalBiome = "plains"
-newBiome = "oak"
+originalBiome = "_taiga"
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "spruce_stairs": "stone_brick_stairs",
+    "spruce_slab": "stone_brick_slab"
 }
 conversion_exact_dict = {
-    "minecraft:village/plains/villagers": "minecraft:village/plains/villagers",
-    "minecraft:oak_planks": "minecraft:oak_wood",
-    "minecraft:oak_log": "minecraft:stripped_oak_log",
-    "minecraft:oak_stairs": "minecraft:oak_stairs",
-    "minecraft:oak_fence": "minecraft:oak_fence",
-    "minecraft:oak_pressure_plate": "minecraft:oak_pressure_plate",
-    "minecraft:oak_door": "minecraft:oak_door",
-    "minecraft:oak_trapdoor": "minecraft:oak_trapdoor",
-    "minecraft:glass_pane": "minecraft:glass_pane",
-    "minecraft:water_cauldron": "minecraft:water_cauldron",
-    "minecraft:torch": "minecraft:torch",
-    "minecraft:wall_torch": "minecraft:wall_torch",
-    "minecraft:white_carpet": "minecraft:brown_carpet",
-    "minecraft:orange_carpet": "minecraft:green_carpet",
-    "minecraft:cobblestone": "minecraft:terracotta"
+    "minecraft:village/taiga/villagers": "minecraft:village/taiga/villagers",
+    "minecraft:cobblestone_stairs[facing=north,waterlogged=false]": "minecraft:stone_brick_stairs[facing=east,waterlogged=false]",
+    "minecraft:green_bed": "minecraft:light_gray_bed",
+    "minecraft:cobblestone": "minecraft:stone_bricks",
+    "minecraft:mossy_cobblestone": "minecraft:mossy_stone_bricks",
+    "minecraft:spruce_log": "minecraft:spruce_planks"
 }
 #-------------------------------------------------------------------------------------------
 

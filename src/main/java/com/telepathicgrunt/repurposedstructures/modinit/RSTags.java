@@ -25,6 +25,9 @@ public final class RSTags {
     public static TagKey<ConfiguredStructureFeature<?, ?>> NO_BASALT = TagKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "no_basalt"));
 
+    public static TagKey<ConfiguredStructureFeature<?, ?>> LARGER_LOCATE_SEARCH = TagKey.create(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY,
+            new ResourceLocation(RepurposedStructures.MODID, "larger_locate_search"));
+
 
     public static TagKey<Biome> DESERTS = TagKey.create(Registry.BIOME_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "collections/deserts"));
