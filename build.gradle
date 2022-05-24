@@ -64,6 +64,8 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures:2.0.1+1.18.2")
     runtimeOnly fg.deobf("com.telepathicgrunt:FeatureNBTDeadlockBeGone-Forge:2.0.0+1.18.2")
     runtimeOnly fg.deobf("curse.maven:structure_void_toggle-357304:3644532")
+    //runtimeOnly fg.deobf("curse.maven:advanced_peripherals-431725:3799046")
+    //runtimeOnly fg.deobf("curse.maven:cc_tweaked-282001:3770724")
 
     // 1.18.2
     //runtimeOnly fg.deobf("curse.maven:pneumaticcraft_repressurized-281849:3682893")
