@@ -40,7 +40,7 @@ while restart:
     shutil.copyfile("pack.mcmeta", path)
     with open(path, 'r+') as file:
         jsonData = json.load(file)
-        jsonData['pack']['description'] = f"Repurposed Structures - Config Datapack ${mc_version} v{version}"
+        jsonData['pack']['description'] = f"Repurposed Structures - Config Datapack {mc_version} v{version}"
         file.seek(0)
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()

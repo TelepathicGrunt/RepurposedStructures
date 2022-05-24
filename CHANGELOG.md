@@ -1,3 +1,13 @@
+### **(V.4.1.9 Changes) (1.18.2 Minecraft)**
+
+#### Locate:
+/locate command mixin that RS does now only increase the search radius for structures under the
+ `repurposed_structures:larger_locate_search` configured structure feature tag.
+ Has RS's Mineshafts by default and will make the command's search radius go from 100 structure region radius to 2000 radius. 
+ With this tag, the command should not time out as often when locating other mod's/datapack's structures that are having issues spawning.
+ Config datapack updated to include this new tag.
+
+
 ### **(V.4.1.8 Changes) (1.18.2 Minecraft)**
 
 #### End Structures:
