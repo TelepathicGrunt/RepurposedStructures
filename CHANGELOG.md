@@ -1,3 +1,10 @@
+### **(V.4.1.10 Changes) (1.18.2 Minecraft)**
+
+#### Config:
+Autoupdate the dimension blacklist config entry for RS's dungeons and wells so that it has `twilightforest:twilight_forest`
+ This will make RS dungeons and wells no longer spawn in Twilight Forest's dimension when they port to Fabric.
+
+
 ### **(V.4.1.9 Changes) (1.18.2 Minecraft)**
 
 #### Locate:
