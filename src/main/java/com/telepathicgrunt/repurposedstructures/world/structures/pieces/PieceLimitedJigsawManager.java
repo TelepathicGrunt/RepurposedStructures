@@ -147,14 +147,13 @@ public class PieceLimitedJigsawManager {
                                             
                                     -------------------------------------------------------------------
                                     Repurposed Structures: Failed to create valid structure with all required pieces starting from this pool file: {}. Required pieces failed to generate the required amount are: {}
-                                      Make sure this structure's size in the config (if it has one) is not set too low.
-                                      Also make sure the max height and min height for this structure in the config (if it has one) is not too close together.
-                                      If min and max height is super close together, the structure's pieces may not be able to fit in the narrow range and spawn.
-                                      Otherwise, if the min and max height ranges aren't close, and structure size isn't super small like 1 or 2, and this message still appears,
-                                      please report the issue to Repurposed Structures's dev with latest.log file!
+                                      This can happen if a structure has a required piece but the structure size is set too low.
+                                      However, this is most likely caused by a structure unable to spawn properly due to hitting the world's min y or max y build thresholds or a broken RS datapack.
+                                      Try teleporting to: {} and see if the structure generated fine with the required structure piece or if it is indeed missing it.
+                                      Please report the issue to Repurposed Structures's dev with latest.log file if the structure is not cut off by world min/max y build thresholds.
                                             
                                     """,
-                            startPool.getName(), Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()));
+                            startPool.getName(), Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()), new BlockPos(pieceCenterX, pieceCenterY, pieceCenterZ));
                     break;
                 }
 

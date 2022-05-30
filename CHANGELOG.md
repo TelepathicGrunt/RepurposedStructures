@@ -1,3 +1,9 @@
+### **(V.5.1.11 Changes) (1.18.2 Minecraft)**
+
+#### Misc:
+Slightly improved the error message that shows when a RS structure fails to generate with certain required pieces.
+
+
 ### **(V.5.1.10 Changes) (1.18.2 Minecraft)**
 
 #### Config:
