@@ -1,3 +1,10 @@
+### **(V.5.1.10 Changes) (1.18.2 Minecraft)**
+
+#### Config:
+Autoupdate the dimension blacklist config entry for RS's dungeons and wells so that it uses `twilightforest:twilight_forest` instead of `twilightforest:twilightforest`
+ This will make RS dungeons and wells no longer spawn in Twilight Forest's dimension.
+
+
 ### **(V.5.1.9 Changes) (1.18.2 Minecraft)**
 
 #### Locate:
