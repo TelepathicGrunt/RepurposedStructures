@@ -15,7 +15,7 @@
       },
       "Name": "minecraft:sandstone_wall"
     },
-    "target_floor_block": "minecraft:smooth_sandstone",
+    "target_floor_block": "minecraft:cut_sandstone",
     "is_water_based": false
   },
   "type": "repurposed_structures:mineshaft_supports"

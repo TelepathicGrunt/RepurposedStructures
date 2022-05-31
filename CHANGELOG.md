@@ -1,5 +1,8 @@
 ### **(V.5.1.11 Changes) (1.18.2 Minecraft)**
 
+#### Mineshafts:
+Fixed Desert and Swamp Mineshafts not having pillars/chains support.
+
 #### Misc:
 Slightly improved the error message that shows when a RS structure fails to generate with certain required pieces.
 

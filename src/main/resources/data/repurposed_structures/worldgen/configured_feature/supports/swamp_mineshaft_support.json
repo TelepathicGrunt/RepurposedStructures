@@ -15,7 +15,7 @@
       },
       "Name": "minecraft:mossy_stone_brick_wall"
     },
-    "target_floor_block": "minecraft:moss_block",
+    "target_floor_block": "minecraft:mossy_stone_bricks",
     "is_water_based": false
   },
   "type": "repurposed_structures:mineshaft_supports"
