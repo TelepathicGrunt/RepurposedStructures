@@ -1,3 +1,9 @@
+### **(V.4.1.13 Changes) (1.18.2 Minecraft)**
+
+#### Lang:
+Added uk_ua lang created by Kezunya. Special thanks to them!
+
+
 ### **(V.4.1.12 Changes) (1.18.2 Minecraft)**
 
 #### Mod Compat:
