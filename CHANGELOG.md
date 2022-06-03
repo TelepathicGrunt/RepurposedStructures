@@ -1,5 +1,11 @@
 ### **(V.5.1.13 Changes) (1.18.2 Minecraft)**
 
+#### Mod Compat:
+Added compat with Bright Spark's Async Locator mod! (PRed by Bright Spark)
+ Async Locator makes explorer maps not stall the world while they look for a structure. 
+ Perfect for map trades or chests with maps that causes the game to stall for a bit.
+ Async Locator: https://www.curseforge.com/minecraft/mc-mods/async-locator
+
 #### Lang:
 Added uk_ua lang created by Kezunya. Special thanks to them!
 

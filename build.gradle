@@ -103,6 +103,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.releaseType = "release"
     mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
     mainFile.addRequirement("feature-nbt-deadlock-be-gone")
+    mainFile.addOptional("async-locator")
 }
 
 task checkForRefmap() {
