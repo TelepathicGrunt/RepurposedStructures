@@ -1,6 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
 import com.mojang.datafixers.util.Pair;
+import com.telepathicgrunt.repurposedstructures.compat.AsyncLocatorCompat;
+import com.telepathicgrunt.repurposedstructures.compat.CompatCommon;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -55,32 +57,79 @@ public class StructureSpecificMaps {
 
         @Nullable
         public MerchantOffer getOffer(Entity entity, Random random) {
-            BlockPos blockpos = null;
             if (!(entity.level instanceof ServerLevel serverlevel)) {
                 return null;
             }
-            else if (this.destinationTag != null) {
-                blockpos = serverlevel.findNearestMapFeature(this.destinationTag, entity.blockPosition(), spawnRegionSearchRadius, true);
 
-            }
-            else {
-                Registry<ConfiguredStructureFeature<?, ?>> registry = serverlevel.registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
-                HolderSet<ConfiguredStructureFeature<?, ?>> holderset = HolderSet.direct(registry.getHolderOrThrow(destination));
-                Pair<BlockPos, Holder<ConfiguredStructureFeature<?, ?>>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapFeature(serverlevel, holderset, entity.blockPosition(), spawnRegionSearchRadius, true);
+            return CompatCommon.isAsyncLocatorLoaded()
+                ? getOfferAsync(serverlevel, entity)
+                : getOffer(serverlevel, entity);
+        }
+
+        private HolderSet<ConfiguredStructureFeature<?, ?>> getHolderSet(ServerLevel level) {
+            Registry<ConfiguredStructureFeature<?, ?>> registry =
+                level.registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
+            return HolderSet.direct(registry.getHolderOrThrow(destination));
+        }
+
+        private MerchantOffer getOffer(ServerLevel level, Entity entity) {
+            BlockPos blockpos = null;
+            if (destinationTag == null) {
+                HolderSet<ConfiguredStructureFeature<?, ?>> holderSet = getHolderSet(level);
+                Pair<BlockPos, Holder<ConfiguredStructureFeature<?, ?>>> pairResult =
+                    level.getChunkSource()
+                        .getGenerator()
+                        .findNearestMapFeature(level, holderSet, entity.blockPosition(), spawnRegionSearchRadius, true);
                 if (pairResult != null) {
                     blockpos = pairResult.getFirst();
                 }
+            } else {
+                blockpos = level.findNearestMapFeature(
+                    this.destinationTag,
+                    entity.blockPosition(),
+                    spawnRegionSearchRadius,
+                    true
+                );
             }
 
             if (blockpos != null) {
-                ItemStack itemstack = MapItem.create(serverlevel, blockpos.getX(), blockpos.getZ(), (byte)2, true, true);
-                MapItem.renderBiomePreviewMap(serverlevel, itemstack);
+                ItemStack itemstack = MapItem.create(level, blockpos.getX(), blockpos.getZ(), (byte) 2, true, true);
+                MapItem.renderBiomePreviewMap(level, itemstack);
                 MapItemSavedData.addTargetDecoration(itemstack, blockpos, "+", this.destinationType);
                 itemstack.setHoverName(new TranslatableComponent(this.displayName));
-                return new MerchantOffer(new ItemStack(Items.EMERALD, this.emeraldCost), new ItemStack(Items.COMPASS), itemstack, this.maxUses, this.villagerXp, 0.2F);
+                return new MerchantOffer(
+                    new ItemStack(Items.EMERALD, this.emeraldCost),
+                    new ItemStack(Items.COMPASS),
+                    itemstack,
+                    this.maxUses,
+                    this.villagerXp,
+                    0.2F
+                );
             }
-            else {
-                return null;
+            return null;
+        }
+
+        private MerchantOffer getOfferAsync(ServerLevel level, Entity trader) {
+            if (destinationTag == null) {
+                return AsyncLocatorCompat.updateMapAsync(
+                    trader,
+                    emeraldCost,
+                    displayName,
+                    destinationType,
+                    maxUses,
+                    villagerXp,
+                    getHolderSet(level)
+                );
+            } else {
+                return AsyncLocatorCompat.updateMapAsync(
+                    trader,
+                    emeraldCost,
+                    displayName,
+                    destinationType,
+                    maxUses,
+                    villagerXp,
+                    destinationTag
+                );
             }
         }
     }
