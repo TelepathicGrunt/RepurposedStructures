@@ -4,7 +4,7 @@
     "probability": 0.00275,
     "start_pool": "repurposed_structures:mineshafts/nether/start_pool",
     "size": 10,
-    "max_y": 17,
+    "max_y": 13,
     "min_y": 6
   },
   "biomes": "#repurposed_structures:has_structure/mineshafts/nether",

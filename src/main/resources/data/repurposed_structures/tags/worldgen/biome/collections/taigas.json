@@ -65,6 +65,14 @@
     {
       "id": "byg:maple_taiga",
       "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:boreal_forest",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:crystal_lakes",
+      "required": false
     }
   ]
 }

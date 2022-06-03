@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
-    "minecraft:basalt_deltas"
+    "minecraft:basalt_deltas",
+    {
+      "id": "betternether:flooded_deltas",
+      "required": false
+    },
+    {
+      "id": "betternether:gravel_desert",
+      "required": false
+    },
+    {
+      "id": "betternether:magma_land",
+      "required": false
+    }
   ]
 }

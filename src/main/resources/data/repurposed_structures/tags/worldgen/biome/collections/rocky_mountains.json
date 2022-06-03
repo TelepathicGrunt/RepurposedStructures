@@ -56,6 +56,10 @@
     {
       "id": "byg:canadian_shield",
       "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:overgrown_spires",
+      "required": false
     }
   ]
 }
