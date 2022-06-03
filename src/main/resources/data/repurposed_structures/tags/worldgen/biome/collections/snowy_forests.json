@@ -26,6 +26,14 @@
     {
       "id": "byg:frosted_coniferous_forest",
       "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:snowy_boreal_forest",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:snowy_redwoods",
+      "required": false
     }
   ]
 }

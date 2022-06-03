@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "minecraft:small_end_islands",
-    "minecraft:end_barrens"
+    "minecraft:end_barrens",
+    {
+      "id": "betterend:ice_starfield",
+      "required": false
+    }
   ]
 }

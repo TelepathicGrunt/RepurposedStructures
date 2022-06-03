@@ -1,7 +1,23 @@
+### **(V.4.1.12 Changes) (1.18.2 Minecraft)**
+
+#### Mod Compat:
+Added Betterend and Betternether biomes to the biome tags that my mod uses so my structures spawns in their biomes.
+
+Added Magical Forest's biome to the forest biome tags that my mod uses so my structures spawns in their biomes.
+
+Added ProjectVibrantJourney's biomes to the biome tags that my mod uses so my structures spawns in their biomes.
+(In case they port to Fabric)
+
+#### Mineshafts:
+Lowered Crimson, Warped, and Nether Mineshaft's max y value their center room can spawn at. (Lowers entire mineshaft by 4 blocks)
+ Config datapack is updated with this change now.
+
+
 ### **(V.4.1.11 Changes) (1.18.2 Minecraft)**
 
 #### Mineshafts:
 Fixed Desert and Swamp Mineshafts not having pillars/chains support.
+ (Config datapack now updated to include the small changes for this fix)
 
 #### Misc:
 Slightly improved the error message that shows when a RS structure fails to generate with certain required pieces.

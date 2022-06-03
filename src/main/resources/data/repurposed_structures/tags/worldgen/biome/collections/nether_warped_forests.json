@@ -1,6 +1,26 @@
 {
   "replace": false,
   "values": [
-    "minecraft:warped_forest"
+    "minecraft:warped_forest",
+    {
+      "id": "betternether:bone_reef",
+      "required": false
+    },
+    {
+      "id": "betternether:old_warped_woods",
+      "required": false
+    },
+    {
+      "id": "betternether:nether_jungle",
+      "required": false
+    },
+    {
+      "id": "betternether:upside_down_forest",
+      "required": false
+    },
+    {
+      "id": "betternether:upside_down_forest_cleared",
+      "required": false
+    }
   ]
 }

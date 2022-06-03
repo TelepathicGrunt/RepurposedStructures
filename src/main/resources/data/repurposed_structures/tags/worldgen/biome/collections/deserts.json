@@ -7,6 +7,14 @@
       "required": false
     },
     {
+      "id": "projectvibrantjourneys:desert_shrubland",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:verdant_sands",
+      "required": false
+    },
+    {
       "id": "#forge:is_sandy",
       "required": false
     },

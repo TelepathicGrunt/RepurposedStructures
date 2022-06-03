@@ -64,6 +64,18 @@
     {
       "id": "biomesoplenty:coniferous_forest",
       "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:redwoods",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:baobab_fields",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:snowy_redwoods",
+      "required": false
     }
   ]
 }
