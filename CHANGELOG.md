@@ -1,3 +1,51 @@
+### **(V.5.1.13 Changes) (1.18.2 Minecraft)**
+
+#### Lang:
+Added uk_ua lang created by Kezunya. Special thanks to them!
+
+
+## **(V.5.1.12 Changes) (1.18.2 Minecraft)**
+
+#### Mod Compat:
+Added Betterend and Betternether biomes to the biome tags that my mod uses so my structures spawns in their biomes. 
+ (Just in case they port to Forge 1.18.2)
+
+Added Magical Forest's biome to the forest biome tags that my mod uses so my structures spawns in their biomes.
+
+Added ProjectVibrantJourney's biomes to the biome tags that my mod uses so my structures spawns in their biomes.
+
+#### Mineshafts:
+Lowered Crimson, Warped, and Nether Mineshaft's max y value their center room can spawn at. (Lowers entire mineshaft by 4 blocks)
+ Config datapack is updated with this change now.
+
+
+### **(V.5.1.11 Changes) (1.18.2 Minecraft)**
+
+#### Mineshafts:
+Fixed Desert and Swamp Mineshafts not having pillars/chains support.
+ (Config datapack now updated to include the small changes for this fix)
+
+#### Misc:
+Slightly improved the error message that shows when a RS structure fails to generate with certain required pieces.
+
+
+### **(V.5.1.10 Changes) (1.18.2 Minecraft)**
+
+#### Config:
+Autoupdate the dimension blacklist config entry for RS's dungeons and wells so that it uses `twilightforest:twilight_forest` instead of `twilightforest:twilightforest`
+ This will make RS dungeons and wells no longer spawn in Twilight Forest's dimension.
+
+
+### **(V.5.1.9 Changes) (1.18.2 Minecraft)**
+
+#### Locate:
+/locate command mixin that RS does now only increase the search radius for structures under the
+ `repurposed_structures:larger_locate_search` configured structure feature tag.
+ Has RS's Mineshafts by default and will make the command's search radius go from 100 structure region radius to 2000 radius.
+ With this tag, the command should not time out as often when locating other mod's/datapack's structures that are having issues spawning.
+ Config datapack updated to include this new tag.
+
+
 ### **(V.5.1.8 Changes) (1.18.2 Minecraft)**
 
 #### End Structures:

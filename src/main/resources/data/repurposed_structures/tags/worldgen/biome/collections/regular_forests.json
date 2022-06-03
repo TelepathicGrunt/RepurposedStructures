@@ -41,6 +41,10 @@
     {
       "id": "biomesoplenty:old_growth_woodland",
       "required": false
+    },
+    {
+      "id": "magicalforest:magical_forest",
+      "required": false
     }
   ]
 }

@@ -29,6 +29,10 @@
     {
       "id": "#c:floral",
       "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:blossoming_fields",
+      "required": false
     }
   ]
 }

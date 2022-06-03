@@ -1,6 +1,22 @@
 {
   "replace": false,
   "values": [
-    "minecraft:crimson_forest"
+    "minecraft:crimson_forest",
+    {
+      "id": "betternether:crimson_glowing_woods",
+      "required": false
+    },
+    {
+      "id": "betternether:crimson_pinewood",
+      "required": false
+    },
+    {
+      "id": "betternether:old_swampland",
+      "required": false
+    },
+    {
+      "id": "betternether:nether_swampland",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,26 @@
 {
   "replace": false,
   "values": [
-    "minecraft:soul_sand_valley"
+    "minecraft:soul_sand_valley",
+    {
+      "id": "betternether:soul_plain",
+      "required": false
+    },
+    {
+      "id": "betternether:wart_forest",
+      "required": false
+    },
+    {
+      "id": "betternether:wart_forest_edge",
+      "required": false
+    },
+    {
+      "id": "betternether:poor_nether_grasslands",
+      "required": false
+    },
+    {
+      "id": "betternether:nether_grasslands",
+      "required": false
+    }
   ]
 }

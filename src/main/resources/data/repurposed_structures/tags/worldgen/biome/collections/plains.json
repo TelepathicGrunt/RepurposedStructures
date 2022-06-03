@@ -8,6 +8,10 @@
       "required": false
     },
     {
+      "id": "projectvibrantjourneys:prairie",
+      "required": false
+    },
+    {
       "id": "#forge:is_plains",
       "required": false
     },
