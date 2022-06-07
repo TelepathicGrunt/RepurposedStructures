@@ -87,7 +87,7 @@ public class NbtDungeonConfig implements FeatureConfiguration {
 
     public NbtDungeonConfig(String dungeonType, String spawnerType, ResourceLocation processor, ResourceLocation postProcessor,
                             int maxAirSpace, boolean airRequirementIsNowWater, int structureYOffset) {
-        this(new ResourceLocation(RepurposedStructures.MODID, "dungeon_" + dungeonType), false, 1, maxAirSpace, 2,
+        this(new ResourceLocation(RepurposedStructures.MODID, "dungeons_" + dungeonType), false, 1, maxAirSpace, 2,
                 airRequirementIsNowWater,
                 structureYOffset, Blocks.CHEST.defaultBlockState(),
                 new ResourceLocation(RepurposedStructures.MODID, "chests/dungeons/"+dungeonType),

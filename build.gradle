@@ -67,6 +67,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
     //runtimeOnly fg.deobf("curse.maven:advanced_peripherals-431725:3799046")
     //runtimeOnly fg.deobf("curse.maven:cc_tweaked-282001:3770724")
+    //runtimeOnly fg.deobf("curse.maven:the_twilight_forest-227639:3818688")
 
     // 1.18.2
     //runtimeOnly fg.deobf("curse.maven:pneumaticcraft_repressurized-281849:3682893")
