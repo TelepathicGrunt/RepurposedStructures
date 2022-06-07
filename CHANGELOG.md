@@ -1,3 +1,10 @@
+### **(V.4.1.14 Changes) (1.18.2 Minecraft)**
+
+#### Config:
+Fixed repurposed_structures-fabric/biome_dimension_allow_disallow_configs.json5 config file so it actually applies to RS dungeons.
+ Now the config should work properly... It's been broken for a few months and no one reported it till now...............
+
+
 ### **(V.4.1.13 Changes) (1.18.2 Minecraft)**
 
 #### Lang:
