@@ -5,7 +5,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
 import net.minecraft.core.BlockPos;
@@ -112,25 +111,6 @@ public final class GeneralUtils {
     }
 
     //////////////////////////////////////////////
-
-    public static boolean isBlacklistedForWorld(ServerLevelAccessor currentWorld, ResourceLocation worldgenObjectID) {
-        ResourceLocation worldID = currentWorld.getLevel().dimension().location();
-
-        // Apply disallow first. (Default behavior is it adds to all dimensions)
-        boolean allowInDim = BiomeDimensionAllowDisallow.DIMENSION_DISALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
-                .stream().noneMatch(pattern -> pattern.matcher(worldID.toString()).find());
-
-        // Apply allow to override disallow if dimension is targeted in both.
-        // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
-        if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
-                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())) {
-            allowInDim = true;
-        }
-
-        return !allowInDim;
-    }
-
-    //////////////////////////////
 
     public static ItemStack enchantRandomly(RandomSource random, ItemStack itemToEnchant, float chance) {
         if(random.nextFloat() < chance) {

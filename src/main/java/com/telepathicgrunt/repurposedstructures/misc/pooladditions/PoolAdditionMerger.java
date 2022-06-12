@@ -14,6 +14,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolEleme
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureTemplateManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.RegistryOps;
@@ -88,7 +89,7 @@ public final class PoolAdditionMerger {
      */
     private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureTemplateManager StructureTemplateManager) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
-        List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
+        ObjectArrayList<StructurePoolElement> elements = new ObjectArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
         List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
 
         elements.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getTemplates());

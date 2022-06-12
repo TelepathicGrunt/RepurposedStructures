@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
-import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
@@ -42,6 +41,8 @@ public class RepurposedStructures {
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
 
     public RepurposedStructures() {
+        RSTags.initTags();
+
         // Setup configs
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSModdedLootConfig.GENERAL_SPEC, "repurposed_structures-forge/modded_loot.toml");
 
@@ -73,9 +74,7 @@ public class RepurposedStructures {
 
     public void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            RSTags.initTags();
             RSGlobalLootModifier.registerLootData();
-            BiomeDimensionAllowDisallow.setupAllowDisallowMaps();
         });
     }
 
