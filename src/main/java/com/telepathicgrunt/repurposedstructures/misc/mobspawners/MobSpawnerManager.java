@@ -11,6 +11,7 @@ import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,7 +55,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
         this.spawnerMap =  builder.build();
     }
 
-    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {
+    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, RandomSource random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");

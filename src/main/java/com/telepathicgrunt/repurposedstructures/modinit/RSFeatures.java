@@ -20,8 +20,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class RSFeatures {
-	private RSFeatures() {}
-
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, RepurposedStructures.MODID);
 
 	public static final RegistryObject<Feature<NbtDungeonConfig>> NBT_DUNGEONS = FEATURES.register("nbt_dungeon", () -> new NbtDungeon(NbtDungeonConfig.CODEC));

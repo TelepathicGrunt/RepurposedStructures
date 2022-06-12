@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:removals_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/deep",
+  "feature": "minecraft:monster_room_deep",
+  "step": "underground_structures"
+}

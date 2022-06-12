@@ -15,9 +15,9 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import java.util.Optional;
 
@@ -33,8 +33,6 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
 
     @Override
     public boolean place(FeaturePlaceContext<NbtFeatureConfig> context) {
-        if(GeneralUtils.isBlacklistedForWorld(context.level(), context.config().cfID)) return false;
-
         // move to top land block below position
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(context.origin());
         for (mutable.move(Direction.UP); context.level().isEmptyBlock(mutable) && mutable.getY() > 2; ) {
@@ -59,7 +57,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
         }
 
         BlockPos.MutableBlockPos blockpos$Mutable = new BlockPos.MutableBlockPos();
-        StructureManager templatemanager = context.level().getLevel().getServer().getStructureManager();
+        StructureTemplateManager templatemanager = context.level().getLevel().getServer().getStructureManager();
         ResourceLocation nbtRL = GeneralUtils.getRandomEntry(context.config().nbtResourcelocationsAndWeights, context.random());
         Optional<StructureTemplate> template = templatemanager.get(nbtRL);
 

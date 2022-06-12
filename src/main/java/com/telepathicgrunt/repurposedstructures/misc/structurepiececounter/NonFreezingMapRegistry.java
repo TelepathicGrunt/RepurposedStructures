@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.logging.LogUtils;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.Lifecycle;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenCustomHashMap;
@@ -18,6 +19,7 @@ import net.minecraft.core.WritableRegistry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;
 
@@ -176,14 +178,18 @@ public class NonFreezingMapRegistry <T> extends WritableRegistry<T> {
         return Optional.ofNullable(this.byKey.get(p_205905_));
     }
 
-    public Holder<T> getOrCreateHolder(ResourceKey<T> p_205913_) {
-        return this.byKey.computeIfAbsent(p_205913_, (p_205924_) -> {
+    public DataResult<Holder<T>> getOrCreateHolder(ResourceKey<T> p_235720_) {
+        Holder.Reference<T> reference = this.byKey.get(p_235720_);
+        if (reference == null) {
             if (this.customHolderProvider != null) {
-                throw new IllegalStateException("This registry can't create new holders without value");
-            } else {
-                return Holder.Reference.createStandAlone(this, p_205924_);
+                return DataResult.error("This registry can't create new holders without value (requested key: " + p_235720_ + ")");
             }
-        });
+
+            reference = Holder.Reference.createStandAlone(this, p_235720_);
+            this.byKey.put(p_235720_, reference);
+        }
+
+        return DataResult.success(reference);
     }
 
     public int size() {
@@ -219,6 +225,11 @@ public class NonFreezingMapRegistry <T> extends WritableRegistry<T> {
 
     public Set<Map.Entry<ResourceKey<T>, T>> entrySet() {
         return Collections.unmodifiableSet(Maps.transformValues(this.byKey, Holder::value).entrySet());
+    }
+
+    @Override
+    public Set<ResourceKey<T>> registryKeySet() {
+        return Collections.unmodifiableSet(this.byKey.keySet());
     }
 
     public Stream<Holder.Reference<T>> holders() {
@@ -257,7 +268,7 @@ public class NonFreezingMapRegistry <T> extends WritableRegistry<T> {
         return this.byKey.isEmpty();
     }
 
-    public Optional<Holder<T>> getRandom(Random p_205889_) {
+    public Optional<Holder<T>> getRandom(RandomSource p_205889_) {
         return Util.getRandomSafe(this.holdersInOrder(), p_205889_).map(Holder::hackyErase);
     }
 
@@ -295,6 +306,17 @@ public class NonFreezingMapRegistry <T> extends WritableRegistry<T> {
 
             return this;
         }
+    }
+
+    @Override
+    public Holder<T> getOrCreateHolderOrThrow(ResourceKey<T> p_235795_) {
+        return this.byKey.computeIfAbsent(p_235795_, (p_235723_) -> {
+            if (this.customHolderProvider != null) {
+                throw new IllegalStateException("This registry can't create new holders without value");
+            } else {
+                return Holder.Reference.createStandAlone(this, p_235723_);
+            }
+        });
     }
 
     public Holder.Reference<T> createIntrusiveHolder(T p_205915_) {

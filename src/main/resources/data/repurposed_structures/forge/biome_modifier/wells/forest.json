@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/wells/forest",
+  "feature": "repurposed_structures:wells/forest",
+  "step": "surface_structures"
+}

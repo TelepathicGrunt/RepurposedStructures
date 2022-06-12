@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/deep",
+  "feature": "repurposed_structures:dungeons/deep",
+  "step": "underground_structures"
+}

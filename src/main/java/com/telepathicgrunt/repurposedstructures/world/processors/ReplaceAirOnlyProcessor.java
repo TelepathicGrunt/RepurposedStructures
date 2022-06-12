@@ -56,6 +56,6 @@ public class ReplaceAirOnlyProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.REPLACE_AIR_ONLY_PROCESSOR;
+        return RSProcessors.REPLACE_AIR_ONLY_PROCESSOR.get();
     }
 }

@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:mineshaft_nether_generic",
+  "start_pool": "repurposed_structures:mineshafts/crimson/start_pool",
+  "size": 10,
+  "biomes": "#repurposed_structures:has_structure/mineshafts/crimson",
+  "step": "fluid_springs",
+  "terrain_adaptation": "none",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 13
+    },
+    "min_inclusive": {
+      "absolute": 6
+    }
+  },
+  "spawn_overrides": {}
+}

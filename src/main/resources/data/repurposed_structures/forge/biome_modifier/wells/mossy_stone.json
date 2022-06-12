@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/wells/mossy_stone",
+  "feature": "repurposed_structures:wells/mossy_stone",
+  "step": "surface_structures"
+}

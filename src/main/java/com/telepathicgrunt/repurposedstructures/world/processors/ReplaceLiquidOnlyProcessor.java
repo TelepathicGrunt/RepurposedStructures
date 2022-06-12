@@ -57,6 +57,6 @@ public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.REPLACE_LIQUIDS_ONLY_PROCESSOR;
+        return RSProcessors.REPLACE_LIQUIDS_ONLY_PROCESSOR.get();
     }
 }

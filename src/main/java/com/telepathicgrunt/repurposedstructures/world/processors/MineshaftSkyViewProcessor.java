@@ -45,6 +45,6 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.MINESHAFT_SKY_VIEW_PROCESSOR;
+        return RSProcessors.MINESHAFT_SKY_VIEW_PROCESSOR.get();
     }
 }

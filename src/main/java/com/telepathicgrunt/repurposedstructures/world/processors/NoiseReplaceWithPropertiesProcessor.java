@@ -79,6 +79,6 @@ public class NoiseReplaceWithPropertiesProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.NOISE_REPLACE_WITH_PROPERTIES_PROCESSOR;
+        return RSProcessors.NOISE_REPLACE_WITH_PROPERTIES_PROCESSOR.get();
     }
 }

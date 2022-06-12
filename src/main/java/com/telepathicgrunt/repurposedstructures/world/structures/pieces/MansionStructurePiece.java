@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class MansionStructurePiece extends PoolElementStructurePiece {
 
@@ -32,8 +32,8 @@ public class MansionStructurePiece extends PoolElementStructurePiece {
         this.pillarOnlyToLand = pillarOnlyToLand;
     }
 
-    public MansionStructurePiece(StructureManager structureManager, StructurePoolElement structurePoolElement, BlockPos blockPos, int groundLevelDelta, Rotation rotation, BoundingBox boundingBox, String mansionType, BlockState foundationBlock, boolean pillarOnlyToLand) {
-        super(structureManager, structurePoolElement, blockPos, groundLevelDelta, rotation, boundingBox);
+    public MansionStructurePiece(StructureTemplateManager StructureTemplateManager, StructurePoolElement structurePoolElement, BlockPos blockPos, int groundLevelDelta, Rotation rotation, BoundingBox boundingBox, String mansionType, BlockState foundationBlock, boolean pillarOnlyToLand) {
+        super(StructureTemplateManager, structurePoolElement, blockPos, groundLevelDelta, rotation, boundingBox);
         this.mansionType = mansionType;
         this.foundationBlock = foundationBlock;
         this.pillarOnlyToLand = pillarOnlyToLand;
@@ -48,7 +48,7 @@ public class MansionStructurePiece extends PoolElementStructurePiece {
 
     @Override
     public StructurePieceType getType() {
-        return RSStructurePieces.MANSION_STRUCTURE_PIECE;
+        return RSStructurePieces.MANSION_STRUCTURE_PIECE.get();
     }
 
     @Override

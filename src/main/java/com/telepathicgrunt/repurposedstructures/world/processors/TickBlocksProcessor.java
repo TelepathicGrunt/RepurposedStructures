@@ -54,6 +54,6 @@ public class TickBlocksProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.TICK_BLOCKS_PROCESSOR;
+        return RSProcessors.TICK_BLOCKS_PROCESSOR.get();
     }
 }

@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/badlands",
+  "feature": "repurposed_structures:dungeons/badlands",
+  "step": "underground_structures"
+}

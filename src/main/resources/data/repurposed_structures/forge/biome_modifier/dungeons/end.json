@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/end",
+  "feature": "repurposed_structures:dungeons/end",
+  "step": "underground_structures"
+}

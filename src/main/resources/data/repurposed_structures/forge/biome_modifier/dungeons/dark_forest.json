@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/dark_forest",
+  "feature": "repurposed_structures:dungeons/dark_forest",
+  "step": "underground_structures"
+}

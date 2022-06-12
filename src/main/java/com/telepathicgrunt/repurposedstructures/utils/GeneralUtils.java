@@ -12,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -22,6 +21,7 @@ import net.minecraft.server.packs.resources.FallbackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.BlockGetter;
@@ -35,8 +35,7 @@ import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -53,16 +52,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 public final class GeneralUtils {
     private GeneralUtils() {}
 
     // Weighted Random from: https://stackoverflow.com/a/6737362
-    public static <T> T getRandomEntry(List<Pair<T, Integer>> rlList, Random random) {
+    public static <T> T getRandomEntry(List<Pair<T, Integer>> rlList, RandomSource random) {
         double totalWeight = 0.0;
 
         // Compute the total weight of all items together.
@@ -136,10 +132,10 @@ public final class GeneralUtils {
 
     //////////////////////////////
 
-    public static ItemStack enchantRandomly(Random random, ItemStack itemToEnchant, float chance) {
+    public static ItemStack enchantRandomly(RandomSource random, ItemStack itemToEnchant, float chance) {
         if(random.nextFloat() < chance) {
             List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
-                    .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).collect(Collectors.toList());
+                    .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).toList();
             if(!list.isEmpty()) {
                 Enchantment enchantment = list.get(random.nextInt(list.size()));
                 // bias towards weaker enchantments
@@ -159,9 +155,9 @@ public final class GeneralUtils {
 
     //////////////////////////////
 
-    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, RandomState randomState, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), getMaxTerrainLimit(chunkGenerator) - 20, boundingBox.getCenter().getZ());
-        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
+        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView, randomState);
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel()) {
             currentBlockstate = blockView.getBlock(mutable.getY());
@@ -179,9 +175,9 @@ public final class GeneralUtils {
     }
 
 
-    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, RandomState randomState, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
-        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
+        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView, randomState);
         BlockState currentBlockstate = blockView.getBlock(mutable.getY());
         while (mutable.getY() <= getMaxTerrainLimit(chunkGenerator) - 20) {
 
@@ -218,19 +214,6 @@ public final class GeneralUtils {
 
     private static boolean isReplaceableByStructures(BlockState blockState) {
         return blockState.isAir() || blockState.getMaterial().isLiquid() || blockState.getMaterial().isReplaceable();
-    }
-
-    //////////////////////////////////////////////
-
-    private static ConcurrentHashMap<FeatureConfiguration, ResourceLocation> CACHED_CONFIG_TO_CSF_RL = new ConcurrentHashMap<>();
-
-    public static ResourceLocation getCsfNameForConfig(FeatureConfiguration config, RegistryAccess registries) {
-        return CACHED_CONFIG_TO_CSF_RL.computeIfAbsent(config, c -> registries.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY)
-                .entrySet().stream().filter(entry -> entry.getValue().config == config).findFirst().get().getKey().location());
-    }
-
-    public static void clearCachedConfigToCsfRlMap() {
-        CACHED_CONFIG_TO_CSF_RL.clear();
     }
 
     //////////////////////////////////////////////
@@ -280,8 +263,8 @@ public final class GeneralUtils {
         // Find the file with the given id and add its filestream to the list
         for (PackResources resourcePack : allResourcePacks) {
             if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
-                if (inputStream != null) fileStreams.add(inputStream);
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callCreateResourceGetter(fileID, resourcePack).get();
+                fileStreams.add(inputStream);
             }
         }
 
@@ -299,7 +282,7 @@ public final class GeneralUtils {
         int dataTypeLength = dataType.length() + 1;
 
         // Finds all JSON files paths within the pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
-        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(dataType, (fileString) -> fileString.endsWith(".json"))) {
+        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(dataType, (fileString) -> fileString.toString().endsWith(".json")).keySet()) {
             String identifierPath = fileIDWithExtension.getPath();
             ResourceLocation fileID = new ResourceLocation(
                     fileIDWithExtension.getNamespace(),
@@ -357,41 +340,5 @@ public final class GeneralUtils {
             invalidLootTableFound = true;
         }
         return invalidLootTableFound;
-    }
-
-    ////////////////////////////
-
-    private static final CodecCache<PlacedFeature> placedFeatureCodecCache = CodecCache.of(PlacedFeature.DIRECT_CODEC);
-
-    /**
-     Will serialize (if possible) both features and check if they are the same feature.
-     If cannot serialize, compare the feature itself to see if it is the same.
-     */
-    public static boolean serializeAndCompareFeature(PlacedFeature placedFeature1, PlacedFeature placedFeature2) {
-        // PlacedFeature doesn't implement equals() so just check the reference.
-        if (placedFeature1 == placedFeature2) return true;
-
-        Optional<JsonElement> optionalJsonElement1 = encode(placedFeature1);
-        if (optionalJsonElement1.isEmpty()) return false;
-
-        Optional<JsonElement> optionalJsonElement2 = encode(placedFeature2);
-        if (optionalJsonElement2.isEmpty()) return false;
-
-        // Compare the JSON to see if it's the exact same ConfiguredFeature.
-        JsonElement featureJson1 = optionalJsonElement1.get();
-        JsonElement featureJson2 = optionalJsonElement2.get();
-        return featureJson1.equals(featureJson2);
-    }
-
-    public static String getCacheStats() {
-        return placedFeatureCodecCache.getStats();
-    }
-
-    public static void clearCache() {
-        placedFeatureCodecCache.clear();
-    }
-
-    public static Optional<JsonElement> encode(PlacedFeature feature) {
-        return placedFeatureCodecCache.get(feature);
     }
 }

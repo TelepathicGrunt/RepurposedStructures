@@ -5,11 +5,11 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.WorldGenRegion;
-import net.minecraft.world.level.StructureFeatureManager;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.levelgen.feature.DeltaFeature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.DeltaFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,10 +29,10 @@ public class NoDeltasInStructuresMixin {
             return;
         }
 
-        Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
-        StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
-        for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_BASALT)) {
-            if (structureFeatureManager.getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
+        Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+        StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
+        for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_BASALT)) {
+            if (structureManager .getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
                 cir.setReturnValue(false);
                 return;
             }

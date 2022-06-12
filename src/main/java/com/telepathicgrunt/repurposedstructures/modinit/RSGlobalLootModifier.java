@@ -11,8 +11,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class RSGlobalLootModifier {
-    private RSGlobalLootModifier() {}
-
     public static final DeferredRegister<GlobalLootModifierSerializer<?>> GLM = DeferredRegister.create(ForgeRegistries.Keys.LOOT_MODIFIER_SERIALIZERS, RepurposedStructures.MODID);
 
     public static final RegistryObject<StructureModdedLootImporter.Serializer> STRUCTURE_MODDED_LOOT_IMPORTER = GLM.register("import_structure_modded_loot", StructureModdedLootImporter.Serializer::new);

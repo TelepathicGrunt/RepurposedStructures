@@ -28,6 +28,6 @@ public class StructureVoidProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.STRUCTURE_VOID_PROCESSOR;
+        return RSProcessors.STRUCTURE_VOID_PROCESSOR.get();
     }
 }

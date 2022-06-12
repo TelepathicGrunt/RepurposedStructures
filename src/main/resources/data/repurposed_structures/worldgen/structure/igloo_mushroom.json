@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:igloos/mushroom_top",
+  "size": 2,
+  "cannot_spawn_in_liquid": true,
+  "biomes": "#repurposed_structures:has_structure/igloos/mushroom",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "start_height": {
+    "absolute": 0
+  },
+  "spawn_overrides": {}
+}

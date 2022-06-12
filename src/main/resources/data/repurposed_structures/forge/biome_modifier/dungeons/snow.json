@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/snow",
+  "feature": "repurposed_structures:dungeons/snow",
+  "step": "underground_structures"
+}

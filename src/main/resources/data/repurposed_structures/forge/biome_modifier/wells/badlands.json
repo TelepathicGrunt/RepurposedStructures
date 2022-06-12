@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/wells/badlands",
+  "feature": "repurposed_structures:wells/badlands",
+  "step": "surface_structures"
+}

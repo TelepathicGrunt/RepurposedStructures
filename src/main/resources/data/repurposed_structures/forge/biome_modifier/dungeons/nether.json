@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/nether",
+  "feature": "repurposed_structures:dungeons/nether",
+  "step": "underground_structures"
+}

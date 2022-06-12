@@ -1,0 +1,7 @@
+{
+  "type": "repurposed_structures:additions_temperature_modifier",
+  "biomes": "#repurposed_structures:has_structure/dungeons/ocean",
+  "feature": "repurposed_structures:dungeons/ocean_warm",
+  "step": "underground_structures",
+  "biome_temperature_allowed": "WARM"
+}

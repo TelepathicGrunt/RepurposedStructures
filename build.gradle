@@ -61,10 +61,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
-    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures:2.0.1+1.18.2")
-    runtimeOnly fg.deobf("com.telepathicgrunt:FeatureNBTDeadlockBeGone-Forge:2.0.0+1.18.2")
-    runtimeOnly fg.deobf("curse.maven:structure_void_toggle-357304:3644532")
-    compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
+    runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.0+1.19")
+    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.0.0+1.19")
+    // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
     //runtimeOnly fg.deobf("curse.maven:advanced_peripherals-431725:3799046")
     //runtimeOnly fg.deobf("curse.maven:cc_tweaked-282001:3770724")
     //runtimeOnly fg.deobf("curse.maven:the_twilight_forest-227639:3818688")
@@ -89,7 +88,8 @@ mixin {
     add sourceSets.main, "${modid}.refmap.json"
 }
 
-apply from: 'gradle/processresources.gradle'
+processResources {}
+
 apply from: 'gradle/manifest.gradle'
 apply from: 'gradle/maven.gradle'
 apply from: 'gradle/modrinth.gradle'
@@ -103,8 +103,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "release"
     mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
-    mainFile.addRequirement("feature-nbt-deadlock-be-gone")
-    mainFile.addOptional("async-locator")
+    //mainFile.addOptional("async-locator")
 }
 
 task checkForRefmap() {

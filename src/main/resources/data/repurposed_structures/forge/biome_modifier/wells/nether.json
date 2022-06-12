@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/wells/nether",
+  "feature": "repurposed_structures:wells/nether",
+  "step": "surface_structures"
+}

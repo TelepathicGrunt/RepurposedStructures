@@ -128,6 +128,6 @@ public class PillarProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.PILLAR_PROCESSOR;
+        return RSProcessors.PILLAR_PROCESSOR.get();
     }
 }

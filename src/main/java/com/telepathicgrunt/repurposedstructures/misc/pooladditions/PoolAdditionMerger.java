@@ -11,8 +11,8 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.JSONConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.ListPoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructureTemplateManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
@@ -23,8 +23,8 @@ import net.minecraft.world.level.levelgen.structure.pools.ListPoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public final class PoolAdditionMerger {
      * Call this at mod init so we can subscribe our pool merging to run at server startup as that's when the dynamic registry exists.
      */
     public static void mergeAdditionPools(final ServerAboutToStartEvent event) {
-        ResourceManager resourceManager = ((StructureManagerAccessor) event.getServer().getStructureManager()).repurposedstructures_getResourceManager();
+        ResourceManager resourceManager = ((StructureTemplateManagerAccessor) event.getServer().getStructureManager()).repurposedstructures_getResourceManager();
         Map<ResourceLocation, List<JsonElement>> poolAdditionJSON = GeneralUtils.getAllDatapacksJSONElement(resourceManager, GSON, DATA_TYPE, FILE_SUFFIX_LENGTH);
         parsePoolsAndBeginMerger(poolAdditionJSON, event.getServer().registryAccess(),  event.getServer().getStructureManager());
     }
@@ -55,7 +55,7 @@ public final class PoolAdditionMerger {
      * Using the given dynamic registry, will now parse the JSON objects of pools and resolve their processors with the dynamic registry.
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
-    private static void parsePoolsAndBeginMerger(Map<ResourceLocation, List<JsonElement>> poolAdditionJSON, RegistryAccess dynamicRegistryManager, StructureManager structureManager) {
+    private static void parsePoolsAndBeginMerger(Map<ResourceLocation, List<JsonElement>> poolAdditionJSON, RegistryAccess dynamicRegistryManager, StructureTemplateManager StructureTemplateManager) {
         Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
         RegistryOps<JsonElement> customRegistryOps = RegistryOps.create(JsonOps.INSTANCE, dynamicRegistryManager);
 
@@ -68,7 +68,7 @@ public final class PoolAdditionMerger {
                 try {
                     AdditionalStructureTemplatePool.DIRECT_CODEC.parse(customRegistryOps, jsonElement)
                             .resultOrPartial(messageString -> logBadData(entry.getKey(), messageString))
-                            .ifPresent(validPool -> mergeIntoExistingPool(validPool, poolRegistry.get(entry.getKey()), structureManager));
+                            .ifPresent(validPool -> mergeIntoExistingPool(validPool, poolRegistry.get(entry.getKey()), StructureTemplateManager));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error("""
@@ -86,7 +86,7 @@ public final class PoolAdditionMerger {
     /**
      * Merges the incoming pool with the given target pool in an additive manner that does not affect any other pools and can be stacked safely.
      */
-    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureManager structureManager) {
+    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureTemplateManager StructureTemplateManager) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
         List<StructurePoolElement> elements = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
         List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
@@ -99,7 +99,7 @@ public final class PoolAdditionMerger {
             if(element instanceof SinglePoolElement singlePoolElement) {
                 Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures_getTemplate().left();
                 if(nbtID.isEmpty()) continue;
-                Optional<StructureTemplate> structureTemplate = structureManager.get(nbtID.get());
+                Optional<StructureTemplate> structureTemplate = StructureTemplateManager.get(nbtID.get());
                 if(structureTemplate.isEmpty()) {
                     RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getName(), nbtID.get());
                 }
@@ -109,7 +109,7 @@ public final class PoolAdditionMerger {
                     if(listElement instanceof SinglePoolElement singlePoolElement) {
                         Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor) singlePoolElement).repurposedstructures_getTemplate().left();
                         if (nbtID.isEmpty()) continue;
-                        Optional<StructureTemplate> structureTemplate = structureManager.get(nbtID.get());
+                        Optional<StructureTemplate> structureTemplate = StructureTemplateManager.get(nbtID.get());
                         if (structureTemplate.isEmpty()) {
                             RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.getName(), nbtID.get());
                         }

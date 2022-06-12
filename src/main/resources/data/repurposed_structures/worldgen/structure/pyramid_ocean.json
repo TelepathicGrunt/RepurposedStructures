@@ -1,0 +1,15 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:pyramids/ocean",
+  "size": 3,
+  "biomes": "#repurposed_structures:has_structure/pyramids/ocean",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "can_spawn_in_liquid": true,
+  "project_start_to_heightmap": "OCEAN_FLOOR_WG",
+  "burying_type": "LOWEST_CORNER",
+  "start_height": {
+    "absolute": -3
+  },
+  "spawn_overrides": {}
+}

@@ -95,6 +95,6 @@ public class FloodWithWaterProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.FLOOD_WITH_WATER_PROCESSOR;
+        return RSProcessors.FLOOD_WITH_WATER_PROCESSOR.get();
     }
 }
