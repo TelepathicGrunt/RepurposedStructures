@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:generic_underground_jigsaw_structure",
+  "type": "repurposed_structures:generic_jigsaw_structure",
   "start_pool": "repurposed_structures:bastions/underground/starts",
   "size": 10,
   "valid_biome_radius_check": 7,

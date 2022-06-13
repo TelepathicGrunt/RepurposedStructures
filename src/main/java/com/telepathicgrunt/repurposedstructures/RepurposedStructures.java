@@ -15,6 +15,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import net.minecraftforge.common.MinecraftForge;
@@ -67,6 +68,7 @@ public class RepurposedStructures {
         RSStructurePieces.STRUCTURE_PIECE.register(modEventBus);
         RSStructurePieces.STRUCTURE_POOL_ELEMENT.register(modEventBus);
         RSBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
+        RSStructurePlacementType.STRUCTURE_PLACEMENT_TYPE.register(modEventBus);
 
         //For mod compat by checking if other mod is on
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");

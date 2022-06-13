@@ -53,7 +53,7 @@ public class LocateCommandMixin {
                 throw ERROR_STRUCTURE_NOT_FOUND.create(result.asPrintable());
             }
             else {
-                cir.setReturnValue(LocateCommand.showLocateResult(commandSourceStack, result, blockPos, pair, "commands.locate.success", false));
+                cir.setReturnValue(LocateCommand.showLocateResult(commandSourceStack, result, blockPos, pair, "commands.locate.structure.success", false));
             }
         }
     }

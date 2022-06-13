@@ -21,13 +21,33 @@
     "in_stronghold_nether": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:stronghold_nether"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:stronghold_nether"
+              }
+            }
+          }
+        ]
       }
     },
     "in_stronghold_end": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:stronghold_end"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:stronghold_end"
+              }
+            }
+          }
+        ]
       }
     }
   },

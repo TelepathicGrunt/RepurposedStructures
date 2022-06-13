@@ -6,7 +6,7 @@ For developers that want to add RS to their mod's workspace:
 
 &nbsp; maven {
 
-&nbsp; &nbsp; url "https://nexus.resourcefulbees.com/repository/maven-public/"
+&nbsp; &nbsp; url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
 
 &nbsp; }
 

@@ -21,7 +21,17 @@
     "in_bastion_underground": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:bastion_underground"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:bastion_underground"
+              }
+            }
+          }
+        ]
       }
     }
   },

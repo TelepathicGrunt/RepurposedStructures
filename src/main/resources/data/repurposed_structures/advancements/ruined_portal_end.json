@@ -21,7 +21,17 @@
     "in_ruined_portal_end": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:ruined_portal_end"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ruined_portal_end"
+              }
+            }
+          }
+        ]
       }
     }
   },

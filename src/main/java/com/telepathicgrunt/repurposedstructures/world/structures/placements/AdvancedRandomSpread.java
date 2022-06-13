@@ -13,6 +13,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Optional;
 
-public class AdvancedRandomSpread extends StructurePlacement {
+public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
     public static final Codec<AdvancedRandomSpread> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             Vec3i.offsetCodec(16).optionalFieldOf("locate_offset", Vec3i.ZERO).forGetter(AdvancedRandomSpread::locateOffset),
             StructurePlacement.FrequencyReductionMethod.CODEC.optionalFieldOf("frequency_reduction_method", StructurePlacement.FrequencyReductionMethod.DEFAULT).forGetter(AdvancedRandomSpread::frequencyReductionMethod),
@@ -31,7 +32,7 @@ public class AdvancedRandomSpread extends StructurePlacement {
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("spacing").forGetter(AdvancedRandomSpread::spacing),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("separation").forGetter(AdvancedRandomSpread::separation),
             RandomSpreadType.CODEC.optionalFieldOf("spread_type", RandomSpreadType.LINEAR).forGetter(AdvancedRandomSpread::spreadType),
-            Codec.intRange(0, Integer.MAX_VALUE).orElse(0).fieldOf("min_distance_from_world_origin").forGetter(AdvancedRandomSpread::minDistanceFromWorldOrigin)
+            Codec.intRange(0, Integer.MAX_VALUE).fieldOf("min_distance_from_world_origin").orElse(0).forGetter(AdvancedRandomSpread::minDistanceFromWorldOrigin)
     ).apply(instance, instance.stable(AdvancedRandomSpread::new)));
 
     private final int spacing;
@@ -49,7 +50,7 @@ public class AdvancedRandomSpread extends StructurePlacement {
                                 RandomSpreadType spreadType,
                                 int minDistanceFromWorldOrigin
     ) {
-        super(locationOffset, frequencyReductionMethod, frequency, salt, exclusionZone);
+        super(locationOffset, frequencyReductionMethod, frequency, salt, exclusionZone, spacing, separation, spreadType);
         this.spacing = spacing;
         this.separation = separation;
         this.spreadType = spreadType;

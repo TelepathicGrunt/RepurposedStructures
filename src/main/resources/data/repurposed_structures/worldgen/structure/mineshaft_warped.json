@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:mineshaft_nether_generic",
+  "type": "repurposed_structures:generic_jigsaw_structure",
   "start_pool": "repurposed_structures:mineshafts/warped/start_pool",
   "size": 10,
   "biomes": "#repurposed_structures:has_structure/mineshafts/warped",

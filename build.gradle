@@ -53,7 +53,7 @@ minecraft {
 }
 
 repositories {
-    maven { url "https://nexus.resourcefulbees.com/repository/maven-public/" }
+    maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
     maven { url "https://www.cursemaven.com" }
 }
 

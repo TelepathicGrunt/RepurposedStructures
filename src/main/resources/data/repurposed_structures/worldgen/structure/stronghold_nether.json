@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:stronghold_nether",
+  "type": "repurposed_structures:generic_jigsaw_structure",
   "start_pool": "repurposed_structures:strongholds/nether/start_pool",
   "size": 15,
   "biomes": "#repurposed_structures:has_structure/strongholds/nether",

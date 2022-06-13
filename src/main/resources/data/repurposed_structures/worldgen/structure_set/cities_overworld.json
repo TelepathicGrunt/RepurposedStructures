@@ -8,7 +8,7 @@
   "placement": {
     "type": "repurposed_structures:advanced_random_spread",
     "salt": 346349343,
-    "spacing": 180,
+    "spacing": 160,
     "separation": 90,
     "exclusion_zone": {
       "chunk_count": 3,

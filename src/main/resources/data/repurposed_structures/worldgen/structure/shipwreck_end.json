@@ -1,5 +1,5 @@
 {
-  "type": "repurposed_structures:shipwreck_end_structure",
+  "type": "repurposed_structures:generic_jigsaw_structure",
   "start_pool": "repurposed_structures:shipwrecks/end",
   "size": 1,
   "min_y_allowed": 35,
