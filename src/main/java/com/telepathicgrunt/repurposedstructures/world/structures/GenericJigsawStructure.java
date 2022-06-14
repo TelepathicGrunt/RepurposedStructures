@@ -47,7 +47,6 @@ public class GenericJigsawStructure extends Structure {
             Codec.INT.optionalFieldOf("min_y_allowed").forGetter(structure -> structure.minYAllowed),
             Codec.INT.optionalFieldOf("max_y_allowed").forGetter(structure -> structure.maxYAllowed),
             Codec.intRange(1, 1000).optionalFieldOf("allowed_y_range_from_start").forGetter(structure -> structure.allowedYRangeFromStart),
-            Codec.BOOL.fieldOf("cut_off_if_out_of_y_range").orElse(false).forGetter(structure -> structure.cutOffIfOutsideYLimits),
             HeightProvider.CODEC.fieldOf("start_height").forGetter(structure -> structure.startHeight),
             Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter(structure -> structure.projectStartToHeightmap),
             Codec.BOOL.fieldOf("cannot_spawn_in_liquid").orElse(false).forGetter(structure -> structure.cannotSpawnInLiquid),
@@ -56,7 +55,8 @@ public class GenericJigsawStructure extends Structure {
             Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius),
             ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
             Codec.intRange(1, 128).optionalFieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
-            StringRepresentable.fromEnum(BURYING_TYPE::values).optionalFieldOf("burying_type").forGetter(structure -> structure.buryingType)
+            StringRepresentable.fromEnum(BURYING_TYPE::values).optionalFieldOf("burying_type").forGetter(structure -> structure.buryingType),
+            Codec.BOOL.fieldOf("use_bounding_box_hack").orElse(false).forGetter(structure -> structure.useBoundingBoxHack)
     ).apply(instance, GenericJigsawStructure::new));
 
     public final Holder<StructureTemplatePool> startPool;
@@ -64,7 +64,6 @@ public class GenericJigsawStructure extends Structure {
     public final Optional<Integer> minYAllowed;
     public final Optional<Integer> maxYAllowed;
     public final Optional<Integer> allowedYRangeFromStart;
-    public final boolean cutOffIfOutsideYLimits;
     public final HeightProvider startHeight;
     public final Optional<Heightmap.Types> projectStartToHeightmap;
     public final boolean cannotSpawnInLiquid;
@@ -74,6 +73,7 @@ public class GenericJigsawStructure extends Structure {
     public final HashSet<ResourceLocation> poolsThatIgnoreBoundaries;
     public final Optional<Integer> maxDistanceFromCenter;
     public final Optional<BURYING_TYPE> buryingType;
+    public final boolean useBoundingBoxHack;
 
     public GenericJigsawStructure(Structure.StructureSettings config,
                                   Holder<StructureTemplatePool> startPool,
@@ -81,7 +81,6 @@ public class GenericJigsawStructure extends Structure {
                                   Optional<Integer> minYAllowed,
                                   Optional<Integer> maxYAllowed,
                                   Optional<Integer> allowedYRangeFromStart,
-                                  boolean cutOffIfOutsideYLimits,
                                   HeightProvider startHeight,
                                   Optional<Heightmap.Types> projectStartToHeightmap,
                                   boolean cannotSpawnInLiquid,
@@ -90,7 +89,8 @@ public class GenericJigsawStructure extends Structure {
                                   Optional<Integer> biomeRadius,
                                   HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
                                   Optional<Integer> maxDistanceFromCenter,
-                                  Optional<BURYING_TYPE> buryingType)
+                                  Optional<BURYING_TYPE> buryingType,
+                                  boolean useBoundingBoxHack)
     {
         super(config);
         this.startPool = startPool;
@@ -98,7 +98,6 @@ public class GenericJigsawStructure extends Structure {
         this.minYAllowed = minYAllowed;
         this.maxYAllowed = maxYAllowed;
         this.allowedYRangeFromStart = allowedYRangeFromStart;
-        this.cutOffIfOutsideYLimits = cutOffIfOutsideYLimits;
         this.startHeight = startHeight;
         this.projectStartToHeightmap = projectStartToHeightmap;
         this.cannotSpawnInLiquid = cannotSpawnInLiquid;
@@ -108,6 +107,7 @@ public class GenericJigsawStructure extends Structure {
         this.poolsThatIgnoreBoundaries = poolsThatIgnoreBoundaries;
         this.maxDistanceFromCenter = maxDistanceFromCenter;
         this.buryingType = buryingType;
+        this.useBoundingBoxHack = useBoundingBoxHack;
 
         if (maxYAllowed.isPresent() && minYAllowed.isPresent() && maxYAllowed.get() < minYAllowed.get()) {
             throw new RuntimeException("""
@@ -195,18 +195,10 @@ public class GenericJigsawStructure extends Structure {
 
         if(this.maxYAllowed.isPresent()) {
             topClipOff = Math.min(topClipOff, this.maxYAllowed.get());
-
-            if(cutOffIfOutsideYLimits) {
-                topClipOff += 5;
-            }
         }
 
         if(this.minYAllowed.isPresent()) {
             bottomClipOff = Math.min(bottomClipOff, this.minYAllowed.get());
-
-            if(cutOffIfOutsideYLimits) {
-                bottomClipOff -= 5;
-            }
         }
 
         int finalTopClipOff = topClipOff;
@@ -217,7 +209,7 @@ public class GenericJigsawStructure extends Structure {
                 this.size,
                 context.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY).getKey(this),
                 blockpos,
-                this.projectStartToHeightmap.isPresent(),
+                this.useBoundingBoxHack,
                 this.projectStartToHeightmap,
                 topClipOff,
                 bottomClipOff,
@@ -290,10 +282,14 @@ public class GenericJigsawStructure extends Structure {
 
             BoundingBox box = pieces.get(0).getBoundingBox();
             BlockPos centerPos = box.getCenter();
-            int highestLandPos = context.chunkGenerator().getFirstOccupiedHeight(box.minX(), centerPos.getZ(), heightMapToUse, context.heightAccessor(), context.randomState());
-            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPos.getX(), box.maxZ(), heightMapToUse, context.heightAccessor(), context.randomState()));
-            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(centerPos.getX(), box.minZ(), heightMapToUse, context.heightAccessor(), context.randomState()));
-            highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(box.maxX(), centerPos.getZ(), heightMapToUse, context.heightAccessor(), context.randomState()));
+            int highestLandPos = Integer.MAX_VALUE;
+            highestLandPos = terrainHeight(context, heightMapToUse, box.minX(), centerPos.getZ(), minYAllowed, highestLandPos);
+            highestLandPos = terrainHeight(context, heightMapToUse, centerPos.getX(), box.maxZ(), minYAllowed, highestLandPos);
+            highestLandPos = terrainHeight(context, heightMapToUse, centerPos.getX(), box.minZ(), minYAllowed, highestLandPos);
+            highestLandPos = terrainHeight(context, heightMapToUse, box.maxX(), centerPos.getZ(), minYAllowed, highestLandPos);
+            if (minYAllowed.isPresent() && highestLandPos == Integer.MAX_VALUE) {
+                highestLandPos = minYAllowed.get();
+            }
 
             if(heightMapToUse == Heightmap.Types.OCEAN_FLOOR_WG || heightMapToUse == Heightmap.Types.OCEAN_FLOOR) {
                 int maxHeightForSubmerging = context.chunkGenerator().getSeaLevel() - box.getYSpan();
@@ -304,12 +300,25 @@ public class GenericJigsawStructure extends Structure {
         }
     }
 
+    private int terrainHeight(GenerationContext context, Heightmap.Types heightMapToUse, int x, int z, Optional<Integer> minYAllowed, int highestLandPos) {
+        int landPos = context.chunkGenerator().getFirstOccupiedHeight(x, z, heightMapToUse, context.heightAccessor(), context.randomState());
+        if (minYAllowed.isPresent()) {
+            if(landPos >= minYAllowed.get()) {
+                highestLandPos = landPos;
+            }
+        }
+        else {
+            highestLandPos = Math.min(highestLandPos, landPos);
+        }
+        return highestLandPos;
+    }
+
     private void offsetToNewHeight(GenerationContext context, int offsetY, List<PoolElementStructurePiece> pieces, BoundingBox box, int highestLandPos) {
-        if(this.maxYAllowed.isPresent()) {
+        if(this.maxYAllowed.isPresent() && (box.maxY() + offsetY) < this.minYAllowed.get()) {
             highestLandPos = Math.max(highestLandPos, this.maxYAllowed.get());
         }
 
-        if(this.minYAllowed.isPresent()) {
+        if(this.minYAllowed.isPresent() && (box.minY() + offsetY) < this.minYAllowed.get()) {
             highestLandPos = Math.min(highestLandPos, this.minYAllowed.get());
         }
 

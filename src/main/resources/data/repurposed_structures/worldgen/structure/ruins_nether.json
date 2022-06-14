@@ -8,7 +8,7 @@
   "terrain_adaptation": "beard_thin",
   "land_search_direction": "LOWEST_LAND",
   "start_height": {
-    "absolute": -1
+    "absolute": -2
   },
   "spawn_overrides": {}
 }

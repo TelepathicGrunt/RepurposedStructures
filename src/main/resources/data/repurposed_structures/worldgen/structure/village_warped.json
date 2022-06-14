@@ -5,10 +5,11 @@
   "valid_biome_radius_check": 1,
   "biomes": "#repurposed_structures:has_structure/villages/warped",
   "step": "surface_structures",
-  "terrain_adaptation": "beard_thin",
+  "terrain_adaptation": "beard_box",
   "land_search_direction": "HIGHEST_LAND",
   "start_height": {
     "absolute": 0
   },
+  "use_bounding_box_hack": true,
   "spawn_overrides": {}
 }

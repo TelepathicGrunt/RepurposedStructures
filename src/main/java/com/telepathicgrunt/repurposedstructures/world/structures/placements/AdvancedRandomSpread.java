@@ -32,13 +32,13 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("spacing").forGetter(AdvancedRandomSpread::spacing),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("separation").forGetter(AdvancedRandomSpread::separation),
             RandomSpreadType.CODEC.optionalFieldOf("spread_type", RandomSpreadType.LINEAR).forGetter(AdvancedRandomSpread::spreadType),
-            Codec.intRange(0, Integer.MAX_VALUE).fieldOf("min_distance_from_world_origin").orElse(0).forGetter(AdvancedRandomSpread::minDistanceFromWorldOrigin)
+            Codec.intRange(0, Integer.MAX_VALUE).optionalFieldOf("min_distance_from_world_origin").forGetter(AdvancedRandomSpread::minDistanceFromWorldOrigin)
     ).apply(instance, instance.stable(AdvancedRandomSpread::new)));
 
     private final int spacing;
     private final int separation;
     private final RandomSpreadType spreadType;
-    private final int minDistanceFromWorldOrigin;
+    private final Optional<Integer> minDistanceFromWorldOrigin;
 
     public AdvancedRandomSpread(Vec3i locationOffset,
                                 StructurePlacement.FrequencyReductionMethod frequencyReductionMethod,
@@ -48,7 +48,7 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
                                 int spacing,
                                 int separation,
                                 RandomSpreadType spreadType,
-                                int minDistanceFromWorldOrigin
+                                Optional<Integer> minDistanceFromWorldOrigin
     ) {
         super(locationOffset, frequencyReductionMethod, frequency, salt, exclusionZone, spacing, separation, spreadType);
         this.spacing = spacing;
@@ -66,22 +66,26 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
         }
     }
 
+    @Override
     public int spacing() {
         return this.spacing;
     }
 
+    @Override
     public int separation() {
         return this.separation;
     }
 
+    @Override
     public RandomSpreadType spreadType() {
         return this.spreadType;
     }
 
-    public int minDistanceFromWorldOrigin() {
+    public Optional<Integer> minDistanceFromWorldOrigin() {
         return this.minDistanceFromWorldOrigin;
     }
 
+    @Override
     public ChunkPos getPotentialStructureChunk(long seed, int x, int z) {
         int regionX = Math.floorDiv(x, this.spacing);
         int regionZ = Math.floorDiv(z, this.spacing);
@@ -93,11 +97,23 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
         return new ChunkPos(regionX * this.spacing + offsetX, regionZ * this.spacing + offsetZ);
     }
 
+    @Override
     protected boolean isPlacementChunk(ChunkGenerator chunkGenerator, RandomState randomState, long seed, int x, int z) {
+        if (minDistanceFromWorldOrigin.isPresent()) {
+            int xBlockPos = x * 16;
+            int zBlockPos = z * 16;
+            if((xBlockPos * xBlockPos) + (zBlockPos * zBlockPos) <
+                (minDistanceFromWorldOrigin.get() * minDistanceFromWorldOrigin.get()))
+            {
+                return false;
+            }
+        }
+
         ChunkPos chunkpos = this.getPotentialStructureChunk(seed, x, z);
         return chunkpos.x == x && chunkpos.z == z;
     }
 
+    @Override
     public StructurePlacementType<?> type() {
         return RSStructurePlacementType.ADVANCED_RANDOM_SPREAD.get();
     }

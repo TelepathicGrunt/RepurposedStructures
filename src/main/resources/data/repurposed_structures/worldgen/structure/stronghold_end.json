@@ -4,7 +4,6 @@
   "size": 15,
   "biomes": "#repurposed_structures:has_structure/strongholds/end",
   "vertical_distance_from_start_piece": 45,
-  "cut_off_if_out_of_y_range": true,
   "step": "strongholds",
   "terrain_adaptation": "none",
   "start_height": {

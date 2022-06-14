@@ -10,5 +10,6 @@
   "start_height": {
     "absolute": 0
   },
+  "use_bounding_box_hack": true,
   "spawn_overrides": {}
 }

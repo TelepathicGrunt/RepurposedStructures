@@ -2,8 +2,8 @@
   "type": "repurposed_structures:monument_structure",
   "monument_type": "nether",
   "biomes": "#repurposed_structures:has_structure/monuments/nether",
-  "step": "surface_structures",
-  "terrain_adaptation": "box",
+  "step": "strongholds",
+  "terrain_adaptation": "beard_box",
   "fixed_y_spawn": 30,
   "spawn_overrides": {
     "monster": {

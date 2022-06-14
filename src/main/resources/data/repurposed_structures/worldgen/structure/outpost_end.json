@@ -8,11 +8,12 @@
   "valid_biome_radius_check": 2,
   "biomes": "#repurposed_structures:has_structure/outposts/end",
   "step": "surface_structures",
-  "terrain_adaptation": "beard_thin",
+  "terrain_adaptation": "beard_box",
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
   "start_height": {
     "absolute": 0
   },
+  "use_bounding_box_hack": true,
   "spawn_overrides": {
     "monster": {
       "bounding_box": "piece",

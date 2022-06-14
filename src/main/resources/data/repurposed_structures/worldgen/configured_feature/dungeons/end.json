@@ -15,9 +15,10 @@
 			  "weight": 1
 		  }
 	  ],
-	  "loot_block": "minecraft:shulker_boxes",
+	  "loot_block": "minecraft:shulker_box",
 	  "loot_block_loottable_resourcelocation": "repurposed_structures:shulker_boxes/dungeons/end",
 	  "max_num_of_loot_blocks": 2,
+	  "chance_of_spawning_loot_block_at_spot": 0.235,
 	  "rs_spawner_resourcelocation": "repurposed_structures:dungeons/end",
 	  "processors": "repurposed_structures:dungeons/end",
 	  "post_processors": "minecraft:empty",

@@ -4,11 +4,12 @@
   "size": 11,
   "biomes": "#repurposed_structures:has_structure/outposts/nether_brick",
   "step": "surface_structures",
-  "terrain_adaptation": "box",
+  "terrain_adaptation": "beard_box",
   "land_search_direction": "LOWEST_LAND",
   "start_height": {
     "absolute": 0
   },
+  "use_bounding_box_hack": true,
   "spawn_overrides": {
     "monster": {
       "bounding_box": "piece",

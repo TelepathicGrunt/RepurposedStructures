@@ -8,6 +8,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.NoiseColumn;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -28,7 +29,6 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
             Codec.INT.optionalFieldOf("min_y_allowed").forGetter(structure -> structure.minYAllowed),
             Codec.INT.optionalFieldOf("max_y_allowed").forGetter(structure -> structure.maxYAllowed),
             Codec.intRange(1, 1000).optionalFieldOf("allowed_y_range_from_start").forGetter(structure -> structure.allowedYRangeFromStart),
-            Codec.BOOL.fieldOf("cut_off_if_out_of_y_range").orElse(false).forGetter(structure -> structure.cutOffIfOutsideYLimits),
             HeightProvider.CODEC.fieldOf("start_height").forGetter(structure -> structure.startHeight),
             Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter(structure -> structure.projectStartToHeightmap),
             Codec.BOOL.fieldOf("cannot_spawn_in_liquid").orElse(false).forGetter(structure -> structure.cannotSpawnInLiquid),
@@ -37,7 +37,8 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
             Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius),
             ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
             Codec.intRange(1, 128).optionalFieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
-            StringRepresentable.fromEnum(BURYING_TYPE::values).optionalFieldOf("burying_type").forGetter(structure -> structure.buryingType)
+            StringRepresentable.fromEnum(BURYING_TYPE::values).optionalFieldOf("burying_type").forGetter(structure -> structure.buryingType),
+            Codec.BOOL.fieldOf("use_bounding_box_hack").orElse(false).forGetter(structure -> structure.useBoundingBoxHack)
     ).apply(instance, ShipwreckNetherStructure::new));
 
     public ShipwreckNetherStructure(Structure.StructureSettings config,
@@ -46,7 +47,6 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
                                   Optional<Integer> minYAllowed,
                                   Optional<Integer> maxYAllowed,
                                   Optional<Integer> allowedYRangeFromStart,
-                                  boolean cutOffIfOutsideYLimits,
                                   HeightProvider startHeight,
                                   Optional<Heightmap.Types> projectStartToHeightmap,
                                   boolean cannotSpawnInLiquid,
@@ -55,7 +55,8 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
                                   Optional<Integer> biomeRadius,
                                   HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
                                   Optional<Integer> maxDistanceFromCenter,
-                                  Optional<BURYING_TYPE> buryingType)
+                                  Optional<BURYING_TYPE> buryingType,
+                                  boolean useBoundingBoxHack)
     {
         super(config,
                 startPool,
@@ -63,7 +64,6 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
                 minYAllowed,
                 maxYAllowed,
                 allowedYRangeFromStart,
-                cutOffIfOutsideYLimits,
                 startHeight,
                 projectStartToHeightmap,
                 cannotSpawnInLiquid,
@@ -72,7 +72,8 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
                 biomeRadius,
                 poolsThatIgnoreBoundaries,
                 maxDistanceFromCenter,
-                buryingType);
+                buryingType,
+                useBoundingBoxHack);
     }
 
     @Override
@@ -91,7 +92,8 @@ public class ShipwreckNetherStructure extends GenericJigsawStructure {
                 NoiseColumn blockView = context.chunkGenerator().getBaseColumn(xOffset + blockPos.getX(), zOffset + blockPos.getZ(), context.heightAccessor(), context.randomState());
                 for(int yOffset = 0; yOffset <= 30; yOffset += 5) {
                     mutable.set(blockPos).move(xOffset, yOffset, zOffset);
-                    if (!blockView.getBlock(mutable.getY()).isAir()) {
+                    BlockState state = blockView.getBlock(mutable.getY());
+                    if (!state.isAir() && state.getFluidState().isEmpty()) {
                         return false;
                     }
                 }

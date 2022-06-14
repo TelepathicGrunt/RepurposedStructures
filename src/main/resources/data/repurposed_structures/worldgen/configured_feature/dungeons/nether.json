@@ -3,7 +3,7 @@
   "config": {
 	  "dungeon_nbt_entries": [
 		  {
-			  "resourcelocation": "repurposed_structures:dungeons/badlands_1",
+			  "resourcelocation": "repurposed_structures:dungeons/nether_1",
 			  "weight": 1
 		  },
 		  {

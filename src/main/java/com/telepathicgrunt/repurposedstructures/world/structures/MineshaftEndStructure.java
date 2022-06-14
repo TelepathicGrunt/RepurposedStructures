@@ -39,7 +39,6 @@ public class MineshaftEndStructure extends Structure {
             Codec.INT.optionalFieldOf("min_y_allowed").forGetter(structure -> structure.minYAllowed),
             Codec.INT.optionalFieldOf("max_y_allowed").forGetter(structure -> structure.maxYAllowed),
             Codec.intRange(1, 1000).optionalFieldOf("allowed_y_range_from_start").forGetter(structure -> structure.allowedYRangeFromStart),
-            Codec.BOOL.fieldOf("cut_off_if_out_of_y_range").orElse(false).forGetter(structure -> structure.cutOffIfOutsideYLimits),
             HeightProvider.CODEC.fieldOf("start_height").forGetter(structure -> structure.startHeight),
             Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius),
             ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
@@ -52,7 +51,6 @@ public class MineshaftEndStructure extends Structure {
     public final Optional<Integer> minYAllowed;
     public final Optional<Integer> maxYAllowed;
     public final Optional<Integer> allowedYRangeFromStart;
-    public final boolean cutOffIfOutsideYLimits;
     public final HeightProvider startHeight;
     public final Optional<Integer> biomeRadius;
     public final HashSet<ResourceLocation> poolsThatIgnoreBoundaries;
@@ -65,7 +63,6 @@ public class MineshaftEndStructure extends Structure {
                                   Optional<Integer> minYAllowed,
                                   Optional<Integer> maxYAllowed,
                                   Optional<Integer> allowedYRangeFromStart,
-                                  boolean cutOffIfOutsideYLimits,
                                   HeightProvider startHeight,
                                   Optional<Integer> biomeRadius,
                                   HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
@@ -78,7 +75,6 @@ public class MineshaftEndStructure extends Structure {
         this.minYAllowed = minYAllowed;
         this.maxYAllowed = maxYAllowed;
         this.allowedYRangeFromStart = allowedYRangeFromStart;
-        this.cutOffIfOutsideYLimits = cutOffIfOutsideYLimits;
         this.startHeight = startHeight;
         this.biomeRadius = biomeRadius;
         this.poolsThatIgnoreBoundaries = poolsThatIgnoreBoundaries;
@@ -101,8 +97,8 @@ public class MineshaftEndStructure extends Structure {
         }
 
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        int xPos = context.chunkPos().getMinBlockX();
-        int zPos = context.chunkPos().getMinBlockZ();
+        int xPos = blockPos.getX();
+        int zPos = blockPos.getZ();
 
         int landHeight = Integer.MAX_VALUE;
         // Surrounding far terrain is more likely to fail the check and exit early.
@@ -164,6 +160,10 @@ public class MineshaftEndStructure extends Structure {
     @Override
     public Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
         BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(context.chunkPos().getMinBlockX(), 0, context.chunkPos().getMinBlockZ());
+        if (!extraSpawningChecks(context, blockpos)) {
+            return Optional.empty();
+        }
+
         BlockPos.MutableBlockPos islandTopBottomThickness = new BlockPos.MutableBlockPos(Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
         analyzeLand(context, blockpos.getX(), blockpos.getZ(), islandTopBottomThickness, context.heightAccessor());
 
@@ -177,10 +177,10 @@ public class MineshaftEndStructure extends Structure {
             random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
             int structureStartHeight = random.nextInt(Math.max(islandTopBottomThickness.getZ() - this.minIslandThickness.get() + 1, 1)) + islandTopBottomThickness.getY() + (this.minIslandThickness.get() / 2);
             blockpos.move(Direction.UP, structureStartHeight);
-            maxY = islandTopBottomThickness.getX() - 5;
+            maxY = islandTopBottomThickness.getX() - 10;
             minY = islandTopBottomThickness.getY();
-            if(maxY - minY <= 5) {
-                minY = maxY - 5;
+            if(maxY - minY <= 10) {
+                minY = maxY - 10;
             }
         }
 

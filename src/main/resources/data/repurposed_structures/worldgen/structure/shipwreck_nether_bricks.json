@@ -6,7 +6,7 @@
   "step": "surface_structures",
   "terrain_adaptation": "none",
   "start_height": {
-    "absolute": 27
+    "absolute": 29
   },
   "spawn_overrides": {
     "monster": {

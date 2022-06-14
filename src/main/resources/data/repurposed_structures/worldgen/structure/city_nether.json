@@ -11,7 +11,7 @@
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
   "start_height": {
-    "absolute": 30
+    "absolute": 33
   },
   "spawn_overrides": {
     "monster": {

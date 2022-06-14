@@ -209,6 +209,11 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
         for(int currentChestAttempt = 0; currentChestAttempt < config.maxNumOfChests;) {
             boolean addedChestThisAttempt = false;
             for (int currentChestPosAttempt = 0; currentChestPosAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestPosAttempt) {
+                if (config.chanceOfSpawningLootBlockAtSpot.isPresent() &&
+                    random.nextFloat() >= config.chanceOfSpawningLootBlockAtSpot.get())
+                {
+                    continue;
+                }
 
                 mutable.set(position).move(
                         random.nextInt(Math.max(fullLengths.getX() - 2, 1)) - halfLengths.getX() + 1,

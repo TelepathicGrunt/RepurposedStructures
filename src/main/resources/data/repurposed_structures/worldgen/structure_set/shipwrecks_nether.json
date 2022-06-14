@@ -19,7 +19,7 @@
     "spacing": 21,
     "separation": 11,
     "exclusion_zone": {
-      "chunk_count": 1,
+      "chunk_count": 2,
       "other_set": "#repurposed_structures:nether_shipwreck_avoid"
     }
   }

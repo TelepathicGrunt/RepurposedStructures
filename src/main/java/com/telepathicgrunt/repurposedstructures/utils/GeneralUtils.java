@@ -136,7 +136,7 @@ public final class GeneralUtils {
     //////////////////////////////
 
     public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, RandomState randomState, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), getMaxTerrainLimit(chunkGenerator) - 20, boundingBox.getCenter().getZ());
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), getMaxTerrainLimit(chunkGenerator) - 40, boundingBox.getCenter().getZ());
         NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView, randomState);
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel()) {
@@ -159,7 +159,7 @@ public final class GeneralUtils {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
         NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView, randomState);
         BlockState currentBlockstate = blockView.getBlock(mutable.getY());
-        while (mutable.getY() <= getMaxTerrainLimit(chunkGenerator) - 20) {
+        while (mutable.getY() <= getMaxTerrainLimit(chunkGenerator) - 40) {
 
             if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude()) &&
                     blockView.getBlock(mutable.getY() + 1).getMaterial() == Material.AIR &&
