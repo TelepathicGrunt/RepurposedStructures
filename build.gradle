@@ -18,8 +18,8 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = project.archives_base_name
-version = "${project.mod_version}+${project.mc_version}"
+version = "${project.mod_version}+${project.minecraft_version}"
+archivesBaseName = "${project.modid}_fabric"
 group = project.maven_group
 
 loom {
@@ -29,7 +29,8 @@ loom {
 repositories {
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://api.modrinth.com/maven/" }
-	maven { url "https://jitpack.io" }
+	maven {	url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
+	maven { url "https://www.cursemaven.com" }
 }
 
 dependencies {
@@ -40,35 +41,24 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation ("maven.modrinth:modmenu:${project.mod_menu_version}") { transitive = false }
 
-	modApi ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") { transitive = false }
-	modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}")
-}
+	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
+	include "maven.modrinth:midnightlib:${project.midnightlib_version}"
 
-if (project.use_third_party_mods) {
-	repositories {
-		maven {	url "https://nexus.resourcefulbees.com/repository/maven-public/" }
-		maven { url "https://www.cursemaven.com" }
-	}
+	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_version}"
+	modRuntimeOnly "com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_version}"
 
-	dependencies {
-		modRuntimeOnly "curse.maven:structure_void_toggle-357304:3488866"
-		modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:2.0.1+1.18.2"
-		modRuntimeOnly "com.telepathicgrunt:FeatureNBTDeadlockBeGone-Fabric:${project.NBTDBG_version}"
+	//modRuntimeOnly "curse.maven:betternether-311377:3814362"
+	//modRuntimeOnly "curse.maven:betterend-413596:3814370"
+	//modRuntimeOnly "curse.maven:bclib-495191:3814359"
+	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
 
-		modRuntimeOnly "curse.maven:disablecustomworldsadvice-401978:3677546"
-		//modRuntimeOnly "curse.maven:betternether-311377:3814362"
-		//modRuntimeOnly "curse.maven:betterend-413596:3814370"
-		//modRuntimeOnly "curse.maven:bclib-495191:3814359"
-		//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
-
-		//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
-		//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
-		//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
-		//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
-		//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
-		//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
-		//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
-	}
+	//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
+	//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
+	//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
+	//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
+	//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
+	//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
+	//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
 }
 
 apply from: 'gradle/processresources.gradle'
@@ -96,11 +86,9 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	def mainFile = upload(projectId, remapJar)
 	mainFile.changelog = changelogText
 	mainFile.changelogType = "markdown"
-	mainFile.releaseType = "release"
+	mainFile.releaseType = "beta"
 	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
-	mainFile.addRequirement("cloth-config")
 	mainFile.addRequirement("fabric-api")
-	mainFile.addRequirement("feature-nbt-deadlock-be-gone")
 }
 
 

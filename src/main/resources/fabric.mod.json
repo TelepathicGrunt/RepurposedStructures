@@ -31,14 +31,8 @@
 
   "accessWidener" : "repurposed_structures.accesswidener",
   "depends": {
-    "fabricloader": ">=0.13.3",
-    "minecraft": ">=1.18.2",
-    "fabric": ">=0.47.8",
-    "cloth-config2": ">=6.2.57",
-    "feature_nbt_deadlock_be_gone": "*"
-  },
-  "custom": {
-    "notify_gradle_properties_url": "https://raw.githubusercontent.com/TelepathicGrunt/RepurposedStructures-Fabric/latest-released/gradle.properties",
-    "notify_gradle_properties_key": "mod_version"
+    "fabricloader": ">=0.14.7",
+    "minecraft": ">=1.19",
+    "fabric": ">=0.55.3"
   }
 }

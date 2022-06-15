@@ -7,7 +7,7 @@ repositories {
 
 &nbsp;&nbsp;&nbsp;maven {
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url "https://nexus.resourcefulbees.com/repository/maven-public/"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
 
 &nbsp;&nbsp;&nbsp;}
 
@@ -23,7 +23,7 @@ dependencies {
 
 ...
 
-&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:\<modversion>+1.18.1"
+&nbsp;&nbsp;&nbsp;&nbsp;modImplementation "com.telepathicgrunt:RepurposedStructures-Fabric:\<modversion>+1.19"
 
 }</blockquote>
 
