@@ -1,7 +1,7 @@
 ### **(V.6.0.0 Changes) (1.19.0 Minecraft)**
 
 #### Major:
-Updated to 1.19! 
+Updated to 1.19! Beta as there could be issues. Please report anything funky or broken!
  Note: previous config datapacks will not work as many changes were done to structure json by Mojang.
  The updated RS Config datapack for 1.19 will be posted here: https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/releases/tag/2.0.1
 

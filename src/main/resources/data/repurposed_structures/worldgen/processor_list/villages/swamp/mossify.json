@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:moss_block"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -30,10 +30,26 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
-            "block": "minecraft:cobblestone",
+            "block": "minecraft:muddy_mangrove_roots",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:muddy_mangrove_roots",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "input_predicate": {
+            "block": "minecraft:mud",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -43,49 +59,13 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gray_terracotta"
+            "Name": "minecraft:muddy_mangrove_roots",
+            "Properties": {
+              "axis": "y"
+            }
           },
           "input_predicate": {
-            "block": "minecraft:brown_terracotta",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:brown_terracotta"
-          },
-          "input_predicate": {
-            "block": "minecraft:gray_terracotta",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:brown_concrete"
-          },
-          "input_predicate": {
-            "block": "minecraft:gray_terracotta",
-            "probability": 0.02,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:brown_concrete"
-          },
-          "input_predicate": {
-            "block": "minecraft:brown_terracotta",
+            "block": "minecraft:packed_mud",
             "probability": 0.02,
             "predicate_type": "minecraft:random_block_match"
           },

@@ -1,0 +1,34 @@
+
+$ pip install virtualenv
+
+# Shows all packages you have in global env
+$ pip list 
+
+# Makes a new directory
+$ mkdir virtualenvironment
+
+# Goes to environment directory
+$ cd virtualenvironment
+
+# Creates new project env
+$ python -m virtualenv nbt_converter
+
+# Switches the cmd to be in the project
+$ virtualenvironment\nbt_converter\Scripts\activate.bat
+
+# Install package
+$ pip install Python-NBT
+
+# Exit the current project env
+$ Scripts\deactivate
+
+# Show version requirements for each package
+$ pip freeze --local > requirements.txt
+
+# List project envs
+$ ls
+
+# Deletes env
+$ rm -rf nbt_converter/
+
+
