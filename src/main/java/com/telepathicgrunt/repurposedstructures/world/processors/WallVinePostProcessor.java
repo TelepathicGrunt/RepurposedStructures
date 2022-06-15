@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -36,7 +37,7 @@ public class WallVinePostProcessor extends StructureProcessor {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
 
-            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
+            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
             ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);

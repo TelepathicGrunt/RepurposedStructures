@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "start_pool": "repurposed_structures:ruins/nether/start_pool",
+  "size": 1,
+  "ledge_spot_offset": -1,
+  "biomes": "#repurposed_structures:has_structure/ruins/nether",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "land_search_direction": "LOWEST_LAND",
+  "start_height": {
+    "absolute": -2
+  },
+  "spawn_overrides": {}
+}

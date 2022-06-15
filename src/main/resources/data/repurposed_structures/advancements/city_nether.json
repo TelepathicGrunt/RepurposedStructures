@@ -21,7 +21,17 @@
     "in_city_nether": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:city_nether"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:city_nether"
+              }
+            }
+          }
+        ]
       }
     }
   },

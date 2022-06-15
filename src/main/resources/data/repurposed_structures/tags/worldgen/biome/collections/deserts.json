@@ -15,10 +15,6 @@
       "required": false
     },
     {
-      "id": "#forge:is_sandy",
-      "required": false
-    },
-    {
       "id": "#forge:is_desert",
       "required": false
     },

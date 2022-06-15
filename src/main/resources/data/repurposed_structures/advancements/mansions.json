@@ -21,43 +21,113 @@
     "in_mansion_birch": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_birch"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_birch"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mansion_desert": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_desert"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_desert"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mansion_jungle": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_jungle"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_jungle"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mansion_oak": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_oak"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_oak"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mansion_savanna": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_savanna"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_savanna"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mansion_snowy": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_snowy"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_snowy"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mansion_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mansion_taiga"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mansion_taiga"
+              }
+            }
+          }
+        ]
       }
     }
   },

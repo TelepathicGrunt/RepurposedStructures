@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType;
 
@@ -38,7 +39,7 @@ public class PieceOriginAxisAlignedLinearPosRuleTest extends PosRuleTest {
         }
     }
 
-    public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, Random random) {
+    public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, RandomSource random) {
         Direction direction = Direction.get(Direction.AxisDirection.POSITIVE, this.axis);
         float xDist = (float)Math.abs((blockPos.getX()) * direction.getStepX());
         float yDist = (float)Math.abs((blockPos.getY()) * direction.getStepY());

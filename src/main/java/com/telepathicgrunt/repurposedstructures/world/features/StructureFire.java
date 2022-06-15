@@ -36,7 +36,6 @@ public class StructureFire extends Feature<StructureTargetConfig> {
         BlockState fire = Blocks.FIRE.defaultBlockState();
         TagKey<Block> infiniteBurningBlocksTagKey = INFINITE_FIRE_BLOCKS.getOrDefault(context.level().getLevel().dimension(), BlockTags.INFINIBURN_OVERWORLD);
 
-
         for(int i = 0; i < context.config().attempts; i++) {
             mutable.set(context.origin()).move(
                     context.random().nextInt(7) - 3,

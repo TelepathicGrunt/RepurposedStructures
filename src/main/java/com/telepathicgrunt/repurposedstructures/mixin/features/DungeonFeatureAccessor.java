@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface DungeonFeatureAccessor {
 
     @Accessor("MOBS")
-    static EntityType<?>[] repurposedstructures_getMOBS() {
+    static EntityType<?>[] getMOBS() {
         throw new UnsupportedOperationException();
     }
 }

@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "Name": "minecraft:mangrove_planks"
           },
           "position_predicate": {
             "min_chance": 1,
@@ -15,7 +15,7 @@
             "predicate_type": "repurposed_structures:piece_origin_axis_aligned_linear_pos_rule_test"
           },
           "input_predicate": {
-            "block": "minecraft:moss_block",
+            "block": "minecraft:mud",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -34,7 +34,7 @@
             "Name": "minecraft:structure_void"
           },
           "input_predicate": {
-            "block": "minecraft:moss_block",
+            "block": "minecraft:mud",
             "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -76,13 +76,16 @@
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
       "weighted_list_of_replacement_blocks": [
         {
-          "block" : "minecraft:cracked_stone_bricks",
+          "block" : "minecraft:mud_bricks",
           "weight": 1
         }
       ]
     },
     {
       "processor_type": "repurposed_structures:structure_void_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }

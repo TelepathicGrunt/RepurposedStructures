@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
@@ -20,8 +21,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-
-import java.util.Random;
 
 public class SpawnerRandomizingProcessor extends StructureProcessor {
 
@@ -39,7 +38,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.getBlock() instanceof SpawnerBlock) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
-            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
+            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(worldPos.asLong() * worldPos.getY());
             CompoundTag spawnerNBT = SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
 
@@ -56,7 +55,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     /**
      * Makes the given block entity now have the correct spawner mob
      */
-    private CompoundTag SetMobSpawnerEntity(Random random, CompoundTag nbt) {
+    private CompoundTag SetMobSpawnerEntity(RandomSource random, CompoundTag nbt) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null) {
             if(nbt != null) {

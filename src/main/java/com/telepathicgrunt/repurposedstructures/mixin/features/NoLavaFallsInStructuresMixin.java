@@ -8,11 +8,11 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.level.StructureFeatureManager;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.SpringFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.SpringConfiguration;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -36,11 +36,11 @@ public class NoLavaFallsInStructuresMixin {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
-                Registry<ConfiguredStructureFeature<?,?>> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY);
-                StructureFeatureManager structureFeatureManager = ((WorldGenRegionAccessor)context.level()).getStructureFeatureManager();
+                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+                StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
 
-                for (Holder<ConfiguredStructureFeature<?, ?>> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAVAFALLS)) {
-                    if (structureFeatureManager.getStructureAt(mutable, configuredStructureFeature.value()).isValid()) {
+                for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAVAFALLS)) {
+                    if (structureManager .getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
                         cir.setReturnValue(false);
                         return;
                     }

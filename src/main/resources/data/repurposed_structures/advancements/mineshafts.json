@@ -21,85 +21,225 @@
     "in_mineshaft_birch": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_birch"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_birch"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_crimson": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_crimson"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_crimson"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_dark_forest": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_dark_forest"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_dark_forest"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_desert": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_desert"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_desert"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_end": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_end"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_end"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_icy": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_icy"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_icy"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_jungle": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_jungle"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_jungle"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_nether": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_nether"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_nether"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_ocean": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_ocean"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_ocean"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_savanna": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_savanna"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_savanna"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_stone": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_stone"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_stone"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_swamp": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_swamp"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_swamp"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_taiga"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_taiga"
+              }
+            }
+          }
+        ]
       }
     },
     "in_mineshaft_warped": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:mineshaft_warped"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_warped"
+              }
+            }
+          }
+        ]
       }
     }
   },

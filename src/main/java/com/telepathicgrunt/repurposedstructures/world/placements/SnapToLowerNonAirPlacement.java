@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
@@ -20,7 +21,7 @@ public class SnapToLowerNonAirPlacement extends PlacementModifier {
 	}
 
 	@Override
-	public final Stream<BlockPos> getPositions(PlacementContext placementContext, Random random, BlockPos blockPos) {
+	public final Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
 		BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);
 		while(placementContext.getBlockState(mutable).isAir() && mutable.getY() > placementContext.getMinGenY()) {
 			mutable.move(Direction.DOWN);

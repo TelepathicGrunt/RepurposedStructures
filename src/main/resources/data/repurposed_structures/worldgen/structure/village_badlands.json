@@ -1,0 +1,16 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:villages/badlands/town_centers",
+  "size": 10,
+  "valid_biome_radius_check": 1,
+  "terrain_height_radius_check": 2,
+  "allowed_terrain_height_range": 22,
+  "biomes": "#repurposed_structures:has_structure/villages/badlands",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "start_height": {
+    "absolute": 0
+  },
+  "use_bounding_box_hack": true,
+  "spawn_overrides": {}
+}

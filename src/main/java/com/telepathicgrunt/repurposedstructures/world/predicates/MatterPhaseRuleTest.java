@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import net.minecraft.Util;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +18,7 @@ import java.util.Random;
 
 public class MatterPhaseRuleTest extends RuleTest {
     public static final Codec<MatterPhaseRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            StringRepresentable.fromEnum(MATTER_PHASE::values, MATTER_PHASE::byName).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
+            StringRepresentable.fromEnum(MATTER_PHASE::values).fieldOf("phase_to_test_for").stable().forGetter((ruletest) -> ruletest.phaseToTestFor),
             Codec.BOOL.fieldOf("invert_condition").orElse(false).forGetter((ruletest) -> ruletest.invertCondition))
             .apply(instance, instance.stable(MatterPhaseRuleTest::new)));
 
@@ -29,7 +30,7 @@ public class MatterPhaseRuleTest extends RuleTest {
         this.invertCondition = invertCondition;
     }
 
-    public boolean test(BlockState state, Random random) {
+    public boolean test(BlockState state, RandomSource random) {
         boolean phaseMatch = false;
 
         switch(phaseToTestFor) {

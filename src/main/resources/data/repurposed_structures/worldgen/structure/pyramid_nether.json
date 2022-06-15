@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "start_pool": "repurposed_structures:pyramids/nether",
+  "size": 1,
+  "search_for_highest_land": true,
+  "biomes": "#repurposed_structures:has_structure/pyramids/nether",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "land_search_direction": "LOWEST_LAND",
+  "start_height": {
+    "absolute": -2
+  },
+  "spawn_overrides": {}
+}

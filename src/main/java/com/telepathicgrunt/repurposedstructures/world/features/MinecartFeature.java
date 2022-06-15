@@ -14,9 +14,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import java.util.Optional;
 
@@ -46,7 +46,7 @@ public class MinecartFeature extends Feature<MinecartConfig> {
         }
 
         BlockPos.MutableBlockPos blockpos$Mutable = new BlockPos.MutableBlockPos();
-        StructureManager templatemanager = context.level().getLevel().getServer().getStructureManager();
+        StructureTemplateManager templatemanager = context.level().getLevel().getServer().getStructureManager();
         Optional<StructureTemplate> template = templatemanager.get(context.config().nbtPath);
 
         if (template.isEmpty()) {

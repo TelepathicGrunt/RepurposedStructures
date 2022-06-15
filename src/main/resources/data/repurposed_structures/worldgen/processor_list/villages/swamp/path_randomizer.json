@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:brown_terracotta"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -17,7 +17,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:moss_block"
+            "Name": "minecraft:muddy_mangrove_roots",
+            "Properties": {
+              "axis": "y"
+            }
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -46,147 +49,129 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gray_terracotta"
+            "Name": "minecraft:mangrove_planks"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
-            "probability": 0.2,
+            "probability": 0.985,
             "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "level": "0"
+            },
+            "Name": "minecraft:water"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt_path",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "level": "0"
+            },
+            "Name": "minecraft:water"
+          },
+          "input_predicate": {
+            "block": "minecraft:grass_block",
+            "probability": 0.015,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mangrove_planks"
+          },
+          "input_predicate": {
+            "block": "minecraft:grass_block",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "level": "0"
+            },
+            "Name": "minecraft:water"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mud",
+            "Properties": {
+              "snowy": "false"
+            }
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt",
+            "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           }
-        },
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "rules": [
         {
           "output_state": {
-            "Name": "minecraft:gray_terracotta"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt_path",
-            "probability": 0.55,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:brown_terracotta"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt_path",
-            "probability": 0.85,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Properties": {
-              "level": "0"
-            },
-            "Name": "minecraft:water"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt_path",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Properties": {
-              "level": "0"
-            },
-            "Name": "minecraft:water"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
-            "probability": 0.5,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:brown_terracotta"
-          },
-          "input_predicate": {
-            "block": "minecraft:grass_block",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:gray_terracotta"
-          },
-          "input_predicate": {
-            "block": "minecraft:grass_block",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Properties": {
-              "level": "0"
-            },
-            "Name": "minecraft:water"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          }
-        },
-        {
-          "output_state": {
-            "Properties": {
-              "snowy": "false"
-            },
-            "Name": "minecraft:grass_block"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt",
             "probability": 0.95,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
-            "predicate_type": "minecraft:always_true"
+            "block": "minecraft:grass_block",
+            "predicate_type": "minecraft:block_match"
           }
         },
         {
           "output_state": {
-            "Name": "minecraft:coarse_dirt"
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
           },
           "input_predicate": {
-            "block": "minecraft:dirt",
-            "predicate_type": "minecraft:block_match"
+            "block": "minecraft:mud",
+            "probability": 0.95,
+            "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
-            "predicate_type": "minecraft:always_true"
+            "block": "minecraft:mud",
+            "predicate_type": "minecraft:block_match"
           }
         }
       ],

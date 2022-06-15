@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.BuilderAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootManagerAccessor;
@@ -205,7 +206,7 @@ public final class StructureModdedLootImporter {
 
 
     public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
-        if(RepurposedStructures.RSAllConfig.RSMiscConfig.importModdedItems) {
+        if(RSModdedLootConfig.importModdedItems) {
             // Cache the result of the loottable to the id into our own map.
             ResourceLocation lootTableID = REVERSED_TABLES.computeIfAbsent(
                     currentLootTable,
@@ -261,7 +262,7 @@ public final class StructureModdedLootImporter {
 
     private static boolean isInBlacklist(ResourceLocation lootTableID) {
         if(BLACKLISTED_LOOTTABLES == null) {
-            String cleanedBlacklist = RepurposedStructures.RSAllConfig.RSMiscConfig.blacklistedRSLoottablesFromImportingModdedItems.trim();
+            String cleanedBlacklist = RSModdedLootConfig.blacklistedRSLoottablesFromImportingModdedItems.trim();
 
             if(cleanedBlacklist.equals("")) {
                 BLACKLISTED_LOOTTABLES = new HashSet<>(); // make empty set instead of ["minecraft:"].

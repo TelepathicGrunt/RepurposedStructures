@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:generic_mineshaft",
+  "start_pool": "repurposed_structures:mineshafts/ocean/start_pool",
+  "size": 9,
+  "biomes": "#repurposed_structures:has_structure/mineshafts/ocean",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 30
+    },
+    "min_inclusive": {
+      "absolute": 5
+    }
+  },
+  "spawn_overrides": {}
+}

@@ -12,6 +12,7 @@ import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -31,14 +32,13 @@ import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
@@ -48,13 +48,11 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
     @Override
     public boolean place(FeaturePlaceContext<NbtDungeonConfig> context) {
-        if(GeneralUtils.isBlacklistedForWorld(context.level(), context.config().cfID)) return false;
-
         BlockPos position = context.origin().above(-1);
         ResourceLocation nbtRL = GeneralUtils.getRandomEntry(context.config().nbtResourcelocationsAndWeights, context.random());
 
-        StructureManager structureManager = context.level().getLevel().getStructureManager();
-        Optional<StructureTemplate> template = structureManager.get(nbtRL);
+        StructureTemplateManager structureTemplateManager = context.level().getLevel().getStructureManager();
+        Optional<StructureTemplate> template = structureTemplateManager.get(nbtRL);
         if(template.isEmpty()) {
             RepurposedStructures.LOGGER.error("Identifier to the specified nbt file was not found! : {}", nbtRL);
             return false;
@@ -181,7 +179,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     /**
      * Makes the given block entity now have the correct spawner mob
      */
-    private void SetMobSpawnerEntity(Random random, NbtDungeonConfig config, SpawnerBlockEntity blockEntity) {
+    private void SetMobSpawnerEntity(RandomSource random, NbtDungeonConfig config, SpawnerBlockEntity blockEntity) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
         if(entity != null) {
             blockEntity.getSpawner().setEntityId(entity);
@@ -204,13 +202,18 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     /**
      * Places and connects chests on walls of dungeon space
      */
-    private void spawnLootBlocks(WorldGenLevel world, Random random, BlockPos position, NbtDungeonConfig config, BlockPos fullLengths, BlockPos halfLengths, BlockPos.MutableBlockPos mutable) {
-        boolean isPlacingChestLikeBlock = config.lootBlock.getBlock() instanceof ChestBlock;
+    private void spawnLootBlocks(WorldGenLevel world, RandomSource random, BlockPos position, NbtDungeonConfig config, BlockPos fullLengths, BlockPos halfLengths, BlockPos.MutableBlockPos mutable) {
+        boolean isPlacingChestLikeBlock = config.lootBlock.defaultBlockState().getBlock() instanceof ChestBlock;
 
         // Add chests that are wall based
         for(int currentChestAttempt = 0; currentChestAttempt < config.maxNumOfChests;) {
             boolean addedChestThisAttempt = false;
             for (int currentChestPosAttempt = 0; currentChestPosAttempt < fullLengths.getX() + fullLengths.getZ() + halfLengths.getY(); ++currentChestPosAttempt) {
+                if (config.chanceOfSpawningLootBlockAtSpot.isPresent() &&
+                    random.nextFloat() >= config.chanceOfSpawningLootBlockAtSpot.get())
+                {
+                    continue;
+                }
 
                 mutable.set(position).move(
                         random.nextInt(Math.max(fullLengths.getX() - 2, 1)) - halfLengths.getX() + 1,
@@ -220,7 +223,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                 BlockState currentBlock = world.getBlockState(mutable);
                 if (isValidNonSolidBlock(config, currentBlock)) {
                     BlockState belowState = world.getBlockState(mutable.move(Direction.DOWN));
-                    if(belowState.isFaceSturdy(world, mutable, Direction.UP) && belowState.getBlock() != config.lootBlock.getBlock()) {
+                    if(belowState.isFaceSturdy(world, mutable, Direction.UP) && belowState.getBlock() != config.lootBlock) {
                         mutable.move(Direction.UP);
                         boolean isOnWall = false;
 
@@ -233,7 +236,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                 // Only connect to single chests
                                 if(neighboringState.getValue(ChestBlock.TYPE) == ChestType.SINGLE) {
 
-                                    BlockState currentStateForChest = GeneralUtils.orientateChest(world, mutable, config.lootBlock);
+                                    BlockState currentStateForChest = GeneralUtils.orientateChest(world, mutable, config.lootBlock.defaultBlockState());
                                     Direction currentDirection = currentStateForChest.getValue(HorizontalDirectionalBlock.FACING);
 
                                     // If oriented is on same axis as neighboring chest, find a new direction on sides.
@@ -260,7 +263,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                                     // Place chest
                                     world.setBlock(mutable,
-                                            config.lootBlock
+                                            config.lootBlock.defaultBlockState()
                                                     .setValue(ChestBlock.WATERLOGGED, currentBlock.getFluidState().is(FluidTags.WATER))
                                                     .setValue(ChestBlock.FACING, currentDirection)
                                                     .setValue(ChestBlock.TYPE, chestTyping ? ChestType.RIGHT : ChestType.LEFT),
@@ -292,7 +295,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
 
                         // Is not next to another chest.
                         if(isOnWall) {
-                            BlockState lootBlock = config.lootBlock;
+                            BlockState lootBlock = config.lootBlock.defaultBlockState();
                             if(lootBlock.hasProperty(BlockStateProperties.WATERLOGGED)) {
                                 lootBlock.setValue(BlockStateProperties.WATERLOGGED, currentBlock.getFluidState().is(FluidTags.WATER));
                             }

@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:pyramids/flower_forest",
+  "size": 3,
+  "biomes": "#repurposed_structures:has_structure/pyramids/flower_forest",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "burying_type": "LOWEST_CORNER",
+  "start_height": {
+    "absolute": -3
+  },
+  "spawn_overrides": {}
+}

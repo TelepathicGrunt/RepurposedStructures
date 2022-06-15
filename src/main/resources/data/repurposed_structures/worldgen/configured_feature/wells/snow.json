@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:nbt_feature",
+  "config": {
+	  "nbt_entries": [
+		  {
+			  "resourcelocation": "repurposed_structures:wells/snow",
+			  "weight": 1
+		  }
+	  ],
+	  "allow_liquid": false,
+	  "processors": "repurposed_structures:wells/snow",
+	  "height_offset": -1
+  }
+}

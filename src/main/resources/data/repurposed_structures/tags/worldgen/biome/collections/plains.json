@@ -12,10 +12,6 @@
       "required": false
     },
     {
-      "id": "#forge:is_plains",
-      "required": false
-    },
-    {
       "id": "#c:plains",
       "required": false
     }

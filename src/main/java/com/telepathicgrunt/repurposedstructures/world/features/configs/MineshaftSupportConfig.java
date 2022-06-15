@@ -19,7 +19,7 @@ public class MineshaftSupportConfig implements FeatureConfiguration {
             Registry.BLOCK.byNameCodec().fieldOf("target_floor_block").forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.targetFloorState),
             Codec.BOOL.fieldOf("is_water_based").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.waterBased),
             Codec.BOOL.fieldOf("arch_only").orElse(false).forGetter(mineshaftSupportConfig -> mineshaftSupportConfig.archOnly)
-    ).apply(configInstance, MineshaftSupportConfig::new));
+            ).apply(configInstance, MineshaftSupportConfig::new));
 
     public final HashSet<Block> archBlocks;
     public final BlockState pillarState;

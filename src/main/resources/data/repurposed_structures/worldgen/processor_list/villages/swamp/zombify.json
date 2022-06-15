@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:moss_carpet",
-            "probability": 0.8,
+            "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:moss_block"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -30,11 +30,43 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
-            "block": "minecraft:cobblestone",
-            "probability": 0.8,
+            "block": "minecraft:muddy_mangrove_roots",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:muddy_mangrove_roots",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "input_predicate": {
+            "block": "minecraft:mud",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:muddy_mangrove_roots",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "input_predicate": {
+            "block": "minecraft:packed_mud",
+            "probability": 0.02,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -82,7 +114,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:cobblestone",
+            "block": "minecraft:mud_bricks",
             "probability": 0.07,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -95,7 +127,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:mossy_cobblestone",
+            "block": "minecraft:mud",
             "probability": 0.07,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -108,20 +140,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:white_terracotta",
-            "probability": 0.07,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:cobweb"
-          },
-          "input_predicate": {
-            "block": "minecraft:oak_log",
+            "block": "minecraft:mangrove_log",
             "probability": 0.05,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -134,7 +153,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:oak_planks",
+            "block": "minecraft:mangrove_planks",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -147,7 +166,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:oak_stairs",
+            "block": "minecraft:spruce_planks",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -160,7 +179,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:dirt",
+            "block": "minecraft:mangrove_stairs",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -173,7 +192,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:coarse_dirt",
+            "block": "minecraft:spruce_stairs",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -199,7 +218,7 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:stripped_oak_log",
+            "block": "minecraft:stripped_mangrove_log",
             "probability": 0.02,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -212,7 +231,46 @@
             "Name": "minecraft:cobweb"
           },
           "input_predicate": {
-            "block": "minecraft:glass_pane",
+            "block": "minecraft:stripped_spruce_log",
+            "probability": 0.02,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cobweb"
+          },
+          "input_predicate": {
+            "block": "minecraft:stripped_mangrove_wood",
+            "probability": 0.02,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cobweb"
+          },
+          "input_predicate": {
+            "block": "minecraft:stripped_spruce_wood",
+            "probability": 0.02,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cobweb"
+          },
+          "input_predicate": {
+            "block": "minecraft:black_stained_glass_pane",
             "probability": 0.5,
             "predicate_type": "minecraft:random_block_match"
           },
@@ -240,7 +298,7 @@
                 "north": "true",
                 "east": "false"
               },
-              "Name": "minecraft:glass_pane"
+              "Name": "minecraft:black_stained_glass_pane"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -268,7 +326,7 @@
                 "north": "false",
                 "east": "true"
               },
-              "Name": "minecraft:glass_pane"
+              "Name": "minecraft:black_stained_glass_pane"
             },
             "predicate_type": "minecraft:blockstate_match"
           },

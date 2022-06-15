@@ -50,5 +50,11 @@
     "End Stronghold Map": "End Stronghold Map",
     "Nether Ruins Map": "Nether Ruins Map",
     "End Pyramid Map": "End Pyramid Map",
-    "RS Monument Map": "RS Monument Map"
+    "RS Monument Map": "RS Monument Map",
+
+    "repurposed_structures.midnightconfig.title": "Repurposed Structures",
+    "repurposed_structures.midnightconfig.importModdedItems": "Import Modded Items",
+    "repurposed_structures.midnightconfig.blacklistedRSLoottablesFromImportingModdedItems": "RS Loottables That Disables Importing Modded Items",
+    "modid.midnightconfig.importModdedItems.tooltip":"Adds modded loot from vanilla structure's loot tables and injects them into Repurposed Structure's loot tables.\n            Example: Snowy Pyramid gets all modded items that vanilla Desert Temple can have",
+    "modid.midnightconfig.blacklistedRSLoottablesFromImportingModdedItems.tooltip":"Add the identifiers for Repurposed Structures's loottable you want to\n             turn off the automatic modded item importing code for.\n             Separate multiple entries with a comma.\n            Example: \"repurposed_structures:chests/mansions/birch, repurposed_structures:chests/mineshafts/jungle\""
 }

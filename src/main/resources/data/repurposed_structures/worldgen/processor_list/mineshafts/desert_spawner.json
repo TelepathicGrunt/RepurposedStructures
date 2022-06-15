@@ -177,6 +177,9 @@
     },
     {
       "processor_type": "repurposed_structures:structure_void_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_fix_processor"
     }
   ]
 }

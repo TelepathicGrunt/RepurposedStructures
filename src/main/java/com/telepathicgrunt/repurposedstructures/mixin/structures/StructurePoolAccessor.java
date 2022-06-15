@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
 import com.mojang.datafixers.util.Pair;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,9 +20,9 @@ public interface StructurePoolAccessor {
     void repurposedstructures_setRawTemplates(List<Pair<StructurePoolElement, Integer>> elementCounts);
 
     @Accessor("templates")
-    List<StructurePoolElement> repurposedstructures_getTemplates();
+    ObjectArrayList<StructurePoolElement> repurposedstructures_getTemplates();
 
     @Mutable
     @Accessor("templates")
-    void repurposedstructures_setTemplates(List<StructurePoolElement> elements);
+    void repurposedstructures_setTemplates(ObjectArrayList<StructurePoolElement> elements);
 }

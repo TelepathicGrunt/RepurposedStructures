@@ -1,0 +1,13 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "start_pool": "repurposed_structures:temples/nether_basalt",
+  "size": 1,
+  "biomes": "#repurposed_structures:has_structure/temples/nether_basalt",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "land_search_direction": "HIGHEST_LAND",
+  "start_height": {
+    "absolute": -4
+  },
+  "spawn_overrides": {}
+}

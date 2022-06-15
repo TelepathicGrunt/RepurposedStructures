@@ -21,25 +21,65 @@
     "in_monument_jungle": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:monument_jungle"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:monument_jungle"
+              }
+            }
+          }
+        ]
       }
     },
     "in_monument_icy": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:monument_icy"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:monument_icy"
+              }
+            }
+          }
+        ]
       }
     },
     "in_monument_nether": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:monument_nether"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:monument_nether"
+              }
+            }
+          }
+        ]
       }
     },
     "in_monument_desert": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:monument_desert"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:monument_desert"
+              }
+            }
+          }
+        ]
       }
     }
   },

@@ -5,11 +5,14 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
@@ -21,14 +24,12 @@ import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementTy
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.JigsawReplacementProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Function;
 
 public class MirroringSingleJigsawPiece extends SinglePoolElement {
@@ -61,26 +62,26 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
         this(Either.right(template), ProcessorLists.EMPTY, StructureTemplatePool.Projection.RIGID, Mirror.NONE);
     }
 
-    private StructureTemplate getTemplate(StructureManager templateManager) {
+    private StructureTemplate getTemplate(StructureTemplateManager templateManager) {
         return this.template.map(templateManager::getOrCreate, Function.identity());
     }
 
     @Override
-    public List<StructureTemplate.StructureBlockInfo> getShuffledJigsawBlocks(StructureManager templateManager, BlockPos blockPos, Rotation rotation, Random random) {
+    public List<StructureTemplate.StructureBlockInfo> getShuffledJigsawBlocks(StructureTemplateManager templateManager, BlockPos blockPos, Rotation rotation, RandomSource random) {
         StructureTemplate template = this.getTemplate(templateManager);
-        List<StructureTemplate.StructureBlockInfo> list = template.filterBlocks(blockPos, (new StructurePlaceSettings()).setRotation(rotation), Blocks.JIGSAW, true);
-        Collections.shuffle(list, random);
+        ObjectArrayList<StructureTemplate.StructureBlockInfo> list = template.filterBlocks(blockPos, (new StructurePlaceSettings()).setRotation(rotation), Blocks.JIGSAW, true);
+        Util.shuffle(list, random);
         return list;
     }
 
     @Override
-    public BoundingBox getBoundingBox(StructureManager templateManager, BlockPos blockPos, Rotation rotation) {
+    public BoundingBox getBoundingBox(StructureTemplateManager templateManager, BlockPos blockPos, Rotation rotation) {
         StructureTemplate template = this.getTemplate(templateManager);
         return template.getBoundingBox((new StructurePlaceSettings()).setRotation(rotation).setMirror(this.mirror), blockPos);
     }
 
     @Override
-    public boolean place(StructureManager templateManager, WorldGenLevel worldGenLevel, StructureFeatureManager structureManager, ChunkGenerator chunkGenerator, BlockPos blockPos, BlockPos blockPos1, Rotation rotation, BoundingBox mutableBoundingBox, Random random, boolean doNotReplaceJigsaw) {
+    public boolean place(StructureTemplateManager templateManager, WorldGenLevel worldGenLevel, StructureManager StructureTemplateManager, ChunkGenerator chunkGenerator, BlockPos blockPos, BlockPos blockPos1, Rotation rotation, BoundingBox mutableBoundingBox, RandomSource random, boolean doNotReplaceJigsaw) {
         StructureTemplate template = this.getTemplate(templateManager);
         StructurePlaceSettings placementsettings = this.getSettings(rotation, mutableBoundingBox, doNotReplaceJigsaw);
         if (!template.placeInWorld(worldGenLevel, blockPos, blockPos1, placementsettings, random, 18)) {

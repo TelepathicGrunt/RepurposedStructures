@@ -10,6 +10,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -94,7 +95,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                             replacementBlock = weightedReplacementBlocks.get(0).getFirst();
                         }
                         else{
-                            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
+                            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
                             random.setSeed(mutable.asLong() * mutable.getY());
                             replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         }

@@ -21,7 +21,17 @@
     "in_jungle_fortress": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:fortress_jungle"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:fortress_jungle"
+              }
+            }
+          }
+        ]
       }
     }
   },

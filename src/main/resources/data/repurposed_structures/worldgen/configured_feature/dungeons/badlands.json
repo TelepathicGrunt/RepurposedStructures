@@ -1,0 +1,30 @@
+{
+  "type": "repurposed_structures:nbt_dungeon",
+  "config": {
+	  "dungeon_nbt_entries": [
+		  {
+			  "resourcelocation": "repurposed_structures:dungeons/badlands_1",
+			  "weight": 1
+		  },
+		  {
+			  "resourcelocation": "repurposed_structures:dungeons/badlands_2",
+			  "weight": 1
+		  },
+		  {
+			  "resourcelocation": "repurposed_structures:dungeons/badlands_3",
+			  "weight": 1
+		  }
+	  ],
+	  "loot_block": "minecraft:chest",
+	  "loot_block_loottable_resourcelocation": "repurposed_structures:chests/dungeons/badlands",
+	  "max_num_of_loot_blocks": 2,
+	  "rs_spawner_resourcelocation": "repurposed_structures:dungeons/badlands",
+	  "processors": "repurposed_structures:dungeons/badlands",
+	  "post_processors": "minecraft:empty",
+	  "min_air_space": 1,
+	  "max_air_space": 13,
+	  "replace_air": false,
+	  "air_requirement_is_now_water": false,
+	  "structure_y_offset": 0
+  }
+}

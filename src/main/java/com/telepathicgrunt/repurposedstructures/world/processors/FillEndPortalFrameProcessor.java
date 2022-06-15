@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EndPortalFrameBlock;
@@ -34,7 +35,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.is(Blocks.END_PORTAL_FRAME)) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
-            Random random = new WorldgenRandom(new LegacyRandomSource(0L));
+            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(worldPos.asLong() * worldPos.getY());
 
             return new StructureTemplate.StructureBlockInfo(

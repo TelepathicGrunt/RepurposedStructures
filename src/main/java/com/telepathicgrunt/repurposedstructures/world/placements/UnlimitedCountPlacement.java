@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.placements;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
@@ -27,7 +28,7 @@ public class UnlimitedCountPlacement extends RepeatingPlacement {
     }
 
     @Override
-    protected int count(Random random, BlockPos blockPos) {
+    protected int count(RandomSource random, BlockPos blockPos) {
         return this.count.sample(random);
     }
 

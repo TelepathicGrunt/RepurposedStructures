@@ -1,123 +1,233 @@
 {
-    "parent": "repurposed_structures:root",
-    "display": {
-        "icon": {
-            "item": "minecraft:emerald"
-        },
-        "title": {
-            "translate": "RS Villages"
-        },
-        "description": {
-            "translate": "Find all new Villages!"
-        },
-        "show_toast": true,
-        "announce_to_chat": true,
-        "hidden": false
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:emerald"
     },
-    "rewards": {
-        "experience": 220
+    "title": {
+      "translate": "RS Villages"
     },
-    "criteria": {
-        "in_village_badlands": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_badlands"
-            }
-        },
-        "in_village_birch": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_birch"
-            }
-        },
-        "in_village_crimson": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_crimson"
-            }
-        },
-        "in_village_dark_forest": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_dark_forest"
-            }
-        },
-        "in_village_giant_taiga": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_giant_taiga"
-            }
-        },
-        "in_village_jungle": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_jungle"
-            }
-        },
-        "in_village_mountains": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_mountains"
-            }
-        },
-        "in_village_mushroom": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_mushroom"
-            }
-        },
-        "in_village_warped": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_warped"
-            }
-        },
-        "in_village_oak": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_oak"
-            }
-        },
-        "in_village_swamp": {
-            "trigger": "minecraft:location",
-            "conditions": {
-                "feature": "repurposed_structures:village_swamp"
-            }
-        }
+    "description": {
+      "translate": "Find all new Villages!"
     },
-    "requirements": [
-        [
-            "in_village_badlands"
-        ],
-        [
-            "in_village_birch"
-        ],
-        [
-            "in_village_crimson"
-        ],
-        [
-            "in_village_dark_forest"
-        ],
-        [
-            "in_village_giant_taiga"
-        ],
-        [
-            "in_village_jungle"
-        ],
-        [
-            "in_village_mountains"
-        ],
-        [
-            "in_village_mushroom"
-        ],
-        [
-            "in_village_oak"
-        ],
-        [
-            "in_village_swamp"
-        ],
-        [
-            "in_village_warped"
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 220
+  },
+  "criteria": {
+    "in_village_badlands": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_badlands"
+              }
+            }
+          }
         ]
+      }
+    },
+    "in_village_birch": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_birch"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_crimson": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_crimson"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_dark_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_dark_forest"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_giant_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_giant_taiga"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_jungle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_jungle"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_mountains": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_mountains"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_mushroom": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_mushroom"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_warped": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_warped"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_oak": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_oak"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_village_swamp": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_swamp"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_village_badlands"
+    ],
+    [
+      "in_village_birch"
+    ],
+    [
+      "in_village_crimson"
+    ],
+    [
+      "in_village_dark_forest"
+    ],
+    [
+      "in_village_giant_taiga"
+    ],
+    [
+      "in_village_jungle"
+    ],
+    [
+      "in_village_mountains"
+    ],
+    [
+      "in_village_mushroom"
+    ],
+    [
+      "in_village_oak"
+    ],
+    [
+      "in_village_swamp"
+    ],
+    [
+      "in_village_warped"
     ]
+  ]
 }

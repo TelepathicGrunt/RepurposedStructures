@@ -5,26 +5,22 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.misc.BiomeDimensionAllowDisallow;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.NamespaceResourceManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResourceManagerImplAccessor;
-import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
-import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.FallbackResourceManager;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.BlockGetter;
@@ -38,12 +34,12 @@ import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,17 +51,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public final class GeneralUtils {
     private GeneralUtils() {}
 
     // Weighted Random from: https://stackoverflow.com/a/6737362
-    public static <T> T getRandomEntry(List<Pair<T, Integer>> rlList, Random random) {
+    public static <T> T getRandomEntry(List<Pair<T, Integer>> rlList, RandomSource random) {
         double totalWeight = 0.0;
 
         // Compute the total weight of all items together.
@@ -89,7 +81,7 @@ public final class GeneralUtils {
 
     public static boolean isFullCube(BlockGetter world, BlockPos pos, BlockState state) {
         if(state == null) return false;
-        return IS_FULLCUBE_MAP.computeIfAbsent(state, (stateIn) -> Block.isShapeFullBlock(stateIn.getCollisionShape(world, pos)));
+        return IS_FULLCUBE_MAP.computeIfAbsent(state, (stateIn) -> Block.isShapeFullBlock(stateIn.getOcclusionShape(world, pos)));
     }
 
     //////////////////////////////
@@ -120,37 +112,10 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    public static boolean isBlacklistedForWorld(ServerLevelAccessor currentWorld, ResourceLocation worldgenObjectID) {
-        ResourceLocation worldID = currentWorld.getLevel().dimension().location();
-
-        // Apply disallow first. (Default behavior is it adds to all dimensions)
-        boolean allowInDim = BiomeDimensionAllowDisallow.DIMENSION_DISALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
-                .stream().noneMatch(pattern -> pattern.matcher(worldID.toString()).find());
-
-        // Apply allow to override disallow if dimension is targeted in both.
-        // Lets disallow to turn off spawn for a group of dimensions while allow can turn it back one for one of them.
-        if(!allowInDim && BiomeDimensionAllowDisallow.DIMENSION_ALLOW.getOrDefault(worldgenObjectID, new ArrayList<>())
-                .stream().anyMatch(pattern -> pattern.matcher(worldID.toString()).find())) {
-            allowInDim = true;
-        }
-
-        return !allowInDim;
-    }
-
-    //////////////////////////////
-
-    // Helper method to help reduce amount of code we need to write for adding structures to biomes
-    public static void addToBiome(String modificationName, Predicate<BiomeSelectionContext> selectorPredicate, Consumer<BiomeModificationContext> biomeAdditionConsumer) {
-        BiomeModifications.create(new ResourceLocation(RepurposedStructures.MODID, modificationName)).add(ModificationPhase.ADDITIONS, selectorPredicate, biomeAdditionConsumer);
-    }
-
-
-    //////////////////////////////
-
-    public static ItemStack enchantRandomly(Random random, ItemStack itemToEnchant, float chance) {
+    public static ItemStack enchantRandomly(RandomSource random, ItemStack itemToEnchant, float chance) {
         if(random.nextFloat() < chance) {
             List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
-                    .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).collect(Collectors.toList());
+                    .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).toList();
             if(!list.isEmpty()) {
                 Enchantment enchantment = list.get(random.nextInt(list.size()));
                 // bias towards weaker enchantments
@@ -170,9 +135,9 @@ public final class GeneralUtils {
 
     //////////////////////////////
 
-    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), getMaxTerrainLimit(chunkGenerator) - 20, boundingBox.getCenter().getZ());
-        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
+    public static BlockPos getHighestLand(ChunkGenerator chunkGenerator, RandomState randomState, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), getMaxTerrainLimit(chunkGenerator) - 40, boundingBox.getCenter().getZ());
+        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView, randomState);
         BlockState currentBlockstate;
         while (mutable.getY() > chunkGenerator.getSeaLevel()) {
             currentBlockstate = blockView.getBlock(mutable.getY());
@@ -190,11 +155,11 @@ public final class GeneralUtils {
     }
 
 
-    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
+    public static BlockPos getLowestLand(ChunkGenerator chunkGenerator, RandomState randomState, BoundingBox boundingBox, LevelHeightAccessor heightLimitView, boolean canBeOnLiquid) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(boundingBox.getCenter().getX(), chunkGenerator.getSeaLevel() + 1, boundingBox.getCenter().getZ());
-        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView);
+        NoiseColumn blockView = chunkGenerator.getBaseColumn(mutable.getX(), mutable.getZ(), heightLimitView, randomState);
         BlockState currentBlockstate = blockView.getBlock(mutable.getY());
-        while (mutable.getY() <= getMaxTerrainLimit(chunkGenerator) - 20) {
+        while (mutable.getY() <= getMaxTerrainLimit(chunkGenerator) - 40) {
 
             if((canBeOnLiquid ? !currentBlockstate.isAir() : currentBlockstate.canOcclude()) &&
                     blockView.getBlock(mutable.getY() + 1).getMaterial() == Material.AIR &&
@@ -233,19 +198,6 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    private static ConcurrentHashMap<FeatureConfiguration, ResourceLocation> CACHED_CONFIG_TO_CSF_RL = new ConcurrentHashMap<>();
-
-    public static ResourceLocation getCsfNameForConfig(FeatureConfiguration config, RegistryAccess registries) {
-        return CACHED_CONFIG_TO_CSF_RL.computeIfAbsent(config, c -> registries.registryOrThrow(Registry.CONFIGURED_STRUCTURE_FEATURE_REGISTRY)
-                .entrySet().stream().filter(entry -> entry.getValue().config == config).findFirst().get().getKey().location());
-    }
-
-    public static void clearCachedConfigToCsfRlMap() {
-        CACHED_CONFIG_TO_CSF_RL.clear();
-    }
-
-    //////////////////////////////////////////////
-
     public static void centerAllPieces(BlockPos targetPos, List<? extends StructurePiece> pieces) {
         if(pieces.isEmpty()) return;
 
@@ -274,6 +226,7 @@ public final class GeneralUtils {
                 (isRollable || prop1.top() == prop2.top()) &&
                 jigsaw1.nbt.getString("target").equals(jigsaw2.nbt.getString("name"));
     }
+
     //////////////////////////////////////////////
 
     /**
@@ -290,8 +243,8 @@ public final class GeneralUtils {
         // Find the file with the given id and add its filestream to the list
         for (PackResources resourcePack : allResourcePacks) {
             if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callGetWrappedResource(fileID, resourcePack);
-                if (inputStream != null) fileStreams.add(inputStream);
+                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callCreateResourceGetter(fileID, resourcePack).get();
+                fileStreams.add(inputStream);
             }
         }
 
@@ -309,7 +262,7 @@ public final class GeneralUtils {
         int dataTypeLength = dataType.length() + 1;
 
         // Finds all JSON files paths within the pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
-        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(dataType, (fileString) -> fileString.endsWith(".json"))) {
+        for (ResourceLocation fileIDWithExtension : resourceManager.listResources(dataType, (fileString) -> fileString.toString().endsWith(".json")).keySet()) {
             String identifierPath = fileIDWithExtension.getPath();
             ResourceLocation fileID = new ResourceLocation(
                     fileIDWithExtension.getNamespace(),
@@ -352,5 +305,20 @@ public final class GeneralUtils {
         }
 
         return map;
+    }
+
+    ////////////////////////////
+
+    public static boolean isInvalidLootTableFound(MinecraftServer minecraftServer, Map.Entry<ResourceLocation, ResourceLocation> entry) {
+        boolean invalidLootTableFound = false;
+        if(minecraftServer.getLootTables().get(entry.getKey()) == LootTable.EMPTY) {
+            RepurposedStructures.LOGGER.error("Unable to find loot table key: {}", entry.getKey());
+            invalidLootTableFound = true;
+        }
+        if(minecraftServer.getLootTables().get(entry.getValue()) == LootTable.EMPTY) {
+            RepurposedStructures.LOGGER.error("Unable to find loot table value: {}", entry.getValue());
+            invalidLootTableFound = true;
+        }
+        return invalidLootTableFound;
     }
 }

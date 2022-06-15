@@ -21,31 +21,81 @@
     "in_witch_hut_birch": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_hut_birch"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:witch_hut_birch"
+              }
+            }
+          }
+        ]
       }
     },
     "in_witch_hut_dark_forest": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_hut_dark_forest"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:witch_hut_dark_forest"
+              }
+            }
+          }
+        ]
       }
     },
     "in_witch_hut_giant_tree_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_hut_giant_tree_taiga"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:witch_hut_giant_tree_taiga"
+              }
+            }
+          }
+        ]
       }
     },
     "in_witch_hut_oak": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_hut_oak"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:witch_hut_oak"
+              }
+            }
+          }
+        ]
       }
     },
     "in_witch_hut_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:witch_hut_taiga"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:witch_hut_taiga"
+              }
+            }
+          }
+        ]
       }
     }
   },

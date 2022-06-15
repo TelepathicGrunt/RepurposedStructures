@@ -1,53 +1,74 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.world.structures.configs.RSMansionConfig;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.StructureFeatureManager;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.CheckerboardColumnBiomeSource;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
-import net.minecraft.world.level.levelgen.structure.StructureSet;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer;
 import net.minecraft.world.level.material.Material;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
-import java.util.Random;
 
 
-public class MansionStructure <C extends RSMansionConfig> extends AbstractBaseStructure<C> {
+public class MansionStructure extends Structure {
 
-    public MansionStructure(Codec<C> codec) {
-        super(codec, MansionStructure::isMansionFeatureChunk, MansionStructure::generateMansionPieces, MansionStructure::afterPlace);
+    public static final Codec<MansionStructure> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+            MansionStructure.settingsCodec(instance),
+            Codec.STRING.fieldOf("mansion_type").forGetter(structure -> structure.mansionType),
+            BlockState.CODEC.fieldOf("foundation_block").forGetter(structure -> structure.foundationBlock),
+            Codec.BOOL.fieldOf("pillar_only_to_land").orElse(true).forGetter(structure -> structure.pillarOnlyToLand),
+            Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius)
+    ).apply(instance, MansionStructure::new));
+
+    public final String mansionType;
+    public final BlockState foundationBlock;
+    public final boolean pillarOnlyToLand;
+    public final Optional<Integer> biomeRadius;
+    public MansionStructure(Structure.StructureSettings config,
+                            String mansionType, 
+                            BlockState foundationBlock, 
+                            boolean pillarOnlyToLand,
+                            Optional<Integer> biomeRadius
+    ) {
+        super(config);
+        this.mansionType = mansionType.toLowerCase(Locale.ROOT);
+        this.foundationBlock = foundationBlock;
+        this.pillarOnlyToLand = pillarOnlyToLand;
+        this.biomeRadius = biomeRadius;
     }
-
-    protected static <CC extends RSMansionConfig> boolean isMansionFeatureChunk(PieceGeneratorSupplier.Context<CC> context) {
+    
+    protected boolean extraSpawningChecks(GenerationContext context, BlockPos blockPos) {
         ChunkPos chunkPos = context.chunkPos();
-        CC config = context.config();
 
-        if (!(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
-            for (int curChunkX = chunkPos.x - config.biomeRadius; curChunkX <= chunkPos.x + config.biomeRadius; curChunkX++) {
-                for (int curChunkZ = chunkPos.z - config.biomeRadius; curChunkZ <= chunkPos.z + config.biomeRadius; curChunkZ++) {
-                    int yValue = context.chunkGenerator().getFirstFreeHeight(curChunkX << 4, curChunkZ << 4, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(curChunkX << 2, yValue >> 2, curChunkZ << 2, context.chunkGenerator().climateSampler());
+        if (this.biomeRadius.isPresent() && !(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
+            int validBiomeRange = this.biomeRadius.get();
+            for (int curChunkX = chunkPos.x - validBiomeRange; curChunkX <= chunkPos.x + validBiomeRange; curChunkX++) {
+                for (int curChunkZ = chunkPos.z - validBiomeRange; curChunkZ <= chunkPos.z + validBiomeRange; curChunkZ++) {
+                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(curChunkX << 2, blockPos.getY() >> 2, curChunkZ << 2, context.randomState().sampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
                     }
@@ -55,20 +76,13 @@ public class MansionStructure <C extends RSMansionConfig> extends AbstractBaseSt
             }
         }
 
-        //cannot be near other specified structure
-        for (ResourceKey<StructureSet> structureSetToAvoid : config.structureSetToAvoid) {
-            if (context.chunkGenerator().hasFeatureChunkInRange(structureSetToAvoid, context.seed(), chunkPos.x, chunkPos.z, config.structureAvoidRadius)) {
-                return false;
-            }
-        }
-
         return true;
     }
 
-    public static <CC extends RSMansionConfig> Optional<PieceGenerator<CC>> generateMansionPieces(PieceGeneratorSupplier.Context<CC> context) {
-
-        CC config = context.config();
+    @Override
+    public Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
         ChunkPos chunkPos = context.chunkPos();
+
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
         random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
         Rotation blockRotation = Rotation.getRandom(random);
@@ -77,40 +91,47 @@ public class MansionStructure <C extends RSMansionConfig> extends AbstractBaseSt
         int zOffset = 5;
         if (blockRotation == Rotation.CLOCKWISE_90) {
             xOffset = -5;
-        } else if (blockRotation == Rotation.CLOCKWISE_180) {
+        }
+        else if (blockRotation == Rotation.CLOCKWISE_180) {
             xOffset = -5;
             zOffset = -5;
-        } else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
+        }
+        else if (blockRotation == Rotation.COUNTERCLOCKWISE_90) {
             zOffset = -5;
         }
 
         int centerX = chunkPos.getMiddleBlockX();
         int centerZ = chunkPos.getMiddleBlockZ();
-        int firstHeight = context.chunkGenerator().getFirstOccupiedHeight(centerX, centerZ, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-        int secondHeight = context.chunkGenerator().getFirstOccupiedHeight(centerX, centerZ + zOffset, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-        int thirdHeight = context.chunkGenerator().getFirstOccupiedHeight(centerX + xOffset, centerZ, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
-        int forthheight = context.chunkGenerator().getFirstOccupiedHeight(centerX + xOffset, centerZ + zOffset, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+        int firstHeight = context.chunkGenerator().getFirstOccupiedHeight(centerX, centerZ, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        int secondHeight = context.chunkGenerator().getFirstOccupiedHeight(centerX, centerZ + zOffset, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        int thirdHeight = context.chunkGenerator().getFirstOccupiedHeight(centerX + xOffset, centerZ, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        int forthheight = context.chunkGenerator().getFirstOccupiedHeight(centerX + xOffset, centerZ + zOffset, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
         int finalheight = Math.min(Math.min(firstHeight, secondHeight), Math.min(thirdHeight, forthheight));
 
         if(finalheight <= context.chunkGenerator().getMinY())
             return Optional.empty();
 
-        return Optional.of((structurePiecesBuilder, contextx) -> {
+        if (!extraSpawningChecks(context, chunkPos.getMiddleBlockPosition(finalheight))) {
+            return Optional.empty();
+        }
+
+        return Optional.of(new Structure.GenerationStub(new BlockPos(centerX, finalheight + 1, centerZ), (structurePiecesBuilder) -> {
             BlockPos blockPos = new BlockPos(chunkPos.getMiddleBlockX(), finalheight + 1, chunkPos.getMiddleBlockZ());
             List<StructurePiece> list = new ArrayList<>();
-            MansionPieces.createMansionLayout(context.registryAccess(), context.structureManager(), blockPos, blockRotation, list, random, context.config());
+            MansionPieces.createMansionLayout(context.registryAccess(), context.structureTemplateManager(), blockPos, blockRotation, list, random, this.mansionType);
             list.forEach(piece -> {
                 if (piece instanceof PoolElementStructurePiece poolElementStructurePiece) {
-                    structurePiecesBuilder.addPiece(new MansionStructurePiece(poolElementStructurePiece, config.mansionType, config.foundationBlock, config.pillarOnlyToLand));
+                    structurePiecesBuilder.addPiece(new MansionStructurePiece(poolElementStructurePiece, this.mansionType, this.foundationBlock, this.pillarOnlyToLand));
                 }
                 else {
                     structurePiecesBuilder.addPiece(piece);
                 }
             });
-        });
+        }));
     }
 
-    private static void afterPlace(WorldGenLevel level, StructureFeatureManager structureFeatureManager, ChunkGenerator chunkGenerator, Random random, BoundingBox boundingBox, ChunkPos chunkPos, PiecesContainer piecesContainer) {
+    @Override
+    public void afterPlace(WorldGenLevel level, StructureManager structureManager , ChunkGenerator chunkGenerator, RandomSource random, BoundingBox boundingBox, ChunkPos chunkPos, PiecesContainer piecesContainer) {
         if (!piecesContainer.isEmpty() && piecesContainer.pieces().get(0) instanceof MansionStructurePiece mansionStructurePiece) {
             BlockPos.MutableBlockPos mutableBlockPos = new BlockPos.MutableBlockPos();
             BoundingBox box = piecesContainer.calculateBoundingBox();
@@ -156,5 +177,10 @@ public class MansionStructure <C extends RSMansionConfig> extends AbstractBaseSt
                 }
             }
         }
+    }
+
+    @Override
+    public StructureType<?> type() {
+        return RSStructures.MANSION_STRUCTURE;
     }
 }

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_overworld",
+    {
+      "id": "#forge:is_overworld",
+      "required": false
+    },
+    {
+      "id": "#c:in_overworld",
+      "required": false
+    }
+  ]
+}

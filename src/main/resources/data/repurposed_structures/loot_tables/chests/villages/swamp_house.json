@@ -68,11 +68,11 @@
           "weight": 2
         },
         {
-          "name": "minecraft:brown_terracotta",
+          "name": "minecraft:mud_bricks",
           "type": "minecraft:item"
         },
         {
-          "name": "minecraft:gray_terracotta",
+          "name": "minecraft:packed_mud",
           "type": "minecraft:item"
         },
         {
@@ -106,7 +106,7 @@
           ]
         },
         {
-          "name": "minecraft:oak_sapling",
+          "name": "minecraft:mangrove_propagule",
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
