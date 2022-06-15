@@ -35,7 +35,7 @@
     "spacing": 225,
     "separation": 110,
     "spread_type": "triangular",
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 4,
       "other_set": "#repurposed_structures:mansion_avoid"
     }

@@ -10,7 +10,7 @@
     "salt": 618127296,
     "spacing": 180,
     "separation": 90,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 5,
       "other_set": "#repurposed_structures:underground_bastion_avoid"
     }
