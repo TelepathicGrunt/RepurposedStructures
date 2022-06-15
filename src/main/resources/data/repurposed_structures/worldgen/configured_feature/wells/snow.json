@@ -9,6 +9,6 @@
 	  ],
 	  "allow_liquid": false,
 	  "processors": "repurposed_structures:wells/snow",
-	  "structure_y_offset": -4
+	  "height_offset": -1
   }
 }

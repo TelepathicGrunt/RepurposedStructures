@@ -9,6 +9,6 @@
 	  ],
 	  "allow_liquid": true,
 	  "processors": "repurposed_structures:wells/mossy_stone",
-	  "structure_y_offset": -2
+	  "height_offset": -2
   }
 }

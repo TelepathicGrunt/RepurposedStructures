@@ -9,6 +9,6 @@
 	  ],
 	  "allow_liquid": false,
 	  "processors": "repurposed_structures:wells/badlands",
-	  "structure_y_offset": -2
+	  "height_offset": -1
   }
 }

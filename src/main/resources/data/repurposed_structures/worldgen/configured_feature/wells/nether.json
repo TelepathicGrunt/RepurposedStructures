@@ -9,6 +9,6 @@
 	  ],
 	  "allow_liquid": false,
 	  "processors": "repurposed_structures:wells/nether",
-	  "structure_y_offset": -1
+	  "height_offset": -1
   }
 }

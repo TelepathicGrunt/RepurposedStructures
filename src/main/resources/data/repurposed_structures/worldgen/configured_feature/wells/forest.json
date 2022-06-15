@@ -9,6 +9,6 @@
 	  ],
 	  "allow_liquid": false,
 	  "processors": "repurposed_structures:wells/forest",
-	  "structure_y_offset": -6
+	  "height_offset": -6
   }
 }

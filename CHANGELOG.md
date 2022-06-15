@@ -1,3 +1,9 @@
+### **(V.6.0.1 Changes) (1.19.0 Minecraft)**
+
+#### Wells:
+Fixed height offset not applying correctly.
+
+
 ### **(V.6.0.0 Changes) (1.19.0 Minecraft)**
 
 #### Major:
