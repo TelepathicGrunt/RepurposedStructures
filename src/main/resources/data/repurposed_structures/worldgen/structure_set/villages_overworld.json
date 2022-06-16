@@ -38,7 +38,7 @@
     "salt": 608450500,
     "spacing": 50,
     "separation": 25,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 6,
       "other_set": "#repurposed_structures:overworld_village_avoid"
     }

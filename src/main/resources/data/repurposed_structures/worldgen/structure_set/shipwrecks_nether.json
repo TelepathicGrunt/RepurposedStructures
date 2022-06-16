@@ -18,7 +18,7 @@
     "salt": 1224747205,
     "spacing": 21,
     "separation": 11,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 2,
       "other_set": "#repurposed_structures:nether_shipwreck_avoid"
     }

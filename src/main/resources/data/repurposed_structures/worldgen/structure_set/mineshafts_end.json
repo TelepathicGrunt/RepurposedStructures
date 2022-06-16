@@ -13,7 +13,7 @@
     "min_distance_from_world_origin": 1000,
     "frequency": 0.006,
     "frequency_reduction_method": "legacy_type_3",
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 6,
       "other_set": "#repurposed_structures:end_mineshaft_avoid"
     }

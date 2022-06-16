@@ -11,7 +11,7 @@
     "spacing": 61,
     "separation": 30,
     "min_distance_from_world_origin": 1000,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 5,
       "other_set": "#repurposed_structures:end_outpost_avoid"
     }

@@ -3,6 +3,11 @@
 #### Wells:
 Fixed height offset not applying correctly.
 
+#### Misc:
+Fixed exclusion zome for several structure sets to now work with tags.
+ This was used to prevent some structures from spawning near certain other structures. 
+ Helps to reduce odd structure fusions from happening.
+
 
 ### **(V.6.0.0 Changes) (1.19.0 Minecraft)**
 

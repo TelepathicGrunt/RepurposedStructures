@@ -42,7 +42,7 @@
     "salt": 411702122,
     "spacing": 49,
     "separation": 24,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 5,
       "other_set": "#repurposed_structures:overworld_outpost_avoid"
     }

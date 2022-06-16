@@ -10,7 +10,7 @@
     "salt": 322115398,
     "spacing": 320,
     "separation": 140,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 3,
       "other_set": "#repurposed_structures:nether_monument_avoid"
     }

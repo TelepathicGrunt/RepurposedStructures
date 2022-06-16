@@ -18,7 +18,7 @@
     "salt": 412325774,
     "spacing": 120,
     "separation": 50,
-    "exclusion_zone": {
+    "super_exclusion_zone": {
       "chunk_count": 3,
       "other_set": "#repurposed_structures:overworld_monument_avoid"
     }
