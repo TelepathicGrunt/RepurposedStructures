@@ -1,3 +1,9 @@
+### **(V.6.0.2 Changes) (1.19.0 Minecraft)**
+
+#### Pyramids:
+Fixed Pyramids spawning underwater when they are land pyramids (hopefully got this fixed)
+
+
 ### **(V.6.0.1 Changes) (1.19.0 Minecraft)**
 
 #### Wells:
