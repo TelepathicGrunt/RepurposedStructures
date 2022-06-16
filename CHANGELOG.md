@@ -3,6 +3,9 @@
 #### Mineshafts:
 Fixed End Mineshaft's avoid structure set tag being misnamed and thus, broken.
 
+#### Lang:
+ru_ru.json lang file updated by DrHesperus!
+
 
 ### **(V.6.0.2 Changes) (1.19.0 Minecraft)**
 
