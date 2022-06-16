@@ -99,7 +99,7 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
 
     @Override
     public boolean isStructureChunk(ChunkGenerator chunkGenerator, RandomState randomState, long l, int i, int j) {
-        if (!this.isStructureChunk(chunkGenerator, randomState, l, i, j)) {
+        if (!super.isStructureChunk(chunkGenerator, randomState, l, i, j)) {
             return false;
         }
         return this.superExclusionZone.isEmpty() || !this.superExclusionZone.get().isPlacementForbidden(chunkGenerator, randomState, l, i, j);
