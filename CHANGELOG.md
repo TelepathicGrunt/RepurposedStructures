@@ -3,6 +3,9 @@
 #### Loot Tables:
 Fixed modded loot importing mixin to not nuke loot tables by mistake... oops.
 
+#### Pyramids:
+Fixed Pyramids spawning underwater when they are land pyramids (hopefully got this fixed)
+
 
 ### **(V.6.0.0 Changes) (1.19.0 Minecraft)**
 

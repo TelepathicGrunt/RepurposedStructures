@@ -234,9 +234,12 @@ public class GenericJigsawStructure extends Structure {
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(box.maxX(), box.minZ(), heightMapToUse, context.heightAccessor(), context.randomState()));
             highestLandPos = Math.min(highestLandPos, context.chunkGenerator().getFirstOccupiedHeight(box.maxX(), box.maxZ(), heightMapToUse, context.heightAccessor(), context.randomState()));
 
-            if(heightMapToUse == Heightmap.Types.OCEAN_FLOOR_WG || heightMapToUse == Heightmap.Types.OCEAN_FLOOR) {
+            if(!this.cannotSpawnInLiquid && (heightMapToUse == Heightmap.Types.OCEAN_FLOOR_WG || heightMapToUse == Heightmap.Types.OCEAN_FLOOR)) {
                 int maxHeightForSubmerging = context.chunkGenerator().getSeaLevel() - box.getYSpan();
                 highestLandPos = Math.min(highestLandPos, maxHeightForSubmerging);
+            }
+            else {
+                highestLandPos = Math.max(highestLandPos, context.chunkGenerator().getSeaLevel());
             }
 
             offsetToNewHeight(context, offsetY, pieces, box, highestLandPos);
@@ -291,9 +294,12 @@ public class GenericJigsawStructure extends Structure {
                 highestLandPos = minYAllowed.get();
             }
 
-            if(heightMapToUse == Heightmap.Types.OCEAN_FLOOR_WG || heightMapToUse == Heightmap.Types.OCEAN_FLOOR) {
+            if(!this.cannotSpawnInLiquid && (heightMapToUse == Heightmap.Types.OCEAN_FLOOR_WG || heightMapToUse == Heightmap.Types.OCEAN_FLOOR)) {
                 int maxHeightForSubmerging = context.chunkGenerator().getSeaLevel() - box.getYSpan();
                 highestLandPos = Math.min(highestLandPos, maxHeightForSubmerging);
+            }
+            else {
+                highestLandPos = Math.max(highestLandPos, context.chunkGenerator().getSeaLevel());
             }
 
             offsetToNewHeight(context, offsetY, pieces, box, highestLandPos);
