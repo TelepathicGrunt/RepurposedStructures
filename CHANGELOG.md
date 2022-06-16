@@ -1,3 +1,12 @@
+### **(V.6.0.3 Changes) (1.19.0 Minecraft)**
+
+#### Mineshafts:
+Fixed End Mineshaft's avoid structure set tag being misnamed and thus, broken.
+
+#### Misc:
+Fixed crash when Waystone mod is on or RS Compat Datapacks are on.
+
+
 ### **(V.6.0.2 Changes) (1.19.0 Minecraft)**
 
 #### Pyramids:
