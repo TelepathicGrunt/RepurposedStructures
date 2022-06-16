@@ -1,3 +1,9 @@
+### **(V.6.0.4 Changes) (1.19.0 Minecraft)**
+
+#### Lang:
+ru_ru.json lang file updated by DrHesperus!
+
+
 ### **(V.6.0.3 Changes) (1.19.0 Minecraft)**
 
 #### Mineshafts:
