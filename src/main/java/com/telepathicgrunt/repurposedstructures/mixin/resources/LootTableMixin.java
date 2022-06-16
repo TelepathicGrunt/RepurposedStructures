@@ -23,10 +23,6 @@ public class LootTableMixin {
     @Inject(method = "getRandomItems(Lnet/minecraft/world/level/storage/loot/LootContext;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;",
             at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void repurposedstructures_modifyLoot(LootContext lootContext, CallbackInfoReturnable<ObjectArrayList<ItemStack>> cir, ObjectArrayList<ItemStack> list) {
-        List<ItemStack> newList = StructureModdedLootImporter.checkAndGetModifiedLoot(lootContext, (LootTable)(Object)this, list);
-        if(!newList.isEmpty()) {
-            list.clear();
-            list.addAll(newList);
-        }
+        StructureModdedLootImporter.checkAndGetModifiedLoot(lootContext, (LootTable)(Object)this, list);
     }
 }

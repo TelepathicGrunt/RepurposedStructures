@@ -1,3 +1,9 @@
+### **(V.6.0.1 Changes) (1.19.0 Minecraft)**
+
+#### Loot Tables:
+Fixed modded loot importing mixin to not nuke loot tables by mistake... oops.
+
+
 ### **(V.6.0.0 Changes) (1.19.0 Minecraft)**
 
 #### Major:

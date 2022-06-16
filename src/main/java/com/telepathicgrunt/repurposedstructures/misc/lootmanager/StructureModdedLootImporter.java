@@ -225,7 +225,7 @@ public final class StructureModdedLootImporter {
             }
         }
 
-        return new ArrayList<>();
+        return originalLoot;
     }
 
     public static List<ItemStack> modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
