@@ -238,11 +238,12 @@ public final class GeneralUtils {
         List<InputStream> fileStreams = new ArrayList<>();
 
         FallbackResourceManager namespaceResourceManager = ((ReloadableResourceManagerImplAccessor) resourceManager).repurposedstructures_getNamespacedManagers().get(fileID.getNamespace());
-        List<PackResources> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
+        List<FallbackResourceManager.PackEntry> allResourcePacks = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_getFallbacks();
 
         // Find the file with the given id and add its filestream to the list
-        for (PackResources resourcePack : allResourcePacks) {
-            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+        for (FallbackResourceManager.PackEntry packEntry : allResourcePacks) {
+            PackResources resourcePack = packEntry.resources();
+            if (resourcePack != null && resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
                 InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callCreateResourceGetter(fileID, resourcePack).get();
                 fileStreams.add(inputStream);
             }

@@ -1,3 +1,9 @@
+### **(V.6.0.2 Changes) (1.19.0 Minecraft)**
+
+#### Misc:
+Fixed crash when Waystone mod is on or RS Compat Datapacks are on.
+
+
 ### **(V.6.0.1 Changes) (1.19.0 Minecraft)**
 
 #### Loot Tables:

@@ -15,7 +15,7 @@ import java.util.List;
 @Mixin(FallbackResourceManager.class)
 public interface NamespaceResourceManagerAccessor {
     @Accessor("fallbacks")
-    List<PackResources> repurposedstructures_getFallbacks();
+    List<FallbackResourceManager.PackEntry> repurposedstructures_getFallbacks();
 
     @Invoker("createResourceGetter")
     Resource.IoSupplier<InputStream> repurposedstructures_callCreateResourceGetter(ResourceLocation id, PackResources pack) throws IOException;
