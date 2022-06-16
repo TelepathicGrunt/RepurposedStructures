@@ -5,7 +5,7 @@
   "biomes": "#repurposed_structures:has_structure/pyramids/ocean",
   "step": "surface_structures",
   "terrain_adaptation": "none",
-  "can_spawn_in_liquid": true,
+  "cannot_spawn_in_liquid": false,
   "project_start_to_heightmap": "OCEAN_FLOOR_WG",
   "burying_type": "LOWEST_CORNER",
   "start_height": {
