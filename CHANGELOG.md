@@ -1,3 +1,17 @@
+### **(V.6.0.4 Changes) (1.19.0 Minecraft)**
+
+#### Dungeons:
+Changed dungeons to use `repurposed_structures:unlimited_count` so you can set dungeon spawnrates insanely high (like a thousand or so)
+ Config datapack is updated with these changes.
+
+#### Wells:
+Added `repurposed_structures:unlimited_count` to wells to make turning them off easier (just set count to 0)
+ Config datapack is updated with these changes.
+
+#### Bastions:
+Allow Underground Bastions to spawn in Deep Dark biome and increased range of structure check to prevent it from spawning in Ancient Cities.
+
+
 ### **(V.6.0.3 Changes) (1.19.0 Minecraft)**
 
 #### Dungeons:

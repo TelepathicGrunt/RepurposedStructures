@@ -3,6 +3,7 @@
   "values": [
     "minecraft:dripstone_caves",
     "minecraft:lush_caves",
+    "minecraft:deep_dark",
     {
       "id": "terralith:cave/frostfire_caves",
       "required": false
