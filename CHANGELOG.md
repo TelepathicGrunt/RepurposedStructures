@@ -4,6 +4,8 @@
 Changed dungeons to use `repurposed_structures:unlimited_count` so you can set dungeon spawnrates insanely high (like a thousand or so)
  Config datapack is updated with these changes.
 
+Fixed Ocean Dungeons not spawning.
+
 #### Wells:
 Added `repurposed_structures:unlimited_count` to wells to make turning them off easier (just set count to 0)
  Config datapack is updated with these changes.
