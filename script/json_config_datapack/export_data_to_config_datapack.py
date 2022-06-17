@@ -30,7 +30,7 @@ while restart:
     shutil.rmtree(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack", ignore_errors=True) 
 
     listOfFiles = getListOfFiles(fabric_resources)
-    listOfFiles = [x for x in listOfFiles if not any(substring in x for substring in ["data\\repurposed_structures\\structures", ".png", "fabric.mod.json", "repurposed_structures.mixins.json", "repurposed_structures.accesswidener"])]
+    listOfFiles = [x for x in listOfFiles if not any(substring in x for substring in ["data\\repurposed_structures\\structures", ".png", "fabric.mod.json", "repurposed_structures.mixins.json", "repurposed_structures.accesswidener", "META-INF", "accesstransformer.cfg", "mods.toml", "RepurposedStructuresLogo.png", "pack.mcmeta"])]
     for srcFile in listOfFiles:
         targetFile = srcFile.replace(fabric_resources, f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
         os.makedirs(os.path.dirname(targetFile), exist_ok=True)
