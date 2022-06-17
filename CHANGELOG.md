@@ -11,6 +11,11 @@ Added `repurposed_structures:unlimited_count` to wells to make turning them off 
 #### Bastions:
 Allow Underground Bastions to spawn in Deep Dark biome and increased range of structure check to prevent it from spawning in Ancient Cities.
 
+#### Villages:
+Dark Forest Village now has Red and Black Beds instead of White and Yellow Beds.
+
+Mountain Villages now spawns Stone Brick Stairs instead of Cobblestone Stairs at various spots.
+
 
 ### **(V.6.0.3 Changes) (1.19.0 Minecraft)**
 
