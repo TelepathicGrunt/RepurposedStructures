@@ -2,7 +2,7 @@
   "feature": "repurposed_structures:dungeons/end",
   "placement": [
     {
-      "type": "minecraft:count",
+      "type": "repurposed_structures:unlimited_count",
       "count": 10
     },
     {

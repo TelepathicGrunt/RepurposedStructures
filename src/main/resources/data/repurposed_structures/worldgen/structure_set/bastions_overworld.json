@@ -11,7 +11,7 @@
     "spacing": 180,
     "separation": 90,
     "super_exclusion_zone": {
-      "chunk_count": 5,
+      "chunk_count": 7,
       "other_set": "#repurposed_structures:underground_bastion_avoid"
     }
   }

@@ -2,7 +2,7 @@
   "feature": "repurposed_structures:dungeons/ocean_lukewarm",
   "placement": [
     {
-      "type": "minecraft:count",
+      "type": "repurposed_structures:unlimited_count",
       "count": 2
     },
     {
