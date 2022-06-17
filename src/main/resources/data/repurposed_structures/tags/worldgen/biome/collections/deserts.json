@@ -3,6 +3,10 @@
   "values": [
     "minecraft:desert",
     {
+      "id": "terralith:lush_desert",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:lush_desert",
       "required": false
     },
