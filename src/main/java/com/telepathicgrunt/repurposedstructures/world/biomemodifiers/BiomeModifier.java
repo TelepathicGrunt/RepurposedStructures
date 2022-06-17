@@ -20,7 +20,11 @@ public class BiomeModifier {
         addToBiome("dungeons/jungle", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         addToBiome("dungeons/mushroom", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         addToBiome("dungeons/nether", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        addToBiome("dungeons/ocean", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        addToBiome("dungeons/ocean_cold", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        addToBiome("dungeons/ocean_frozen", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        addToBiome("dungeons/ocean_neutral", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        addToBiome("dungeons/ocean_lukewarm", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        addToBiome("dungeons/ocean_warm", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         addToBiome("dungeons/snow", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         addToBiome("dungeons/swamp", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         addToBiome("wells/badlands", GenerationStep.Decoration.SURFACE_STRUCTURES);
@@ -36,14 +40,14 @@ public class BiomeModifier {
     private static void addToBiome(String featureName, GenerationStep.Decoration step) {
         BiomeModifications.create(new ResourceLocation(RepurposedStructures.MODID, featureName))
                 .add(ModificationPhase.ADDITIONS,
-                        (context) -> context.hasTag(TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("has_structure/" + featureName))),
+                        (context) -> context.hasTag(TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, "has_structure/" + featureName))),
                         (context) -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, featureName))));
     }
 
     private static void removeFromBiome(ResourceLocation feature, String biomeTagName, GenerationStep.Decoration step) {
         BiomeModifications.create(new ResourceLocation(RepurposedStructures.MODID, "remove_" + feature.getPath()))
                 .add(ModificationPhase.REMOVALS,
-                        (context) -> context.hasTag(TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(biomeTagName))),
+                        (context) -> context.hasTag(TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(RepurposedStructures.MODID, biomeTagName))),
                         (context) -> context.getGenerationSettings().removeFeature(step, ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, feature)));
     }
 }
