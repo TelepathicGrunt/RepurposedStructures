@@ -1,5 +1,11 @@
 ### **(V.6.0.3 Changes) (1.19.0 Minecraft)**
 
+#### Dungeons:
+Fixed RS Dungeons not spawning. I got no one to blame but myself.
+
+#### Wells:
+Fixed RS Wells not spawning.
+
 #### Mineshafts:
 Fixed End Mineshaft's avoid structure set tag being misnamed and thus, broken.
 
