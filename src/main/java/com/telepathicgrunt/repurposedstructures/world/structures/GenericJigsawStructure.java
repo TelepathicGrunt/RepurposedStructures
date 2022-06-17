@@ -259,21 +259,29 @@ public class GenericJigsawStructure extends Structure {
             }
 
             // Offset structure to average land around it
-            OptionalDouble avgHeight = landHeights.stream()
+            OptionalDouble avgHeightOptional = landHeights.stream()
                     .filter(height -> height > this.minYAllowed.orElse(Integer.MIN_VALUE) && height < this.maxYAllowed.orElse(Integer.MAX_VALUE))
                     .mapToInt(Integer::intValue).average();
 
-            if(this.maxYAllowed.isPresent() && avgHeight.isEmpty()) {
-                avgHeight = OptionalDouble.of(this.maxYAllowed.get());
+            if(this.maxYAllowed.isPresent() && avgHeightOptional.isEmpty()) {
+                avgHeightOptional = OptionalDouble.of(this.maxYAllowed.get());
             }
 
-            if(this.minYAllowed.isPresent() && avgHeight.isEmpty()) {
-                avgHeight = OptionalDouble.of(this.minYAllowed.get());
+            if(this.minYAllowed.isPresent() && avgHeightOptional.isEmpty()) {
+                avgHeightOptional = OptionalDouble.of(this.minYAllowed.get());
             }
 
-            if (avgHeight.isPresent()) {
+            if (avgHeightOptional.isPresent()) {
+                double avgHeight = avgHeightOptional.getAsDouble();
+                if(this.cannotSpawnInLiquid && heightMapToUse != Heightmap.Types.OCEAN_FLOOR_WG && heightMapToUse != Heightmap.Types.OCEAN_FLOOR) {
+                    avgHeight = Math.max(avgHeight, context.chunkGenerator().getSeaLevel());
+                    if(this.maxYAllowed.isPresent()) {
+                        avgHeight = Math.max(avgHeight, this.maxYAllowed.get());
+                    }
+                }
+
                 int parentHeight = pieces.get(0).getBoundingBox().minY();
-                int offsetAmount = (((int)avgHeight.getAsDouble()) - parentHeight) + offsetY;
+                int offsetAmount = (((int)avgHeight) - parentHeight) + offsetY;
                 pieces.forEach(child -> child.move(0, offsetAmount, 0));
             }
             else {
