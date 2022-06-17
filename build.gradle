@@ -64,6 +64,8 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.0+1.19")
     runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.0.0+1.19")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
+
+    //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3833536")
     //runtimeOnly fg.deobf("curse.maven:advanced_peripherals-431725:3799046")
     //runtimeOnly fg.deobf("curse.maven:cc_tweaked-282001:3770724")
     //runtimeOnly fg.deobf("curse.maven:the_twilight_forest-227639:3818688")
@@ -80,7 +82,6 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:3652542")
     //runtimeOnly fg.deobf("curse.maven:endremastered-404183:3600701")
     //runtimeOnly fg.deobf("curse.maven:terralith-513688:3606078")
-    //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3548004")
     //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3562165")
 }
 

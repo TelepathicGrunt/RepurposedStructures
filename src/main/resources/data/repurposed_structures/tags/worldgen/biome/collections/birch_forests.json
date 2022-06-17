@@ -8,6 +8,14 @@
       "required": false
     },
     {
+      "id": "terralith:birch_taiga",
+      "required": false
+    },
+    {
+      "id": "terralith:white_cliffs",
+      "required": false
+    },
+    {
       "id": "byg:aspen_forest",
       "required": false
     },

@@ -15,6 +15,9 @@ Dark Forest Village now has Red and Black Beds instead of White and Yellow Beds.
 
 Mountain Villages now spawns Stone Brick Stairs instead of Cobblestone Stairs at various spots.
 
+#### Mod Compat:
+Added more Terralith biomes to RS biome tags for RS structures to spawn in.
+
 
 ### **(V.6.0.4 Changes) (1.19.0 Minecraft)**
 
