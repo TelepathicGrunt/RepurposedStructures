@@ -6,6 +6,112 @@ import os
 # https://pypi.org/project/Python-NBT/
 '''
 conversion_partial_dict = {
+    "betterdeserttemples:entrance": "betterdeserttemples:dark_forest/entrance",
+    "betterdeserttemples:hall": "betterdeserttemples:dark_forest/hall",
+    "betterdeserttemples:main": "betterdeserttemples:dark_forest/main",
+    "betterdeserttemples:middle": "betterdeserttemples:dark_forest/middle",
+    "betterdeserttemples:mobs": "betterdeserttemples:dark_forest/mobs",
+    "betterdeserttemples:parkour": "betterdeserttemples:dark_forest/parkour",
+    "betterdeserttemples:pillar": "betterdeserttemples:dark_forest/pillar",
+    "betterdeserttemples:room": "betterdeserttemples:dark_forest/room",
+    "betterdeserttemples:slopes": "betterdeserttemples:dark_forest/slopes",
+    "betterdeserttemples:statue": "betterdeserttemples:dark_forest/statue",
+    "betterdeserttemples:top": "betterdeserttemples:dark_forest/top",
+    "betterdeserttemples:walls": "betterdeserttemples:dark_forest/walls"
+}
+conversion_exact_dict = {   
+    "minecraft:birch_wall_sign": "minecraft:jungle_wall_sign",
+    
+    "minecraft:birch_button": "minecraft:dark_oak_button",
+    "minecraft:birch_fence": "minecraft:dark_oak_fence",
+    "minecraft:birch_planks": "minecraft:dark_oak_planks",
+    "minecraft:birch_pressure_plate": "minecraft:dark_oak_pressure_plate",    
+    "minecraft:birch_slab": "minecraft:dark_oak_slab",
+    "minecraft:birch_trapdoor": "minecraft:dark_oak_trapdoor",
+    "minecraft:oak_planks": "minecraft:jungle_planks",
+    "minecraft:oak_trapdoor": "minecraft:jungle_trapdoor",
+    "minecraft:spruce_trapdoor": "minecraft:spruce_trapdoor",
+    "minecraft:crimson_button": "minecraft:crimson_button",
+    "minecraft:crimson_slab": "minecraft:crimson_slab",
+    "minecraft:warped_pressure_plate": "minecraft:crimson_pressure_plate",
+
+    "minecraft:blackstone": "minecraft:blackstone",
+    "minecraft:blackstone_slab": "minecraft:blackstone_slab",
+    "minecraft:blackstone_wall": "minecraft:blackstone_wall",
+    "minecraft:polished_blackstone": "minecraft:polished_blackstone",
+    "minecraft:polished_blackstone_button": "minecraft:polished_blackstone_button",
+    "minecraft:polished_blackstone_stairs": "minecraft:polished_blackstone_stairs",
+    "minecraft:sand": "minecraft:red_sand",
+    "minecraft:sandstone": "minecraft:red_sandstone",
+    "minecraft:sandstone_slab": "minecraft:red_sandstone_slab",
+    "minecraft:sandstone_stairs": "minecraft:red_sandstone_stairs",        
+    "minecraft:sandstone_wall": "minecraft:red_sandstone_wall",
+    "minecraft:smooth_sandstone": "minecraft:smooth_red_sandstone",
+    "minecraft:smooth_sandstone_slab": "minecraft:smooth_red_sandstone_slab",
+    "minecraft:smooth_sandstone_stairs": "minecraft:smooth_red_sandstone_stairs",
+    "minecraft:cut_sandstone": "minecraft:cut_red_sandstone",
+    "minecraft:cut_sandstone_slab": "minecraft:cut_red_sandstone_slab",
+    "minecraft:chiseled_sandstone": "minecraft:chiseled_red_sandstone",
+    "minecraft:stone_button": "minecraft:crimson_button",
+    "minecraft:stone_pressure_plate": "minecraft:crimson_pressure_plate",
+    
+    "minecraft:black_carpet": "minecraft:black_carpet",
+    "minecraft:black_concrete": "minecraft:black_concrete",
+    "minecraft:black_stained_glass": "minecraft:black_stained_glass",
+    "minecraft:black_wall_banner": "minecraft:black_wall_banner",
+    "minecraft:black_wool": "minecraft:black_wool",
+    "minecraft:blue_carpet": "minecraft:orange_carpet",
+    "minecraft:blue_concrete": "minecraft:orange_concrete",
+    "minecraft:blue_glazed_terracotta": "minecraft:orange_glazed_terracotta",
+    "minecraft:blue_wall_banner": "minecraft:orange_wall_banner",        
+    "minecraft:blue_wool": "minecraft:orange_wool",
+    "minecraft:green_glazed_terracotta": "minecraft:yellow_glazed_terracotta",
+    "minecraft:green_wool": "minecraft:yellow_wool",
+    "minecraft:red_concrete_powder": "minecraft:red_concrete_powder",
+    "minecraft:red_wall_banner": "minecraft:red_wall_banner",
+    "minecraft:yellow_carpet": "minecraft:brown_carpet",
+    "minecraft:yellow_concrete": "minecraft:brown_terracotta",
+    "minecraft:yellow_glazed_terracotta": "minecraft:brown_glazed_terracotta",
+    "minecraft:yellow_terracotta": "minecraft:brown_terracotta",
+    "minecraft:yellow_wall_banner": "minecraft:brown_wall_banner",
+
+    "minecraft:terracotta": "minecraft:terracotta",
+    "minecraft:clay": "minecraft:clay",
+    "minecraft:coarse_dirt": "minecraft:coarse_dirt",
+    "minecraft:podzol": "minecraft:podzol",
+    "minecraft:flower_pot": "minecraft:flower_pot",
+    "minecraft:potted_blue_orchid": "minecraft:potted_red_tulip",
+    "minecraft:potted_red_nether": "minecraft:potted_red_nether",
+    "minecraft:glow_lichen": "minecraft:glow_lichen",
+
+    "minecraft:redstone_ore": "minecraft:redstone_ore",
+    "minecraft:gilded_blackstone": "minecraft:gilded_blackstone",
+    "minecraft:gold_block": "minecraft:gold_block",
+    "minecraft:gold_ore": "minecraft:gold_ore",
+    "minecraft:raw_gold_block": "minecraft:raw_gold_block",
+
+    "minecraft:magma_block": "minecraft:magma_block",
+    "minecraft:fire": "minecraft:fire",
+    "minecraft:lava": "minecraft:lava",
+    "minecraft:water": "minecraft:water",
+    "minecraft:water_cauldron": "minecraft:water_cauldron",
+    "minecraft:kelp": "minecraft:kelp",
+    "minecraft:kelp_plant": "minecraft:kelp_plant",
+    "minecraft:seagrass": "minecraft:seagrass",
+
+    "minecraft:torch": "minecraft:torch",
+    "minecraft:wall_torch": "minecraft:wall_torch",
+
+    "minecraft:skeleton_skull": "minecraft:skeleton_skull",
+    "minecraft:zombie_head": "minecraft:zombie_head",
+
+    "minecraft:sponge": "minecraft:candle",
+
+    "minecraft:chests/desert_pyramid": "repurposed_structures:trapped_chests/pyramids/dark_forest"
+}
+'''
+'''
+conversion_partial_dict = {
     "minecraft:spruce_stairs": "minecraft:mangrove_stairs",
 }
 conversion_exact_dict = {
@@ -34,6 +140,118 @@ conversion_exact_dict = {
     "minecraft:red_carpet": "minecraft:brown_carpet",
     "minecraft:blue_carpet": "minecraft:green_carpet"
 }
+
+
+--------------------------
+
+
+conversion_partial_dict = {
+    "betterdeserttemples:entrance": "betterdeserttemples:flower_forest/entrance",
+    "betterdeserttemples:hall": "betterdeserttemples:flower_forest/hall",
+    "betterdeserttemples:main": "betterdeserttemples:flower_forest/main",
+    "betterdeserttemples:middle": "betterdeserttemples:flower_forest/middle",
+    "betterdeserttemples:mobs": "betterdeserttemples:flower_forest/mobs",
+    "betterdeserttemples:parkour": "betterdeserttemples:flower_forest/parkour",
+    "betterdeserttemples:pillar": "betterdeserttemples:flower_forest/pillar",
+    "betterdeserttemples:room": "betterdeserttemples:flower_forest/room",
+    "betterdeserttemples:slopes": "betterdeserttemples:flower_forest/slopes",
+    "betterdeserttemples:statue": "betterdeserttemples:flower_forest/statue",
+    "betterdeserttemples:top": "betterdeserttemples:flower_forest/top",
+    "betterdeserttemples:walls": "betterdeserttemples:flower_forest/walls"
+}
+conversion_exact_dict = {   
+    "minecraft:birch_wall_sign": "minecraft:crimson_wall_sign",
+    
+    "minecraft:birch_button": "minecraft:birch_button",
+    "minecraft:birch_fence": "minecraft:birch_fence",
+    "minecraft:birch_planks": "minecraft:birch_planks",
+    "minecraft:birch_pressure_plate": "minecraft:birch_pressure_plate",    
+    "minecraft:birch_slab": "minecraft:birch_slab",
+    "minecraft:birch_trapdoor": "minecraft:birch_trapdoor",
+    "minecraft:oak_planks": "minecraft:oak_planks",
+    "minecraft:oak_trapdoor": "minecraft:oak_trapdoor",
+    "minecraft:spruce_trapdoor": "minecraft:oak_trapdoor",
+    "minecraft:crimson_button": "minecraft:oak_button",
+    "minecraft:crimson_slab": "minecraft:oak_slab",
+    "minecraft:warped_pressure_plate": "minecraft:oak_pressure_plate",
+
+    "minecraft:gilded_blackstone": "minecraft:gilded_blackstone",
+    "minecraft:blackstone": "minecraft:blackstone",
+    "minecraft:blackstone_slab": "minecraft:blackstone_slab",
+    "minecraft:blackstone_wall": "minecraft:blackstone_wall",
+    "minecraft:polished_blackstone": "minecraft:polished_blackstone",
+    "minecraft:polished_blackstone_button": "minecraft:polished_blackstone_button",
+    "minecraft:polished_blackstone_stairs": "minecraft:polished_blackstone_stairs",
+    "minecraft:sand": "minecraft:brown_concerete_powder",
+    "minecraft:sandstone": "minecraft:grass_block",
+    "minecraft:sandstone_slab": "minecraft:spruce_slab",
+    "minecraft:sandstone_stairs": "minecraft:spruce_stairs",        
+    "minecraft:sandstone_wall": "minecraft:andesite_wall",
+    "minecraft:smooth_sandstone": "minecraft:black_terracotta",
+    "minecraft:smooth_sandstone_slab": "minecraft:spruce_slab",
+    "minecraft:smooth_sandstone_stairs": "minecraft:spruce_stairs",
+    "minecraft:cut_sandstone": "minecraft:brown_terracotta",
+    "minecraft:cut_sandstone_slab": "minecraft:spruce_slab",
+    "minecraft:chiseled_sandstone": "minecraft:yellow_terracotta",
+    "minecraft:stone_button": "minecraft:spruce_button",
+    "minecraft:stone_pressure_plate": "minecraft:spruce_pressure_plate",
+    
+    "minecraft:black_carpet": "minecraft:brown_carpet",
+    "minecraft:black_concrete": "minecraft:brown_concrete",
+    "minecraft:black_stained_glass": "minecraft:brown_stained_glass",
+    "minecraft:black_wall_banner": "minecraft:brown_wall_banner",
+    "minecraft:black_wool": "minecraft:brown_wool",
+    "minecraft:blue_carpet": "minecraft:green_carpet",
+    "minecraft:blue_concrete": "minecraft:yellow_terracotta",
+    "minecraft:blue_glazed_terracotta": "minecraft:green_glazed_terracotta",
+    "minecraft:blue_wall_banner": "minecraft:green_wall_banner",        
+    "minecraft:blue_wool": "minecraft:green_wool",
+    "minecraft:green_glazed_terracotta": "minecraft:lime_glazed_terracotta",
+    "minecraft:green_wool": "minecraft:lime_wool",
+    "minecraft:red_concrete_powder": "minecraft:lime_concrete_powder",
+    "minecraft:red_wall_banner": "minecraft:lime_wall_banner",
+    "minecraft:yellow_carpet": "minecraft:yellow_carpet",
+    "minecraft:yellow_concrete": "minecraft:yellow_terracotta",
+    "minecraft:yellow_glazed_terracotta": "minecraft:yellow_glazed_terracotta",
+    "minecraft:yellow_terracotta": "minecraft:brown_terracotta",
+    "minecraft:yellow_wall_banner": "minecraft:yellow_wall_banner",
+
+    "minecraft:terracotta": "minecraft:terracotta",
+    "minecraft:clay": "minecraft:clay",
+    "minecraft:coarse_dirt": "minecraft:grass_block",
+    "minecraft:podzol": "minecraft:podzol",
+    "minecraft:flower_pot": "minecraft:flower_pot",
+    "minecraft:potted_blue_orchid": "minecraft:potted_flowering_azalea",
+    "minecraft:potted_red_nether": "minecraft:potted_red_tulip",
+    "minecraft:glow_lichen": "minecraft:glow_lichen",
+
+    "minecraft:redstone_ore": "minecraft:redstone_ore",
+    "minecraft:gold_block": "minecraft:gold_block",
+    "minecraft:gold_ore": "minecraft:emerald_ore",
+    "minecraft:raw_gold_block": "minecraft:raw_gold_block",
+
+    "minecraft:magma_block": "minecraft:magma_block",
+    "minecraft:fire": "minecraft:fire",
+    "minecraft:lava": "minecraft:lava",
+    "minecraft:water": "minecraft:water",
+    "minecraft:water_cauldron": "minecraft:water_cauldron",
+    "minecraft:kelp": "minecraft:kelp",
+    "minecraft:kelp_plant": "minecraft:kelp_plant",
+    "minecraft:seagrass": "minecraft:seagrass",
+
+
+    "minecraft:torch": "minecraft:torch",
+    "minecraft:wall_torch": "minecraft:wall_torch",
+
+    "minecraft:skeleton_skull": "minecraft:creeper_head",
+    "minecraft:zombie_head": "minecraft:zombie_head",
+
+    "minecraft:sponge": "minecraft:candle",
+
+    "minecraft:chests/desert_pyramid": "repurposed_structures:chests/pyramids/flower_forest"
+    #"minecraft:gold_ore": "minecraft:redstone_ore_ore"
+    #"minecraft:blue_carpet": "minecraft:blackcarpet",
+}
 '''
 #--------------------------------------------------------------------------------------------
 
@@ -43,9 +261,8 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "minecraft:minecraft:": "minecraft:",
 }
-conversion_exact_dict = {
+conversion_exact_dict = {  
 }
 #-------------------------------------------------------------------------------------------
 
@@ -79,7 +296,7 @@ def traverse_dicts(nbt_list):
             for entry in nbt_list['palette'].value:
                 blockPalette.add(entry.value['Name'].value)
         '''
-        
+
         '''
         for key, entry in nbt_list.items():
             if key == "pos" or key == "blockPos" or key == "size":
@@ -137,103 +354,6 @@ input()
 
 
 #------------------------------------------------------------------------
-
-'''
-# Caves and Cliffs backporting
-conversion_partial_dict = {
-}
-conversion_exact_dict = {
-    "minecraft:moss_carpet": "cavesandcliffs:moss_carpet",
-    "minecraft:moss_block": "cavesandcliffs:moss_block",
-    "minecraft:spore_blossom": "cavesandcliffs:spore_blossom",
-    "minecraft:small_dripleaf": "cavesandcliffs:small_dripleaf",
-    "minecraft:purple_candle": "cavesandcliffs:purple_candle",
-    "minecraft:magenta_candle": "cavesandcliffs:magenta_candle",
-    "minecraft:cracked_deepslate_bricks": "cavesandcliffs:cracked_deepslate_bricks",
-    "minecraft:deepslate_bricks": "cavesandcliffs:deepslate_bricks",
-    "minecraft:polished_deepslate": "cavesandcliffs:polished_deepslate",
-    "minecraft:chiseled_deepslate": "cavesandcliffs:chiseled_deepslate",
-    "minecraft:deepslate": "cavesandcliffs:deepslate",
-    "minecraft:cobbled_deepslate": "cavesandcliffs:cobbled_deepslate",
-    "minecraft:small_amethyst_bud": "cavesandcliffs:small_amethyst_bud",
-    "minecraft:medium_amethyst_bud": "cavesandcliffs:medium_amethyst_bud",
-    "minecraft:large_amethyst_bud": "cavesandcliffs:large_amethyst_bud",
-    "minecraft:amethyst_cluster": "cavesandcliffs:amethyst_cluster",
-    "minecraft:amethyst_block": "cavesandcliffs:amethyst_block",
-    "minecraft:copper_block": "cavesandcliffs:copper_block",
-    "minecraft:exposed_copper": "cavesandcliffs:exposed_copper",
-    "minecraft:weathered_copper": "cavesandcliffs:weathered_copper",
-    "minecraft:oxidized_copper": "cavesandcliffs:oxidized_copper",
-    "minecraft:cut_copper": "cavesandcliffs:cut_copper",
-    "minecraft:exposed_cut_copper": "cavesandcliffs:exposed_cut_copper",
-    "minecraft:weathered_cut_copper": "cavesandcliffs:weathered_cut_copper",
-    "minecraft:oxidized_cut_copper": "cavesandcliffs:oxidized_cut_copper",
-    "minecraft:waxed_copper_block": "cavesandcliffs:waxed_copper_block",
-    "minecraft:waxed_exposed_copper": "cavesandcliffs:waxed_exposed_copper",
-    "minecraft:waxed_weathered_copper": "cavesandcliffs:waxed_weathered_copper",
-    "minecraft:waxed_oxidized_copper": "cavesandcliffs:waxed_oxidized_copper",
-    "minecraft:waxed_cut_copper": "cavesandcliffs:waxed_cut_copper",
-    "minecraft:waxed_exposed_cut_copper": "cavesandcliffs:waxed_exposed_cut_copper",
-    "minecraft:waxed_weathered_cut_copper": "cavesandcliffs:waxed_weathered_cut_copper",
-    "minecraft:waxed_oxidized_cut_copper": "cavesandcliffs:waxed_oxidized_cut_copper",
-    "minecraft:raw_copper_block": "cavesandcliffs:raw_copper_block",
-    "minecraft:raw_gold_block": "cavesandcliffs:raw_gold_block",
-    "minecraft:raw_iron_block": "cavesandcliffs:raw_iron_block",
-    "minecraft:budding_amethyst": "cavesandcliffs:budding_amethyst",
-    "minecraft:deepslate_redstone_ore": "cavesandcliffs:deepslate_redstone_ore",
-    "minecraft:deepslate_gold_ore": "cavesandcliffs:deepslate_gold_ore",
-    "minecraft:deepslate_diamond_ore": "cavesandcliffs:deepslate_diamond_ore",
-    "minecraft:deepslate_emerald_ore": "cavesandcliffs:deepslate_emerald_ore",
-    "minecraft:deepslate_iron_ore": "cavesandcliffs:deepslate_iron_ore",
-    "minecraft:deepslate_coal_ore": "cavesandcliffs:deepslate_coal_ore",
-    "minecraft:deepslate_lapis_ore": "cavesandcliffs:deepslate_lapis_ore",
-    "minecraft:deepslate_copper_ore": "cavesandcliffs:deepslate_copper_ore",
-    "minecraft:deepslate_tiles": "cavesandcliffs:deepslate_tiles",
-    "minecraft:cracked_deepslate_tiles": "cavesandcliffs:cracked_deepslate_tiles",
-    "minecraft:cobbled_deepslate_slab": "cavesandcliffs:cobbled_deepslate_slab",
-    "minecraft:polished_deepslate_slab": "cavesandcliffs:polished_deepslate_slab",
-    "minecraft:deepslate_brick_slab": "cavesandcliffs:deepslate_brick_slab",
-    "minecraft:deepslate_tile_slab": "cavesandcliffs:deepslate_tile_slab",
-    "minecraft:cobbled_deepslate_stairs": "cavesandcliffs:cobbled_deepslate_stairs",
-    "minecraft:polished_deepslate_stairs": "cavesandcliffs:polished_deepslate_stairs",
-    "minecraft:deepslate_brick_stairs": "cavesandcliffs:deepslate_brick_stairs",
-    "minecraft:deepslate_tile_stairs": "cavesandcliffs:deepslate_tile_stairs",
-    "minecraft:cobbled_deepslate_wall": "cavesandcliffs:cobbled_deepslate_wall",
-    "minecraft:polished_deepslate_wall": "cavesandcliffs:polished_deepslate_wall",
-    "minecraft:deepslate_brick_wall": "cavesandcliffs:deepslate_brick_wall",
-    "minecraft:deepslate_tile_wall": "cavesandcliffs:deepslate_tile_wall",
-    "minecraft:copper_ore": "cavesandcliffs:copper_ore",
-    "minecraft:big_dripleaf_stem": "cavesandcliffs:big_dripleaf_stem",
-    "minecraft:big_dripleaf": "cavesandcliffs:big_dripleaf",
-    "minecraft:dripstone_block": "cavesandcliffs:dripstone_block",
-    "minecraft:glow_lichen": "cavesandcliffs:glow_lichen",
-    "minecraft:infested_deepslate": "cavesandcliffs:infested_deepslate",
-    "minecraft:hanging_roots": "cavesandcliffs:hanging_roots",
-    "minecraft:pointed_dripstone": "cavesandcliffs:pointed_dripstone",
-    "minecraft:potted_azalea_bush": "cavesandcliffs:potted_azalea_bush",
-    "minecraft:potted_flowering_azalea_bush": "cavesandcliffs:potted_flowering_azalea_bush",
-    "minecraft:powder_snow": "cavesandcliffs:powder_snow",
-    "minecraft:rooted_dirt": "cavesandcliffs:rooted_dirt",
-    "minecraft:smooth_basalt": "cavesandcliffs:smooth_basalt",
-    "minecraft:tuff": "cavesandcliffs:tuff",
-    "minecraft:amethyst_shard": "cavesandcliffs:amethyst_shard",
-    "minecraft:bundle": "cavesandcliffs:bundle",
-    "minecraft:copper_ingot": "cavesandcliffs:copper_ingot",
-    "minecraft:glow_berries": "cavesandcliffs:glow_berries",
-    "minecraft:cave_vines": "cavesandcliffs:cave_vines",
-    "minecraft:cave_vines_plant": "cavesandcliffs:cave_vines_plant",
-    "minecraft:glow_ink_sac": "cavesandcliffs:glow_ink_sac",
-    "minecraft:powder_snow_bucket": "cavesandcliffs:powder_snow_bucket",
-    "minecraft:raw_copper": "cavesandcliffs:raw_copper",
-    "minecraft:raw_gold": "cavesandcliffs:raw_gold",
-    "minecraft:raw_iron": "cavesandcliffs:raw_iron",
-    "minecraft:spyglass": "cavesandcliffs:spyglass",
-
-    "minecraft:dirt_path": "minecraft:grass_path",
-    "minecraft:water_cauldron": "minecraft:cauldron"
-}
-
-'''
 
 
 '''

@@ -7,6 +7,10 @@
       "required": false
     },
     {
+      "id": "byg:atacama_desert",
+      "required": false
+    },
+    {
       "id": "#forge:is_mesa",
       "required": false
     },
