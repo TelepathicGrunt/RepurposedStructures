@@ -2,23 +2,23 @@
   "mobs" : [
     {
       "name" : "minecraft:zombie",
-      "weight" : 43
+      "weight" : 47
     },
     {
       "name" : "minecraft:spider",
-      "weight" : 20
+      "weight" : 25
     },
     {
       "name" : "minecraft:skeleton",
-      "weight" : 20
-    },
-    {
-      "name" : "minecraft:vex",
-      "weight" : 15
+      "weight" : 25
     },
     {
       "name" : "minecraft:illusioner",
       "weight" : 2
+    },
+    {
+      "name" : "minecraft:vex",
+      "weight" : 1
     },
     {
       "name" : "minecraft:creeper",
