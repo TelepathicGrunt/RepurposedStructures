@@ -1,3 +1,10 @@
+### **(V.6.0.5 Changes) (1.19.0 Minecraft)**
+
+#### Misc:
+Fixed Minecraft and Pneumaticcraft tags in my mod to use the correct path so they actually work now.
+ Config datapack is updated with this fix too.
+
+
 ### **(V.6.0.4 Changes) (1.19.0 Minecraft)**
 
 #### Dungeons:
