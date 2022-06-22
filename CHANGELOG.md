@@ -4,6 +4,11 @@
 Fixed Minecraft and Pneumaticcraft tags in my mod to use the correct path so they actually work now.
  Config datapack is updated with this fix too.
 
+#### Dungeons:
+Significantly nerfed the chances of Vex spawners in Swamp Dungeons and Dark Forest Dungeons.
+ They are now at 1% chance for the spawners to be a vex spawner instead of like 16% in the past.
+ Override the rs_spawner files in the config datapack to remove them entirely if you don't want them at all.
+
 
 ### **(V.6.0.4 Changes) (1.19.0 Minecraft)**
 
