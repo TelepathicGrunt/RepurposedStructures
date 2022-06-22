@@ -47,10 +47,12 @@ dependencies {
 	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_version}"
 	modRuntimeOnly "com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_version}"
 
+	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3827720"
+	//modRuntimeOnly "curse.maven:architecturyapi-419699:3834396"
+
 	//modRuntimeOnly "curse.maven:betternether-311377:3814362"
 	//modRuntimeOnly "curse.maven:betterend-413596:3814370"
 	//modRuntimeOnly "curse.maven:bclib-495191:3814359"
-	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
 
 	//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
 	//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
