@@ -1,3 +1,9 @@
+### **(V.6.0.7 Changes) (1.19.0 Minecraft)**
+
+#### Misc:
+Fixed a bug where some of my rng stuff was not being randomized properly at y = 0.
+
+
 ### **(V.6.0.6 Changes) (1.19.0 Minecraft)**
 
 #### Misc:

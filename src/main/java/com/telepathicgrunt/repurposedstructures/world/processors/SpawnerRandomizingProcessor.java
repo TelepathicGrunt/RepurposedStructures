@@ -41,7 +41,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
         if (structureBlockInfoWorld.state.getBlock() instanceof SpawnerBlock) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
             RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setSeed(worldPos.asLong() * worldPos.getY());
+            random.setSeed(worldPos.asLong() * (worldPos.getY() + worldPos.getX() + worldPos.getZ()));
             CompoundTag spawnerNBT = SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
 
             if(spawnerNBT == null) {
