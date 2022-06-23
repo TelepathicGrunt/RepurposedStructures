@@ -36,7 +36,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
         if (structureBlockInfoWorld.state.is(Blocks.END_PORTAL_FRAME)) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
             RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setSeed(worldPos.asLong() * (worldPos.getY() + worldPos.getX() + worldPos.getZ()));
+            random.setSeed(worldPos.asLong() * worldPos.asLong());
 
             return new StructureTemplate.StructureBlockInfo(
                     structureBlockInfoWorld.pos,
