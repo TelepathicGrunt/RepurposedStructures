@@ -51,7 +51,7 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
             BlockPos worldPos = infoIn2.pos;
             RandomSource random = RandomSource.create();
             int offSet = settings.getProcessors().indexOf(this);
-            random.setSeed(worldPos.asLong() * worldPos.getY() * offSet);
+            random.setSeed(worldPos.asLong() * (worldPos.getY() + worldPos.getX() + worldPos.getZ()) * offSet);
             if(random.nextFloat() < probability) {
                 if(outputBlock.isPresent()) {
                     BlockState newBlockState = outputBlock.get().defaultBlockState();
