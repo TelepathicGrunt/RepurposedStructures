@@ -1,5 +1,16 @@
 ### **(V.6.0.6 Changes) (1.19.0 Minecraft)**
 
+#### Processors:
+Significantly improved my spawner_randomizing_processor so it now can specify all nbt for spawners.
+ This will be utilized to make RS be better with spawner behavior.
+ Currently, all overworld structures with spawners now will let their mobs spawn up to light level 7 to make
+ the mobs spawn more consistently in the presence of nearby light sources that spawns within RS structures.
+
+#### Mineshafts:
+Fixed a typo in several rs_pieces_spawn_counts files with Mineshafts.
+ Now Mineshafts should always have 1 spawner tunnel.
+ Config datapack is updated with this fix as well.
+
 #### Misc:
 Fixed a bug where some of my rng stuff was not being randomized properly at y = 0.
 
