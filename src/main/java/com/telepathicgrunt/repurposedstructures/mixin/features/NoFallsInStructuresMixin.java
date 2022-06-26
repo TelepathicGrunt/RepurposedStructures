@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 @Mixin(SpringFeature.class)
-public class NoLavaFallsInStructuresMixin {
+public class NoFallsInStructuresMixin {
 
     @Inject(
             method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z",
@@ -28,19 +28,34 @@ public class NoLavaFallsInStructuresMixin {
             cancellable = true
     )
     private void repurposedstructures_noLavaInStructures(FeaturePlaceContext<SpringConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
-        if(!(context.level() instanceof WorldGenRegion)) {
+        if (!(context.level() instanceof WorldGenRegion)) {
             return;
         }
 
-        if(context.config().state.is(FluidTags.LAVA)) {
+        if (context.config().state.is(FluidTags.LAVA)) {
+            BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
+            for (Direction face : Direction.Plane.HORIZONTAL) {
+                mutable.set(context.origin()).move(face);
+                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+                StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
+
+                for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAVAFALLS)) {
+                    if (structureManager.getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
+                        cir.setReturnValue(false);
+                        return;
+                    }
+                }
+            }
+        }
+        else if (context.config().state.is(FluidTags.WATER)) {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
                 Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
                 StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
 
-                for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAVAFALLS)) {
-                    if (structureManager .getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
+                for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_WATERFALLS)) {
+                    if (structureManager.getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
                         cir.setReturnValue(false);
                         return;
                     }

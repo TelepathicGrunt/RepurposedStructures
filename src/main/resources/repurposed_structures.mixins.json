@@ -11,7 +11,7 @@
     "features.NoBasaltColumnsInStructuresMixin",
     "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",
-    "features.NoLavaFallsInStructuresMixin",
+    "features.NoFallsInStructuresMixin",
     "resources.BuilderAccessor",
     "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",

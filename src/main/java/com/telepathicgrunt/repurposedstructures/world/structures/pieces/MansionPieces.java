@@ -1,36 +1,47 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
+import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
+import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.Vec3i;
+import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Tuple;
+import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.pools.JigsawJunction;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
-import org.checkerframework.checker.units.qual.C;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
+import java.util.Optional;
 
 public class MansionPieces{
     public static void createMansionLayout(RegistryAccess dynamicRegistryManager, StructureTemplateManager manager, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, RandomSource random, String mansionType) {
         MansionParameters mansionParameters = new MansionParameters(random);
         LayoutGenerator layoutGenerator = new LayoutGenerator(manager, random, mansionType);
-        layoutGenerator.generate(dynamicRegistryManager, pos, rotation, pieces, mansionParameters);
+        layoutGenerator.generate(dynamicRegistryManager, manager, random, pos, rotation, pieces, mansionParameters);
     }
 
     abstract static class RoomCollection {
@@ -506,7 +517,7 @@ public class MansionPieces{
             this.mansionType = mansionType;
         }
 
-        public void generate(RegistryAccess dynamicRegistryManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionParameters mansionParameters) {
+        public void generate(RegistryAccess dynamicRegistryManager, StructureTemplateManager manager, RandomSource random, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionParameters mansionParameters) {
             Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
             GenerationPiece generationPiece = new GenerationPiece();
             generationPiece.position = pos;
@@ -566,21 +577,21 @@ public class MansionPieces{
                         if (flagMatrix4.get(o, n) == 1) {
                             BlockPos blockPos2 = blockPos.relative(rotation.rotate(Direction.SOUTH), 8 + (n - this.field_15445) * 8);
                             blockPos2 = blockPos2.relative(rotation.rotate(Direction.EAST), (o - this.field_15446) * 8);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + (floorLevel == 0 ? "/corridor_floor" : "/corridor_floor_high"), blockPos2, rotation, Mirror.NONE));
+                            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + (floorLevel == 0 ? "/corridor_floor" : "/corridor_floor_high"), blockPos2, rotation, Mirror.NONE);
                             if (flagMatrix4.get(o, n - 1) == 1 || (flagMatrix3.get(o, n - 1) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/carpet_north", blockPos2.relative(rotation.rotate(Direction.EAST), 1).above(), rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/carpet_north", blockPos2.relative(rotation.rotate(Direction.EAST), 1).above(), rotation, Mirror.NONE);
                             }
 
                             if (flagMatrix4.get(o + 1, n) == 1 || (flagMatrix3.get(o + 1, n) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/carpet_east", blockPos2.relative(rotation.rotate(Direction.SOUTH), 1).relative(rotation.rotate(Direction.EAST), 5).above(), rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/carpet_east", blockPos2.relative(rotation.rotate(Direction.SOUTH), 1).relative(rotation.rotate(Direction.EAST), 5).above(), rotation, Mirror.NONE);
                             }
 
                             if (flagMatrix4.get(o, n + 1) == 1 || (flagMatrix3.get(o, n + 1) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + string, blockPos2.relative(rotation.rotate(Direction.SOUTH), 5).relative(rotation.rotate(Direction.WEST), 1), rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + string, blockPos2.relative(rotation.rotate(Direction.SOUTH), 5).relative(rotation.rotate(Direction.WEST), 1), rotation, Mirror.NONE);
                             }
 
                             if (flagMatrix4.get(o - 1, n) == 1 || (flagMatrix3.get(o - 1, n) & 8388608) == 8388608) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + string2, blockPos2.relative(rotation.rotate(Direction.WEST), 1).relative(rotation.rotate(Direction.NORTH), 1), rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + string2, blockPos2.relative(rotation.rotate(Direction.WEST), 1).relative(rotation.rotate(Direction.NORTH), 1), rotation, Mirror.NONE);
                             }
                         }
                     }
@@ -617,25 +628,25 @@ public class MansionPieces{
                             BlockPos blockPos3 = blockPos.relative(rotation.rotate(Direction.SOUTH), 8 + (p - this.field_15445) * 8);
                             blockPos3 = blockPos3.relative(rotation.rotate(Direction.EAST), -1 + (q - this.field_15446) * 8);
                             if (MansionParameters.method_15047(flagMatrix4, q - 1, p) && !mansionParameters.method_15039(flagMatrix4, q - 1, p, floorLevel, t)) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.WEST ? string4 : string3), blockPos3, rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.WEST ? string4 : string3), blockPos3, rotation, Mirror.NONE);
                             }
 
                             BlockPos blockPos6;
                             if (flagMatrix4.get(q + 1, p) == 1 && !bl2) {
                                 blockPos6 = blockPos3.relative(rotation.rotate(Direction.EAST), 8);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.EAST ? string4 : string3), blockPos6, rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.EAST ? string4 : string3), blockPos6, rotation, Mirror.NONE);
                             }
 
                             if (MansionParameters.method_15047(flagMatrix4, q, p + 1) && !mansionParameters.method_15039(flagMatrix4, q, p + 1, floorLevel, t)) {
                                 blockPos6 = blockPos3.relative(rotation.rotate(Direction.SOUTH), 7);
                                 blockPos6 = blockPos6.relative(rotation.rotate(Direction.EAST), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.SOUTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.SOUTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                             }
 
                             if (flagMatrix4.get(q, p - 1) == 1 && !bl2) {
                                 blockPos6 = blockPos3.relative(rotation.rotate(Direction.NORTH), 1);
                                 blockPos6 = blockPos6.relative(rotation.rotate(Direction.EAST), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.NORTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + mansionType + "/" + (direction2 == Direction.NORTH ? string4 : string3), blockPos6, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                             }
 
                             if (s == 65536) {
@@ -704,27 +715,27 @@ public class MansionPieces{
                     blockPos7 = blockPos7.relative(rotation.rotate(Direction.EAST), (l - this.field_15446) * 8);
                     bl3 = flagMatrix2 != null && MansionParameters.method_15047(flagMatrix2, l, k);
                     if (MansionParameters.method_15047(flagMatrix, l, k) && !bl3) {
-                        structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof", blockPos7.above(3), rotation, Mirror.NONE));
+                        saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof", blockPos7.above(3), rotation, Mirror.NONE);
                         if (!MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation, Mirror.NONE));
+                            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation, Mirror.NONE);
                         }
 
                         if (!MansionParameters.method_15047(flagMatrix, l - 1, k)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 0);
                             blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
                         }
 
                         if (!MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
                         }
 
                         if (!MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
                             blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
-                            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_front", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                         }
                     }
                 }
@@ -740,38 +751,38 @@ public class MansionPieces{
                             if (!MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation, Mirror.NONE);
                             }
 
                             if (!MansionParameters.method_15047(flagMatrix, l - 1, k)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
                             }
 
                             if (!MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
                             }
 
                             if (!MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                 blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                 blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                             }
 
                             if (!MansionParameters.method_15047(flagMatrix, l + 1, k)) {
                                 if (!MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 7);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 2);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation, Mirror.NONE));
+                                    saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation, Mirror.NONE);
                                 }
 
                                 if (!MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 8);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 7);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                                    saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                                 }
                             }
 
@@ -779,13 +790,13 @@ public class MansionPieces{
                                 if (!MansionParameters.method_15047(flagMatrix, l, k - 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 2);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.NORTH), 1);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                                    saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
                                 }
 
                                 if (!MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                     blockPos15 = blockPos7.relative(rotation.rotate(Direction.WEST), 1);
                                     blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 8);
-                                    structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                                    saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/small_wall_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
                                 }
                             }
                         }
@@ -804,20 +815,20 @@ public class MansionPieces{
                             blockPos15 = blockPos7.relative(rotation.rotate(Direction.EAST), 6);
                             if (!MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos24, rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos24, rotation, Mirror.NONE);
                             }
                             else if (MansionParameters.method_15047(flagMatrix, l + 1, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 5);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation, Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation, Mirror.NONE);
                             }
 
                             if (!MansionParameters.method_15047(flagMatrix, l, k - 1)) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos15, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
                             }
                             else if (MansionParameters.method_15047(flagMatrix, l + 1, k - 1)) {
                                 blockPos24 = blockPos7.relative(rotation.rotate(Direction.EAST), 9);
                                 blockPos24 = blockPos24.relative(rotation.rotate(Direction.NORTH), 2);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                             }
                         }
 
@@ -826,20 +837,20 @@ public class MansionPieces{
                             blockPos15 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 0);
                             if (!MansionParameters.method_15047(flagMatrix, l, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 6);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
                             }
                             else if (MansionParameters.method_15047(flagMatrix, l - 1, k + 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 8);
                                 blockPos24 = blockPos24.relative(rotation.rotate(Direction.WEST), 3);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
                             }
 
                             if (!MansionParameters.method_15047(flagMatrix, l, k - 1)) {
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_corner", blockPos15, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
                             }
                             else if (MansionParameters.method_15047(flagMatrix, l - 1, k - 1)) {
                                 blockPos24 = blockPos15.relative(rotation.rotate(Direction.SOUTH), 1);
-                                structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                                saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/roof_inner_corner", blockPos24, rotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
                             }
                         }
                     }
@@ -850,18 +861,18 @@ public class MansionPieces{
 
         private void addEntrance(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, GenerationPiece generationPiece) {
             Direction direction = generationPiece.rotation.rotate(Direction.WEST);
-            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/entrance", generationPiece.position.relative(direction, 9), generationPiece.rotation, Mirror.NONE));
+            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/entrance", generationPiece.position.relative(direction, 9), generationPiece.rotation, Mirror.NONE);
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), 16);
         }
 
         private void method_15052(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, GenerationPiece generationPiece) {
-            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/" + generationPiece.template, generationPiece.position.relative(generationPiece.rotation.rotate(Direction.EAST), 7), generationPiece.rotation, Mirror.NONE));
+            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/" + generationPiece.template, generationPiece.position.relative(generationPiece.rotation.rotate(Direction.EAST), 7), generationPiece.rotation, Mirror.NONE);
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), 8);
         }
 
         private void method_15058(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, GenerationPiece generationPiece) {
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), -1);
-            structurePieces.add(getJigsawPiece(poolRegistry, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/wall_corner", generationPiece.position, generationPiece.rotation, Mirror.NONE));
+            saveJigsawPiece(structurePieces, poolRegistry, manager, random, RepurposedStructures.MODID + ":mansions/" + this.mansionType + "/wall_corner", generationPiece.position, generationPiece.rotation, Mirror.NONE);
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.SOUTH), -7);
             generationPiece.position = generationPiece.position.relative(generationPiece.rotation.rotate(Direction.WEST), -6);
             generationPiece.rotation = generationPiece.rotation.getRotated(Rotation.CLOCKWISE_90);
@@ -892,61 +903,61 @@ public class MansionPieces{
             blockRotation2 = blockRotation2.getRotated(blockRotation);
             blockPos2 = blockPos2.rotate(blockRotation);
             BlockPos blockPos3 = blockPos.offset(blockPos2.getX(), 0, blockPos2.getZ());
-            structurePieces.add(getJigsawPiece(poolRegistry, string, blockPos3, blockRotation2, Mirror.NONE));
+            saveJigsawPiece(structurePieces, poolRegistry, manager, random, string, blockPos3, blockRotation2, Mirror.NONE);
         }
 
         private void addMediumRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, Direction direction, Direction direction2, RoomCollection roomCollection, boolean staircase) {
             BlockPos blockPos15;
             if (direction2 == Direction.EAST && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE);
             } else if (direction2 == Direction.EAST && direction == Direction.NORTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.LEFT_RIGHT));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.LEFT_RIGHT);
             } else if (direction2 == Direction.WEST && direction == Direction.NORTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
             } else if (direction2 == Direction.WEST && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.FRONT_BACK));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.FRONT_BACK);
             } else if (direction2 == Direction.SOUTH && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.LEFT_RIGHT));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.LEFT_RIGHT);
             } else if (direction2 == Direction.SOUTH && direction == Direction.WEST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
             } else if (direction2 == Direction.NORTH && direction == Direction.WEST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.FRONT_BACK));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.FRONT_BACK);
             } else if (direction2 == Direction.NORTH && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2SideEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
             } else if (direction2 == Direction.SOUTH && direction == Direction.NORTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.NORTH), 8);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation, Mirror.NONE);
             } else if (direction2 == Direction.NORTH && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 14);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_180), Mirror.NONE);
             } else if (direction2 == Direction.WEST && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 15);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
             } else if (direction2 == Direction.EAST && direction == Direction.WEST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.WEST), 7);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.SOUTH), 6);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2FrontEntrance(this.random, staircase), blockPos15, blockRotation.getRotated(Rotation.COUNTERCLOCKWISE_90), Mirror.NONE);
             } else if (direction2 == Direction.UP && direction == Direction.EAST) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 15);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation.getRotated(Rotation.CLOCKWISE_90), Mirror.NONE);
             } else if (direction2 == Direction.UP && direction == Direction.SOUTH) {
                 blockPos15 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
                 blockPos15 = blockPos15.relative(blockRotation.rotate(Direction.NORTH), 0);
-                structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation, Mirror.NONE));
+                saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get1x2Secret(this.random), blockPos15, blockRotation, Mirror.NONE);
             }
 
         }
@@ -991,15 +1002,15 @@ public class MansionPieces{
 
             BlockPos blockPos2 = blockPos.relative(blockRotation.rotate(Direction.EAST), i);
             blockPos2 = blockPos2.relative(blockRotation.rotate(Direction.SOUTH), j);
-            structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2(this.random), blockPos2, blockRotation2, blockMirror));
+            saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get2x2(this.random), blockPos2, blockRotation2, blockMirror);
         }
 
         private void addBigSecretRoom(Registry<StructureTemplatePool> poolRegistry, List<StructurePiece> structurePieces, BlockPos blockPos, Rotation blockRotation, RoomCollection roomCollection) {
             BlockPos blockPos2 = blockPos.relative(blockRotation.rotate(Direction.EAST), 1);
-            structurePieces.add(getJigsawPiece(poolRegistry, roomCollection.get2x2Secret(this.random), blockPos2, blockRotation, Mirror.NONE));
+            saveJigsawPiece(structurePieces, poolRegistry, manager, random, roomCollection.get2x2Secret(this.random), blockPos2, blockRotation, Mirror.NONE);
         }
 
-        private StructurePiece getJigsawPiece(Registry<StructureTemplatePool> poolRegistry, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror) {
+        private void saveJigsawPiece(List<StructurePiece> structurePieces, Registry<StructureTemplatePool> poolRegistry, StructureTemplateManager manager, RandomSource random, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror) {
             ResourceLocation resourceLocation = new ResourceLocation(poolPath.toLowerCase(Locale.ROOT));
             StructureTemplatePool pool = poolRegistry.get(resourceLocation);
             StructurePoolElement poolEntry;
@@ -1015,7 +1026,7 @@ public class MansionPieces{
                 }
             }
 
-            return new PoolElementStructurePiece(
+            PoolElementStructurePiece mainPiece = new PoolElementStructurePiece(
                     this.manager,
                     poolEntry,
                     blockPos,
@@ -1023,6 +1034,147 @@ public class MansionPieces{
                     rotation,
                     poolEntry.getBoundingBox(this.manager, blockPos, rotation)
             );
+
+            spawnChildPieces(structurePieces, poolRegistry, manager, random, blockPos, rotation, mainPiece, mirror);
+
+            structurePieces.add(mainPiece);
+        }
+
+        private void spawnChildPieces(List<StructurePiece> structurePieces, Registry<StructureTemplatePool> poolRegistry, StructureTemplateManager manager, RandomSource random, BlockPos blockPos, Rotation rotation, PoolElementStructurePiece mainPiece, Mirror mirror) {
+            StructurePoolElement poolEntry = mainPiece.getElement();
+            int pieceMinY = mainPiece.getBoundingBox().minY();
+            
+            List<StructureTemplate.StructureBlockInfo> shuffledJigsawBlocks = poolEntry.getShuffledJigsawBlocks(
+                    manager,
+                    mainPiece.getPosition(),
+                    mainPiece.getRotation(),
+                    random);
+
+            if(shuffledJigsawBlocks.isEmpty()) {
+                return;
+            }
+
+            for (StructureTemplate.StructureBlockInfo jigsawBlock : shuffledJigsawBlocks) {
+                // Gather jigsaw block information
+                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.state);
+                BlockPos jigsawBlockPos = jigsawBlock.pos;
+                BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
+
+                // Get the jigsaw block's piece pool
+                ResourceLocation jigsawBlockPool = new ResourceLocation(jigsawBlock.nbt.getString("pool"));
+                Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlockPool);
+
+                // Only continue if we are using the jigsaw pattern registry and if it is not empty
+                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.location())))) {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
+                    continue;
+                }
+
+                // Get the jigsaw block's fallback pool (which is a part of the pool's JSON)
+                ResourceLocation jigsawBlockFallback = poolOptional.get().getFallback();
+                Optional<StructureTemplatePool> fallbackOptional = poolRegistry.getOptional(jigsawBlockFallback);
+
+                // Only continue if the fallback pool is present and valid
+                if (!(fallbackOptional.isPresent() && (fallbackOptional.get().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
+                    continue;
+                }
+
+                List<Pair<StructurePoolElement, Integer>> candidatePieces = new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates());
+                int jigsawBlockRelativeY = jigsawBlockPos.getY() - pieceMinY;
+                int totalCount = candidatePieces.stream().mapToInt(Pair::getSecond).reduce(0, Integer::sum);
+                Pair<StructurePoolElement, Integer> chosenPiecePair = null;
+                int chosenWeight = random.nextInt(totalCount) + 1;
+
+                for (Pair<StructurePoolElement, Integer> candidate : candidatePieces) {
+                    chosenWeight -= candidate.getSecond();
+                    if (chosenWeight <= 0) {
+                        chosenPiecePair = candidate;
+                        break;
+                    }
+                }
+
+                StructurePoolElement candidatePiece = chosenPiecePair.getFirst();
+                if (!(candidatePiece instanceof SinglePoolElement)) {
+                    return;
+                }
+
+                boolean fulfilled = false;
+                for (Rotation rotationJigsaw : Rotation.getShuffled(this.random)) {
+                    List<StructureTemplate.StructureBlockInfo> candidateJigsawBlocks = candidatePiece.getShuffledJigsawBlocks(manager, BlockPos.ZERO, rotationJigsaw, this.random);
+
+                    if (fulfilled) {
+                        break;
+                    }
+
+                    // Check for each of the candidate's jigsaw blocks for a match
+                    for (StructureTemplate.StructureBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
+                        if (GeneralUtils.canJigsawsAttach(jigsawBlock, candidateJigsawBlock)) {
+                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos;
+                            BlockPos candidateJigsawBlockRelativePos = new BlockPos(jigsawBlockTargetPos.getX() - candidateJigsawBlockPos.getX(), jigsawBlockTargetPos.getY() - candidateJigsawBlockPos.getY(), jigsawBlockTargetPos.getZ() - candidateJigsawBlockPos.getZ());
+                            BoundingBox candidateBoundingBox = candidatePiece.getBoundingBox(manager, candidateJigsawBlockRelativePos, rotation);
+
+                            // Determine how much the candidate jigsaw block is off in the y direction.
+                            // This will be needed to offset the candidate piece so that the jigsaw blocks line up properly.
+                            int candidateJigsawBlockRelativeY = candidateJigsawBlockPos.getY();
+                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.state).getStepY();
+
+                            // Determine how much we need to offset the candidate piece itself in order to have the jigsaw blocks aligned.
+                            // Depends on if the placement of both pieces is rigid or not
+                            int adjustedCandidatePieceMinY = pieceMinY + candidateJigsawYOffsetNeeded;
+                            int candidatePieceYOffsetNeeded = adjustedCandidatePieceMinY - candidateBoundingBox.minY();
+
+                            // Offset the candidate's bounding box by the necessary amount
+                            BoundingBox adjustedCandidateBoundingBox = candidateBoundingBox.moved(0, candidatePieceYOffsetNeeded, 0);
+
+                            // Add this offset to the relative jigsaw block position as well
+                            BlockPos adjustedCandidateJigsawBlockRelativePos = candidateJigsawBlockRelativePos.offset(0, candidatePieceYOffsetNeeded, 0);
+
+                            // Determine ground level delta for this new piece
+                            int newPieceGroundLevelDelta = mainPiece.getGroundLevelDelta();
+                            int groundLevelDelta = newPieceGroundLevelDelta - candidateJigsawYOffsetNeeded;
+
+                            // Create new piece
+                            PoolElementStructurePiece newPiece = new PoolElementStructurePiece(
+                                    manager,
+                                    new MirroringSingleJigsawPiece((SinglePoolElement)candidatePiece, mirror),
+                                    adjustedCandidateJigsawBlockRelativePos,
+                                    groundLevelDelta,
+                                    rotationJigsaw,
+                                    adjustedCandidateBoundingBox
+                            );
+
+                            // Determine actual y-value for the new jigsaw block
+                            int candidateJigsawBlockY = pieceMinY + jigsawBlockRelativeY;
+
+                            // Add the junction to the existing piece
+                            mainPiece.addJunction(
+                                    new JigsawJunction(
+                                            jigsawBlockTargetPos.getX(),
+                                            candidateJigsawBlockY - jigsawBlockRelativeY + newPieceGroundLevelDelta,
+                                            jigsawBlockTargetPos.getZ(),
+                                            candidateJigsawYOffsetNeeded,
+                                            StructureTemplatePool.Projection.RIGID)
+                            );
+
+                            // Add the junction to the new piece
+                            newPiece.addJunction(
+                                    new JigsawJunction(
+                                            jigsawBlockPos.getX(),
+                                            candidateJigsawBlockY - candidateJigsawBlockRelativeY + groundLevelDelta,
+                                            jigsawBlockPos.getZ(),
+                                            -candidateJigsawYOffsetNeeded,
+                                            StructureTemplatePool.Projection.RIGID)
+                            );
+
+                            // Add the piece
+                            structurePieces.add(newPiece);
+                            fulfilled = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 

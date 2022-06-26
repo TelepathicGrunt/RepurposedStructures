@@ -165,6 +165,26 @@
       ]
     },
     {
+      "bonus_rolls": 0.0,
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:goat_horn"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_instrument",
+          "options": "#minecraft:regular_goat_horns"
+        }
+      ]
+    },
+    {
       "rolls": 0,
       "bonus_rolls": 1,
       "entries": [

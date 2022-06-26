@@ -3,7 +3,7 @@
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 18,
+      "weight": 12,
       "element": {
         "location": "repurposed_structures:outposts/end/phantom_cage1",
         "processors": "minecraft:empty",
@@ -12,9 +12,18 @@
       }
     },
     {
-      "weight": 18,
+      "weight": 12,
       "element": {
         "location": "repurposed_structures:outposts/end/phantom_cage2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 12,
+      "element": {
+        "location": "repurposed_structures:outposts/end/allay_cage",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

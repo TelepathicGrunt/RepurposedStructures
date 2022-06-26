@@ -19,6 +19,9 @@ public final class RSTags {
     public static TagKey<Structure> NO_LAVAFALLS = TagKey.create(Registry.STRUCTURE_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "no_lavafalls"));
 
+    public static TagKey<Structure> NO_WATERFALLS = TagKey.create(Registry.STRUCTURE_REGISTRY,
+            new ResourceLocation(RepurposedStructures.MODID, "no_waterfalls"));
+
     public static TagKey<Structure> NO_BASALT = TagKey.create(Registry.STRUCTURE_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "no_basalt"));
 
