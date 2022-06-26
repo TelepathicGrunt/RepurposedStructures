@@ -8,6 +8,9 @@ Added Allays to RS outpost cage pieces. The Allay cages have a chance of spawnin
 
 Added possible "Singing" Goat Horn to all RS Outpost loot tables except for End Outpost.
 
+#### Ruins:
+Made Overworld Ruins more spread out and uncommon instead of everywhere.
+
 #### Misc:
 Added `repurposed_structures:no_waterfalls` tag to prevent waterfalls in Snowy Mansion, Snowy Pyramid, and Snowy Outposts.
 
