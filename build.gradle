@@ -91,6 +91,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.releaseType = "beta"
 	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
 	mainFile.addRequirement("fabric-api")
+	mainFile.addRequirement("midnightlib")
 }
 
 
