@@ -1,3 +1,17 @@
+### **(V.6.0.8 Changes) (1.19.0 Minecraft)**
+
+#### Mansions:
+Added Allays to RS mansion prison pieces. Each prison room cell can spawn 1 to 3 Allays.
+
+#### Outposts:
+Added Allays to RS outpost cage pieces. The Allay cages have a chance of spawning.
+
+Added possible "Singing" Goat Horn to all RS Outpost loot tables except for End Outpost.
+
+#### Misc:
+Added `repurposed_structures:no_waterfalls` tag to prevent waterfalls in Snowy Mansion, Snowy Pyramid, and Snowy Outposts.
+
+
 ### **(V.6.0.7 Changes) (1.19.0 Minecraft)**
 
 #### Processors:

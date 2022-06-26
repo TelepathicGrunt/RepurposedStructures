@@ -10,7 +10,7 @@
     "features.NoBasaltColumnsInStructuresMixin",
     "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",
-    "features.NoLavaFallsInStructuresMixin",
+    "features.NoFallsInStructuresMixin",
     "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
