@@ -8,6 +8,7 @@
   "biomes": "#repurposed_structures:has_structure/villages/badlands",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
   "start_height": {
     "absolute": 0
   },
