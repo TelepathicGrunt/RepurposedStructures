@@ -1,3 +1,9 @@
+### **(V.6.0.8 Changes) (1.19.0 Minecraft)**
+
+#### Village:
+Fixed Badlands Village center piece spawning at y = 0 due to missing heightmap check in its structure json file.
+
+
 ### **(V.6.0.7 Changes) (1.19.0 Minecraft)**
 
 #### Mansions:
