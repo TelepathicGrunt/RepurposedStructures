@@ -3,6 +3,8 @@
 #### Igloos:
 Added Mangrove Igloos to Mangrove Swamp biome! Has a twist in its basement that sometimes spawns.
 
+Organized RS Igloo worldgen files into folders to clean up.
+
 #### Outposts:
 Added Mangrove Outposts to Mangrove Swamp biome!
 
