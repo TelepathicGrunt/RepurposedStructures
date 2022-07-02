@@ -1,8 +1,8 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:blaze",
-      "weight" : 10
+      "name": "minecraft:blaze",
+      "weight": 10
     }
   ]
 }

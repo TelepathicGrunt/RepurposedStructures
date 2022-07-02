@@ -1,16 +1,16 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:blaze",
-      "weight" : 50
+      "name": "minecraft:blaze",
+      "weight": 50
     },
     {
-      "name" : "minecraft:zoglin",
-      "weight" : 30
+      "name": "minecraft:zoglin",
+      "weight": 30
     },
     {
-      "name" : "minecraft:zombified_piglin",
-      "weight" : 20
+      "name": "minecraft:zombified_piglin",
+      "weight": 20
     }
   ]
 }

@@ -1,4 +1,4 @@
-### **(V.6.1.0 Changes) (1.19.0 Minecraft)**
+### **(V.6.1.0 Changes) (1.19.0 Minecraft) (Config Datapack updated)**
 
 #### Igloos:
 Added Mangrove Igloos to Mangrove Swamp biome! Has a twist in its basement that sometimes spawns.
@@ -10,6 +10,8 @@ Added Mangrove Outposts to Mangrove Swamp biome!
 Added Mangrove Mansions to Mangrove Swamp biome!
 
 Changed color of Birch Mansion's secret banner.
+
+Hooked up all RS mansion's spider spawner piece to now be controlled by rs_spawner files for the mob type.
 
 #### Witch Huts:
 Added Mangrove Witch Huts to Mangrove Swamp biome!

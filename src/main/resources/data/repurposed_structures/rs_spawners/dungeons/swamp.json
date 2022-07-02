@@ -1,28 +1,28 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:zombie",
-      "weight" : 26
+      "name": "minecraft:zombie",
+      "weight": 26
     },
     {
-      "name" : "minecraft:drowned",
-      "weight" : 26
+      "name": "minecraft:drowned",
+      "weight": 26
     },
     {
-      "name" : "minecraft:spider",
-      "weight" : 18
+      "name": "minecraft:spider",
+      "weight": 18
     },
     {
-      "name" : "minecraft:skeleton",
-      "weight" : 18
+      "name": "minecraft:skeleton",
+      "weight": 18
     },
     {
-      "name" : "minecraft:vex",
-      "weight" : 1
+      "name": "minecraft:vex",
+      "weight": 1
     },
     {
-      "name" : "minecraft:slime",
-      "weight" : 1
+      "name": "minecraft:slime",
+      "weight": 1
     }
   ]
 }

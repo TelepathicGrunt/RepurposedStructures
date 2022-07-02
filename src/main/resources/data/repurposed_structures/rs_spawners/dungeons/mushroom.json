@@ -1,16 +1,16 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:bat",
-      "weight" : 96
+      "name": "minecraft:bat",
+      "weight": 96
     },
     {
-      "name" : "minecraft:mooshroom",
-      "weight" : 3
+      "name": "minecraft:mooshroom",
+      "weight": 3
     },
     {
-      "name" : "minecraft:rabbit",
-      "weight" : 1
+      "name": "minecraft:rabbit",
+      "weight": 1
     }
   ]
 }

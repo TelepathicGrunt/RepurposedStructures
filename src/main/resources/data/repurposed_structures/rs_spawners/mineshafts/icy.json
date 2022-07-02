@@ -1,8 +1,8 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:stray",
-      "weight" : 10
+      "name": "minecraft:stray",
+      "weight": 10
     }
   ]
 }

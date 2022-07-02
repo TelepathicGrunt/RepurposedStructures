@@ -1,28 +1,28 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:zombie",
-      "weight" : 37
+      "name": "minecraft:zombie",
+      "weight": 37
     },
     {
-      "name" : "minecraft:parrot",
-      "weight" : 25
+      "name": "minecraft:parrot",
+      "weight": 25
     },
     {
-      "name" : "minecraft:spider",
-      "weight" : 18
+      "name": "minecraft:spider",
+      "weight": 18
     },
     {
-      "name" : "minecraft:skeleton",
-      "weight" : 18
+      "name": "minecraft:skeleton",
+      "weight": 18
     },
     {
-      "name" : "minecraft:chicken",
-      "weight" : 1
+      "name": "minecraft:chicken",
+      "weight": 1
     },
     {
-      "name" : "minecraft:creeper",
-      "weight" : 1
+      "name": "minecraft:creeper",
+      "weight": 1
     }
   ]
 }

@@ -1,24 +1,24 @@
- {
-  "mobs" : [
+{
+  "mobs": [
     {
-      "name" : "minecraft:husk",
-      "weight" : 73
+      "name": "minecraft:husk",
+      "weight": 73
     },
     {
-      "name" : "minecraft:spider",
-      "weight" : 13
+      "name": "minecraft:spider",
+      "weight": 13
     },
     {
-      "name" : "minecraft:skeleton",
-      "weight" : 12
+      "name": "minecraft:skeleton",
+      "weight": 12
     },
     {
-      "name" : "minecraft:llama",
-      "weight" : 1
+      "name": "minecraft:llama",
+      "weight": 1
     },
     {
-      "name" : "minecraft:illusioner",
-      "weight" : 1
+      "name": "minecraft:illusioner",
+      "weight": 1
     }
   ]
 }
