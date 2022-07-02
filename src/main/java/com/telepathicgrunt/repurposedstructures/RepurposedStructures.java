@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
 import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
@@ -18,6 +19,7 @@ import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.BiomeModifi
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.Event;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
@@ -62,6 +64,13 @@ public class RepurposedStructures implements ModInitializer {
 
         //For mod compat by checking if other mod is on
         EndRemasteredDedicatedLoot.isEndRemasteredOn = FabricLoader.getInstance().isModLoaded("endrem");
+
+        ServerLifecycleEvents.SERVER_STARTING.register((minecraftServer) -> {
+            if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+                StructureModdedLootImporter.checkLoottables(minecraftServer);
+                EndRemasteredDedicatedLoot.checkLoottables(minecraftServer);
+            }
+        });
     }
 
 

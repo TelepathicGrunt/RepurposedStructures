@@ -5,10 +5,12 @@ import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.BuilderAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootManagerAccessor;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -63,11 +65,13 @@ public final class StructureModdedLootImporter {
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/grassy"), new ResourceLocation("minecraft:chests/igloo_chest"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/stone"), new ResourceLocation("minecraft:chests/igloo_chest"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/mangrove"), new ResourceLocation("minecraft:chests/igloo_chest"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/igloos/mushroom"), new ResourceLocation("minecraft:chests/igloo_chest"));
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/birch"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/desert"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/jungle"), new ResourceLocation("minecraft:chests/woodland_mansion"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/mangrove"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/oak"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/savanna"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/snowy"), new ResourceLocation("minecraft:chests/woodland_mansion"));
@@ -95,6 +99,7 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/giant_tree_taiga"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/icy"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/jungle"), new ResourceLocation("minecraft:chests/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/mangrove"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/nether_brick"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/oak"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/snowy"), new ResourceLocation("minecraft:chests/pillager_outpost"));
@@ -277,5 +282,24 @@ public final class StructureModdedLootImporter {
         }
 
         return BLACKLISTED_LOOTTABLES.contains(lootTableID);
+    }
+
+    public static void checkLoottables(MinecraftServer minecraftServer) {
+        boolean invalidLootTableFound = false;
+        for(Map.Entry<ResourceLocation, ResourceLocation> entry : TABLE_IMPORTS.entrySet()) {
+            if(entry.getKey().getNamespace().equals("betterstrongholds")) {
+                continue;
+            }
+
+            if(GeneralUtils.isInvalidLootTableFound(minecraftServer, entry)) {
+                invalidLootTableFound = true;
+            }
+        }
+        if(GeneralUtils.isMissingLootImporting(minecraftServer, TABLE_IMPORTS.keySet())) {
+            invalidLootTableFound = true;
+        }
+        if(invalidLootTableFound) {
+            RepurposedStructures.LOGGER.error("Unknown import/target loot tables found for Repurposed Structures. See above logs and report to TelepathicGrunt please.");
+        }
     }
 }
