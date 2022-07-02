@@ -175,33 +175,24 @@
       ]
     },
     {
-      "bonus_rolls": 0.0,
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 1.0,
-        "min": 0.0
-      },
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:goat_horn"
-        }
-      ],
-      "functions": [
-        {
-          "function": "minecraft:set_instrument",
-          "options": "#minecraft:regular_goat_horns"
-        }
-      ]
-    },
-    {
       "rolls": 0,
       "bonus_rolls": 1,
       "entries": [
         {
+          "name": "minecraft:yellow_banner",
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:4},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11}]}}"
+            }
+          ]
+        },
+        {
           "name": "minecraft:pink_banner",
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 15,
           "functions": [
             {
               "function":"set_nbt",
