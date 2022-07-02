@@ -1,11 +1,11 @@
 {
-  "name": "repurposed_structures:igloos/mushroom_top",
+  "name": "repurposed_structures:igloos/grassy/top",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:igloos/mushroom_top",
+        "location": "repurposed_structures:igloos/grassy/top",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -14,7 +14,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "repurposed_structures:igloos/mushroom_top_trapdoor",
+        "location": "repurposed_structures:igloos/grassy/top_trapdoor",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

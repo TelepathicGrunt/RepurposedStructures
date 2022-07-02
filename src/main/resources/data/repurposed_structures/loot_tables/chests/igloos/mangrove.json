@@ -94,6 +94,15 @@
       ]
     },
     {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:stone_sword",
+          "type": "minecraft:item"
+        }
+      ]
+    },
+    {
       "rolls": 0,
       "bonus_rolls": 1,
       "entries": [
