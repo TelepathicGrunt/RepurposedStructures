@@ -19,6 +19,10 @@
     {
       "structure": "repurposed_structures:witch_hut_giant_tree_taiga",
       "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_mangrove",
+      "weight": 1
     }
   ],
   "placement": {

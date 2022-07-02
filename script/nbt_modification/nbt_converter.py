@@ -262,7 +262,7 @@ newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
 }
-conversion_exact_dict = {  
+conversion_exact_dict = {
 }
 #-------------------------------------------------------------------------------------------
 
@@ -307,6 +307,12 @@ def traverse_dicts(nbt_list):
         nbt_list.pop('SleepingY', None)
         nbt_list.pop('SleepingZ', None)
         
+        if 'Attributes' in nbt_list:
+            attributes = nbt_list['Attributes']
+            for entry in attributes:
+                if entry["Name"] == "forge:entity_gravity" or entry["Name"] == "forge:step_height_addition":
+                    nbt_list['Attributes'].remove(entry)
+        
         for key, entry in nbt_list.items():
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
@@ -345,8 +351,7 @@ for (subdir, dirs, files) in os.walk("toconvert", topdown=True):
         else:
             continue
 
-
-for x in blockPalette:
+for x in sorted(blockPalette):
   print(x)
 
 print("FINISHED!")

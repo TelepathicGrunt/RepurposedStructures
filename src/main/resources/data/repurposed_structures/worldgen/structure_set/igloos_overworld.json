@@ -9,6 +9,10 @@
       "weight": 1
     },
     {
+      "structure": "repurposed_structures:igloo_mangrove",
+      "weight": 1
+    },
+    {
       "structure": "repurposed_structures:igloo_mushroom",
       "weight": 1
     }

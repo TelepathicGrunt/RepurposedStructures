@@ -66,6 +66,22 @@
         ]
       }
     },
+    "in_witch_hut_mangrove": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:witch_hut_mangrove"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_witch_hut_oak": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -108,6 +124,9 @@
     ],
     [
       "in_witch_hut_giant_tree_taiga"
+    ],
+    [
+      "in_witch_hut_mangrove"
     ],
     [
       "in_witch_hut_oak"
