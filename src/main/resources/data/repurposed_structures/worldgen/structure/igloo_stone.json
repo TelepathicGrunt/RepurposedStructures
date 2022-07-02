@@ -1,6 +1,6 @@
 {
   "type": "repurposed_structures:generic_jigsaw_structure",
-  "start_pool": "repurposed_structures:igloos/stone_top",
+  "start_pool": "repurposed_structures:igloos/stone/top",
   "size": 2,
   "cannot_spawn_in_liquid": true,
   "biomes": "#repurposed_structures:has_structure/igloos/stone",

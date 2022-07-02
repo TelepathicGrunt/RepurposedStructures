@@ -1,6 +1,6 @@
 {
   "type": "repurposed_structures:generic_jigsaw_structure",
-  "start_pool": "repurposed_structures:igloos/mangrove_top",
+  "start_pool": "repurposed_structures:igloos/mangrove/top",
   "size": 2,
   "cannot_spawn_in_liquid": false,
   "biomes": "#repurposed_structures:has_structure/igloos/mangrove",
