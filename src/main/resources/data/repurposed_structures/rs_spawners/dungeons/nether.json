@@ -1,24 +1,24 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:zombified_piglin",
-      "weight" : 44
+      "name": "minecraft:zombified_piglin",
+      "weight": 44
     },
     {
-      "name" : "minecraft:strider",
-      "weight" : 20
+      "name": "minecraft:strider",
+      "weight": 20
     },
     {
-      "name" : "minecraft:magma_cube",
-      "weight" : 25
+      "name": "minecraft:magma_cube",
+      "weight": 25
     },
     {
-      "name" : "minecraft:blaze",
-      "weight" : 10
+      "name": "minecraft:blaze",
+      "weight": 10
     },
     {
-      "name" : "minecraft:wither_skeleton",
-      "weight" : 1
+      "name": "minecraft:wither_skeleton",
+      "weight": 1
     }
   ]
 }

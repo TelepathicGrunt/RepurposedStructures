@@ -1,8 +1,8 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:silverfish",
-      "weight" : 10
+      "name": "minecraft:silverfish",
+      "weight": 10
     }
   ]
 }

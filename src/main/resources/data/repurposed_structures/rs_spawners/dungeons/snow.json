@@ -1,24 +1,24 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:stray",
-      "weight" : 37
+      "name": "minecraft:stray",
+      "weight": 37
     },
     {
-      "name" : "minecraft:cave_spider",
-      "weight" : 25
+      "name": "minecraft:cave_spider",
+      "weight": 25
     },
     {
-      "name" : "minecraft:zombie",
-      "weight" : 24
+      "name": "minecraft:zombie",
+      "weight": 24
     },
     {
-      "name" : "minecraft:spider",
-      "weight" : 12
+      "name": "minecraft:spider",
+      "weight": 12
     },
     {
-      "name" : "minecraft:snow_golem",
-      "weight" : 1
+      "name": "minecraft:snow_golem",
+      "weight": 1
     }
   ]
 }

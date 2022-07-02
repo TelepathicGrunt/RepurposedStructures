@@ -1,16 +1,16 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:endermite",
-      "weight" : 86
+      "name": "minecraft:endermite",
+      "weight": 86
     },
     {
-      "name" : "minecraft:enderman",
-      "weight" : 12
+      "name": "minecraft:enderman",
+      "weight": 12
     },
     {
-      "name" : "minecraft:phantom",
-      "weight" : 2
+      "name": "minecraft:phantom",
+      "weight": 2
     }
   ]
 }
