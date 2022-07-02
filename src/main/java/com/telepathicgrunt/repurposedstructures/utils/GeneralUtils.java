@@ -51,7 +51,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class GeneralUtils {
     private GeneralUtils() {}
@@ -321,5 +323,28 @@ public final class GeneralUtils {
             invalidLootTableFound = true;
         }
         return invalidLootTableFound;
+    }
+
+    public static boolean isMissingLootImporting(MinecraftServer minecraftServer, Set<ResourceLocation> tableKeys) {
+        AtomicBoolean invalidLootTableFound = new AtomicBoolean(false);
+        minecraftServer.getLootTables().getIds().forEach(rl -> {
+            if(rl.getNamespace().equals(RepurposedStructures.MODID) && !tableKeys.contains(rl)) {
+                if(rl.getPath().contains("mansions") && rl.getPath().contains("storage")) {
+                    return;
+                }
+
+                if(rl.getPath().contains("monuments")) {
+                    return;
+                }
+
+                if(rl.getPath().contains("dispensers/temples/wasteland_lava")) {
+                    return;
+                }
+
+                RepurposedStructures.LOGGER.error("No loot importing found for: {}", rl);
+                invalidLootTableFound.set(true);
+            }
+        });
+        return invalidLootTableFound.get();
     }
 }

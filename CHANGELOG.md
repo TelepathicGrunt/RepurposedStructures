@@ -1,3 +1,9 @@
+### **(V.6.1.1 Changes) (1.19.0 Minecraft)**
+
+#### Loot:
+Fixed it so Mangrove Outpost, Mangrove Mansion, and Mangrove Igloo can import modded loot.
+
+
 ### **(V.6.1.0 Changes) (1.19.0 Minecraft) (Config Datapack updated)**
 
 #### Igloos:

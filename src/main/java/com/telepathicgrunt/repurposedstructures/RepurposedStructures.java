@@ -28,6 +28,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -88,7 +89,9 @@ public class RepurposedStructures {
     }
 
     public void serverStarted(final ServerStartedEvent event) {
-        StructureModdedLootImporter.checkLoottables(event.getServer());
-        EndRemasteredDedicatedLoot.checkLoottables(event.getServer());
+        if (!FMLEnvironment.production) {
+            StructureModdedLootImporter.checkLoottables(event.getServer());
+            EndRemasteredDedicatedLoot.checkLoottables(event.getServer());
+        }
     }
 }
