@@ -106,6 +106,8 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.changelogType = "markdown"
 	mainFile.releaseType = "release"
 	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${libs.versions.minecraft.get()} MC Quilt)"
+	mainFile.addGameVersion("1.19")
+	mainFile.addModLoader("Quilt")
 	mainFile.addRequirement("qsl")
 	mainFile.addRequirement("midnightlib")
 }
@@ -113,7 +115,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 modrinth {
 	token = System.getenv("MODRINTH")
 	versionName = "Repurposed Structures"
-	versionNumber = project.version
+	versionNumber = project.version + "+quilt"
 	projectId = "muf0XoRe"
 	uploadFile = remapJar
 	changelog = fileContents
