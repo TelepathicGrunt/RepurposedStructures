@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BuiltinRegistries.class)
-public class BuiltinRegistriesMixin {
+public class BuiltInRegistriesMixin {
 
     /**
      * Creates and inits our custom registry at game startup

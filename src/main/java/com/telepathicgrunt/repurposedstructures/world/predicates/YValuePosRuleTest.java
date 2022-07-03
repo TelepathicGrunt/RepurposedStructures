@@ -4,10 +4,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType;
-
-import java.util.Random;
 
 public class YValuePosRuleTest extends PosRuleTest {
     public static final Codec<YValuePosRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
@@ -27,7 +26,7 @@ public class YValuePosRuleTest extends PosRuleTest {
         }
     }
 
-    public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, Random random) {
+    public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, RandomSource random) {
         return blockPos2.getY() >= this.minYValue && blockPos2.getY() <= this.maxYValue;
     }
 

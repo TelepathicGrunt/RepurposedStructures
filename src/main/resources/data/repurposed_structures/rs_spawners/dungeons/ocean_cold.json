@@ -1,12 +1,12 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:drowned",
-      "weight" : 96
+      "name": "minecraft:drowned",
+      "weight": 96
     },
     {
-      "name" : "minecraft:salmon",
-      "weight" : 4
+      "name": "minecraft:salmon",
+      "weight": 4
     }
   ]
 }

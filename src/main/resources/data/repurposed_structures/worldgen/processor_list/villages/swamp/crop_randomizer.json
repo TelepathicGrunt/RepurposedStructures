@@ -17,10 +17,26 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:moss_block"
+            "Name": "minecraft:mud"
           },
           "input_predicate": {
-            "block": "minecraft:dirt_path",
+            "block": "minecraft:muddy_mangrove_roots",
+            "probability": 0.25,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:muddy_mangrove_roots",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "input_predicate": {
+            "block": "minecraft:mud",
             "probability": 0.1,
             "predicate_type": "minecraft:random_block_match"
           },

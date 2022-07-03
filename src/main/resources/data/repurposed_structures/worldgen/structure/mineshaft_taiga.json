@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:generic_mineshaft",
+  "start_pool": "repurposed_structures:mineshafts/taiga/start_pool",
+  "size": 9,
+  "biomes": "#repurposed_structures:has_structure/mineshafts/taiga",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 130
+    },
+    "min_inclusive": {
+      "absolute": 35
+    }
+  },
+  "spawn_overrides": {}
+}

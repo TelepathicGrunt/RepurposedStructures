@@ -1,0 +1,24 @@
+{
+  "name": "repurposed_structures:outposts/mangrove/towers",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:outposts/mangrove/watchtower",
+        "processors": "repurposed_structures:outposts/weakly_mudify",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:outposts/mangrove/watchtower_aged",
+        "processors": "repurposed_structures:outposts/strongly_mudify",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

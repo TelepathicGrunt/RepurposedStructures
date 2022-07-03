@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#repurposed_structures:collections/snowy_plains",
+    "#repurposed_structures:collections/snowy_forests",
+    "#repurposed_structures:collections/snowy_mountains"
+  ]
+}

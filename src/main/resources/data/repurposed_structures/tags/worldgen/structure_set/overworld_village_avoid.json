@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:villages",
+    "minecraft:pillager_outposts"
+  ]
+}

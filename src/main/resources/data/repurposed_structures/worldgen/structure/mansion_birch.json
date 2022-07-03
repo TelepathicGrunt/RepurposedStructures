@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:mansion_structure",
+  "mansion_type": "birch",
+  "foundation_block": {
+    "Name": "minecraft:dark_oak_wood",
+    "Properties": {
+      "axis": "y"
+    }
+  },
+  "biomes": "#repurposed_structures:has_structure/mansions/birch",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "start_height": {
+    "absolute": 0
+  },
+  "spawn_overrides": {}
+}

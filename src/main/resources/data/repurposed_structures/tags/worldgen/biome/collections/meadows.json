@@ -21,6 +21,10 @@
     {
       "id": "biomesoplenty:clover_patch",
       "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:pine_meadows",
+      "required": false
     }
   ]
 }

@@ -34,9 +34,13 @@
     }
   ],
   "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
     "salt": 608450500,
     "spacing": 50,
     "separation": 25,
-    "type": "minecraft:random_spread"
+    "super_exclusion_zone": {
+      "chunk_count": 6,
+      "other_set": "#repurposed_structures:overworld_village_avoid"
+    }
   }
 }

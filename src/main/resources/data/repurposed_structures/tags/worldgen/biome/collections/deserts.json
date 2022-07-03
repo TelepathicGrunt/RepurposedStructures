@@ -3,11 +3,19 @@
   "values": [
     "minecraft:desert",
     {
+      "id": "terralith:lush_desert",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:lush_desert",
       "required": false
     },
     {
-      "id": "#forge:is_sandy",
+      "id": "projectvibrantjourneys:desert_shrubland",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:verdant_sands",
       "required": false
     },
     {

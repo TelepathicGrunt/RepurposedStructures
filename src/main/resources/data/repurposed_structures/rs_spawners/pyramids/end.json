@@ -1,8 +1,8 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:endermite",
-      "weight" : 10
+      "name": "minecraft:endermite",
+      "weight": 10
     }
   ]
 }

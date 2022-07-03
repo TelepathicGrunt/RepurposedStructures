@@ -1,0 +1,15 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "start_pool": "repurposed_structures:villages/crimson/town_centers",
+  "size": 6,
+  "valid_biome_radius_check": 1,
+  "biomes": "#repurposed_structures:has_structure/villages/crimson",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_box",
+  "land_search_direction": "HIGHEST_LAND",
+  "start_height": {
+    "absolute": 0
+  },
+  "use_bounding_box_hack": true,
+  "spawn_overrides": {}
+}

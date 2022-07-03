@@ -1,0 +1,160 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 2.0,
+        "max": 8.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "name": "minecraft:carrot",
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:coal",
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:gold_nugget",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:stone_axe",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:rotten_flesh",
+          "type": "minecraft:item",
+          "weight": 10
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item"
+        },
+        {
+          "name": "minecraft:sugar_cane",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:golden_apple",
+          "type": "minecraft:item"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:stone_sword",
+          "type": "minecraft:item"
+        }
+      ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:yellow_banner",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:4},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11},{Pattern:hh,Color:11}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:pink_banner",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:bo,Color:3},{Pattern:bo,Color:3},{Pattern:bo,Color:3}]}}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 28
+        },
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 32,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bri,Color:12},{Pattern:gru,Color:15},{Pattern:flo,Color:14},{Pattern:moj,Color:15},{Pattern:sku,Color:12},{Pattern:mr,Color:14},{Pattern:mr,Color:1},{Pattern:bt,Color:15},{Pattern:mc,Color:14},{Pattern:mc,Color:4},{Pattern:bts,Color:12}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

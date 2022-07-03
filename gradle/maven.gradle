@@ -13,18 +13,18 @@ publishing {
             pom {
                 name = 'RepurposedStructures-Quilt'
                 description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
-                url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric'
+                url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Quilt'
 
                 scm {
-                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures-Fabric.git'
-                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures-Fabric.git'
-                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric'
+                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures-Quilt.git'
+                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures-Quilt.git'
+                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Quilt'
                 }
 
                 licenses {
                     license {
                         name = 'GNU Lesser General Public License v3.0'
-                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/LICENSE'
+                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures-Quilt/LICENSE'
                     }
                 }
 

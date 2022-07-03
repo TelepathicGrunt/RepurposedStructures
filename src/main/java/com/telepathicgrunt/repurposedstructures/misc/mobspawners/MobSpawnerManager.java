@@ -12,6 +12,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
 import org.apache.logging.log4j.Level;
@@ -19,7 +20,6 @@ import org.quiltmc.qsl.resource.loader.api.reloader.IdentifiableResourceReloader
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class MobSpawnerManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloader {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
@@ -56,11 +56,11 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
         this.spawnerMap = builder.build();
     }
 
-    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, Random random) {
+    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, RandomSource random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
-            return Util.getRandom(DungeonFeatureAccessor.repurposedstructures_getMOBS(), random);
+            return Util.getRandom(DungeonFeatureAccessor.getMOBS(), random);
         }
 
         // Already did a check to make sure all entries do not have a negative weight earlier.

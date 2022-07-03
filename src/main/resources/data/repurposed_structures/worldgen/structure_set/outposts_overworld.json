@@ -1,15 +1,11 @@
 {
   "structures": [
     {
+      "structure": "repurposed_structures:outpost_badlands",
+      "weight": 1
+    },
+    {
       "structure": "repurposed_structures:outpost_birch",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:outpost_jungle",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:outpost_giant_tree_taiga",
       "weight": 1
     },
     {
@@ -17,11 +13,7 @@
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:outpost_badlands",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:outpost_snowy",
+      "structure": "repurposed_structures:outpost_giant_tree_taiga",
       "weight": 1
     },
     {
@@ -29,18 +21,34 @@
       "weight": 1
     },
     {
-      "structure": "repurposed_structures:outpost_taiga",
+      "structure": "repurposed_structures:outpost_jungle",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_mangrove",
       "weight": 1
     },
     {
       "structure": "repurposed_structures:outpost_oak",
       "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_snowy",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_taiga",
+      "weight": 1
     }
   ],
   "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
     "salt": 411702122,
     "spacing": 49,
     "separation": 24,
-    "type": "minecraft:random_spread"
+    "super_exclusion_zone": {
+      "chunk_count": 5,
+      "other_set": "#repurposed_structures:overworld_outpost_avoid"
+    }
   }
 }

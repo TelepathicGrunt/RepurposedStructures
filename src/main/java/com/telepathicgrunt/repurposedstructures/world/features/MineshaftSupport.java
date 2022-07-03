@@ -70,6 +70,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         }
 
         // Only do support if floor block is placed
+        mutable.set(jigsawPos);
         if(world.getBlockState(mutable).is(context.config().targetFloorState)) {
             if (world.canSeeSkyFromBelowWater(mutable.above())) {
                 return false;
@@ -109,7 +110,8 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                     chunk.setBlockState(pillarPos, pillarBlockFinal, false);
                     pillarPos.move(Direction.DOWN);
                 }
-            } else {
+            }
+            else {
                 mutable.set(jigsawPos);
                 if (!chunk.getBlockState(mutable.above(context.config().waterBased ? 4 : 3)).canOcclude()) {
 

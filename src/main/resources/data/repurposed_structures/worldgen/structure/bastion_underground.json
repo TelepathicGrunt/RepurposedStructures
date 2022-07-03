@@ -1,0 +1,25 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:bastions/underground/starts",
+  "size": 10,
+  "valid_biome_radius_check": 7,
+  "biomes": "#repurposed_structures:has_structure/bastions/underground",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "start_height": {
+    "absolute": -45
+  },
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:skeleton",
+          "weight": 10,
+          "minCount": 1,
+          "maxCount": 4
+        }
+      ]
+    }
+  }
+}

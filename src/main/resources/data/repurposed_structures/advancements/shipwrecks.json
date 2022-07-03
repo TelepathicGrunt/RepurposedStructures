@@ -21,25 +21,65 @@
     "in_shipwreck_crimson": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:shipwreck_crimson"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:shipwreck_crimson"
+              }
+            }
+          }
+        ]
       }
     },
     "in_shipwreck_end": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:shipwreck_end"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:shipwreck_end"
+              }
+            }
+          }
+        ]
       }
     },
     "in_shipwreck_nether_bricks": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:shipwreck_nether_bricks"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:shipwreck_nether_bricks"
+              }
+            }
+          }
+        ]
       }
     },
     "in_shipwreck_warped": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:shipwreck_warped"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:shipwreck_warped"
+              }
+            }
+          }
+        ]
       }
     }
   },

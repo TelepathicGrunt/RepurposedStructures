@@ -21,7 +21,17 @@
     "city_overworld": {
       "trigger": "minecraft:location",
       "conditions": {
-        "feature": "repurposed_structures:city_overworld"
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:city_overworld"
+              }
+            }
+          }
+        ]
       }
     }
   },

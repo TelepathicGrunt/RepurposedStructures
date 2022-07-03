@@ -3,12 +3,29 @@
   "values": [
     "minecraft:dripstone_caves",
     "minecraft:lush_caves",
+    "minecraft:deep_dark",
     {
-      "id": "terralith:cave/frostfire_caves",
+      "id": "terralith:cave/andesite_caves",
       "required": false
     },
     {
-      "id": "terralith:cave/ice_caves",
+      "id": "terralith:cave/crystal_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/deep_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/desert_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/diorite_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/frostfire_caves",
       "required": false
     },
     {
@@ -16,7 +33,31 @@
       "required": false
     },
     {
-      "id": "terralith:cave/desert_caves",
+      "id": "terralith:cave/granite_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/ice_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/infested_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/mantle_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/thermal_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/tuff_caves",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/underground_jungle",
       "required": false
     },
     {

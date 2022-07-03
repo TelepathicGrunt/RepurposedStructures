@@ -1,0 +1,26 @@
+{
+  "type": "repurposed_structures:generic_nether_jigsaw_structure",
+  "start_pool": "repurposed_structures:outposts/crimson/base_plates",
+  "size": 11,
+  "biomes": "#repurposed_structures:has_structure/outposts/crimson",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_box",
+  "land_search_direction": "HIGHEST_LAND",
+  "start_height": {
+    "absolute": 0
+  },
+  "use_bounding_box_hack": true,
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:piglin",
+          "weight": 10,
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  }
+}

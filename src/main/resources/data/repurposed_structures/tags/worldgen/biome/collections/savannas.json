@@ -1,9 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:savanna",
-    "minecraft:savanna_plateau",
-    "minecraft:windswept_savanna",
+    "#minecraft:is_savanna",
     {
       "id": "terralith:arid_highlands",
       "required": false
@@ -18,6 +16,10 @@
     },
     {
       "id": "terralith:sakura_valley",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:baobab_fields",
       "required": false
     },
     {

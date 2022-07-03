@@ -96,7 +96,11 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/jungle"
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/jungle",
+      "valid_block_light_level": {
+        "min_inclusive": 0,
+        "max_inclusive": 7
+      }
     }
   ]
 }

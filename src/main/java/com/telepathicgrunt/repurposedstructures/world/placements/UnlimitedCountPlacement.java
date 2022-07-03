@@ -3,12 +3,11 @@ package com.telepathicgrunt.repurposedstructures.world.placements;
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import net.minecraft.world.level.levelgen.placement.RepeatingPlacement;
-
-import java.util.Random;
 
 public class UnlimitedCountPlacement extends RepeatingPlacement {
     public static final Codec<UnlimitedCountPlacement> CODEC = IntProvider.NON_NEGATIVE_CODEC.fieldOf("count").xmap(UnlimitedCountPlacement::new, countPlacement -> countPlacement.count).codec();
@@ -27,7 +26,7 @@ public class UnlimitedCountPlacement extends RepeatingPlacement {
     }
 
     @Override
-    protected int count(Random random, BlockPos blockPos) {
+    protected int count(RandomSource random, BlockPos blockPos) {
         return this.count.sample(random);
     }
 

@@ -1,0 +1,31 @@
+{
+  "type": "repurposed_structures:nbt_dungeon",
+  "config": {
+	  "dungeon_nbt_entries": [
+		  {
+			  "resourcelocation": "repurposed_structures:dungeons/end_1",
+			  "weight": 1
+		  },
+		  {
+			  "resourcelocation": "repurposed_structures:dungeons/end_2",
+			  "weight": 1
+		  },
+		  {
+			  "resourcelocation": "repurposed_structures:dungeons/end_3",
+			  "weight": 1
+		  }
+	  ],
+	  "loot_block": "minecraft:shulker_box",
+	  "loot_block_loottable_resourcelocation": "repurposed_structures:shulker_boxes/dungeons/end",
+	  "max_num_of_loot_blocks": 2,
+	  "chance_of_spawning_loot_block_at_spot": 0.235,
+	  "rs_spawner_resourcelocation": "repurposed_structures:dungeons/end",
+	  "processors": "repurposed_structures:dungeons/end",
+	  "post_processors": "minecraft:empty",
+	  "min_air_space": 1,
+	  "max_air_space": 20,
+	  "replace_air": false,
+	  "air_requirement_is_now_water": false,
+	  "structure_y_offset": 0
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:magma_cube",
-      "weight" : 10
+      "name": "minecraft:magma_cube",
+      "weight": 10
     }
   ]
 }

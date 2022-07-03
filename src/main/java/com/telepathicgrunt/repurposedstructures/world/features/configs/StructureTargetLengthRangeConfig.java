@@ -22,16 +22,14 @@ public class StructureTargetLengthRangeConfig implements FeatureConfiguration {
     public final int xzRange;
     public final int heightRange;
 
-    public StructureTargetLengthRangeConfig(int attempts, int length, int xzRange)
-    {
+    public StructureTargetLengthRangeConfig(int attempts, int length, int xzRange) {
         this.attempts = attempts;
         this.length = length;
         this.xzRange = xzRange;
         this.heightRange = 5;
     }
 
-    public StructureTargetLengthRangeConfig(int attempts, int length, int xzRange, int heightRange)
-    {
+    public StructureTargetLengthRangeConfig(int attempts, int length, int xzRange, int heightRange) {
         this.attempts = attempts;
         this.length = length;
         this.xzRange = xzRange;

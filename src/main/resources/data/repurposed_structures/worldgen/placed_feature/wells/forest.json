@@ -1,0 +1,23 @@
+{
+  "feature": "repurposed_structures:wells/forest",
+  "placement": [
+    {
+      "type": "repurposed_structures:unlimited_count",
+      "count": 1
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 450
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

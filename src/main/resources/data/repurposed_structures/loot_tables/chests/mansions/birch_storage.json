@@ -117,7 +117,7 @@
           "functions": [
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bt,Color:5},{Pattern:sku,Color:0},{Pattern:sku,Color:12},{Pattern:sku,Color:15},{Pattern:bs,Color:15},{Pattern:rs,Color:15},{Pattern:ls,Color:15},{Pattern:bo,Color:14},{Pattern:tts,Color:14},{Pattern:tts,Color:15},{Pattern:bts,Color:14},{Pattern:bts,Color:15}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bt,Color:5},{Pattern:sku,Color:0},{Pattern:sku,Color:12},{Pattern:sku,Color:15},{Pattern:bs,Color:15},{Pattern:ls,Color:15},{Pattern:rs,Color:15},{Pattern:bo,Color:8},{Pattern:tts,Color:5},{Pattern:tts,Color:15},{Pattern:bts,Color:5},{Pattern:bts,Color:15}]}}"
             }
           ]
         },

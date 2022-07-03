@@ -6,9 +6,13 @@
     }
   ],
   "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
     "salt": 322115398,
     "spacing": 320,
     "separation": 140,
-    "type": "minecraft:random_spread"
+    "super_exclusion_zone": {
+      "chunk_count": 3,
+      "other_set": "#repurposed_structures:nether_monument_avoid"
+    }
   }
 }

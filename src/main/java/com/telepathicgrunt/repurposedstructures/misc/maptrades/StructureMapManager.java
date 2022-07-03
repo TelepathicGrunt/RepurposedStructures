@@ -43,7 +43,7 @@ public class StructureMapManager extends SimpleJsonResourceReloadListener implem
         VILLAGER_MAP_TRADES =  builderVillager.build();
         WANDERING_TRADER_MAP_TRADES =  builderWandering.build();
     }
-    
+
     @Override
     public ResourceLocation getQuiltId() {
         return STRUCTURE_MAP_MANAGER_ID;

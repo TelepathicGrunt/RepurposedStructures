@@ -1,8 +1,8 @@
 {
-  "mobs" : [
+  "mobs": [
     {
-      "name" : "minecraft:skeleton",
-      "weight" : 10
+      "name": "minecraft:skeleton",
+      "weight": 10
     }
   ]
 }
