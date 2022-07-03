@@ -2,7 +2,7 @@ from os.path import exists
 import os
 import json
 
-fabric_src = "C:\\Users\\MSI Laptop\\Documents\\ModWorkspace\\RepurposedStructures-Fabric\\src"
+quilt_src = "C:\\Users\\MSI Laptop\\Documents\\ModWorkspace\\RepurposedStructures-Quilt\\src"
 forge_src = "C:\\Users\\MSI Laptop\\Documents\\ModWorkspace\\RepurposedStructures\\src"
 data_folder = os.path.join('main', 'resources', 'data', 'repurposed_structures')
 
@@ -19,7 +19,7 @@ def createFile(input_path, output_path, regex_list):
         with open(path, 'w') as codefile1:
             codefile1.write(file_content)
 
-    path = os.path.join(fabric_src, output_path)
+    path = os.path.join(quilt_src, output_path)
     if not exists(path):
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, 'w') as codefile2:
@@ -60,7 +60,7 @@ while restart:
         file.seek(0)
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
-    path = os.path.join(fabric_src, data_folder, 'worldgen', 'structure_set', f'{structure_set}.json')
+    path = os.path.join(quilt_src, data_folder, 'worldgen', 'structure_set', f'{structure_set}.json')
     with open(path, 'r+') as file:
         jsonData = json.load(file)
         jsonData['structures'].append({ 
@@ -85,7 +85,7 @@ while restart:
         file.seek(0)
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
-    path = os.path.join(fabric_src, data_folder, 'tags', 'worldgen', 'configured_structure_feature', 'collections', f'{structure_type_plural}.json')
+    path = os.path.join(quilt_src, data_folder, 'tags', 'worldgen', 'configured_structure_feature', 'collections', f'{structure_type_plural}.json')
     with open(path, 'r+') as file:
         jsonData = json.load(file)
         jsonData['values'].append(f'repurposed_structures:{structure_type}_{structure_variant}')
@@ -116,7 +116,7 @@ while restart:
             file.seek(0)
             file.write(json.dumps(jsonData, indent=2))
             file.truncate()
-    path = os.path.join(fabric_src, data_folder, 'advancements', f'{structure_type_plural}.json')
+    path = os.path.join(quilt_src, data_folder, 'advancements', f'{structure_type_plural}.json')
     if exists(path):
         with open(path, 'r+') as file:
             jsonData = json.load(file)

@@ -3,7 +3,7 @@ import os
 import shutil
 import json
 
-fabric_resources = "C:\\Users\\MSI Laptop\\Documents\\ModWorkspace\\RepurposedStructures-Fabric\\src\\main\\resources"
+quilt_resources = "C:\\Users\\MSI Laptop\\Documents\\ModWorkspace\\RepurposedStructures-Quilt\\src\\main\\resources"
 compat_datapack = "C:\\Users\\MSI Laptop\\Documents\\ModWorkspace\\.Extra\\Backroom\\repurposed_structures\\datapacks\\Repurposed_Structures-Config_Datapack"
 
 # Source: https://thispointer.com/python-how-to-get-list-of-files-in-directory-and-sub-directories/
@@ -29,10 +29,10 @@ while restart:
     
     shutil.rmtree(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack", ignore_errors=True) 
 
-    listOfFiles = getListOfFiles(fabric_resources)
-    listOfFiles = [x for x in listOfFiles if not any(substring in x for substring in ["data\\repurposed_structures\\structures", ".png", "fabric.mod.json", "repurposed_structures.mixins.json", "repurposed_structures.accesswidener"])]
+    listOfFiles = getListOfFiles(quilt_resources)
+    listOfFiles = [x for x in listOfFiles if not any(substring in x for substring in ["data\\repurposed_structures\\structures", ".png", "quilt.mod.json", "repurposed_structures.mixins.json", "repurposed_structures.accesswidener"])]
     for srcFile in listOfFiles:
-        targetFile = srcFile.replace(fabric_resources, f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
+        targetFile = srcFile.replace(quilt_resources, f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
         os.makedirs(os.path.dirname(targetFile), exist_ok=True)
         shutil.copyfile(srcFile, targetFile)
 
