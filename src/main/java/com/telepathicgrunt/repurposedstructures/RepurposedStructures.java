@@ -35,7 +35,6 @@ public class RepurposedStructures implements ModInitializer {
     public static MobSpawnerManager mobSpawnerManager = new MobSpawnerManager();
     public static StructureMapManager structureMapManager = new StructureMapManager();
     public static StructurePieceCountsManager structurePieceCountsManager = new StructurePieceCountsManager();
-    public static boolean initialized = false;
 
     @Override
     public void onInitialize() {
@@ -55,12 +54,6 @@ public class RepurposedStructures implements ModInitializer {
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.mobSpawnerManager);
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structureMapManager);
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(RepurposedStructures.structurePieceCountsManager);
-
-        // Controls the dimension blacklisting
-        // Must run after fapi to undo its changes
-        ResourceLocation runAfterFabricAPIPhase = new ResourceLocation(RepurposedStructures.MODID, "run_after_fabric_api");
-        ServerWorldEvents.LOAD.addPhaseOrdering(Event.DEFAULT_PHASE, runAfterFabricAPIPhase);
-        initialized = true;
 
         //For mod compat by checking if other mod is on
         EndRemasteredDedicatedLoot.isEndRemasteredOn = FabricLoader.getInstance().isModLoaded("endrem");
