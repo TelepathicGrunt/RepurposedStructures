@@ -19,7 +19,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 /**
  * Replace blocks randomly but preserve the properties of the block

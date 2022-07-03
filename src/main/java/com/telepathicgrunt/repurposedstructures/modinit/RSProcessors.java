@@ -20,7 +20,6 @@ import com.telepathicgrunt.repurposedstructures.world.processors.TickBlocksProce
 import com.telepathicgrunt.repurposedstructures.world.processors.WallVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.WaterloggingFixProcessor;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;

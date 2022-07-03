@@ -28,7 +28,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.FluidState;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Will help enclose the structure in solid blocks rather than allow fluid source blocks to be floating.

@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;

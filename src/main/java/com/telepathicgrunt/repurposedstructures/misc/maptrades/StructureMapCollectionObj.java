@@ -1,7 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
 import com.google.gson.annotations.Expose;
-import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
 import java.util.Map;

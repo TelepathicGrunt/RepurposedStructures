@@ -18,8 +18,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import java.util.Random;
-
 /**
  * RUN ONLY AFTER THE NBT PIECE IS PLACED INTO THE WORLD
  */

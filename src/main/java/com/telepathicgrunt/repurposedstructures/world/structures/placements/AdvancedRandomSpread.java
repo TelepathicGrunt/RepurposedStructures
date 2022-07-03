@@ -1,10 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.placements;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
-import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
@@ -22,8 +20,6 @@ import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacementType;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Optional;
 
 public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {

@@ -19,7 +19,6 @@ import org.apache.logging.log4j.Level;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();

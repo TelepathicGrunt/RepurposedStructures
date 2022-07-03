@@ -1,18 +1,12 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
-import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.world.placements.MinusEightPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.SnapToLowerNonAirPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.UnlimitedCountPlacement;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class RSPlacements {
