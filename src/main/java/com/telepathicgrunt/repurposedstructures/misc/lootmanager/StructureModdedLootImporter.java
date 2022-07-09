@@ -1,6 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
-import com.google.gson.JsonObject;
+import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
@@ -13,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.fml.ModList;
 
@@ -23,9 +25,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class StructureModdedLootImporter extends LootModifier {
+
+    public static final Supplier<Codec<StructureModdedLootImporter>> CODEC = Suppliers.memoize(() ->
+            RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, StructureModdedLootImporter::new)));
 
     // Need to map loottables by hand to the vanilla structure that our structure is based on. (usually...)
     private static final Map<ResourceLocation, ResourceLocation> TABLE_IMPORTS = createMap();
@@ -269,21 +275,14 @@ public class StructureModdedLootImporter extends LootModifier {
         }
     }
 
-    public static class Serializer extends GlobalLootModifierSerializer<StructureModdedLootImporter> {
-        @Override
-        public StructureModdedLootImporter read(ResourceLocation location, JsonObject object, LootItemCondition[] conditions) {
-             return new StructureModdedLootImporter(conditions);
-        }
-
-        @Override
-        public JsonObject write(StructureModdedLootImporter instance) {
-            return this.makeConditions(instance.conditions);
-        }
-    }
-
     protected static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
         LootContext newContext = new LootContext.Builder(oldLootContext).create(LootContextParamSets.CHEST);
         ((LootContextAccessor)newContext).repurposedstructures_setQueriedLootTableId(newQueryID); // The normal method won't set it as the newContext already has queriedID.
         return newContext;
+    }
+
+    @Override
+    public Codec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
     }
 }

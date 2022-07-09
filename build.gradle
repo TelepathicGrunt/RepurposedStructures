@@ -67,7 +67,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
-    runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.0+1.19")
+    runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.2+1.19")
     runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.0.0+1.19")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
 
