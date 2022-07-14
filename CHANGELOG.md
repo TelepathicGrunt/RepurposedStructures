@@ -1,3 +1,9 @@
+### **(V.6.1.3 Changes) (1.19.0 Minecraft)**
+
+#### Misc:
+Updated to work on v41.0.98 Forge.
+
+
 ### **(V.6.1.2 Changes) (1.19.0 Minecraft)**
 
 #### Misc:

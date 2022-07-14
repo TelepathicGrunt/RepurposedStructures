@@ -96,7 +96,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     private CompoundTag SetMobSpawnerEntity(RandomSource random, CompoundTag nbt) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null) {
-            ResourceLocation entityRL = ForgeRegistries.ENTITIES.getKey(entity);
+            ResourceLocation entityRL = ForgeRegistries.ENTITY_TYPES.getKey(entity);
 
             // Set spawn potentials
             CompoundTag compound = new CompoundTag();

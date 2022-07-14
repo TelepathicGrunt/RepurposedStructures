@@ -15,7 +15,7 @@ public final class StructureMapTradesEvents {
     private StructureMapTradesEvents() {}
 
     public static void onVillagerTradesEvent(VillagerTradesEvent event) {
-        ResourceLocation currentVillager = ForgeRegistries.PROFESSIONS.getKey(event.getType());
+        ResourceLocation currentVillager = ForgeRegistries.VILLAGER_PROFESSIONS.getKey(event.getType());
         if (currentVillager != null && RepurposedStructures.structureMapManager.VILLAGER_MAP_TRADES.containsKey(currentVillager.toString())) {
             for (VillagerMapObj mapTrade : RepurposedStructures.structureMapManager.VILLAGER_MAP_TRADES.get(currentVillager.toString())) {
                 MapDecoration.Type icon;

@@ -77,7 +77,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
             while(true) {
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0)
-                    return ForgeRegistries.ENTITIES.getValue(new ResourceLocation(spawnerMobEntries.get(index).name));
+                    return ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(spawnerMobEntries.get(index).name));
 
                 index++;
             }
