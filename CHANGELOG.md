@@ -16,6 +16,8 @@ Fixed bug where removing all mobs for an RS Spawner will cause air pockets to sp
 Added some William Wythers' Overhauled Overworld biomes to RS's biome tags to improve compat.
  Also, update to v3.0.3 or newer William Wythers' Overhauled Overworld have maximum compat with RS.
 
+Fixed import_modded_loot GLM so it actually runs and properly imports modded loot into RS chests.
+
 
 ### **(V.6.1.3 Changes) (1.19.0 Minecraft)**
 
