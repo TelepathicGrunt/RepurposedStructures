@@ -1,9 +1,11 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
+import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
@@ -178,9 +180,6 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
     protected boolean canReplace(BlockState state) {
         return state.isAir() ||
                 (state.getMaterial().isLiquid() && !state.getFluidState().is(FluidTags.LAVA)) ||
-                state.getMaterial().equals(Material.REPLACEABLE_PLANT) ||
-                state.getMaterial().equals(Material.REPLACEABLE_WATER_PLANT) ||
-                state.getMaterial().equals(Material.REPLACEABLE_FIREPROOF_PLANT) ||
-                state.is(Blocks.COBWEB);
+                state.is(RSTags.MINESHAFT_SUPPORT_REPLACEABLES);
     }
 }

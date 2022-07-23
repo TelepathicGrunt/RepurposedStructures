@@ -5,13 +5,11 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public final class RSTags {
     public static void initTags() {}
-
-    public static TagKey<Structure> SPAWNS_BLACK_CATS = TagKey.create(Registry.STRUCTURE_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "spawn_black_cats"));
 
     public static TagKey<Structure> NO_LAKES = TagKey.create(Registry.STRUCTURE_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "no_lakes"));
@@ -32,27 +30,6 @@ public final class RSTags {
             new ResourceLocation(RepurposedStructures.MODID, "larger_locate_search"));
 
 
-    public static TagKey<Biome> DESERTS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/deserts"));
-
-    public static TagKey<Biome> MUSHROOMS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/mushrooms"));
-
-    public static TagKey<Biome> SWAMPS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/swamps"));
-
-    public static TagKey<Biome> ICY = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/icy"));
-
-    public static TagKey<Biome> MOUNTAINS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/mountains"));
-
-    public static TagKey<Biome> END = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/end"));
-
-    public static TagKey<Biome> END_VOIDS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/end_voids"));
-
-    public static TagKey<Biome> OCEANS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/oceans"));
+    public static TagKey<Block> MINESHAFT_SUPPORT_REPLACEABLES = TagKey.create(Registry.BLOCK_REGISTRY,
+            new ResourceLocation(RepurposedStructures.MODID, "mineshaft_support_replaceables"));
 }
