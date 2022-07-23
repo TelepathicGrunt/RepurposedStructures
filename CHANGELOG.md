@@ -6,6 +6,9 @@ All RS Mansions now use template pool files to spawn the Illagers.
  Also made sure that RS Mansion rooms will have same number of Illagers across all biome variants of it.
  (Some RS Mansions now will spawn slightly more Illagers than before in rooms that were missing Illagers)
 
+#### Pyramids:
+Redid the Icy Pyramid trap so it is far more stable and less likely to set off the trap due to Observers not being usable in structures safely.
+
 #### RS Spawners:
 Fixed bug where removing all mobs for an RS Spawner will cause air pockets to spawn in place of the spawner in 
  Ocean Mineshafts and Ocean Dungeons. Also causes Pig Spawners to spawn in End Dungeons.
