@@ -23,15 +23,19 @@
       "required": false
     },
     {
-      "id": "#forge:is_snowy",
-      "required": false
-    },
-    {
-      "id": "#c:snowy",
-      "required": false
-    },
-    {
       "id": "#c:snowy_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:snowy_bog",
+      "required": false
+    },
+    {
+      "id": "wythers:snowy_tundra",
+      "required": false
+    },
+    {
+      "id": "wythers:ice_cap",
       "required": false
     }
   ]

@@ -73,6 +73,42 @@
     {
       "id": "projectvibrantjourneys:crystal_lakes",
       "required": false
+    },
+    {
+      "id": "wythers:birch_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:boreal_forest_red",
+      "required": false
+    },
+    {
+      "id": "wythers:boreal_forest_yellow",
+      "required": false
+    },
+    {
+      "id": "wythers:cold_island",
+      "required": false
+    },
+    {
+      "id": "wythers:forested_highlands",
+      "required": false
+    },
+    {
+      "id": "wythers:jade_highlands",
+      "required": false
+    },
+    {
+      "id": "wythers:larch_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:pine_barrens",
+      "required": false
+    },
+    {
+      "id": "wythers:thermal_taiga",
+      "required": false
     }
   ]
 }

@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "minecraft:mangrove_swamp"
+    "minecraft:mangrove_swamp",
+    {
+      "id": "wythers:tangled_forest",
+      "required": false
+    }
   ]
 }

@@ -33,6 +33,26 @@
     {
       "id": "#c:dead",
       "required": false
+    },
+    {
+      "id": "wythers:ancient_moss_forest",
+      "required": false
+    },
+    {
+      "id": "wythers:deep_dark_forest",
+      "required": false
+    },
+    {
+      "id": "wythers:forbidden_forest",
+      "required": false
+    },
+    {
+      "id": "wythers:phantasmal_forest",
+      "required": false
+    },
+    {
+      "id": "wythers:phantasmal_swamp",
+      "required": false
     }
   ]
 }
