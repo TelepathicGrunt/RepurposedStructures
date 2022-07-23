@@ -15,6 +15,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SpawnerBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -36,7 +37,8 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("min_spawn_delay").orElse(200).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.minSpawnDelay),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("required_player_range").orElse(16).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.requiredPlayerRange),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("spawn_count").orElse(4).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.spawnCount),
-            Codec.intRange(0, Integer.MAX_VALUE).fieldOf("spawn_range").orElse(4).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.spawnRange)
+            Codec.intRange(0, Integer.MAX_VALUE).fieldOf("spawn_range").orElse(4).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.spawnRange),
+            BlockState.CODEC.fieldOf("spawner_replacement_block").orElse(Blocks.AIR.defaultBlockState()).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.replacementState)
     ).apply(instance, instance.stable(SpawnerRandomizingProcessor::new)));
 
     public final ResourceLocation rsSpawnerResourcelocation;
@@ -49,6 +51,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     public final int requiredPlayerRange;
     public final int spawnCount;
     public final int spawnRange;
+    public final BlockState replacementState;
 
     private SpawnerRandomizingProcessor(ResourceLocation rsSpawnerResourcelocation,
                                         Optional<InclusiveRange<Integer>> validBlockLightLevel,
@@ -59,7 +62,9 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                                         int minSpawnDelay,
                                         int requiredPlayerRange,
                                         int spawnCount,
-                                        int spawnRange) {
+                                        int spawnRange,
+                                        BlockState replacementState)
+    {
         this.rsSpawnerResourcelocation = rsSpawnerResourcelocation;
         this.validBlockLightLevel = validBlockLightLevel;
         this.validSkyLightLevel = validSkyLightLevel;
@@ -70,6 +75,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
         this.requiredPlayerRange = requiredPlayerRange;
         this.spawnCount = spawnCount;
         this.spawnRange = spawnRange;
+        this.replacementState = replacementState;
     }
 
     @Override
@@ -81,7 +87,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             CompoundTag spawnerNBT = SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
 
             if(spawnerNBT == null) {
-                return new StructureTemplate.StructureBlockInfo(worldPos, Blocks.AIR.defaultBlockState(), null);
+                return new StructureTemplate.StructureBlockInfo(worldPos, replacementState, null);
             }
             else {
                 return new StructureTemplate.StructureBlockInfo(worldPos, structureBlockInfoWorld.state, spawnerNBT);

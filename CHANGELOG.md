@@ -1,5 +1,11 @@
 ### **(V.6.1.1 Changes) (1.19.0 Minecraft)**
 
+#### RS Spawners:
+Fixed bug where removing all mobs for an RS Spawner will cause air pockets to spawn in place of the spawner in
+ Ocean Mineshafts and Ocean Dungeons. Also causes Pig Spawners to spawn in End Dungeons.
+ Now, removing all mobs will remove the spawner block properly without placing air pockets or Pig Spawners
+ for Ocean Mineshafts, Ocean Dungeons, and End Dungeons.
+
 #### Mod Compat:
 Added some William Wythers' Overhauled Overworld biomes to RS's biome tags to improve compat.
  Also, update to v3.0.3 or newer William Wythers' Overhauled Overworld have maximum compat with RS.
