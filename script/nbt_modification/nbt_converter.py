@@ -263,6 +263,9 @@ string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
+    "repurposed_structures:mansions/vindicators": "repurposed_structures:mansions/taiga/mobs/vindicators",
+    "repurposed_structures:mansions/evokers": "repurposed_structures:mansions/taiga/mobs/evokers",
+    "repurposed_structures:mansions/allays": "repurposed_structures:mansions/taiga/mobs/allays"
 }
 #-------------------------------------------------------------------------------------------
 
