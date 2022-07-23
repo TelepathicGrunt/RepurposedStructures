@@ -9,6 +9,10 @@ All RS Mansions now use template pool files to spawn the Illagers.
 #### Pyramids:
 Redid the Icy Pyramid trap so it is far more stable and less likely to set off the trap due to Observers not being usable in structures safely.
 
+#### Mineshafts:
+Support pillars/chains can now replace many more non-solid blocks and is controlled by the `repurposed_structures:mineshaft_support_replaceables` block tag.
+ This means RS Mineshafts have pillars/chains support more often in Dripstone Caves and Lush Caves.
+
 #### RS Spawners:
 Fixed bug where removing all mobs for an RS Spawner will cause air pockets to spawn in place of the spawner in
  Ocean Mineshafts and Ocean Dungeons. Also causes Pig Spawners to spawn in End Dungeons.

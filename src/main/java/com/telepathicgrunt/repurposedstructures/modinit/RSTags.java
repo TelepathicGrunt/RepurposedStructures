@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public final class RSTags {
@@ -26,4 +27,8 @@ public final class RSTags {
 
     public static TagKey<Structure> LARGER_LOCATE_SEARCH = TagKey.create(Registry.STRUCTURE_REGISTRY,
             new ResourceLocation(RepurposedStructures.MODID, "larger_locate_search"));
+
+
+    public static TagKey<Block> MINESHAFT_SUPPORT_REPLACEABLES = TagKey.create(Registry.BLOCK_REGISTRY,
+            new ResourceLocation(RepurposedStructures.MODID, "mineshaft_support_replaceables"));
 }
