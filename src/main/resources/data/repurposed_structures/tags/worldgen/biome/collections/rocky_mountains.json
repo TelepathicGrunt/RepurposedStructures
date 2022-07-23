@@ -60,6 +60,30 @@
     {
       "id": "projectvibrantjourneys:overgrown_spires",
       "required": false
+    },
+    {
+      "id": "wythers:aspen_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:andesite_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:cool_stony_peaks",
+      "required": false
+    },
+    {
+      "id": "wythers:cool_stony_peaks",
+      "required": false
+    },
+    {
+      "id": "wythers:tepui",
+      "required": false
+    },
+    {
+      "id": "wythers:tibesti_mountains",
+      "required": false
     }
   ]
 }

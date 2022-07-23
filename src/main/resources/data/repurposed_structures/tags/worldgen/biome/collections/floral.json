@@ -3,6 +3,14 @@
   "values": [
     "minecraft:flower_forest",
     {
+      "id": "#c:floral",
+      "required": false
+    },
+    {
+      "id": "#c:flower_forests",
+      "required": false
+    },
+    {
       "id": "terralith:blooming_plateau",
       "required": false
     },
@@ -24,10 +32,6 @@
     },
     {
       "id": "biomesoplenty:lavender_forest",
-      "required": false
-    },
-    {
-      "id": "#c:floral",
       "required": false
     },
     {
