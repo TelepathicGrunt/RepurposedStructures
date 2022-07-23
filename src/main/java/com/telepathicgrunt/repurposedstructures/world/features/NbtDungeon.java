@@ -177,19 +177,6 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     }
 
     /**
-     * Makes the given block entity now have the correct spawner mob
-     */
-    private void SetMobSpawnerEntity(RandomSource random, NbtDungeonConfig config, SpawnerBlockEntity blockEntity) {
-        EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
-        if(entity != null) {
-            blockEntity.getSpawner().setEntityId(entity);
-        }
-        else{
-            RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
-        }
-    }
-
-    /**
      * Makes the targeted slab block now a full block.
      */
     private void SolidifyBlock(WorldGenLevel world, BlockPos pos) {
@@ -311,13 +298,16 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) == null) {
-                                world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
-                                BlockEntity blockEntity = world.getBlockEntity(mutable);
-                                if (blockEntity instanceof SpawnerBlockEntity) {
-                                    SetMobSpawnerEntity(random, config, (SpawnerBlockEntity) blockEntity);
+                                EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
+                                if (entity != null) {
+                                    world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
+                                    BlockEntity blockEntity = world.getBlockEntity(mutable);
+                                    if (blockEntity instanceof SpawnerBlockEntity spawnerBlockEntity) {
+                                        spawnerBlockEntity.getSpawner().setEntityId(entity);
+                                    }
                                 }
                             }
-                            else{
+                            else {
                                 SolidifyBlock(world, mutable);
                             }
 
