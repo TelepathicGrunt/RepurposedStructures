@@ -12,7 +12,15 @@
       "required": false
     },
     {
-      "id": "#c:icy",
+      "id": "wythers:glacial_cliffs",
+      "required": false
+    },
+    {
+      "id": "wythers:ice_cap",
+      "required": false
+    },
+    {
+      "id": "wythers:snowy_bog",
       "required": false
     }
   ]
