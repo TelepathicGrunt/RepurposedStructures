@@ -19,6 +19,22 @@
       "required": false
     },
     {
+      "id": "terralith:moonlight_grove",
+      "required": false
+    },
+    {
+      "id": "terralith:moonlight_valley",
+      "required": false
+    },
+    {
+      "id": "terralith:sakura_grove",
+      "required": false
+    },
+    {
+      "id": "terralith:sakura_valley",
+      "required": false
+    },
+    {
       "id": "#byg:is_floral",
       "required": false
     },

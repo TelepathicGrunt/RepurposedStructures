@@ -1,0 +1,19 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:mansion_mangrove",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
+    "salt": 512456965,
+    "spacing": 120,
+    "separation": 50,
+    "spread_type": "triangular",
+    "super_exclusion_zone": {
+      "chunk_count": 4,
+      "other_set": "#repurposed_structures:mansion_avoid"
+    }
+  }
+}
