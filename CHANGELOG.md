@@ -1,4 +1,4 @@
-### **(V.6.1.4 Changes) (1.19.0 Minecraft)**
+### **(V.6.1.4 Changes) (1.19.0 Minecraft) (Config Datapack updated)**
 
 #### Mansions:
 All RS Mansions now use template pool files to spawn the Illagers. 
