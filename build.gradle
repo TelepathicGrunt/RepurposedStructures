@@ -63,12 +63,11 @@ dependencies {
 
 
 	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
-
+	//modRuntimeOnly "curse.maven:farmers_delight-482834:3833241"
 	//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
 	//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
 	//modRuntimeOnly "curse.maven:fabric_waystones-410902:3479213"
 	//modRuntimeOnly "curse.maven:more_villagers-486080:3480631"
-	//modRuntimeOnly "curse.maven:farmers_delight-482834:3466296"
 	//modRuntimeOnly "curse.maven:better_strongholds-480684:3479839"
 	//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
 }
