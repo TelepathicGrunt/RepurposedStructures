@@ -71,12 +71,12 @@ dependencies {
     runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.0.0+1.19")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
 
+    //runtimeOnly fg.deobf("curse.maven:domesticationinnovation-591149:3904628")
+    //runtimeOnly fg.deobf("curse.maven:citadel-331936:3902867")
     //runtimeOnly fg.deobf("curse.maven:terralith-513688:3874530")
     //runtimeOnly fg.deobf("curse.maven:williamwythersoverhauledoverworld-490686:3868321")
     //runtimeOnly fg.deobf("curse.maven:xaeroworldmap-317780:3835797")
     //runtimeOnly fg.deobf("curse.maven:xaerominimap-263420:3835776")
-    //runtimeOnly fg.deobf("curse.maven:domesticationinnovation-591149:3828029")
-    //runtimeOnly fg.deobf("curse.maven:citadel-331936:3854346")
     //runtimeOnly fg.deobf("curse.maven:friends_and_foes-602059:3827719")
     //runtimeOnly fg.deobf("dev.architectury:architectury-forge:5.7.27")
     //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3833536")
