@@ -40,6 +40,9 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/overworld"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
 
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/ocean"), new ResourceLocation("minecraft:chests/ancient_city"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/ocean_ice_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
+
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/other"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
