@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_deep_ocean",
+    {
+      "id": "#c:deep_ocean",
+      "required": false
+    }
+  ]
+}

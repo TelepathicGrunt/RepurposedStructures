@@ -1,0 +1,33 @@
+{
+  "name": "repurposed_structures:ancient_cities/ocean/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/ocean/city_center/city_center_1",
+        "processors": "repurposed_structures:ancient_cities/ocean/start_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/ocean/city_center/city_center_2",
+        "processors": "repurposed_structures:ancient_cities/ocean/start_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/ocean/city_center/city_center_3",
+        "processors": "repurposed_structures:ancient_cities/ocean/start_degradation",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

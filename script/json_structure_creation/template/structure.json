@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:$3",
+  "size": $4,
+  "valid_biome_radius_check": 1,
+  "biomes": "#repurposed_structures:has_structure/$1/$2",
+  "step": "surface_structures",
+  "terrain_adaptation": $5,
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "start_height": {
+    "absolute": 0
+  },
+  "spawn_overrides": {}
+}

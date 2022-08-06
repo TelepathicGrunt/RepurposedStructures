@@ -14,7 +14,7 @@ string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
-    "minecraft:hay_bale": "minecraft:hay_block"
+    "minecraft:air": "minecraft:water"
 }
 #-------------------------------------------------------------------------------------------
 
@@ -72,6 +72,8 @@ def traverse_dicts(nbt_list):
                 string_replacer(entry)
 
             property_replacer(key, entry, "PersistenceRequired", 0, 1)
+            #property_replacer(key, entry, "waterlogged", "false", "true")
+            #property_replacer(key, entry, "lit", "true", "false")
             #property_replacer(key, entry, "joint", "rollable", "aligned")
 
 
@@ -104,7 +106,7 @@ for (subdir, dirs, files) in os.walk("toconvert", topdown=True):
             continue
 
 for x in sorted(blockPalette):
-  print(x)
+  print("\""+x+"\": \""+x+"\",")
 
 print("FINISHED!")
 input()

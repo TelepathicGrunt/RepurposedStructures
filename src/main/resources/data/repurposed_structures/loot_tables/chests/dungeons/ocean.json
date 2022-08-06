@@ -49,9 +49,9 @@
           "weight": 3
         },
         {
+          "name": "minecraft:music_disc_otherside",
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:music_disc_otherside"
+          "weight": 1
         },
         {
           "name": "minecraft:nautilus_shell",

@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:ancient_city_ocean",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
+    "salt": 210999111,
+    "spacing": 190,
+    "separation": 120,
+    "super_exclusion_zone": {
+      "chunk_count": 3,
+      "other_set": "#repurposed_structures:overworld_ancient_city_avoid"
+    }
+  }
+}
