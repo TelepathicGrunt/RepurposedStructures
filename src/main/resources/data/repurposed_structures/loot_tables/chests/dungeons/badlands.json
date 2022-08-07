@@ -294,9 +294,163 @@
       "bonus_rolls": 1,
       "entries": [
         {
+          "name": "minecraft:blue_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hh,Color:4},{Pattern:hhb,Color:4},{Pattern:ms,Color:11},{Pattern:ts,Color:11},{Pattern:bs,Color:11},{Pattern:bo,Color:11},{Pattern:bo,Color:11},{Pattern:bo,Color:11},{Pattern:ts,Color:11},{Pattern:bs,Color:11},{Pattern:ms,Color:11},{Pattern:ms,Color:11}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:blue_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:11},{Pattern:hh,Color:11},{Pattern:flo,Color:4},{Pattern:flo,Color:4},{Pattern:flo,Color:4},{Pattern:ss,Color:11},{Pattern:ss,Color:11},{Pattern:pig,Color:11},{Pattern:mc,Color:11},{Pattern:mc,Color:11},{Pattern:mc,Color:11},{Pattern:bo,Color:11}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:light_blue_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:3},{Pattern:hh,Color:3},{Pattern:bts,Color:0},{Pattern:cbo,Color:0},{Pattern:bts,Color:0},{Pattern:cbo,Color:0},{Pattern:bo,Color:3},{Pattern:ts,Color:3},{Pattern:glb,Color:0},{Pattern:glb,Color:0},{Pattern:glb,Color:0},{Pattern:glb,Color:0}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:white_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hh,Color:0},{Pattern:hhb,Color:0},{Pattern:sc,Color:14},{Pattern:sc,Color:14},{Pattern:sc,Color:14},{Pattern:bo,Color:0},{Pattern:bo,Color:0},{Pattern:bo,Color:0},{Pattern:ts,Color:0},{Pattern:ts,Color:0},{Pattern:bs,Color:0},{Pattern:bs,Color:0}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bri,Color:0},{Pattern:bri,Color:0},{Pattern:ss,Color:15},{Pattern:ss,Color:15},{Pattern:ss,Color:15},{Pattern:ss,Color:15},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:bo,Color:15},{Pattern:bo,Color:15},{Pattern:bo,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:black_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cs,Color:15},{Pattern:ls,Color:14},{Pattern:ls,Color:14},{Pattern:ls,Color:14},{Pattern:rs,Color:13},{Pattern:rs,Color:13},{Pattern:rs,Color:13},{Pattern:rs,Color:13},{Pattern:rs,Color:13},{Pattern:ls,Color:14},{Pattern:ls,Color:14},{Pattern:cs,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:white_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:15},{Pattern:hh,Color:0},{Pattern:bs,Color:11},{Pattern:bs,Color:11},{Pattern:bs,Color:11},{Pattern:ts,Color:2},{Pattern:ts,Color:2},{Pattern:ts,Color:2},{Pattern:ms,Color:10},{Pattern:ms,Color:10},{Pattern:ms,Color:10},{Pattern:ms,Color:10}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:white_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:7},{Pattern:hhb,Color:7},{Pattern:bs,Color:15},{Pattern:bs,Color:15},{Pattern:bs,Color:15},{Pattern:hh,Color:5},{Pattern:ts,Color:13},{Pattern:ts,Color:13},{Pattern:ms,Color:0},{Pattern:ms,Color:0},{Pattern:ms,Color:0},{Pattern:ts,Color:13}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:purple_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cs,Color:10},{Pattern:ls,Color:2},{Pattern:ls,Color:2},{Pattern:ls,Color:2},{Pattern:rs,Color:11},{Pattern:rs,Color:11},{Pattern:rs,Color:11},{Pattern:rs,Color:11},{Pattern:rs,Color:11},{Pattern:ls,Color:2},{Pattern:ls,Color:2},{Pattern:cs,Color:10}]}}"
+            }
+          ]
+        },
+        {
           "name": "minecraft:yellow_banner",
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hh,Color:4},{Pattern:gra,Color:14},{Pattern:gru,Color:14},{Pattern:gra,Color:4},{Pattern:gra,Color:4},{Pattern:gru,Color:2},{Pattern:gru,Color:10},{Pattern:gra,Color:4},{Pattern:gra,Color:14},{Pattern:ms,Color:0},{Pattern:ms,Color:0},{Pattern:ms,Color:0}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:yellow_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:4},{Pattern:hh,Color:4},{Pattern:ts,Color:6},{Pattern:ts,Color:6},{Pattern:ts,Color:6},{Pattern:ts,Color:6},{Pattern:ts,Color:6},{Pattern:bs,Color:3},{Pattern:bs,Color:3},{Pattern:bs,Color:3},{Pattern:bs,Color:3},{Pattern:bs,Color:3}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:white_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hh,Color:0},{Pattern:ts,Color:4},{Pattern:ts,Color:4},{Pattern:hhb,Color:10},{Pattern:hhb,Color:10},{Pattern:hhb,Color:10},{Pattern:hhb,Color:10},{Pattern:hhb,Color:10},{Pattern:hhb,Color:10},{Pattern:bs,Color:15},{Pattern:bs,Color:15},{Pattern:bs,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:light_gray_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hh,Color:8},{Pattern:ts,Color:15},{Pattern:hhb,Color:0},{Pattern:hhb,Color:0},{Pattern:hhb,Color:0},{Pattern:hhb,Color:0},{Pattern:hhb,Color:0},{Pattern:hhb,Color:0},{Pattern:bs,Color:10},{Pattern:bs,Color:10},{Pattern:bs,Color:10},{Pattern:ts,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:red_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:hhb,Color:13},{Pattern:bs,Color:11},{Pattern:bs,Color:11},{Pattern:bts,Color:10},{Pattern:hh,Color:4},{Pattern:ts,Color:1},{Pattern:ts,Color:1},{Pattern:tts,Color:14},{Pattern:tts,Color:14},{Pattern:bts,Color:10},{Pattern:bts,Color:10},{Pattern:tts,Color:14}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:yellow_banner",
+          "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "function":"set_nbt",
@@ -307,7 +461,7 @@
         {
           "name": "minecraft:pink_banner",
           "type": "minecraft:item",
-          "weight": 10,
+          "weight": 1,
           "functions": [
             {
               "function":"set_nbt",
@@ -317,12 +471,12 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 360
+          "weight": 60
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 92,
+          "weight": 20,
           "functions": [
             {
               "function":"set_nbt",
@@ -333,12 +487,12 @@
         {
           "name": "minecraft:music_disc_11",
           "type": "minecraft:item",
-          "weight": 132
+          "weight": 10
         },
         {
           "name": "minecraft:name_tag",
           "type": "minecraft:item",
-          "weight": 176
+          "weight": 10
         }
       ]
     }
