@@ -8,12 +8,12 @@ buildscript {
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-        classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
     }
 }
 
 plugins {
     id "net.darkhax.curseforgegradle" version "1.0.7"
+    id "com.modrinth.minotaur" version "2.+"
 }
 
 apply plugin: 'net.minecraftforge.gradle'
@@ -55,6 +55,7 @@ minecraft {
 repositories {
     maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
     maven { url "https://www.cursemaven.com" }
+    maven { url "https://api.modrinth.com/maven/" }
     maven {
         url "https://maven.architectury.dev/"
     }
@@ -108,18 +109,36 @@ processResources {}
 
 apply from: 'gradle/manifest.gradle'
 apply from: 'gradle/maven.gradle'
-apply from: 'gradle/modrinth.gradle'
+
+String fileContents = new File("./", "CHANGELOG.md").getText('UTF-8')
+
 task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
     apiToken = "$System.env.CURSEFORGEKEY"
     int projectId = 368293
-    String changelogText = new File("CHANGELOG.md").getText('UTF-8')
 
     def mainFile = upload(projectId, jar)
-    mainFile.changelog = changelogText
+    mainFile.changelog = fileContents
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "release"
     mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
+    mainFile.addGameVersion("1.19")
+    mainFile.addGameVersion("1.19.1")
+    mainFile.addGameVersion("1.19.2")
     //mainFile.addOptional("async-locator")
+}
+
+modrinth {
+    token = System.getenv("MODRINTH")
+    versionName = "Repurposed Structures"
+    versionNumber = project.version
+    projectId = "QDNS5oAT"
+    uploadFile = jar
+    changelog = fileContents
+    versionType = "RELEASE"
+    gameVersions = ["1.19"]
+    gameVersions = ["1.19.1"]
+    gameVersions = ["1.19.2"]
+    loaders = ["forge"]
 }
 
 task checkForRefmap() {
@@ -133,5 +152,5 @@ task buildAndRelease{}
 tasks.checkForRefmap.mustRunAfter tasks.build
 tasks.publish.mustRunAfter tasks.checkForRefmap
 tasks.publishCurseForge.mustRunAfter tasks.publish
-tasks.publishModrinth.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
+tasks.modrinth.mustRunAfter tasks.publish
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publish, tasks.publishCurseForge, tasks.modrinth)
