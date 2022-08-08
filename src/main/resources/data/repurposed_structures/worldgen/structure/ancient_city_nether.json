@@ -14,7 +14,7 @@
       "spawns": [
         {
           "type": "minecraft:ghast",
-          "weight": 20,
+          "weight": 10,
           "minCount": 6,
           "maxCount": 10
         },
