@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:ancient_cities/ocean/drowned_knight",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:ancient_cities/ocean/drowned_knight",
   "elements": [
     {
       "weight": 2,

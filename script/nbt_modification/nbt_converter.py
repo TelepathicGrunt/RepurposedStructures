@@ -12,9 +12,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "repurposed_structures:ancient_cities/end/sculk": "repurposed_structures:ancient_cities/end/chorus"
 }
 conversion_exact_dict = {
-    "minecraft:air": "minecraft:water"
 }
 #-------------------------------------------------------------------------------------------
 
@@ -43,11 +43,9 @@ def traverse_dicts(nbt_list):
             nbt_list['size'][1].value = 32
         '''
         
-        '''
         if 'palette' in nbt_list:
             for entry in nbt_list['palette'].value:
                 blockPalette.add(entry.value['Name'].value)
-        '''
 
         '''
         for key, entry in nbt_list.items():
@@ -116,107 +114,169 @@ input()
 
 
 '''
-# End Better Strongholds
-conversion_partial_dict = {
-    "white": "magenta",
-    "lime_bed": "purple_bed",
-    "betterstrongholds:chests/": "betterstrongholds:chests/end/",
-    "betterstrongholds:": "betterstrongholds:end/"
-}
-conversion_exact_dict = {
-    "minecraft:stone_button":"minecraft:air",
-    "minecraft:stone_bricks":"minecraft:obsidian",
-    "minecraft:cobblestone_stairs":"minecraft:purpur_stairs",
-    "minecraft:stone_brick_slab":"minecraft:purpur_slab",
-    "minecraft:stone_brick_stairs":"minecraft:purpur_stairs",
-    "minecraft:cobblestone":"minecraft:obsidian",
-    "minecraft:cobblestone_slab":"minecraft:purpur_slab",
-    "minecraft:cobblestone_bricks":"minecraft:purpur_block",
-    "minecraft:chiseled_stone_bricks":"minecraft:purpur_block",
-    "minecraft:polished_andesite_stairs":"minecraft:purpur_stairs",
-    "minecraft:polished_andesite_slab":"minecraft:purpur_slab",
-    "minecraft:smooth_stone_slab":"minecraft:purpur_slab",
-
-    "minecraft:spruce_wall_sign":"minecraft:crimson_wall_sign",
-    "minecraft:spruce_trapdoor":"minecraft:iron_trapdoor",
-    "minecraft:spruce_planks":"minecraft:purpur_block",
-    "minecraft:spruce_stairs":"minecraft:purpur_stairs",
-    "minecraft:spruce_slab":"minecraft:purpur_slab",
-    "minecraft:oak_stairs":"minecraft:purpur_stairs",
-    "minecraft:oak_slab":"minecraft:purpur_slab",
-    "minecraft:stripped_oak_log":"minecraft:purpur_pillar",
-    "minecraft:bookshelf":"minecraft:amethyst_block",
-
-    "minecraft:white_stained_glass":"minecraft:air",
-    "minecraft:gray_stained_glass":"minecraft:air",
-    "minecraft:yellow_stained_glass":"minecraft:obsidian",
-    "minecraft:purpur_block":"minecraft:diamond_block",
-    "minecraft:cyan_concrete":"minecraft:air",
-    "minecraft:cyan_terracotta":"minecraft:air",
-
-    "minecraft:water":"minecraft:amethyst_block",
-    "minecraft:flowing_water":"minecraft:amethyst_block",
-    "minecraft:lava":"minecraft:amethyst_block",
-    "minecraft:flowing_lava":"minecraft:amethyst_block"
-}
-'''
-
-
-'''
-#Nether Better Strongholds
 
 conversion_partial_dict = {
-    "spruce": "crimson",
-    "oak": "crimson",
-    "betterstrongholds:": "betterstrongholds:nether/",
-    "minecraft:lantern": "minecraft:soul_lantern",
-    "andesite_wall": "blackstone_wall"
+    "minecraft:ancient_city/": "repurposed_structures:ancient_cities/end/",
+    "minecraft:ancient_city/sculk": "repurposed_structures:ancient_cities/end/chorus",
 }
 conversion_exact_dict = {
-    "minecraft:water": "minecraft:lava",
-    "minecraft:white_stained_glass": "minecraft:cave_air",
-    "minecraft:gray_stained_glass": "minecraft:cave_air",
-    "minecraft:cyan_concrete": "minecraft:blackstone",
-    "minecraft:cyan_terracotta": "minecraft:black_terracotta",
-    "minecraft:smooth_stone_slab": "minecraft:red_nether_brick_slab",
-    "minecraft:red_bed": "minecraft:orange_bed",
-    "minecraft:lime_bed": "minecraft:black_bed",
-    "minecraft:gray_bed": "minecraft:red_bed",
-    "minecraft:iron_ore": "minecraft:nether_quartz_ore",
-    "minecraft:stone_pressure_plate": "minecraft:crimson_pressure_plate",
-    "minecraft:skeleton_skull": "minecraft:wither_skeleton_skull",
-    "minecraft:cobblestone_stairs": "minecraft:nether_brick_stairs",
-    "minecraft:stone_brick_stairs": "minecraft:polished_blackstone_brick_stairs",
-    "minecraft:chiseled_stone_bricks": "minecraft:chiseled_nether_bricks",
-    "minecraft:white_stained_glass_pane": "minecraft:gray_stained_glass_pane",
-    "minecraft:andesite_wall": "minecraft:blackstone_wall",
-    "minecraft:polished_andesite": "minecraft:polished_blackstone",
-    "minecraft:polished_andesite_slab": "minecraft:polished_blackstone_slab",
-    "minecraft:polished_andesite_stairs": "minecraft:polished_blackstone_stairs",
-    "minecraft:stone_brick_slab": "minecraft:polished_blackstone_brick_slab",
-    "minecraft:coal_block": "minecraft:quartz_block",
-    "minecraft:cobblestone": "minecraft:nether_bricks",
-    "minecraft:stone_bricks": "minecraft:polished_blackstone_bricks",
-    "minecraft:petrified_oak_slab": "minecraft:red_nether_brick_slab",
-    "minecraft:nether_brick_slab": "minecraft:red_nether_brick_slab",
-    "minecraft:nether_brick_stairs": "minecraft:red_nether_brick_stairs",
-    "minecraft:stripped_oak_wood": "minecraft:stripped_crimson_hyphae",
-    "minecraft:birch_pressure_plate": "minecraft:crimson_pressure_plate",
-    "minecraft:bookshelves": "minecraft:gilded_blackstone",
-    "minecraft:yellow_stained_glass": "minecraft:chiseled_polished_blackstone",
-    "minecraft:stripped_spruce_wood": "minecraft:stripped_crimson_hyphae",
-    "minecraft:stripped_spruce_log": "minecraft:stripped_crimson_hyphae",
-    "minecraft:bookshelf": "minecraft:gilded_blackstone",
-    "minecraft:stone_brick_wall": "minecraft:polished_blackstone_brick_wall",
+    "minecraft:chests/ancient_city": "repurposed_structures:chests/ancient_cities/end",
+    "minecraft:chests/ancient_city_ice_box": "repurposed_structures:chests/ancient_cities/end_spawner_box",
+    "minecraft:blue_carpet": "minecraft:magenta_carpet",
+    "minecraft:blue_ice": "minecraft:obsidian",      
+    "minecraft:blue_wool": "minecraft:magenta_wool",    
+    "minecraft:campfire": "minecraft:end_stone",      
+    "minecraft:candle": "minecraft:black_candle",
+    "minecraft:cave_air": "minecraft:cave_air",
+    "minecraft:chest": "minecraft:chest",
+    "minecraft:chiseled_deepslate": "minecraft:purpur_pillar",
+    "minecraft:cobbled_deepslate": "minecraft:end_stone_bricks",
+    "minecraft:cobbled_deepslate_slab": "minecraft:end_stone_brick_slab",
+    "minecraft:cobbled_deepslate_stairs": "minecraft:end_stone_brick_stairs",
+    "minecraft:cobbled_deepslate_wall": "minecraft:end_stone_brick_wall",
+    "minecraft:comparator": "minecraft:comparator",
+    "minecraft:cracked_deepslate_bricks": "minecraft:end_stone_bricks",
+    "minecraft:cracked_deepslate_tiles": "minecraft:end_stone_bricks",
+    "minecraft:cyan_carpet": "minecraft:pink_carpet",
+    "minecraft:cyan_wool": "minecraft:pink_wool",
+    "minecraft:dark_oak_fence": "minecraft:purpur_pillar",
+    "minecraft:dark_oak_log": "minecraft:purpur_pillar",
+    "minecraft:dark_oak_planks": "minecraft:purpur_block",
+    "minecraft:deepslate": "minecraft:end_stone_bricks",
+    "minecraft:deepslate_brick_slab": "minecraft:end_stone_brick_slab",
+    "minecraft:deepslate_brick_stairs": "minecraft:end_stone_brick_stairs",
+    "minecraft:deepslate_brick_wall": "minecraft:end_stone_brick_wall",
+    "minecraft:deepslate_bricks": "minecraft:end_stone_bricks",
+    "minecraft:deepslate_tile_slab": "minecraft:purpur_slab",
+    "minecraft:deepslate_tile_stairs": "minecraft:purpur_stairs",
+    "minecraft:deepslate_tile_wall": "minecraft:end_stone_brick_wall",
+    "minecraft:deepslate_tiles": "minecraft:purpur_block",
+    "minecraft:dirt": "minecraft:end_stone",
+    "minecraft:furnace": "minecraft:smithing_table",
+    "minecraft:glass": "minecraft:magenta_stained_glass",
+    "minecraft:glass_pane": "minecraft:magenta_stained_glass_pane",
+    "minecraft:grass_block": "minecraft:end_stone",
+    "minecraft:gray_carpet": "minecraft:yellow_carpet",
+    "minecraft:gray_wool": "minecraft:yellow_wool",
+    "minecraft:ice": "minecraft:obsidian",
+    "minecraft:iron_trapdoor": "minecraft:iron_trapdoor",
+    "minecraft:jigsaw": "minecraft:jigsaw",
+    "minecraft:ladder": "minecraft:ladder",
+    "minecraft:lectern": "minecraft:respawn_anchor",
+    "minecraft:lever": "minecraft:lever",
+    "minecraft:light_blue_carpet": "minecraft:purple_carpet",
+    "minecraft:light_blue_wool": "minecraft:purple_wool",
+    "minecraft:note_block": "minecraft:note_block",
+    "minecraft:packed_ice": "minecraft:obsidian",
+    "minecraft:piston_head": "minecraft:piston_head",
+    "minecraft:polished_basalt": "minecraft:obsidian",
+    "minecraft:polished_deepslate": "minecraft:purpur_block",
+    "minecraft:polished_deepslate_slab": "minecraft:purpur_slab",
+    "minecraft:polished_deepslate_stairs": "minecraft:purpur_stairs",
+    "minecraft:polished_deepslate_wall": "minecraft:end_stone_brick_wall",
+    "minecraft:redstone_block": "minecraft:redstone_block",
+    "minecraft:redstone_lamp": "minecraft:redstone_lamp",
+    "minecraft:redstone_torch": "minecraft:redstone_torch",
+    "minecraft:redstone_wall_torch": "minecraft:redstone_wall_torch",
+    "minecraft:redstone_wire": "minecraft:redstone_wire",
+    "minecraft:reinforced_deepslate": "minecraft:end_gateway",
+    "minecraft:repeater": "minecraft:repeater",
+    "minecraft:sculk_sensor": "minecraft:cave_air",
+    "minecraft:skeleton_skull": "minecraft:cave_air",
+    "minecraft:smooth_basalt": "minecraft:obsidian",
+    "minecraft:snow": "minecraft:cave_air",
+    "minecraft:soul_fire": "minecraft:obsidian",
+    "minecraft:soul_lantern": "minecraft:soul_lantern",
+    "minecraft:soul_sand": "minecraft:obsidian",
+    "minecraft:sticky_piston": "minecraft:sticky_piston",
+    "minecraft:stone_pressure_plate": "minecraft:light_weighted_pressure_plate",
+    "minecraft:target": "minecraft:target",
     "minecraft:torch": "minecraft:soul_torch",
-    "minecraft:wall_torch": "minecraft:wall_soul_torch",
-    "stone_brick_wall[east=none,south=none,north=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=tall,up=true,west=none]",
-    "stone_brick_wall[east=none,south=tall,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,south=tall,north=none,up=true,west=none]",
-    "stone_brick_wall[east=tall,south=none,north=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,south=none,north=none,up=true,west=none]",
-    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,south=none,north=none,up=true,west=tall]",
-    "stone_brick_wall[east=none,north=tall,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=tall,south=none,up=true,west=none]",
-    "stone_brick_wall[east=tall,north=none,south=none,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=tall,north=none,south=none,up=true,west=none]",
-    "stone_brick_wall[east=none,south=none,north=none,up=true,west=tall]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=none,up=true,west=tall]",
-    "stone_brick_wall[east=none,north=none,south=tall,up=true,west=none]": "minecraft:polished_blackstone_brick_wall[east=none,north=none,south=tall,up=true,west=none]"
+    "minecraft:water": "minecraft:lava",
+    "minecraft:white_candle": "minecraft:yellow_candle"
+}
+
+
+
+
+
+conversion_partial_dict = {
+    "minecraft:ancient_city/": "repurposed_structures:ancient_cities/nether/",
+}
+conversion_exact_dict = {
+    "minecraft:chests/ancient_city": "repurposed_structures:chests/ancient_cities/nether",
+    "minecraft:chests/ancient_city_ice_box": "repurposed_structures:chests/ancient_cities/nether_magma_box",
+    "minecraft:blue_carpet": "minecraft:warped_trapdoor",
+    "minecraft:blue_ice": "minecraft:magma_block",      
+    "minecraft:blue_wool": "minecraft:warped_hyphae",    
+    "minecraft:campfire": "minecraft:soul_campfire",      
+    "minecraft:candle": "minecraft:lantern",
+    "minecraft:cave_air": "minecraft:cave_air",
+    "minecraft:chest": "minecraft:chest",
+    "minecraft:chiseled_deepslate": "minecraft:chiseled_nether_bricks",
+    "minecraft:cobbled_deepslate": "minecraft:nether_bricks",
+    "minecraft:cobbled_deepslate_slab": "minecraft:nether_brick_slab",
+    "minecraft:cobbled_deepslate_stairs": "minecraft:nether_brick_stairs",
+    "minecraft:cobbled_deepslate_wall": "minecraft:nether_brick_wall",
+    "minecraft:comparator": "minecraft:comparator",
+    "minecraft:cracked_deepslate_bricks": "minecraft:cracked_nether_bricks",
+    "minecraft:cracked_deepslate_tiles": "minecraft:cracked_nether_bricks",
+    "minecraft:cyan_carpet": "minecraft:warped_trapdoor",
+    "minecraft:cyan_wool": "minecraft:warped_hyphae",
+    "minecraft:dark_oak_fence": "minecraft:crimson_fence",
+    "minecraft:dark_oak_log": "minecraft:crimson_log",
+    "minecraft:dark_oak_planks": "minecraft:crimson_planks",
+    "minecraft:deepslate": "minecraft:basalt",
+    "minecraft:deepslate_brick_slab": "minecraft:red_nether_brick_slab",
+    "minecraft:deepslate_brick_stairs": "minecraft:red_nether_brick_stairs",
+    "minecraft:deepslate_brick_wall": "minecraft:red_nether_brick_wall",
+    "minecraft:deepslate_bricks": "minecraft:red_nether_bricks",
+    "minecraft:deepslate_tile_slab": "minecraft:polished_blackstone_brick_slab",
+    "minecraft:deepslate_tile_stairs": "minecraft:polished_blackstone_brick_stairs",
+    "minecraft:deepslate_tile_wall": "minecraft:polished_blackstone_brick_wall",
+    "minecraft:deepslate_tiles": "minecraft:polished_blackstone_bricks",
+    "minecraft:dirt": "minecraft:netherrack",
+    "minecraft:furnace": "minecraft:blast_furnace",
+    "minecraft:glass": "minecraft:black_stained_glass",
+    "minecraft:glass_pane": "minecraft:black_stained_glass_pane",
+    "minecraft:grass_block": "minecraft:gilded_blackstone",
+    "minecraft:gray_carpet": "minecraft:crimson_trapdoor",
+    "minecraft:gray_wool": "minecraft:crimson_hyphae",
+    "minecraft:ice": "minecraft:magma_block",
+    "minecraft:iron_trapdoor": "minecraft:iron_trapdoor",
+    "minecraft:jigsaw": "minecraft:jigsaw",
+    "minecraft:ladder": "minecraft:ladder",
+    "minecraft:lectern": "minecraft:lodestone",
+    "minecraft:lever": "minecraft:lever",
+    "minecraft:light_blue_carpet": "minecraft:warped_trapdoor",
+    "minecraft:light_blue_wool": "minecraft:warped_hyphae",
+    "minecraft:note_block": "minecraft:note_block",
+    "minecraft:packed_ice": "minecraft:magma_block",
+    "minecraft:piston_head": "minecraft:piston_head",
+    "minecraft:polished_basalt": "minecraft:polished_basalt",
+    "minecraft:polished_deepslate": "minecraft:polished_blackstone",
+    "minecraft:polished_deepslate_slab": "minecraft:polished_blackstone_slab",
+    "minecraft:polished_deepslate_stairs": "minecraft:polished_blackstone_stairs",
+    "minecraft:polished_deepslate_wall": "minecraft:polished_blackstone_wall",
+    "minecraft:redstone_block": "minecraft:redstone_block",
+    "minecraft:redstone_lamp": "minecraft:redstone_lamp",
+    "minecraft:redstone_torch": "minecraft:redstone_torch",
+    "minecraft:redstone_wall_torch": "minecraft:redstone_wall_torch",
+    "minecraft:redstone_wire": "minecraft:redstone_wire",
+    "minecraft:reinforced_deepslate": "minecraft:black_glazed_terracotta",
+    "minecraft:repeater": "minecraft:repeater",
+    "minecraft:sculk_sensor": "minecraft:cave_air",
+    "minecraft:skeleton_skull": "minecraft:wither_skeleton_skull",
+    "minecraft:smooth_basalt": "minecraft:smooth_basalt",
+    "minecraft:snow": "minecraft:cave_air",
+    "minecraft:soul_fire": "minecraft:soul_fire",
+    "minecraft:soul_lantern": "minecraft:soul_lantern",
+    "minecraft:soul_sand": "minecraft:soul_sand",
+    "minecraft:sticky_piston": "minecraft:sticky_piston",
+    "minecraft:stone_pressure_plate": "minecraft:crimson_pressure_plate",
+    "minecraft:target": "minecraft:target",
+    "minecraft:torch": "minecraft:soul_torch",
+    "minecraft:water": "minecraft:lava",
+    "minecraft:white_candle": "minecraft:lantern"
 }
 '''

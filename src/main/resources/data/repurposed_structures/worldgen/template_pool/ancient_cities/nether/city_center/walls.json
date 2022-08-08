@@ -1,0 +1,96 @@
+{
+  "name": "repurposed_structures:ancient_cities/nether/city_center/walls",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/bottom_1",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/bottom_2",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/bottom_left_corner",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/bottom_right_corner_1",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/bottom_right_corner_2",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/left",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/right",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/top",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/top_right_corner",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city_center/walls/top_left_corner",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

@@ -33,11 +33,49 @@
           }
         ]
       }
+    },
+    "in_ancient_city_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_nether"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_ancient_city_end": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_end"
+              }
+            }
+          }
+        ]
+      }
     }
   },
   "requirements": [
     [
       "in_ancient_city_ocean"
+    ],
+    [
+      "in_ancient_city_nether"
+    ],
+    [
+      "in_ancient_city_end"
     ]
   ]
 }
