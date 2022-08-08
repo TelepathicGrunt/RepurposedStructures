@@ -4,8 +4,8 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 10.0,
-        "min": 5.0
+        "max": 13.0,
+        "min": 8.0
       },
       "bonus_rolls": 0.0,
       "entries": [
@@ -423,7 +423,7 @@
         {
           "name": "minecraft:coal",
           "type": "minecraft:item",
-          "weight": 14,
+          "weight": 10,
           "functions": [
             {
               "add": false,
