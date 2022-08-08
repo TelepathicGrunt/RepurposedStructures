@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:ancient_cities/end/chorus",
+  "fallback": "repurposed_structures:ancient_cities/end/chorus",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/end_ancient_city_chorus_plant",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

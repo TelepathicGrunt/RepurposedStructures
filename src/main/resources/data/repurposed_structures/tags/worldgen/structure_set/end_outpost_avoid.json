@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:end_cities"
+    "minecraft:end_cities",
+    "repurposed_structures:ancient_cities_end"
   ]
 }
