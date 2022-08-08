@@ -44,6 +44,10 @@ public class StructureModdedLootImporter extends LootModifier {
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/ocean"), new ResourceLocation("minecraft:chests/ancient_city"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/ocean_ice_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/nether"), new ResourceLocation("minecraft:chests/ancient_city"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/nether_magma_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/end"), new ResourceLocation("minecraft:chests/ancient_city"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/end_spawner_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
