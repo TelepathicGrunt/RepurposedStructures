@@ -11,3 +11,7 @@ More secret banners have been added to all RS loot table's lucky banner pool!
 
 #### Advancements:
 Changed the name and description of many advancements for RS so it is less boring lol.
+
+#### Mod Compat:
+Fixed villages and a few other structures that would not spawn if William Wyther's Overhauled Overworld mod/datapack is on. 
+ Also, please update WWOO to v3.1.2 for best compatibility with Repurposed Structures.

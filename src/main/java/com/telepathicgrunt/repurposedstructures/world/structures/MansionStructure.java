@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionP
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.QuartPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
@@ -68,7 +69,7 @@ public class MansionStructure extends Structure {
             int validBiomeRange = this.biomeRadius.get();
             for (int curChunkX = chunkPos.x - validBiomeRange; curChunkX <= chunkPos.x + validBiomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - validBiomeRange; curChunkZ <= chunkPos.z + validBiomeRange; curChunkZ++) {
-                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(curChunkX << 2, blockPos.getY() >> 2, curChunkZ << 2, context.randomState().sampler());
+                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(QuartPos.fromSection(curChunkX), QuartPos.fromBlock(blockPos.getY()), QuartPos.fromSection(curChunkZ), context.randomState().sampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
                     }

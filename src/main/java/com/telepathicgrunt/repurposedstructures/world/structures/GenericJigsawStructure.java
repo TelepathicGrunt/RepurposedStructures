@@ -9,6 +9,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLim
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
@@ -123,9 +124,15 @@ public class GenericJigsawStructure extends Structure {
 
         if (this.biomeRadius.isPresent() && !(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
             int validBiomeRange = this.biomeRadius.get();
+            int sectionY = blockPos.getY();
+            if (projectStartToHeightmap.isPresent()) {
+                sectionY += context.chunkGenerator().getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(), projectStartToHeightmap.get(), context.heightAccessor(), context.randomState());
+            }
+            sectionY = QuartPos.fromBlock(sectionY);
+
             for (int curChunkX = chunkPos.x - validBiomeRange; curChunkX <= chunkPos.x + validBiomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - validBiomeRange; curChunkZ <= chunkPos.z + validBiomeRange; curChunkZ++) {
-                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(curChunkX << 2, blockPos.getY() >> 2, curChunkZ << 2, context.randomState().sampler());
+                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(QuartPos.fromSection(curChunkX), sectionY, QuartPos.fromSection(curChunkZ), context.randomState().sampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
                     }
