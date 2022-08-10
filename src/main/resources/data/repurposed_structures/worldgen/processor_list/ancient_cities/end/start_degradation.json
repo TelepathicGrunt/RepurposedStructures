@@ -45,6 +45,9 @@
       ]
     },
     {
+      "processor_type": "repurposed_structures:end_gateway_processor"
+    },
+    {
       "processor_type": "minecraft:protected_blocks",
       "value": "#minecraft:features_cannot_replace"
     }

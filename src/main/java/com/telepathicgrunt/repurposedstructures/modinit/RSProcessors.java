@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.EndGatewayProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FillEndPortalFrameProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.MineshaftSkyViewProcessor;
@@ -28,6 +29,7 @@ public final class RSProcessors {
     public static final DeferredRegister<StructureProcessorType<?>> STRUCTURE_PROCESSOR = DeferredRegister.create(Registry.STRUCTURE_PROCESSOR_REGISTRY, RepurposedStructures.MODID);
 
     public static final RegistryObject<StructureProcessorType<AirProcessor>> AIR_PROCESSOR = STRUCTURE_PROCESSOR.register("air_processor", () -> () -> AirProcessor.CODEC);
+    public static final RegistryObject<StructureProcessorType<EndGatewayProcessor>> END_GATEWAY_PROCESSOR = STRUCTURE_PROCESSOR.register("end_gateway_processor", () -> () -> EndGatewayProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<TickBlocksProcessor>> TICK_BLOCKS_PROCESSOR = STRUCTURE_PROCESSOR.register("tick_blocks_processor", () -> () -> TickBlocksProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<MineshaftSkyViewProcessor>> MINESHAFT_SKY_VIEW_PROCESSOR = STRUCTURE_PROCESSOR.register("mineshaft_sky_view_processor", () -> () -> MineshaftSkyViewProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<PillarProcessor>> PILLAR_PROCESSOR = STRUCTURE_PROCESSOR.register("pillar_processor", () -> () -> PillarProcessor.CODEC);
