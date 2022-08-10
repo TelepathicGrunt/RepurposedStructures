@@ -1,3 +1,9 @@
+### **(V.6.2.1 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
+
+#### Ancient Cities:
+End Ancient Cities's End Gateway Block will now teleport you to 0,0 coordinate in the End dimension on topmost land at that spot.
+
+
 ### **(V.6.2.0 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Ancient Cities:

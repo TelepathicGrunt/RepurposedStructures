@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.EndGatewayProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FillEndPortalFrameProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.MineshaftSkyViewProcessor;
@@ -27,6 +28,7 @@ public final class RSProcessors {
     private RSProcessors() {}
 
     public static StructureProcessorType<AirProcessor> AIR_PROCESSOR = () -> AirProcessor.CODEC;
+    public static StructureProcessorType<EndGatewayProcessor> END_GATEWAY_PROCESSOR = () -> EndGatewayProcessor.CODEC;
     public static StructureProcessorType<TickBlocksProcessor> TICK_BLOCKS_PROCESSOR = () -> TickBlocksProcessor.CODEC;
     public static StructureProcessorType<MineshaftSkyViewProcessor> MINESHAFT_SKY_VIEW_PROCESSOR = () -> MineshaftSkyViewProcessor.CODEC;
     public static StructureProcessorType<PillarProcessor> PILLAR_PROCESSOR = () -> PillarProcessor.CODEC;
@@ -48,6 +50,7 @@ public final class RSProcessors {
 
     public static void registerProcessors() {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "air_processor"), AIR_PROCESSOR);
+        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "end_gateway_processor"), END_GATEWAY_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "tick_blocks_processor"), TICK_BLOCKS_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_sky_view_processor"), MINESHAFT_SKY_VIEW_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "pillar_processor"), PILLAR_PROCESSOR);
