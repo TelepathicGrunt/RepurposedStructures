@@ -24,8 +24,8 @@ import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 public class StructureSpecificMaps {
     public static class TreasureMapForEmeralds implements VillagerTrades.ItemListing {
         private final int emeraldCost;
-        private final ResourceKey<Structure> destination;
-        private final TagKey<Structure> destinationTag;
+        private final ResourceLocation destination;
+        private final ResourceLocation destinationTag;
         private final String displayName;
         private final MapDecoration.Type destinationType;
         private final int maxUses;
@@ -37,10 +37,10 @@ public class StructureSpecificMaps {
 
             if(csf.startsWith("#")) {
                 this.destination = null;
-                this.destinationTag = TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(csf.replaceFirst("#","")));
+                this.destinationTag = new ResourceLocation(csf.replaceFirst("#",""));
             }
             else {
-                this.destination = ResourceKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(csf));
+                this.destination = new ResourceLocation(csf);
                 this.destinationTag = null;
             }
 
@@ -57,12 +57,11 @@ public class StructureSpecificMaps {
                 return null;
             }
             else if (this.destinationTag != null) {
-                blockpos = serverlevel.findNearestMapStructure(this.destinationTag, entity.blockPosition(), spawnRegionSearchRadius, true);
-
+                blockpos = serverlevel.findNearestMapStructure(TagKey.create(Registry.STRUCTURE_REGISTRY, this.destinationTag), entity.blockPosition(), spawnRegionSearchRadius, true);
             }
             else {
                 Registry<Structure> registry = serverlevel.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
-                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(destination));
+                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(ResourceKey.create(Registry.STRUCTURE_REGISTRY, this.destination)));
                 Pair<BlockPos, Holder<Structure>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapStructure(serverlevel, holderset, entity.blockPosition(), spawnRegionSearchRadius, true);
                 if (pairResult != null) {
                     blockpos = pairResult.getFirst();

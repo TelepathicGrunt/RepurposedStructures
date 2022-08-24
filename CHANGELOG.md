@@ -1,3 +1,9 @@
+### **(V.6.2.2 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Mod Compat:
+Improved compat with Villager Configs by changing the internal data type for my custom map trade class that Villager Configs serializes.
+
+
 ### **(V.6.2.1 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Ancient Cities:
