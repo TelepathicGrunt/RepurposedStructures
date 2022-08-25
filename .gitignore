@@ -23,3 +23,4 @@ run
 .gitattributes
 deps
 src/generated
+script/__pycache__/structures.cpython-310.pyc

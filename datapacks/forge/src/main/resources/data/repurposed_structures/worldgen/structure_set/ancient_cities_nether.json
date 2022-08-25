@@ -1,0 +1,15 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "structures": [
+    {
+      "structure": "repurposed_structures:ancient_city_nether",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
+    "salt": 112448534,
+    "spacing": 130,
+    "separation": 65
+  }
+}

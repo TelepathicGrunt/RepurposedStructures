@@ -1,0 +1,81 @@
+{
+  "__comment__": "This file was automatically created by mcresources",
+  "parent": "repurposed_structures:structure_advancements/root",
+  "criteria": {
+    "repurposed_structures:ancient_city_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_nether"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "repurposed_structures:ancient_city_end": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_end"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "repurposed_structures:ancient_city_ocean": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_ocean"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:reinforced_deepslate"
+    },
+    "title": {
+      "translate": "repurposed_structures.advancements.structure_advancements.ancient_cities.title"
+    },
+    "description": {
+      "translate": "repurposed_structures.advancements.structure_advancements.ancient_cities.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/dirt.png"
+  },
+  "requirements": [
+    [
+      "repurposed_structures:ancient_city_nether"
+    ],
+    [
+      "repurposed_structures:ancient_city_end"
+    ],
+    [
+      "repurposed_structures:ancient_city_ocean"
+    ]
+  ]
+}
