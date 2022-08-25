@@ -27,6 +27,7 @@ def generate_at_path(path: str):
         return
 
     generate_all(rm)
+    rm.flush()
     print('New = %d, Modified = %d, Unchanged = %d, Errors = %d' % (rm.new_files, rm.modified_files, rm.unchanged_files, rm.error_files))
 
 
