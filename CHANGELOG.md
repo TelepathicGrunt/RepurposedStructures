@@ -1,3 +1,9 @@
+### **(V.6.2.3 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
+
+#### Loot Tables:
+Cleaned up and organized loot table files. Rebalanced lucky banner chances. Added more lucky banners variants!
+
+
 ### **(V.6.2.2 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Mod Compat:
