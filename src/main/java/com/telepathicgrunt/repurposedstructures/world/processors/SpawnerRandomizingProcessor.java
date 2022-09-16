@@ -84,7 +84,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             BlockPos worldPos = structureBlockInfoWorld.pos;
             RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(worldPos.asLong() * worldPos.asLong());
-            CompoundTag spawnerNBT = SetMobSpawnerEntity(random, structureBlockInfoWorld.nbt);
+            CompoundTag spawnerNBT = SetMobSpawnerEntity(random);
 
             if(spawnerNBT == null) {
                 return new StructureTemplate.StructureBlockInfo(worldPos, replacementState, null);
@@ -99,7 +99,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     /**
      * Makes the given block entity now have the correct spawner mob
      */
-    private CompoundTag SetMobSpawnerEntity(RandomSource random, CompoundTag nbt) {
+    private CompoundTag SetMobSpawnerEntity(RandomSource random) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null) {
             ResourceLocation entityRL = Registry.ENTITY_TYPE.getKey(entity);

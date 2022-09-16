@@ -45,9 +45,10 @@ public class EndGatewayProcessor extends StructureProcessor {
 
         if (structureBlockInfoWorld.state.is(Blocks.END_GATEWAY)) {
             if (this.exitPos.isPresent()) {
-                CompoundTag compoundTag = structureBlockInfoWorld.nbt == null ? new CompoundTag() : structureBlockInfoWorld.nbt;
-                compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(this.exitPos.get()));
+                CompoundTag compoundTag = (structureBlockInfoWorld.nbt == null || structureBlockInfoWorld.nbt.isEmpty()) ?
+                        new CompoundTag() : structureBlockInfoWorld.nbt.copy();
 
+                compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(this.exitPos.get()));
                 return new StructureTemplate.StructureBlockInfo(
                         structureBlockInfoWorld.pos,
                         structureBlockInfoWorld.state,
