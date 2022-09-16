@@ -34,9 +34,7 @@ public class WallVinePostProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         // Place vines only in air space
         if (structureBlockInfoWorld.state.isAir()) {
-
-            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
+            RandomSource random = structurePlacementData.getRandom(structureBlockInfoWorld.pos);
             ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
             if(random.nextFloat() < probability && centerState.isAir()) {

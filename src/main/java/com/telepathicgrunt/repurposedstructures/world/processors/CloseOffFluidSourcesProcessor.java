@@ -100,9 +100,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                             SectionPos.sectionRelative(mutable.getZ()));
 
                     if (fluidState.isSource()) {
-                        RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-                        random.setSeed(mutable.asLong() * mutable.getY());
-
+                        RandomSource random = settings.getRandom(infoIn2.pos);
                         Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         levelChunkSection.setBlockState(
                                 SectionPos.sectionRelative(mutable.getX()),
