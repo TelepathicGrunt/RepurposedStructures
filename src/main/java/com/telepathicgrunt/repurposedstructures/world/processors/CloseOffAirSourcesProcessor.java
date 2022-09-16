@@ -94,8 +94,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                             replacementBlock = weightedReplacementBlocks.get(0).getFirst();
                         }
                         else{
-                            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-                            random.setSeed(mutable.asLong() * mutable.getY());
+                            RandomSource random = settings.getRandom(infoIn2.pos);
                             replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         }
 
