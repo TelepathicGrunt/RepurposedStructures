@@ -1,0 +1,71 @@
+{
+  "name": "repurposed_structures:villages/ocean/decor",
+  "fallback": "repurposed_structures:villages/ocean/decor",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/decor/lamp_1",
+        "processors": "repurposed_structures:villages/ocean/decor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/decor/lamp_2",
+        "processors": "repurposed_structures:villages/ocean/decor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/decor/lamp_3",
+        "processors": "repurposed_structures:villages/ocean/decor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:underwater_pile_dried_kelp",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:underwater_pile_hay_bale",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:underwater_pile_melon",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:underwater_pile_pumpkin",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

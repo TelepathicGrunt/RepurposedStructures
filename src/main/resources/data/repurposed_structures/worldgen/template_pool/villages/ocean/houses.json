@@ -1,0 +1,336 @@
+{
+  "name": "repurposed_structures:villages/ocean/houses",
+  "fallback": "repurposed_structures:villages/ocean/terminators",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_2",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_3",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_4",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_5",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_6",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_7",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_house_8",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/medium_house_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/medium_house_2",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/big_house_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/butcher_shop_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/butcher_shop_2",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/tool_smith_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/fletcher_house_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/shepherds_house_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/armorer_house_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/fisher_cottage_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/tannery_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/cartographer_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/library_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/library_2",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/masons_house_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/weaponsmith_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/temple_3",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/temple_4",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/stable_1",
+        "processors": "repurposed_structures:villages/ocean/randomize",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/stable_2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/large_farm_1",
+        "processors": "repurposed_structures:villages/ocean/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/small_farm_1",
+        "processors": "repurposed_structures:villages/ocean/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/animal_pen_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/animal_pen_2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 5,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/animal_pen_3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/accessory_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/meeting_point_4",
+        "processors": "minecraft:mossify_70_percent",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/houses/meeting_point_5",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:coarse_dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt",
+            "probability": 0.4,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:coarse_dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt_path",
+            "probability": 0.4,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt_path",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:super_gravity_processor",
+      "heightmap": "OCEAN_FLOOR_WG",
+      "offset": 0,
+      "require_water_surface": true,
+      "ignore_block": [
+        "minecraft:water",
+        "minecraft:ice",
+        "minecraft:blue_ice",
+        "minecraft:packed_ice",
+        "minecraft:snow_block"
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
+    }
+  ]
+}

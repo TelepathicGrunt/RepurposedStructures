@@ -1,0 +1,42 @@
+{
+  "name": "repurposed_structures:villages/ocean/terminators",
+  "fallback": "repurposed_structures:villages/ocean/terminators",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/terminators/terminator_01",
+        "processors": "repurposed_structures:villages/ocean/path_randomizer",
+        "projection": "rigid",
+        "element_type": "repurposed_structures:legacy_ocean_bottom_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/terminators/terminator_02",
+        "processors": "repurposed_structures:villages/ocean/path_randomizer",
+        "projection": "rigid",
+        "element_type": "repurposed_structures:legacy_ocean_bottom_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/terminators/terminator_03",
+        "processors": "repurposed_structures:villages/ocean/path_randomizer",
+        "projection": "rigid",
+        "element_type": "repurposed_structures:legacy_ocean_bottom_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/ocean/terminators/terminator_04",
+        "processors": "repurposed_structures:villages/ocean/path_randomizer",
+        "projection": "rigid",
+        "element_type": "repurposed_structures:legacy_ocean_bottom_single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "repurposed_structures:villages/ocean/trees",
+  "fallback": "repurposed_structures:villages/ocean/trees",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:big_coral",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

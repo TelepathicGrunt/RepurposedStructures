@@ -42,7 +42,6 @@
     "End City Map": "End City Map",
     "Nether Fortress Map": "Nether Fortress Map",
     "Ruined Portal Map": "Ruined Portal Map",
-    "Ocean Ancient City Map": "Ocean Ancient City Map",
 
     "RS Mansion Map": "RS Mansion Map",
     "Jungle Fortress Map": "Jungle Fortress Map",
@@ -54,6 +53,8 @@
     "Nether Ruins Map": "Nether Ruins Map",
     "End Pyramid Map": "End Pyramid Map",
     "RS Monument Map": "RS Monument Map",
+    "Ocean Ancient City Map": "Ocean Ancient City Map",
+    "Unknown Ocean Structure Map": "Unknown Ocean Structure Map",
 
     "repurposed_structures.midnightconfig.title": "Repurposed Structures",
     "repurposed_structures.midnightconfig.importModdedItems": "Import Modded Items",

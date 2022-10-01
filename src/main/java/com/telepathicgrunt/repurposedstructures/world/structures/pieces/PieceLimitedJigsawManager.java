@@ -345,6 +345,7 @@ public class PieceLimitedJigsawManager {
         ) {
             StructureTemplatePool.Projection piecePlacementBehavior = piece.getElement().getProjection();
             boolean isPieceRigid = piecePlacementBehavior == StructureTemplatePool.Projection.RIGID;
+            boolean isPieceOceanFloor = piece.getElement() instanceof LegacyOceanBottomSinglePoolElement;
             int jigsawBlockRelativeY = jigsawBlockPos.getY() - pieceMinY;
             int surfaceHeight = -1; // The y-coordinate of the surface. Only used if isPieceRigid is false.
 
@@ -457,6 +458,7 @@ public class PieceLimitedJigsawManager {
                             // Determine if candidate is rigid
                             StructureTemplatePool.Projection candidatePlacementBehavior = candidatePiece.getProjection();
                             boolean isCandidateRigid = candidatePlacementBehavior == StructureTemplatePool.Projection.RIGID;
+                            boolean isCandidatePieceOceanFloor = candidatePiece instanceof LegacyOceanBottomSinglePoolElement;
 
                             // Determine how much the candidate jigsaw block is off in the y direction.
                             // This will be needed to offset the candidate piece so that the jigsaw blocks line up properly.
@@ -466,12 +468,12 @@ public class PieceLimitedJigsawManager {
                             // Determine how much we need to offset the candidate piece itself in order to have the jigsaw blocks aligned.
                             // Depends on if the placement of both pieces is rigid or not
                             int adjustedCandidatePieceMinY;
-                            if (isPieceRigid && isCandidateRigid) {
+                            if (isPieceRigid && !isPieceOceanFloor && isCandidateRigid && !isCandidatePieceOceanFloor) {
                                 adjustedCandidatePieceMinY = pieceMinY + candidateJigsawYOffsetNeeded;
                             }
                             else {
                                 if (surfaceHeight == -1) {
-                                    surfaceHeight = this.chunkGenerator.getFirstFreeHeight(jigsawBlockPos.getX(), jigsawBlockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView, randomState);
+                                    surfaceHeight = this.chunkGenerator.getFirstFreeHeight(jigsawBlockPos.getX(), jigsawBlockPos.getZ(), isCandidatePieceOceanFloor || isPieceOceanFloor ? Heightmap.Types.OCEAN_FLOOR_WG : Heightmap.Types.WORLD_SURFACE_WG, heightLimitView, randomState);
                                 }
 
                                 adjustedCandidatePieceMinY = surfaceHeight - candidateJigsawBlockRelativeY;
@@ -510,7 +512,7 @@ public class PieceLimitedJigsawManager {
                                 // Determine ground level delta for this new piece
                                 int newPieceGroundLevelDelta = piece.getGroundLevelDelta();
                                 int groundLevelDelta;
-                                if (isCandidateRigid) {
+                                if (isCandidateRigid && !isCandidatePieceOceanFloor) {
                                     groundLevelDelta = newPieceGroundLevelDelta - candidateJigsawYOffsetNeeded;
                                 }
                                 else {
@@ -529,7 +531,7 @@ public class PieceLimitedJigsawManager {
 
                                 // Determine actual y-value for the new jigsaw block
                                 int candidateJigsawBlockY;
-                                if (isPieceRigid) {
+                                if (isPieceRigid && !isPieceOceanFloor) {
                                     candidateJigsawBlockY = pieceMinY + jigsawBlockRelativeY;
                                 }
                                 else if (isCandidateRigid) {
@@ -537,7 +539,7 @@ public class PieceLimitedJigsawManager {
                                 }
                                 else {
                                     if (surfaceHeight == -1) {
-                                        surfaceHeight = this.chunkGenerator.getFirstFreeHeight(jigsawBlockPos.getX(), jigsawBlockPos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, heightLimitView, randomState);
+                                        surfaceHeight = this.chunkGenerator.getFirstFreeHeight(jigsawBlockPos.getX(), jigsawBlockPos.getZ(), isCandidatePieceOceanFloor || isPieceOceanFloor ? Heightmap.Types.OCEAN_FLOOR_WG : Heightmap.Types.WORLD_SURFACE_WG, heightLimitView, randomState);
                                     }
 
                                     candidateJigsawBlockY = surfaceHeight + candidateJigsawYOffsetNeeded / 2;

@@ -16,6 +16,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 
@@ -47,6 +48,7 @@ public final class RSFeatures {
     public static Feature<StructureTargetAndRangeConfig> STRUCTURE_GRASS = new StructureGrass(StructureTargetAndRangeConfig.CODEC);
     public static Feature<StructureTargetAndRangeConfig> STRUCTURE_FLOWERS = new StructureFlowers(StructureTargetAndRangeConfig.CODEC);
     public static Feature<StructureRangeConfig> STRUCTURE_POWDER_SNOW = new StructurePowderSnow(StructureRangeConfig.CODEC);
+    public static Feature<BlockPileConfiguration> UNDERWATER_BLOCK_PILE = new UnderwaterBlockPileFeature(BlockPileConfiguration.CODEC);
 
     public static Feature<MinecartConfig> MINESHAFT_MINECARTS = new MinecartFeature(MinecartConfig.CODEC);
     public static Feature<MineshaftSupportConfig> MINESHAFT_SUPPORTS = new MineshaftSupport(MineshaftSupportConfig.CODEC);
@@ -77,6 +79,7 @@ public final class RSFeatures {
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_grass"), STRUCTURE_GRASS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_flowers"), STRUCTURE_FLOWERS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "structure_powder_snow"), STRUCTURE_POWDER_SNOW);
+        Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "underwater_block_pile"), UNDERWATER_BLOCK_PILE);
 
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_minecarts"), MINESHAFT_MINECARTS);
         Registry.register(Registry.FEATURE, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_supports"), MINESHAFT_SUPPORTS);
