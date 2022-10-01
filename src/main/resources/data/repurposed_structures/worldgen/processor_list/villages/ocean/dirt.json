@@ -1,0 +1,20 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:dirt",
+      "output_block": "minecraft:coarse_dirt",
+      "threshold": 0.4,
+      "xz_scale": 0.25,
+      "y_scale": 0.25
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:dirt",
+      "output_block": "minecraft:sand",
+      "threshold": 0.5,
+      "xz_scale": 0.15,
+      "y_scale": 0.15
+    }
+  ]
+}

@@ -1,25 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.CeilingVinePostProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffAirSourcesProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.CloseOffFluidSourcesProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.EndGatewayProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.FillEndPortalFrameProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.MineshaftSkyViewProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.NoiseReplaceWithPropertiesProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.PillarProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.RandomReplaceWithPropertiesProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.RemoveFloatingBlocksProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceAirOnlyProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.ReplaceLiquidOnlyProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.SpawnerRandomizingProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.StructureVoidProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.TickBlocksProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.WallVinePostProcessor;
-import com.telepathicgrunt.repurposedstructures.world.processors.WaterloggingFixProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.*;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,6 +27,7 @@ public final class RSProcessors {
     public static final RegistryObject<StructureProcessorType<RandomReplaceWithPropertiesProcessor>> RANDOM_REPLACE_WITH_PROPERTIES_PROCESSOR = STRUCTURE_PROCESSOR.register("random_replace_with_properties_processor", () -> () -> RandomReplaceWithPropertiesProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<NoiseReplaceWithPropertiesProcessor>> NOISE_REPLACE_WITH_PROPERTIES_PROCESSOR = STRUCTURE_PROCESSOR.register("noise_replace_with_properties_processor", () -> () -> NoiseReplaceWithPropertiesProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<WaterloggingFixProcessor>> WATERLOGGING_FIX_PROCESSOR = STRUCTURE_PROCESSOR.register("waterlogging_fix_processor", () -> () -> WaterloggingFixProcessor.CODEC);
+    public static final RegistryObject<StructureProcessorType<SuperGravityProcessor>> SUPER_GRAVITY_PROCESSOR = STRUCTURE_PROCESSOR.register("super_gravity_processor", () -> () -> SuperGravityProcessor.CODEC);
 
     public static final RegistryObject<StructureProcessorType<WallVinePostProcessor>> WALL_VINE_POST_PROCESSOR = STRUCTURE_PROCESSOR.register("wall_vine_post_processor", () -> () -> WallVinePostProcessor.CODEC);
     public static final RegistryObject<StructureProcessorType<CeilingVinePostProcessor>> CEILING_VINE_POST_PROCESSOR = STRUCTURE_PROCESSOR.register("ceiling_vine_post_processor", () -> () -> CeilingVinePostProcessor.CODEC);

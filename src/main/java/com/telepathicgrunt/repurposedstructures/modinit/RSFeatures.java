@@ -14,6 +14,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.Structure
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetLengthRangeConfig;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -47,6 +48,7 @@ public final class RSFeatures {
 	public static final RegistryObject<Feature<StructureTargetAndRangeConfig>> STRUCTURE_GRASS = FEATURES.register("structure_grass", () -> new StructureGrass(StructureTargetAndRangeConfig.CODEC));
 	public static final RegistryObject<Feature<StructureTargetAndRangeConfig>> STRUCTURE_FLOWERS = FEATURES.register("structure_flowers", () -> new StructureFlowers(StructureTargetAndRangeConfig.CODEC));
 	public static final RegistryObject<Feature<StructureRangeConfig>> STRUCTURE_POWDER_SNOW = FEATURES.register("structure_powder_snow", () -> new StructurePowderSnow(StructureRangeConfig.CODEC));
+	public static final RegistryObject<Feature<BlockPileConfiguration>> UNDERWATER_BLOCK_PILE = FEATURES.register("underwater_block_pile", () -> new UnderwaterBlockPileFeature(BlockPileConfiguration.CODEC));
 
 	public static final RegistryObject<Feature<MinecartConfig>> MINESHAFT_MINECARTS = FEATURES.register("mineshaft_minecarts", () -> new MinecartFeature(MinecartConfig.CODEC));
 	public static final RegistryObject<Feature<MineshaftSupportConfig>> MINESHAFT_SUPPORTS = FEATURES.register("mineshaft_supports", () -> new MineshaftSupport(MineshaftSupportConfig.CODEC));

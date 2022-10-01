@@ -178,6 +178,22 @@
         ]
       }
     },
+    "in_village_ocean": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_ocean"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_village_swamp": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -222,6 +238,9 @@
     ],
     [
       "in_village_oak"
+    ],
+    [
+      "in_village_ocean"
     ],
     [
       "in_village_swamp"

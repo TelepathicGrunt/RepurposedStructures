@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.world.structures.pieces.LegacyOceanBottomSinglePoolElement;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionStructurePiece;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MirroringSingleJigsawPiece;
 import net.minecraft.core.Registry;
@@ -15,5 +16,6 @@ public final class RSStructurePieces {
     public static final DeferredRegister<StructurePieceType> STRUCTURE_PIECE = DeferredRegister.create(Registry.STRUCTURE_PIECE_REGISTRY, RepurposedStructures.MODID);
 
     public static final RegistryObject<StructurePoolElementType<MirroringSingleJigsawPiece>> MIRROR_SINGLE = STRUCTURE_POOL_ELEMENT.register("mirroring_single_pool_element", () -> () -> MirroringSingleJigsawPiece.CODEC);
+    public static final RegistryObject<StructurePoolElementType<LegacyOceanBottomSinglePoolElement>> LEGACY_OCEAN_BOTTOM = STRUCTURE_POOL_ELEMENT.register("legacy_ocean_bottom_single_pool_element", () -> () -> LegacyOceanBottomSinglePoolElement.CODEC);
     public static final RegistryObject<StructurePieceType> MANSION_STRUCTURE_PIECE = STRUCTURE_PIECE.register("mansion_structure_piece", () -> MansionStructurePiece::new);
 }
