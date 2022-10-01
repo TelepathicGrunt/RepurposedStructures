@@ -1,0 +1,215 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 6.0,
+        "max": 17.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "name": "minecraft:bone",
+          "type": "minecraft:item",
+          "weight": 18,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:clay_ball",
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 7.0,
+                "min": 4.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:lapis_lazuli",
+          "type": "minecraft:item",
+          "weight": 15,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 7.0,
+                "min": 3.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:rotten_flesh",
+          "type": "minecraft:item",
+          "weight": 14,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 7.0,
+                "min": 3.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:gold_ingot",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 7.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:diamond",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:saddle",
+          "weight": 3
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:scute",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:iron_horse_armor",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:golden_horse_armor",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:diamond_horse_armor",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:book",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 30.0,
+              "treasure": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "repurposed_structures:chests/lucky_pool"
+        }
+      ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 130
+        },
+        {
+          "name": "minecraft:blue_banner",
+          "type": "minecraft:item",
+          "weight": 30,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:gra,Color:3},{Pattern:gra,Color:9},{Pattern:mc,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:15},{Pattern:bri,Color:15},{Pattern:bri,Color:15},{Pattern:bo,Color:3},{Pattern:bo,Color:9},{Pattern:bo,Color:15},{Pattern:moj,Color:14},{Pattern:moj,Color:4}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:comparator",
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "name": "minecraft:target",
+          "type": "minecraft:item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
