@@ -105,7 +105,7 @@
       ]
     },
     {
-      "rolls": 2,
+      "rolls": 3,
       "entries": [
         {
           "name": "minecraft:fishing_rod",
@@ -195,7 +195,7 @@
         {
           "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:exploration_map",

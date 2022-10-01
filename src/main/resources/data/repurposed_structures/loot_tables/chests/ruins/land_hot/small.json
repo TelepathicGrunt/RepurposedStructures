@@ -110,7 +110,7 @@
       ]
     },
     {
-      "rolls": 1,
+      "rolls": 2,
       "entries": [
         {
           "name": "minecraft:compass",
@@ -205,7 +205,7 @@
         {
           "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:exploration_map",

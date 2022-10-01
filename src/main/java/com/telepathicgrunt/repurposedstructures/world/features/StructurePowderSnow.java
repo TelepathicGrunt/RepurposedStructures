@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.utils.OpenSimplex2F;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureRangeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -79,17 +80,25 @@ public class StructurePowderSnow extends Feature<StructureRangeConfig> {
                             chosenBlock = Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, (int) Doubles.constrainToRange(stage, 1, 8));
                         }
 
-                        if (!isSnowLayer && !chosenBlock.canSurvive(context.level(), mutable)) {
+                        if (currentState.is(Blocks.SNOW) && !chosenBlock.canSurvive(context.level(), mutable)) {
                             mutable.move(Direction.DOWN);
                             BlockState belowState = context.level().getBlockState(mutable);
-                            if (belowState.is(Blocks.DIRT_PATH) || belowState.is(Blocks.ICE) || (belowState.is(Blocks.POWDER_SNOW))) {
+                            if (belowState.is(Blocks.DIRT_PATH) || belowState.is(BlockTags.DIRT) || belowState.is(BlockTags.ICE) || (belowState.is(Blocks.POWDER_SNOW))) {
                                 context.level().setBlock(mutable, Blocks.SNOW_BLOCK.defaultBlockState(), 3);
                             }
                             mutable.move(Direction.UP);
                         }
 
-                        if (isSnowLayer || Blocks.SNOW.canSurvive(Blocks.SNOW.defaultBlockState(), context.level(), mutable)) {
+                        if (Blocks.SNOW.canSurvive(Blocks.SNOW.defaultBlockState(), context.level(), mutable)) {
                             context.level().setBlock(mutable, chosenBlock, 3);
+                        }
+
+                        if (currentState.is(Blocks.SNOW_BLOCK) || currentState.is(Blocks.POWDER_SNOW)) {
+                            mutable.move(Direction.DOWN);
+                            BlockState belowState = context.level().getBlockState(mutable);
+                            if (belowState.is(Blocks.DIRT_PATH) || belowState.is(BlockTags.DIRT) || belowState.is(BlockTags.ICE)) {
+                                context.level().setBlock(mutable, Blocks.POWDER_SNOW.defaultBlockState(), 3);
+                            }
                         }
                     }
                 }
