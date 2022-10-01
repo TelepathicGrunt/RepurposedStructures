@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:temples/ocean",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:temples/ocean",
+        "processors": "repurposed_structures:temples/ocean_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

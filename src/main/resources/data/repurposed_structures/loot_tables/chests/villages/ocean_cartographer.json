@@ -202,6 +202,26 @@
               }
             }
           ]
+        },
+        {
+          "name": "minecraft:map",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_7",
+              "decoration": "banner_cyan",
+              "zoom": 2,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Unknown Ocean Structure Map"
+              }
+            }
+          ]
         }
       ]
     }

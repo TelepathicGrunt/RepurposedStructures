@@ -97,6 +97,38 @@
           }
         ]
       }
+    },
+    "in_temple_taiga": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:temple_taiga"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_temple_ocean": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:temple_ocean"
+              }
+            }
+          }
+        ]
+      }
     }
   },
   "requirements": [
@@ -114,6 +146,12 @@
     ],
     [
       "in_temple_nether_wasteland"
+    ],
+    [
+      "in_temple_taiga"
+    ],
+    [
+      "in_temple_ocean"
     ]
   ]
 }

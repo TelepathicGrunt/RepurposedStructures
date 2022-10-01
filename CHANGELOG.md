@@ -4,6 +4,14 @@
 Ocean Village now added! Spawns only in deep ocean biomes. Explore the bottom of the sea to see this village's tragic ending!
  Can be located with Dolphins
 
+#### Temples:
+Added Taiga Temple! Spawns in most taiga based biomes.
+
+Added Ocean Temple! Spawns only in deep ocean biomes and can be found with Dolphins.
+
+#### Pyramids:
+Made many Overworld Pyramids slightly more spaced out on their spawn attempts (slightly more uncommon)
+
 #### Bastions:
 Underground Bastions are now a bit more common
 

@@ -165,12 +165,15 @@ public class StructureModdedLootImporter extends LootModifier {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/soul"), new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/warped"), new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/wasteland"), new ResourceLocation("minecraft:chests/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/taiga"), new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/ocean"), new ResourceLocation("minecraft:chests/jungle_temple"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/temples/warped"), new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/basalt"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/crimson"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/soul"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/warped"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/wasteland"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/taiga"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/badlands_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/birch_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));

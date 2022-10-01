@@ -1,0 +1,164 @@
+{
+  "replace": false,
+  "values": [
+    "#repurposed_structures:collections/taigas",
+    "#minecraft:is_taiga",
+    "minecraft:grove",
+    {
+      "id": "biomesoplenty:redwood_forest",
+      "required": false
+    },
+    {
+      "id": "byg:redwood_thicket",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:redwoods",
+      "required": false
+    },
+    {
+      "id": "wythers:flooded_temperate_rainforest",
+      "required": false
+    },
+    {
+      "id": "wythers:temperate_rainforest",
+      "required": false
+    },
+    {
+      "id": "wythers:temperate_rainforest_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:ancient_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:old_growth_taiga_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:old_growth_taiga_swamp",
+      "required": false
+    },
+    {
+      "id": "wythers:sparse_eucalyptus_woodland",
+      "required": false
+    },
+    {
+      "id": "wythers:sparse_eucalyptus_jungle",
+      "required": false
+    },
+    {
+      "id": "wythers:old_growth_taiga_swamp",
+      "required": false
+    },
+    {
+      "id": "terralith:cloud_forest",
+      "required": false
+    },
+    {
+      "id": "terralith:forested_highlands",
+      "required": false
+    },
+    {
+      "id": "terralith:lavender_forest",
+      "required": false
+    },
+    {
+      "id": "terralith:lavender_valley",
+      "required": false
+    },
+    {
+      "id": "terralith:moonlight_grove",
+      "required": false
+    },
+    {
+      "id": "terralith:moonlight_valley",
+      "required": false
+    },
+    {
+      "id": "terralith:rocky_shrubland",
+      "required": false
+    },
+    {
+      "id": "terralith:shrubland",
+      "required": false
+    },
+    {
+      "id": "terralith:wintry_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:jade_cliffs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:mediterranean_taiga",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dead_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:old_growth_dead_forest",
+      "required": false
+    },
+    {
+      "id": "byg:autumnal_taiga",
+      "required": false
+    },
+    {
+      "id": "byg:canadian_shield",
+      "required": false
+    },
+    {
+      "id": "byg:maple_taiga",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:boreal_forest",
+      "required": false
+    },
+    {
+      "id": "projectvibrantjourneys:crystal_lakes",
+      "required": false
+    },
+    {
+      "id": "wythers:birch_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:boreal_forest_red",
+      "required": false
+    },
+    {
+      "id": "wythers:boreal_forest_yellow",
+      "required": false
+    },
+    {
+      "id": "wythers:cold_island",
+      "required": false
+    },
+    {
+      "id": "wythers:forested_highlands",
+      "required": false
+    },
+    {
+      "id": "wythers:jade_highlands",
+      "required": false
+    },
+    {
+      "id": "wythers:larch_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:pine_barrens",
+      "required": false
+    },
+    {
+      "id": "wythers:thermal_taiga",
+      "required": false
+    }
+  ]
+}
