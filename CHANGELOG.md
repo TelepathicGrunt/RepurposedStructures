@@ -1,3 +1,11 @@
+### **(V.6.3.1 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Temples:
+Fixed Powered Rail/Detector Rail rotation fix mixins blowing up.
+
+Fixed Taiga Temple being filled with water when spawned in a lake or water.
+
+
 ### **(V.6.3.0 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Villages:

@@ -22,7 +22,7 @@ public class DetectorRailBlockMixin {
             at = @At(value = "RETURN"), cancellable = true)
     private void repurposedstructures_fixMC196102Bug(BlockState state, Rotation rotation, CallbackInfoReturnable<BlockState> cir) {
         if(rotation == Rotation.CLOCKWISE_180) {
-            RailShape railShape = state.getValue(RailBlock.SHAPE);
+            RailShape railShape = state.getValue(DetectorRailBlock.SHAPE);
             if(railShape == RailShape.NORTH_SOUTH || railShape == RailShape.EAST_WEST) {
                 cir.setReturnValue(state);
             }
