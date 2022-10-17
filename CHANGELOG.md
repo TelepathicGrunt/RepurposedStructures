@@ -6,6 +6,8 @@ Fixed Nether Strongholds allowing Nether, Crimson, and Warped Mineshafts to plac
 #### Misc:
 Fixed crash with datapacks that are using filters.
 
+Fixed min_y_allowed setting in structure json not working. Necessary for Repurposed Structures - Better Strongholds compat data pack to work
+
 
 ### **(V.6.3.1 Changes) (1.19.0-1.19.2 Minecraft)**
 

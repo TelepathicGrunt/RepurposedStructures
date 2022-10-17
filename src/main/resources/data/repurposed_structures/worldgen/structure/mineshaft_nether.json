@@ -4,7 +4,7 @@
   "size": 10,
   "biomes": "#repurposed_structures:has_structure/mineshafts/nether",
   "step": "vegetal_decoration",
-  "min_y": 2,
+  "min_y_allowed": 2,
   "terrain_adaptation": "none",
   "start_height": {
     "type": "minecraft:uniform",
