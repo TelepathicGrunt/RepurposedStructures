@@ -205,7 +205,7 @@ public class GenericJigsawStructure extends Structure {
         }
 
         if(this.minYAllowed.isPresent()) {
-            bottomClipOff = Math.min(bottomClipOff, this.minYAllowed.get());
+            bottomClipOff = Math.max(bottomClipOff, this.minYAllowed.get());
         }
 
         int finalTopClipOff = topClipOff;
