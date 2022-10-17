@@ -5,7 +5,7 @@
   "biomes": "#repurposed_structures:has_structure/strongholds/nether",
   "max_y": 32,
   "min_y": 4,
-  "step": "strongholds",
+  "step": "top_layer_modification",
   "terrain_adaptation": "none",
   "start_height": {
     "type": "minecraft:uniform",
