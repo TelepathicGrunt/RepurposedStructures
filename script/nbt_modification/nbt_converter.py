@@ -12,9 +12,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:ancient_cities/end/sculk": "repurposed_structures:ancient_cities/end/chorus"
 }
 conversion_exact_dict = {
+    "minecraft:nether_bricks_slab": "minecraft:nether_brick_slab"
 }
 #-------------------------------------------------------------------------------------------
 
@@ -64,14 +64,14 @@ def traverse_dicts(nbt_list):
                     nbt_list['Attributes'].remove(entry)
         
         for key, entry in nbt_list.items():
+
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
             elif isinstance(entry, nbt.NBTTagString):
                 string_replacer(entry)
 
-            property_replacer(key, entry, "PersistenceRequired", 0, 1)
-            #property_replacer(key, entry, "waterlogged", "false", "true")
-            #property_replacer(key, entry, "lit", "true", "false")
+            #property_replacer(key, entry, "PersistenceRequired", 0, 1)
+            property_replacer(key, entry, "waterlogged", "true", "false")
             #property_replacer(key, entry, "joint", "rollable", "aligned")
 
 

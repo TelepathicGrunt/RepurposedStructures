@@ -70,8 +70,11 @@ dependencies {
 
     runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.2+1.19")
     runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.0.0+1.19")
+    runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
 
+    //runtimeOnly fg.deobf("curse.maven:better_monuments-689238:4031366")
+    //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:4031185")
     //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:4031213")
     //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:4031185")
     //runtimeOnly fg.deobf("curse.maven:domesticationinnovation-591149:3904628")
