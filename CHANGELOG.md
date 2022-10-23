@@ -1,3 +1,9 @@
+### **(V.6.3.3 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Mod Compat:
+Fixed LootJS incompatibility.
+
+
 ### **(V.6.3.2 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Strongholds:
