@@ -1,3 +1,23 @@
+### **(V.6.3.4 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Ruins:
+Nether Ruins are slightly more common now.
+
+Nether Ruins chests has a higher chance of a map and now can have a map to a Nether Ancient City.
+
+#### Ancient Cities:
+Ocean Ancient Cities are now very slightly more common.
+
+#### Cities:
+Overworld Cities are now very slightly more common.
+
+#### Monuments:
+The 3 Overworld Monuments are now very slightly more common.
+
+#### Villages:
+Crimson Villages and Warped Villages Cartographer houses has a higher chance of spawning now.
+
+
 ### **(V.6.3.3 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Mod Compat:
