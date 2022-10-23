@@ -13,5 +13,8 @@ import java.util.Map;
 public interface BuilderAccessor {
     @Mutable
     @Accessor("dynamicDrops")
-    void repurposedstructures_setDynamicDrops(Map<ResourceLocation, LootContext.DynamicDrop> drops);
+    void setDynamicDrops(Map<ResourceLocation, LootContext.DynamicDrop> drops);
+
+    @Accessor("params")
+    Map<LootContextParam<?>, Object> getParams();
 }
