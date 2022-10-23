@@ -11,9 +11,8 @@ import java.util.Map;
 
 @Mixin(LootContext.Builder.class)
 public interface BuilderAccessor {
-    @Mutable
     @Accessor("dynamicDrops")
-    void setDynamicDrops(Map<ResourceLocation, LootContext.DynamicDrop> drops);
+    Map<ResourceLocation, LootContext.DynamicDrop> getDynamicDrops();
 
     @Accessor("params")
     Map<LootContextParam<?>, Object> getParams();

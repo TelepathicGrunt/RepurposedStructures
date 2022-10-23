@@ -267,7 +267,7 @@ public final class StructureModdedLootImporter {
                 .withRandom(oldLootContext.getRandom())
                 .withLuck(oldLootContext.getLuck());
 
-        ((BuilderAccessor)newContextBuilder).setDynamicDrops(((LootContextAccessor)oldLootContext).getDynamicDrops());
+        ((BuilderAccessor)newContextBuilder).getDynamicDrops().putAll(((LootContextAccessor)oldLootContext).getDynamicDrops());
         ((BuilderAccessor)newContextBuilder).getParams().putAll(((LootContextAccessor)oldLootContext).getParams());
 
         return newContextBuilder.create(LootContextParamSets.CHEST);
