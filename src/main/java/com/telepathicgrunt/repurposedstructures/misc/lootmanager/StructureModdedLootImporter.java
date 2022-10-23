@@ -261,7 +261,9 @@ public final class StructureModdedLootImporter {
                 .withLuck(oldLootContext.getLuck());
 
         ((BuilderAccessor)newContextBuilder).repurposedstructures_setDynamicDrops(((LootContextAccessor)oldLootContext).repurposedstructures_getDynamicDrops());
-        ((BuilderAccessor)newContextBuilder).repurposedstructures_setParams(((LootContextAccessor)oldLootContext).repurposedstructures_getParams());
+        ((LootContextAccessor)newContextBuilder).repurposedstructures_getParams().putAll(
+            ((LootContextAccessor)oldLootContext).repurposedstructures_getParams());
+
         return newContextBuilder.create(LootContextParamSets.CHEST);
     }
 

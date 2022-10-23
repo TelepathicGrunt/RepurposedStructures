@@ -14,8 +14,4 @@ public interface BuilderAccessor {
     @Mutable
     @Accessor("dynamicDrops")
     void repurposedstructures_setDynamicDrops(Map<ResourceLocation, LootContext.DynamicDrop> drops);
-
-    @Mutable
-    @Accessor("params")
-    void repurposedstructures_setParams(Map<LootContextParam<?>, Object> parameters);
 }
