@@ -261,10 +261,12 @@ public final class StructureModdedLootImporter {
                 .withLuck(oldLootContext.getLuck());
 
         ((BuilderAccessor)newContextBuilder).repurposedstructures_setDynamicDrops(((LootContextAccessor)oldLootContext).repurposedstructures_getDynamicDrops());
-        ((LootContextAccessor)newContextBuilder).repurposedstructures_getParams().putAll(
+
+        LootContext newLootContext = newContextBuilder.create(LootContextParamSets.CHEST);
+        ((LootContextAccessor)newLootContext).repurposedstructures_getParams().putAll(
             ((LootContextAccessor)oldLootContext).repurposedstructures_getParams());
 
-        return newContextBuilder.create(LootContextParamSets.CHEST);
+        return newLootContext;
     }
 
     private static boolean isInBlacklist(ResourceLocation lootTableID) {
