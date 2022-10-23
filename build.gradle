@@ -89,7 +89,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.changelog = changelogText
 	mainFile.changelogType = "markdown"
 	mainFile.releaseType = "beta"
-	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
+	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC Fabric)"
 	mainFile.addRequirement("fabric-api")
 	mainFile.addRequirement("midnightlib")
 }

@@ -16,7 +16,7 @@ String fileContents = new File("./", "CHANGELOG.md").text
 // Make sure it runs after build!
 task publishModrinth (type: TaskModrinthUpload) {
     token = "$System.env.MODRINTH"
-    versionName = "Repurposed Structures"
+    versionName = "Repurposed Structures - Fabric"
     projectId = 'muf0XoRe'
     versionNumber = project.version
     uploadFile = remapJar
