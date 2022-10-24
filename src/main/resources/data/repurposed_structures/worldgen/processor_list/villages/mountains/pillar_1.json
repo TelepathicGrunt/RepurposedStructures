@@ -1,0 +1,74 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:stone"
+          },
+          "replacement" : {
+            "Name": "minecraft:stone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:stone_bricks"
+          },
+          "replacement" : {
+            "Name": "minecraft:stone_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:stone_brick_stairs"
+          },
+          "replacement" : {
+            "Name": "minecraft:stone_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:campfire"
+          },
+          "replacement" : {
+            "Name": "minecraft:stone_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:stone_brick_wall"
+          },
+          "replacement" : {
+            "Name": "minecraft:stone_bricks"
+          }
+        }
+      ]
+    }
+  ]
+}

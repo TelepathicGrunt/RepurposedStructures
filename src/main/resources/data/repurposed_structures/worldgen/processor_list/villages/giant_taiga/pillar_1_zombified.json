@@ -1,6 +1,20 @@
 {
   "processors": [
     {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:cobblestone_wall"
+          }
+        }
+      ]
+    },
+    {
       "rules": [
         {
           "output_state": {
@@ -8,8 +22,7 @@
           },
           "input_predicate": {
             "block": "minecraft:torch",
-            "probability": 0.5,
-            "predicate_type": "minecraft:random_block_match"
+            "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -21,8 +34,7 @@
           },
           "input_predicate": {
             "block": "minecraft:wall_torch",
-            "probability": 0.5,
-            "predicate_type": "minecraft:random_block_match"
+            "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -34,7 +46,7 @@
           },
           "input_predicate": {
             "block": "minecraft:lantern",
-            "probability": 0.5,
+            "probability": 0.8,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {
@@ -43,34 +55,6 @@
         }
       ],
       "processor_type": "minecraft:rule"
-    },
-    {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:red_sandstone_wall"
-          },
-          "replacement" : {
-            "Name": "minecraft:red_sandstone_wall"
-          }
-        }
-      ]
-    },
-    {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:chiseled_red_sandstone"
-          },
-          "replacement" : {
-            "Name": "minecraft:chiseled_red_sandstone"
-          }
-        }
-      ]
     }
   ]
 }

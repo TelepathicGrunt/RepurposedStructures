@@ -221,7 +221,7 @@
         {
           "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:exploration_map",

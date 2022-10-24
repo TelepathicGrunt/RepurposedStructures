@@ -6,7 +6,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:villages/oak/decor/lamp_1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:villages/oak/pillar_1",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
