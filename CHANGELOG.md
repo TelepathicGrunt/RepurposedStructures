@@ -19,6 +19,8 @@ Crimson Villages and Warped Villages Cartographer houses has a higher chance of 
 
 Slightly adjusted one Badlands Village house.
 
+Added pillars downward to first land for many village lamposts and decor. This should prevent floating lamp posts from legacy cave carvers.
+
 
 ### **(V.6.3.3 Changes) (1.19.0-1.19.2 Minecraft)**
 

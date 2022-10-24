@@ -1,0 +1,18 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:dark_oak_fence"
+          },
+          "replacement" : {
+            "Name": "minecraft:dark_oak_fence"
+          }
+        }
+      ]
+    }
+  ]
+}
