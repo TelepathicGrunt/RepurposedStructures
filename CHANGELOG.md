@@ -17,6 +17,8 @@ The 3 Overworld Monuments are now very slightly more common.
 #### Villages:
 Crimson Villages and Warped Villages Cartographer houses has a higher chance of spawning now.
 
+Slightly adjusted one Badlands Village house.
+
 
 ### **(V.6.3.2 Changes) (1.19.0-1.19.2 Minecraft)**
 
