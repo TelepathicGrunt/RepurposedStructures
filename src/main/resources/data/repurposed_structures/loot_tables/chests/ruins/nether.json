@@ -241,7 +241,7 @@
         {
           "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:exploration_map",
@@ -254,6 +254,26 @@
               "function": "minecraft:set_name",
               "name": {
                 "translate": "Nether City Map"
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:map",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "repurposed_structures:explorer_maps/ancient_city_nether",
+              "decoration": "monument",
+              "zoom": 2,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Nether Ancient City Map"
               }
             }
           ]

@@ -245,7 +245,7 @@ public final class GeneralUtils {
         // Find the file with the given id and add its filestream to the list
         for (FallbackResourceManager.PackEntry packEntry : allResourcePacks) {
             PackResources resourcePack = packEntry.resources();
-            if (resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
+            if (resourcePack != null && resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
                 InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callCreateResourceGetter(fileID, resourcePack).get();
                 fileStreams.add(inputStream);
             }

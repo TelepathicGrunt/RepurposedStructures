@@ -6,7 +6,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/jungle/decor/lamp_1",
-        "processors": "repurposed_structures:villages/jungle/zombify",
+        "processors": "repurposed_structures:villages/jungle/pillar_1_zombified",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

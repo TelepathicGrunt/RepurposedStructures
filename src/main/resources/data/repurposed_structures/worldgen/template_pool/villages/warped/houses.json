@@ -174,7 +174,7 @@
       }
     },
     {
-      "weight": 1,
+      "weight": 3,
       "element": {
         "location": "repurposed_structures:villages/warped/houses/cartographer_1",
         "processors": "repurposed_structures:villages/warped/randomizer",
@@ -327,7 +327,7 @@
       }
     },
     {
-      "weight": 10,
+      "weight": 5,
       "element": {
         "element_type": "minecraft:empty_pool_element"
       }

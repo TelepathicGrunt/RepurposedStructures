@@ -1,3 +1,41 @@
+### **(V.6.3.3 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Ruins:
+Nether Ruins are slightly more common now.
+
+Nether Ruins chests has a higher chance of a map and now can have a map to a Nether Ancient City.
+
+#### Ancient Cities:
+Ocean Ancient Cities are now very slightly more common.
+
+#### Cities:
+Overworld Cities are now very slightly more common.
+
+#### Monuments:
+The 3 Overworld Monuments are now very slightly more common.
+
+#### Villages:
+Crimson Villages and Warped Villages Cartographer houses has a higher chance of spawning now.
+
+Slightly adjusted one Badlands Village house.
+
+Added pillars downward to first land for many village lamposts and decor. This should prevent floating lamp posts from legacy cave carvers.
+
+
+### **(V.6.3.2 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Strongholds:
+Fixed Nether Strongholds allowing Nether, Crimson, and Warped Mineshafts to place blocks inside it.
+
+#### Misc:
+Fixed crash with datapacks that are using filters.
+
+Fixed min_y_allowed setting in structure json not working. Necessary for Repurposed Structures - Better Strongholds compat data pack to work
+
+#### Misc:
+Updated uk_ua.json file. Thank you Smollet777!
+
+
 ### **(V.6.3.1 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Temples:
