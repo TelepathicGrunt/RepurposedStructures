@@ -1,3 +1,9 @@
+### **(V.6.3.6 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Villages:
+Removed a Badlands house spawning accidentally in Birch Village.
+
+
 ### **(V.6.3.5 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Strongholds:
