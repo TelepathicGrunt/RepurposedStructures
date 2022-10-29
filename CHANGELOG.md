@@ -1,4 +1,16 @@
-### **(V.6.3.3 Changes) (1.19.0-1.19.2 Minecraft)**
+### **(V.6.3.5 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Villages:
+Removed a Badlands house spawning accidentally in Birch Village.
+
+
+### **(V.6.3.4 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
+
+#### Strongholds:
+Fixed Nether Strongholds not spawning all of its pieces.
+
+
+### **(V.6.3.3 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Ruins:
 Nether Ruins are slightly more common now.
