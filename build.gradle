@@ -69,10 +69,12 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.2+1.19")
-    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.0.0+1.19")
+    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.1.0+1.19")
     runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
 
+    //runtimeOnly fg.deobf("curse.maven:byg-247560:4027228")
+    //runtimeOnly fg.deobf("curse.maven:terrablender-563928:4013816")
     //runtimeOnly fg.deobf("curse.maven:better_monuments-689238:4031366")
     //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:4031185")
     //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:4031213")
