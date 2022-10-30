@@ -1,0 +1,136 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_sandstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:orange_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:orange_terracotta"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:lime_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:cut_red_sandstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:yellow_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_sand"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:gray_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:terracotta"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:blue_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:smooth_red_sandstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:black_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:dark_oak_log"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "original_replaced_block" : {
+        "Name": "minecraft:podzol"
+      },
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:podzol"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_sand"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "original_replaced_block" : {
+        "Name": "minecraft:grass_block"
+      },
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:grass_block"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_sand"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -61,6 +61,7 @@ dependencies {
 	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:${libs.versions.commandstructures.get()}"
 	modRuntimeOnly "com.telepathicgrunt:StructureVoidToggle-Fabric:${libs.versions.structurevoidtoggle.get()}"
 
+	//modRuntimeOnly "curse.maven:worldedit-225608:3922622"
 
 	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
 	//modRuntimeOnly "curse.maven:farmers_delight-482834:3833241"
