@@ -1,3 +1,10 @@
+### **(V.6.3.7 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Villages:
+Non-zombified Badland Village houses now has pillar support to first land.
+ (Was a test. Will extend this feature to all remaining RS village houses. Is a lot of work to get working)
+
+
 ### **(V.6.3.6 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### End Structures:
