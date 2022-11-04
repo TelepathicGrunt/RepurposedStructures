@@ -1,3 +1,9 @@
+### **(V.4.1.15 Changes) (1.18.2 Minecraft)**
+
+#### Mod Compat:
+Backported fix to work with LootJS instead of crashing.
+
+
 ### **(V.4.1.14 Changes) (1.18.2 Minecraft)**
 
 #### Config:

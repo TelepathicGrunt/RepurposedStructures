@@ -249,13 +249,14 @@ public final class StructureModdedLootImporter {
         return originalLoot;
     }
 
-    protected static LootContext copyLootContext(LootContext oldLootContext) {
+     static LootContext copyLootContext(LootContext oldLootContext) {
         LootContext.Builder newContextBuilder = new LootContext.Builder(oldLootContext.getLevel())
                 .withRandom(oldLootContext.getRandom())
                 .withLuck(oldLootContext.getLuck());
 
-        ((BuilderAccessor)newContextBuilder).repurposedstructures_setDynamicDrops(((LootContextAccessor)oldLootContext).repurposedstructures_getDynamicDrops());
-        ((BuilderAccessor)newContextBuilder).repurposedstructures_setParams(((LootContextAccessor)oldLootContext).repurposedstructures_getParams());
+        ((BuilderAccessor)newContextBuilder).getDynamicDrops().putAll(((LootContextAccessor)oldLootContext).getDynamicDrops());
+        ((BuilderAccessor)newContextBuilder).getParams().putAll(((LootContextAccessor)oldLootContext).getParams());
+
         return newContextBuilder.create(LootContextParamSets.CHEST);
     }
 
