@@ -56,7 +56,7 @@ dependencies {
 	modImplementation "maven.modrinth:modmenu:${libs.versions.mod.menu.get()}"
 
 	modImplementation "maven.modrinth:midnightlib:${libs.versions.midnightlib.get()}"
-	include "maven.modrinth:midnightlib:${libs.versions.midnightlib.get()}"
+	modRuntimeOnly "maven.modrinth:midnightlib:${libs.versions.midnightlib.get()}"
 
 	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:${libs.versions.commandstructures.get()}"
 	modRuntimeOnly "com.telepathicgrunt:StructureVoidToggle-Fabric:${libs.versions.structurevoidtoggle.get()}"
