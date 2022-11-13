@@ -1,3 +1,9 @@
+### **(V.6.3.6 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### End Structures:
+Fixed several End Structures not fully generating properly.
+
+
 ### **(V.6.3.5 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Villages:

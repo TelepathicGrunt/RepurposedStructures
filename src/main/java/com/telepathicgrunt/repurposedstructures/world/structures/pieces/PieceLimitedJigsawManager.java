@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolEleme
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.BoxOctree;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import com.telepathicgrunt.repurposedstructures.world.structures.GenericJigsawStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -72,6 +73,7 @@ public class PieceLimitedJigsawManager {
             int minY,
             Set<ResourceLocation> poolsThatIgnoreBounds,
             Optional<Integer> maxDistanceFromCenter,
+            Optional<GenericJigsawStructure.BURYING_TYPE> buryingType,
             BiConsumer<StructurePiecesBuilder, List<PoolElementStructurePiece>> structureBoundsAdjuster
     ) {
         // Get jigsaw pool registry
@@ -157,7 +159,17 @@ public class PieceLimitedJigsawManager {
                     boxOctree.addBox(AABB.of(pieceBoundingBox));
                     Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
-                    Assembler assembler = new Assembler(structureID, jigsawPoolRegistry, size, context, components, random, requiredPieces, maxY, minY, poolsThatIgnoreBounds);
+                    Assembler assembler = new Assembler(
+                            structureID,
+                            jigsawPoolRegistry,
+                            size,
+                            context,
+                            components,
+                            random,
+                            requiredPieces,
+                            buryingType.isEmpty() ? maxY : Integer.MAX_VALUE,
+                            buryingType.isEmpty() ? minY : Integer.MIN_VALUE,
+                            poolsThatIgnoreBounds);
                     assembler.availablePieces.addLast(startPieceEntry);
 
                     while (!assembler.availablePieces.isEmpty()) {
