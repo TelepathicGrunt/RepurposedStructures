@@ -1,4 +1,4 @@
-### **(V.6.3.7 Changes) (1.19.0-1.19.2 Minecraft)**
+### **(V.6.3.7 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Ancient Cities:
 Fixed End Ancient Cities able to spawn on dragon island in center of End dimension.
