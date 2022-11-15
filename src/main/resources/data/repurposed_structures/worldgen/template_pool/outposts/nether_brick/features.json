@@ -6,7 +6,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/cage1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -15,7 +15,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/cage2",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -24,7 +24,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/cage3",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -33,7 +33,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/fossil",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -42,7 +42,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/tent1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -51,7 +51,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/tent2",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -60,7 +60,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/targets_1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -69,7 +69,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/nether_brick/targets_2",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/nether_brick_feature_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
