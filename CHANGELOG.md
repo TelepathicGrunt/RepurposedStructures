@@ -1,3 +1,10 @@
+### **(V.6.3.8 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Ancient Cities:
+Fixed End Ancient Cities able to spawn on dragon island in center of End dimension.
+ Now it is restricted to only spawn past 1000 blocks of world center.
+
+
 ### **(V.6.3.7 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Ancient Cities:
