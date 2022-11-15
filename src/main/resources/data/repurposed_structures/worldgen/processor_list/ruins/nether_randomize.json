@@ -242,6 +242,187 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:netherrack"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "original_replaced_block" : {
+        "Name": "minecraft:magma_block"
+      },
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:orange_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:netherrack"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "original_replaced_block" : {
+        "Name": "minecraft:magma_block"
+      },
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:orange_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:netherrack"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:black_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:gray_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:polished_blackstone_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:light_gray_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:chiseled_polished_blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:brown_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:cracked_polished_blackstone_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:brown_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:cracked_polished_blackstone_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:white_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:polished_blackstone"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:blue_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:warped_planks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_length": 5,
+      "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:yellow_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:crimson_planks"
+          }
+        }
+      ]
     }
   ]
 }

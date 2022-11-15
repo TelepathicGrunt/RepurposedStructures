@@ -1,3 +1,22 @@
+### **(V.6.3.7 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Ancient Cities:
+Fixed End Ancient Cities able to spawn on dragon island in center of End dimension.
+ Now it is restricted to only spawn past 1000 blocks of world center.
+
+#### Villages:
+Added pillar support for Crimson and Warped Villages so they stop looking funky when
+ the Nether's ravine carver eats away the land under the houses and roads.
+
+#### Outposts:
+Added pillar support for Crimson, Warped, and Nether Brick Outposts so they stop looking funky when
+ the Nether's ravine carver eats away the land under the tower, tents, cages, and stuff.
+
+#### Ruins:
+Added mini pillar support for Nether Ruins so they look less funky when 
+ the Nether's ravine carver eats away the land under the pieces.
+
+
 ### **(V.6.3.6 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### End Structures:
