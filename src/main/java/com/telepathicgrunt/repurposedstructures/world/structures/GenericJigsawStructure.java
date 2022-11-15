@@ -222,6 +222,7 @@ public class GenericJigsawStructure extends Structure {
                 bottomClipOff,
                 this.poolsThatIgnoreBoundaries,
                 this.maxDistanceFromCenter,
+                this.buryingType,
                 (structurePiecesBuilder, pieces) -> postLayoutAdjustments(structurePiecesBuilder, context, offsetY, blockpos, finalTopClipOff, finalBottomClipOff, pieces));
     }
 

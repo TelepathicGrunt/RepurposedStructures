@@ -197,6 +197,7 @@ public class MineshaftEndStructure extends Structure {
                 minY,
                 this.poolsThatIgnoreBoundaries,
                 this.maxDistanceFromCenter,
+                Optional.empty(),
                 (structurePiecesBuilder, pieces) -> {
                     Optional<PoolElementStructurePiece> highestPiece = pieces.stream().max(Comparator.comparingInt(p -> p.getBoundingBox().maxY()));
                     int topY = highestPiece.map(poolElementStructurePiece -> poolElementStructurePiece.getBoundingBox().maxY()).orElseGet(blockpos::getY);
