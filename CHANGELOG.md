@@ -1,3 +1,9 @@
+### **(V.6.3.9 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Ancient Cities:
+Fixed End Ancient Cities having Barrier Blocks somehow on the top parts of two pieces.
+
+
 ### **(V.6.3.8 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack updated)**
 
 #### Ancient Cities:
