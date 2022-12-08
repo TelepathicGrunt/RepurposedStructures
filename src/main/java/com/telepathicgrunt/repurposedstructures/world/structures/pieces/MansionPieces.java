@@ -1073,13 +1073,6 @@ public class MansionPieces{
 
                 // Get the jigsaw block's fallback pool (which is a part of the pool's JSON)
                 Holder<StructureTemplatePool> jigsawBlockFallback = poolOptional.get().getFallback();
-
-                // Only continue if the fallback pool is present and valid
-                if (!(jigsawBlockFallback != null && (jigsawBlockFallback.value().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
-                    continue;
-                }
-
                 List<Pair<StructurePoolElement, Integer>> candidatePieces = new ArrayList<>(((StructurePoolAccessor)jigsawBlockFallback.value()).repurposedstructures_getRawTemplates());
                 int jigsawBlockRelativeY = jigsawBlockPos.getY() - pieceMinY;
                 int totalCount = candidatePieces.stream().mapToInt(Pair::getSecond).reduce(0, Integer::sum);

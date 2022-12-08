@@ -309,7 +309,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                     world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
                                     BlockEntity blockEntity = world.getBlockEntity(mutable);
                                     if (blockEntity instanceof SpawnerBlockEntity spawnerBlockEntity) {
-                                        spawnerBlockEntity.getSpawner().setEntityId(entity, world.getLevel(), random, mutable);
+                                        spawnerBlockEntity.getSpawner().setEntityId(entity, null, random, mutable);
                                     }
                                 }
                             }

@@ -299,12 +299,6 @@ public class PieceLimitedJigsawManager {
                 // Get the jigsaw block's fallback pool (which is a part of the pool's JSON)
                 Holder<StructureTemplatePool> jigsawBlockFallback = poolOptional.get().getFallback();
 
-                // Only continue if the fallback pool is present and valid
-                if (!(jigsawBlockFallback != null && (jigsawBlockFallback.value().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
-                    continue;
-                }
-
                 // Adjustments for if the target block position is inside the current piece
                 boolean isTargetInsideCurrentPiece = pieceBoundingBox.isInside(jigsawBlockTargetPos);
                 int targetPieceBoundsTop;
