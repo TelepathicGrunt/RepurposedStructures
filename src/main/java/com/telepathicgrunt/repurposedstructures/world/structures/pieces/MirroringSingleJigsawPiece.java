@@ -58,10 +58,6 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
         this.mirror = mirror;
     }
 
-    public MirroringSingleJigsawPiece(StructureTemplate template) {
-        this(Either.right(template), ProcessorLists.EMPTY, StructureTemplatePool.Projection.RIGID, Mirror.NONE);
-    }
-
     private StructureTemplate getTemplate(StructureTemplateManager templateManager) {
         return this.template.map(templateManager::getOrCreate, Function.identity());
     }

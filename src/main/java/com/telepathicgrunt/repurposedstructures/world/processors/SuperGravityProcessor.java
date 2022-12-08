@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -16,8 +17,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.Material;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -27,7 +28,7 @@ public class SuperGravityProcessor extends StructureProcessor {
             (instance) -> instance.group(
                     Heightmap.Types.CODEC.fieldOf("heightmap").orElse(Heightmap.Types.WORLD_SURFACE_WG).forGetter((superGravityProcessor) -> superGravityProcessor.heightmap),
                     Codec.INT.fieldOf("offset").orElse(0).forGetter((superGravityProcessor) -> superGravityProcessor.offset),
-                    Registry.BLOCK.byNameCodec().listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(superGravityProcessor -> superGravityProcessor.blocksToIgnore),
+                    BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(superGravityProcessor -> superGravityProcessor.blocksToIgnore),
                     Codec.BOOL.fieldOf("require_water_surface").orElse(false).forGetter((superGravityProcessor) -> superGravityProcessor.requireWaterSurface)
             ).apply(instance, SuperGravityProcessor::new));
 

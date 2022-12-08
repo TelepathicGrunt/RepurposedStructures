@@ -5,6 +5,8 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.LegacyOc
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionStructurePiece;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MirroringSingleJigsawPiece;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType;
@@ -19,8 +21,8 @@ public final class RSStructurePieces {
 
     public static void registerStructurePieces() {
         // needed to make template pool based mansions work
-        MIRROR_SINGLE = Registry.register(Registry.STRUCTURE_POOL_ELEMENT, new ResourceLocation(RepurposedStructures.MODID, "mirroring_single_pool_element"), () -> MirroringSingleJigsawPiece.CODEC);
-        LEGACY_OCEAN_BOTTOM = Registry.register(Registry.STRUCTURE_POOL_ELEMENT, new ResourceLocation(RepurposedStructures.MODID, "legacy_ocean_bottom_single_pool_element"), () -> LegacyOceanBottomSinglePoolElement.CODEC);
-        MANSION_STRUCTURE_PIECE = Registry.register(Registry.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "mansion_structure_piece"), MansionStructurePiece::new);
+        MIRROR_SINGLE = Registry.register(BuiltInRegistries.STRUCTURE_POOL_ELEMENT, new ResourceLocation(RepurposedStructures.MODID, "mirroring_single_pool_element"), () -> MirroringSingleJigsawPiece.CODEC);
+        LEGACY_OCEAN_BOTTOM = Registry.register(BuiltInRegistries.STRUCTURE_POOL_ELEMENT, new ResourceLocation(RepurposedStructures.MODID, "legacy_ocean_bottom_single_pool_element"), () -> LegacyOceanBottomSinglePoolElement.CODEC);
+        MANSION_STRUCTURE_PIECE = Registry.register(BuiltInRegistries.STRUCTURE_PIECE, new ResourceLocation(RepurposedStructures.MODID, "mansion_structure_piece"), MansionStructurePiece::new);
     }
 }

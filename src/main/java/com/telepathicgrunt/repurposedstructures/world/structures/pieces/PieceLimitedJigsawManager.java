@@ -14,6 +14,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -77,7 +78,7 @@ public class PieceLimitedJigsawManager {
             BiConsumer<StructurePiecesBuilder, List<PoolElementStructurePiece>> structureBoundsAdjuster
     ) {
         // Get jigsaw pool registry
-        Registry<StructureTemplatePool> jigsawPoolRegistry = context.registryAccess().ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+        Registry<StructureTemplatePool> jigsawPoolRegistry = context.registryAccess().registryOrThrow(Registries.TEMPLATE_POOL);
 
         // Get a random orientation for the starting piece
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
@@ -145,7 +146,7 @@ public class PieceLimitedJigsawManager {
                                       Please report the issue to Repurposed Structures's dev with latest.log file if the structure is not cut off by world min/max y build thresholds.
                                             
                                     """,
-                            startPool.getName(), Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()), new BlockPos(pieceCenterX, pieceCenterY, pieceCenterZ));
+                            startPool, Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()), new BlockPos(pieceCenterX, pieceCenterY, pieceCenterZ));
                     break;
                 }
 
@@ -296,11 +297,10 @@ public class PieceLimitedJigsawManager {
                 }
 
                 // Get the jigsaw block's fallback pool (which is a part of the pool's JSON)
-                ResourceLocation jigsawBlockFallback = poolOptional.get().getFallback();
-                Optional<StructureTemplatePool> fallbackOptional = this.poolRegistry.getOptional(jigsawBlockFallback);
+                Holder<StructureTemplatePool> jigsawBlockFallback = poolOptional.get().getFallback();
 
                 // Only continue if the fallback pool is present and valid
-                if (!(fallbackOptional.isPresent() && (fallbackOptional.get().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
+                if (!(jigsawBlockFallback != null && (jigsawBlockFallback.value().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
@@ -332,7 +332,7 @@ public class PieceLimitedJigsawManager {
                 if(poolsThatIgnoreBounds != null) {
                     ignoreBounds = poolsThatIgnoreBounds.contains(jigsawBlockFallback);
                 }
-                this.processList(new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView, ignoreBounds);
+                this.processList(new ArrayList<>(((StructurePoolAccessor)jigsawBlockFallback.value()).repurposedstructures_getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView, ignoreBounds);
             }
         }
 
@@ -447,9 +447,9 @@ public class PieceLimitedJigsawManager {
                             else {
                                 ResourceLocation candidateTargetPool = new ResourceLocation(pieceCandidateJigsawBlock.nbt.getString("pool"));
                                 Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(candidateTargetPool);
-                                Optional<StructureTemplatePool> candidateTargetFallbackOptional = candidateTargetPoolOptional.flatMap((p_242843_1_) -> this.poolRegistry.getOptional(p_242843_1_.getFallback()));
+                                Holder<StructureTemplatePool> candidateTargetFallbackHolder = candidateTargetPoolOptional.get().getFallback();
                                 int tallestCandidateTargetPoolPieceHeight = candidateTargetPoolOptional.map((p_242842_1_) -> p_242842_1_.getMaxSize(this.structureTemplateManager)).orElse(0);
-                                int tallestCandidateTargetFallbackPieceHeight = candidateTargetFallbackOptional.map((p_242840_1_) -> p_242840_1_.getMaxSize(this.structureTemplateManager)).orElse(0);
+                                int tallestCandidateTargetFallbackPieceHeight = candidateTargetFallbackHolder == null ? 0 : candidateTargetFallbackHolder.value().getMaxSize(this.structureTemplateManager);
                                 return Math.max(tallestCandidateTargetPoolPieceHeight, tallestCandidateTargetFallbackPieceHeight);
                             }
                         }).max().orElse(0);

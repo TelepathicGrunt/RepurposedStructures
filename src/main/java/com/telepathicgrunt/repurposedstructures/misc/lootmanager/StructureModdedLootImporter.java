@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAcces
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -251,7 +252,7 @@ public final class StructureModdedLootImporter {
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> {
-            ResourceKey<Item> itemKey = Registry.ITEM.getResourceKey(itemStack.getItem()).orElse(null);
+            ResourceKey<Item> itemKey = BuiltInRegistries.ITEM.getResourceKey(itemStack.getItem()).orElse(null);
             return itemKey != null && itemKey.location().getNamespace().equals("minecraft");
         });
 

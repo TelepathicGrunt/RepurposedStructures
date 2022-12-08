@@ -1,11 +1,13 @@
 package com.telepathicgrunt.repurposedstructures.mixin.structures;
 
+import com.google.common.base.Stopwatch;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import net.minecraft.Util;
 import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.arguments.ResourceOrTagLocationArgument;
+import net.minecraft.commands.arguments.ResourceOrTagKeyArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -21,6 +23,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+import java.time.Duration;
+
 @Mixin(LocateCommand.class)
 public class LocateCommandMixin {
 
@@ -33,14 +37,14 @@ public class LocateCommandMixin {
      * @author - TelepathicGrunt
      */
     @Inject(
-            method = "locateStructure(Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/commands/arguments/ResourceOrTagLocationArgument$Result;)I",
+            method = "locateStructure(Lnet/minecraft/commands/CommandSourceStack;Lnet/minecraft/commands/arguments/ResourceOrTagKeyArgument$Result;)I",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/chunk/ChunkGenerator;findNearestMapStructure(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/HolderSet;Lnet/minecraft/core/BlockPos;IZ)Lcom/mojang/datafixers/util/Pair;", ordinal = 0),
             locals = LocalCapture.CAPTURE_FAILSOFT,
             cancellable = true,
             require = 0
     )
     private static void repurposedstructures_increaseLocateRadius(CommandSourceStack commandSourceStack,
-                                                                  ResourceOrTagLocationArgument.Result<Structure> result,
+                                                                  ResourceOrTagKeyArgument.Result<Structure> result,
                                                                   CallbackInfoReturnable<Integer> cir,
                                                                   Registry<Structure> registry,
                                                                   HolderSet<Structure> holderSet,
@@ -48,12 +52,14 @@ public class LocateCommandMixin {
                                                                   ServerLevel serverLevel) throws CommandSyntaxException {
         if(holderSet.stream().anyMatch(configuredStructureFeatureHolder -> configuredStructureFeatureHolder.is(RSTags.LARGER_LOCATE_SEARCH))) {
             int increasedSearchRadius = 2000;
+            Stopwatch stopwatch = Stopwatch.createStarted(Util.TICKER);
             Pair<BlockPos, Holder<Structure>> pair = serverLevel.getChunkSource().getGenerator().findNearestMapStructure(serverLevel, holderSet, blockPos, increasedSearchRadius, false);
+            stopwatch.stop();
             if (pair == null) {
                 throw ERROR_STRUCTURE_NOT_FOUND.create(result.asPrintable());
             }
             else {
-                cir.setReturnValue(LocateCommand.showLocateResult(commandSourceStack, result, blockPos, pair, "commands.locate.structure.success", false));
+                cir.setReturnValue(LocateCommand.showLocateResult(commandSourceStack, result, blockPos, pair, "commands.locate.structure.success", false, stopwatch.elapsed()));
             }
         }
     }

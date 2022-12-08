@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatur
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -90,7 +91,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
         BlockPos halfLengths = new BlockPos(template.get().getSize().getX() / 2, 0, template.get().getSize().getZ() / 2);
         placementsettings.setRotation(Rotation.getRandom(context.random())).setRotationPivot(halfLengths).setIgnoreEntities(false);
         if(context.config().processor != null) {
-            context.level().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY)
+            context.level().registryAccess().registryOrThrow(Registries.PROCESSOR_LIST)
                     .getOptional(context.config().processor).ifPresent(processor -> processor.list().forEach(placementsettings::addProcessor));
         }
         blockpos$Mutable.set(context.origin());

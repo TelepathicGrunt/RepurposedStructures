@@ -10,8 +10,10 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -517,7 +519,7 @@ public class MansionPieces{
         }
 
         public void generate(RegistryAccess dynamicRegistryManager, StructureTemplateManager manager, RandomSource random, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionParameters mansionParameters) {
-            Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.ownedRegistryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+            Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.registryOrThrow(Registries.TEMPLATE_POOL);
             GenerationPiece generationPiece = new GenerationPiece();
             generationPiece.position = pos;
             generationPiece.rotation = rotation;
@@ -1070,16 +1072,15 @@ public class MansionPieces{
                 }
 
                 // Get the jigsaw block's fallback pool (which is a part of the pool's JSON)
-                ResourceLocation jigsawBlockFallback = poolOptional.get().getFallback();
-                Optional<StructureTemplatePool> fallbackOptional = poolRegistry.getOptional(jigsawBlockFallback);
+                Holder<StructureTemplatePool> jigsawBlockFallback = poolOptional.get().getFallback();
 
                 // Only continue if the fallback pool is present and valid
-                if (!(fallbackOptional.isPresent() && (fallbackOptional.get().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
+                if (!(jigsawBlockFallback != null && (jigsawBlockFallback.value().size() != 0 || Objects.equals(jigsawBlockFallback, Pools.EMPTY.location())))) {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockFallback, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
-                List<Pair<StructurePoolElement, Integer>> candidatePieces = new ArrayList<>(((StructurePoolAccessor)fallbackOptional.get()).repurposedstructures_getRawTemplates());
+                List<Pair<StructurePoolElement, Integer>> candidatePieces = new ArrayList<>(((StructurePoolAccessor)jigsawBlockFallback.value()).repurposedstructures_getRawTemplates());
                 int jigsawBlockRelativeY = jigsawBlockPos.getY() - pieceMinY;
                 int totalCount = candidatePieces.stream().mapToInt(Pair::getSecond).reduce(0, Integer::sum);
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;

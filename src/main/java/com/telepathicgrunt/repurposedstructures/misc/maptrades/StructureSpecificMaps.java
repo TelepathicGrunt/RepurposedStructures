@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -57,11 +58,11 @@ public class StructureSpecificMaps {
                 return null;
             }
             else if (this.destinationTag != null) {
-                blockpos = serverlevel.findNearestMapStructure(TagKey.create(Registry.STRUCTURE_REGISTRY, this.destinationTag), entity.blockPosition(), spawnRegionSearchRadius, true);
+                blockpos = serverlevel.findNearestMapStructure(TagKey.create(Registries.STRUCTURE, this.destinationTag), entity.blockPosition(), spawnRegionSearchRadius, true);
             }
             else {
-                Registry<Structure> registry = serverlevel.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
-                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(ResourceKey.create(Registry.STRUCTURE_REGISTRY, this.destination)));
+                Registry<Structure> registry = serverlevel.registryAccess().registryOrThrow(Registries.STRUCTURE);
+                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(ResourceKey.create(Registries.STRUCTURE, this.destination)));
                 Pair<BlockPos, Holder<Structure>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapStructure(serverlevel, holderset, entity.blockPosition(), spawnRegionSearchRadius, true);
                 if (pairResult != null) {
                     blockpos = pairResult.getFirst();

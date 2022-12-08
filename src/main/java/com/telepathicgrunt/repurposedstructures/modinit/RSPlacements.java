@@ -6,6 +6,8 @@ import com.telepathicgrunt.repurposedstructures.world.placements.MinusEightPlace
 import com.telepathicgrunt.repurposedstructures.world.placements.SnapToLowerNonAirPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.UnlimitedCountPlacement;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
@@ -24,6 +26,6 @@ public final class RSPlacements {
     }
 
     private static <P extends PlacementModifier> PlacementModifierType<P> register(ResourceLocation resourceLocation, Codec<P> codec) {
-        return Registry.register(Registry.PLACEMENT_MODIFIERS, resourceLocation, () -> codec);
+        return Registry.register(BuiltInRegistries.PLACEMENT_MODIFIER_TYPE, resourceLocation, () -> codec);
     }
 }

@@ -9,6 +9,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.features.DungeonFeatureAccessor;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -79,7 +80,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
             while(true) {
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0)
-                    return Registry.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
+                    return BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
 
                 index++;
             }

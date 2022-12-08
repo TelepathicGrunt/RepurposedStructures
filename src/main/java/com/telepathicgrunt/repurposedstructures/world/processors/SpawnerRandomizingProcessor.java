@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
@@ -101,7 +102,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     private CompoundTag SetMobSpawnerEntity(RandomSource random) {
         EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(rsSpawnerResourcelocation, random);
         if(entity != null) {
-            ResourceLocation entityRL = Registry.ENTITY_TYPE.getKey(entity);
+            ResourceLocation entityRL = BuiltInRegistries.ENTITY_TYPE.getKey(entity);
 
             // Set spawn potentials
             CompoundTag compound = new CompoundTag();

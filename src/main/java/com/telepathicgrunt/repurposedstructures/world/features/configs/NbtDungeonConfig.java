@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -22,7 +23,7 @@ public class NbtDungeonConfig implements FeatureConfiguration {
             Codec.intRange(0, 100).fieldOf("max_num_of_loot_blocks").forGetter(nbtFeatureConfig -> nbtFeatureConfig.maxNumOfChests),
             Codec.BOOL.fieldOf("air_requirement_is_now_water").orElse(false).forGetter(nbtDungeonConfig -> nbtDungeonConfig.airRequirementIsNowWater),
             Codec.INT.fieldOf("structure_y_offset").orElse(0).forGetter(nbtFeatureConfig -> nbtFeatureConfig.structureYOffset),
-            Registry.BLOCK.byNameCodec().fieldOf("loot_block").orElse(Blocks.CHEST).forGetter(nbtDungeonConfig -> nbtDungeonConfig.lootBlock),
+            BuiltInRegistries.BLOCK.byNameCodec().fieldOf("loot_block").orElse(Blocks.CHEST).forGetter(nbtDungeonConfig -> nbtDungeonConfig.lootBlock),
             ResourceLocation.CODEC.fieldOf("loot_block_loottable_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.chestResourcelocation),
             ResourceLocation.CODEC.fieldOf("rs_spawner_resourcelocation").forGetter(nbtDungeonConfig -> nbtDungeonConfig.rsSpawnerResourcelocation),
             ResourceLocation.CODEC.fieldOf("processors").forGetter(nbtDungeonConfig -> nbtDungeonConfig.processor),

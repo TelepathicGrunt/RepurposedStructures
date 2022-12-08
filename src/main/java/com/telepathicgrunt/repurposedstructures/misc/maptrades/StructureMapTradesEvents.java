@@ -5,6 +5,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -40,7 +41,7 @@ public final class StructureMapTradesEvents {
     }
 
     private static void forgeVillagerEvents() {
-        for (Map.Entry<ResourceKey<VillagerProfession>, VillagerProfession> prof : Registry.VILLAGER_PROFESSION.entrySet()) {
+        for (Map.Entry<ResourceKey<VillagerProfession>, VillagerProfession> prof : BuiltInRegistries.VILLAGER_PROFESSION.entrySet()) {
             Int2ObjectMap<VillagerTrades.ItemListing[]> trades = VillagerTrades.TRADES.getOrDefault(prof.getValue(), new Int2ObjectOpenHashMap<>());
             Int2ObjectMap<List<VillagerTrades.ItemListing>> mutableTrades = new Int2ObjectOpenHashMap<>();
             for (int i = 1; i <= trades.size(); i++) {
