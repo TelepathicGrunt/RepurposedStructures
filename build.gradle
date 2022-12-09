@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
 
@@ -31,23 +31,15 @@ minecraft {
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
    
     runs {
-        client {
+        all {
             workingDirectory project.file('run')
             arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
             mods { repurposed_structures { source sourceSets.main } }
         }
-
-        server {
-            workingDirectory project.file('run')
-            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            mods { repurposed_structures { source sourceSets.main } }
-        }
-
+        client {}
+        server {}
         data {
-            workingDirectory project.file('run')
             args '--mod', project.getProperty('modid'), '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            mods { repurposed_structures { source sourceSets.main } }
         }
     }
 }
@@ -108,6 +100,10 @@ dependencies {
 
 mixin {
     add sourceSets.main, "${modid}.refmap.json"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
 processResources {}
