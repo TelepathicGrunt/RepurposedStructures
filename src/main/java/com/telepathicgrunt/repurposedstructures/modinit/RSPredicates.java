@@ -4,15 +4,15 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.world.predicates.MatterPhaseRuleTest;
 import com.telepathicgrunt.repurposedstructures.world.predicates.PieceOriginAxisAlignedLinearPosRuleTest;
 import com.telepathicgrunt.repurposedstructures.world.predicates.YValuePosRuleTest;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class RSPredicates {
-    public static final DeferredRegister<RuleTestType<?>> RULE_TEST = DeferredRegister.create(Registry.RULE_TEST_REGISTRY, RepurposedStructures.MODID);
-    public static final DeferredRegister<PosRuleTestType<?>> POS_RULE_TEST = DeferredRegister.create(Registry.POS_RULE_TEST_REGISTRY, RepurposedStructures.MODID);
+    public static final DeferredRegister<RuleTestType<?>> RULE_TEST = DeferredRegister.create(Registries.RULE_TEST, RepurposedStructures.MODID);
+    public static final DeferredRegister<PosRuleTestType<?>> POS_RULE_TEST = DeferredRegister.create(Registries.POS_RULE_TEST, RepurposedStructures.MODID);
 
     public static final RegistryObject<RuleTestType<MatterPhaseRuleTest>> MATTER_PHASE_RULE_TEST = RULE_TEST.register("matter_phase_rule_test", () -> () -> MatterPhaseRuleTest.CODEC);
 

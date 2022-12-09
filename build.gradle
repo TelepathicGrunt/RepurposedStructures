@@ -69,8 +69,8 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.2+1.19")
-    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.1.0+1.19")
-    runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
+    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:4.0.0+1.19.3")
+    // runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
 
     //runtimeOnly fg.deobf("curse.maven:byg-247560:4027228")
@@ -126,9 +126,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "release"
     mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
-    mainFile.addGameVersion("1.19")
-    mainFile.addGameVersion("1.19.1")
-    mainFile.addGameVersion("1.19.2")
+    mainFile.addGameVersion("1.19.3")
     //mainFile.addOptional("async-locator")
 }
 
@@ -140,9 +138,7 @@ modrinth {
     uploadFile = jar
     changelog = fileContents
     versionType = "RELEASE"
-    gameVersions = ["1.19"]
-    gameVersions = ["1.19.1"]
-    gameVersions = ["1.19.2"]
+    gameVersions = ["1.19.3"]
     loaders = ["forge"]
 }
 
