@@ -24,4 +24,4 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[dependencies.repurposed_structures]]
     modId="forge"
     mandatory=true
-    versionRange="[44.0.2,)"
+    versionRange="[44.0.18,)"
