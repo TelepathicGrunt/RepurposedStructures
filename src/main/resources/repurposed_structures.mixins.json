@@ -11,7 +11,6 @@
     "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoFallsInStructuresMixin",
-    "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",

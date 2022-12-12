@@ -8,7 +8,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.ItemStack;
@@ -239,7 +239,7 @@ public class StructureModdedLootImporter extends LootModifier {
         List<ItemStack> newlyGeneratedLoot = context.getLootTable(tableToImportLoot).getRandomItems(newContext);
 
         // Remove all vanilla loot so we only have modded loot
-        newlyGeneratedLoot.removeIf(itemStack -> Registry.ITEM.getKey(itemStack.getItem()).getNamespace().equals("minecraft"));
+        newlyGeneratedLoot.removeIf(itemStack -> BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getNamespace().equals("minecraft"));
 
         // Intercept and modify the loot based on other mods being on
         EndRemasteredDedicatedLoot.handleDedicatedModCompat(newlyGeneratedLoot, context);

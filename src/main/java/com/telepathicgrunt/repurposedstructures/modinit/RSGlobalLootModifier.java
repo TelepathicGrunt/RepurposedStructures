@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.DetectRSLootTables;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,6 +18,6 @@ public final class RSGlobalLootModifier {
     public static final RegistryObject<Codec<StructureModdedLootImporter>> STRUCTURE_MODDED_LOOT_IMPORTER = GLM.register("import_modded_loot", StructureModdedLootImporter.CODEC);
 
     public static void registerLootData() {
-        Registry.register(Registry.LOOT_CONDITION_TYPE, new ResourceLocation(RepurposedStructures.MODID, "detect_rs_loot_tables"), DetectRSLootTables.DETECT_RS_LOOT_TABLES);
+        Registry.register(BuiltInRegistries.LOOT_CONDITION_TYPE, new ResourceLocation(RepurposedStructures.MODID, "detect_rs_loot_tables"), DetectRSLootTables.DETECT_RS_LOOT_TABLES);
     }
 }

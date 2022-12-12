@@ -10,14 +10,14 @@ import com.telepathicgrunt.repurposedstructures.world.structures.MineshaftStruct
 import com.telepathicgrunt.repurposedstructures.world.structures.MonumentStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 
 public final class RSStructures {
-    public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPE = DeferredRegister.create(Registry.STRUCTURE_TYPE_REGISTRY, RepurposedStructures.MODID);
+    public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPE = DeferredRegister.create(Registries.STRUCTURE_TYPE, RepurposedStructures.MODID);
 
     public static RegistryObject<StructureType<GenericJigsawStructure>> GENERIC_JIGSAW_STRUCTURE = STRUCTURE_TYPE.register("generic_jigsaw_structure", () -> () -> GenericJigsawStructure.CODEC);
     public static RegistryObject<StructureType<MansionStructure>> MANSION_STRUCTURE = STRUCTURE_TYPE.register("mansion_structure", () -> () -> MansionStructure.CODEC);

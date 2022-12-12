@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
 
@@ -31,23 +31,15 @@ minecraft {
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
    
     runs {
-        client {
+        all {
             workingDirectory project.file('run')
             arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
             mods { repurposed_structures { source sourceSets.main } }
         }
-
-        server {
-            workingDirectory project.file('run')
-            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            mods { repurposed_structures { source sourceSets.main } }
-        }
-
+        client {}
+        server {}
         data {
-            workingDirectory project.file('run')
             args '--mod', project.getProperty('modid'), '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            mods { repurposed_structures { source sourceSets.main } }
         }
     }
 }
@@ -69,8 +61,8 @@ dependencies {
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
     runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.0.2+1.19")
-    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:3.1.0+1.19")
-    runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
+    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:4.0.0+1.19.3")
+    // runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
     // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
 
     //runtimeOnly fg.deobf("curse.maven:byg-247560:4027228")
@@ -110,6 +102,10 @@ mixin {
     add sourceSets.main, "${modid}.refmap.json"
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
 processResources {}
 
 apply from: 'gradle/manifest.gradle'
@@ -126,9 +122,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = "markdown"
     mainFile.releaseType = "release"
     mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
-    mainFile.addGameVersion("1.19")
-    mainFile.addGameVersion("1.19.1")
-    mainFile.addGameVersion("1.19.2")
+    mainFile.addGameVersion("1.19.3")
     //mainFile.addOptional("async-locator")
 }
 
@@ -140,9 +134,7 @@ modrinth {
     uploadFile = jar
     changelog = fileContents
     versionType = "RELEASE"
-    gameVersions = ["1.19"]
-    gameVersions = ["1.19.1"]
-    gameVersions = ["1.19.2"]
+    gameVersions = ["1.19.3"]
     loaders = ["forge"]
 }
 

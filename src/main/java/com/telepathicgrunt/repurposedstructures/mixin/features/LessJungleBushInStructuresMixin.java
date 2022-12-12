@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.world.WorldGenRegionAccess
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -33,7 +34,7 @@ public class LessJungleBushInStructuresMixin {
         {
             // Rate for removal of bush
             if(context.random().nextFloat() < 0.85f) {
-                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registries.STRUCTURE);
                 StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
 
                 for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.LESS_JUNGLE_BUSHES)) {

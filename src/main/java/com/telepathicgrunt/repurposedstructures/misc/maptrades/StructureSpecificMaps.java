@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -39,10 +40,10 @@ public class StructureSpecificMaps {
 
             if(csf.startsWith("#")) {
                 this.destination = null;
-                this.destinationTag = TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(csf.replaceFirst("#","")));
+                this.destinationTag = TagKey.create(Registries.STRUCTURE, new ResourceLocation(csf.replaceFirst("#","")));
             }
             else {
-                this.destination = ResourceKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(csf));
+                this.destination = ResourceKey.create(Registries.STRUCTURE, new ResourceLocation(csf));
                 this.destinationTag = null;
             }
 
@@ -69,7 +70,7 @@ public class StructureSpecificMaps {
 
         private HolderSet<Structure> getHolderSet(ServerLevel level) {
             Registry<Structure> registry =
-                level.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+                level.registryAccess().registryOrThrow(Registries.STRUCTURE);
             return HolderSet.direct(registry.getHolderOrThrow(destination));
         }
 

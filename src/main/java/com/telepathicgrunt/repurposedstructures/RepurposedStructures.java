@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManag
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
 import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.pooladditions.PoolAdditionMerger;
+import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.JSONConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.modinit.RSBiomeModifiers;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
@@ -70,6 +71,7 @@ public class RepurposedStructures {
         RSStructurePieces.STRUCTURE_POOL_ELEMENT.register(modEventBus);
         RSBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         RSStructurePlacementType.STRUCTURE_PLACEMENT_TYPE.register(modEventBus);
+        modEventBus.addListener(JSONConditionsRegistry::createNewRegistry);
 
         //For mod compat by checking if other mod is on
         EndRemasteredDedicatedLoot.isEndRemasteredOn = ModList.get().isLoaded("endrem");
@@ -78,6 +80,7 @@ public class RepurposedStructures {
     public void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             RSGlobalLootModifier.registerLootData();
+            JSONConditionsRegistry.registerTestJSONCondition();
         });
     }
 

@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -25,7 +25,7 @@ import java.util.HashSet;
 public class TickBlocksProcessor extends StructureProcessor {
 
     public static final Codec<TickBlocksProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Registry.BLOCK.byNameCodec().listOf().fieldOf("blocks_to_tick").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToTick)
+            BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("blocks_to_tick").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToTick)
     ).apply(instance, instance.stable(TickBlocksProcessor::new)));
 
     private final HashSet<Block> blocksToTick;
