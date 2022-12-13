@@ -9,7 +9,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixin.features.DungeonFeatureAccessor;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.Util;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -20,7 +20,6 @@ import org.apache.logging.log4j.Level;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class MobSpawnerManager extends SimpleJsonResourceReloadListener implements IdentifiableResourceReloadListener {
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
@@ -80,7 +79,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener implemen
             while(true) {
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0)
-                    return Registry.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
+                    return BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation(spawnerMobEntries.get(index).name));
 
                 index++;
             }

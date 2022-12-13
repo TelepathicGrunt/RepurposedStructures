@@ -5,14 +5,13 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadStructurePlacement;
@@ -94,11 +93,13 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
     }
 
     @Override
-    public boolean isStructureChunk(ChunkGenerator chunkGenerator, RandomState randomState, long l, int i, int j) {
-        if (!super.isStructureChunk(chunkGenerator, randomState, l, i, j)) {
+    public boolean isStructureChunk(ChunkGeneratorStructureState chunkGeneratorStructureState, int i, int j) {
+        if (!super.isStructureChunk(chunkGeneratorStructureState, i, j)) {
             return false;
         }
-        return this.superExclusionZone.isEmpty() || !this.superExclusionZone.get().isPlacementForbidden(chunkGenerator, randomState, l, i, j);
+        else {
+            return this.superExclusionZone.isEmpty() || !this.superExclusionZone.get().isPlacementForbidden(chunkGeneratorStructureState, i, j);
+        }
     }
 
     @Override
@@ -114,7 +115,7 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
     }
 
     @Override
-    protected boolean isPlacementChunk(ChunkGenerator chunkGenerator, RandomState randomState, long seed, int x, int z) {
+    protected boolean isPlacementChunk(ChunkGeneratorStructureState chunkGeneratorStructureState, int x, int z) {
         if (minDistanceFromWorldOrigin.isPresent()) {
             int xBlockPos = x * 16;
             int zBlockPos = z * 16;
@@ -125,7 +126,7 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
             }
         }
 
-        ChunkPos chunkpos = this.getPotentialStructureChunk(seed, x, z);
+        ChunkPos chunkpos = this.getPotentialStructureChunk(chunkGeneratorStructureState.getLevelSeed(), x, z);
         return chunkpos.x == x && chunkpos.z == z;
     }
 
@@ -136,13 +137,13 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
 
     public record SuperExclusionZone(HolderSet<StructureSet> otherSet, int chunkCount) {
         public static final Codec<AdvancedRandomSpread.SuperExclusionZone> CODEC = RecordCodecBuilder.create(builder -> builder.group(
-                RegistryCodecs.homogeneousList(Registry.STRUCTURE_SET_REGISTRY, StructureSet.DIRECT_CODEC).fieldOf("other_set").forGetter(AdvancedRandomSpread.SuperExclusionZone::otherSet),
+                RegistryCodecs.homogeneousList(Registries.STRUCTURE_SET, StructureSet.DIRECT_CODEC).fieldOf("other_set").forGetter(AdvancedRandomSpread.SuperExclusionZone::otherSet),
                 Codec.intRange(1, 16).fieldOf("chunk_count").forGetter(AdvancedRandomSpread.SuperExclusionZone::chunkCount)
         ).apply(builder, AdvancedRandomSpread.SuperExclusionZone::new));
 
-        boolean isPlacementForbidden(ChunkGenerator chunkGenerator, RandomState randomState, long l, int i, int j) {
+        boolean isPlacementForbidden(ChunkGeneratorStructureState chunkGeneratorStructureState, int l, int j) {
             for (Holder<StructureSet> holder : this.otherSet) {
-                if (chunkGenerator.hasStructureChunkInRange(holder, randomState, l, i, j, this.chunkCount)) {
+                if (chunkGeneratorStructureState.hasStructureChunkInRange(holder, l, j, this.chunkCount)) {
                     return true;
                 }
             }

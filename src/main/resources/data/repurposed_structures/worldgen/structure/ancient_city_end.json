@@ -1,0 +1,33 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:ancient_cities/end/start_pool",
+  "size": 7,
+  "min_y_allowed": 45,
+  "terrain_height_radius_check": 3,
+  "biomes": "#repurposed_structures:has_structure/ancient_cities/end",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_box",
+  "burying_type": "AVERAGE_LAND",
+  "start_height": {
+    "absolute": -3
+  },
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "minecraft:phantom",
+          "weight": 3,
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "type": "minecraft:endermite",
+          "weight": 2,
+          "minCount": 3,
+          "maxCount": 7
+        }
+      ]
+    }
+  }
+}

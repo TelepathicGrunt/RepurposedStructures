@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.PoolElementStructurePieceAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.world.level.block.Rotation;
@@ -42,7 +43,7 @@ public class MansionStructurePiece extends PoolElementStructurePiece {
     public MansionStructurePiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(context, tag);
         this.mansionType = tag.getString("mansion_type");
-        this.foundationBlock = NbtUtils.readBlockState(tag.getCompound("foundation_block"));
+        this.foundationBlock = NbtUtils.readBlockState(BuiltInRegistries.BLOCK.asLookup(), tag.getCompound("foundation_block"));
         this.pillarOnlyToLand = tag.getBoolean("pillar_only_to_land");
     }
 

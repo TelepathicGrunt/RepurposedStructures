@@ -1,0 +1,150 @@
+{
+  "name": "repurposed_structures:ancient_cities/nether/walls",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_corner_wall_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_intersection_wall_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_lshape_wall_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_2",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_stairs_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_stairs_2",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_stairs_3",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_stairs_4",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/intact_horizontal_wall_passage_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/ruined_corner_wall_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/ruined_corner_wall_2",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/ruined_horizontal_wall_stairs_1",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/ruined_horizontal_wall_stairs_2",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/ruined_horizontal_wall_stairs_3",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/walls/ruined_horizontal_wall_stairs_4",
+        "processors": "repurposed_structures:ancient_cities/nether/walls_degradation",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

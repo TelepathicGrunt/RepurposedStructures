@@ -14,7 +14,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
 
 import java.util.Locale;
 import java.util.Map;
-import java.util.Random;
 
 public class MatterPhaseRuleTest extends RuleTest {
     public static final Codec<MatterPhaseRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(

@@ -9,7 +9,6 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.data.worldgen.ProcessorLists;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.StructureManager;
@@ -56,10 +55,6 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
     protected MirroringSingleJigsawPiece(Either<ResourceLocation, StructureTemplate> locationTemplateEither, Holder<StructureProcessorList> processorListSupplier, StructureTemplatePool.Projection placementBehaviour, Mirror mirror) {
         super(locationTemplateEither, processorListSupplier, placementBehaviour);
         this.mirror = mirror;
-    }
-
-    public MirroringSingleJigsawPiece(StructureTemplate template) {
-        this(Either.right(template), ProcessorLists.EMPTY, StructureTemplatePool.Projection.RIGID, Mirror.NONE);
     }
 
     private StructureTemplate getTemplate(StructureTemplateManager templateManager) {

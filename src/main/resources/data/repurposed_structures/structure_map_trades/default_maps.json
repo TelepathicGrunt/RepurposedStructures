@@ -61,6 +61,15 @@
         "tradesAllowed": 1,
         "xpReward": 200,
         "spawnRegionSearchRadius": 50
+      },
+      {
+        "structure": "repurposed_structures:ancient_city_ocean",
+        "mapName": "Ocean Ancient City Map",
+        "mapIcon": "MONUMENT",
+        "emeraldsRequired": 38,
+        "tradesAllowed": 1,
+        "xpReward": 200,
+        "spawnRegionSearchRadius": 50
       }
     ],
     "common": []

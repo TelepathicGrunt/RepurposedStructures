@@ -9,7 +9,8 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLim
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.QuartPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.ChunkPos;
@@ -114,7 +115,7 @@ public class GenericJigsawStructure extends Structure {
                 Repurposed Structures: maxYAllowed cannot be less than minYAllowed.
                 Please correct this error as there's no way to spawn this structure properly
                     Structure pool of problematic structure: %s
-            """.formatted(startPool.value().getName()));
+            """.formatted(startPool.value()));
         }
     }
 
@@ -123,9 +124,15 @@ public class GenericJigsawStructure extends Structure {
 
         if (this.biomeRadius.isPresent() && !(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
             int validBiomeRange = this.biomeRadius.get();
+            int sectionY = blockPos.getY();
+            if (projectStartToHeightmap.isPresent()) {
+                sectionY += context.chunkGenerator().getFirstOccupiedHeight(blockPos.getX(), blockPos.getZ(), projectStartToHeightmap.get(), context.heightAccessor(), context.randomState());
+            }
+            sectionY = QuartPos.fromBlock(sectionY);
+
             for (int curChunkX = chunkPos.x - validBiomeRange; curChunkX <= chunkPos.x + validBiomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - validBiomeRange; curChunkZ <= chunkPos.z + validBiomeRange; curChunkZ++) {
-                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(curChunkX << 2, blockPos.getY() >> 2, curChunkZ << 2, context.randomState().sampler());
+                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(QuartPos.fromSection(curChunkX), sectionY, QuartPos.fromSection(curChunkZ), context.randomState().sampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
                     }
@@ -153,7 +160,7 @@ public class GenericJigsawStructure extends Structure {
 
             for (int curChunkX = chunkPos.x - terrainCheckRange; curChunkX <= chunkPos.x + terrainCheckRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z - terrainCheckRange; curChunkZ <= chunkPos.z + terrainCheckRange; curChunkZ++) {
-                    int height = context.chunkGenerator().getBaseHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+                    int height = context.chunkGenerator().getBaseHeight((curChunkX << 4) + 7, (curChunkZ << 4) + 7, this.projectStartToHeightmap.orElse(Heightmap.Types.WORLD_SURFACE_WG), context.heightAccessor(), context.randomState());
                     maxTerrainHeight = Math.max(maxTerrainHeight, height);
                     minTerrainHeight = Math.min(minTerrainHeight, height);
 
@@ -198,7 +205,7 @@ public class GenericJigsawStructure extends Structure {
         }
 
         if(this.minYAllowed.isPresent()) {
-            bottomClipOff = Math.min(bottomClipOff, this.minYAllowed.get());
+            bottomClipOff = Math.max(bottomClipOff, this.minYAllowed.get());
         }
 
         int finalTopClipOff = topClipOff;
@@ -207,7 +214,7 @@ public class GenericJigsawStructure extends Structure {
                 context,
                 this.startPool,
                 this.size,
-                context.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY).getKey(this),
+                context.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(this),
                 blockpos,
                 this.useBoundingBoxHack,
                 this.projectStartToHeightmap,
@@ -215,6 +222,7 @@ public class GenericJigsawStructure extends Structure {
                 bottomClipOff,
                 this.poolsThatIgnoreBoundaries,
                 this.maxDistanceFromCenter,
+                this.buryingType,
                 (structurePiecesBuilder, pieces) -> postLayoutAdjustments(structurePiecesBuilder, context, offsetY, blockpos, finalTopClipOff, finalBottomClipOff, pieces));
     }
 

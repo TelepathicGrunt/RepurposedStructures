@@ -1,0 +1,20 @@
+{
+  "name": "repurposed_structures:ancient_cities/nether/fire",
+  "fallback": "repurposed_structures:ancient_cities/nether/fire",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/nether_ancient_city_fire",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "repurposed_structures:strongholds_end"
+    "repurposed_structures:strongholds_end",
+    "repurposed_structures:ancient_cities_end"
   ]
 }

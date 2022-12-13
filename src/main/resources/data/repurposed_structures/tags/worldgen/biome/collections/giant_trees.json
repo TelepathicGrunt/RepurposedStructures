@@ -76,6 +76,58 @@
     {
       "id": "projectvibrantjourneys:snowy_redwoods",
       "required": false
+    },
+    {
+      "id": "wythers:flooded_temperate_rainforest",
+      "required": false
+    },
+    {
+      "id": "wythers:temperate_rainforest",
+      "required": false
+    },
+    {
+      "id": "wythers:temperate_rainforest_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:ancient_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:eucalyptus_deanei_forest",
+      "required": false
+    },
+    {
+      "id": "wythers:eucalyptus_jungle",
+      "required": false
+    },
+    {
+      "id": "wythers:eucalyptus_jungle_canyon",
+      "required": false
+    },
+    {
+      "id": "wythers:eucalyptus_salubris_woodland",
+      "required": false
+    },
+    {
+      "id": "wythers:eucalyptus_woodland",
+      "required": false
+    },
+    {
+      "id": "wythers:flooded_jungle",
+      "required": false
+    },
+    {
+      "id": "wythers:flooded_rainforest",
+      "required": false
+    },
+    {
+      "id": "wythers:old_growth_taiga_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:old_growth_taiga_swamp",
+      "required": false
     }
   ]
 }

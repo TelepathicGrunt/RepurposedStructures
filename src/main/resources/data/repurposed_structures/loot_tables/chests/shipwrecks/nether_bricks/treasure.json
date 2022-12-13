@@ -272,28 +272,37 @@
       ]
     },
     {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "repurposed_structures:chests/lucky_pool"
+        }
+      ]
+    },
+    {
       "rolls": 0,
       "bonus_rolls": 1,
       "entries": [
         {
-          "name": "minecraft:pink_banner",
+          "type": "minecraft:empty",
+          "weight": 130
+        },
+        {
+          "name": "minecraft:red_banner",
           "type": "minecraft:item",
-          "weight": 5,
+          "weight": 30,
           "functions": [
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:bo,Color:3},{Pattern:bo,Color:3},{Pattern:bo,Color:3}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:14},{Pattern:mr,Color:4},{Pattern:cbo,Color:14},{Pattern:cbo,Color:4},{Pattern:flo,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:14},{Pattern:sku,Color:15},{Pattern:sku,Color:15},{Pattern:bo,Color:1},{Pattern:bo,Color:4},{Pattern:bo,Color:15}]}}"
             }
           ]
         },
         {
-          "type": "minecraft:empty",
-          "weight": 88
-        },
-        {
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
-          "weight": 76,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_stew_effect",
@@ -355,17 +364,6 @@
                   }
                 }
               ]
-            }
-          ]
-        },
-        {
-          "name": "minecraft:red_banner",
-          "type": "minecraft:item",
-          "weight": 36,
-          "functions": [
-            {
-              "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:mr,Color:14},{Pattern:mr,Color:4},{Pattern:cbo,Color:14},{Pattern:cbo,Color:4},{Pattern:flo,Color:15},{Pattern:flo,Color:15},{Pattern:flo,Color:14},{Pattern:sku,Color:15},{Pattern:sku,Color:15},{Pattern:bo,Color:1},{Pattern:bo,Color:4},{Pattern:bo,Color:15}]}}"
             }
           ]
         }

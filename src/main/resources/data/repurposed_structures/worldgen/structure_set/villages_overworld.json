@@ -31,6 +31,10 @@
     {
       "structure": "repurposed_structures:village_swamp",
       "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:village_ocean",
+      "weight": 1
     }
   ],
   "placement": {

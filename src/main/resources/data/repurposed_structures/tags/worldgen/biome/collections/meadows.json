@@ -25,6 +25,26 @@
     {
       "id": "projectvibrantjourneys:pine_meadows",
       "required": false
+    },
+    {
+      "id": "wythers:cold_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:cool_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:autumnal_plains",
+      "required": false
+    },
+    {
+      "id": "wythers:harvest_fields",
+      "required": false
+    },
+    {
+      "id": "wythers:highland_plains",
+      "required": false
     }
   ]
 }

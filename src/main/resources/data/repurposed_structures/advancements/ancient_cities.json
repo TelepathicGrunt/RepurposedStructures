@@ -1,0 +1,81 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:reinforced_deepslate"
+    },
+    "title": {
+      "translate": "Civilization from the Beyond"
+    },
+    "description": {
+      "translate": "Find all new Ancient Cities"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 1000
+  },
+  "criteria": {
+    "in_ancient_city_ocean": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_ocean"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_ancient_city_nether": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_nether"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "in_ancient_city_end": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:ancient_city_end"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_ancient_city_ocean"
+    ],
+    [
+      "in_ancient_city_nether"
+    ],
+    [
+      "in_ancient_city_end"
+    ]
+  ]
+}

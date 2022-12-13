@@ -8,7 +8,8 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeo
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.ProcessorLists;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -143,10 +144,13 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             // offset the dungeon such as ocean dungeons down 1
             position = position.above(context.config().structureYOffset);
 
+            Registry<StructureProcessorList> processorListRegistry = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registries.PROCESSOR_LIST);
+            ResourceKey<StructureProcessorList> emptyKey = ResourceKey.create(Registries.PROCESSOR_LIST, new ResourceLocation("minecraft", "empty"));
+
             //RepurposedStructures.LOGGER.log(Level.INFO, nbtRL + " at X: "+position.getX() +", "+position.getY()+", "+position.getZ());
             StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setRotation(rotation).setRotationPivot(halfLengths).setIgnoreEntities(false);
-            Optional<StructureProcessorList> processor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().processor);
-            processor.orElse(ProcessorLists.EMPTY.value()).list().forEach(placementsettings::addProcessor); // add all processors
+            Optional<StructureProcessorList> processor = processorListRegistry.getOptional(context.config().processor);
+            processor.orElse(processorListRegistry.getHolder(emptyKey).get().value()).list().forEach(placementsettings::addProcessor); // add all processors
             BlockPos finalPos = mutable.set(position).move(-halfLengths.getX(), 0, -halfLengths.getZ());
             template.get().placeInWorld(context.level(), finalPos, finalPos, placementsettings, context.random(), Block.UPDATE_CLIENTS);
 
@@ -154,8 +158,8 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             // For all processors that are sensitive to neighboring blocks such as vines.
             // Post processors will place the blocks themselves so we will not do anything with the return of Structure.process
             placementsettings.clearProcessors();
-            Optional<StructureProcessorList> postProcessor = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registry.PROCESSOR_LIST_REGISTRY).getOptional(context.config().postProcessor);
-            postProcessor.orElse(ProcessorLists.EMPTY.value()).list().forEach(placementsettings::addProcessor); // add all post processors
+            Optional<StructureProcessorList> postProcessor = processorListRegistry.getOptional(context.config().processor);
+            postProcessor.orElse(processorListRegistry.getHolder(emptyKey).get().value()).list().forEach(placementsettings::addProcessor); // add all post processors
             List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template.get()).repurposedstructures_getPalettes(), mutable).blocks();
             StructureTemplate.processBlockInfos(context.level(), mutable, mutable, placementsettings, list);
 
@@ -174,19 +178,6 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             return !state.getFluidState().isEmpty();
         }
         return state.isAir();
-    }
-
-    /**
-     * Makes the given block entity now have the correct spawner mob
-     */
-    private void SetMobSpawnerEntity(RandomSource random, NbtDungeonConfig config, SpawnerBlockEntity blockEntity) {
-        EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
-        if(entity != null) {
-            blockEntity.getSpawner().setEntityId(entity);
-        }
-        else{
-            RepurposedStructures.LOGGER.warn("EntityType in a dungeon does not exist in registry! : {}", config.rsSpawnerResourcelocation);
-        }
     }
 
     /**
@@ -311,13 +302,16 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) == null) {
-                                world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
-                                BlockEntity blockEntity = world.getBlockEntity(mutable);
-                                if (blockEntity instanceof SpawnerBlockEntity) {
-                                    SetMobSpawnerEntity(random, config, (SpawnerBlockEntity) blockEntity);
+                                EntityType<?> entity = RepurposedStructures.mobSpawnerManager.getSpawnerMob(config.rsSpawnerResourcelocation, random);
+                                if (entity != null) {
+                                    world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
+                                    BlockEntity blockEntity = world.getBlockEntity(mutable);
+                                    if (blockEntity instanceof SpawnerBlockEntity spawnerBlockEntity) {
+                                        spawnerBlockEntity.getSpawner().setEntityId(entity, null, random, mutable);
+                                    }
                                 }
                             }
-                            else{
+                            else {
                                 SolidifyBlock(world, mutable);
                             }
 

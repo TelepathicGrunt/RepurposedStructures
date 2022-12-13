@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.structures;
 
-import com.mojang.math.Vector3f;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
@@ -9,7 +8,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLim
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.NoiseColumn;
@@ -23,6 +22,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.joml.Vector3f;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -86,7 +86,7 @@ public class MineshaftEndStructure extends Structure {
                 Repurposed Structures: maxYAllowed cannot be less than minYAllowed.
                 Please correct this error as there's no way to spawn this structure properly
                     Structure pool of problematic structure: %s
-            """.formatted(startPool.value().getName()));
+            """.formatted(startPool));
         }
     }
 
@@ -189,7 +189,7 @@ public class MineshaftEndStructure extends Structure {
                 context,
                 this.startPool,
                 this.size,
-                context.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY).getKey(this),
+                context.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(this),
                 blockpos,
                 false,
                 Optional.empty(),
@@ -197,6 +197,7 @@ public class MineshaftEndStructure extends Structure {
                 minY,
                 this.poolsThatIgnoreBoundaries,
                 this.maxDistanceFromCenter,
+                Optional.empty(),
                 (structurePiecesBuilder, pieces) -> {
                     Optional<PoolElementStructurePiece> highestPiece = pieces.stream().max(Comparator.comparingInt(p -> p.getBoundingBox().maxY()));
                     int topY = highestPiece.map(poolElementStructurePiece -> poolElementStructurePiece.getBoundingBox().maxY()).orElseGet(blockpos::getY);

@@ -1,0 +1,30 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:ancient_cities/nether/start_pool",
+  "size": 7,
+  "biomes": "#repurposed_structures:has_structure/ancient_cities/nether",
+  "step": "vegetal_decoration",
+  "terrain_adaptation": "beard_box",
+  "start_height": {
+    "absolute": 32
+  },
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "full",
+      "spawns": [
+        {
+          "type": "minecraft:ghast",
+          "weight": 10,
+          "minCount": 6,
+          "maxCount": 10
+        },
+        {
+          "type": "minecraft:wither_skeleton",
+          "weight": 1,
+          "minCount": 1,
+          "maxCount": 3
+        }
+      ]
+    }
+  }
+}

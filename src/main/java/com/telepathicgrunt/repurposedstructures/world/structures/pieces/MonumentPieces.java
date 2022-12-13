@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Rotation;
@@ -26,7 +27,7 @@ public class MonumentPieces {
     }
 
     public static List<StructurePiece> createMonumentBuilding(RegistryAccess registryAccess, StructureTemplateManager StructureTemplateManager, RandomSource random, int x, int y, int z, String monumentType) {
-        Registry<StructureTemplatePool> poolRegistry = registryAccess.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY);
+        Registry<StructureTemplatePool> poolRegistry = registryAccess.registryOrThrow(Registries.TEMPLATE_POOL);
         List<StructurePiece> pieces = new ArrayList<>();
         MonumentBuilding mainBuilding = new MonumentPieces.MonumentBuilding(poolRegistry, StructureTemplateManager, random, monumentType);
         mainBuilding.addMainBody(pieces, poolRegistry, StructureTemplateManager, random, Rotation.NONE, monumentType);

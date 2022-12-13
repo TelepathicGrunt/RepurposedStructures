@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.misc.structurepiececounter;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 
@@ -18,7 +19,7 @@ public final class JSONConditionsRegistry {
     public static void createJSONConditionsRegistry() {
         // Classloads the fields that creates the registries.
         // Registers a condition for testing purposes.
-        Registry.REGISTRY.getOptional(new ResourceLocation(RepurposedStructures.MODID, "json_conditions"))
+        BuiltInRegistries.REGISTRY.getOptional(new ResourceLocation(RepurposedStructures.MODID, "json_conditions"))
             .ifPresent(registry -> Registry.register(
                 (Registry<Supplier<Boolean>>)registry,
                 new ResourceLocation(RepurposedStructures.MODID, "test"),

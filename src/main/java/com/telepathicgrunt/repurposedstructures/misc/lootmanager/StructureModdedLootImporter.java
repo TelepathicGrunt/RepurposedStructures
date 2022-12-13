@@ -7,7 +7,7 @@ import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAcces
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -40,6 +39,13 @@ public final class StructureModdedLootImporter {
         Map<ResourceLocation, ResourceLocation> tableMap = new HashMap<>();
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/overworld"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
+
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/ocean"), new ResourceLocation("minecraft:chests/ancient_city"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/ocean_ice_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/nether"), new ResourceLocation("minecraft:chests/ancient_city"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/nether_magma_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/end"), new ResourceLocation("minecraft:chests/ancient_city"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/ancient_cities/end_spawner_box"), new ResourceLocation("minecraft:chests/ancient_city_ice_box"));
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/treasure"), new ResourceLocation("minecraft:chests/stronghold_crossing"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/bastions/underground/bridge"), new ResourceLocation("minecraft:chests/stronghold_corridor"));
@@ -157,12 +163,15 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/soul"), new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/warped"), new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/wasteland"), new ResourceLocation("minecraft:chests/nether_bridge"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/taiga"), new ResourceLocation("minecraft:chests/jungle_temple"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/temples/ocean"), new ResourceLocation("minecraft:chests/jungle_temple"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "trapped_chests/temples/warped"), new ResourceLocation("minecraft:chests/nether_bridge"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/basalt"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/crimson"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/soul"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/warped"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/wasteland"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "dispensers/temples/taiga"), new ResourceLocation("minecraft:chests/jungle_temple_dispenser"));
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/badlands_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/birch_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
@@ -172,6 +181,8 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/mountains_house"), new ResourceLocation("minecraft:chests/village/village_snowy_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/mushroom_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/oak_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/ocean_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/ocean_cartographer"), new ResourceLocation("minecraft:chests/village/village_cartographer"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/swamp_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_cartographer"), new ResourceLocation("minecraft:chests/village/village_cartographer"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/crimson_fisher"), new ResourceLocation("minecraft:chests/village/village_fisher"));
@@ -208,9 +219,7 @@ public final class StructureModdedLootImporter {
         return tableMap;
     }
 
-
-
-    public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
+    public static void checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
         if(RSModdedLootConfig.importModdedItems) {
             // Cache the result of the loottable to the id into our own map.
             ResourceLocation lootTableID = REVERSED_TABLES.computeIfAbsent(
@@ -226,16 +235,15 @@ public final class StructureModdedLootImporter {
             );
 
             if(lootTableID != null && !isInBlacklist(lootTableID)) {
-                return StructureModdedLootImporter.modifyLootTables(context, lootTableID, originalLoot);
+                StructureModdedLootImporter.modifyLootTables(context, lootTableID, originalLoot);
             }
         }
 
-        return originalLoot;
     }
 
-    public static List<ItemStack> modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
+    public static void modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
         ResourceLocation tableToImportLoot = TABLE_IMPORTS.get(lootTableID);
-        if(tableToImportLoot == null) return originalLoot; // Safety net
+        if(tableToImportLoot == null) return; // Safety net
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContext(context);
@@ -243,7 +251,7 @@ public final class StructureModdedLootImporter {
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> {
-            ResourceKey<Item> itemKey = Registry.ITEM.getResourceKey(itemStack.getItem()).orElse(null);
+            ResourceKey<Item> itemKey = BuiltInRegistries.ITEM.getResourceKey(itemStack.getItem()).orElse(null);
             return itemKey != null && itemKey.location().getNamespace().equals("minecraft");
         });
 
@@ -252,10 +260,9 @@ public final class StructureModdedLootImporter {
 
         // Add modded loot to my structure's chests
         originalLoot.addAll(newlyGeneratedLoot);
-        return originalLoot;
     }
 
-    protected static LootContext copyLootContext(LootContext oldLootContext) {
+    static LootContext copyLootContext(LootContext oldLootContext) {
         LootContext.Builder newContextBuilder = new LootContext.Builder(oldLootContext.getLevel())
                 .withRandom(oldLootContext.getRandom())
                 .withLuck(oldLootContext.getLuck());

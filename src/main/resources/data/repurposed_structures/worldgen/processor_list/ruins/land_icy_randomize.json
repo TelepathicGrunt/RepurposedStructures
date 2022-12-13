@@ -32,22 +32,6 @@
             "Properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:grass_block"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt_path",
-            "probability": 0.1,
-            "predicate_type": "minecraft:random_block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Properties": {
-              "snowy": "false"
-            },
             "Name": "minecraft:blue_ice"
           },
           "input_predicate": {
@@ -106,6 +90,31 @@
             "block": "minecraft:dirt_path",
             "probability": 0.2,
             "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt_path",
+            "probability": 0.75,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:dirt_path",
+            "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"

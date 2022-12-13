@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.StructureManager;
@@ -36,7 +37,7 @@ public class NoFallsInStructuresMixin {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for (Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
-                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registries.STRUCTURE);
                 StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
 
                 for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_LAVAFALLS)) {
@@ -51,7 +52,7 @@ public class NoFallsInStructuresMixin {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
-                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+                Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registries.STRUCTURE);
                 StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
 
                 for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_WATERFALLS)) {

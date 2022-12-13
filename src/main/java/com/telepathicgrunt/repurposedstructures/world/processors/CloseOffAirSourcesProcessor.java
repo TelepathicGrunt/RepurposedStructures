@@ -7,8 +7,8 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
 import net.minecraft.core.SectionPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
@@ -20,8 +20,6 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunkSection;
-import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -29,7 +27,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.Fluid;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Will help enclose the structure in solid blocks rather than allow fluid source blocks to be floating.
@@ -38,7 +35,7 @@ import java.util.Random;
 public class CloseOffAirSourcesProcessor extends StructureProcessor {
 
     public static final Codec<CloseOffAirSourcesProcessor> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            Codec.mapPair(Registry.BLOCK.byNameCodec().fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
+            Codec.mapPair(BuiltInRegistries.BLOCK.byNameCodec().fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
                     .codec().listOf().fieldOf("weighted_list_of_replacement_blocks")
                     .forGetter(processor -> processor.weightedReplacementBlocks))
             .apply(instance, instance.stable(CloseOffAirSourcesProcessor::new)));
@@ -95,8 +92,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                             replacementBlock = weightedReplacementBlocks.get(0).getFirst();
                         }
                         else{
-                            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-                            random.setSeed(mutable.asLong() * mutable.getY());
+                            RandomSource random = settings.getRandom(infoIn2.pos);
                             replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         }
 

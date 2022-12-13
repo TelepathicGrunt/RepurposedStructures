@@ -10,8 +10,8 @@ import com.telepathicgrunt.repurposedstructures.mixin.resources.ReloadableResour
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
-import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.PackResources;
@@ -116,7 +116,7 @@ public final class GeneralUtils {
 
     public static ItemStack enchantRandomly(RandomSource random, ItemStack itemToEnchant, float chance) {
         if(random.nextFloat() < chance) {
-            List<Enchantment> list = Registry.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
+            List<Enchantment> list = BuiltInRegistries.ENCHANTMENT.stream().filter(Enchantment::isDiscoverable)
                     .filter((enchantmentToCheck) -> enchantmentToCheck.canEnchant(itemToEnchant)).toList();
             if(!list.isEmpty()) {
                 Enchantment enchantment = list.get(random.nextInt(list.size()));
@@ -245,8 +245,8 @@ public final class GeneralUtils {
         // Find the file with the given id and add its filestream to the list
         for (FallbackResourceManager.PackEntry packEntry : allResourcePacks) {
             PackResources resourcePack = packEntry.resources();
-            if (resourcePack != null && resourcePack.hasResource(PackType.SERVER_DATA, fileID)) {
-                InputStream inputStream = ((NamespaceResourceManagerAccessor) namespaceResourceManager).repurposedstructures_callCreateResourceGetter(fileID, resourcePack).get();
+            if (resourcePack != null && resourcePack.getResource(PackType.SERVER_DATA, fileID) != null) {
+                InputStream inputStream = namespaceResourceManager.getResource(fileID).get().open();
                 fileStreams.add(inputStream);
             }
         }
@@ -338,6 +338,10 @@ public final class GeneralUtils {
                 }
 
                 if(rl.getPath().contains("dispensers/temples/wasteland_lava")) {
+                    return;
+                }
+
+                if(rl.getPath().contains("lucky_pool")) {
                     return;
                 }
 

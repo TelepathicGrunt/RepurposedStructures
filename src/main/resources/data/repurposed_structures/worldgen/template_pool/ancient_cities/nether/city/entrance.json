@@ -1,0 +1,60 @@
+{
+  "name": "repurposed_structures:ancient_cities/nether/city/entrance",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city/entrance/entrance_connector",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city/entrance/entrance_path_1",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city/entrance/entrance_path_2",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city/entrance/entrance_path_3",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city/entrance/entrance_path_4",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/nether/city/entrance/entrance_path_5",
+        "processors": "repurposed_structures:ancient_cities/nether/generic_degradation",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

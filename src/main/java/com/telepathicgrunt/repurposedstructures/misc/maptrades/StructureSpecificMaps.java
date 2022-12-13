@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -21,13 +22,11 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 
-import java.util.Random;
-
 public class StructureSpecificMaps {
     public static class TreasureMapForEmeralds implements VillagerTrades.ItemListing {
         private final int emeraldCost;
-        private final ResourceKey<Structure> destination;
-        private final TagKey<Structure> destinationTag;
+        private final ResourceLocation destination;
+        private final ResourceLocation destinationTag;
         private final String displayName;
         private final MapDecoration.Type destinationType;
         private final int maxUses;
@@ -39,10 +38,10 @@ public class StructureSpecificMaps {
 
             if(csf.startsWith("#")) {
                 this.destination = null;
-                this.destinationTag = TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(csf.replaceFirst("#","")));
+                this.destinationTag = new ResourceLocation(csf.replaceFirst("#",""));
             }
             else {
-                this.destination = ResourceKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(csf));
+                this.destination = new ResourceLocation(csf);
                 this.destinationTag = null;
             }
 
@@ -59,12 +58,11 @@ public class StructureSpecificMaps {
                 return null;
             }
             else if (this.destinationTag != null) {
-                blockpos = serverlevel.findNearestMapStructure(this.destinationTag, entity.blockPosition(), spawnRegionSearchRadius, true);
-
+                blockpos = serverlevel.findNearestMapStructure(TagKey.create(Registries.STRUCTURE, this.destinationTag), entity.blockPosition(), spawnRegionSearchRadius, true);
             }
             else {
-                Registry<Structure> registry = serverlevel.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
-                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(destination));
+                Registry<Structure> registry = serverlevel.registryAccess().registryOrThrow(Registries.STRUCTURE);
+                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(ResourceKey.create(Registries.STRUCTURE, this.destination)));
                 Pair<BlockPos, Holder<Structure>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapStructure(serverlevel, holderset, entity.blockPosition(), spawnRegionSearchRadius, true);
                 if (pairResult != null) {
                     blockpos = pairResult.getFirst();

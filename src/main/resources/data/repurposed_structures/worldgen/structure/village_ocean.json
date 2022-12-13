@@ -1,0 +1,18 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:villages/ocean/town_centers",
+  "size": 6,
+  "valid_biome_radius_check": 2,
+  "terrain_height_radius_check": 2,
+  "allowed_terrain_height_range": 26,
+  "biomes": "#repurposed_structures:has_structure/villages/ocean",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "project_start_to_heightmap": "OCEAN_FLOOR_WG",
+  "start_height": {
+    "absolute": 0
+  },
+  "max_y_allowed": 62,
+  "use_bounding_box_hack": true,
+  "spawn_overrides": {}
+}

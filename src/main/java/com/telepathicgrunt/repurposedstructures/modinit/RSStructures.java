@@ -11,6 +11,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.MonumentStructu
 import com.telepathicgrunt.repurposedstructures.world.structures.ShipwreckNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.StrongholdEndStructure;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 
@@ -30,15 +31,15 @@ public final class RSStructures {
 
 
     public static void registerStructures() {
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "mansion_structure"), MANSION_STRUCTURE);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "monument_structure"), MONUMENT_STRUCTURE);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "generic_mineshaft"), GENERIC_MINESHAFT);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_structure"), SHIPWRECK_NETHER_STRUCTURE);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "city_nether_structure"), CITY_NETHER_STRUCTURE);
-        Registry.register(Registry.STRUCTURE_TYPES, new ResourceLocation(RepurposedStructures.MODID, "generic_nether_jigsaw_structure"), GENERIC_NETHER_JIGSAW_STRUCTURE);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "generic_jigsaw_structure"), GENERIC_JIGSAW_STRUCTURE);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "mansion_structure"), MANSION_STRUCTURE);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "monument_structure"), MONUMENT_STRUCTURE);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "generic_mineshaft"), GENERIC_MINESHAFT);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "mineshaft_end"), MINESHAFT_END);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "stronghold_end"), STRONGHOLD_END);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "shipwreck_nether_structure"), SHIPWRECK_NETHER_STRUCTURE);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "city_nether_structure"), CITY_NETHER_STRUCTURE);
+        Registry.register(BuiltInRegistries.STRUCTURE_TYPE, new ResourceLocation(RepurposedStructures.MODID, "generic_nether_jigsaw_structure"), GENERIC_NETHER_JIGSAW_STRUCTURE);
 
         //registers the structure pieces.
         RSStructurePieces.registerStructurePieces();
