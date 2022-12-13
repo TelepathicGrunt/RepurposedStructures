@@ -241,7 +241,7 @@
         {
           "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 1,
+          "weight": 3,
           "functions": [
             {
               "function": "minecraft:exploration_map",
@@ -257,6 +257,35 @@
               }
             }
           ]
+        },
+        {
+          "name": "minecraft:map",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "repurposed_structures:explorer_maps/ancient_city_nether",
+              "decoration": "monument",
+              "zoom": 2,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "Nether Ancient City Map"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "repurposed_structures:chests/lucky_pool"
         }
       ]
     },
@@ -265,24 +294,13 @@
       "bonus_rolls": 1,
       "entries": [
         {
-          "name": "minecraft:pink_banner",
-          "type": "minecraft:item",
-          "weight": 25,
-          "functions": [
-            {
-              "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:bo,Color:3},{Pattern:bo,Color:3},{Pattern:bo,Color:3}]}}"
-            }
-          ]
-        },
-        {
           "type": "minecraft:empty",
-          "weight": 160
+          "weight": 130
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 140,
+          "weight": 30,
           "functions": [
             {
               "function":"set_nbt",
@@ -293,7 +311,7 @@
         {
           "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
-          "weight": 100,
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_damage",

@@ -1,0 +1,77 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:mycelium"
+          },
+          "replacement" : {
+            "Name": "minecraft:mycelium"
+          }
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Properties": {
+              "candles": "3",
+              "lit": "true",
+              "waterlogged": "false"
+            },
+            "Name": "minecraft:purple_candle"
+          },
+          "input_predicate": {
+            "block": "minecraft:purple_candle",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "candles": "2",
+              "lit": "true",
+              "waterlogged": "false"
+            },
+            "Name": "minecraft:purple_candle"
+          },
+          "input_predicate": {
+            "block": "minecraft:purple_candle",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "candles": "1",
+              "lit": "true",
+              "waterlogged": "false"
+            },
+            "Name": "minecraft:purple_candle"
+          },
+          "input_predicate": {
+            "block": "minecraft:purple_candle",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

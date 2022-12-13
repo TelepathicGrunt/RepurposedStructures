@@ -1,0 +1,370 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_planks",
+      "output_block": "minecraft:dark_oak_planks",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_planks",
+      "output_block": "minecraft:spruce_planks",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_stairs",
+      "output_block": "minecraft:dark_oak_stairs",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_stairs",
+      "output_block": "minecraft:spruce_stairs",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_slab",
+      "output_block": "minecraft:dark_oak_slab",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_slab",
+      "output_block": "minecraft:spruce_slab",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stripped_oak_log",
+      "output_block": "minecraft:stripped_dark_oak_log",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stripped_oak_log",
+      "output_block": "minecraft:stripped_spruce_log",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stripped_oak_wood",
+      "output_block": "minecraft:stripped_dark_oak_wood",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stripped_oak_wood",
+      "output_block": "minecraft:stripped_spruce_wood",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_pressure_plate",
+      "output_block": "minecraft:dark_oak_pressure_plate",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_pressure_plate",
+      "output_block": "minecraft:spruce_pressure_plate",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_fence",
+      "output_block": "minecraft:dark_oak_fence",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:oak_fence",
+      "output_block": "minecraft:spruce_fence",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:cobblestone",
+      "output_block": "minecraft:cracked_stone_bricks",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "output_block": "minecraft:mossy_cobblestone",
+      "input_block": "minecraft:cobblestone",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:water"
+          },
+          "input_predicate": {
+            "block": "minecraft:air",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_cobblestone"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobblestone",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_oak_stairs",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:spruce_stairs",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:oak_stairs",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:water"
+          },
+          "input_predicate": {
+            "block": "minecraft:pointed_dripstone",
+            "probability": 0.9,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "minecraft:rule",
+      "rules": [
+        {
+          "output_state": {
+            "Properties": {
+              "pickles": "4",
+              "waterlogged": "true"
+            },
+            "Name": "minecraft:sea_pickle"
+          },
+          "input_predicate": {
+            "block": "minecraft:sea_pickle",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "pickles": "3",
+              "waterlogged": "true"
+            },
+            "Name": "minecraft:sea_pickle"
+          },
+          "input_predicate": {
+            "block": "minecraft:sea_pickle",
+            "probability": 0.4,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "pickles": "2",
+              "waterlogged": "true"
+            },
+            "Name": "minecraft:sea_pickle"
+          },
+          "input_predicate": {
+            "block": "minecraft:sea_pickle",
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ]
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:tube_coral_fan"
+          },
+          "input_predicate": {
+            "block": "minecraft:brain_coral_fan",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:horn_coral_fan"
+          },
+          "input_predicate": {
+            "block": "minecraft:brain_coral_fan",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:fire_coral_fan"
+          },
+          "input_predicate": {
+            "block": "minecraft:brain_coral_fan",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:bubble_coral_fan"
+          },
+          "input_predicate": {
+            "block": "minecraft:brain_coral_fan",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:brain_coral_fan"
+          },
+          "input_predicate": {
+            "block": "minecraft:brain_coral_fan",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
+          },
+          "input_predicate": {
+            "block": "minecraft:brain_coral_fan",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_processor_list": "repurposed_structures:villages/ocean/dirt",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:dirt"
+          },
+          "replacement" : {
+            "Name": "minecraft:dirt"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
+    }
+  ]
+}

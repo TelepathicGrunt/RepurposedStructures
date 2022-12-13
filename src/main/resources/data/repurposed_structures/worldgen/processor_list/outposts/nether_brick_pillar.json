@@ -1,0 +1,108 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:nether_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:orange_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_nether_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "original_replaced_block" : {
+        "Name": "minecraft:nether_wart_block"
+      },
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:nether_wart_block"
+          },
+          "replacement" : {
+            "Name": "minecraft:nether_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "original_replaced_block" : {
+        "Name": "minecraft:soul_sand"
+      },
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:soul_sand"
+          },
+          "replacement" : {
+            "Name": "minecraft:nether_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "original_replaced_block" : {
+        "Name": "minecraft:nether_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": false
+        }
+      },
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:pink_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:nether_bricks"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "original_replaced_block" : {
+        "Name": "minecraft:red_nether_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": false
+        }
+      },
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:purple_stained_glass"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_nether_bricks"
+          }
+        }
+      ]
+    }
+  ]
+}

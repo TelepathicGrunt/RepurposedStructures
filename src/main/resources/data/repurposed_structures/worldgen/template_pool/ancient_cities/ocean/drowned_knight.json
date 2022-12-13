@@ -1,0 +1,21 @@
+{
+  "name": "repurposed_structures:ancient_cities/ocean/drowned_knight",
+  "fallback": "repurposed_structures:ancient_cities/ocean/drowned_knight",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/ocean/mobs/drowned_knight",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

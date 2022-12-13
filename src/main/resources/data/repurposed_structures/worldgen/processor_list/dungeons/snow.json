@@ -168,6 +168,9 @@
       "valid_block_light_level": {
         "min_inclusive": 0,
         "max_inclusive": 7
+      },
+      "spawner_replacement_block": {
+        "Name": "minecraft:snow_block"
       }
     }
   ]

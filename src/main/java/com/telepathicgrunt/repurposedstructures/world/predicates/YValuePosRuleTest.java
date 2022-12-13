@@ -4,13 +4,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.PosRuleTestType;
-
-import java.util.Random;
 
 public class YValuePosRuleTest extends PosRuleTest {
     public static final Codec<YValuePosRuleTest> CODEC = RecordCodecBuilder.create((instance) -> instance.group(

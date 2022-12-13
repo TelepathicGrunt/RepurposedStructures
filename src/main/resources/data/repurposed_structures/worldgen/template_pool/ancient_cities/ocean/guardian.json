@@ -1,0 +1,21 @@
+{
+  "name": "repurposed_structures:ancient_cities/ocean/guardian",
+  "fallback": "repurposed_structures:ancient_cities/ocean/guardian",
+  "elements": [
+    {
+      "weight": 9,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "repurposed_structures:ancient_cities/ocean/mobs/guardian",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

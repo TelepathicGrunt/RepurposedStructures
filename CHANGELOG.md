@@ -1,3 +1,9 @@
+### **(V.6.1.3 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Misc:
+1.19.2 Quilt ported to fabric. Fabric is now in parity with Quilt which includes the Ancient City structure variants.
+
+
 ### **(V.6.1.2 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Mod Compat:

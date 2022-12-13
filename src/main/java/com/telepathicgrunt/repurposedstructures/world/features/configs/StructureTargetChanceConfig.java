@@ -5,7 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
 public class StructureTargetChanceConfig implements FeatureConfiguration {
-    public static final Codec<StructureTargetChanceConfig> CODEC = RecordCodecBuilder.<StructureTargetChanceConfig>create((configInstance) -> configInstance.group(
+    public static final Codec<StructureTargetChanceConfig> CODEC = RecordCodecBuilder.create((configInstance) -> configInstance.group(
             Codec.floatRange(0, 1).fieldOf("chance").forGetter(config -> config.chance)
     ).apply(configInstance, StructureTargetChanceConfig::new));
 

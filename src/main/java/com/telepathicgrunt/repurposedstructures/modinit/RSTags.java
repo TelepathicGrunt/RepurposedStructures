@@ -4,7 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public final class RSTags {
@@ -29,27 +29,6 @@ public final class RSTags {
             new ResourceLocation(RepurposedStructures.MODID, "larger_locate_search"));
 
 
-    public static TagKey<Biome> DESERTS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/deserts"));
-
-    public static TagKey<Biome> MUSHROOMS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/mushrooms"));
-
-    public static TagKey<Biome> SWAMPS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/swamps"));
-
-    public static TagKey<Biome> ICY = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/icy"));
-
-    public static TagKey<Biome> MOUNTAINS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/mountains"));
-
-    public static TagKey<Biome> END_ISLAND_LAND = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/end_island_land"));
-
-    public static TagKey<Biome> END_VOIDS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/end_voids"));
-
-    public static TagKey<Biome> OCEANS = TagKey.create(Registry.BIOME_REGISTRY,
-            new ResourceLocation(RepurposedStructures.MODID, "collections/oceans"));
+    public static TagKey<Block> MINESHAFT_SUPPORT_REPLACEABLES = TagKey.create(Registry.BLOCK_REGISTRY,
+            new ResourceLocation(RepurposedStructures.MODID, "mineshaft_support_replaceables"));
 }

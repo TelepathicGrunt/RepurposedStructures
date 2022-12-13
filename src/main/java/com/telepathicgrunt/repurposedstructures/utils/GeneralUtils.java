@@ -341,6 +341,10 @@ public final class GeneralUtils {
                     return;
                 }
 
+                if(rl.getPath().contains("lucky_pool")) {
+                    return;
+                }
+
                 RepurposedStructures.LOGGER.error("No loot importing found for: {}", rl);
                 invalidLootTableFound.set(true);
             }

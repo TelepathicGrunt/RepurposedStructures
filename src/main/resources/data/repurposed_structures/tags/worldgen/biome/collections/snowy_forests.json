@@ -34,6 +34,18 @@
     {
       "id": "projectvibrantjourneys:snowy_redwoods",
       "required": false
+    },
+    {
+      "id": "wythers:snowy_fen",
+      "required": false
+    },
+    {
+      "id": "wythers:snowy_thermal_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:deep_snowy_taiga",
+      "required": false
     }
   ]
 }

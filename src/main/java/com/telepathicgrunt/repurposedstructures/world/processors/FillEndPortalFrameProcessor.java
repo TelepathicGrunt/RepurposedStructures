@@ -8,14 +8,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EndPortalFrameBlock;
-import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-
-import java.util.Random;
 
 /**
  * FOR RANDOMIZING THE END PORTAL FRAMES WITH EYES OF ENDER
@@ -35,8 +31,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state.is(Blocks.END_PORTAL_FRAME)) {
             BlockPos worldPos = structureBlockInfoWorld.pos;
-            RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setSeed(worldPos.asLong() * worldPos.asLong());
+            RandomSource random = structurePlacementData.getRandom(worldPos);
 
             return new StructureTemplate.StructureBlockInfo(
                     structureBlockInfoWorld.pos,

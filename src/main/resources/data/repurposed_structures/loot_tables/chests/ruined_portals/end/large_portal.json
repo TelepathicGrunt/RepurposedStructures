@@ -457,28 +457,26 @@
       ]
     },
     {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "repurposed_structures:chests/lucky_pool"
+        }
+      ]
+    },
+    {
       "rolls": 0,
       "bonus_rolls": 1,
       "entries": [
         {
-          "name": "minecraft:pink_banner",
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:bo,Color:3},{Pattern:bo,Color:3},{Pattern:bo,Color:3}]}}"
-            }
-          ]
-        },
-        {
           "type": "minecraft:empty",
-          "weight": 12
+          "weight": 130
         },
         {
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
-          "weight": 28,
+          "weight": 30,
           "functions": [
             {
               "function":"set_nbt",
@@ -489,7 +487,7 @@
         {
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
-          "weight": 40,
+          "weight": 20,
           "functions": [
             {
               "function": "minecraft:set_count",

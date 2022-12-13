@@ -43,6 +43,34 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:red_sandstone_wall"
+          },
+          "replacement" : {
+            "Name": "minecraft:red_sandstone_wall"
+          }
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:chiseled_red_sandstone"
+          },
+          "replacement" : {
+            "Name": "minecraft:chiseled_red_sandstone"
+          }
+        }
+      ]
     }
   ]
 }

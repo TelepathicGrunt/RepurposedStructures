@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.Set;
 
 public class StructureFire extends Feature<StructureTargetConfig> {
 
@@ -24,6 +24,13 @@ public class StructureFire extends Feature<StructureTargetConfig> {
         put(Level.NETHER, BlockTags.INFINIBURN_NETHER);
         put(Level.END, BlockTags.INFINIBURN_END);
     }};
+
+    private static final Set<Block> REPLACEABLE_BLOCKS = Set.of(
+            Blocks.NETHER_BRICKS,
+            Blocks.RED_NETHER_BRICKS,
+            Blocks.CRIMSON_NYLIUM,
+            Blocks.WARPED_NYLIUM
+    );
 
     public StructureFire(Codec<StructureTargetConfig> config) {
         super(config);
@@ -34,6 +41,7 @@ public class StructureFire extends Feature<StructureTargetConfig> {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState fire = Blocks.FIRE.defaultBlockState();
+        BlockState soulFire = Blocks.SOUL_FIRE.defaultBlockState();
         TagKey<Block> infiniteBurningBlocksTagKey = INFINITE_FIRE_BLOCKS.getOrDefault(context.level().getLevel().dimension(), BlockTags.INFINIBURN_OVERWORLD);
 
         for(int i = 0; i < context.config().attempts; i++) {
@@ -44,13 +52,18 @@ public class StructureFire extends Feature<StructureTargetConfig> {
             );
 
             BlockState belowBlock = context.level().getBlockState(mutable.below());
-            if(context.level().getBlockState(mutable).isAir() && (belowBlock.getBlock() == Blocks.NETHER_BRICKS || belowBlock.is(infiniteBurningBlocksTagKey))) {
+            if(context.level().getBlockState(mutable).isAir() && (REPLACEABLE_BLOCKS.contains(belowBlock.getBlock()) || belowBlock.is(infiniteBurningBlocksTagKey))) {
 
-                if(belowBlock.getBlock() == Blocks.NETHER_BRICKS) {
+                if(REPLACEABLE_BLOCKS.contains(belowBlock.getBlock())) {
                     context.level().setBlock(mutable.below(), Blocks.NETHERRACK.defaultBlockState(), 3);
                 }
 
-                context.level().setBlock(mutable, fire, 3);
+                if (belowBlock.getBlock() == Blocks.SOUL_SOIL || belowBlock.getBlock() == Blocks.SOUL_SAND) {
+                    context.level().setBlock(mutable, soulFire, 3);
+                }
+                else {
+                    context.level().setBlock(mutable, fire, 3);
+                }
             }
         }
 

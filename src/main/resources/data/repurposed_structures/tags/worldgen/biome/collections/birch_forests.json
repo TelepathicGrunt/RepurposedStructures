@@ -26,6 +26,22 @@
     {
       "id": "projectvibrantjourneys:aspen_grove",
       "required": false
+    },
+    {
+      "id": "wythers:autumnal_birch_forest",
+      "required": false
+    },
+    {
+      "id": "wythers:birch_swamp",
+      "required": false
+    },
+    {
+      "id": "wythers:birch_taiga",
+      "required": false
+    },
+    {
+      "id": "wythers:warm_birch_forest",
+      "required": false
     }
   ]
 }

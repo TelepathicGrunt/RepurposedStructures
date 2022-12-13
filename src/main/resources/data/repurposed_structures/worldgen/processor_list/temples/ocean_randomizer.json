@@ -1,0 +1,83 @@
+{
+  "processors": [
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stone_bricks",
+      "output_block": "minecraft:mossy_stone_bricks",
+      "threshold": 0.4,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stone_bricks",
+      "output_block": "minecraft:cracked_stone_bricks",
+      "threshold": 0.60,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:stone_brick_stairs",
+      "output_block": "minecraft:mossy_stone_brick_stairs",
+      "threshold": 0.35,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
+      "input_block": "minecraft:chiseled_stone_bricks",
+      "output_block": "minecraft:cracked_stone_bricks",
+      "threshold": 0.33,
+      "xz_scale": 0.2,
+      "y_scale": 0.2
+    },
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:moss_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:mossy_stone_bricks",
+            "probability": 0.085,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mossy_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cracked_stone_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:stone_bricks",
+            "probability": 0.05,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:structure_void_processor"
+    }
+  ]
+}

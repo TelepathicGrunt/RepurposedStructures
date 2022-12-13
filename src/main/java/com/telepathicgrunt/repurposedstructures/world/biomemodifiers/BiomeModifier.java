@@ -1,8 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.biomemodifiers;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
-import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.Registry;

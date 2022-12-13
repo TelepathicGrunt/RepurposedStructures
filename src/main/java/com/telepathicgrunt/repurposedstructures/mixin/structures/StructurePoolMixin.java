@@ -15,7 +15,7 @@ public class StructurePoolMixin {
      * @return - The higher weight that is a more reasonable limit.
      */
     @ModifyConstant(
-            method = "lambda$static$1",
+            method = "m_dgkaflam",
             constant = @Constant(intValue = 150),
             remap = false,
             require = 0

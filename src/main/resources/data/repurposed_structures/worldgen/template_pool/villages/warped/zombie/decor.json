@@ -6,7 +6,7 @@
       "weight": 3,
       "element": {
         "location": "repurposed_structures:villages/warped/lamp_1",
-        "processors": "repurposed_structures:villages/warped/zombify",
+        "processors": "repurposed_structures:villages/warped/pillar_1_zombified",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:temple_taiga",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:temple_ocean",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
+    "salt": 1590755324,
+    "spacing": 51,
+    "separation": 29
+  }
+}

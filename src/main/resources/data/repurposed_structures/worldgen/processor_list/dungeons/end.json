@@ -25,7 +25,10 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/end"
+      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/end",
+      "spawner_replacement_block": {
+        "Name": "minecraft:end_stone_bricks"
+      }
     }
   ]
 }

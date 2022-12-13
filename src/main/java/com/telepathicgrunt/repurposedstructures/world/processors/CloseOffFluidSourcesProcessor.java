@@ -19,8 +19,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunkSection;
-import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -28,7 +26,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.material.FluidState;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Will help enclose the structure in solid blocks rather than allow fluid source blocks to be floating.
@@ -101,9 +98,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                             SectionPos.sectionRelative(mutable.getZ()));
 
                     if (fluidState.isSource()) {
-                        RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-                        random.setSeed(mutable.asLong() * mutable.getY());
-
+                        RandomSource random = settings.getRandom(infoIn2.pos);
                         Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         levelChunkSection.setBlockState(
                                 SectionPos.sectionRelative(mutable.getX()),

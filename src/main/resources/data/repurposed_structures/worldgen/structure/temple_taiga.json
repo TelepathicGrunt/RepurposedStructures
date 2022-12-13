@@ -1,0 +1,14 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:temples/taiga",
+  "size": 1,
+  "biomes": "#repurposed_structures:has_structure/temples/taiga",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "burying_type": "AVERAGE_LAND",
+  "start_height": {
+    "absolute": -3
+  },
+  "spawn_overrides": {}
+}

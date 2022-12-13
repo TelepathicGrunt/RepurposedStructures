@@ -21,7 +21,6 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
         super(NoneFeatureConfiguration.CODEC);
     }
 
-
     @Override
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
 

@@ -1,0 +1,159 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 10.0,
+        "min": 4.0
+      },
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "name": "minecraft:suspicious_stew",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:levitation",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 120.0,
+                    "min": 20.0
+                  }
+                },
+                {
+                  "type": "minecraft:slow_falling",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 120.0,
+                    "min": 20.0
+                  }
+                },
+                {
+                  "type": "minecraft:slowness",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "max": 90.0,
+                    "min": 30.0
+                  }
+                }
+              ]
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:golden_carrot",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:chorus_fruit",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:pearlescent_froglight",
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:ender_pearl",
+          "type": "minecraft:item",
+          "weight": 4,
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "repurposed_structures:chests/lucky_pool"
+        }
+      ]
+    },
+    {
+      "rolls": 0,
+      "bonus_rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 130
+        },
+        {
+          "name": "minecraft:magenta_banner",
+          "type": "minecraft:item",
+          "weight": 30,
+          "functions": [
+            {
+              "function":"set_nbt",
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:bri,Color:15},{Pattern:ss,Color:2},{Pattern:gru,Color:15},{Pattern:gru,Color:2},{Pattern:mr,Color:15},{Pattern:br,Color:2},{Pattern:br,Color:15},{Pattern:bl,Color:2},{Pattern:bl,Color:15},{Pattern:bts,Color:2},{Pattern:gru,Color:10},{Pattern:bts,Color:15}]}}"
+            }
+          ]
+        },
+        {
+          "name": "minecraft:dragon_breath",
+          "type": "minecraft:item",
+          "weight": 3
+        }
+      ]
+    }
+  ]
+}

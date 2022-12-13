@@ -5,7 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
 public class StructureTargetConfig implements FeatureConfiguration {
-    public static final Codec<StructureTargetConfig> CODEC = RecordCodecBuilder.<StructureTargetConfig>create((configInstance) -> configInstance.group(
+    public static final Codec<StructureTargetConfig> CODEC = RecordCodecBuilder.create((configInstance) -> configInstance.group(
             Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(config -> config.attempts)
     ).apply(configInstance, StructureTargetConfig::new));
 
