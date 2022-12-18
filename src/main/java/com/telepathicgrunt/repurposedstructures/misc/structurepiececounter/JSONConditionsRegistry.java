@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.misc.structurepiececounter;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
+import net.fabricmc.fabric.api.event.registry.RegistryAttribute;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -14,7 +15,10 @@ public final class JSONConditionsRegistry {
 
     public static final ResourceKey<Registry<Supplier<Boolean>>> RS_JSON_CONDITIONS_KEY = ResourceKey.createRegistryKey(new ResourceLocation(RepurposedStructures.MODID, "json_conditions"));
     private static final Supplier<Boolean> TEMP_CLASS_TYPE = () -> true;
-    public static final Registry<Supplier<Boolean>> RS_JSON_CONDITIONS_REGISTRY = (Registry<Supplier<Boolean>>) FabricRegistryBuilder.createSimple(TEMP_CLASS_TYPE.getClass(), RS_JSON_CONDITIONS_KEY.location()).buildAndRegister();
+    public static final Registry<Supplier<Boolean>> RS_JSON_CONDITIONS_REGISTRY = (Registry<Supplier<Boolean>>) FabricRegistryBuilder
+            .createSimple(TEMP_CLASS_TYPE.getClass(), RS_JSON_CONDITIONS_KEY.location())
+            .attribute(RegistryAttribute.MODDED)
+            .buildAndRegister();
 
     public static void createJSONConditionsRegistry() {
         // Classloads the fields that creates the registries.
