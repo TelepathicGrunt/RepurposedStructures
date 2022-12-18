@@ -14,9 +14,9 @@ public class BuiltInRegistriesMixin {
      * Creates and inits our custom registry at game startup
      * @author TelepathicGrunt
      */
-    @Inject(method = "<init>",
+    @Inject(method = "<clinit>",
             at = @At(value = "RETURN"))
-    private void repurposedstructures_initCustomRegistries(CallbackInfo ci) {
+    private static void repurposedstructures_initCustomRegistries(CallbackInfo ci) {
         JSONConditionsRegistry.createJSONConditionsRegistry();
     }
 }

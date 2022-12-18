@@ -3,6 +3,8 @@
 #### Misc:
 Fixed RS Compat datapacks not working.
 
+Fixed crash with Fabric Waystones
+
 
 ### **(V.6.1.4 Changes) (1.19.3 Minecraft)**
 
