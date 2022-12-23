@@ -12,9 +12,9 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "birch":"oak"
 }
 conversion_exact_dict = {
-    "minecraft:nether_bricks_slab": "minecraft:nether_brick_slab"
 }
 #-------------------------------------------------------------------------------------------
 
