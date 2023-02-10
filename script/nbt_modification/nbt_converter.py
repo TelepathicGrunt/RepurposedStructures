@@ -71,7 +71,7 @@ def traverse_dicts(nbt_list):
                 string_replacer(entry)
 
             #property_replacer(key, entry, "PersistenceRequired", 0, 1)
-            property_replacer(key, entry, "waterlogged", "true", "false")
+            #property_replacer(key, entry, "waterlogged", "true", "false")
             #property_replacer(key, entry, "joint", "rollable", "aligned")
 
 

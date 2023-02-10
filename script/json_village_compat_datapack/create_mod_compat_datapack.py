@@ -48,7 +48,7 @@ while restart:
     structure_type = "village"
     structure_type_plural = structure_type if structure_type.endswith('s') else ((structure_type[:-1] + 'ies') if structure_type.endswith('y') else (structure_type + 's'));
     structure_variants = {
-        "badlands": "minecraft:empty",
+        "badlands": "repurposed_structures:villages/badlands/randomizer",
         "birch": "repurposed_structures:villages/birch/mossify",
         "crimson": "repurposed_structures:villages/crimson/randomizer",
         "dark_forest": "repurposed_structures:villages/dark_forest/mossify",
@@ -57,6 +57,7 @@ while restart:
         "mountains": "repurposed_structures:villages/mountains/mossify",
         "mushroom": "repurposed_structures:villages/mushroom/general_randomizer",
         "oak": "repurposed_structures:villages/oak/mossify",
+        "ocean": "repurposed_structures:villages/ocean/randomize",
         "swamp": "repurposed_structures:villages/swamp/mossify",
         "warped": "repurposed_structures:villages/warped/randomizer"
     }
