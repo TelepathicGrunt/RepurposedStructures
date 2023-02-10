@@ -6,6 +6,8 @@ Fixed many Badlands Houses having a random Orange Terracotta blocking their door
 #### Ancient Cities:
 Fixed logs mentioning "No key selector in MapLike" when Nether and End Ancient Cities spawn a Sculk Sensor.
 
+Decreased the amount of randomly removed blocks from Nether Ancient City to make it slightly less messy.
+
 
 ### **(V.6.3.8 Changes) (1.19.0-1.19.2 Minecraft)**
 
