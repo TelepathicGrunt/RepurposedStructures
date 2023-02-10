@@ -92,6 +92,9 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC Fabric)"
 	mainFile.addRequirement("fabric-api")
 	mainFile.addRequirement("midnightlib")
+	mainFile.addGameVersion("1.19")
+	mainFile.addGameVersion("1.19.1")
+	mainFile.addGameVersion("1.19.2")
 }
 
 
