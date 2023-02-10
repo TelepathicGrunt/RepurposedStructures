@@ -40,6 +40,10 @@ repositories {
 	maven { url "https://api.modrinth.com/maven/" }
 	maven {	url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
 	maven { url "https://www.cursemaven.com" }
+	maven {
+		name = 'Quilt'
+		url = 'https://maven.quiltmc.org/repository/snapshot'
+	}
 }
 
 dependencies {
