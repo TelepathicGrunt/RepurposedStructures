@@ -1,3 +1,9 @@
+### **(V.6.3.11 Changes) (1.19.3 Minecraft)**
+
+#### Villages:
+Fixed many Badlands Houses having a random Orange Terracotta blocking their door.
+
+
 ### **(V.6.3.10 Changes) (1.19.3 Minecraft)**
 
 #### Misc:
