@@ -3,6 +3,9 @@
 #### Villages:
 Fixed many Badlands Houses having a random Orange Terracotta blocking their door.
 
+#### Ancient Cities:
+Fixed logs mentioning "No key selector in MapLike" when Nether and End Ancient Cities spawn a Sculk Sensor.
+
 
 ### **(V.6.3.1 Changes) (1.19.3 Minecraft)**
 
