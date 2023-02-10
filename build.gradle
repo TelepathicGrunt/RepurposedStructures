@@ -1,18 +1,13 @@
-import com.google.gson.Gson
-import net.fabricmc.loom.task.RemapJarTask
-
 buildscript {
 	repositories {
 		maven { url "https://plugins.gradle.org/m2/" }
-	}
-	dependencies {
-		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
 	}
 }
 
 plugins {
 	id 'fabric-loom' version '0.12-SNAPSHOT'
 	id "net.darkhax.curseforgegradle" version "1.0.7"
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -63,7 +58,13 @@ dependencies {
 	//modRuntimeOnly "curse.maven:yungs_api-421649:3479840"
 }
 
-apply from: 'gradle/processresources.gradle'
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
@@ -79,11 +80,12 @@ jar {
 }
 
 apply from: 'gradle/maven.gradle'
-apply from: 'gradle/modrinth.gradle'
+
+String changelogText = file("CHANGELOG.md").getText('UTF-8')
+
 task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 	apiToken = "$System.env.CURSEFORGEKEY"
 	int projectId = 391366
-	String changelogText = new File("CHANGELOG.md").getText('UTF-8')
 
 	def mainFile = upload(projectId, remapJar)
 	mainFile.changelog = changelogText
@@ -94,10 +96,26 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.addRequirement("midnightlib")
 }
 
+modrinth {
+	token = System.getenv("MODRINTH")
+	versionName = "Repurposed Structures"
+	versionNumber = project.version + "+fabric"
+	projectId = "muf0XoRe"
+	uploadFile = remapJar
+	changelog = changelogText
+	versionType = "BETA"
+	gameVersions = ["1.19.3"]
+	loaders = ["fabric"]
+	dependencies {
+		required.project "fabric-api"
+		required.project "midnightlib"
+	}
+}
+
 
 task buildAndRelease{}
 tasks.publish.mustRunAfter tasks.build
 tasks.publishCurseForge.mustRunAfter tasks.publish
-tasks.publishModrinth.mustRunAfter tasks.publish
+tasks.modrinth.mustRunAfter tasks.publish
 tasks.publishCurseForge.dependsOn("remapJar")
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.modrinth)
