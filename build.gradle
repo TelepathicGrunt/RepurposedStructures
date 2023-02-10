@@ -1,5 +1,3 @@
-import com.modrinth.minotaur.TaskModrinthUpload
-
 buildscript {
 	repositories {
 		maven { url "https://plugins.gradle.org/m2/" }
@@ -47,7 +45,7 @@ repositories {
 dependencies {
 	minecraft libs.minecraft
 	mappings( loom.layered {
-		addLayer quiltMappings.mappings("org.quiltmc:quilt-mappings:${libs.versions.quilt.mappings.get()}:v2")
+		"org.quiltmc:quilt-mappings:${libs.versions.quilt.mappings.get()}:intermediary-v2"
 		officialMojangMappings()
 	})
 	modImplementation libs.quilt.loader
