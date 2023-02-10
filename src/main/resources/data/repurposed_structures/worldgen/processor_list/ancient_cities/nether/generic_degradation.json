@@ -1,7 +1,7 @@
 {
   "processors": [
     {
-      "integrity": 0.95,
+      "integrity": 0.975,
       "processor_type": "minecraft:block_rot",
       "rottable_blocks": "#repurposed_structures:ancient_city_nether_replaceable"
     },

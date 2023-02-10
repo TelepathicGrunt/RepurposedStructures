@@ -8,6 +8,8 @@ Fixed logs mentioning "No key selector in MapLike" when Nether and End Ancient C
 
 Fixed logspam about missing nether/end ancient city rs_spawner files.
 
+Decreased the amount of randomly removed blocks from Nether Ancient City to make it slightly less messy.
+
 
 ### **(V.6.1.3 Changes) (1.19.0-1.19.2 Minecraft)**
 
