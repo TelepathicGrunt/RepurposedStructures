@@ -2,7 +2,7 @@
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
 minecraft = "1.19.3"
 quilt_mappings = "1.19.3+build.23"
-quilt_loader = "0.18.1-beta.73"
+quilt_loader = "0.18.1-beta.75"
 
 quilted_fabric_api = "5.0.0-beta.4+0.73.0-1.19.3" # Don't forget to add -{$mc_version} to end of this
 midnightlib = "1.0.0-quilt"
@@ -22,4 +22,4 @@ quilted_fabric_api = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-a
 # example = ["example-a", "example-b", "example-c"]
 
 [plugins]
-quilt_loom = { id = "org.quiltmc.loom", version = "1.0+" }
+quilt_loom = { id = "org.quiltmc.loom", version = "1.+" }
