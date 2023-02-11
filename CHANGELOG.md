@@ -1,3 +1,9 @@
+### **(V.6.3.12 Changes) (1.19.3 Minecraft)**
+
+#### Lang:
+Japanese lang file added. Special thanks to a player for creating this file and translations!
+
+
 ### **(V.6.3.11 Changes) (1.19.3 Minecraft)**
 
 #### Villages:
