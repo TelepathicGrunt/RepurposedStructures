@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.telepathicgrunt.repurposedstructures.mixin.fabric",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "resources.LootTableMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

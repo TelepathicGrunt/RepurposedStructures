@@ -1,152 +1,153 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        maven { url "https://plugins.gradle.org/m2/" }
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7.+'
-    }
-}
-
 plugins {
-    id "net.darkhax.curseforgegradle" version "1.0.7"
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "0.12.0-SNAPSHOT" apply false
     id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
+    id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
+architectury {
+    minecraft = rootProject.minecraft_version
+}
 
-version = "${mod_version}+${mc_version}"
-group = "com.telepathicgrunt"
-archivesBaseName = "${modid}_forge"
+subprojects {
+    apply plugin: "dev.architectury.loom"
+    apply plugin: "com.modrinth.minotaur"
+    apply plugin: "com.matthewprenger.cursegradle"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+    version = "${rootProject.mod_version}+${rootProject.minecraft_version}-${name}"
 
-minecraft {
-    mappings channel: "official", version: "${mc_version}"
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-   
-    runs {
-        all {
-            workingDirectory project.file('run')
-            arg "-mixin.config=" + project.getProperty('modid') + ".mixins.json"
-            mods { repurposed_structures { source sourceSets.main } }
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings loom.officialMojangMappings()
+    }
+
+    Map<String, Map<String, String>> platformSettings = [
+            "fabric": [
+                    "curse-id": "363949",
+                    "modrinth-id": "eA8SXqWL"
+            ],
+            "quilt": [
+                    "curse-id": "363949",
+                    "modrinth-id": "eA8SXqWL"
+            ],
+            "forge": [
+                    "curse-id": "368293",
+                    "modrinth-id": "QDNS5oAT"
+            ]
+    ]
+
+    Map<String, Map<String, Boolean>> platformDependencies = [
+            "fabric": [
+                    "fabric-api": true
+            ],
+            "quilt": [
+                    "qsl": true
+            ],
+            "forge": []
+    ]
+
+    var env = System.getenv()
+    def uploadSettings = platformSettings.get(name)
+    def uploadDependencies = platformDependencies.get(name)
+
+    if (uploadSettings != null && uploadDependencies != null) {
+
+        File changeLog = rootProject.file("CHANGELOG.md")
+        String changeLogText = changeLog.exists() ? changeLog.text : ""
+
+        if (env.MODRINTH) {
+            modrinth {
+                token = env.MODRINTH
+                versionName = "Repurposed Structures"
+                versionNumber = "${project.version}"
+                projectId = "QDNS5oAT"
+                changelog = changeLogText
+                projectId = uploadSettings["modrinth-id"]
+
+                gameVersions = ["${rootProject.minecraft_version}"]
+                loaders = [name]
+
+                if (name == "fabric") {
+                    versionType = "BETA"
+                }
+                else {
+                    versionType = "RELEASE"
+                }
+
+                uploadFile = tasks.remapJar
+
+                dependencies {
+                    def optionalContainer = getOptional()
+                    def requiredContainer = getRequired()
+                    uploadDependencies.each { dep, required ->
+                        if (required) {
+                            requiredContainer.project(dep)
+                        } else {
+                            optionalContainer.project(dep)
+                        }
+                    }
+                }
+            }
         }
-        client {}
-        server {}
-        data {
-            args '--mod', project.getProperty('modid'), '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+        if (env.CURSEFORGEKEY) {
+            task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+                apiToken = env.CURSEFORGEKEY
+                int projectId = uploadSettings["curse-id"] as int
+
+                def mainFile = upload(projectId, tasks.remapJar)
+                mainFile.changelog = changeLogText
+                mainFile.changelogType = "markdown"
+
+                if (name == "fabric") {
+                    mainFile.releaseType = "beta"
+                }
+                else {
+                    mainFile.releaseType = "release"
+                }
+
+                mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC ${name.capitalize()})"
+                mainFile.addGameVersion("${rootProject.minecraft_version}")
+            }
         }
     }
 }
 
-repositories {
-    maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
-    maven { url "https://www.cursemaven.com" }
-    maven { url "https://api.modrinth.com/maven/" }
-    maven {
-        url "https://maven.architectury.dev/"
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
+
+    archivesBaseName = rootProject.archives_base_name
+    version = "${rootProject.mod_version}+${rootProject.minecraft_version}-${name}"
+    group = rootProject.maven_group
+
+    repositories {
+        maven {
+            url = 'https://maven.cafeteria.dev/releases'
+            content {
+                includeGroup 'dev.cafeteria'
+            }
+        }
+        maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
+        maven { url "https://maven.architectury.dev/" }
+        maven { url "https://maven.shedaniel.me" }
+        maven { url "https://jitpack.io" }
+        maven { url "https://www.cursemaven.com" }
+        maven { url "https://api.modrinth.com/maven/" }
     }
-    maven {
-        url "https://maven.shedaniel.me"
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
     }
-}
 
-dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
-
-    runtimeOnly fg.deobf("com.telepathicgrunt:StructureVoidToggle-Forge:4.1.4+1.19.3")
-    runtimeOnly fg.deobf("com.telepathicgrunt:CommandStructures-Forge:4.0.0+1.19.3")
-    // runtimeOnly fg.deobf("curse.maven:hugestructureblock-474114:3836266")
-    // compileOnly fg.deobf("curse.maven:async_locator-625069:3816310") // v1.0.1
-
-    //runtimeOnly fg.deobf("curse.maven:byg-247560:4027228")
-    //runtimeOnly fg.deobf("curse.maven:terrablender-563928:4013816")
-    //runtimeOnly fg.deobf("curse.maven:better_monuments-689238:4031366")
-    //runtimeOnly fg.deobf("curse.maven:yungs_api-421850:4031185")
-    //runtimeOnly fg.deobf("curse.maven:better_strongholds-465575:4031213")
-    //runtimeOnly fg.deobf("curse.maven:domesticationinnovation-591149:3904628")
-    //runtimeOnly fg.deobf("curse.maven:citadel-331936:3902867")
-    //runtimeOnly fg.deobf("curse.maven:terralith-513688:3874530")
-    //runtimeOnly fg.deobf("curse.maven:williamwythersoverhauledoverworld-490686:3868321")
-    //runtimeOnly fg.deobf("curse.maven:xaeroworldmap-317780:3835797")
-    //runtimeOnly fg.deobf("curse.maven:xaerominimap-263420:3835776")
-    //runtimeOnly fg.deobf("curse.maven:friends_and_foes-602059:3827719")
-    //runtimeOnly fg.deobf("dev.architectury:architectury-forge:5.7.27")
-    //runtimeOnly fg.deobf("curse.maven:morevillagers-484954:3833536")
-    //runtimeOnly fg.deobf("curse.maven:lootr-361276:3824244")
-    //runtimeOnly fg.deobf("curse.maven:advanced_peripherals-431725:3799046")
-    //runtimeOnly fg.deobf("curse.maven:cc_tweaked-282001:3770724")
-    //runtimeOnly fg.deobf("curse.maven:the_twilight_forest-227639:3818688")
-
-    // 1.18.2
-    //runtimeOnly fg.deobf("curse.maven:pneumaticcraft_repressurized-281849:3682893")
-    //runtimeOnly fg.deobf("curse.maven:patchouli-306770:3680301")
-    //runtimeOnly fg.deobf("curse.maven:waystones-245755:3684732")
-    //runtimeOnly fg.deobf("curse.maven:balm-531761:3710117")
-
-    // 1.18.1
-    //runtimeOnly fg.deobf("curse.maven:better_dungeons-510089:3659567")
-    //runtimeOnly fg.deobf("curse.maven:endremastered-404183:3600701")
-    //runtimeOnly fg.deobf("curse.maven:terralith-513688:3606078")
-    //runtimeOnly fg.deobf("curse.maven:hexerei-548599:3562165")
-}
-
-mixin {
-    add sourceSets.main, "${modid}.refmap.json"
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
-}
-
-processResources {}
-
-apply from: 'gradle/manifest.gradle'
-apply from: 'gradle/maven.gradle'
-
-String fileContents = new File("./", "CHANGELOG.md").getText('UTF-8')
-
-task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-    apiToken = "$System.env.CURSEFORGEKEY"
-    int projectId = 368293
-
-    def mainFile = upload(projectId, jar)
-    mainFile.changelog = fileContents
-    mainFile.changelogType = "markdown"
-    mainFile.releaseType = "release"
-    mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.mc_version} MC)"
-    mainFile.addGameVersion("1.19.3")
-    //mainFile.addOptional("async-locator")
-}
-
-modrinth {
-    token = System.getenv("MODRINTH")
-    versionName = "Repurposed Structures"
-    versionNumber = project.version
-    projectId = "QDNS5oAT"
-    uploadFile = jar
-    changelog = fileContents
-    versionType = "RELEASE"
-    gameVersions = ["1.19.3"]
-    loaders = ["forge"]
-}
-
-task checkForRefmap() {
-    if (file("./build/libs/repurposed_structures_forge-${project.mod_version}+${project.mc_version}.jar").exists()) {
-        assert zipTree("./build/libs/repurposed_structures_forge-${project.mod_version}+${project.mc_version}.jar")
-                .matching { include "repurposed_structures.refmap.json" }.getSingleFile() != null
+    java {
+        withSourcesJar()
     }
 }
-
-task buildAndRelease{}
-tasks.checkForRefmap.mustRunAfter tasks.build
-tasks.publish.mustRunAfter tasks.checkForRefmap
-tasks.publishCurseForge.mustRunAfter tasks.publish
-tasks.modrinth.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.checkForRefmap, tasks.publish, tasks.publishCurseForge, tasks.modrinth)

@@ -22,5 +22,5 @@ eclipse
 run
 .gitattributes
 deps
-src/generated
+common/src/generated
 CHANGELOG_OLD.md

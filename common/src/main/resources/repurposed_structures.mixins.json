@@ -1,0 +1,35 @@
+{
+  "required": true,
+  "package": "com.telepathicgrunt.repurposedstructures.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "entities.ShulkerEntityInvoker",
+    "features.DungeonFeatureAccessor",
+    "features.LessJungleBushInStructuresMixin",
+    "features.NoBasaltColumnsInStructuresMixin",
+    "features.NoDeltasInStructuresMixin",
+    "features.NoFallsInStructuresMixin",
+    "features.NoLakesInStructuresMixin",
+    "resources.NamespaceResourceManagerAccessor",
+    "resources.ReloadableResourceManagerImplAccessor",
+    "structures.ListPoolElementAccessor",
+    "structures.LocateCommandMixin",
+    "structures.PoolElementStructurePieceAccessor",
+    "structures.SinglePoolElementAccessor",
+    "structures.StructurePieceAccessor",
+    "structures.StructurePoolAccessor",
+    "structures.StructurePoolMixin",
+    "structures.StructureProcessorAccessor",
+    "structures.StructureTemplateManagerAccessor",
+    "structures.StructureTemplateMixin",
+    "structures.TemplateAccessor",
+    "world.WorldGenRegionAccessor"
+  ],
+  "client": [
+    "blocks.StructureBlockScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

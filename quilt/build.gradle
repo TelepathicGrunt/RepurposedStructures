@@ -1,0 +1,152 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+repositories {
+    maven { url 'https://maven.quiltmc.org/repository/release' }
+    maven { url 'https://maven.quiltmc.org/repository/snapshot' }
+}
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+}
+
+architectury {
+    platformSetupLoomIde()
+    loader("quilt")
+}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentQuilt.extendsFrom common
+}
+
+configurations.all {
+    resolutionStrategy.dependencySubstitution {
+        substitute module('net.fabricmc:fabric-loader') using module("org.quiltmc:quilt-loader:${rootProject.quilt_loader_version}")
+        all { DependencySubstitution dependency ->
+            if (dependency.requested instanceof ModuleComponentSelector && dependency.requested.group == 'net.fabricmc.fabric-api') {
+                if (dependency.requested.module == 'fabric-api')
+                    dependency.useTarget "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${rootProject.quilt_fabric_api_version}-${rootProject.minecraft_version}"
+                else
+                    dependency.useTarget 'org.quiltmc.quilted-fabric-api' + ':' + dependency.requested.module + ":5.0.0-alpha.7+0.70.0-1.19.3"
+            }
+        }
+    }
+}
+
+dependencies {
+    modImplementation "org.quiltmc:quilt-loader:${rootProject.quilt_loader_version}"
+    modApi("org.quiltmc.quilted-fabric-api:quilted-fabric-api:${rootProject.quilt_fabric_api_version}-${rootProject.minecraft_version}") {
+        force = true
+    }
+
+    modImplementation "maven.modrinth:midnightlib:${rootProject.midnightlib}"
+
+    modCompileOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
+    modRuntimeOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
+    common(project(path: ":fabric-base", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":fabric-base", configuration: "transformProductionQuilt")) { transitive false }
+
+    include "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+    modImplementation "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+    annotationProcessor "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("quilt.mod.json") {
+        expand "version": project.version
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowCommon]
+    classifier "dev-shadow"
+}
+
+remapJar {
+    injectAccessWidener = true
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    classifier null
+}
+
+jar {
+    classifier "dev"
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+def ENV = System.getenv()
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+
+            artifactId = "$rootProject.name"
+
+            pom {
+                name = 'RepurposedStructures'
+                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
+                url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
+
+                scm {
+                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
+                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
+                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
+                }
+
+                licenses {
+                    license {
+                        name = 'GNU Lesser General Public License v3.0'
+                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures/blob/master/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'telepathic_grunt'
+                        name = 'TelepathicGrunt'
+                        email = 'asarnesespam@gmail.com'
+                    }
+                }
+            }
+
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://nexus.resourcefulbees.com/repository/telepathicgrunt/")
+            credentials {
+                username ENV.MAVEN_USER
+                password ENV.MAVEN_PASS
+            }
+        }
+    }
+}
+
+task buildAndRelease{}
+tasks.publish.mustRunAfter tasks.build
+tasks.publishCurseForge.mustRunAfter tasks.publish
+tasks.modrinth.mustRunAfter tasks.publish
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.modrinth)

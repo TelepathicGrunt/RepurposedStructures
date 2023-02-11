@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.telepathicgrunt.repurposedstructures.mixin.fabricbase",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "blocks.RailBlockMixin",
+    "resources.BuilderAccessor",
+    "resources.LootContextAccessor",
+    "resources.LootManagerAccessor"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

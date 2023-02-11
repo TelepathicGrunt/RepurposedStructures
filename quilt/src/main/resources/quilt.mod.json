@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.telepathicgrunt",
+    "id": "repurposed_structures",
+    "version": "${version}",
+    "metadata": {
+      "name": "Repurposed Structures",
+      "description": "Adds more variations of vanilla structures and features!",
+      "contributors": {
+        "TelepathicGrunt": "Owner"
+      },
+      "license": "LGPL-3.0-or-later",
+      "icon": "assets/repurposed_structures/repurposed_structures_logo.png",
+      "contact": {
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric",
+        "issues": "https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/issues"
+      }
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "com.telepathicgrunt.repurposedstructures.RepurposedStructures",
+      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.17.0-"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=5.0.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.19.3"
+      },
+      {
+        "id": "midnightlib",
+        "versions": ">=0.5.2"
+      }
+    ]
+  },
+  "mixin": "repurposed_structures.mixins.json"
+}
