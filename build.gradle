@@ -3,7 +3,6 @@ plugins {
     id "dev.architectury.loom" version "0.12.0-SNAPSHOT" apply false
     id "com.modrinth.minotaur" version "2.+"
     id "com.matthewprenger.cursegradle" version "1.4.0"
-    id "net.darkhax.curseforgegradle" version "1.0.7"
 }
 
 architectury {
@@ -28,12 +27,12 @@ subprojects {
 
     Map<String, Map<String, String>> platformSettings = [
             "fabric": [
-                    "curse-id": "363949",
-                    "modrinth-id": "eA8SXqWL"
+                    "curse-id": "391366",
+                    "modrinth-id": "muf0XoRe"
             ],
             "quilt": [
-                    "curse-id": "363949",
-                    "modrinth-id": "eA8SXqWL"
+                    "curse-id": "391366",
+                    "modrinth-id": "muf0XoRe"
             ],
             "forge": [
                     "curse-id": "368293",
@@ -96,23 +95,38 @@ subprojects {
         }
 
         if (env.CURSEFORGEKEY) {
-            task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-                apiToken = env.CURSEFORGEKEY
-                int projectId = uploadSettings["curse-id"] as int
+            curseforge {
+                apiKey = env.CURSEFORGEKEY
+                project { proj ->
+                    id = uploadSettings["curse-id"]
+                    changelog = changeLogText
+                    if (name == "fabric") {
+                        releaseType = "beta"
+                    }
+                    else {
+                        releaseType = "release"
+                    }
 
-                def mainFile = upload(projectId, tasks.remapJar)
-                mainFile.changelog = changeLogText
-                mainFile.changelogType = "markdown"
+                    addGameVersion("${rootProject.minecraft_version}")
+                    addGameVersion(name.capitalize())
 
-                if (name == "fabric") {
-                    mainFile.releaseType = "beta"
+                    mainArtifact(tasks.remapJar) {
+                        displayName = "Repurposed Structures v${rootProject.mod_version} (${rootProject.minecraft_version} MC ${name.capitalize()})"
+                    }
+
+                    if (uploadDependencies.size() > 0) {
+                        relations {
+                            uploadDependencies.each { dep, required ->
+                                if (required) {
+                                    requiredDependency(dep)
+                                }
+                                else {
+                                    optionalDependency(dep)
+                                }
+                            }
+                        }
+                    }
                 }
-                else {
-                    mainFile.releaseType = "release"
-                }
-
-                mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC ${name.capitalize()})"
-                mainFile.addGameVersion("${rootProject.minecraft_version}")
             }
         }
     }
