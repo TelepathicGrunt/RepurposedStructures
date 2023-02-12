@@ -44,15 +44,22 @@ dependencies {
         force = true
     }
 
-    modImplementation "maven.modrinth:midnightlib:${rootProject.midnightlib}"
+    modImplementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
 
-    modCompileOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
-    modRuntimeOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
+    modCompileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
+    modRuntimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
+
+    modLocalRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
+    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
     common(project(path: ":fabric-base", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":fabric-base", configuration: "transformProductionQuilt")) { transitive false }
+
+    include "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+    modImplementation "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+    annotationProcessor "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
 }
 
 processResources {
