@@ -96,7 +96,10 @@ def ENV = System.getenv()
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+            artifact remapJar
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
 
             artifactId = "$rootProject.name"
 

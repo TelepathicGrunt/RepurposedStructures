@@ -9,7 +9,11 @@ Fixed having multiple compat datapacks not properly working together if they tar
 
 NOTE TO OTHER DEVS: If you were adding new conditions to the RS condition registry, please note it has been moved now!
  See the comment in this file for how to safely register to the register now: 
- https://github.com/TelepathicGrunt/RepurposedStructures/blob/1.19.3-Arch/common/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConditionsRegistry.java#L20-L42
+ https://github.com/TelepathicGrunt/RepurposedStructures/blob/1.19.3-Arch/common/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConditionsRegistry.java#L20-L46
+
+Silenced "Hanging entity at invalid position" logspam from vanilla by lowering the logging level of that event from error to debug level.
+ Mojang bug report: https://bugs.mojang.com/browse/MC-252934
+ The Item Frame spawned from nbt files still places as intended and functions as intended. This was just annoying logspam I decided to yeet.
 
 #### Lang:
 Japanese lang file added. Special thanks to a player for creating this file and translations!
