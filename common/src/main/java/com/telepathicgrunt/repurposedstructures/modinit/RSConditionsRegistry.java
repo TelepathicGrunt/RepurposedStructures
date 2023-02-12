@@ -37,7 +37,11 @@ public final class RSConditionsRegistry {
                  () -> SomeConfig.EnableJson()));
 
      * FORGE:
-        RS_JSON_CONDITIONS_REGISTRY.register("test", () -> () -> SomeConfig.EnableJson());
+        public static final DeferredRegister<Supplier<Boolean>> RS_CONDITIONS_REGISTRY = DeferredRegister.createOptional(
+                new ResourceLocation("repurposed_structures", "json_conditions"), "modid");
 
+        // If the typing here doesn't work, make a helper method that takes a Supplier<Boolean> and returns a Supplier<Boolean>
+        public static final RegistryObject<Supplier<Boolean>> CUSTOM_MOD_CONFIG_CONDITION = RS_CONDITIONS_REGISTRY.register(
+                "test", () -> () -> SomeConfig.EnableJson());
      */
 }
