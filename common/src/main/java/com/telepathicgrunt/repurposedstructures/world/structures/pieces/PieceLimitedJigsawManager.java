@@ -143,7 +143,7 @@ public class PieceLimitedJigsawManager {
                                       Please report the issue to Repurposed Structures's dev with latest.log file if the structure is not cut off by world min/max y build thresholds.
                                             
                                     """,
-                            startPool, Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()), new BlockPos(pieceCenterX, pieceCenterY, pieceCenterZ));
+                            jigsawPoolRegistry.getKey(startPool), Arrays.toString(currentPieceCounter.entrySet().stream().filter(entry -> entry.getValue() > 0).toArray()), new BlockPos(pieceCenterX, pieceCenterY, pieceCenterZ));
                     break;
                 }
 
