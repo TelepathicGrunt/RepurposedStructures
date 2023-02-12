@@ -44,9 +44,6 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
-
-    shadowMinecraftLibrary "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
-    annotationProcessor "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
 }
 
 processResources {

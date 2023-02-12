@@ -3,7 +3,8 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin.forge",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "resources.LootContextAccessor"
+    "resources.LootContextAccessor",
+    "structures.StructurePoolMixin"
   ],
   "client": [],
   "injectors": {

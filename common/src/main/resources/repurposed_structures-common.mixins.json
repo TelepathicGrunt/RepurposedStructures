@@ -18,7 +18,6 @@
     "structures.SinglePoolElementAccessor",
     "structures.StructurePieceAccessor",
     "structures.StructurePoolAccessor",
-    "structures.StructurePoolMixin",
     "structures.StructureProcessorAccessor",
     "structures.StructureTemplateManagerAccessor",
     "structures.StructureTemplateMixin",

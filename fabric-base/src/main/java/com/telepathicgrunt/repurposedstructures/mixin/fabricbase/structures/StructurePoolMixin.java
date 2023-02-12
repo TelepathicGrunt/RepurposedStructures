@@ -1,10 +1,11 @@
-package com.telepathicgrunt.repurposedstructures.mixin.structures;
+package com.telepathicgrunt.repurposedstructures.mixin.fabricbase.structures;
 
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
+@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(StructureTemplatePool.class)
 public class StructurePoolMixin {
 
@@ -15,24 +16,14 @@ public class StructurePoolMixin {
      */
     @ModifyConstant(
             method = {
-                "lambda$static$1(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;",
-            },
-            constant = @Constant(intValue = 150),
-            require = 0
-    )
-    private static int repurposedstructures_increaseWeightLimitForge(int constant) {
-        return 5000;
-    }
-
-    @ModifyConstant(
-            method = {
                 "m_dgkaflam",
                 "method_28886"
             },
             constant = @Constant(intValue = 150),
+            remap = false,
             require = 0
     )
-    private static int repurposedstructures_increaseWeightLimitFabricQuilt(int constant) {
+    private static int repurposedstructures_increaseWeightLimit(int constant) {
         return 5000;
     }
 }

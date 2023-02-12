@@ -32,11 +32,10 @@ dependencies {
     modCompileOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
     modRuntimeOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    //modImplementation "curse.maven:fwaystones-410902:4187202"
+    //modImplementation "curse.maven:waystones-500087:4191455"
 
-    include "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
-    modImplementation "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
-    annotationProcessor "com.github.LlamaLad7:MixinExtras:${rootProject.mixin_extras}"
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
 }
 
 processResources {

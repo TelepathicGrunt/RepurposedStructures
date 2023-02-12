@@ -8,7 +8,8 @@
     "resources.BuilderAccessor",
     "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
-    "resources.LootManagerAccessor"
+    "resources.LootManagerAccessor",
+    "structures.StructurePoolMixin"
   ],
   "client": [],
   "injectors": {

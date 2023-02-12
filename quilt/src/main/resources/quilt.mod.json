@@ -41,5 +41,9 @@
       }
     ]
   },
-  "mixin": "repurposed_structures-quilt.mixins.json"
+  "mixin": [
+    "repurposed_structures-quilt.mixins.json",
+    "repurposed_structures-fabric-base.mixins.json",
+    "repurposed_structures-common.mixins.json"
+  ]
 }
