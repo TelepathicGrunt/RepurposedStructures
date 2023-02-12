@@ -26,7 +26,8 @@ public final class RSConditionsRegistry {
      * ResourceLocation of the condition you registered. The rs_pieces_spawn_counts folder files can also take
      * a "condition" field for its entries as well.
      *
-     * You can register what the condition is to this registry by doing this in your mod so now your config can control the json files:
+     * You can register what the condition is to this registry by doing the below in your mod so now your config can control the json files.
+     * NOTE: DO THIS CODE ONLY AT MOD INIT. Do not run it when a world is being made! The registry will be frozen after mod init.
 
      * FABRIC/QUILT:
          BuiltInRegistries.REGISTRY.getOptional(new ResourceLocation("repurposed_structures", "json_conditions"))

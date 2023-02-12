@@ -32,9 +32,6 @@ dependencies {
     modCompileOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
     modRuntimeOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
 
-    //modImplementation "curse.maven:fwaystones-410902:4187202"
-    //modImplementation "curse.maven:waystones-500087:4191455"
-
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
 }
 

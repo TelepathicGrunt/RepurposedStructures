@@ -17,6 +17,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.FallbackResourceManager;
+import net.minecraft.server.packs.resources.IoSupplier;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
@@ -245,9 +246,12 @@ public final class GeneralUtils {
         // Find the file with the given id and add its filestream to the list
         for (FallbackResourceManager.PackEntry packEntry : allResourcePacks) {
             PackResources resourcePack = packEntry.resources();
-            if (resourcePack != null && resourcePack.getResource(PackType.SERVER_DATA, fileID) != null) {
-                InputStream inputStream = namespaceResourceManager.getResource(fileID).get().open();
-                fileStreams.add(inputStream);
+            if (resourcePack != null) {
+                IoSupplier<InputStream> IoSupplier = resourcePack.getResource(PackType.SERVER_DATA, fileID);
+                if (IoSupplier != null) {
+                    InputStream inputStream = IoSupplier.get();
+                    fileStreams.add(inputStream);
+                }
             }
         }
 
