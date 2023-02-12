@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 public class StructureMapManager extends SimpleJsonResourceReloadListener {
-    public static StructureMapManager STRUCTURE_MAP_MANAGER = new StructureMapManager();
-
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
+    public final static StructureMapManager STRUCTURE_MAP_MANAGER = new StructureMapManager();
 
     public Map<String, List<VillagerMapObj>> VILLAGER_MAP_TRADES = new HashMap<>();
     public Map<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> WANDERING_TRADER_MAP_TRADES = new HashMap<>();

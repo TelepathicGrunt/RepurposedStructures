@@ -13,8 +13,8 @@ loom {
         convertAccessWideners = true
         extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
 
-        mixinConfig "repurposedstructures-common.mixins.json"
-        mixinConfig "repurposedstructures-forge.mixins.json"
+        mixinConfig "repurposed_structures-common.mixins.json"
+        mixinConfig "repurposed_structures-forge.mixins.json"
 
         runs {
             all {

@@ -14,11 +14,25 @@ public class StructurePoolMixin {
      * @return - The higher weight that is a more reasonable limit.
      */
     @ModifyConstant(
-            method = "lambda$static$1(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;",
+            method = {
+                "lambda$static$1(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;",
+            },
             constant = @Constant(intValue = 150),
             require = 0
     )
-    private static int repurposedstructures_increaseWeightLimitDev(int constant) {
+    private static int repurposedstructures_increaseWeightLimitForge(int constant) {
+        return 5000;
+    }
+
+    @ModifyConstant(
+            method = {
+                "m_dgkaflam",
+                "method_28886"
+            },
+            constant = @Constant(intValue = 150),
+            require = 0
+    )
+    private static int repurposedstructures_increaseWeightLimitFabricQuilt(int constant) {
         return 5000;
     }
 }

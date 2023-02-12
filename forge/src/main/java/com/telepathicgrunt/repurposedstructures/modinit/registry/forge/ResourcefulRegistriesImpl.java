@@ -20,7 +20,7 @@ public class ResourcefulRegistriesImpl {
         return new ForgeResourcefulRegistry<>(registry.key(), id);
     }
 
-    public static <T, K extends Registry<T>> Pair<Supplier<CustomRegistryLookup<T>>, ResourcefulRegistry<T>> createCustomRegistryInternal(String modId, Class<T> type, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
+    public static <T, K extends Registry<T>> Pair<Supplier<CustomRegistryLookup<T>>, ResourcefulRegistry<T>> createCustomRegistryInternal(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
         CustomRegistryInfo<T> info = new CustomRegistryInfo<>(new LateSupplier<>(), key, save, sync, allowModification);
         CUSTOM_REGISTRIES.add(info);
         return Pair.of(info.lookup(), new ForgeResourcefulRegistry<>(key, modId));

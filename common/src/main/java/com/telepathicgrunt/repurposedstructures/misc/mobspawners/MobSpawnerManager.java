@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.Map;
 
 public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
-    public static MobSpawnerManager MOB_SPAWNER_MANAGER = new MobSpawnerManager();
-
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
+    public static final MobSpawnerManager MOB_SPAWNER_MANAGER = new MobSpawnerManager();
+
     private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
 
     public MobSpawnerManager() {

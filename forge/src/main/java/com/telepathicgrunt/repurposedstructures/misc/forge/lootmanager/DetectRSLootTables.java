@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.forge.lootmanager;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonDeserializationContext;

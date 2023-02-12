@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixin.fabric.resources;
 
-import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporterApplier;
+import com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager.StructureModdedLootImporterApplier;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -19,9 +20,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener {
-    public static StructurePieceCountsManager STRUCTURE_PIECE_COUNTS_MANAGER = new StructurePieceCountsManager();
-
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
+    public final static StructurePieceCountsManager STRUCTURE_PIECE_COUNTS_MANAGER = new StructurePieceCountsManager();
+
     private Map<ResourceLocation, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = new HashMap<>();
     private final Map<ResourceLocation, Map<ResourceLocation, RequiredPieceNeeds>> cachedRequirePiecesMap = new HashMap<>();
     private final Map<ResourceLocation, Map<ResourceLocation, Integer>> cachedMaxCountPiecesMap = new HashMap<>();
@@ -39,7 +40,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
                 throw new Exception("Repurposed Structures Error: Found " + entry.nbtPieceName + " entry has alwaysSpawnThisMany greater than neverSpawnMoreThanThisMany which is invalid.");
             }
             if(entry.condition != null) {
-                Supplier<Boolean> supplier = JSONConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(new ResourceLocation(entry.condition));
+                Supplier<Boolean> supplier = RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(new ResourceLocation(entry.condition));
                 if (supplier != null) {
                     if(!supplier.get()) {
                         piecesSpawnCounts.remove(entry);

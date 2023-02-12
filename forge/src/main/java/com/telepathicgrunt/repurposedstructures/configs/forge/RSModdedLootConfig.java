@@ -1,5 +1,6 @@
-package com.telepathicgrunt.repurposedstructures.configs;
+package com.telepathicgrunt.repurposedstructures.configs.forge;
 
+import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class RSModdedLootConfig {

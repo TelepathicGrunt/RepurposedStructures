@@ -9,7 +9,7 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
-import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.JSONConditionsRegistry;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.ListPoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePoolAccessor;
@@ -153,7 +153,7 @@ public final class PoolAdditionMerger {
         public AdditionalStructureTemplatePool(ResourceLocation name, Holder<StructureTemplatePool> fallback, List<ExpandedPoolEntry> rawTemplatesWithConditions) {
             super(fallback, rawTemplatesWithConditions.stream().filter(triple -> {
                 if(triple.condition().isPresent()) {
-                    Supplier<Boolean> supplier = JSONConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(triple.condition.get());
+                    Supplier<Boolean> supplier = RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(triple.condition.get());
                     if(supplier != null) {
                         return supplier.get();
                     }

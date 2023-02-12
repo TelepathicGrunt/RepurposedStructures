@@ -7,7 +7,7 @@ import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEv
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStopEvent;
-import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.BiomeModifier;
+import com.telepathicgrunt.repurposedstructures.world.fabric.biomemodifiers.BiomeModifier;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.api.ModInitializer;

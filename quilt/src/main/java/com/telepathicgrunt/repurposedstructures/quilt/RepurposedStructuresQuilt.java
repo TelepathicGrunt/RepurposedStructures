@@ -7,7 +7,7 @@ import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEv
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStopEvent;
-import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.BiomeModifier;
+import com.telepathicgrunt.repurposedstructures.world.quilt.biomemodifiers.BiomeModifier;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;

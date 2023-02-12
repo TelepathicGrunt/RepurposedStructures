@@ -12,11 +12,12 @@ import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManag
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
 import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.pooladditions.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.JSONConditionsRegistry;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
+import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
@@ -42,10 +43,11 @@ public class RepurposedStructures {
         RSPredicates.POS_RULE_TEST.init();
         RSStructures.STRUCTURE_TYPE.init();
         RSPlacements.PLACEMENT_MODIFIER.init();
+        RSProcessors.STRUCTURE_PROCESSOR.init();
         RSStructurePieces.STRUCTURE_PIECE.init();
         RSStructurePieces.STRUCTURE_POOL_ELEMENT.init();
         RSStructurePlacementType.STRUCTURE_PLACEMENT_TYPE.init();
-        JSONConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.init();
+        RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.init();
 
         SetupEvent.EVENT.addListener(RepurposedStructures::setup);
         RegisterReloadListenerEvent.EVENT.addListener(RepurposedStructures::registerDatapackListener);
@@ -56,7 +58,6 @@ public class RepurposedStructures {
     }
 
     private static void setup(final SetupEvent event) {
-        JSONConditionsRegistry.registerTestJSONCondition();
     }
 
     private static void serverAboutToStart(final ServerGoingToStartEvent event) {

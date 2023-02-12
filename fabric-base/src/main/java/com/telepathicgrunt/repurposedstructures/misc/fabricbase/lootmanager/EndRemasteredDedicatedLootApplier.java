@@ -1,5 +1,6 @@
-package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager;
 
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;

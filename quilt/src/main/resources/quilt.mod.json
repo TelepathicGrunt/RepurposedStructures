@@ -19,8 +19,8 @@
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-      "init": "com.telepathicgrunt.repurposedstructures.RepurposedStructures",
-      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.ModMenuConfig"
+      "init": "com.telepathicgrunt.repurposedstructures.quilt.RepurposedStructuresQuilt",
+      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
     },
     "depends": [
       {
@@ -41,5 +41,5 @@
       }
     ]
   },
-  "mixin": "repurposed_structures.mixins.json"
+  "mixin": "repurposed_structures-quilt.mixins.json"
 }
