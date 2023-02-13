@@ -12,9 +12,10 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "birch":"oak"
 }
 conversion_exact_dict = {
+    "minecraft:village/taiga/villagers":"repurposed_structures:villages/giant_taiga/villagers",
+    "minecraft:village/taiga/zombie/villagers":"repurposed_structures:villages/giant_taiga/zombie/villagers"
 }
 #-------------------------------------------------------------------------------------------
 
