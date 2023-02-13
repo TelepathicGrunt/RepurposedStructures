@@ -3,7 +3,7 @@
 #### Villages:
 Made sure all Villages now pull from their own villager template pools for villagers to spawn.
 
-Fixed Zombie Badnalds, Birch, and Oak Villages not spawning any Zombie Villagers.
+Fixed Zombie Badlands, Birch, and Oak Villages not spawning any Zombie Villagers.
 
 
 ### **(V.6.3.10 Changes) (1.19.0-1.19.2 Minecraft)**
