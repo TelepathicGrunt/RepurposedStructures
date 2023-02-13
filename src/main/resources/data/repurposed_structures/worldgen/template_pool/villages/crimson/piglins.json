@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/crimson/piglins",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:villages/crimson/piglins",
   "elements": [
     {
       "weight": 7,

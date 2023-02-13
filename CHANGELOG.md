@@ -1,3 +1,11 @@
+### **(V.6.3.12 Changes) (1.19.0-1.19.2 Minecraft)**
+
+#### Villages:
+Made sure all Villages now pull from their own villager template pools for villagers to spawn.
+
+Fixed Zombie Badnalds, Birch, and Oak Villages not spawning any Zombie Villagers.
+
+
 ### **(V.6.3.11 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Lang:
