@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/swamp/zombie/villagers",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:villages/swamp/zombie/villagers",
   "elements": [
     {
       "weight": 1,

@@ -1,6 +1,6 @@
 {
   "name": "repurposed_structures:villages/mountains/zombie/villagers",
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:villages/mountains/zombie/villagers",
   "elements": [
     {
       "weight": 1,
