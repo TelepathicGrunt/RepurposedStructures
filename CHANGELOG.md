@@ -9,6 +9,9 @@ Fixed Zombie Badlands, Birch, and Oak Villages not spawning any Zombie Villagers
 Fixed explorer maps that point to Ocean Monuments and Nether Fortresses in RS loot tables from breaking if
  Yung's Better Ocean Monument or Apocalyptic Fortresses is on. Instead, the maps will point to the new structures.
 
+#### Quilt:
+(Quilt): Fixed crash at startup due to misnamed package.
+
 
 ### **(V.6.3.14 Changes) (1.19.3 Minecraft)**
 
