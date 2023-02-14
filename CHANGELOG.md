@@ -5,6 +5,11 @@ Made sure all Villages now pull from their own villager template pools for villa
 
 Fixed Zombie Badlands, Birch, and Oak Villages not spawning any Zombie Villagers.
 
+#### Mod Compat:
+Fixed explorer maps that point to Ocean Monuments and Nether Fortresses in RS loot tables from breaking if 
+ Yung's Better Ocean Monument or Apocalyptic Fortresses is on. Instead, the maps will point to the new structures.
+
+
 
 ### **(V.6.3.10 Changes) (1.19.0-1.19.2 Minecraft)**
 

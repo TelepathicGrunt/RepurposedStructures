@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-	"minecraft:fortress"
+	"minecraft:fortress",
+    {
+      "id": "betterfortresses:fortress",
+      "required": false
+    },
+    {
+      "id": "hexfortress:nether_fortress",
+      "required": false
+    }
   ]
 }
