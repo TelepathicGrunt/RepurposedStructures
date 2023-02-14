@@ -425,7 +425,6 @@ public class PieceLimitedJigsawManager {
                     BoundingBox tempCandidateBoundingBox = candidatePiece.getBoundingBox(context.structureTemplateManager(), BlockPos.ZERO, rotation);
 
                     // Some sort of logic for setting the candidateHeightAdjustments var if doBoundaryAdjustments.
-                    // Not sure on this - personally, I never enable doBoundaryAdjustments.
                     int candidateHeightAdjustments;
                     if (doBoundaryAdjustments && tempCandidateBoundingBox.getYSpan() <= 16) {
                         candidateHeightAdjustments = candidateJigsawBlocks.stream().mapToInt((pieceCandidateJigsawBlock) -> {
@@ -435,9 +434,8 @@ public class PieceLimitedJigsawManager {
                             else {
                                 ResourceLocation candidateTargetPool = new ResourceLocation(pieceCandidateJigsawBlock.nbt.getString("pool"));
                                 Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(candidateTargetPool);
-                                Holder<StructureTemplatePool> candidateTargetFallbackHolder = candidateTargetPoolOptional.get().getFallback();
-                                int tallestCandidateTargetPoolPieceHeight = candidateTargetPoolOptional.map((p_242842_1_) -> p_242842_1_.getMaxSize(context.structureTemplateManager())).orElse(0);
-                                int tallestCandidateTargetFallbackPieceHeight = candidateTargetFallbackHolder.value().getMaxSize(context.structureTemplateManager());
+                                int tallestCandidateTargetFallbackPieceHeight = candidateTargetPoolOptional.map((c) -> c.getFallback().value().getMaxSize(context.structureTemplateManager())).orElse(0);
+                                int tallestCandidateTargetPoolPieceHeight = candidateTargetPoolOptional.map((c) -> c.getMaxSize(context.structureTemplateManager())).orElse(0);
                                 return Math.max(tallestCandidateTargetPoolPieceHeight, tallestCandidateTargetFallbackPieceHeight);
                             }
                         }).max().orElse(0);

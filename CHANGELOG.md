@@ -12,6 +12,17 @@ Fixed RS Village well bottoms being rotated incorrectly. (Mojang bug inherited h
 
 Fixed Swamp Village's and Giant Taiga Village's Shepherd house not spawning. (Mojang bug inherited https://bugs.mojang.com/browse/MC-170550 )
 
+Fixed Mountains Village Temple and Cartographer houses having a missing ladder block. (Mojang bug inherited https://bugs.mojang.com/browse/MC-151536 )
+
+Fixed misrotated block in Jungle Village Weaponsmith house. (Mojang bug https://bugs.mojang.com/browse/MC-199309 )
+
+Fixed Crimson, Birch, Dark Forest, Oak, Ocean, and Warped Village's Weaponsmith having hollow roof that can spawn mobs inside. (Mojang bug https://bugs.mojang.com/browse/MC-140448 )
+
+Fixed Jungle Village's Small Farm having 1 unhydrated farmland block. (Mojang bug https://bugs.mojang.com/browse/MC-199137 )
+
+#### Misc:
+Fixed crash when a Jigsaw Block somewhere points to a non-existent pool. Will log warning into log instead.
+
 #### Mod Compat:
 Fixed explorer maps that point to Ocean Monuments and Nether Fortresses in RS loot tables from breaking if
  Yung's Better Ocean Monument or Apocalyptic Fortresses is on. Instead, the maps will point to the new structures.
