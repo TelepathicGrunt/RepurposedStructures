@@ -15,7 +15,7 @@
       "weight": 50,
       "element": {
         "location": "repurposed_structures:villages/mountains/town_centers/meeting_point_2",
-        "processors": "repurposed_structures:villages/mountains/path_randomizer_and_mossify",
+        "processors": "repurposed_structures:villages/mountains/path_randomizer_and_mossify_and_weak_goldify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -33,7 +33,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mountains/zombie/town_centers/meeting_point_2",
-        "processors": "repurposed_structures:villages/mountains/path_randomizer_and_mossify",
+        "processors": "repurposed_structures:villages/mountains/path_randomizer_and_mossify_and_weak_goldify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

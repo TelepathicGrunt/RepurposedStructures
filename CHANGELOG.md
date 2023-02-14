@@ -5,6 +5,13 @@ Made sure all Villages now pull from their own villager template pools for villa
 
 Fixed Zombie Badlands, Birch, and Oak Villages not spawning any Zombie Villagers.
 
+Fixed Crimson and Warped zombified villages spawning cobblestone well bottoms.
+
+Fixed RS Village well bottoms being rotated incorrectly. (Mojang bug inherited https://bugs.mojang.com/browse/MC-194518 )
+ Well bottoms now can spawn with gold! (Mushroom Village well can spawn Amethyst Blocks instead)
+
+Fixed Swamp Village's and Giant Taiga Village's Shepherd house not spawning. (Mojang bug inherited https://bugs.mojang.com/browse/MC-170550 )
+
 #### Mod Compat:
 Fixed explorer maps that point to Ocean Monuments and Nether Fortresses in RS loot tables from breaking if
  Yung's Better Ocean Monument or Apocalyptic Fortresses is on. Instead, the maps will point to the new structures.

@@ -1,0 +1,24 @@
+{
+  "name": "repurposed_structures:villages/mushroom/well_bottoms",
+  "fallback": "repurposed_structures:villages/mushroom/well_bottoms",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/mushroom/decor/well_bottom_rare",
+        "processors": "repurposed_structures:villages/mushroom/goldify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/mushroom/decor/well_bottom",
+        "processors": "repurposed_structures:villages/mushroom/weak_goldify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}
