@@ -1,0 +1,22 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:amethyst_block"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_mushroom_block",
+            "probability": 0.035,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}
