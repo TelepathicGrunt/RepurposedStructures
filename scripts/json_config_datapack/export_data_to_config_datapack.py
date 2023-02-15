@@ -22,7 +22,7 @@ def getListOfFiles(dirName):
 
 restart = True
 while restart:
-    mc_version = "1.19.3"
+    mc_version = "1.19.2 and 1.19.3"
     version = input("\ncompat_datapack_version\n").strip()
 
     #-------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ while restart:
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
 
-    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-{mc_version.replace('.', '_')}-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
+    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-{mc_version.replace('.', '_').replace(' ', '-')}-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
 
     print('\n\nFINISHED!')
     print('\nRESTARTING!\n\n')
