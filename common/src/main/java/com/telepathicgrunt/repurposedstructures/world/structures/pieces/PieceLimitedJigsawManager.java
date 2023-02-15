@@ -435,7 +435,7 @@ public class PieceLimitedJigsawManager {
                                 ResourceLocation candidateTargetPool = new ResourceLocation(pieceCandidateJigsawBlock.nbt.getString("pool"));
                                 Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(candidateTargetPool);
                                 if (candidateTargetPoolOptional.isEmpty()) {
-                                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Non-existent child pool attempted to be spawned: {} which is being called from {}. Let Repurposed Structures dev (TelepathicGrunt) know about this log entry.", candidateTargetPool, piece.getElement() instanceof SinglePoolElement ? ((SinglePoolElementAccessor) piece.getElement()).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
+                                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Non-existent child pool attempted to be spawned: {} which is being called from {}. Let Repurposed Structures dev (TelepathicGrunt) know about this log entry.", candidateTargetPool, candidatePiece instanceof SinglePoolElement ? ((SinglePoolElementAccessor) candidatePiece).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
                                 }
                                 int tallestCandidateTargetFallbackPieceHeight = candidateTargetPoolOptional.map((c) -> c.getFallback().value().getMaxSize(context.structureTemplateManager())).orElse(0);
                                 int tallestCandidateTargetPoolPieceHeight = candidateTargetPoolOptional.map((c) -> c.getMaxSize(context.structureTemplateManager())).orElse(0);

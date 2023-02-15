@@ -1,3 +1,9 @@
+### **(V.6.3.16 Changes) (1.19.3 Minecraft)**
+
+#### Misc:
+Fixed logging so correct piece is reported if it tries to spawn a non-existent pool.
+
+
 ### **(V.6.3.15 Changes) (1.19.3 Minecraft)**
 
 #### Villages:
