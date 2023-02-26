@@ -31,6 +31,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -90,7 +91,7 @@ public final class PoolAdditionMerger {
     /**
      * Merges the incoming pool with the given target pool in an additive manner that does not affect any other pools and can be stacked safely.
      */
-    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureTemplateManager StructureTemplateManager) {
+    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, StructureTemplateManager structureTemplateManager) {
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
         ObjectArrayList<StructurePoolElement> elements = new ObjectArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
         List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
@@ -101,29 +102,38 @@ public final class PoolAdditionMerger {
         // Helps people know if they typoed their merger pool's nbt file paths
         for(StructurePoolElement element : elements) {
             if(element instanceof SinglePoolElement singlePoolElement) {
-                Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures_getTemplate().left();
-                if(nbtID.isEmpty()) continue;
-                Optional<StructureTemplate> structureTemplate = StructureTemplateManager.get(nbtID.get());
-                if(structureTemplate.isEmpty()) {
-                    RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool, nbtID.get());
-                }
+                Optional<ResourceLocation> pieceRL = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures_getTemplate().left();
+                if(pieceRL.isEmpty()) continue;
+                checkIfPieceExists(feedingPool, structureTemplateManager, pieceRL.get());
             }
             else if(element instanceof ListPoolElement listPoolElement) {
                 for(StructurePoolElement listElement : ((ListPoolElementAccessor)listPoolElement).repurposedstructures_getElements()) {
                     if(listElement instanceof SinglePoolElement singlePoolElement) {
-                        Optional<ResourceLocation> nbtID = ((SinglePoolElementAccessor) singlePoolElement).repurposedstructures_getTemplate().left();
-                        if (nbtID.isEmpty()) continue;
-                        Optional<StructureTemplate> structureTemplate = StructureTemplateManager.get(nbtID.get());
-                        if (structureTemplate.isEmpty()) {
-                            RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool, nbtID.get());
-                        }
+                        Optional<ResourceLocation> pieceRL = ((SinglePoolElementAccessor) singlePoolElement).repurposedstructures_getTemplate().left();
+                        if (pieceRL.isEmpty()) continue;
+                        checkIfPieceExists(feedingPool, structureTemplateManager, pieceRL.get());
                     }
                 }
             }
         }
 
+
         ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setTemplates(elements);
         ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setRawTemplates(elementCounts);
+    }
+
+    private static void checkIfPieceExists(AdditionalStructureTemplatePool feedingPool, StructureTemplateManager structureTemplateManager, ResourceLocation pieceRL) {
+        ResourceLocation resourcelocation = new ResourceLocation(pieceRL.getNamespace(), "structures/" + pieceRL.getPath() + ".nbt");
+        try {
+            InputStream inputstream = ((StructureTemplateManagerAccessor) structureTemplateManager).repurposedstructures_getResourceManager().open(resourcelocation);
+            if (inputstream.available() == 0 || inputstream.read(new byte[1]) == -1) {
+                RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.name, pieceRL);
+            }
+            inputstream.close();
+        }
+        catch (Throwable filenotfoundexception) {
+            RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Found an entry in {} that points to the non-existent nbt file called {}", feedingPool.name, pieceRL);
+        }
     }
 
     /**
