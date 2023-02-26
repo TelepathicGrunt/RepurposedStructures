@@ -1,5 +1,8 @@
 ### **(V.6.3.16 Changes) (1.19.0-1.19.2 Minecraft)**
 
+#### Dungeons:
+Deep Dungeons now has y-axis facing Deepslate blocks instead of being in a different axis
+
 #### Misc:
 Optimized pool_additions code for checking if a piece exists so it does not need to run through DFU.
 
