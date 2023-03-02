@@ -1,18 +1,15 @@
-import com.google.gson.Gson
-import net.fabricmc.loom.task.RemapJarTask
-
 buildscript {
 	repositories {
 		maven { url "https://plugins.gradle.org/m2/" }
 	}
 	dependencies {
-		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
 	}
 }
 
 plugins {
 	id 'fabric-loom' version '0.12-SNAPSHOT'
 	id "net.darkhax.curseforgegradle" version "1.0.7"
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -79,14 +76,15 @@ jar {
 }
 
 apply from: 'gradle/maven.gradle'
-apply from: 'gradle/modrinth.gradle'
+
+String fileContents = new File("CHANGELOG.md").getText('UTF-8')
+
 task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 	apiToken = "$System.env.CURSEFORGEKEY"
 	int projectId = 391366
-	String changelogText = new File("CHANGELOG.md").getText('UTF-8')
 
 	def mainFile = upload(projectId, remapJar)
-	mainFile.changelog = changelogText
+	mainFile.changelog = fileContents
 	mainFile.changelogType = "markdown"
 	mainFile.releaseType = "beta"
 	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC Fabric)"
@@ -97,10 +95,28 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
 	mainFile.addGameVersion("1.19.2")
 }
 
+modrinth {
+	token = System.getenv("MODRINTH")
+	versionName = "Repurposed Structures"
+	versionNumber = project.version + "+fabric"
+	projectId = "muf0XoRe"
+	uploadFile = remapJar
+	changelog = fileContents
+	versionType = "BETA"
+	gameVersions = ["1.19"]
+	gameVersions = ["1.19.1"]
+	gameVersions = ["1.19.2"]
+	loaders = ["fabric"]
+	dependencies {
+		required.project "fabric-api"
+		required.project "midnightlib"
+	}
+}
+
 
 task buildAndRelease{}
 tasks.publish.mustRunAfter tasks.build
 tasks.publishCurseForge.mustRunAfter tasks.publish
-tasks.publishModrinth.mustRunAfter tasks.publish
+tasks.modrinth.mustRunAfter tasks.publish
 tasks.publishCurseForge.dependsOn("remapJar")
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.modrinth)
