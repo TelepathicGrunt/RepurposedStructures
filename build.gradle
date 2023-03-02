@@ -99,6 +99,7 @@ subprojects {
                 apiKey = env.CURSEFORGEKEY
                 project { proj ->
                     id = uploadSettings["curse-id"]
+                    changelogType = "markdown"
                     changelog = changeLogText
                     if (name == "fabric") {
                         releaseType = "beta"
