@@ -1,3 +1,10 @@
+### **(V.6.3.17 Changes) (1.19.3 Minecraft)**
+
+#### Misc:
+(Forge): Fixed crash when using Yung's Better WItch Hut Compat Datapack.
+ Was caused by me using the wrong Forge event for my pool merger code.
+
+
 ### **(V.6.3.16 Changes) (1.19.3 Minecraft)**
 
 #### Dungeons:

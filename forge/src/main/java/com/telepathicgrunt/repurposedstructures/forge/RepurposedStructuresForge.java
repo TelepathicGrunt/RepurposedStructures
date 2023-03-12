@@ -13,6 +13,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.forge.RSGlobalLootModifi
 import com.telepathicgrunt.repurposedstructures.modinit.registry.forge.ResourcefulRegistriesImpl;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
@@ -51,7 +52,7 @@ public class RepurposedStructuresForge {
         event.enqueueWork(RSGlobalLootModifier::registerLootData);
     }
 
-    private static void onServerStarting(ServerStartingEvent event) {
+    private static void onServerStarting(ServerAboutToStartEvent event) {
         ServerGoingToStartEvent.EVENT.invoke(new ServerGoingToStartEvent(event.getServer()));
     }
 
