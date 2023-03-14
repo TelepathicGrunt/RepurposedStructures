@@ -18,9 +18,12 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.event.server.ServerStartedEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -57,6 +60,8 @@ public class RepurposedStructures {
         forgeBus.addListener(StructureMapTradesEvents::onVillagerTradesEvent);
         forgeBus.addListener(StructureMapTradesEvents::onWandererTradesEvent);
         forgeBus.addListener(PoolAdditionMerger::mergeAdditionPools);
+        forgeBus.addListener((ServerAboutToStartEvent ignoredEvent) -> AsyncLocator.handleServerAboutToStartEvent());
+        forgeBus.addListener((ServerStoppingEvent ignoredEvent) -> AsyncLocator.handleServerStoppingEvent());
 
         modEventBus.addListener(this::setup);
         RSFeatures.FEATURES.register(modEventBus);

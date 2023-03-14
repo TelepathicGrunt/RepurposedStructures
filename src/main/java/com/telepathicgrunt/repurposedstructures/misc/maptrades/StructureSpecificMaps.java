@@ -1,11 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -13,13 +9,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MapItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
-import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 
 import javax.annotation.Nullable;
 
@@ -60,11 +52,6 @@ public class StructureSpecificMaps {
             }
 
             return getOffer(serverlevel, entity);
-            /*
-            return CompatCommon.isAsyncLocatorLoaded()
-                ? getOfferAsync(serverlevel, entity)
-                : getOffer(serverlevel, entity);
-             */
         }
 
         private HolderSet<Structure> getHolderSet(ServerLevel level) {
@@ -74,65 +61,31 @@ public class StructureSpecificMaps {
         }
 
         private MerchantOffer getOffer(ServerLevel level, Entity entity) {
-            BlockPos blockpos = null;
             if (destinationTag == null) {
                 HolderSet<Structure> holderSet = getHolderSet(level);
-                Pair<BlockPos, Holder<Structure>> pairResult =
-                    level.getChunkSource()
-                        .getGenerator()
-                        .findNearestMapStructure(level, holderSet, entity.blockPosition(), spawnRegionSearchRadius, true);
-                if (pairResult != null) {
-                    blockpos = pairResult.getFirst();
-                }
-            } else {
-                blockpos = level.findNearestMapStructure(
-                    this.destinationTag,
-                    entity.blockPosition(),
-                    spawnRegionSearchRadius,
-                    true
+                return MerchantMapUpdating.updateMapAsync(
+                        entity,
+                        emeraldCost,
+                        displayName,
+                        destinationType,
+                        maxUses,
+                        villagerXp,
+                        holderSet,
+                        spawnRegionSearchRadius
                 );
             }
-
-            if (blockpos != null) {
-                ItemStack itemstack = MapItem.create(level, blockpos.getX(), blockpos.getZ(), (byte) 2, true, true);
-                MapItem.renderBiomePreviewMap(level, itemstack);
-                MapItemSavedData.addTargetDecoration(itemstack, blockpos, "+", this.destinationType);
-                itemstack.setHoverName(Component.translatable(this.displayName));
-                return new MerchantOffer(
-                    new ItemStack(Items.EMERALD, this.emeraldCost),
-                    new ItemStack(Items.COMPASS),
-                    itemstack,
-                    this.maxUses,
-                    this.villagerXp,
-                    0.2F
+            else {
+                return MerchantMapUpdating.updateMapAsync(
+                        entity,
+                        emeraldCost,
+                        displayName,
+                        destinationType,
+                        maxUses,
+                        villagerXp,
+                        destinationTag,
+                        spawnRegionSearchRadius
                 );
             }
-            return null;
         }
-
-        /*
-        private MerchantOffer getOfferAsync(ServerLevel level, Entity trader) {
-            if (destinationTag == null) {
-                return AsyncLocatorCompat.updateMapAsync(
-                    trader,
-                    emeraldCost,
-                    displayName,
-                    destinationType,
-                    maxUses,
-                    villagerXp,
-                    getHolderSet(level)
-                );
-            } else {
-                return AsyncLocatorCompat.updateMapAsync(
-                    trader,
-                    emeraldCost,
-                    displayName,
-                    destinationType,
-                    maxUses,
-                    villagerXp,
-                    destinationTag
-                );
-            }
-        }*/
     }
 }

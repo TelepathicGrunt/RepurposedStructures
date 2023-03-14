@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "repurposed_structures.refmap.json",
   "mixins": [
+    "entities.MerchantOfferAccessor",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessJungleBushInStructuresMixin",
@@ -12,6 +13,7 @@
     "features.NoFallsInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoVinesInStructuresMixin",
+    "items.MapItemAccessor",
     "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
