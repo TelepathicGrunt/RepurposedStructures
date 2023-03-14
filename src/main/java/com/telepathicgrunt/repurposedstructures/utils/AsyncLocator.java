@@ -9,7 +9,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -39,7 +38,7 @@ public class AsyncLocator {
 
                     @Override
                     public Thread newThread(@NotNull Runnable r) {
-                        return new Thread(SidedThreadGroups.SERVER, r, namePrefix + threadNum.getAndIncrement());
+                        return new Thread(null, r, namePrefix + threadNum.getAndIncrement());
                     }
                 }
         );

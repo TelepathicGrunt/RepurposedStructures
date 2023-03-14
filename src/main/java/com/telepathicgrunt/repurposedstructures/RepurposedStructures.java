@@ -65,8 +65,8 @@ public class RepurposedStructures implements ModInitializer {
         });
 
 
-        ServerLifecycleEvents.STARTING.register((MinecraftServer s) -> AsyncLocator.handleServerAboutToStartEvent());
-        ServerLifecycleEvents.STOPPING.register((MinecraftServer s) -> AsyncLocator.handleServerStoppingEvent());
+        ServerLifecycleEvents.SERVER_STARTING.register((MinecraftServer s) -> AsyncLocator.handleServerAboutToStartEvent());
+        ServerLifecycleEvents.SERVER_STOPPING.register((MinecraftServer s) -> AsyncLocator.handleServerStoppingEvent());
     }
 
 

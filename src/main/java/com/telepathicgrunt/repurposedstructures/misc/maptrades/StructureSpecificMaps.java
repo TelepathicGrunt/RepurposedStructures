@@ -53,7 +53,8 @@ public class StructureSpecificMaps {
         private HolderSet<Structure> getHolderSet(ServerLevel level) {
             Registry<Structure> registry =
                 level.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
-            return HolderSet.direct(registry.getHolderOrThrow(destination));
+
+            return HolderSet.direct(registry.getHolderOrThrow(ResourceKey.create(Registry.STRUCTURE_REGISTRY, destination)));
         }
 
         private MerchantOffer getOffer(ServerLevel level, Entity entity) {
@@ -78,7 +79,7 @@ public class StructureSpecificMaps {
                         destinationType,
                         maxUses,
                         villagerXp,
-                        destinationTag,
+                        TagKey.create(Registry.STRUCTURE_REGISTRY, this.destinationTag),
                         spawnRegionSearchRadius
                 );
             }
