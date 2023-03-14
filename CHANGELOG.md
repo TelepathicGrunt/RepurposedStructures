@@ -1,4 +1,15 @@
-### **(V.6.3.17 Changes) (1.19.3 Minecraft) (Config Datapack Updated)**
+### **(V.6.3.19 Changes) (1.19.3 Minecraft) (Config Datapack Updated)**
+
+#### Misc:
+Adjusted the Cartographer maps to use tags so that Jungle Fortresses from compat datapacks can still be found.
+ New compat datapacks for Yung's Better Nether Fortress and Apocalyptic Fortress are out now!
+
+https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-apocalyptic-fortress-compat
+
+https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-yungs-better-nether-fortress
+
+
+### **(V.6.3.18 Changes) (1.19.3 Minecraft) (Config Datapack Updated)**
 
 #### Fortress:
 Attempt to reduce floating vines in Jungle Fortresses.
