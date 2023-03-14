@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "blocks.RailBlockMixin",
+    "entities.MerchantOfferAccessor",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessJungleBushInStructuresMixin",
@@ -14,6 +15,7 @@
     "features.NoFallsInStructuresMixin",
     "features.NoVinesInStructuresMixin",
     "resources.BuilderAccessor",
+    "items.MapItemAccessor",
     "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
     "resources.LootManagerAccessor",

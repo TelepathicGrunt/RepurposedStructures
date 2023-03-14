@@ -8,6 +8,11 @@ https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-apocaly
 
 https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-yungs-better-nether-fortress
 
+Borrowed code from Async Locator mod so now RS's explorer maps in Wandering Traders and Cartographers are done off-thread!
+ This means much less lag when the game is locating the structure for explorer maps trades that goes to RS structures.
+
+https://www.curseforge.com/minecraft/mc-mods/async-locator
+
 
 ### **(V.6.3.17 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack Updated)**
 
