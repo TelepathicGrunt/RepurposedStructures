@@ -6,6 +6,9 @@ Attempt to reduce floating vines in Jungle Fortresses.
 #### Bastions:
 Attempt to reduce amount of modded floating blocks in Underground Bastions
 
+#### Lang:
+Updated zh_cn.json file. Special thanks to 1mtwtfss1!
+
 
 ### **(V.6.3.16 Changes) (1.19.0-1.19.2 Minecraft)**
 
