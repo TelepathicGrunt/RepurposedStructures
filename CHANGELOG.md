@@ -1,3 +1,12 @@
+### **(V.6.3.17 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack Updated)**
+
+#### Fortress:
+Attempt to reduce floating vines in Jungle Fortresses.
+
+#### Bastions:
+Attempt to reduce amount of modded floating blocks in Underground Bastions
+
+
 ### **(V.6.3.16 Changes) (1.19.0-1.19.2 Minecraft)**
 
 #### Dungeons:

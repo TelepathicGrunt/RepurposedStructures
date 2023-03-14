@@ -12,6 +12,7 @@
     "features.NoDeltasInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoFallsInStructuresMixin",
+    "features.NoVinesInStructuresMixin",
     "resources.BuilderAccessor",
     "resources.BuiltInRegistriesMixin",
     "resources.LootContextAccessor",
