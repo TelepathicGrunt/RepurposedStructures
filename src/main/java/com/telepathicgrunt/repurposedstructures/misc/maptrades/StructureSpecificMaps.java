@@ -1,11 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
-import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -13,13 +9,9 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MapItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
-import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 
 public class StructureSpecificMaps {
     public static class TreasureMapForEmeralds implements VillagerTrades.ItemListing {
@@ -52,31 +44,43 @@ public class StructureSpecificMaps {
         }
 
         public MerchantOffer getOffer(Entity entity, RandomSource random) {
-            BlockPos blockpos = null;
-            if (!(entity.level instanceof ServerLevel serverlevel)) {
-                return null;
+            if (entity.level instanceof ServerLevel serverlevel) {
+                return getOffer(serverlevel, entity);
             }
-            else if (this.destinationTag != null) {
-                blockpos = serverlevel.findNearestMapStructure(TagKey.create(Registry.STRUCTURE_REGISTRY, this.destinationTag), entity.blockPosition(), spawnRegionSearchRadius, true);
-            }
-            else {
-                Registry<Structure> registry = serverlevel.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
-                HolderSet<Structure> holderset = HolderSet.direct(registry.getHolderOrThrow(ResourceKey.create(Registry.STRUCTURE_REGISTRY, this.destination)));
-                Pair<BlockPos, Holder<Structure>> pairResult = serverlevel.getChunkSource().getGenerator().findNearestMapStructure(serverlevel, holderset, entity.blockPosition(), spawnRegionSearchRadius, true);
-                if (pairResult != null) {
-                    blockpos = pairResult.getFirst();
-                }
-            }
+            return null;
+        }
 
-            if (blockpos != null) {
-                ItemStack itemstack = MapItem.create(serverlevel, blockpos.getX(), blockpos.getZ(), (byte)2, true, true);
-                MapItem.renderBiomePreviewMap(serverlevel, itemstack);
-                MapItemSavedData.addTargetDecoration(itemstack, blockpos, "+", this.destinationType);
-                itemstack.setHoverName(Component.translatable(this.displayName));
-                return new MerchantOffer(new ItemStack(Items.EMERALD, this.emeraldCost), new ItemStack(Items.COMPASS), itemstack, this.maxUses, this.villagerXp, 0.2F);
+        private HolderSet<Structure> getHolderSet(ServerLevel level) {
+            Registry<Structure> registry =
+                level.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+            return HolderSet.direct(registry.getHolderOrThrow(destination));
+        }
+
+        private MerchantOffer getOffer(ServerLevel level, Entity entity) {
+            if (destinationTag == null) {
+                HolderSet<Structure> holderSet = getHolderSet(level);
+                return MerchantMapUpdating.updateMapAsync(
+                        entity,
+                        emeraldCost,
+                        displayName,
+                        destinationType,
+                        maxUses,
+                        villagerXp,
+                        holderSet,
+                        spawnRegionSearchRadius
+                );
             }
             else {
-                return null;
+                return MerchantMapUpdating.updateMapAsync(
+                        entity,
+                        emeraldCost,
+                        displayName,
+                        destinationType,
+                        maxUses,
+                        villagerXp,
+                        destinationTag,
+                        spawnRegionSearchRadius
+                );
             }
         }
     }
