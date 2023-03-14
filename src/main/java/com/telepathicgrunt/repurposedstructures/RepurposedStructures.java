@@ -15,8 +15,10 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
 import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.BiomeModifier;
 import eu.midnightdust.lib.config.MidnightConfig;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.packs.PackType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -62,6 +64,10 @@ public class RepurposedStructures implements ModInitializer {
                 EndRemasteredDedicatedLoot.checkLoottables(minecraftServer);
             }
         });
+
+
+        ServerLifecycleEvents.STARTING.register((MinecraftServer s) -> AsyncLocator.handleServerAboutToStartEvent());
+        ServerLifecycleEvents.STOPPING.register((MinecraftServer s) -> AsyncLocator.handleServerStoppingEvent());
     }
 
 
