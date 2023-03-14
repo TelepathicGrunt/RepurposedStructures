@@ -3,7 +3,7 @@
     "minecraft:cartographer": [
       {
         "tradeLevel": 2,
-        "structure" : "repurposed_structures:fortress_jungle",
+        "structure" : "#repurposed_structures:explorer_maps/fortress",
         "mapName": "Jungle Fortress Map",
         "mapIcon": "BANNER_GREEN",
         "emeraldsRequired": 14,
@@ -13,7 +13,7 @@
       },
       {
         "tradeLevel": 2,
-        "structure": "#repurposed_structures:collections/monuments",
+        "structure": "#repurposed_structures:explorer_maps/monument",
         "mapName": "RS Monument Map",
         "mapIcon": "MONUMENT",
         "emeraldsRequired": 13,
@@ -23,7 +23,7 @@
       },
       {
         "tradeLevel": 3,
-        "structure": "#repurposed_structures:collections/mansions",
+        "structure": "#repurposed_structures:explorer_maps/mansion",
         "mapName": "RS Mansion Map",
         "mapIcon": "MANSION",
         "emeraldsRequired": 14,
