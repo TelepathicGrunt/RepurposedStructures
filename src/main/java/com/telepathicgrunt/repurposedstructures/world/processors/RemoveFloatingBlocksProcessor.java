@@ -35,12 +35,28 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
 
             // set the block in the world so that canPlaceAt's result changes
             cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
-            BlockState aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
+            mutable.move(Direction.UP);
+            BlockState aboveWorldState = levelReader.getBlockState(mutable);
 
             // detects the invalidly placed blocks
             while(mutable.getY() < levelReader.getHeight() && !aboveWorldState.canSurvive(levelReader, mutable)) {
                 cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
-                aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
+                mutable.move(Direction.UP);
+                aboveWorldState = levelReader.getBlockState(mutable);
+            }
+
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                mutable.set(structureBlockInfoWorld.pos);
+                mutable.move(direction);
+                ChunkPos chunkPos = new ChunkPos(mutable);
+                ChunkAccess chunkAccess2 = cachedChunk;
+                if (!chunkPos.equals(cachedChunk.getPos())) {
+                    chunkAccess2 = levelReader.getChunk(mutable);
+                }
+                BlockState sideBlock = chunkAccess2.getBlockState(mutable);
+                if (!sideBlock.canSurvive(levelReader, mutable)) {
+                    chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state, false);
+                }
             }
         }
 
