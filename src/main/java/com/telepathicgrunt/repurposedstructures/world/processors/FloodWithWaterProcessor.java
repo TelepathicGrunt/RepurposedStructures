@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
@@ -49,7 +50,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
 
         if (structureBlockInfoWorld.pos.getY() <= floodLevel) {
             boolean flooded = false;
-            if(structureBlockInfoWorld.state.isAir()) {
+            if(structureBlockInfoWorld.state.isAir() || structureBlockInfoWorld.state.is(BlockTags.FLOWER_POTS) || structureBlockInfoWorld.state.is(BlockTags.BUTTONS)) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
                 tickWaterFluid(levelReader, structureBlockInfoWorld);
                 flooded = true;
