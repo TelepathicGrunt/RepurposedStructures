@@ -42,6 +42,20 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
                 cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
                 aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
             }
+
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                mutable.set(structureBlockInfoWorld.pos);
+                mutable.move(direction);
+                ChunkPos chunkPos = new ChunkPos(mutable);
+                ChunkAccess chunkAccess2 = cachedChunk;
+                if (!chunkPos.equals(cachedChunk.getPos())) {
+                    chunkAccess2 = levelReader.getChunk(mutable);
+                }
+                BlockState sideBlock = chunkAccess2.getBlockState(mutable);
+                if (!sideBlock.canSurvive(levelReader, mutable)) {
+                    chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state, false);
+                }
+            }
         }
 
         return structureBlockInfoWorld;

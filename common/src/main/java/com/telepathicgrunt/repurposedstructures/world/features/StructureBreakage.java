@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -37,7 +38,8 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                     blockState.is(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
-                    blockState.is(Blocks.IRON_BARS);
+                    blockState.is(Blocks.IRON_BARS) ||
+                    blockState.is(BlockTags.FLOWER_POTS);
         }
     };
 
@@ -193,10 +195,16 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                 }
 
                                                 state = currentChunk.getBlockState(mutable.move(Direction.UP));
-                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT) {
-                                                    isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
+                                                isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
+
+                                                if (state.is(BlockTags.FLOWER_POTS)) {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
-                                                    state = currentChunk.getBlockState(mutable.move(Direction.UP));
+                                                }
+                                                else {
+                                                    while (state.getMaterial() == Material.REPLACEABLE_PLANT) {
+                                                        currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
+                                                        state = currentChunk.getBlockState(mutable.move(Direction.UP));
+                                                    }
                                                 }
 
                                                 BlockPos.MutableBlockPos mutableVineCheck = new BlockPos.MutableBlockPos();

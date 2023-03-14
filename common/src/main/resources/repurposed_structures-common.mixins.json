@@ -11,6 +11,7 @@
     "features.NoDeltasInStructuresMixin",
     "features.NoFallsInStructuresMixin",
     "features.NoLakesInStructuresMixin",
+    "features.NoVinesInStructuresMixin",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
     "structures.ListPoolElementAccessor",

@@ -154,6 +154,9 @@
       ]
     },
     {
+      "processor_type": "repurposed_structures:remove_floating_blocks_processor"
+    },
+    {
       "flood_level": 62,
       "processor_type": "repurposed_structures:flood_with_water_processor"
     },

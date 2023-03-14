@@ -93,6 +93,9 @@
       "processor_type": "minecraft:rule"
     },
     {
+      "processor_type": "repurposed_structures:remove_floating_blocks_processor"
+    },
+    {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
       "rs_spawner_resourcelocation": "repurposed_structures:bastions/underground",
       "valid_block_light_level": {
