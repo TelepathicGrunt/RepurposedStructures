@@ -2,7 +2,7 @@
 
 #### Misc:
 Adjusted the Cartographer maps to use tags so that Jungle Fortresses from compat datapacks can still be found.
- New compat datapacks for Yung's Better Nether Fortress and Apocalyptic Fortress are out now!
+ New compat datapacks for Yung's Better Nether Fortress and Apocalyptic Fortress are created now (might not be approved and visible yet)
 
 https://www.curseforge.com/minecraft/texture-packs/repurposed-structures-apocalyptic-fortress-compat
 
