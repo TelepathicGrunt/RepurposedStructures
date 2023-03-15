@@ -31,7 +31,7 @@ public class NbtDungeonConfig implements FeatureConfiguration {
             Codec.floatRange(0, 1).optionalFieldOf("chance_of_spawning_loot_block_at_spot").forGetter(nbtFeatureConfig -> nbtFeatureConfig.chanceOfSpawningLootBlockAtSpot)
     ).apply(configInstance, NbtDungeonConfig::new))
             .comapFlatMap((nbtDungeonConfig) -> nbtDungeonConfig.maxAirSpace <= nbtDungeonConfig.minAirSpace ?
-                    DataResult.error("min_air_space has to be smaller than max_air_space") : DataResult.success(nbtDungeonConfig), Function.identity());
+                    DataResult.error(() -> "min_air_space has to be smaller than max_air_space") : DataResult.success(nbtDungeonConfig), Function.identity());
 
     public final boolean replaceAir;
     public final int minAirSpace;

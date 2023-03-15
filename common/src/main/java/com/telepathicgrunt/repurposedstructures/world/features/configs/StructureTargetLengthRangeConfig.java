@@ -15,7 +15,7 @@ public class StructureTargetLengthRangeConfig implements FeatureConfiguration {
             Codec.intRange(1, 200).fieldOf("height_range").orElse(5).forGetter(config -> config.heightRange)
     ).apply(configInstance, StructureTargetLengthRangeConfig::new))
             .comapFlatMap((config) -> config.heightRange <= 0 ?
-                    DataResult.error("height must be greater than 0") : DataResult.success(config), Function.identity());
+                    DataResult.error(() -> "height must be greater than 0") : DataResult.success(config), Function.identity());
 
     public final int attempts;
     public final int length;
