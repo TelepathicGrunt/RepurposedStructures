@@ -20,7 +20,8 @@
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
       "init": "com.telepathicgrunt.repurposedstructures.quilt.RepurposedStructuresQuilt",
-      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
+      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat",
+      "preLaunch": "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
     },
     "depends": [
       {
