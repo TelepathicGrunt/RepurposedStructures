@@ -22,6 +22,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
 import com.telepathicgrunt.repurposedstructures.utils.PlatformHooks;
 import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
@@ -67,9 +68,12 @@ public class RepurposedStructures {
             StructureModdedLootImporter.checkLoottables(event.getServer());
             EndRemasteredDedicatedLoot.checkLoottables(event.getServer());
         }
+
+        AsyncLocator.handleServerAboutToStartEvent();
     }
 
     private static void onServerStopping(final ServerGoingToStopEvent event) {
+        AsyncLocator.handleServerStoppingEvent();
     }
 
     private static void onAddVillagerTrades(final RegisterVillagerTradesEvent event) {
