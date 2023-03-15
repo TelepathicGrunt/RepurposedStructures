@@ -23,6 +23,9 @@
     ],
     "modmenu": [
       "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
+    ],
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
     ]
   },
   "mixins": [
