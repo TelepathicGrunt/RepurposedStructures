@@ -3,7 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;

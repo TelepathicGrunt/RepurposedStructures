@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.telepathicgrunt.repurposedstructures.mixin.quilt",
+  "package": "com.telepathicgrunt.repurposedstructures.mixins.quilt",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "resources.LootTableMixin"

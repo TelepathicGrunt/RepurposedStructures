@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
-import com.telepathicgrunt.repurposedstructures.mixin.structures.PoolElementStructurePieceAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.structures.PoolElementStructurePieceAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;

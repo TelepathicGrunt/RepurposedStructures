@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.mixin.quilt.resources;
+package com.telepathicgrunt.repurposedstructures.mixins.quilt.resources;
 
 import com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager.StructureModdedLootImporterApplier;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;

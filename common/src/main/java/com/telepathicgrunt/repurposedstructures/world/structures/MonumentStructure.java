@@ -2,9 +2,9 @@ package com.telepathicgrunt.repurposedstructures.world.structures;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.PoolElementStructurePieceAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.SinglePoolElementAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.structures.StructurePieceAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.structures.PoolElementStructurePieceAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.structures.SinglePoolElementAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.structures.StructurePieceAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MonumentPieces;
 import net.minecraft.core.BlockPos;

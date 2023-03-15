@@ -5,7 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.configs.forge.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
-import com.telepathicgrunt.repurposedstructures.mixin.forge.resources.LootContextAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.forge.resources.LootContextAccessor;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

@@ -1,6 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
-import com.telepathicgrunt.repurposedstructures.mixin.entities.ShulkerEntityInvoker;
+import com.telepathicgrunt.repurposedstructures.mixins.entities.ShulkerEntityInvoker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;

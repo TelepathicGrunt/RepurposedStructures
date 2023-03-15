@@ -1,8 +1,8 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.mixin.entities.MerchantOfferAccessor;
-import com.telepathicgrunt.repurposedstructures.mixin.items.MapItemAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.entities.MerchantOfferAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.items.MapItemAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
