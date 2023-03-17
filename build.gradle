@@ -143,6 +143,7 @@ allprojects {
     group = rootProject.maven_group
 
     repositories {
+        maven { url = 'https://maven.quiltmc.org/repository/release' }
         maven {
             url = 'https://maven.cafeteria.dev/releases'
             content {
