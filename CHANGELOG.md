@@ -1,3 +1,9 @@
+### **(V.6.3.20 Changes) (1.19.4 Minecraft) (Config Datapack Updated)**
+
+#### Ancient City:
+Removed invalid reference to non-existant wall piece for all RS Ancient Cities. Mojang bug that I imported: https://bugs.mojang.com/browse/MC-249771
+
+
 ### **(V.6.3.18 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack Updated)**
 
 #### Misc:
@@ -12,29 +18,3 @@ Borrowed code from Async Locator mod so now RS's explorer maps in Wandering Trad
  This means much less lag when the game is locating the structure for explorer maps trades that goes to RS structures.
 
 https://www.curseforge.com/minecraft/mc-mods/async-locator
-
-
-### **(V.6.3.17 Changes) (1.19.0-1.19.2 Minecraft) (Config Datapack Updated)**
-
-#### Fortress:
-Attempt to reduce floating vines in Jungle Fortresses.
-
-#### Bastions:
-Attempt to reduce amount of modded floating blocks in Underground Bastions
-
-#### Lang:
-Updated zh_cn.json file. Special thanks to 1mtwtfss1!
-
-
-### **(V.6.3.16 Changes) (1.19.0-1.19.2 Minecraft)**
-
-#### Dungeons:
-Deep Dungeons now has y-axis facing Deepslate blocks instead of being in a different axis
-
-#### Misc:
-Optimized pool_additions code for checking if a piece exists so it does not need to run through DFU.
-
-Updated RS's NBT files to make loading the NBT files no longer need to run through DFU when the nbt files first loads.
- Special thanks to: https://github.com/SuperCoder7979/structure-fixer
-
-Bumped version number so RS is same version number across all modloaders now for some sanity in my mess.
