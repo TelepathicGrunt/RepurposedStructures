@@ -17,6 +17,22 @@
     {
       "id": "betternether:nether_swampland",
       "required": false
+    },
+    {
+      "id": "byg:weeping_mire",
+      "required": false
+    },
+    {
+      "id": "byg:crimson_gardens",
+      "required": false
+    },
+    {
+      "id": "gardens_of_the_dead:whistling_woods",
+      "required": false
+    },
+    {
+      "id": "pyromancer:flaming_grove",
+      "required": false
     }
   ]
 }
