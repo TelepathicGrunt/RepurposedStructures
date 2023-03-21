@@ -60,15 +60,6 @@
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "repurposed_structures:ancient_cities/ocean/walls/intact_horizontal_wall_stairs_5",
-        "processors": "repurposed_structures:ancient_cities/ocean/walls_degradation",
-        "projection": "rigid"
-      }
-    },
-    {
-      "weight": 1,
-      "element": {
-        "element_type": "minecraft:single_pool_element",
         "location": "repurposed_structures:ancient_cities/ocean/walls/intact_horizontal_wall_bridge",
         "processors": "repurposed_structures:ancient_cities/ocean/walls_degradation",
         "projection": "rigid"
