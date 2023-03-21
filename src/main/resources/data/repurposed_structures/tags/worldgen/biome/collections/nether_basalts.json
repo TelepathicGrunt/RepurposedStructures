@@ -13,6 +13,30 @@
     {
       "id": "betternether:magma_land",
       "required": false
+    },
+    {
+      "id": "biomesoplenty:withered_abyss",
+      "required": false
+    },
+    {
+      "id": "byg:brimstone_caverns",
+      "required": false
+    },
+    {
+      "id": "byg:magma_wastes",
+      "required": false
+    },
+    {
+      "id": "incendium:volcanic_deltas",
+      "required": false
+    },
+    {
+      "id": "incendium:ash_barrens",
+      "required": false
+    },
+    {
+      "id": "incendium:withered_forest",
+      "required": false
     }
   ]
 }
