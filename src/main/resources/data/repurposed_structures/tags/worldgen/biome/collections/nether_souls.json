@@ -21,6 +21,22 @@
     {
       "id": "betternether:nether_grasslands",
       "required": false
+    },
+    {
+      "id": "byg:wailing_garth",
+      "required": false
+    },
+    {
+      "id": "cinderscapes:blackstone_shales",
+      "required": false
+    },
+    {
+      "id": "gardens_of_the_dead:soulblight_forest",
+      "required": false
+    },
+    {
+      "id": "incendium:weeping_valley",
+      "required": false
     }
   ]
 }

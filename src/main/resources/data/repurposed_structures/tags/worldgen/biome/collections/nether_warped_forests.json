@@ -21,6 +21,22 @@
     {
       "id": "betternether:upside_down_forest_cleared",
       "required": false
+    },
+    {
+      "id": "byg:warped_desert",
+      "required": false
+    },
+    {
+      "id": "byg:glowstone_gardens",
+      "required": false
+    },
+    {
+      "id": "cinderscapes:luminous_grove",
+      "required": false
+    },
+    {
+      "id": "incendium:inverted_forest",
+      "required": false
     }
   ]
 }
