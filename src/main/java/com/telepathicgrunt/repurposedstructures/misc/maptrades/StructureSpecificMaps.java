@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -11,9 +12,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 
 import javax.annotation.Nullable;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class StructureSpecificMaps {
     public static class TreasureMapForEmeralds implements VillagerTrades.ItemListing {
@@ -45,13 +49,61 @@ public class StructureSpecificMaps {
             this.spawnRegionSearchRadius = spawnRegionSearchRadius;
         }
 
-        @Nullable
-        public MerchantOffer getOffer(Entity entity, RandomSource random) {
-            if (!(entity.level instanceof ServerLevel serverlevel)) {
-                return null;
+        private boolean mapValid(ServerLevel level) {
+            HolderSet<Structure> holderSet;
+            if (destinationTag == null) {
+                holderSet = getHolderSet(level);
+            }
+            else {
+                Optional<HolderSet.Named<Structure>> optionalHolders = level.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY).getTag(destinationTag);
+                if (optionalHolders.isEmpty()) {
+                    return false;
+                }
+                holderSet = optionalHolders.get();
             }
 
-            return getOffer(serverlevel, entity);
+            boolean isValidSpawning = true;
+            for (Holder<Structure> structureHolder : holderSet) {
+                boolean validStructureSet = false;
+                for (Holder<StructureSet> structureSetHolder : level.getChunkSource().getGenerator().possibleStructureSets().collect(Collectors.toUnmodifiableSet())) {
+                    for (StructureSet.StructureSelectionEntry structureSelectionEntry : structureSetHolder.value().structures()) {
+                        if (structureSelectionEntry.structure().value().equals(structureHolder.value())) {
+                            validStructureSet = true;
+                            break;
+                        }
+                    }
+                    if (validStructureSet) {
+                        break;
+                    }
+                }
+
+                if (!validStructureSet) {
+                    isValidSpawning = false;
+                    break;
+                }
+
+                if (level.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream()
+                        .noneMatch(e -> structureHolder.value().biomes().contains(e)))
+                {
+                    isValidSpawning = false;
+                    break;
+                }
+            }
+
+            return isValidSpawning;
+        }
+
+        @Nullable
+        public MerchantOffer getOffer(Entity entity, RandomSource random) {
+            if (entity.level instanceof ServerLevel serverlevel) {
+                if (!mapValid(serverlevel)) {
+                    return null;
+                }
+
+                return getOffer(serverlevel, entity);
+            }
+
+            return null;
         }
 
         private HolderSet<Structure> getHolderSet(ServerLevel level) {
