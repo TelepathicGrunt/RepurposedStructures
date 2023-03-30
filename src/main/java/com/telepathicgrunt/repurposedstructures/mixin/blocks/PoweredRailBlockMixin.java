@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.mixin.blocks;
 
 
 import net.minecraft.world.level.block.PoweredRailBlock;
-import net.minecraft.world.level.block.RailBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.RailShape;
