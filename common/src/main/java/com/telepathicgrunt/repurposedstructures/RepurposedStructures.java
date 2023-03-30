@@ -12,8 +12,8 @@ import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManag
 import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
 import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.pooladditions.PoolAdditionMerger;
-import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
+import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import com.telepathicgrunt.repurposedstructures.modinit.RSFeatures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
