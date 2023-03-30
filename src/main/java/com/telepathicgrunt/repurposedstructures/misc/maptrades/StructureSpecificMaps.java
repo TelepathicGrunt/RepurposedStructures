@@ -55,7 +55,7 @@ public class StructureSpecificMaps {
                 holderSet = getHolderSet(level);
             }
             else {
-                Optional<HolderSet.Named<Structure>> optionalHolders = level.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY).getTag(destinationTag);
+                Optional<HolderSet.Named<Structure>> optionalHolders = level.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY).getTag(TagKey.create(Registry.STRUCTURE_REGISTRY, destinationTag));
                 if (optionalHolders.isEmpty()) {
                     return false;
                 }
