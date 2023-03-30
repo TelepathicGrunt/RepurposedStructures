@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -10,11 +11,13 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 
 import javax.annotation.Nullable;
+import java.util.Optional;
 
 public class StructureSpecificMaps {
     public static class TreasureMapForEmeralds implements VillagerTrades.ItemListing {
@@ -61,7 +64,42 @@ public class StructureSpecificMaps {
             return HolderSet.direct(registry.getHolderOrThrow(destination));
         }
 
+        private boolean mapValid(ServerLevel level) {
+            HolderSet<Structure> holderSet;
+            if (destinationTag == null) {
+                holderSet = getHolderSet(level);
+            }
+            else {
+                Optional<HolderSet.Named<Structure>> optionalHolders = level.registryAccess().registryOrThrow(Registries.STRUCTURE).getTag(destinationTag);
+                if (optionalHolders.isEmpty()) {
+                    return false;
+                }
+                holderSet = optionalHolders.get();
+            }
+
+            boolean isValidSpawning = true;
+            for (Holder<Structure> structureHolder : holderSet) {
+                if (level.getChunkSource().getGeneratorState().getPlacementsForStructure(structureHolder).isEmpty()) {
+                    isValidSpawning = false;
+                    break;
+                }
+
+                if (level.getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream()
+                        .noneMatch(e -> structureHolder.value().biomes().contains(e)))
+                {
+                    isValidSpawning = false;
+                    break;
+                }
+            }
+
+            return isValidSpawning;
+        }
+
         private MerchantOffer getOffer(ServerLevel level, Entity entity) {
+            if (!mapValid(level)) {
+                return null;
+            }
+
             if (destinationTag == null) {
                 HolderSet<Structure> holderSet = getHolderSet(level);
                 return MerchantMapUpdating.updateMapAsync(
