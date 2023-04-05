@@ -11,7 +11,7 @@
         {
           "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
-          "weight": 25,
+          "weight": 30,
           "functions": [
             {
               "function": "minecraft:set_count",
