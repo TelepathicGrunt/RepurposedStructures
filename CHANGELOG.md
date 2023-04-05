@@ -1,7 +1,7 @@
 ### **(V.6.3.21 Changes) (1.19.2 Minecraft) (Config Datapack Updated)**
 
 #### Nether City:
-Harshly cut down on Netherite loot from structure. (Roughly halved it)
+Harshly cut down on Netherite loot from structure.
 
 
 ### **(V.6.3.20 Changes) (1.19.2 Minecraft) (Config Datapack Updated)**
