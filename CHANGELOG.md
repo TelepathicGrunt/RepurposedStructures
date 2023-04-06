@@ -3,6 +3,13 @@
 #### Cities:
 Nerfed Netherite loot from Nether Cities a bit and reduced the variation in amount of Netherite loot from city to city.
 
+#### Mansions:
+Fixed a vanilla Java Edition bug I inherited where a room in RS Mansions does not have Red and Brown Mushrooms to match Bedrock Edition Woodland Mansions.
+ https://bugs.mojang.com/browse/MC-160169
+
+#### Igloos:
+Added Bowls and a Shear to Mushroom Igloo's chest
+
 
 ### **(V.6.3.20 Changes) (1.19.4 Minecraft) (Config Datapack Updated)**
 
