@@ -99,6 +99,34 @@
       "rolls": 1,
       "entries": [
         {
+          "name": "minecraft:bowl",
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "minecraft:shears",
+          "type": "minecraft:item"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
           "name": "minecraft:golden_apple",
           "type": "minecraft:item"
         }
