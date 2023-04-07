@@ -2,9 +2,10 @@
 # The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
 minecraft = "1.19.2"
 quilt_mappings = "1.19.2+build.1"
-quilt_loader = "0.18.4-pre.3"
+quilt_loader = "0.19.0-beta.9"
 
-quilted_fabric_api = "4.0.0-beta.29+0.75.1-1.19.2" # Don't forget to add -{$mc_version} to end of this
+mixin_extra = "0.2.0-beta.5"
+quilted_fabric_api = "4.0.0-beta.30+0.76.0-1.19.2" # Don't forget to add -{$mc_version} to end of this
 midnightlib = "0.5.2"
 commandstructures = "3.0.0+1.19"
 structurevoidtoggle = "4.0.0+1.19"

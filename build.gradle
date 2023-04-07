@@ -42,6 +42,12 @@ repositories {
 	maven { url "https://api.modrinth.com/maven/" }
 	maven {	url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
 	maven { url "https://www.cursemaven.com" }
+	maven {
+		url 'https://jitpack.io'
+		content {
+			includeGroup 'com.github.llamalad7.mixinextras'
+		}
+	}
 }
 
 dependencies {
@@ -52,6 +58,8 @@ dependencies {
 	})
 	modImplementation libs.quilt.loader
 	modImplementation libs.quilted.fabric.api
+
+	include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${libs.versions.mixin.extra.get()}")))
 
 	modImplementation "maven.modrinth:modmenu:${libs.versions.mod.menu.get()}"
 
