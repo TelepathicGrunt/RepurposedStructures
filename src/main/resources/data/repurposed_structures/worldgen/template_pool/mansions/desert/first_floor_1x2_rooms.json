@@ -60,7 +60,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:mansions/desert/1x2_a7",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:mansions/desert/mushroom",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
