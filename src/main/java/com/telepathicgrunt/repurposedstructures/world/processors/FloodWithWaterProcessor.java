@@ -50,7 +50,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
 
         if (structureBlockInfoWorld.pos.getY() <= floodLevel) {
             boolean flooded = false;
-            if(structureBlockInfoWorld.state.isAir() || structureBlockInfoWorld.state.is(BlockTags.FLOWER_POTS) || structureBlockInfoWorld.state.is(BlockTags.BUTTONS)) {
+            if(structureBlockInfoWorld.state.isAir() || structureBlockInfoWorld.state.is(BlockTags.FLOWER_POTS) || structureBlockInfoWorld.state.is(BlockTags.BUTTONS) || structureBlockInfoWorld.state.canBeReplaced(Fluids.WATER)) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, Blocks.WATER.defaultBlockState(), null);
                 tickWaterFluid(levelReader, structureBlockInfoWorld);
                 flooded = true;

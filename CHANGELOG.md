@@ -8,8 +8,15 @@ Fixed a vanilla bug that caused RS's Mansions to not spawn Red and Brown Mushroo
  https://bugs.mojang.com/browse/MC-213695
  https://bugs.mojang.com/browse/MC-160169
 
+#### Fortresses:
+Fixed mushrooms blocks in stairs piece dropping themselves as items when below sealevel in Jungle Fortress.
+
+Fixed vanilla bug that could prevent mushrooms from spawning in stairs piece in Jungle Fortress.
+
 #### Igloos:
 Added Bowls and a Shear to Mushroom Igloo's chest
+
+Fixed vanilla bug that could prevent mushrooms from spawning in Mossy and Mangrove Igloo top piece.
 
 
 ### **(V.6.3.20 Changes) (1.19.2 Minecraft) (Config Datapack Updated)**
