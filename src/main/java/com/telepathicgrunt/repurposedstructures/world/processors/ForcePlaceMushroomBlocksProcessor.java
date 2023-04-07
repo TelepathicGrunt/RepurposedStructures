@@ -31,6 +31,6 @@ public class ForcePlaceMushroomBlocksProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR.get();
+        return RSProcessors.FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR;
     }
 }
