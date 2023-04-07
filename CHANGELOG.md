@@ -1,3 +1,9 @@
+### **(V.6.3.22 Changes) (1.19.4 Minecraft)**
+
+#### Misc:
+Fixed startup crash due to improper init of Mixin Extras (I updated internal dependency but forgot to remove now unneeded init code for it)
+
+
 ### **(V.6.3.21 Changes) (1.19.4 Minecraft) (Config Datapack Updated)**
 
 #### Cities:

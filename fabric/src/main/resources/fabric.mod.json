@@ -9,8 +9,8 @@
     "TelepathicGrunt"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric",
-    "issues": "https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/issues"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures",
+    "issues": "https://github.com/TelepathicGrunt/RepurposedStructures/issues"
   },
 
   "license": "GNU Lesser General Public License v3.0",
@@ -23,9 +23,6 @@
     ],
     "modmenu": [
       "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
-    ],
-    "preLaunch": [
-      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
     ]
   },
   "mixins": [

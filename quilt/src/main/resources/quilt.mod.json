@@ -13,15 +13,14 @@
       "license": "LGPL-3.0-or-later",
       "icon": "assets/repurposed_structures/repurposed_structures_logo.png",
       "contact": {
-        "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures-fabric",
-        "issues": "https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/issues"
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures",
+        "issues": "https://github.com/TelepathicGrunt/RepurposedStructures/issues"
       }
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
       "init": "com.telepathicgrunt.repurposedstructures.quilt.RepurposedStructuresQuilt",
-      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat",
-      "preLaunch": "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+      "modmenu": "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
     },
     "depends": [
       {

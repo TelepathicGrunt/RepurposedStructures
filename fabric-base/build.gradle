@@ -33,6 +33,8 @@ dependencies {
     modRuntimeOnly "maven.modrinth:modmenu:${rootProject.mod_menu}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
+
+    implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${rootProject.mixin_extras}"))
 }
 
 processResources {
