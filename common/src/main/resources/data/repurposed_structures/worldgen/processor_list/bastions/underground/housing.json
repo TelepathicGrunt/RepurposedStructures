@@ -108,6 +108,9 @@
       "processor_type": "repurposed_structures:remove_floating_blocks_processor"
     },
     {
+      "processor_type": "repurposed_structures:force_place_mushroom_blocks_processor"
+    },
+    {
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",
       "ignore_down": true,
       "if_air_in_world": true,
