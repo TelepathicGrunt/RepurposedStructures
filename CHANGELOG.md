@@ -4,7 +4,8 @@
 Nerfed Netherite loot from Nether Cities a bit and reduced the variation in amount of Netherite loot from city to city.
 
 #### Mansions:
-Fixed a vanilla Java Edition bug I inherited where a room in RS Mansions does not have Red and Brown Mushrooms to match Bedrock Edition Woodland Mansions.
+Fixed a vanilla bug that caused vanilla's and RS's Mansions to not spawn Red and Brown Mushrooms. Fixed now for all structures including other mods.
+ https://bugs.mojang.com/browse/MC-213695
  https://bugs.mojang.com/browse/MC-160169
 
 #### Igloos:
