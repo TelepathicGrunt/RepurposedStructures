@@ -27,6 +27,7 @@ public final class RSProcessors {
     public static StructureProcessorType<NoiseReplaceWithPropertiesProcessor> NOISE_REPLACE_WITH_PROPERTIES_PROCESSOR = () -> NoiseReplaceWithPropertiesProcessor.CODEC;
     public static StructureProcessorType<WaterloggingFixProcessor> WATERLOGGING_FIX_PROCESSOR = () -> WaterloggingFixProcessor.CODEC;
     public static StructureProcessorType<SuperGravityProcessor> SUPER_GRAVITY_PROCESSOR = () -> SuperGravityProcessor.CODEC;
+    public static StructureProcessorType<ForcePlaceMushroomBlocksProcessor> FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR = () -> ForcePlaceMushroomBlocksProcessor.CODEC;
 
     public static StructureProcessorType<WallVinePostProcessor> WALL_VINE_POST_PROCESSOR = () -> WallVinePostProcessor.CODEC;
     public static StructureProcessorType<CeilingVinePostProcessor> CEILING_VINE_POST_PROCESSOR = () -> CeilingVinePostProcessor.CODEC;
@@ -50,6 +51,7 @@ public final class RSProcessors {
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "noise_replace_with_properties_processor"), NOISE_REPLACE_WITH_PROPERTIES_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "waterlogging_fix_processor"), WATERLOGGING_FIX_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "super_gravity_processor"), SUPER_GRAVITY_PROCESSOR);
+        Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "force_place_mushroom_blocks_processor"), FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR);
 
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "wall_vine_post_processor"), WALL_VINE_POST_PROCESSOR);
         Registry.register(Registry.STRUCTURE_PROCESSOR, new ResourceLocation(RepurposedStructures.MODID, "ceiling_vine_post_processor"), CEILING_VINE_POST_PROCESSOR);
