@@ -28,12 +28,20 @@ repositories {
 	maven { url "https://api.modrinth.com/maven/" }
 	maven {	url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
 	maven { url "https://www.cursemaven.com" }
+	maven {
+		url 'https://jitpack.io'
+		content {
+			includeGroup 'com.github.llamalad7.mixinextras'
+		}
+	}
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.officialMojangMappings()
-	
+
+	include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${project.mixin_extra_version}")))
+
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation ("maven.modrinth:modmenu:${project.mod_menu_version}") { transitive = false }
