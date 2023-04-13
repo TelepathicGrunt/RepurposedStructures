@@ -1,3 +1,9 @@
+### **(V.6.3.23 Changes) (1.19.4 Minecraft)**
+
+#### Misc:
+(Quilt): Fixed potential issue where one mixin was not loading. (The loot table item injection one for RS loot tables)
+
+
 ### **(V.6.3.22 Changes) (1.19.4 Minecraft)**
 
 #### Misc:
