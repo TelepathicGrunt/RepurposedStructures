@@ -1,3 +1,9 @@
+### **(V.6.3.24 Changes) (1.19.4 Minecraft)**
+
+#### Misc:
+(Forge): Fixed mod logo not showing up in mod list screen.
+
+
 ### **(V.6.3.23 Changes) (1.19.4 Minecraft)**
 
 #### Misc:
