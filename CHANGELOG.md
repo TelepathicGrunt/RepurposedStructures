@@ -1,3 +1,10 @@
+### **(V.6.3.24 Changes) (1.19.2 Minecraft)**
+
+#### Misc:
+Adjusted a mixin so it won't print a log entry about being skipped if Yung's API is on. No one's mixin was broken.
+ This is to just remove a log entry that made people think there was a conflict when there was none.
+
+
 ### **(V.6.3.21 Changes) (1.19.2 Minecraft) (Config Datapack Updated)**
 
 #### Cities:
