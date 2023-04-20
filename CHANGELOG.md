@@ -3,6 +3,9 @@
 #### Misc:
 (Forge): Fixed mod logo not showing up in mod list screen.
 
+Adjusted a mixin so it won't print a log entry about being skipped if Yung's API is on. No one's mixin was broken.
+ This is to just remove a log entry that made people think there was a conflict when there was none.
+
 
 ### **(V.6.3.23 Changes) (1.19.4 Minecraft)**
 
