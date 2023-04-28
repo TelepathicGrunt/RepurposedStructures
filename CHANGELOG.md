@@ -1,3 +1,9 @@
+### **(V.6.3.25 Changes) (1.19.4 Minecraft)**
+
+#### Villages:
+Fixed Villagers not spawning in Badlands, Birch, and Oak Villages
+
+
 ### **(V.6.3.24 Changes) (1.19.4 Minecraft)**
 
 #### Misc:
