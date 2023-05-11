@@ -1,5 +1,6 @@
 {
   "type": "minecraft:chest",
+  "random_sequence": "repurposed_structures:chests",
   "pools": [
     {
       "rolls": {
@@ -441,6 +442,27 @@
             {
               "function":"set_nbt",
               "tag":"{Explosion:{Colors:[I;12801229], FadeColors:[I;8073150], Trail:1b, Flicker:1b, Type:2b}}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 5
+        },
+        {
+          "name": "minecraft:coast_armor_trim_smithing_template",
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
             }
           ]
         }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:chest",
+  "random_sequence": "repurposed_structures:chests",
   "pools": [
     {
       "rolls": {
@@ -326,6 +327,19 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:vex_armor_trim_smithing_template"
         }
       ]
     },

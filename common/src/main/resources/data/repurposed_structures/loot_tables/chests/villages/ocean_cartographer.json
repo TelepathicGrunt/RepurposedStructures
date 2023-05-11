@@ -1,5 +1,6 @@
 {
   "type": "minecraft:chest",
+  "random_sequence": "repurposed_structures:chests",
   "pools": [
     {
       "bonus_rolls": 0.0,

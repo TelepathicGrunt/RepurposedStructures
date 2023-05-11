@@ -1,5 +1,6 @@
 {
   "type": "minecraft:chest",
+  "random_sequence": "repurposed_structures:chests",
   "pools": [
     {
       "rolls": {
@@ -152,6 +153,16 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:eye_armor_trim_smithing_template"
         }
       ]
     },
