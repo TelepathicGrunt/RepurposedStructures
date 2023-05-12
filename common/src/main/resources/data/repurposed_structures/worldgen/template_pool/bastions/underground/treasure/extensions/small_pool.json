@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/treasure/extensions/small_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {

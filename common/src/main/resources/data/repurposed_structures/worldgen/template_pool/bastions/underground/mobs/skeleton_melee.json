@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/mobs/piglin_melee",
   "fallback": "minecraft:empty",
   "elements": [
     {

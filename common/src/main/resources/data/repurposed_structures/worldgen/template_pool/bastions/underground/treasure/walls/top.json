@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/treasure/walls/top",
   "fallback": "minecraft:empty",
   "elements": [
     {

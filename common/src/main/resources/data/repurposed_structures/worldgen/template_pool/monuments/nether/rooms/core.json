@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:monuments/nether/rooms/core",
   "fallback": "minecraft:empty",
   "elements": [
     {

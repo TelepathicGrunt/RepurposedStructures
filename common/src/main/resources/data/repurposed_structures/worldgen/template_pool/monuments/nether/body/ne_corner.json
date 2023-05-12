@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:monuments/nether/body/ne_corner",
   "fallback": "minecraft:empty",
   "elements": [
     {

@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:mineshafts/nether/main",
   "fallback": "repurposed_structures:mineshafts/nether/fire",
   "elements": [
     {

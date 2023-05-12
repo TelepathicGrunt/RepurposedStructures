@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:ancient_cities/nether/structures",
   "fallback": "minecraft:empty",
   "elements": [
     {

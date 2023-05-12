@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:monuments/desert/openings/arch",
   "fallback": "minecraft:empty",
   "elements": [
     {

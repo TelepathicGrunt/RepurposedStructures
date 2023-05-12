@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/mobs/bat",
   "fallback": "minecraft:empty",
   "elements": [
     {

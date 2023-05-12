@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/units/walls/wall_bases",
   "fallback": "minecraft:empty",
   "elements": [
     {

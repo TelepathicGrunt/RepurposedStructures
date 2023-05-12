@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:mineshafts/end/side",
   "fallback": "minecraft:empty",
   "elements": [
     {

@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/units/rampart_plates",
   "fallback": "minecraft:empty",
   "elements": [
     {

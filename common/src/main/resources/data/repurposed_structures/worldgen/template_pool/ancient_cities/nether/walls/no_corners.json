@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:ancient_cities/nether/walls/no_corners",
   "fallback": "minecraft:empty",
   "elements": [
     {

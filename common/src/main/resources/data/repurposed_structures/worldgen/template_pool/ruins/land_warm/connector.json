@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:ruins/land_warm/connector",
   "fallback": "minecraft:empty",
   "elements": [
     {

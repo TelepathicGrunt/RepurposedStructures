@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:bastions/underground/blocks/redstone",
   "fallback": "minecraft:empty",
   "elements": [
     {

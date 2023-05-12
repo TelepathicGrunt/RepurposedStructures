@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:mineshafts/birch/main_step",
   "fallback": "minecraft:empty",
   "elements": [
     {

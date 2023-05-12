@@ -1,5 +1,4 @@
 {
-  "name": "repurposed_structures:monuments/desert/rooms/simple_pillar",
   "fallback": "minecraft:empty",
   "elements": [
     {
