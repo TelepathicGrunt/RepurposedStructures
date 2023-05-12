@@ -50,7 +50,7 @@ public class StructureSpecificMaps {
 
         @Nullable
         public MerchantOffer getOffer(Entity entity, RandomSource random) {
-            if (!(entity.level instanceof ServerLevel serverlevel)) {
+            if (!(entity.level() instanceof ServerLevel serverlevel)) {
                 return null;
             }
 

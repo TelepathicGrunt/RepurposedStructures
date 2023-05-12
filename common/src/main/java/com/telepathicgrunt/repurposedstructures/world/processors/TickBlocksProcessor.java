@@ -36,17 +36,17 @@ public class TickBlocksProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        if(blocksToTick.contains(structureBlockInfoWorld.state.getBlock())) {
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos))) {
+        if(blocksToTick.contains(structureBlockInfoWorld.state().getBlock())) {
+            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos()))) {
                 return structureBlockInfoWorld;
             }
 
-            ChunkAccess chunk = levelReader.getChunk(structureBlockInfoWorld.pos);
+            ChunkAccess chunk = levelReader.getChunk(structureBlockInfoWorld.pos());
             int minY = chunk.getMinBuildHeight();
             int maxY = chunk.getMaxBuildHeight();
-            int currentY = structureBlockInfoWorld.pos.getY();
+            int currentY = structureBlockInfoWorld.pos().getY();
             if(currentY >= minY && currentY <= maxY) {
-                ((LevelAccessor) levelReader).scheduleTick(structureBlockInfoWorld.pos, structureBlockInfoWorld.state.getBlock(), 0);
+                ((LevelAccessor) levelReader).scheduleTick(structureBlockInfoWorld.pos(), structureBlockInfoWorld.state().getBlock(), 0);
             }
         }
         return structureBlockInfoWorld;

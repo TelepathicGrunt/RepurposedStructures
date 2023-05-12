@@ -54,8 +54,8 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
-        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
-        if(infoIn2.state.is(Blocks.STRUCTURE_VOID) || !infoIn2.state.getFluidState().isEmpty()) {
+        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos());
+        if(infoIn2.state().is(Blocks.STRUCTURE_VOID) || !infoIn2.state().getFluidState().isEmpty()) {
             return infoIn2;
         }
 
@@ -63,17 +63,17 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
             return infoIn2;
         }
 
-        if(!GeneralUtils.isFullCube(levelReader, infoIn2.pos, infoIn2.state) || !infoIn2.state.getMaterial().blocksMotion()) {
+        if(!GeneralUtils.isFullCube(levelReader, infoIn2.pos(), infoIn2.state()) || !infoIn2.state().blocksMotion()) {
             ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
-            if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos).isAir()) return infoIn2;
+            if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos()).isAir()) return infoIn2;
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for (Direction direction : Direction.values()) {
                 if(ignoreDown && direction == Direction.DOWN) continue;
 
-                mutable.set(infoIn2.pos).move(direction);
+                mutable.set(infoIn2.pos()).move(direction);
                 if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
                     continue;
                 }
@@ -98,7 +98,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                             SectionPos.sectionRelative(mutable.getZ()));
 
                     if (fluidState.isSource()) {
-                        RandomSource random = settings.getRandom(infoIn2.pos);
+                        RandomSource random = settings.getRandom(infoIn2.pos());
                         Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         levelChunkSection.setBlockState(
                                 SectionPos.sectionRelative(mutable.getX()),

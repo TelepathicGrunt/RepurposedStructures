@@ -2,15 +2,16 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Material;
 
 import java.util.function.Predicate;
 
@@ -25,8 +26,9 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
         if (blockState == null) {
             return false;
         } else {
-            return blockState.getMaterial() == Material.STONE ||
-                    blockState.getMaterial() == Material.DIRT ||
+            return blockState.is(BlockTags.BASE_STONE_OVERWORLD) ||
+                    blockState.is(BlockTags.STONE_BRICKS) ||
+                    blockState.is(BlockTags.DIRT) |
                     blockState.is(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_STONE_BRICKS) ||
@@ -59,7 +61,7 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 vineMutablePos.set(mutable).move(direction);
                 // no floating vines
-                while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT) {
+                while(neighboringBlock.is(BlockTags.REPLACEABLE) || neighboringBlock.is(BlockTags.FLOWERS)) {
                     context.level().setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
                     neighboringBlock = context.level().getBlockState(vineMutablePos.move(Direction.DOWN));
                 }
@@ -67,7 +69,7 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
 
             BlockPos.MutableBlockPos replacingPlantMutable = new BlockPos.MutableBlockPos().set(mutable);
             BlockState plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
-            while(plantState.getMaterial() == Material.REPLACEABLE_PLANT) {
+            while(plantState.is(BlockTags.REPLACEABLE) || plantState.is(BlockTags.FLOWERS)) {
                 context.level().setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
                 plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
             }

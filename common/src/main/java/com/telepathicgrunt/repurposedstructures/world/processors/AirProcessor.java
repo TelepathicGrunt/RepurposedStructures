@@ -40,12 +40,12 @@ public class AirProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
-        if (structureBlockInfoWorld.state.isAir()) {
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos))) {
+        if (structureBlockInfoWorld.state().isAir()) {
+            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos()))) {
                 return structureBlockInfoWorld;
             }
 
-            BlockPos currentPos = structureBlockInfoWorld.pos;
+            BlockPos currentPos = structureBlockInfoWorld.pos();
             ChunkAccess currentChunk = levelReader.getChunk(currentPos);
             if (currentPos.getY() >= currentChunk.getMinBuildHeight() && currentPos.getY() < currentChunk.getMaxBuildHeight()) {
                 if(!blocksToIgnore.contains(currentChunk.getBlockState(currentPos).getBlock())) {
@@ -62,7 +62,7 @@ public class AirProcessor extends StructureProcessor {
                                     SectionPos.sectionRelative(currentPos.getX()),
                                     SectionPos.sectionRelative(currentPos.getY()),
                                     SectionPos.sectionRelative(currentPos.getZ()),
-                                    structureBlockInfoWorld.state,
+                                    structureBlockInfoWorld.state(),
                                     false);
                         }
                     }

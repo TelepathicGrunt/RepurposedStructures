@@ -26,17 +26,17 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         // Mimic Mineshaft rails visible even in sky if block below is solid
-        if(structureBlockInfoWorld.state.is(Blocks.RAIL) && worldView.getBlockState(structureBlockInfoWorld.pos.below()).canOcclude()) {
-            boolean waterlogged = worldView.getBlockState(structureBlockInfoWorld.pos).getFluidState().is(FluidTags.WATER);
+        if(structureBlockInfoWorld.state().is(Blocks.RAIL) && worldView.getBlockState(structureBlockInfoWorld.pos().below()).canOcclude()) {
+            boolean waterlogged = worldView.getBlockState(structureBlockInfoWorld.pos()).getFluidState().is(FluidTags.WATER);
 
             return new StructureTemplate.StructureBlockInfo(
-                    structureBlockInfoWorld.pos,
-                    structureBlockInfoWorld.state.setValue(BlockStateProperties.WATERLOGGED, waterlogged),
-                    structureBlockInfoWorld.nbt);
+                    structureBlockInfoWorld.pos(),
+                    structureBlockInfoWorld.state().setValue(BlockStateProperties.WATERLOGGED, waterlogged),
+                    structureBlockInfoWorld.nbt());
         }
 
         // Will not place blocks if out in open and visible to sky.
-        if(structureBlockInfoWorld.pos.getY() >= worldView.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos.getX(), structureBlockInfoWorld.pos.getZ())) {
+        if(structureBlockInfoWorld.pos().getY() >= worldView.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos().getX(), structureBlockInfoWorld.pos().getZ())) {
             return null;
         }
 

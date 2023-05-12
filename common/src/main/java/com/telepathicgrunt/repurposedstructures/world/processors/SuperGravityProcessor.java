@@ -3,10 +3,12 @@ package com.telepathicgrunt.repurposedstructures.world.processors;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,7 +17,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.minecraft.world.level.material.Material;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -61,22 +62,22 @@ public class SuperGravityProcessor extends StructureProcessor {
             heightmap$types = this.heightmap;
         }
 
-        int heightmapY = levelReader.getHeight(heightmap$types, structureBlockInfoWorld.pos.getX(), structureBlockInfoWorld.pos.getZ());
-        int localY = structureBlockInfoLocal.pos.getY();
+        int heightmapY = levelReader.getHeight(heightmap$types, structureBlockInfoWorld.pos().getX(), structureBlockInfoWorld.pos().getZ());
+        int localY = structureBlockInfoLocal.pos().getY();
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        mutable.set(structureBlockInfoWorld.pos.getX(), heightmapY, structureBlockInfoWorld.pos.getZ());
+        mutable.set(structureBlockInfoWorld.pos().getX(), heightmapY, structureBlockInfoWorld.pos().getZ());
         BlockState aboveState = levelReader.getBlockState(mutable);
         mutable.move(Direction.DOWN);
         BlockState currentState = levelReader.getBlockState(mutable);
-        while (blocksToIgnore.contains(currentState.getBlock()) || (requireWaterSurface && currentState.getMaterial() == Material.WATER)) {
+        while (blocksToIgnore.contains(currentState.getBlock()) || (requireWaterSurface && currentState.getFluidState().is(FluidTags.WATER))) {
             aboveState = currentState;
             mutable.move(Direction.DOWN);
             currentState = levelReader.getBlockState(mutable);
         }
 
-        if (requireWaterSurface ? aboveState.getMaterial() == Material.WATER : aboveState.isAir()) {
-            return new StructureTemplate.StructureBlockInfo(new BlockPos(structureBlockInfoWorld.pos.getX(), mutable.getY() + localY + this.offset, structureBlockInfoWorld.pos.getZ()), structureBlockInfoWorld.state, structureBlockInfoWorld.nbt);
+        if (requireWaterSurface ? aboveState.getFluidState().is(FluidTags.WATER) : aboveState.isAir()) {
+            return new StructureTemplate.StructureBlockInfo(new BlockPos(structureBlockInfoWorld.pos().getX(), mutable.getY() + localY + this.offset, structureBlockInfoWorld.pos().getZ()), structureBlockInfoWorld.state(), structureBlockInfoWorld.nbt());
         }
 
         return null;

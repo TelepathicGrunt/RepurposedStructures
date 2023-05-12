@@ -35,20 +35,20 @@ public class ReplaceAirOnlyProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
-        if(!blocksToAlwaysPlace.contains(structureBlockInfoWorld.state)) {
-            BlockPos position = structureBlockInfoWorld.pos;
+        if(!blocksToAlwaysPlace.contains(structureBlockInfoWorld.state())) {
+            BlockPos position = structureBlockInfoWorld.pos();
             BlockState worldState = worldView.getBlockState(position);
             BlockState aboveWorldState = worldView.getBlockState(position.above());
 
             if (worldState.isAir() &&
-                !structureBlockInfoWorld.state.hasBlockEntity() &&
+                !structureBlockInfoWorld.state().hasBlockEntity() &&
                 !aboveWorldState.hasBlockEntity())
             {
-                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, worldState, null);
+                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), worldState, null);
             }
             // Do not replace other dungeon's chests/spawners
             else if(worldState.hasBlockEntity()) {
-                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos, worldState, null);
+                structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), worldState, null);
             }
         }
         return structureBlockInfoWorld;

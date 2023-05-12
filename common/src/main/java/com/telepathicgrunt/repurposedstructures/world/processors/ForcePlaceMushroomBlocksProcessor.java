@@ -20,9 +20,9 @@ public class ForcePlaceMushroomBlocksProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos);
-        if (structureBlockInfoWorld.state.getBlock() instanceof MushroomBlock) {
-            levelReader.getChunk(mutable).setBlockState(mutable, structureBlockInfoWorld.state, false);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos());
+        if (structureBlockInfoWorld.state().getBlock() instanceof MushroomBlock) {
+            levelReader.getChunk(mutable).setBlockState(mutable, structureBlockInfoWorld.state(), false);
             return null;
         }
 

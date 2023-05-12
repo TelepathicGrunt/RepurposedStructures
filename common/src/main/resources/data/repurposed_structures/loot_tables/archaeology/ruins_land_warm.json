@@ -1,0 +1,72 @@
+{
+  "type": "minecraft:archaeology",
+  "random_sequence": "repurposed_structures:archaeology",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "name": "minecraft:angler_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:shelter_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:snort_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:sniffer_egg",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:iron_axe",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:wheat",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:carrot",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:wooden_hoe",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:charcoal",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:iron_nugget",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:gold_nugget",
+          "type": "minecraft:item",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

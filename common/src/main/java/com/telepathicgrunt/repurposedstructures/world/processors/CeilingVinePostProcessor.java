@@ -43,13 +43,13 @@ public class CeilingVinePostProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         // Place vines only in air space
-        if (structureBlockInfoWorld.state.isAir()) {
+        if (structureBlockInfoWorld.state().isAir()) {
 
             RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setSeed(structureBlockInfoWorld.pos.asLong() * structureBlockInfoWorld.pos.getY());
-            ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos);
-            BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos);
-            BlockPos abovePos = structureBlockInfoWorld.pos.above();
+            random.setSeed(structureBlockInfoWorld.pos().asLong() * structureBlockInfoWorld.pos().getY());
+            ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos());
+            BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos());
+            BlockPos abovePos = structureBlockInfoWorld.pos().above();
             BlockState aboveState = centerChunk.getBlockState(abovePos);
 
             if(random.nextFloat() < probability &&
@@ -60,7 +60,7 @@ public class CeilingVinePostProcessor extends StructureProcessor {
                 List<Direction> shuffledDirectionList = Direction.Plane.HORIZONTAL.stream().collect(Collectors.toList());
                 Collections.shuffle(shuffledDirectionList);
                 for(Direction facing : shuffledDirectionList) {
-                    mutable.set(structureBlockInfoWorld.pos).move(facing);
+                    mutable.set(structureBlockInfoWorld.pos()).move(facing);
                     BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed if side block is empty and top block is solid.

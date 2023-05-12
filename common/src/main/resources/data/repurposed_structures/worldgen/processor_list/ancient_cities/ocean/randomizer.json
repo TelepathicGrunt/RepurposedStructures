@@ -41,6 +41,19 @@
           "output_state": {
             "Name": "minecraft:lapis_block"
           }
+        },
+        {
+          "input_predicate": {
+            "block": "minecraft:packed_ice",
+            "predicate_type": "minecraft:random_block_match",
+            "probability": 0.15
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_state": {
+            "Name": "minecraft:gravel"
+          }
         }
       ]
     },
@@ -99,6 +112,153 @@
           }
         }
       ]
+    },
+    {
+      "processor_type": "minecraft:capped",
+      "limit": 3,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "block": "minecraft:sand",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_sand",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "block": "minecraft:gravel",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "processor_type": "minecraft:capped",
+      "limit": 3,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "location_predicate": {
+              "block": "minecraft:sand",
+              "predicate_type": "minecraft:block_match"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_sand",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "location_predicate": {
+              "block": "minecraft:gravel",
+              "predicate_type": "minecraft:block_match"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "processor_type": "minecraft:capped",
+      "limit": 2,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "block": "minecraft:yellow_stained_glass",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "block": "minecraft:sand",
+              "predicate_type": "minecraft:block_match"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_sand",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "block": "minecraft:yellow_stained_glass",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "block": "minecraft:gravel",
+              "predicate_type": "minecraft:block_match"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "processor_type": "repurposed_structures:block_removal_post_processor",
+      "remove_blocks": ["minecraft:yellow_stained_glass"]
     },
     {
       "processor_type": "minecraft:protected_blocks",

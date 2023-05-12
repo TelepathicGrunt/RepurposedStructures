@@ -49,20 +49,20 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
-        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos);
+        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos());
         if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(currentChunkPos)) {
             return infoIn2;
         }
 
-        if(!infoIn2.state.getFluidState().isEmpty()) {
+        if(!infoIn2.state().getFluidState().isEmpty()) {
             ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
-            Fluid currentFluid = infoIn2.state.getFluidState().getType();
+            Fluid currentFluid = infoIn2.state().getFluidState().getType();
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for (Direction direction : Direction.values()) {
 
-                mutable.set(infoIn2.pos).move(direction);
+                mutable.set(infoIn2.pos()).move(direction);
                 if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
                     continue;
                 }
@@ -92,7 +92,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                             replacementBlock = weightedReplacementBlocks.get(0).getFirst();
                         }
                         else{
-                            RandomSource random = settings.getRandom(infoIn2.pos);
+                            RandomSource random = settings.getRandom(infoIn2.pos());
                             replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         }
 

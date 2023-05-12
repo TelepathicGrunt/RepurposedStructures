@@ -108,7 +108,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                     }
                     // Floor must be complete
                     else if(!GeneralUtils.isFullCube(context.level(), mutable, state)) {
-                        if (y == 0 && !state.getMaterial().isSolid()) {
+                        if (y == 0 && !state.isSolid()) {
                             return false;
                         }
                         else if(state.is(BlockTags.LEAVES)) {
@@ -240,8 +240,8 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                         BlockState blockState2 = world.getBlockState(wallCheckPos2);
 
                                         // If first side is solid wall we are facing or neighbor is facing, switch to other side
-                                        if((blockState.getMaterial().isSolid() && !(blockState.getBlock() instanceof SpawnerBlock)) ||
-                                                (blockState2.getMaterial().isSolid() && !(blockState2.getBlock() instanceof SpawnerBlock))
+                                        if((blockState.isSolid() && !(blockState.getBlock() instanceof SpawnerBlock)) ||
+                                                (blockState2.isSolid() && !(blockState2.getBlock() instanceof SpawnerBlock))
                                         ) {
 
                                             currentDirection = currentDirection.getOpposite();

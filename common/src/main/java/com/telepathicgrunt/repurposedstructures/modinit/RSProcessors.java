@@ -12,6 +12,7 @@ public final class RSProcessors {
     public static final ResourcefulRegistry<StructureProcessorType<?>> STRUCTURE_PROCESSOR = ResourcefulRegistries.create(BuiltInRegistries.STRUCTURE_PROCESSOR, RepurposedStructures.MODID);
 
     public static final RegistryEntry<StructureProcessorType<AirProcessor>> AIR_PROCESSOR = STRUCTURE_PROCESSOR.register("air_processor", () -> () -> AirProcessor.CODEC);
+    public static final RegistryEntry<StructureProcessorType<BlockRemovalPostProcessor>> BLOCK_REMOVAL_POST_PROCESSOR = STRUCTURE_PROCESSOR.register("block_removal_post_processor", () -> () -> BlockRemovalPostProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<EndGatewayProcessor>> END_GATEWAY_PROCESSOR = STRUCTURE_PROCESSOR.register("end_gateway_processor", () -> () -> EndGatewayProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<TickBlocksProcessor>> TICK_BLOCKS_PROCESSOR = STRUCTURE_PROCESSOR.register("tick_blocks_processor", () -> () -> TickBlocksProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<MineshaftSkyViewProcessor>> MINESHAFT_SKY_VIEW_PROCESSOR = STRUCTURE_PROCESSOR.register("mineshaft_sky_view_processor", () -> () -> MineshaftSkyViewProcessor.CODEC);

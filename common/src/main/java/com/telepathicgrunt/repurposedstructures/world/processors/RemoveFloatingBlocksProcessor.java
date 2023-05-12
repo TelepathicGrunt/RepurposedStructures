@@ -24,27 +24,27 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos);
+        BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos());
         if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(mutable))) {
             return structureBlockInfoWorld;
         }
 
         // attempts to remove invalid floating plants
         ChunkAccess cachedChunk = levelReader.getChunk(mutable);
-        if(structureBlockInfoWorld.state.isAir() || structureBlockInfoWorld.state.getMaterial().isLiquid()) {
+        if(structureBlockInfoWorld.state().isAir() || !structureBlockInfoWorld.state().getFluidState().isEmpty()) {
 
             // set the block in the world so that canPlaceAt's result changes
-            cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
+            cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), false);
             BlockState aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
 
             // detects the invalidly placed blocks
             while(mutable.getY() < levelReader.getHeight() && !aboveWorldState.canSurvive(levelReader, mutable)) {
-                cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state, false);
+                cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), false);
                 aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
             }
 
             for (Direction direction : Direction.Plane.HORIZONTAL) {
-                mutable.set(structureBlockInfoWorld.pos);
+                mutable.set(structureBlockInfoWorld.pos());
                 mutable.move(direction);
                 ChunkPos chunkPos = new ChunkPos(mutable);
                 ChunkAccess chunkAccess2 = cachedChunk;
@@ -53,7 +53,7 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
                 }
                 BlockState sideBlock = chunkAccess2.getBlockState(mutable);
                 if (!sideBlock.canSurvive(levelReader, mutable)) {
-                    chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state, false);
+                    chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state(), false);
                 }
             }
         }

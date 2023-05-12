@@ -29,14 +29,14 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        if (structureBlockInfoWorld.state.is(Blocks.END_PORTAL_FRAME)) {
-            BlockPos worldPos = structureBlockInfoWorld.pos;
+        if (structureBlockInfoWorld.state().is(Blocks.END_PORTAL_FRAME)) {
+            BlockPos worldPos = structureBlockInfoWorld.pos();
             RandomSource random = structurePlacementData.getRandom(worldPos);
 
             return new StructureTemplate.StructureBlockInfo(
-                    structureBlockInfoWorld.pos,
-                    structureBlockInfoWorld.state.setValue(EndPortalFrameBlock.HAS_EYE, random.nextFloat() < probability),
-                    structureBlockInfoWorld.nbt);
+                    structureBlockInfoWorld.pos(),
+                    structureBlockInfoWorld.state().setValue(EndPortalFrameBlock.HAS_EYE, random.nextFloat() < probability),
+                    structureBlockInfoWorld.nbt());
         }
         return structureBlockInfoWorld;
     }

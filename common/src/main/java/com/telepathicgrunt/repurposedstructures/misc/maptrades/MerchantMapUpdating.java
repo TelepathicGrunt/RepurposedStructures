@@ -129,7 +129,7 @@ public class MerchantMapUpdating {
     ) {
         if (trader instanceof AbstractVillager merchant) {
             ItemStack mapStack = createEmptyMap();
-            task.apply((ServerLevel) trader.level, merchant, mapStack);
+            task.apply((ServerLevel) trader.level(), merchant, mapStack);
 
             return new MerchantOffer(
                     new ItemStack(Items.EMERALD, emeraldCost),

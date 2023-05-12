@@ -1057,12 +1057,12 @@ public class MansionPieces{
 
             for (StructureTemplate.StructureBlockInfo jigsawBlock : shuffledJigsawBlocks) {
                 // Gather jigsaw block information
-                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.state);
-                BlockPos jigsawBlockPos = jigsawBlock.pos;
+                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.state());
+                BlockPos jigsawBlockPos = jigsawBlock.pos();
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                ResourceLocation jigsawBlockPool = new ResourceLocation(jigsawBlock.nbt.getString("pool"));
+                ResourceLocation jigsawBlockPool = new ResourceLocation(jigsawBlock.nbt().getString("pool"));
                 Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlockPool);
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
@@ -1103,14 +1103,14 @@ public class MansionPieces{
                     // Check for each of the candidate's jigsaw blocks for a match
                     for (StructureTemplate.StructureBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
                         if (GeneralUtils.canJigsawsAttach(jigsawBlock, candidateJigsawBlock)) {
-                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos;
+                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos();
                             BlockPos candidateJigsawBlockRelativePos = new BlockPos(jigsawBlockTargetPos.getX() - candidateJigsawBlockPos.getX(), jigsawBlockTargetPos.getY() - candidateJigsawBlockPos.getY(), jigsawBlockTargetPos.getZ() - candidateJigsawBlockPos.getZ());
                             BoundingBox candidateBoundingBox = candidatePiece.getBoundingBox(manager, candidateJigsawBlockRelativePos, rotation);
 
                             // Determine how much the candidate jigsaw block is off in the y direction.
                             // This will be needed to offset the candidate piece so that the jigsaw blocks line up properly.
                             int candidateJigsawBlockRelativeY = candidateJigsawBlockPos.getY();
-                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.state).getStepY();
+                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.state()).getStepY();
 
                             // Determine how much we need to offset the candidate piece itself in order to have the jigsaw blocks aligned.
                             // Depends on if the placement of both pieces is rigid or not

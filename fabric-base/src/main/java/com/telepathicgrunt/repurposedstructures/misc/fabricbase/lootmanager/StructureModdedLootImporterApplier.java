@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
-import com.telepathicgrunt.repurposedstructures.mixins.fabricbase.resources.BuilderAccessor;
 import com.telepathicgrunt.repurposedstructures.mixins.fabricbase.resources.LootContextAccessor;
 import com.telepathicgrunt.repurposedstructures.mixins.fabricbase.resources.LootManagerAccessor;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,11 +28,11 @@ public final class StructureModdedLootImporterApplier {
             ResourceLocation lootTableID = REVERSED_TABLES.computeIfAbsent(
                     currentLootTable,
                     // Will iterate lazily through loottable map for which identifier gives this loottable and return the result
-                    (lootTable) -> ((LootManagerAccessor)context.getLevel().getServer().getLootTables()).repurposedstructures_getTables()
+                    (lootTable) -> ((LootManagerAccessor)context.getLevel().getServer().getLootData()).repurposedstructures_getTables()
                             .entrySet()
                             .stream()
                             .filter(entry -> lootTable.equals(entry.getValue()))
-                            .map(Map.Entry::getKey)
+                            .map(key -> key.getKey().location())
                             .findFirst()
                             .orElse(null) // null should be ever returned as otherwise, that would be concerning...
             );
@@ -52,7 +50,7 @@ public final class StructureModdedLootImporterApplier {
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContext(context);
-        List<ItemStack> newlyGeneratedLoot = newContext.getLootTable(tableToImportLoot).getRandomItems(newContext);
+        List<ItemStack> newlyGeneratedLoot = newContext.getResolver().getLootTable(tableToImportLoot).getRandomItems(((LootContextAccessor)newContext).getParams());
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> {
@@ -68,13 +66,9 @@ public final class StructureModdedLootImporterApplier {
     }
 
     static LootContext copyLootContext(LootContext oldLootContext) {
-        LootContext.Builder newContextBuilder = new LootContext.Builder(oldLootContext.getLevel())
-                .withRandom(oldLootContext.getRandom())
-                .withLuck(oldLootContext.getLuck());
+        LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).getParams())
+                .withOptionalRandomSeed(oldLootContext.getRandom().nextLong());
 
-        ((BuilderAccessor)newContextBuilder).getDynamicDrops().putAll(((LootContextAccessor)oldLootContext).getDynamicDrops());
-        ((BuilderAccessor)newContextBuilder).getParams().putAll(((LootContextAccessor)oldLootContext).getParams());
-
-        return newContextBuilder.create(LootContextParamSets.CHEST);
+        return newContextBuilder.create(new ResourceLocation("empty"));
     }
 }

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
+import com.telepathicgrunt.repurposedstructures.mixins.fabricbase.resources.LootContextAccessor;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -23,7 +24,7 @@ public class EndRemasteredDedicatedLootApplier {
 
             // Generate End Remastered's dedicated loot
             LootContext newContext = StructureModdedLootImporterApplier.copyLootContext(oldLootContext);
-            List<ItemStack> endRemasteredLoot = oldLootContext.getLootTable(tableToImportLoot).getRandomItems(newContext);
+            List<ItemStack> endRemasteredLoot = oldLootContext.getResolver().getLootTable(tableToImportLoot).getRandomItems(((LootContextAccessor)newContext).getParams());
 
             currentLoot.addAll(endRemasteredLoot);
         }

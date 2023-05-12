@@ -32,32 +32,32 @@ public class EndGatewayProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
-        if (structureBlockInfoWorld.state.is(Blocks.END_GATEWAY)) {
+        if (structureBlockInfoWorld.state().is(Blocks.END_GATEWAY)) {
             if (this.exitPos.isPresent()) {
-                CompoundTag compoundTag = (structureBlockInfoWorld.nbt == null || structureBlockInfoWorld.nbt.isEmpty()) ?
-                        new CompoundTag() : structureBlockInfoWorld.nbt.copy();
+                CompoundTag compoundTag = (structureBlockInfoWorld.nbt() == null || structureBlockInfoWorld.nbt().isEmpty()) ?
+                        new CompoundTag() : structureBlockInfoWorld.nbt().copy();
 
                 compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(this.exitPos.get()));
                 return new StructureTemplate.StructureBlockInfo(
-                        structureBlockInfoWorld.pos,
-                        structureBlockInfoWorld.state,
+                        structureBlockInfoWorld.pos(),
+                        structureBlockInfoWorld.state(),
                         compoundTag
                 );
             }
 
-            BlockPos currentPos = structureBlockInfoWorld.pos;
+            BlockPos currentPos = structureBlockInfoWorld.pos();
             ChunkAccess currentChunk = levelReader.getChunk(currentPos);
             int terrainY = currentChunk.getHeight(Heightmap.Types.MOTION_BLOCKING, 0, 0);
             if (terrainY <= currentChunk.getMinBuildHeight() || terrainY >= currentChunk.getMaxBuildHeight()) {
                 terrainY = currentChunk.getMinBuildHeight() + 1;
                 currentChunk.setBlockState(new BlockPos(0, currentChunk.getMinBuildHeight(), 0), Blocks.OBSIDIAN.defaultBlockState(), false);
             }
-            CompoundTag compoundTag = structureBlockInfoWorld.nbt == null ? new CompoundTag() : structureBlockInfoWorld.nbt;
+            CompoundTag compoundTag = structureBlockInfoWorld.nbt() == null ? new CompoundTag() : structureBlockInfoWorld.nbt();
             compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(new BlockPos(0, terrainY, 0)));
 
             return new StructureTemplate.StructureBlockInfo(
-                    structureBlockInfoWorld.pos,
-                    structureBlockInfoWorld.state,
+                    structureBlockInfoWorld.pos(),
+                    structureBlockInfoWorld.state(),
                     compoundTag
             );
         }

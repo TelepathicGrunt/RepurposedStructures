@@ -135,16 +135,29 @@ public class AdvancedRandomSpread extends RandomSpreadStructurePlacement {
         return RSStructurePlacementType.ADVANCED_RANDOM_SPREAD.get();
     }
 
-    public record SuperExclusionZone(HolderSet<StructureSet> otherSet, int chunkCount) {
+    public record SuperExclusionZone(HolderSet<StructureSet> otherSet, int chunkCount, Optional<Integer> allowedChunkCount) {
         public static final Codec<AdvancedRandomSpread.SuperExclusionZone> CODEC = RecordCodecBuilder.create(builder -> builder.group(
                 RegistryCodecs.homogeneousList(Registries.STRUCTURE_SET, StructureSet.DIRECT_CODEC).fieldOf("other_set").forGetter(AdvancedRandomSpread.SuperExclusionZone::otherSet),
-                Codec.intRange(1, 16).fieldOf("chunk_count").forGetter(AdvancedRandomSpread.SuperExclusionZone::chunkCount)
+                Codec.intRange(1, Integer.MAX_VALUE).fieldOf("chunk_count").forGetter(AdvancedRandomSpread.SuperExclusionZone::chunkCount),
+                Codec.intRange(1, Integer.MAX_VALUE).optionalFieldOf("allowed_chunk_count").forGetter(AdvancedRandomSpread.SuperExclusionZone::allowedChunkCount)
         ).apply(builder, AdvancedRandomSpread.SuperExclusionZone::new));
 
         boolean isPlacementForbidden(ChunkGeneratorStructureState chunkGeneratorStructureState, int l, int j) {
             for (Holder<StructureSet> holder : this.otherSet) {
                 if (chunkGeneratorStructureState.hasStructureChunkInRange(holder, l, j, this.chunkCount)) {
                     return true;
+                }
+            }
+
+            if (this.allowedChunkCount.isPresent() && this.allowedChunkCount.get() > this.chunkCount) {
+                boolean isAnyInRange = false;
+                for (Holder<StructureSet> holder : this.otherSet) {
+                    if (chunkGeneratorStructureState.hasStructureChunkInRange(holder, l, j, this.allowedChunkCount.get())) {
+                        isAnyInRange = true;
+                    }
+                }
+                if (!isAnyInRange) {
+                    return false;
                 }
             }
 

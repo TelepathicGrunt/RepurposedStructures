@@ -177,7 +177,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
 
     protected boolean canReplace(BlockState state) {
         return state.isAir() ||
-                (state.getMaterial().isLiquid() && !state.getFluidState().is(FluidTags.LAVA)) ||
+                (!state.getFluidState().isEmpty() && !state.getFluidState().is(FluidTags.LAVA)) ||
                 state.is(RSTags.MINESHAFT_SUPPORT_REPLACEABLES);
     }
 }

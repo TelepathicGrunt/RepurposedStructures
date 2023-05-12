@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
@@ -16,7 +17,6 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.material.Material;
 
 import java.util.BitSet;
 import java.util.function.Predicate;
@@ -32,8 +32,9 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         if (blockState == null) {
             return false;
         } else {
-            return blockState.getMaterial() == Material.STONE ||
-                    blockState.getMaterial() == Material.DIRT ||
+            return blockState.is(BlockTags.BASE_STONE_OVERWORLD) ||
+                    blockState.is(BlockTags.STONE_BRICKS) ||
+                    blockState.is(BlockTags.DIRT) ||
                     blockState.is(Blocks.INFESTED_CHISELED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_CRACKED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_STONE_BRICKS) ||
@@ -189,7 +190,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                 // no floating vines
                                                 state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
-                                                while(state.getMaterial() == Material.REPLACEABLE_PLANT) {
+                                                while(state.is(BlockTags.REPLACEABLE) || state.is(BlockTags.FLOWERS)) {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), false);
                                                     state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
                                                 }
@@ -201,7 +202,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
                                                 }
                                                 else {
-                                                    while (state.getMaterial() == Material.REPLACEABLE_PLANT) {
+                                                    while (state.is(BlockTags.REPLACEABLE) || state.is(BlockTags.FLOWERS)) {
                                                         currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
                                                         state = currentChunk.getBlockState(mutable.move(Direction.UP));
                                                     }
@@ -219,7 +220,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                     BlockState neighboringBlock = currentChunk.getBlockState(mutableVineCheck);
                                                     if (neighboringBlock.is(Blocks.VINE) && neighboringBlock.getValue(VineBlock.getPropertyForFace(direction.getOpposite()))) {
-                                                        while(neighboringBlock.getMaterial() == Material.REPLACEABLE_PLANT) {
+                                                        while(neighboringBlock.is(BlockTags.REPLACEABLE) || neighboringBlock.is(BlockTags.FLOWERS)) {
                                                             currentChunk.setBlockState(mutableVineCheck, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), false);
                                                             neighboringBlock = currentChunk.getBlockState(mutableVineCheck.move(Direction.DOWN));
                                                         }

@@ -127,6 +127,53 @@
       ]
     },
     {
+      "processor_type": "minecraft:capped",
+      "limit": 10,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "block": "minecraft:sand",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_sand",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ancient_city_ocean"
+            },
+            "input_predicate": {
+              "block": "minecraft:gravel",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
       "processor_type": "minecraft:protected_blocks",
       "value": "#minecraft:features_cannot_replace"
     },

@@ -1,0 +1,72 @@
+{
+  "type": "minecraft:archaeology",
+  "random_sequence": "repurposed_structures:archaeology",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "name": "minecraft:blade_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:explorer_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:mourner_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:plenty_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:iron_axe",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 3
+        },
+        {
+          "name": "minecraft:rabbit_hide",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:rabbit_foot",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:stone_sword",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:charcoal",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:coal_block",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
+          "name": "minecraft:lapis_lazuli",
+          "type": "minecraft:item",
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

@@ -20,7 +20,7 @@ public class StructureVoidProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
-        if (structureBlockInfoWorld.state.is(Blocks.STRUCTURE_VOID)) {
+        if (structureBlockInfoWorld.state().is(Blocks.STRUCTURE_VOID)) {
             return null;
         }
         return structureBlockInfoWorld;

@@ -6,9 +6,11 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionPieces;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MansionStructurePiece;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
@@ -27,7 +29,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.PiecesContainer;
-import net.minecraft.world.level.material.Material;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -162,12 +163,11 @@ public class MansionStructure extends Structure {
                             }
 
                             BlockPos blockPos2 = new BlockPos(x, currentY, z);
-                            Material material = level.getBlockState(blockPos2).getMaterial();
+                            BlockState state = level.getBlockState(blockPos2);
                             if (!level.isEmptyBlock(blockPos2) &&
-                                !material.isLiquid() &&
-                                material != Material.REPLACEABLE_PLANT &&
-                                material != Material.REPLACEABLE_FIREPROOF_PLANT &&
-                                material != Material.REPLACEABLE_WATER_PLANT)
+                                state.getFluidState().isEmpty() &&
+                                !state.is(BlockTags.REPLACEABLE) &&
+                                !state.is(BlockTags.FLOWERS))
                             {
                                 break;
                             }

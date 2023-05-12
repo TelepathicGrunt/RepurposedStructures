@@ -62,6 +62,19 @@
         },
         {
           "output_state": {
+            "Name": "minecraft:gravel"
+          },
+          "input_predicate": {
+            "block": "minecraft:grass_block",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "Name": "minecraft:air"
           },
           "input_predicate": {
@@ -88,9 +101,53 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "age": "6"
+            },
+            "Name": "minecraft:wheat"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 0.25,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "minecraft:capped",
+      "limit": 5,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/ruins_land_warm"
+            },
+            "input_predicate": {
+              "block": "minecraft:grass_block",
+              "predicate_type": "minecraft:block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "pieces_spawn_counts" : [
+    {
+      "nbt_piece_name" : "repurposed_structures:pyramids/jungle_hidden_room",
+      "never_spawn_more_than_this_many": 1
+    }
+  ]
+}

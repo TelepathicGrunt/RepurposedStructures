@@ -1,0 +1,15 @@
+{
+  "name": "repurposed_structures:pyramids/jungle_hidden_room",
+  "fallback": "repurposed_structures:pyramids/jungle_hidden_room",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:pyramids/jungle_hidden_room",
+        "processors": "repurposed_structures:pyramids/jungle_hidden_room",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

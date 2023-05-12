@@ -12,9 +12,15 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "betterfortresses:": "betterfortresses:jungle/"
 }
 conversion_exact_dict = {
+    "minecraft:blue_terracotta": "minecraft:chiseled_stone_bricks",
+    "minecraft:chiseled_sandstone": "minecraft:chiseled_stone_bricks",
+    "minecraft:cut_sandstone": "minecraft:andesite",
+    "minecraft:orange_terracotta": "minecraft:stone",
+    "minecraft:sand": "minecraft:gravel",
+    "minecraft:sandstone": "minecraft:stone_bricks",
+    "minecraft:sandstone_stairs": "minecraft:stone_brick_stairs"
 }
 #-------------------------------------------------------------------------------------------
 
