@@ -4,6 +4,14 @@
     "minecraft:birch_forest",
     "minecraft:old_growth_birch_forest",
     {
+      "id": "c:birch_forest",
+      "required": false
+    },
+    {
+      "id": "forge:birch_forest",
+      "required": false
+    },
+    {
       "id": "terralith:temperate_highlands",
       "required": false
     },
