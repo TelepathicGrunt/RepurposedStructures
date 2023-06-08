@@ -166,7 +166,7 @@ public class MansionStructure extends Structure {
                             BlockState state = level.getBlockState(blockPos2);
                             if (!level.isEmptyBlock(blockPos2) &&
                                 state.getFluidState().isEmpty() &&
-                                !state.is(BlockTags.REPLACEABLE) &&
+                                !state.is(BlockTags.REPLACEABLE_BY_TREES) &&
                                 !state.is(BlockTags.FLOWERS))
                             {
                                 break;

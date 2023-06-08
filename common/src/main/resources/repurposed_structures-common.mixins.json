@@ -14,6 +14,7 @@
     "features.NoLakesInStructuresMixin",
     "features.NoVinesInStructuresMixin",
     "items.MapItemAccessor",
+    "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
     "structures.ListPoolElementAccessor",

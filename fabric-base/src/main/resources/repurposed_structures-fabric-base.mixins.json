@@ -6,7 +6,6 @@
   "mixins": [
     "blocks.RailBlockMixin",
     "resources.BuiltInRegistriesMixin",
-    "resources.LootContextAccessor",
     "resources.LootManagerAccessor",
     "structures.StructurePoolMixin"
   ],

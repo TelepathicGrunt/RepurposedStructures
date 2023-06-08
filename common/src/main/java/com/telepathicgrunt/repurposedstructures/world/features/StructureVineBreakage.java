@@ -2,11 +2,11 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -58,18 +58,25 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             context.level().setBlock(mutable, Blocks.CAVE_AIR.defaultBlockState(), 3);
             BlockPos.MutableBlockPos vineMutablePos = new BlockPos.MutableBlockPos().set(mutable);
             BlockState neighboringBlock = context.level().getBlockState(vineMutablePos);
+            WorldGenLevel level = context.level();
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 vineMutablePos.set(mutable).move(direction);
                 // no floating vines
-                while(neighboringBlock.is(BlockTags.REPLACEABLE) || neighboringBlock.is(BlockTags.FLOWERS)) {
-                    context.level().setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
-                    neighboringBlock = context.level().getBlockState(vineMutablePos.move(Direction.DOWN));
+                while(mutable.getY() > level.getMinBuildHeight() &&
+                        mutable.getY() < level.getMaxBuildHeight() &&
+                        (neighboringBlock.is(BlockTags.REPLACEABLE_BY_TREES) || neighboringBlock.is(BlockTags.FLOWERS)))
+                {
+                    level.setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
+                    neighboringBlock = level.getBlockState(vineMutablePos.move(Direction.DOWN));
                 }
             }
 
             BlockPos.MutableBlockPos replacingPlantMutable = new BlockPos.MutableBlockPos().set(mutable);
             BlockState plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
-            while(plantState.is(BlockTags.REPLACEABLE) || plantState.is(BlockTags.FLOWERS)) {
+            while(mutable.getY() > level.getMinBuildHeight() &&
+                    mutable.getY() < level.getMaxBuildHeight() &&
+                    (plantState.is(BlockTags.REPLACEABLE_BY_TREES) || plantState.is(BlockTags.FLOWERS)))
+            {
                 context.level().setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
                 plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
             }

@@ -19,9 +19,9 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[dependencies.repurposed_structures]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.3,1.20)"
+    versionRange="[1.20,1.21)"
 
 [[dependencies.repurposed_structures]]
     modId="forge"
     mandatory=true
-    versionRange="[44.0.18,)"
+    versionRange="[46.0.1,)"

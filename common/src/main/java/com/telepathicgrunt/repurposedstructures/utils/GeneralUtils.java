@@ -198,7 +198,7 @@ public final class GeneralUtils {
     }
 
     private static boolean isReplaceableByStructures(BlockState blockState) {
-        return blockState.isAir() || !blockState.getFluidState().isEmpty() || blockState.is(BlockTags.REPLACEABLE);
+        return blockState.isAir() || !blockState.getFluidState().isEmpty() || blockState.is(BlockTags.REPLACEABLE_BY_TREES);
     }
 
     //////////////////////////////////////////////

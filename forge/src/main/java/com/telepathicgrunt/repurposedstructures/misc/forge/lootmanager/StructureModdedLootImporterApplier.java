@@ -5,13 +5,12 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.configs.forge.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
-import com.telepathicgrunt.repurposedstructures.mixins.forge.resources.LootContextAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.resources.LootContextAccessor;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
@@ -39,7 +38,7 @@ public class StructureModdedLootImporterApplier extends LootModifier {
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot);
-        List<ItemStack> newlyGeneratedLoot = context.getLootTable(tableToImportLoot).getRandomItems(newContext);
+        List<ItemStack> newlyGeneratedLoot = context.getResolver().getLootTable(tableToImportLoot).getRandomItems(((LootContextAccessor)newContext).getParams());
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getNamespace().equals("minecraft"));
@@ -53,9 +52,10 @@ public class StructureModdedLootImporterApplier extends LootModifier {
     }
 
     protected static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
-        LootContext newContext = new LootContext.Builder(oldLootContext).create(LootContextParamSets.CHEST);
-        ((LootContextAccessor)newContext).repurposedstructures_setQueriedLootTableId(newQueryID); // The normal method won't set it as the newContext already has queriedID.
-        return newContext;
+        LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).getParams())
+                .withOptionalRandomSeed(oldLootContext.getRandom().nextLong());
+
+        return newContextBuilder.create(new ResourceLocation("empty"));
     }
 
     @Override

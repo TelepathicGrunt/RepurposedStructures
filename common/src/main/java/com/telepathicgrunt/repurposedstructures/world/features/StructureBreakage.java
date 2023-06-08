@@ -190,7 +190,10 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                 // no floating vines
                                                 state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
-                                                while(state.is(BlockTags.REPLACEABLE) || state.is(BlockTags.FLOWERS)) {
+                                                while(mutable.getY() > currentChunk.getMinBuildHeight() &&
+                                                        mutable.getY() < currentChunk.getMaxBuildHeight() &&
+                                                        (state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.FLOWERS)))
+                                                {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), false);
                                                     state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
                                                 }
@@ -202,7 +205,10 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
                                                 }
                                                 else {
-                                                    while (state.is(BlockTags.REPLACEABLE) || state.is(BlockTags.FLOWERS)) {
+                                                    while (mutable.getY() > currentChunk.getMinBuildHeight() &&
+                                                            mutable.getY() < currentChunk.getMaxBuildHeight() &&
+                                                            (state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.FLOWERS)))
+                                                    {
                                                         currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), false);
                                                         state = currentChunk.getBlockState(mutable.move(Direction.UP));
                                                     }
@@ -220,7 +226,10 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                     BlockState neighboringBlock = currentChunk.getBlockState(mutableVineCheck);
                                                     if (neighboringBlock.is(Blocks.VINE) && neighboringBlock.getValue(VineBlock.getPropertyForFace(direction.getOpposite()))) {
-                                                        while(neighboringBlock.is(BlockTags.REPLACEABLE) || neighboringBlock.is(BlockTags.FLOWERS)) {
+                                                        while(mutable.getY() > currentChunk.getMinBuildHeight() &&
+                                                                mutable.getY() < currentChunk.getMaxBuildHeight() &&
+                                                                (neighboringBlock.is(BlockTags.REPLACEABLE_BY_TREES) || neighboringBlock.is(BlockTags.FLOWERS)))
+                                                        {
                                                             currentChunk.setBlockState(mutableVineCheck, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), false);
                                                             neighboringBlock = currentChunk.getBlockState(mutableVineCheck.move(Direction.DOWN));
                                                         }

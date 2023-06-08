@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
-import com.telepathicgrunt.repurposedstructures.mixins.fabricbase.resources.LootContextAccessor;
+import com.telepathicgrunt.repurposedstructures.mixins.resources.LootContextAccessor;
 import com.telepathicgrunt.repurposedstructures.mixins.fabricbase.resources.LootManagerAccessor;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
