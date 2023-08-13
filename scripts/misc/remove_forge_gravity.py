@@ -14,6 +14,8 @@ def traverse_dicts(nbt_list):
                 if entry["Name"] == "forge:entity_gravity" or entry["Name"] == "forge:step_height_addition":
                     nbt_list['Attributes'].remove(entry)
         
+        nbt_list.pop('forge:spawn_type', None)
+
         for key, entry in nbt_list.items():
             if isinstance(entry, nbt.NBTTagList) or isinstance(entry, nbt.NBTTagCompound):
                 traverse_dicts(entry)
