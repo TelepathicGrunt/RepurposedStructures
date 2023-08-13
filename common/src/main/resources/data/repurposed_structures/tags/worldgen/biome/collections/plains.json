@@ -14,6 +14,34 @@
     {
       "id": "#c:plains",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:lupine_plains",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:prairie",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:grassland",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:barley_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:poppy_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:shrubland",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:lush_hills",
+      "required": false
     }
   ]
 }

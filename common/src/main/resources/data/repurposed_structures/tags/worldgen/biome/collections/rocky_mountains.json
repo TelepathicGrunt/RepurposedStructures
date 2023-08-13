@@ -62,6 +62,10 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:mountains",
+      "required": false
+    },
+    {
       "id": "wythers:aspen_crags",
       "required": false
     },

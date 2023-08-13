@@ -61,6 +61,10 @@
       "required": false
     },
     {
+      "id": "#forge:is_cave",
+      "required": false
+    },
+    {
       "id": "#forge:is_underground",
       "required": false
     },

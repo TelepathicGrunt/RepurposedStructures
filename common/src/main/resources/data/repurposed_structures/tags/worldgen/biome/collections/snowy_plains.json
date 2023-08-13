@@ -3,6 +3,10 @@
   "values": [
     "minecraft:snowy_plains",
     {
+      "id": "biomesoplenty:snowy_fir_clearing",
+      "required": false
+    },
+    {
       "id": "terralith:alpine_grove",
       "required": false
     },
@@ -19,7 +23,7 @@
       "required": false
     },
     {
-      "id": "biomesoplenty:snowy_fir_clearing",
+      "id": "regions_unexplored:frozen_tundra",
       "required": false
     },
     {

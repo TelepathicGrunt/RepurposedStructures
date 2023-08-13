@@ -11,6 +11,10 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:chalk_cliffs",
+      "required": false
+    },
+    {
       "id": "#c:stony_shores",
       "required": false
     }

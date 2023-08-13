@@ -3,10 +3,6 @@
   "values": [
     "minecraft:dark_forest",
     {
-      "id": "terralith:mirage_isles",
-      "required": false
-    },
-    {
       "id": "byg:ancient_forest",
       "required": false
     },
@@ -19,19 +15,23 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:blackwood_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:pumpkin_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:smouldering_woodland",
+      "required": false
+    },
+    {
+      "id": "terralith:mirage_isles",
+      "required": false
+    },
+    {
       "id": "vampirism:vampire_forest",
-      "required": false
-    },
-    {
-      "id": "#forge:is_spooky",
-      "required": false
-    },
-    {
-      "id": "#forge:is_dead",
-      "required": false
-    },
-    {
-      "id": "#c:dead",
       "required": false
     },
     {
@@ -52,6 +52,18 @@
     },
     {
       "id": "wythers:phantasmal_swamp",
+      "required": false
+    },
+    {
+      "id": "#forge:is_spooky",
+      "required": false
+    },
+    {
+      "id": "#forge:is_dead",
+      "required": false
+    },
+    {
+      "id": "#c:dead",
       "required": false
     }
   ]

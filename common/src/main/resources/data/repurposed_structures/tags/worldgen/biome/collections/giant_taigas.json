@@ -16,6 +16,14 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:redwoods",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:sparse_redwoods",
+      "required": false
+    },
+    {
       "id": "wythers:flooded_temperate_rainforest",
       "required": false
     },

@@ -27,6 +27,18 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:meadow",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:highland_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:shrubland",
+      "required": false
+    },
+    {
       "id": "wythers:cold_plains",
       "required": false
     },

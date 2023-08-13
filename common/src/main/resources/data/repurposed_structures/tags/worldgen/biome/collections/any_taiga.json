@@ -125,6 +125,18 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:willow_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:pine_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:pine_slopes",
+      "required": false
+    },
+    {
       "id": "wythers:birch_taiga",
       "required": false
     },

@@ -36,6 +36,10 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:silver_birch_forest",
+      "required": false
+    },
+    {
       "id": "wythers:autumnal_birch_forest",
       "required": false
     },

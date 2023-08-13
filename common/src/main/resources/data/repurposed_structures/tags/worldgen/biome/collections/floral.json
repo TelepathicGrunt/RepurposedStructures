@@ -53,6 +53,38 @@
     {
       "id": "projectvibrantjourneys:blossoming_fields",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:cherry_hills",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:flower_field",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:highland_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:meadow",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:lupine_plains",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:mauve_hills",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:poppy_fields",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:temperate_grove",
+      "required": false
     }
   ]
 }

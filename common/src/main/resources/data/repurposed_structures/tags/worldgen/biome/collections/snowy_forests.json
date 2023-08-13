@@ -36,6 +36,18 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:cold_boreal_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:cold_deciduous_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:frozen_forest",
+      "required": false
+    },
+    {
       "id": "wythers:snowy_fen",
       "required": false
     },
