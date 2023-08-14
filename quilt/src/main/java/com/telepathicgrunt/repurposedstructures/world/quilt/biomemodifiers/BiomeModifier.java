@@ -31,6 +31,7 @@ public class BiomeModifier {
         addToBiome("wells/mushroom", GenerationStep.Decoration.SURFACE_STRUCTURES);
         addToBiome("wells/nether", GenerationStep.Decoration.SURFACE_STRUCTURES);
         addToBiome("wells/snow", GenerationStep.Decoration.SURFACE_STRUCTURES);
+        addToBiome("wells/cherry", GenerationStep.Decoration.SURFACE_STRUCTURES);
 
         removeFromBiome(new ResourceLocation("minecraft", "monster_room_deep"), "has_structure/dungeons/deep", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
 

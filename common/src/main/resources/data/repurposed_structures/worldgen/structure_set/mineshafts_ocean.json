@@ -1,0 +1,16 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:mineshaft_ocean",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
+    "salt": 129417444,
+    "spacing": 1,
+    "separation": 0,
+    "frequency": 0.0008,
+    "frequency_reduction_method": "legacy_type_3"
+  }
+}

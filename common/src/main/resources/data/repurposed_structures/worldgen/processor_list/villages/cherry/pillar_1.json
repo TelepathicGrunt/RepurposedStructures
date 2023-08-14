@@ -1,0 +1,154 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:potted_pink_tulip"
+          },
+          "input_predicate": {
+            "block": "minecraft:potted_allium",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:potted_flowering_azalea_bush"
+          },
+          "input_predicate": {
+            "block": "minecraft:potted_allium",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "persistent": "true"
+            },
+            "Name": "minecraft:cherry_leaves"
+          },
+          "input_predicate": {
+            "block": "minecraft:flowering_azalea_leaves",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:allium"
+          },
+          "input_predicate": {
+            "block": "minecraft:pink_tulip",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:pink_tulip"
+          },
+          "input_predicate": {
+            "block": "minecraft:allium",
+            "probability": 0.33,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "flower_amount": "1"
+            },
+            "Name": "minecraft:pink_petals"
+          },
+          "input_predicate": {
+            "block": "minecraft:pink_petals",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "flower_amount": "2"
+            },
+            "Name": "minecraft:pink_petals"
+          },
+          "input_predicate": {
+            "block": "minecraft:pink_petals",
+            "probability": 0.2,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "flower_amount": "3"
+            },
+            "Name": "minecraft:pink_petals"
+          },
+          "input_predicate": {
+            "block": "minecraft:pink_petals",
+            "probability": 0.35,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Properties": {
+              "flower_amount": "4"
+            },
+            "Name": "minecraft:pink_petals"
+          },
+          "input_predicate": {
+            "block": "minecraft:pink_petals",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:pillar_processor",
+      "direction": "DOWN",
+      "pillar_trigger_and_replacements": [
+        {
+          "trigger" : {
+            "Name": "minecraft:cherry_fence"
+          },
+          "replacement" : {
+            "Name": "minecraft:cherry_fence"
+          }
+        }
+      ]
+    }
+  ]
+}

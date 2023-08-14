@@ -1,7 +1,15 @@
-### **(V.7.1.0 Changes) (1.20 Minecraft)**
+### **(V.7.1.0 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 #### Villages:
+Added Cherry Village to floral biomes of any kind! 
 
+Fixed zombie Birch, Mountains, and Oak Villages not having any Zombie Villagers.
+
+#### Wells:
+Added Cherry Well to floral biomes of any kind!
+
+#### Mineshafts:
+Reduced rate of Ocean Mineshafts a little bit
 
 #### Mod Compat:
 Improved compat with Regions Unexplored mod.

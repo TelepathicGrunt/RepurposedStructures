@@ -1,0 +1,14 @@
+{
+	"feature": "repurposed_structures:azalea_bees_05",
+	"placement": [
+		{
+			"type": "minecraft:block_predicate_filter",
+			"predicate": {
+				"type": "minecraft:would_survive",
+				"state": {
+					"Name": "minecraft:flowering_azalea"
+				}
+			}
+		}
+	]
+}

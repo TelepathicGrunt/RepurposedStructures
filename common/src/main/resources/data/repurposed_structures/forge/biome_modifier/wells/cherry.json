@@ -1,0 +1,6 @@
+{
+  "type": "repurposed_structures:additions_modifier",
+  "biomes": "#repurposed_structures:has_structure/wells/cherry",
+  "feature": "repurposed_structures:wells/cherry",
+  "step": "surface_structures"
+}

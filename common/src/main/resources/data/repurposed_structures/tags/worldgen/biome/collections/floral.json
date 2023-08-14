@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:flower_forest",
+    "minecraft:cherry_grove",
     {
       "id": "#c:floral",
       "required": false

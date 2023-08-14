@@ -37,7 +37,7 @@ conversion_exact_dict = {
     "minecraft:purple_bed":"minecraft:pink_bed",
     "minecraft:green_carpet":"minecraft:yellow_carpet",
     "minecraft:green_bed":"minecraft:yellow_bed",
-    "minecraft:gray_stained_glass_pane":"minecraft:yellow_stained_glass_pane"
+    "minecraft:gray_stained_glass_pane":"minecraft:white_stained_glass_pane"
 }
 #-------------------------------------------------------------------------------------------
 

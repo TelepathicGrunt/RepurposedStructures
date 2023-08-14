@@ -1,0 +1,41 @@
+{
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 50,
+      "element": {
+        "location": "repurposed_structures:villages/cherry/town_centers/meeting_point_1",
+        "processors": "repurposed_structures:villages/cherry/path_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "repurposed_structures:villages/cherry/town_centers/meeting_point_2",
+        "processors": "repurposed_structures:villages/cherry/path_randomizer_and_weak_goldify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/cherry/zombie/town_centers/meeting_point_1",
+        "processors": "repurposed_structures:villages/cherry/path_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/cherry/zombie/town_centers/meeting_point_2",
+        "processors": "repurposed_structures:villages/cherry/path_randomizer_and_weak_goldify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

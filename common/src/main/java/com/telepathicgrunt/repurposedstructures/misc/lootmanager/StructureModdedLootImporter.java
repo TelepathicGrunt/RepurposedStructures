@@ -160,6 +160,7 @@ public class StructureModdedLootImporter {
 
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/badlands_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/birch_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/cherry_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/dark_forest_house"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/giant_taiga_house"), new ResourceLocation("minecraft:chests/village/village_taiga_house"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/jungle_house"), new ResourceLocation("minecraft:chests/village/village_savanna_house"));
