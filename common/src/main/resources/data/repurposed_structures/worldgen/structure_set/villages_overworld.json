@@ -5,6 +5,10 @@
       "weight": 1
     },
     {
+      "structure": "repurposed_structures:village_bamboo",
+      "weight": 4
+    },
+    {
       "structure": "repurposed_structures:village_birch",
       "weight": 4
     },

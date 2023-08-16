@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-	  "repurposed_structures:outpost_jungle",
-	  "repurposed_structures:village_jungle"
+    "repurposed_structures:outpost_jungle",
+    "repurposed_structures:village_jungle",
+    "repurposed_structures:village_bamboo"
   ]
 }

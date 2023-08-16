@@ -33,7 +33,7 @@ public class NoDeltasInStructuresMixin {
         Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registries.STRUCTURE);
         StructureManager structureManager = ((WorldGenRegionAccessor)context.level()).getStructureManager();
         for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_BASALT)) {
-            if (structureManager .getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
+            if (structureManager.getStructureAt(context.origin(), configuredStructureFeature.value()).isValid()) {
                 cir.setReturnValue(false);
                 return;
             }

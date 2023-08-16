@@ -1,0 +1,281 @@
+{
+  "fallback": "repurposed_structures:villages/bamboo/terminators",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/animal_pen_2",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/animal_pen_3",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/armorer_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/butcher_shop_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/butcher_shop_2",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/cartographer_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/fisher_cottage_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/fletcher_house_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/large_farm_1",
+        "processors": "repurposed_structures:villages/bamboo/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/large_farm_2",
+        "processors": "repurposed_structures:villages/bamboo/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/library_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/masons_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/medium_house_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/medium_house_2",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/shepherds_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/small_farm",
+        "processors": "repurposed_structures:villages/bamboo/crop_randomizer",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_2",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_3",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_4",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_5",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_6",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_7",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/zombie/houses/small_house_8",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/tannery_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/temple_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/temple_2",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/tool_smith_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/weaponsmith_1",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/houses/weaponsmith_2",
+        "processors": "repurposed_structures:villages/bamboo/zombify",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

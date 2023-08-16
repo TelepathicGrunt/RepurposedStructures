@@ -42,7 +42,7 @@ public class NoBasaltColumnsInStructuresMixin {
         Registry<Structure> configuredStructureFeatureRegistry = levelAccessor.registryAccess().registryOrThrow(Registries.STRUCTURE);
         StructureManager structureManager = ((WorldGenRegionAccessor)levelAccessor).getStructureManager();
         for (Holder<Structure> configuredStructureFeature : configuredStructureFeatureRegistry.getOrCreateTag(RSTags.NO_BASALT)) {
-            if (structureManager .getStructureAt(mutableBlockPos, configuredStructureFeature.value()).isValid()) {
+            if (structureManager.getStructureAt(mutableBlockPos, configuredStructureFeature.value()).isValid()) {
                 cir.setReturnValue(false);
                 return;
             }

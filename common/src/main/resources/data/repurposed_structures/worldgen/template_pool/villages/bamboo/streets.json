@@ -1,0 +1,176 @@
+{
+  "fallback": "repurposed_structures:villages/bamboo/terminators",
+  "elements": [
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/corner_01",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/corner_03",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_02",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 7,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_04",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_05",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_06",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_08",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_09",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_10",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 4,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/straight_11",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/split_01",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/split_02",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/crossroad_02",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/crossroad_03",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/crossroad_04",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/crossroad_05",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/crossroad_06",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/crossroad_07",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/bamboo/streets/turn_01",
+        "processors": "repurposed_structures:villages/bamboo/path_randomizer",
+        "projection": "terrain_matching",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}

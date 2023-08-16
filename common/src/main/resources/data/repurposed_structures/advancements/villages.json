@@ -34,6 +34,22 @@
         ]
       }
     },
+    "in_village_bamboo": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:village_bamboo"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_village_birch": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -230,6 +246,9 @@
   "requirements": [
     [
       "in_village_badlands"
+    ],
+    [
+      "in_village_bamboo"
     ],
     [
       "in_village_birch"

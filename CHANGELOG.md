@@ -3,6 +3,8 @@
 #### Villages:
 Added Cherry Village to floral biomes of any kind! 
 
+Added Bamboo Village to bamboo biomes!
+
 Fixed zombie Birch, Mountains, and Oak Villages not having any Zombie Villagers.
 
 #### Wells:

@@ -12,32 +12,28 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "spruce":"cherry",
-    "mountains":"cherry"
+    "jungle":"bamboo",
 }
 conversion_exact_dict = {
-    "minecraft:stone_brick_wall":"minecraft:brick_wall",
-    "minecraft:stone_brick_stairs":"minecraft:brick_stairs",
-    "minecraft:stone_brick_slab":"minecraft:brick_slab",
-    "minecraft:mossy_cobblestone":"minecraft:bricks",
-    "minecraft:cobblestone":"minecraft:bricks",
-    "minecraft:cobblestone_slab":"minecraft:brick_slab",
-    "minecraft:cobblestone_wall":"minecraft:brick_wall",
-    "minecraft:stone_bricks":"minecraft:cherry_wood",
-    "minecraft:stone":"minecraft:cherry_planks",
-    "minecraft:stone_bricks":"minecraft:cherry_wood",
-    "minecraft:tall_grass":"minecraft:lilac",
-    "minecraft:large_fern":"minecraft:peony",
-    "minecraft:fern":"minecraft:pink_petals",
-    "minecraft:poppy":"minecraft:pink_tulip",
-    "minecraft:dandelion":"minecraft:allium",
-    "minecraft:grass":"minecraft:allium",
-    "minecraft:potted_poppy":"minecraft:potted_pink_tulip",
-    "minecraft:purple_carpet":"minecraft:pink_carpet",
-    "minecraft:purple_bed":"minecraft:pink_bed",
-    "minecraft:green_carpet":"minecraft:yellow_carpet",
-    "minecraft:green_bed":"minecraft:yellow_bed",
-    "minecraft:gray_stained_glass_pane":"minecraft:white_stained_glass_pane"
+    "minecraft:potted_dandelion":"minecraft:potted_bamboo",
+    "minecraft:red_bed":"minecraft:lime_bed",
+    "minecraft:red_carpet":"minecraft:lime_carpet",
+    "minecraft:red_terracotta":"minecraft:lime_terracotta",
+    "minecraft:jungle_door":"minecraft:bamboo_door",
+    "minecraft:jungle_fence":"minecraft:bamboo_fence",
+    "minecraft:jungle_fence_gate":"minecraft:bamboo_fence_gate",
+    "minecraft:jungle_log":"minecraft:mud_bricks",
+    "minecraft:stripped_jungle_log":"minecraft:mud",
+    "minecraft:jungle_wood":"minecraft:bamboo_block",
+    "minecraft:jungle_planks":"minecraft:bamboo_planks",
+    "minecraft:jungle_pressure_plate":"minecraft:bamboo_pressure_plate",
+    "minecraft:jungle_slab":"minecraft:bamboo_slab",
+    "minecraft:jungle_stairs":"minecraft:bamboo_stairs",
+    "minecraft:jungle_sapling":"minecraft:bamboo_sapling",
+    "minecraft:jungle_pressure_plate":"minecraft:bamboo_pressure_plate",
+    "minecraft:grass":"minecraft:fern",
+    "minecraft:tall_grass":"minecraft:large_fern",
+    "minecraft:stone_bricks":"minecraft:bamboo_mosaic"
 }
 #-------------------------------------------------------------------------------------------
 
@@ -141,3 +137,36 @@ for x in sorted(blockPalette.items()):
 
 print("FINISHED!")
 input()
+
+'''
+
+conversion_partial_dict = {
+    "spruce":"cherry",
+    "mountains":"cherry"
+}
+conversion_exact_dict = {
+    "minecraft:stone_brick_wall":"minecraft:brick_wall",
+    "minecraft:stone_brick_stairs":"minecraft:brick_stairs",
+    "minecraft:stone_brick_slab":"minecraft:brick_slab",
+    "minecraft:mossy_cobblestone":"minecraft:bricks",
+    "minecraft:cobblestone":"minecraft:bricks",
+    "minecraft:cobblestone_slab":"minecraft:brick_slab",
+    "minecraft:cobblestone_wall":"minecraft:brick_wall",
+    "minecraft:stone_bricks":"minecraft:cherry_wood",
+    "minecraft:stone":"minecraft:cherry_planks",
+    "minecraft:stone_bricks":"minecraft:cherry_wood",
+    "minecraft:tall_grass":"minecraft:lilac",
+    "minecraft:large_fern":"minecraft:peony",
+    "minecraft:fern":"minecraft:pink_petals",
+    "minecraft:poppy":"minecraft:pink_tulip",
+    "minecraft:dandelion":"minecraft:allium",
+    "minecraft:grass":"minecraft:allium",
+    "minecraft:potted_poppy":"minecraft:potted_pink_tulip",
+    "minecraft:purple_carpet":"minecraft:pink_carpet",
+    "minecraft:purple_bed":"minecraft:pink_bed",
+    "minecraft:green_carpet":"minecraft:yellow_carpet",
+    "minecraft:green_bed":"minecraft:yellow_bed",
+    "minecraft:gray_stained_glass_pane":"minecraft:white_stained_glass_pane"
+}
+
+'''

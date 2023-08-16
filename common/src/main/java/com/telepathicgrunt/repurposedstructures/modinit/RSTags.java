@@ -16,6 +16,9 @@ public final class RSTags {
     public static TagKey<Structure> LESS_JUNGLE_BUSHES = TagKey.create(Registries.STRUCTURE,
             new ResourceLocation(RepurposedStructures.MODID, "less_jungle_bushes"));
 
+    public static TagKey<Structure> LESS_BAMBOO = TagKey.create(Registries.STRUCTURE,
+            new ResourceLocation(RepurposedStructures.MODID, "less_bamboo"));
+
     public static TagKey<Structure> NO_JUNGLE_VINES = TagKey.create(Registries.STRUCTURE,
             new ResourceLocation(RepurposedStructures.MODID, "no_jungle_vines"));
 
