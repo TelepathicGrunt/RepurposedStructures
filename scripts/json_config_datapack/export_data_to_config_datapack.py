@@ -22,7 +22,7 @@ def getListOfFiles(dirName):
 
 restart = True
 while restart:
-    mc_version = "1.20"
+    mc_version = "1.20.1"
     version = input("\ncompat_datapack_version\n").strip()
 
     #-------------------------------------------------------------------------------------------

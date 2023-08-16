@@ -1,7 +1,7 @@
 {
     "pack": {
         "description": "Repurposed Structures resources",
-        "pack_format": 13,
+        "pack_format": 15,
         "_comment": "Taking the old, making it new!"
     }
 }
