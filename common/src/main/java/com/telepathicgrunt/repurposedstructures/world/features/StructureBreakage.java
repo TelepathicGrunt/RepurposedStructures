@@ -40,6 +40,8 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                     blockState.is(Blocks.INFESTED_STONE_BRICKS) ||
                     blockState.is(Blocks.INFESTED_MOSSY_STONE_BRICKS) ||
                     blockState.is(Blocks.IRON_BARS) ||
+                    blockState.is(Blocks.GRAVEL) ||
+                    blockState.is(Blocks.SUSPICIOUS_GRAVEL) ||
                     blockState.is(BlockTags.FLOWER_POTS);
         }
     };

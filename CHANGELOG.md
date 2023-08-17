@@ -1,5 +1,8 @@
 ### **(V.7.1.1 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
+#### Fortresses:
+Added archeology to Jungle Fortress.
+
 #### Mod Compat:
 Added future proofing compat with soon-future version of Regions Unexplored mod.
 
