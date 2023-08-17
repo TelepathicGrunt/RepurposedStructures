@@ -90,8 +90,8 @@ public class CappedStructureSurfaceProcessor extends StructureProcessor {
                         }
                         BlockState belowState = nbtPosToData.get(belowPos).state();
                         BlockState aboveState = nbtPosToData.get(abovePos).state();
-                        if ((belowState.isAir() || !belowState.getFluidState().isEmpty() || belowState.is(Blocks.JIGSAW)) ||
-                            (!aboveState.isAir() && belowState.getFluidState().isEmpty() && !aboveState.is(Blocks.JIGSAW)))
+                        if ((!belowState.canOcclude() || belowState.is(Blocks.JIGSAW)) ||
+                            (aboveState.canOcclude() && !aboveState.is(Blocks.JIGSAW)))
                         {
                             continue;
                         }
