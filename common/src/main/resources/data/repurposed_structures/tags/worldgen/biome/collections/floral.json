@@ -64,7 +64,15 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:magnolia_woodland",
+      "required": false
+    },
+    {
       "id": "regions_unexplored:flower_field",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:flower_fields",
       "required": false
     },
     {
@@ -77,6 +85,10 @@
     },
     {
       "id": "regions_unexplored:lupine_plains",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:clover_plains",
       "required": false
     },
     {

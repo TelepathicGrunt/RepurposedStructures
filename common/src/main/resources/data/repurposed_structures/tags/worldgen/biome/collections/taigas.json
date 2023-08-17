@@ -79,6 +79,10 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:pine_taiga",
+      "required": false
+    },
+    {
       "id": "regions_unexplored:pine_slopes",
       "required": false
     },

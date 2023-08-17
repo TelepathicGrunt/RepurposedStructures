@@ -17,42 +17,6 @@
       "required": false
     },
     {
-      "id": "wythers:flooded_temperate_rainforest",
-      "required": false
-    },
-    {
-      "id": "wythers:temperate_rainforest",
-      "required": false
-    },
-    {
-      "id": "wythers:temperate_rainforest_crags",
-      "required": false
-    },
-    {
-      "id": "wythers:ancient_taiga",
-      "required": false
-    },
-    {
-      "id": "wythers:old_growth_taiga_crags",
-      "required": false
-    },
-    {
-      "id": "wythers:old_growth_taiga_swamp",
-      "required": false
-    },
-    {
-      "id": "wythers:sparse_eucalyptus_woodland",
-      "required": false
-    },
-    {
-      "id": "wythers:sparse_eucalyptus_jungle",
-      "required": false
-    },
-    {
-      "id": "wythers:old_growth_taiga_swamp",
-      "required": false
-    },
-    {
       "id": "terralith:cloud_forest",
       "required": false
     },
@@ -133,7 +97,31 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:boreal_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:golden_boreal_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:boreal_taiga",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:golden_boreal_taiga",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:pine_taiga",
+      "required": false
+    },
+    {
       "id": "regions_unexplored:pine_slopes",
+      "required": false
+    },
+    {
+      "id": "wythers:ancient_taiga",
       "required": false
     },
     {
@@ -153,6 +141,10 @@
       "required": false
     },
     {
+      "id": "wythers:flooded_temperate_rainforest",
+      "required": false
+    },
+    {
       "id": "wythers:forested_highlands",
       "required": false
     },
@@ -165,7 +157,31 @@
       "required": false
     },
     {
+      "id": "wythers:old_growth_taiga_crags",
+      "required": false
+    },
+    {
+      "id": "wythers:old_growth_taiga_swamp",
+      "required": false
+    },
+    {
       "id": "wythers:pine_barrens",
+      "required": false
+    },
+    {
+      "id": "wythers:sparse_eucalyptus_woodland",
+      "required": false
+    },
+    {
+      "id": "wythers:sparse_eucalyptus_jungle",
+      "required": false
+    },
+    {
+      "id": "wythers:temperate_rainforest",
+      "required": false
+    },
+    {
+      "id": "wythers:temperate_rainforest_crags",
       "required": false
     },
     {

@@ -20,6 +20,10 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:clover_plains",
+      "required": false
+    },
+    {
       "id": "regions_unexplored:prairie",
       "required": false
     },

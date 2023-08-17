@@ -55,14 +55,6 @@
       "required": false
     },
     {
-      "id": "regions_unexplored:boreal_forest",
-      "required": false
-    },
-    {
-      "id": "regions_unexplored:golden_boreal_forest",
-      "required": false
-    },
-    {
       "id": "regions_unexplored:deciduous_forest",
       "required": false
     },

@@ -19,11 +19,19 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:blackwood_taiga",
+      "required": false
+    },
+    {
       "id": "regions_unexplored:pumpkin_fields",
       "required": false
     },
     {
       "id": "regions_unexplored:smouldering_woodland",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:ashen_woodland",
       "required": false
     },
     {

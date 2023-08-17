@@ -86,7 +86,19 @@
       "required": false
     },
     {
+      "id": "regions_unexplored:boreal_taiga",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:cold_boreal_taiga",
+      "required": false
+    },
+    {
       "id": "regions_unexplored:giant_bayou",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:old_growth_bayou",
       "required": false
     },
     {
@@ -99,6 +111,10 @@
     },
     {
       "id": "regions_unexplored:golden_boreal_forest",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:golden_boreal_taiga",
       "required": false
     },
     {
