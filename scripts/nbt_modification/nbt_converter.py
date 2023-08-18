@@ -8,36 +8,37 @@ import os
 
 blockPalette = {}
 
-originalBiome = "jungle"
-newBiome = "bamboo"
+originalBiome = ""
+newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
-    "minecraft:potted_dandelion":"minecraft:potted_bamboo",
-    "minecraft:red_bed":"minecraft:lime_bed",
-    "minecraft:red_carpet":"minecraft:lime_carpet",
-    "minecraft:red_terracotta":"minecraft:lime_terracotta",
-    "minecraft:stripped_jungle_log":"minecraft:mud",
-    "minecraft:stripped_jungle_log[axis=y]":"minecraft:mud",
-    "minecraft:jungle_fence[east=true,north=false,south=false,waterlogged=false,west=true]":"minecraft:bamboo_fence[east=true,north=false,south=false,waterlogged=false,west=true]",  
-    "minecraft:jungle_trapdoor[half=top]":"minecraft:bamboo_trapdoor[half=top]",
-    "minecraft:jungle_door":"minecraft:bamboo_door",
-    "minecraft:jungle_fence":"minecraft:bamboo_fence",
-    "minecraft:jungle_fence_gate":"minecraft:bamboo_fence_gate",
-    "minecraft:jungle_log":"minecraft:mud_bricks",
-    "minecraft:jungle_wood":"minecraft:bamboo_block",
-    "minecraft:jungle_planks":"minecraft:bamboo_planks",
-    "minecraft:jungle_pressure_plate":"minecraft:bamboo_pressure_plate",
-    "minecraft:jungle_slab":"minecraft:bamboo_slab",
-    "minecraft:jungle_stairs":"minecraft:bamboo_stairs",
-    "minecraft:jungle_sapling":"minecraft:bamboo_sapling",
-    "minecraft:jungle_pressure_plate":"minecraft:bamboo_pressure_plate",
-    "minecraft:grass":"minecraft:fern",
-    "minecraft:tall_grass":"minecraft:large_fern",
-    "minecraft:stone_bricks":"minecraft:bamboo_mosaic",
-    "minecraft:mossy_stone_bricks":"minecraft:bamboo_mosaic",
-    "repurposed_structures:villages/jungle/villagers":  "repurposed_structures:villages/bamboo/villagers"
+"minecraft:bamboo_block":                  "quark:bamboo_block",
+"minecraft:bamboo_door":                   "quark:bamboo_door",
+"minecraft:bamboo_fence":                  "quark:bamboo_fence",
+"minecraft:bamboo_fence_gate":             "quark:bamboo_fence_gate",    
+"minecraft:bamboo_mosaic":                 "quark:bamboo_mosaic",        
+"minecraft:bamboo_planks":                 "quark:bamboo_planks",        
+"minecraft:bamboo_pressure_plate":         "quark:bamboo_pressure_plate",
+"minecraft:bamboo_sapling":                "quark:bamboo_sapling",       
+"minecraft:bamboo_slab":                   "quark:bamboo_slab",
+"minecraft:bamboo_stairs":                 "quark:bamboo_stairs", 
+"minecraft:stripped_bamboo_block":         "quark:stripped_bamboo_block",
+
+"minecraft:cherry_door":                   "biomebackport:cherry_door",
+"minecraft:cherry_fence":                  "biomebackport:cherry_fence",
+"minecraft:cherry_fence_gate":             "biomebackport:cherry_fence_gate",
+"minecraft:cherry_log":                    "biomebackport:cherry_log",
+"minecraft:cherry_planks":                 "biomebackport:cherry_planks",
+"minecraft:cherry_pressure_plate":         "biomebackport:cherry_pressure_plate",
+"minecraft:cherry_slab":                   "biomebackport:cherry_slab",
+"minecraft:cherry_stairs":                 "biomebackport:cherry_stairs",
+"minecraft:cherry_trapdoor":               "biomebackport:cherry_trapdoor",
+"minecraft:cherry_wall_sign":              "biomebackport:cherry_wall_sign",
+"minecraft:cherry_wood":                   "biomebackport:cherry_wood",   
+"minecraft:pink_petals":                   "biomebackport:pink_petals",
+"minecraft:potted_cherry_sapling":         "biomebackport:potted_cherry_sapling",
 }
 #-------------------------------------------------------------------------------------------
 
@@ -182,6 +183,10 @@ conversion_exact_dict = {
     "minecraft:gray_stained_glass_pane":"minecraft:white_stained_glass_pane"
 }
 
+
+originalBiome = "jungle"
+newBiome = "bamboo"
+string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
@@ -189,8 +194,8 @@ conversion_exact_dict = {
     "minecraft:red_bed":"minecraft:lime_bed",
     "minecraft:red_carpet":"minecraft:lime_carpet",
     "minecraft:red_terracotta":"minecraft:lime_terracotta",
-    "minecraft:stripped_jungle_log":"minecraft:mud",
-    "minecraft:stripped_jungle_log[axis=y]":"minecraft:mud",
+    "minecraft:stripped_jungle_log":"minecraft:mud_bricks",
+    "minecraft:stripped_jungle_log[axis=y]":"minecraft:mud_bricks",
     "minecraft:jungle_fence[east=true,north=false,south=false,waterlogged=false,west=true]":"minecraft:bamboo_fence[east=true,north=false,south=false,waterlogged=false,west=true]",  
     "minecraft:jungle_trapdoor[half=top]":"minecraft:bamboo_trapdoor[half=top]",
     "minecraft:jungle_door":"minecraft:bamboo_door",
@@ -203,10 +208,13 @@ conversion_exact_dict = {
     "minecraft:jungle_slab":"minecraft:bamboo_slab",
     "minecraft:jungle_stairs":"minecraft:bamboo_stairs",
     "minecraft:jungle_sapling":"minecraft:bamboo_sapling",
+    "minecraft:jungle_trapdoor":"minecraft:bamboo_trapdoor",
     "minecraft:jungle_pressure_plate":"minecraft:bamboo_pressure_plate",
     "minecraft:grass":"minecraft:fern",
     "minecraft:tall_grass":"minecraft:large_fern",
     "minecraft:stone_bricks":"minecraft:bamboo_mosaic",
+    "minecraft:mossy_stone_bricks":"minecraft:bamboo_mosaic",
+    "minecraft:mossy_stone_brick_slab":"minecraft:bamboo_mosaic_slab",
     "repurposed_structures:villages/jungle/villagers":  "repurposed_structures:villages/bamboo/villagers"
 }
 '''
