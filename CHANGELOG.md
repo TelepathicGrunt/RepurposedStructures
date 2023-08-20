@@ -1,3 +1,10 @@
+### **(V.7.1.2 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
+
+#### Misc:
+Fixed floral structures spawning in Sunflower Plains due to c:floral tag usage. 
+ Change will stop Cherry Village from spawning in Sunflower Plains.
+
+
 ### **(V.7.1.1 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 #### Fortresses:

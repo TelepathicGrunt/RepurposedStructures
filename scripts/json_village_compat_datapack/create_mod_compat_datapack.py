@@ -40,7 +40,7 @@ while restart:
     mod_name = input("\nThe name of the mod to make compat with\n").strip()
     mod_namespace = input("\nThe modid of the mod to make compat with\n").strip()
     
-    n = int(input("Enter number of pieces per village: "))
+    n = int(input("\nEnter number of pieces per village:\n"))
     piece_names = []
     for i in range(0, n):
         piece_names.append(input("\nName of the nbt file\n").strip())
