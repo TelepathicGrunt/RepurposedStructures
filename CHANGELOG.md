@@ -1,3 +1,11 @@
+### **(V.7.1.3 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
+
+#### Villagers:
+Cherry Villages now has Taiga Villagers instead of Plains Villagers. Fits better.
+
+
+
+
 ### **(V.7.1.2 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 #### Misc:
