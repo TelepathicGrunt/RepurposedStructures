@@ -6,7 +6,7 @@
   "terrain_height_radius_check": 2,
   "allowed_terrain_height_range": 22,
   "biomes": "#repurposed_structures:has_structure/villages/swamp",
-  "step": "surface_structures",
+  "step": "top_layer_modification",
   "terrain_adaptation": "beard_thin",
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
   "start_height": {

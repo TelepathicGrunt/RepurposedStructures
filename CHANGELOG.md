@@ -3,7 +3,7 @@
 #### Villagers:
 Cherry Villages now has Taiga Villagers instead of Plains Villagers. Fits better.
 
-
+Cleaned up Swamp Village, so it is cleaner and more traversable.
 
 
 ### **(V.7.1.2 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
