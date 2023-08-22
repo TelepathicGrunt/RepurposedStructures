@@ -54,6 +54,7 @@ public class CappedStructureSurfaceProcessor extends StructureProcessor {
         this.limit = intProvider;
     }
 
+    @Override
     public final List<StructureTemplate.StructureBlockInfo> finalizeProcessing(ServerLevelAccessor serverLevelAccessor, BlockPos nbtOriginPos, BlockPos chunkCenter, List<StructureTemplate.StructureBlockInfo> nbtOriginBlockInfo, List<StructureTemplate.StructureBlockInfo> worldOriginBlockInfo, StructurePlaceSettings structurePlaceSettings) {
         if (this.limit.getMaxValue() != 0 && !worldOriginBlockInfo.isEmpty()) {
             if (nbtOriginBlockInfo.size() != worldOriginBlockInfo.size()) {

@@ -4,37 +4,6 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:bedrock"
-          },
-          "input_predicate": {
-            "block": "minecraft:air",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:block_match",
-            "block": "minecraft:mangrove_roots"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:bedrock"
-          },
-          "input_predicate": {
-            "block": "minecraft:air",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:block_match",
-            "block": "minecraft:moss_carpet"
-          }
-        }
-      ],
-      "processor_type": "minecraft:rule"
-    },
-    {
-      "rules": [
-        {
-          "output_state": {
             "Name": "minecraft:mud"
           },
           "input_predicate": {
@@ -238,32 +207,82 @@
       "processor_type": "minecraft:rule"
     },
     {
-      "processor_type": "minecraft:block_ignore",
-      "blocks": [
+      "processor_type": "repurposed_structures:post_process_list_processor",
+      "delegates": [
         {
-          "Name": "minecraft:air"
+          "rules": [
+            {
+              "output_state": {
+                "Name": "minecraft:bedrock"
+              },
+              "input_predicate": {
+                "block": "minecraft:air",
+                "predicate_type": "minecraft:block_match"
+              },
+              "location_predicate": {
+                "predicate_type": "minecraft:block_match",
+                "block": "minecraft:mangrove_roots"
+              }
+            },
+            {
+              "output_state": {
+                "Name": "minecraft:bedrock"
+              },
+              "input_predicate": {
+                "block": "minecraft:air",
+                "predicate_type": "minecraft:block_match"
+              },
+              "location_predicate": {
+                "predicate_type": "minecraft:block_match",
+                "block": "minecraft:moss_carpet"
+              }
+            }
+          ],
+          "processor_type": "minecraft:rule"
+        },
+        {
+          "processor_type": "minecraft:block_ignore",
+          "blocks": [
+            {
+              "Name": "minecraft:air"
+            }
+          ]
+        },
+        {
+          "rules": [
+            {
+              "output_state": {
+                "Name": "minecraft:air"
+              },
+              "input_predicate": {
+                "block": "minecraft:bedrock",
+                "predicate_type": "minecraft:block_match"
+              },
+              "location_predicate": {
+                "predicate_type": "minecraft:always_true"
+              }
+            }
+          ],
+          "processor_type": "minecraft:rule"
+        },
+        {
+          "processor_type": "repurposed_structures:air_processor"
+        },
+        {
+          "processor_type": "repurposed_structures:remove_floating_blocks_processor"
+        },
+        {
+          "processor_type": "minecraft:block_ignore",
+          "blocks": [
+            {
+              "Name": "minecraft:air"
+            },
+            {
+              "Name": "minecraft:structure_void"
+            }
+          ]
         }
       ]
-    },
-    {
-      "rules": [
-        {
-          "output_state": {
-            "Name": "minecraft:air"
-          },
-          "input_predicate": {
-            "block": "minecraft:bedrock",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        }
-      ],
-      "processor_type": "minecraft:rule"
-    },
-    {
-      "processor_type": "repurposed_structures:air_processor"
     }
   ]
 }
