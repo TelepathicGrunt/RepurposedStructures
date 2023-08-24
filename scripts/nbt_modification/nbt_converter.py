@@ -14,31 +14,6 @@ string_blacklist = []
 conversion_partial_dict = {
 }
 conversion_exact_dict = {
-"minecraft:bamboo_block":                  "quark:bamboo_block",
-"minecraft:bamboo_door":                   "quark:bamboo_door",
-"minecraft:bamboo_fence":                  "quark:bamboo_fence",
-"minecraft:bamboo_fence_gate":             "quark:bamboo_fence_gate",    
-"minecraft:bamboo_mosaic":                 "quark:bamboo_mosaic",        
-"minecraft:bamboo_planks":                 "quark:bamboo_planks",        
-"minecraft:bamboo_pressure_plate":         "quark:bamboo_pressure_plate",
-"minecraft:bamboo_sapling":                "quark:bamboo_sapling",       
-"minecraft:bamboo_slab":                   "quark:bamboo_slab",
-"minecraft:bamboo_stairs":                 "quark:bamboo_stairs", 
-"minecraft:stripped_bamboo_block":         "quark:stripped_bamboo_block",
-
-"minecraft:cherry_door":                   "biomebackport:cherry_door",
-"minecraft:cherry_fence":                  "biomebackport:cherry_fence",
-"minecraft:cherry_fence_gate":             "biomebackport:cherry_fence_gate",
-"minecraft:cherry_log":                    "biomebackport:cherry_log",
-"minecraft:cherry_planks":                 "biomebackport:cherry_planks",
-"minecraft:cherry_pressure_plate":         "biomebackport:cherry_pressure_plate",
-"minecraft:cherry_slab":                   "biomebackport:cherry_slab",
-"minecraft:cherry_stairs":                 "biomebackport:cherry_stairs",
-"minecraft:cherry_trapdoor":               "biomebackport:cherry_trapdoor",
-"minecraft:cherry_wall_sign":              "biomebackport:cherry_wall_sign",
-"minecraft:cherry_wood":                   "biomebackport:cherry_wood",   
-"minecraft:pink_petals":                   "biomebackport:pink_petals",
-"minecraft:potted_cherry_sapling":         "biomebackport:potted_cherry_sapling",
 }
 #-------------------------------------------------------------------------------------------
 
@@ -102,6 +77,7 @@ def traverse_dicts(nbt_list):
 
             #property_replacer(key, entry, "PersistenceRequired", 0, 1)
             #property_replacer(key, entry, "waterlogged", "true", "false")
+            #property_replacer(key, entry, "waterlogged", "false", "true")
             #property_replacer(key, entry, "joint", "rollable", "aligned")
 
 
@@ -134,7 +110,7 @@ for (subdir, dirs, files) in os.walk("toconvert", topdown=True):
             continue
 
 for x in sorted(blockPalette.items()):
-  printString = "\""+x[0]+"\":"
+  printString = "    \""+x[0]+"\":"
   for y in range(max(40 - len(x[0]), 2)):
     printString = printString + " "
   printString = printString + "\""+x[1]+"\","
