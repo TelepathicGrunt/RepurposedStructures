@@ -1,5 +1,5 @@
 {
-  "fallback": "repurposed_structures:villages/giant_taiga/zombie/terminators",
+  "fallback": "repurposed_structures:villages/giant_taiga/terminators",
   "elements": [
     {
       "weight": 2,
