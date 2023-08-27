@@ -1,6 +1,12 @@
+### **(V.7.1.4 Changes) (1.20.1 Minecraft)**
+
+#### Villages:
+Fixed crash due to typo in Swamp Village Butcher Shop 2 piece.
+
+
 ### **(V.7.1.3 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
-#### Villagers:
+#### Villages:
 Cherry Villages now has Taiga Villagers instead of Plains Villagers. Fits better.
 
 Cleaned up Swamp Village, so it is cleaner and more traversable.
