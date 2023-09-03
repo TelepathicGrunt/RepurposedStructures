@@ -8,3 +8,6 @@ Made tools dropped from archeology in all RS structures now be partially damaged
 
 #### Misc:
 Added translation names for all RS structures.
+
+#### Lang:
+ru_ru translations have been updated by mpustovoi!
