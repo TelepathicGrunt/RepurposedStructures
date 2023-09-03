@@ -3,5 +3,8 @@
 #### Temples:
 Added a little bit of archeology to Ocean Temples.
 
+#### Archeology:
+Made tools dropped from archeology in all RS structures now be partially damaged to better convey old age.
+
 #### Misc:
 Added translation names for all RS structures.

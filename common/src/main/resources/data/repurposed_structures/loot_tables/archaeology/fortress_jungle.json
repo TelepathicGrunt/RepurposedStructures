@@ -74,17 +74,30 @@
         {
           "name": "minecraft:bow",
           "type": "minecraft:item",
-          "weight": 4
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:crossbow",
           "type": "minecraft:item",
-          "weight": 4
-        },
-        {
-          "name": "minecraft:stone_sword",
-          "type": "minecraft:item",
-          "weight": 4
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:stone_sword",
@@ -92,6 +105,27 @@
           "weight": 4,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
+        },
+        {
+          "name": "minecraft:stone_sword",
+          "type": "minecraft:item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            },
+            {
               "function": "minecraft:enchant_randomly"
             }
           ]
@@ -99,22 +133,58 @@
         {
           "name": "minecraft:chainmail_boots",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_leggings",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_helmet",
           "type": "minecraft:item",
-          "weight": 1
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            }
+          ]
         },
         {
           "name": "minecraft:chainmail_boots",
@@ -122,6 +192,13 @@
           "weight": 1,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            },
+            {
               "function": "minecraft:enchant_randomly"
             }
           ]
@@ -131,6 +208,13 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            },
             {
               "function": "minecraft:enchant_randomly"
             }
@@ -142,6 +226,13 @@
           "weight": 1,
           "functions": [
             {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            },
+            {
               "function": "minecraft:enchant_randomly"
             }
           ]
@@ -151,6 +242,13 @@
           "type": "minecraft:item",
           "weight": 1,
           "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0.1,
+                "max": 0.7
+              }
+            },
             {
               "function": "minecraft:enchant_randomly"
             }
