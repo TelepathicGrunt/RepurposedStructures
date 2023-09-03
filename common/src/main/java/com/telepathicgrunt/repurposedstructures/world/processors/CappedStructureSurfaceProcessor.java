@@ -8,31 +8,16 @@ import it.unimi.dsi.fastutil.ints.IntIterator;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.SectionPos;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraft.world.level.chunk.LevelChunkSection;
-import net.minecraft.world.level.levelgen.structure.templatesystem.CappedProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -42,16 +27,22 @@ public class CappedStructureSurfaceProcessor extends StructureProcessor {
     public static final Codec<CappedStructureSurfaceProcessor> CODEC = RecordCodecBuilder.create((instance) -> {
         return instance.group(
             StructureProcessorType.SINGLE_CODEC.fieldOf("delegate").forGetter((cappedProcessor) -> { return cappedProcessor.delegate; }),
-            IntProvider.POSITIVE_CODEC.fieldOf("limit").forGetter((cappedProcessor) -> { return cappedProcessor.limit; })
+            IntProvider.POSITIVE_CODEC.fieldOf("limit").forGetter((cappedProcessor) -> { return cappedProcessor.limit; }),
+            Codec.BOOL.fieldOf("allow_void_sides").orElse(false).forGetter((cappedProcessor) -> { return cappedProcessor.allowVoidSides; })
         ).apply(instance, CappedStructureSurfaceProcessor::new);
     });
 
+    private static final StructureTemplate.StructureBlockInfo DEFAULT_AIR_BLOCK = new StructureTemplate.StructureBlockInfo(BlockPos.ZERO, Blocks.AIR.defaultBlockState(), null);
+    private static final StructureTemplate.StructureBlockInfo DEFAULT_SOLID_BLOCK = new StructureTemplate.StructureBlockInfo(BlockPos.ZERO, Blocks.STONE.defaultBlockState(), null);
+
     private final StructureProcessor delegate;
     private final IntProvider limit;
+    private final boolean allowVoidSides;
 
-    public CappedStructureSurfaceProcessor(StructureProcessor structureProcessor, IntProvider intProvider) {
+    public CappedStructureSurfaceProcessor(StructureProcessor structureProcessor, IntProvider intProvider, boolean allowVoidSides) {
         this.delegate = structureProcessor;
         this.limit = intProvider;
+        this.allowVoidSides = allowVoidSides;
     }
 
     @Override
@@ -83,14 +74,14 @@ public class CappedStructureSurfaceProcessor extends StructureProcessor {
 
                         BlockPos belowPos = structureBlockInfoWorld.pos().below();
                         BlockPos abovePos = structureBlockInfoWorld.pos().above();
-                        if (belowPos.getY() < 0) {
+                        if (!this.allowVoidSides && belowPos.getY() < 0) {
                             continue;
                         }
-                        if (!nbtPosToData.containsKey(belowPos) || !nbtPosToData.containsKey(abovePos)) {
+                        if (!this.allowVoidSides && (!nbtPosToData.containsKey(belowPos) || !nbtPosToData.containsKey(abovePos))) {
                             continue;
                         }
-                        BlockState belowState = nbtPosToData.get(belowPos).state();
-                        BlockState aboveState = nbtPosToData.get(abovePos).state();
+                        BlockState belowState = nbtPosToData.getOrDefault(belowPos, DEFAULT_SOLID_BLOCK).state();
+                        BlockState aboveState = nbtPosToData.getOrDefault(abovePos, DEFAULT_AIR_BLOCK).state();
                         if ((!belowState.canOcclude() || belowState.is(Blocks.JIGSAW)) ||
                             (aboveState.canOcclude() && !aboveState.is(Blocks.JIGSAW)))
                         {
