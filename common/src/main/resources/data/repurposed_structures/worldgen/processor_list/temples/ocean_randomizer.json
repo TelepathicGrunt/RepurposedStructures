@@ -2,7 +2,6 @@
   "processors": [
     {
       "processor_type": "repurposed_structures:capped_structure_surface_processor",
-      "limit": 1000000000,
       "allow_void_sides": true,
       "delegate": {
         "processor_type": "minecraft:rule",

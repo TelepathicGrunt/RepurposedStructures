@@ -1,4 +1,10 @@
-### **(V.7.1.5 Changes) (1.20.1 Minecraft) (Config Datapack Updated**
+### **(V.7.1.6 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
+
+#### Archeology:
+Significantly improved performance of the processor I use for adding archeology to structures.
+
+
+### **(V.7.1.5 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 #### Temples:
 Added a little bit of archeology to Ocean Temples.
