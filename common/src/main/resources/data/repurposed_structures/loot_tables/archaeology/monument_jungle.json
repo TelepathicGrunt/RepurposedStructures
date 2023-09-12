@@ -1,0 +1,67 @@
+{
+  "type": "minecraft:archaeology",
+  "random_sequence": "repurposed_structures:archaeology",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "name": "minecraft:bone",
+          "type": "minecraft:item",
+          "weight": 16
+        },
+        {
+          "name": "minecraft:skeleton_skull",
+          "type": "minecraft:item",
+          "weight": 8
+        },
+        {
+          "name": "minecraft:potato",
+          "type": "minecraft:item",
+          "weight": 8
+        },
+        {
+          "name": "minecraft:poisonous_potato",
+          "type": "minecraft:item",
+          "weight": 4
+        },
+        {
+          "name": "minecraft:diamond",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:emerald",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:brewer_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:heart_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:angler_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:skull_pottery_sherd",
+          "type": "minecraft:item",
+          "weight": 2
+        },
+        {
+          "name": "minecraft:tide_armor_trim_smithing_template",
+          "type": "minecraft:item",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

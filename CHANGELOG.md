@@ -3,6 +3,9 @@
 #### Archeology:
 Significantly improved performance of the processor I use for adding archeology to structures.
 
+#### Monuments:
+Added archeology to Jungle Monuments
+
 
 ### **(V.7.1.5 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 

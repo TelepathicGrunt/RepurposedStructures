@@ -1,6 +1,148 @@
 {
   "processors": [
     {
+      "processor_type": "repurposed_structures:capped_structure_surface_processor",
+      "allow_void_sides": true,
+      "delegate": {
+        "processor_type": "minecraft:rule",
+        "rules": [
+          {
+            "input_predicate": {
+              "block": "minecraft:stone_slab",
+              "probability": 0.06,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:gravel"
+            }
+          },
+          {
+            "input_predicate": {
+              "block": "minecraft:andesite_slab",
+              "probability": 0.06,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:gravel"
+            }
+          },
+          {
+            "input_predicate": {
+              "block": "minecraft:stone_bricks",
+              "probability": 0.06,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:gravel"
+            }
+          },
+          {
+            "input_predicate": {
+              "block": "minecraft:mossy_stone_bricks",
+              "probability": 0.06,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:gravel"
+            }
+          },
+
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/monument_jungle"
+            },
+            "input_predicate": {
+              "block": "minecraft:stone_bricks",
+              "probability": 0.0035,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/monument_jungle"
+            },
+            "input_predicate": {
+              "block": "minecraft:mossy_stone_bricks",
+              "probability": 0.0035,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/monument_jungle"
+            },
+            "input_predicate": {
+              "block": "minecraft:stone_slab",
+              "probability": 0.0035,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          },
+          {
+            "block_entity_modifier": {
+              "type": "minecraft:append_loot",
+              "loot_table": "repurposed_structures:archaeology/monument_jungle"
+            },
+            "input_predicate": {
+              "block": "minecraft:andesite_slab",
+              "probability": 0.0035,
+              "predicate_type": "minecraft:random_block_match"
+            },
+            "location_predicate": {
+              "predicate_type": "minecraft:always_true"
+            },
+            "output_state": {
+              "Name": "minecraft:suspicious_gravel",
+              "Properties": {
+                "dusted": "0"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
       "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
       "output_block": "minecraft:cracked_stone_bricks",
       "input_block": "minecraft:mossy_stone_bricks",
