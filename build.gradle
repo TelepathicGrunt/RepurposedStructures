@@ -42,10 +42,12 @@ subprojects {
 
     Map<String, Map<String, Boolean>> platformDependencies = [
             "fabric": [
-                    "fabric-api": true
+                    "fabric-api": true,
+                    "midnightlib": true
             ],
             "quilt": [
-                    "qsl": true
+                    "qsl": true,
+                    "midnightlib": true
             ],
             "forge": []
     ]
