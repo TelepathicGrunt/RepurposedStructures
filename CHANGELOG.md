@@ -9,6 +9,9 @@ Fixed Snowy Pyramid having Taiga Trees spawn on top in Grove biome.
 #### Ruins:
 Fixed Icy Land Ruins's snow piles getting chopped off by vanilla's snow layer feature.
 
+#### Igloos:
+Extended chimney by 1 block.
+
 #### Misc:
 Updated NBT files to current MC format. Save you milliseconds off of DFU running. Maybe slightly less memory usage.
 
