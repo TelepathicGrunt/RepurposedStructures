@@ -15,12 +15,18 @@ loom {
 
         mixinConfig "repurposed_structures-common.mixins.json"
         mixinConfig "repurposed_structures-forge.mixins.json"
+    }
 
-        runs {
-            all {
-                property 'mixin.env.remapRefMap', 'true'
-                property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            }
+    runs {
+        all {
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        }
+        data {
+            data()
+            programArgs("--all", "--mod", "repurposed_structures")
+            programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
+            programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
         }
     }
 }

@@ -15,6 +15,7 @@
     "features.NoFallsInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoVinesInStructuresMixin",
+    "features.SmarterSnowPlacingInStructuresMixin",
     "items.MapItemAccessor",
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",

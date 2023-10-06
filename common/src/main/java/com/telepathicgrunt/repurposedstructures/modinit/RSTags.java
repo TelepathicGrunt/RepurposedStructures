@@ -31,6 +31,9 @@ public final class RSTags {
     public static TagKey<Structure> NO_BASALT = TagKey.create(Registries.STRUCTURE,
             new ResourceLocation(RepurposedStructures.MODID, "no_basalt"));
 
+    public static TagKey<Structure> SMARTER_SNOW_PLACING = TagKey.create(Registries.STRUCTURE,
+            new ResourceLocation(RepurposedStructures.MODID, "smarter_snow_placing"));
+
     public static TagKey<Structure> LARGER_LOCATE_SEARCH = TagKey.create(Registries.STRUCTURE,
             new ResourceLocation(RepurposedStructures.MODID, "larger_locate_search"));
 
