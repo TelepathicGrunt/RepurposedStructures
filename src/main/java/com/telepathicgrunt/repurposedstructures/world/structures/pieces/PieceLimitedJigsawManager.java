@@ -149,15 +149,29 @@ public class PieceLimitedJigsawManager {
                     break;
                 }
 
+                //reroll start piece
+                PoolElementStructurePiece startPieceToUse = startPiece;
+                if (attempts > 0) {
+                    StructurePoolElement startPieceBlueprintNew = startPool.getRandomTemplate(random);
+                    startPieceToUse = new PoolElementStructurePiece(
+                            context.structureTemplateManager(),
+                            startPieceBlueprintNew,
+                            startPiece.getPosition(),
+                            startPieceBlueprintNew.getGroundLevelDelta(),
+                            startPiece.getRotation(),
+                            startPieceBlueprintNew.getBoundingBox(context.structureTemplateManager(), startPiece.getPosition(), startPiece.getRotation())
+                    );
+                }
+
                 components.clear();
-                components.add(startPiece); // Add start piece to list of pieces
+                components.add(startPieceToUse); // Add start piece to list of pieces
 
                 if (size > 0) {
                     int boxRange = maxDistanceFromCenter.orElse(80);
                     AABB axisAlignedBB = new AABB(pieceCenterX - boxRange, pieceCenterY - 120, pieceCenterZ - boxRange, pieceCenterX + boxRange + 1, pieceCenterY + 180 + 1, pieceCenterZ + boxRange + 1);
                     BoxOctree boxOctree = new BoxOctree(axisAlignedBB); // The maximum boundary of the entire structure
                     boxOctree.addBox(AABB.of(pieceBoundingBox));
-                    Entry startPieceEntry = new Entry(startPiece, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
+                    Entry startPieceEntry = new Entry(startPieceToUse, new MutableObject<>(boxOctree), pieceCenterY + 80, 0);
 
                     Assembler assembler = new Assembler(
                             structureID,
