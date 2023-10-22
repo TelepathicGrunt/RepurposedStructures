@@ -61,6 +61,7 @@ def traverse_dicts(nbt_list):
         nbt_list.pop('SleepingX', None)
         nbt_list.pop('SleepingY', None)
         nbt_list.pop('SleepingZ', None)
+        nbt_list.pop('blockEntityUuid', None)
         
         if 'Attributes' in nbt_list:
             attributes = nbt_list['Attributes']
