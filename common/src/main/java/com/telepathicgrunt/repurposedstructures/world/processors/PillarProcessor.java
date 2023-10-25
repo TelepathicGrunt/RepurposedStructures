@@ -94,7 +94,7 @@ public class PillarProcessor extends StructureProcessor {
 
             // Creates the pillars in the world that replaces air and liquids
             BlockState currentBlock = levelReader.getBlockState(worldPos.below());
-            while(((forcePlacement && !currentBlock.is(BlockTags.WITHER_IMMUNE)) || !currentBlock.canOcclude()) &&
+            while(((forcePlacement && currentBlock.getBlock().defaultDestroyTime() >= 0) || !currentBlock.canOcclude()) &&
                 (forcePlacement || currentPos.getY() >= terrainY) &&
                 !levelReader.isOutsideBuildHeight(currentPos.getY()) &&
                 currentPos.closerThan(worldPos, pillarLength)
