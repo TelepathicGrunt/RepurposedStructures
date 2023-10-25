@@ -290,7 +290,7 @@ public class GenericJigsawStructure extends Structure {
 
                 int parentHeight = pieces.get(0).getBoundingBox().minY();
                 int offsetAmount = (((int)avgHeight) - parentHeight) + offsetY;
-                pieces.forEach(child -> child.move(0, offsetAmount, 0));
+                pieces.forEach(child -> GeneralUtils.movePieceProperly(child, 0, offsetAmount, 0));
             }
             else {
                 pieces.clear();
@@ -348,7 +348,7 @@ public class GenericJigsawStructure extends Structure {
         random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
         int heightDiff = highestLandPos - box.minY();
         for(StructurePiece structurePiece : pieces) {
-            structurePiece.move(0, heightDiff + offsetY, 0);
+            GeneralUtils.movePieceProperly(structurePiece, 0, heightDiff + offsetY, 0);
         }
     }
 

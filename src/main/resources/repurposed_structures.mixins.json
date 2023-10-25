@@ -24,6 +24,7 @@
     "resources.LootTableMixin",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
+    "structures.JigsawJunctionAccessor",
     "structures.ListPoolElementAccessor",
     "structures.LocateCommandMixin",
     "structures.PoolElementStructurePieceAccessor",

@@ -87,7 +87,7 @@ public class MineshaftStructure extends GenericJigsawStructure {
         Optional<PoolElementStructurePiece> topPiece = pieces.stream().max(Comparator.comparingInt(piece -> piece.getBoundingBox().maxY()));
         if(topPiece.isPresent() && finalJustBelowTerrain < topClipOff && finalJustBelowTerrain < topPiece.get().getBoundingBox().maxY()) {
             int topPieceMaxY = topPiece.get().getBoundingBox().maxY();
-            pieces.forEach(piece -> piece.move(0, finalJustBelowTerrain - topPieceMaxY, 0));
+            pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, finalJustBelowTerrain - topPieceMaxY, 0));
         }
     }
 

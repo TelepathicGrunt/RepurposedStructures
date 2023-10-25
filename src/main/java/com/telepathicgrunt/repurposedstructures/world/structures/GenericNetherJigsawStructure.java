@@ -100,14 +100,14 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
 
         if (placementPos.getY() >= GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()) || placementPos.getY() <= context.chunkGenerator().getSeaLevel() + 1) {
             int yDiff = (context.chunkGenerator().getSeaLevel() + this.ledgeOffsetY.orElse(0)) - pieces.get(0).getBoundingBox().minY();
-            pieces.forEach(piece -> piece.move(0, yDiff, 0));
+            pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, yDiff, 0));
         }
         else {
             int yDiff = (placementPos.getY() + this.ledgeOffsetY.orElse(0)) - pieces.get(0).getBoundingBox().minY();
-            pieces.forEach(piece -> piece.move(0, yDiff, 0));
+            pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, yDiff, 0));
         }
 
-        pieces.forEach(piece -> piece.move(0, offsetY, 0));
+        pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, offsetY, 0));
     }
 
     public enum LAND_SEARCH_DIRECTION implements StringRepresentable {
