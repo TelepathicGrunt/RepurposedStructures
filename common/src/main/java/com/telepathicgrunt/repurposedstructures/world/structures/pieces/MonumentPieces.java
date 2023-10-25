@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 
 import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -32,7 +33,7 @@ public class MonumentPieces {
         MonumentBuilding mainBuilding = new MonumentPieces.MonumentBuilding(poolRegistry, StructureTemplateManager, random, monumentType);
         mainBuilding.addMainBody(pieces, poolRegistry, StructureTemplateManager, random, Rotation.NONE, monumentType);
         pieces.addAll(mainBuilding.childPieces);
-        pieces.forEach(piece -> piece.move(x, y, z));
+        pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, x, y, z));
         return pieces;
     }
 

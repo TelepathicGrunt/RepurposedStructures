@@ -6,6 +6,7 @@ import com.telepathicgrunt.repurposedstructures.mixins.structures.PoolElementStr
 import com.telepathicgrunt.repurposedstructures.mixins.structures.SinglePoolElementAccessor;
 import com.telepathicgrunt.repurposedstructures.mixins.structures.StructurePieceAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.MonumentPieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -127,13 +128,13 @@ public class MonumentStructure extends Structure {
                     BlockPos piecePos = poolPiece.getPosition();
                     BlockPos offsetPos = piecePos.subtract(centerPoint);
                     BlockPos rotatedOffset = offsetPos.rotate(rotation);
-                    poolPiece.move(
+                    GeneralUtils.movePieceProperly(poolPiece,
                             rotatedOffset.getX() - offsetPos.getX(),
                             0,
                             rotatedOffset.getZ() - offsetPos.getZ());
 
                     // center
-                    poolPiece.move(mainOffset.getX(), 0, mainOffset.getZ());
+                    GeneralUtils.movePieceProperly(poolPiece, mainOffset.getX(), 0, mainOffset.getZ());
 
                     // fix piece bounding boxes
                     if (poolPiece.getElement() instanceof SinglePoolElement singlePoolElement) {

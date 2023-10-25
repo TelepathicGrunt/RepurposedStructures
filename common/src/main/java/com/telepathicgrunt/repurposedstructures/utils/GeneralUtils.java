@@ -5,9 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import com.telepathicgrunt.repurposedstructures.mixins.structures.JigsawJunctionAccessor;
 import com.telepathicgrunt.repurposedstructures.mixins.resources.NamespaceResourceManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.mixins.resources.ReloadableResourceManagerImplAccessor;
-import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
@@ -39,6 +39,7 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.storage.loot.LootDataType;
@@ -212,6 +213,19 @@ public final class GeneralUtils {
 
         for(StructurePiece structurePiece : pieces) {
             structurePiece.move(xOffset, 0, zOffset);
+        }
+    }
+
+    //////////////////////////////////////////////
+
+    public static void movePieceProperly(StructurePiece piece, int x, int y, int z) {
+        piece.move(x, y, z);
+        if (piece instanceof PoolElementStructurePiece poolElementStructurePiece) {
+            poolElementStructurePiece.getJunctions().forEach(junction -> {
+                ((JigsawJunctionAccessor)junction).setSourceX(junction.getSourceX() + x);
+                ((JigsawJunctionAccessor)junction).setSourceX(junction.getSourceGroundY() + y);
+                ((JigsawJunctionAccessor)junction).setSourceX(junction.getSourceZ() + z);
+            });
         }
     }
 
