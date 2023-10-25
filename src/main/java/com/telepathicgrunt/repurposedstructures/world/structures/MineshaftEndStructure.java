@@ -204,7 +204,7 @@ public class MineshaftEndStructure extends Structure {
                     if(topY > finalMaxY) {
                         int newOffset = finalMaxY - topY;
                         for (StructurePiece piece : pieces) {
-                            piece.move(0, newOffset, 0);
+                            GeneralUtils.movePieceProperly(piece, 0, newOffset, 0);
                         }
                     }
                 });
