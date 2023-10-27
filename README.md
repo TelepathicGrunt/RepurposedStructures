@@ -4,28 +4,36 @@
 
 ***
 
-# MAVEN
+## COMPILEONLY MAVEN
 
-For developers that want to add RS to their mod's workspace:
+For developers that want to add Repurposed Structures to their mod's workspace:
 
 ```
 repositories {
   maven {
-    url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
+     url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
   }
 }
 ```
 
 &nbsp;
 
-(This format is now standardized for RepurposedStructures from 6.3.14 forward. See older branches's README.md for what the old format was) Don't forget to change \<modversion> with the actual latest version of this mod like `6.3.14` for example. Replace forge with your modloader and the mc version with the target mc version.
+Don't forget to change \<modversion> with the actual latest version of this mod like `7.1.10` for example. (See older branches's README.md for their stuff)
 
 ```
 dependencies {
-  ...
-  FORGE: implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:\<modversion>+1.19.3-forge")
-  FABRIC: modImplementation "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.19.3-fabric"
-  QUILT: modImplementation "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.19.3-quilt"
+   ...
+   FORGE: 
+     compileOnly fg.deobf("com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-forge")
+     
+   FABRIC: 
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-fabric"
+     
+   QUILT: 
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-quilt"
+     
+   ARCH COMMON MODULE: 
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-common"
 }
 ```
 
@@ -37,11 +45,71 @@ https://github.com/SpongePowered/Mixin/wiki/Mixins-on-Minecraft-Forge#step-1---a
 
 ```
 buildscript {
-  ...
-  dependencies {
-    classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    // MixinGradle:
-    classpath 'org.spongepowered:mixingradle:0.7.+'
-  }
+   ...
+   dependencies {
+      // MixinGradle:
+      classpath 'org.spongepowered:mixingradle:0.7.+'
+   }
+}
+```
+
+***
+
+## IMPLEMENTATION MAVEN
+
+For developers that want to add Repurposed Structures to their mod's workspace:
+
+```
+repositories {
+    maven {
+     url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
+    }
+    
+    // Fabric/Quilt only
+    maven {
+        url = 'https://api.modrinth.com/maven/'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+}
+```
+
+&nbsp;
+
+Don't forget to change \<modversion> with the actual latest version of this mod like `7.1.10` for example. (See older branches's README.md for their stuff)
+
+```
+dependencies {
+   ...
+   FORGE: 
+     implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-forge")
+     
+   FABRIC: 
+     modImplementation "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-fabric"
+     modImplementation "maven.modrinth:midnightlib:1.4.1-fabric" 
+   
+   QUILT: 
+     modImplementation "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-quilt"
+     modImplementation "maven.modrinth:midnightlib:1.4.1-fabric" 
+     
+   ARCH COMMON MODULE: 
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:\<modversion>+1.20.1-common"
+}
+```
+
+&nbsp;
+
+**FORGE ONLY: Add the mixingradle to your buildscript's dependencies block. These will allow Repurposed Structures's mixins to work. After you add the properties lines, refresh Gradle and run `genEclipseRuns` or `genIntellijRuns` or `genVSCodeRuns` based on what IDE you are using.**
+
+https://github.com/SpongePowered/Mixin/wiki/Mixins-on-Minecraft-Forge#step-1---adding-the-mixingradle-plugin
+
+```
+buildscript {
+   ...
+   dependencies {
+      // MixinGradle:
+      classpath 'org.spongepowered:mixingradle:0.7.+'
+   }
 }
 ```

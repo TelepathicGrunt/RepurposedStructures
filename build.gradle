@@ -160,5 +160,5 @@ allprojects {
 }
 
 task buildAndReleaseAll{
-    dependsOn(':forge:buildAndRelease', ':fabric:buildAndRelease', ':quilt:buildAndRelease')
+    dependsOn(':common:buildAndRelease', ':forge:buildAndRelease', ':fabric:buildAndRelease', ':quilt:buildAndRelease')
 }
