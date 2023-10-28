@@ -8,8 +8,8 @@
   "placement": {
     "type": "repurposed_structures:advanced_random_spread",
     "salt": 112448534,
-    "spacing": 130,
-    "separation": 65,
+    "spacing": 88,
+    "separation": 46,
     "min_distance_from_world_origin": 1000
   }
 }

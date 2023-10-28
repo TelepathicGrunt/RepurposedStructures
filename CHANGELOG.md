@@ -1,3 +1,12 @@
+### **(V.7.1.11 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
+
+#### Strongholds:
+End Strongholds slightly more common.
+
+#### Ancient Cities:
+End Ancient Cities a bit more common.
+
+
 ### **(V.7.1.10 Changes) (1.20.1 Minecraft)**
 
 #### Major:
