@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-@Mixin(value = LocateCommand.class, priority = 1010)
+@Mixin(value = LocateCommand.class, priority = 1200)
 public class LocateCommandMixin {
 
     @Final

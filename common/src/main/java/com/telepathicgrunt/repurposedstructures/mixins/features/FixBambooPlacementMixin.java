@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 
-@Mixin(value = BambooFeature.class, priority = 1010)
+@Mixin(value = BambooFeature.class, priority = 1200)
 public class FixBambooPlacementMixin {
 
     @Inject(

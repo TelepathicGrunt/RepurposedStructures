@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(value = StructureTemplatePool.class, priority = 1010)
+@Mixin(value = StructureTemplatePool.class, priority = 1200)
 public class StructurePoolMixin {
 
     /**
