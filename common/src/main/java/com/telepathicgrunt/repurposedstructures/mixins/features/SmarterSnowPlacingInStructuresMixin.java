@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 
-@Mixin(SnowAndFreezeFeature.class)
+@Mixin(value = SnowAndFreezeFeature.class, priority = 1010)
 public class SmarterSnowPlacingInStructuresMixin {
 
     @WrapOperation(

@@ -1,5 +1,8 @@
 ### **(V.7.1.11 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
+#### Misc:
+Adjusted some mixins to be slightly less fragile.
+
 #### Strongholds:
 End Strongholds slightly more common.
 

@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixins.structures;
 
 import com.google.common.base.Stopwatch;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType;
 import com.mojang.datafixers.util.Pair;
@@ -23,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-@Mixin(LocateCommand.class)
+@Mixin(value = LocateCommand.class, priority = 1010)
 public class LocateCommandMixin {
 
     @Final
@@ -44,10 +45,10 @@ public class LocateCommandMixin {
     private static void repurposedstructures_increaseLocateRadius(CommandSourceStack commandSourceStack,
                                                                   ResourceOrTagKeyArgument.Result<Structure> result,
                                                                   CallbackInfoReturnable<Integer> cir,
-                                                                  Registry<Structure> registry,
-                                                                  HolderSet<Structure> holderSet,
-                                                                  BlockPos blockPos,
-                                                                  ServerLevel serverLevel) throws CommandSyntaxException {
+                                                                  @Local(ordinal = 0) HolderSet<Structure> holderSet,
+                                                                  @Local(ordinal = 0) BlockPos blockPos,
+                                                                  @Local(ordinal = 0) ServerLevel serverLevel) throws CommandSyntaxException
+    {
         if(holderSet.stream().anyMatch(configuredStructureFeatureHolder -> configuredStructureFeatureHolder.is(RSTags.LARGER_LOCATE_SEARCH))) {
             int increasedSearchRadius = 2000;
             Stopwatch stopwatch = Stopwatch.createStarted(Util.TICKER);
