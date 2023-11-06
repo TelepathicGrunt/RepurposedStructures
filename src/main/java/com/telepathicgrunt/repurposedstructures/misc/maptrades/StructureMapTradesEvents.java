@@ -46,7 +46,18 @@ public final class StructureMapTradesEvents {
             for (int i = 1; i <= trades.size(); i++) {
                 mutableTrades.put(i, NonNullList.create());
             }
-            trades.int2ObjectEntrySet().forEach(e -> Arrays.stream(e.getValue()).forEach(mutableTrades.get(e.getIntKey())::add));
+            for (int intKey : trades.keySet()) {
+                mutableTrades.put(intKey, NonNullList.create());
+            }
+            trades.int2ObjectEntrySet().forEach(e -> {
+                try {
+                    Arrays.stream(e.getValue()).forEach(mutableTrades.get(e.getIntKey())::add);
+                }
+                catch (Exception ee) {
+                    RepurposedStructures.LOGGER.error("RepurposedStructures {} --- {} --- {} --- {}", prof, e.getIntKey(), mutableTrades, e.getValue());
+                    throw ee;
+                }
+            });
             onVillagerTradesEvent(mutableTrades, prof.getKey().location().toString());
             Int2ObjectMap<VillagerTrades.ItemListing[]> newTrades = new Int2ObjectOpenHashMap<>();
             mutableTrades.int2ObjectEntrySet().forEach(e -> newTrades.put(e.getIntKey(), e.getValue().toArray(new VillagerTrades.ItemListing[0])));

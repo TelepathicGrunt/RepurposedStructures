@@ -1,7 +1,4 @@
-### **(V.6.3.28 Changes) (1.19.2 Minecraft)**
+### **(V.6.3.29 Changes) (1.19.2 Minecraft)**
 
-#### Major:
-Fixed issues where terrain adaption for various RS structures was not properly working.
- This should fix the holes of lava eating away at Bedrock and exposing the void at bottom of Nether.
- Was commonly found under Nether Villages and Nether Outposts.
-
+#### Maps:
+Fixed crash if mods adds trades to villagers that do not have trades but forget to add trades for all lower level trades.
