@@ -26,14 +26,13 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 @Mod(RepurposedStructures.MODID)
 public class RepurposedStructuresNeoforge {
 
-    public RepurposedStructuresNeoforge() {
+    public RepurposedStructuresNeoforge(IEventBus modEventBus) {
         RSConfigHandler.setup();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.NORMAL, ResourcefulRegistriesImpl::onRegisterForgeRegistries);
 
         RepurposedStructures.init();
 
         IEventBus eventBus = NeoForge.EVENT_BUS;
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         RSBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         RSGlobalLootModifier.GLM.register(modEventBus);
 
