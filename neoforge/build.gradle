@@ -1,6 +1,7 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
+
 architectury {
     platformSetupLoomIde()
     neoForge()
@@ -40,10 +41,10 @@ dependencies {
     // modLocalRuntime("curse.maven:hugestructureblock-474114:3836266")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
 
     implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${rootProject.mixin_extras}"))
-    implementation(include("com.github.llamalad7.mixinextras:mixinextras-forge:${rootProject.mixin_extras}"))
+    implementation(include("com.github.llamalad7.mixinextras:mixinextras-neoforge:${rootProject.mixin_extras}"))
 }
 
 processResources {
@@ -66,7 +67,7 @@ remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
     archiveClassifier.set(null)
-    atAccessWideners.add('wits.accesswidener') // this is a path inside the mod jar
+    atAccessWideners.add('repurposed_structures.accesswidener') // this is a path inside the mod jar
 }
 
 jar {

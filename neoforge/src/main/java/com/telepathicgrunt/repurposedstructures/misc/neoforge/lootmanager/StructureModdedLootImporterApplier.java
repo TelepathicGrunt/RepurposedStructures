@@ -1,9 +1,10 @@
-package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.neoforge.lootmanager;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
+import com.telepathicgrunt.repurposedstructures.configs.neoforge.RSModdedLootConfig;
+import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
 import com.telepathicgrunt.repurposedstructures.mixins.resources.LootContextAccessor;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.registries.BuiltInRegistries;

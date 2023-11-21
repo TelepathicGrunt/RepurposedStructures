@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.telepathicgrunt.repurposedstructures.mixins.forge",
+  "package": "com.telepathicgrunt.repurposedstructures.mixins.neoforge",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "structures.StructurePoolMixin"

@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.neoforge.lootmanager;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

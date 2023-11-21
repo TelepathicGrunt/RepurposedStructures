@@ -1,8 +1,8 @@
-package com.telepathicgrunt.repurposedstructures.world.biomemodifiers;
+package com.telepathicgrunt.repurposedstructures.world.neoforge.biomemodifiers;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.telepathicgrunt.repurposedstructures.modinit.forge.RSBiomeModifiers;
+import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSBiomeModifiers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;

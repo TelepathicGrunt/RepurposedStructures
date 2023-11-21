@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[38,)" #mandatory
+loaderVersion="[1,)" #mandatory
 issueTrackerURL="https://github.com/TelepathicGrunt/RepurposedStructures/issues" #optional
 license="https://github.com/TelepathicGrunt/RepurposedStructures/blob/latest-released/LICENSE"
 
@@ -16,12 +16,10 @@ description='''
 Taking existing vanilla structures and changing them up for extra variety!
 '''
 
+[[mixins]]
+    config = "repurposed_structures-neoforge.mixins.json"
+
 [[dependencies.repurposed_structures]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20,1.21)"
-
-[[dependencies.repurposed_structures]]
-    modId="forge"
-    mandatory=true
-    versionRange="[46.0.1,)"
+    versionRange="[1.20,)"

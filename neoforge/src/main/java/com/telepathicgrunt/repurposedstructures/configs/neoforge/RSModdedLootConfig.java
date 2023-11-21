@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.configs;
+package com.telepathicgrunt.repurposedstructures.configs.neoforge;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;

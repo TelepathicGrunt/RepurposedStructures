@@ -1,14 +1,14 @@
 package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.configs.RSConfigHandler;
+import com.telepathicgrunt.repurposedstructures.configs.neoforge.RSConfigHandler;
 import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStopEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.SetupEvent;
-import com.telepathicgrunt.repurposedstructures.modinit.forge.RSBiomeModifiers;
-import com.telepathicgrunt.repurposedstructures.modinit.forge.RSGlobalLootModifier;
+import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSBiomeModifiers;
+import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSGlobalLootModifier;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge.ResourcefulRegistriesImpl;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;

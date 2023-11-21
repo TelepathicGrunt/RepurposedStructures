@@ -14,7 +14,6 @@ public class ResourcefulRegistries {
         return new ResourcefulRegistryChild<>(parent);
     }
 
-
     @ExpectPlatform
     public static <T> ResourcefulRegistry<T> create(Registry<T> registry, String id) {
         throw new NotImplementedException();

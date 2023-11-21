@@ -1,10 +1,10 @@
-package com.telepathicgrunt.repurposedstructures.modinit.forge;
+package com.telepathicgrunt.repurposedstructures.modinit.neoforge;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.AdditionsModifier;
-import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.AdditionsTemperatureModifier;
-import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.RemovalsModifier;
+import com.telepathicgrunt.repurposedstructures.world.neoforge.biomemodifiers.AdditionsModifier;
+import com.telepathicgrunt.repurposedstructures.world.neoforge.biomemodifiers.AdditionsTemperatureModifier;
+import com.telepathicgrunt.repurposedstructures.world.neoforge.biomemodifiers.RemovalsModifier;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;

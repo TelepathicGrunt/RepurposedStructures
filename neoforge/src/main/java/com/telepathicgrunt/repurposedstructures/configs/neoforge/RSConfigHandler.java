@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.configs;
+package com.telepathicgrunt.repurposedstructures.configs.neoforge;
 
 
 import net.neoforged.bus.api.IEventBus;
@@ -15,7 +15,7 @@ public class RSConfigHandler {
         bus.addListener(RSConfigHandler::onConfigLoad);
         bus.addListener(RSConfigHandler::onConfigReload);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSModdedLootConfig.GENERAL_SPEC, "repurposed_structures-forge/modded_loot.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, RSModdedLootConfig.GENERAL_SPEC, "repurposed_structures-neoforge/modded_loot.toml");
     }
 
     private static void onConfigLoad(ModConfigEvent.Loading event) {
