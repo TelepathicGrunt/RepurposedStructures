@@ -7,15 +7,15 @@ import java.util.List;
 
 public class RegistryEntries<T> {
 
-    private final List<RegistryEntry<T, T>> entries = new ArrayList<>();
+    private final List<RegistryEntry<T>> entries = new ArrayList<>();
 
-    public <I extends T> RegistryEntry<I, I> add(RegistryEntry<I, I> entry) {
+    public <I extends T> RegistryEntry<I> add(RegistryEntry<I> entry) {
         //noinspection unchecked
-        entries.add((RegistryEntry<T, T>) entry);
+        entries.add((RegistryEntry<T>) entry);
         return entry;
     }
 
-    public List<RegistryEntry<T, T>> getEntries() {
+    public List<RegistryEntry<T>> getEntries() {
         return ImmutableList.copyOf(entries);
     }
 

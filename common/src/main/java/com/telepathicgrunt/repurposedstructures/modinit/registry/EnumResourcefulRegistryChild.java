@@ -12,7 +12,7 @@ public class EnumResourcefulRegistryChild<E extends Enum<E>, T> extends Resource
         entries = new EnumMap<>(enumClass);
     }
 
-    public <I extends T> RegistryEntry<I, I> register(E enumValue, String id, Supplier<I> supplier) {
+    public <I extends T> RegistryEntry<I> register(E enumValue, String id, Supplier<I> supplier) {
         return entries.computeIfAbsent(enumValue, a -> new RegistryEntries<>())
             .add(super.register(id, supplier));
     }

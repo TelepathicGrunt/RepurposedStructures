@@ -30,17 +30,17 @@ public interface CustomRegistry<T> extends ResourcefulRegistry<T> {
     ResourcefulRegistry<T> registry();
 
     @Override
-    default <I extends T> RegistryEntry<I, I> register(String id, Supplier<I> supplier) {
+    default <I extends T> RegistryEntry<I> register(String id, Supplier<I> supplier) {
         return registry().register(id, supplier);
     }
 
     @Override
-    default Collection<RegistryEntry<T, T>> getEntries() {
+    default Collection<RegistryEntry<T>> getEntries() {
         return registry().getEntries();
     }
 
     @Override
-    default Stream<RegistryEntry<T, T>> stream() {
+    default Stream<RegistryEntry<T>> stream() {
         return registry().stream();
     }
 
