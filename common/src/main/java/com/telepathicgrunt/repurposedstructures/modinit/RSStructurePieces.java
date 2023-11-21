@@ -16,7 +16,7 @@ public final class RSStructurePieces {
     public static final ResourcefulRegistry<StructurePoolElementType<?>> STRUCTURE_POOL_ELEMENT = ResourcefulRegistries.create(BuiltInRegistries.STRUCTURE_POOL_ELEMENT, RepurposedStructures.MODID);
     public static final ResourcefulRegistry<StructurePieceType> STRUCTURE_PIECE = ResourcefulRegistries.create(BuiltInRegistries.STRUCTURE_PIECE, RepurposedStructures.MODID);
 
-    public static final RegistryEntry<StructurePoolElementType<MirroringSingleJigsawPiece>> MIRROR_SINGLE = STRUCTURE_POOL_ELEMENT.register("mirroring_single_pool_element", () -> () -> MirroringSingleJigsawPiece.CODEC);
-    public static final RegistryEntry<StructurePoolElementType<LegacyOceanBottomSinglePoolElement>> LEGACY_OCEAN_BOTTOM = STRUCTURE_POOL_ELEMENT.register("legacy_ocean_bottom_single_pool_element", () -> () -> LegacyOceanBottomSinglePoolElement.CODEC);
-    public static final RegistryEntry<StructurePieceType> MANSION_STRUCTURE_PIECE = STRUCTURE_PIECE.register("mansion_structure_piece", () -> MansionStructurePiece::new);
+    public static final RegistryEntry<StructurePoolElementType<MirroringSingleJigsawPiece>, StructurePoolElementType<MirroringSingleJigsawPiece>> MIRROR_SINGLE = STRUCTURE_POOL_ELEMENT.register("mirroring_single_pool_element", () -> () -> MirroringSingleJigsawPiece.CODEC);
+    public static final RegistryEntry<StructurePoolElementType<LegacyOceanBottomSinglePoolElement>, StructurePoolElementType<LegacyOceanBottomSinglePoolElement>> LEGACY_OCEAN_BOTTOM = STRUCTURE_POOL_ELEMENT.register("legacy_ocean_bottom_single_pool_element", () -> () -> LegacyOceanBottomSinglePoolElement.CODEC);
+    public static final RegistryEntry<StructurePieceType, StructurePieceType> MANSION_STRUCTURE_PIECE = STRUCTURE_PIECE.register("mansion_structure_piece", () -> MansionStructurePiece::new);
 }

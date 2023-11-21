@@ -1,10 +1,9 @@
-package com.telepathicgrunt.repurposedstructures.misc.forge.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.telepathicgrunt.repurposedstructures.configs.forge.RSModdedLootConfig;
-import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
+import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixins.resources.LootContextAccessor;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,10 +11,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.common.loot.LootModifier;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.common.loot.LootModifier;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class StructureModdedLootImporterApplier extends LootModifier {
@@ -55,7 +55,7 @@ public class StructureModdedLootImporterApplier extends LootModifier {
         LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).getParams())
                 .withOptionalRandomSeed(oldLootContext.getRandom().nextLong());
 
-        return newContextBuilder.create(new ResourceLocation("empty"));
+        return newContextBuilder.create(Optional.empty());
     }
 
     @Override

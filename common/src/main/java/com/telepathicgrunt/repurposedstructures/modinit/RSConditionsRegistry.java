@@ -14,8 +14,8 @@ public final class RSConditionsRegistry {
 
     public static final ResourceKey<Registry<Supplier<Boolean>>> RS_JSON_CONDITIONS_KEY = ResourceKey.createRegistryKey(new ResourceLocation(RepurposedStructures.MODID, "json_conditions"));
     public static final CustomRegistry<Supplier<Boolean>> RS_JSON_CONDITIONS_REGISTRY = CustomRegistry.of(RepurposedStructures.MODID, RS_JSON_CONDITIONS_KEY, false, false, true);
-    public static final RegistryEntry<Supplier<Boolean>> ALWAYS_TRUE = RS_JSON_CONDITIONS_REGISTRY.register("always_true", () -> () -> true);
-    public static final RegistryEntry<Supplier<Boolean>> ALWAYS_FALSE = RS_JSON_CONDITIONS_REGISTRY.register("always_false", () -> () -> true);
+    public static final RegistryEntry<Supplier<Boolean>, Supplier<Boolean>> ALWAYS_TRUE = RS_JSON_CONDITIONS_REGISTRY.register("always_true", () -> () -> true);
+    public static final RegistryEntry<Supplier<Boolean>, Supplier<Boolean>> ALWAYS_FALSE = RS_JSON_CONDITIONS_REGISTRY.register("always_false", () -> () -> true);
 
     /*
      * This registry is for hooking up the pool_additions json files to a code base config to enable/disable it.

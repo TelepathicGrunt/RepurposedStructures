@@ -4,7 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import java.util.Objects;
 
-public class BasicRegistryEntry<T> implements RegistryEntry<T> {
+public class BasicRegistryEntry<T> implements RegistryEntry<T, T> {
 
     private final ResourceLocation id;
     private final T value;

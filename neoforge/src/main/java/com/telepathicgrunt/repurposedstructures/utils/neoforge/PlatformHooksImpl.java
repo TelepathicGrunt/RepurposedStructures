@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.utils.forge;
+package com.telepathicgrunt.repurposedstructures.utils.neoforge;
 
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLEnvironment;

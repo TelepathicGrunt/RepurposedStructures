@@ -20,15 +20,15 @@ import net.minecraft.world.level.levelgen.structure.StructureType;
 public final class RSStructures {
     public static final ResourcefulRegistry<StructureType<?>> STRUCTURE_TYPE = ResourcefulRegistries.create(BuiltInRegistries.STRUCTURE_TYPE, RepurposedStructures.MODID);
 
-    public static RegistryEntry<StructureType<GenericJigsawStructure>> GENERIC_JIGSAW_STRUCTURE = STRUCTURE_TYPE.register("generic_jigsaw_structure", () -> () -> GenericJigsawStructure.CODEC);
-    public static RegistryEntry<StructureType<MansionStructure>> MANSION_STRUCTURE = STRUCTURE_TYPE.register("mansion_structure", () -> () -> MansionStructure.CODEC);
-    public static RegistryEntry<StructureType<MonumentStructure>> MONUMENT_STRUCTURE = STRUCTURE_TYPE.register("monument_structure", () -> () -> MonumentStructure.CODEC);
-    public static RegistryEntry<StructureType<MineshaftStructure>> GENERIC_MINESHAFT = STRUCTURE_TYPE.register("generic_mineshaft", () -> () -> MineshaftStructure.CODEC);
-    public static RegistryEntry<StructureType<MineshaftEndStructure>> MINESHAFT_END = STRUCTURE_TYPE.register("mineshaft_end", () -> () -> MineshaftEndStructure.CODEC);
-    public static RegistryEntry<StructureType<StrongholdEndStructure>> STRONGHOLD_END = STRUCTURE_TYPE.register("stronghold_end", () -> () -> StrongholdEndStructure.CODEC);
-    public static RegistryEntry<StructureType<ShipwreckNetherStructure>> SHIPWRECK_NETHER_STRUCTURE = STRUCTURE_TYPE.register("shipwreck_nether_structure", () -> () -> ShipwreckNetherStructure.CODEC);
-    public static RegistryEntry<StructureType<CityNetherStructure>> CITY_NETHER_STRUCTURE = STRUCTURE_TYPE.register("city_nether_structure", () -> () -> CityNetherStructure.CODEC);
-    public static RegistryEntry<StructureType<GenericNetherJigsawStructure>> GENERIC_NETHER_JIGSAW_STRUCTURE = STRUCTURE_TYPE.register("generic_nether_jigsaw_structure", () -> () -> GenericNetherJigsawStructure.CODEC);
+    public static RegistryEntry<StructureType<GenericJigsawStructure>, StructureType<GenericJigsawStructure>> GENERIC_JIGSAW_STRUCTURE = STRUCTURE_TYPE.register("generic_jigsaw_structure", () -> () -> GenericJigsawStructure.CODEC);
+    public static RegistryEntry<StructureType<MansionStructure>, StructureType<MansionStructure>> MANSION_STRUCTURE = STRUCTURE_TYPE.register("mansion_structure", () -> () -> MansionStructure.CODEC);
+    public static RegistryEntry<StructureType<MonumentStructure>, StructureType<MonumentStructure>> MONUMENT_STRUCTURE = STRUCTURE_TYPE.register("monument_structure", () -> () -> MonumentStructure.CODEC);
+    public static RegistryEntry<StructureType<MineshaftStructure>, StructureType<MineshaftStructure>> GENERIC_MINESHAFT = STRUCTURE_TYPE.register("generic_mineshaft", () -> () -> MineshaftStructure.CODEC);
+    public static RegistryEntry<StructureType<MineshaftEndStructure>, StructureType<MineshaftEndStructure>> MINESHAFT_END = STRUCTURE_TYPE.register("mineshaft_end", () -> () -> MineshaftEndStructure.CODEC);
+    public static RegistryEntry<StructureType<StrongholdEndStructure>, StructureType<StrongholdEndStructure>> STRONGHOLD_END = STRUCTURE_TYPE.register("stronghold_end", () -> () -> StrongholdEndStructure.CODEC);
+    public static RegistryEntry<StructureType<ShipwreckNetherStructure>, StructureType<ShipwreckNetherStructure>> SHIPWRECK_NETHER_STRUCTURE = STRUCTURE_TYPE.register("shipwreck_nether_structure", () -> () -> ShipwreckNetherStructure.CODEC);
+    public static RegistryEntry<StructureType<CityNetherStructure>, StructureType<CityNetherStructure>> CITY_NETHER_STRUCTURE = STRUCTURE_TYPE.register("city_nether_structure", () -> () -> CityNetherStructure.CODEC);
+    public static RegistryEntry<StructureType<GenericNetherJigsawStructure>, StructureType<GenericNetherJigsawStructure>> GENERIC_NETHER_JIGSAW_STRUCTURE = STRUCTURE_TYPE.register("generic_nether_jigsaw_structure", () -> () -> GenericNetherJigsawStructure.CODEC);
 }
 
 

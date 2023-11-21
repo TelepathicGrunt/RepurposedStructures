@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.world.forge.biomemodifiers;
+package com.telepathicgrunt.repurposedstructures.world.biomemodifiers;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -8,9 +8,8 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ModifiableBiomeInfo;
-
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 
 public record RemovalsModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> feature, GenerationStep.Decoration step) implements BiomeModifier {
 
@@ -20,6 +19,7 @@ public record RemovalsModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> fe
             GenerationStep.Decoration.CODEC.fieldOf("step").forGetter(RemovalsModifier::step)
         ).apply(builder, RemovalsModifier::new));
 
+    @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         // add a feature to all specified biomes
         if (phase == Phase.REMOVE && biomes.contains(biome)) {

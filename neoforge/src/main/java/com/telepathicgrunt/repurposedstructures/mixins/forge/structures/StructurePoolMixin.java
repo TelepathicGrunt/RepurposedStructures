@@ -18,11 +18,7 @@ public class StructurePoolMixin {
      * @return - The higher weight that is a more reasonable limit.
      */
     @WrapOperation(
-            method = {
-                "method_28886",
-                "lambda$static$1(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;",
-                "Lnet/minecraft/world/level/levelgen/structure/pools/StructureTemplatePool;m_254834_(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;"
-            },
+            method = "method_28886",
             at = @At(value = "INVOKE", target = "Lcom/mojang/serialization/Codec;intRange(II)Lcom/mojang/serialization/Codec;"),
             require = 0,
             remap = false

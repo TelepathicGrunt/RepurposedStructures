@@ -14,5 +14,9 @@ public interface ResourcefulRegistry<T> {
         return getEntries().stream();
     }
 
+    default Stream<T> boundStream() {
+        return stream().map(RegistryEntry::get);
+    }
+
     void init();
 }

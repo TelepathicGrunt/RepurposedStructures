@@ -1,6 +1,5 @@
-package com.telepathicgrunt.repurposedstructures.misc.forge.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
-import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.mixins.resources.LootContextAccessor;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

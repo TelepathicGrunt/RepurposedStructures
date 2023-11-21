@@ -11,10 +11,10 @@ import java.util.stream.Stream;
 public interface CustomRegistry<T> extends ResourcefulRegistry<T> {
 
     static <T, K extends Registry<T>> CustomRegistry<T> of(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
-        Pair<Supplier<CustomRegistryLookup<T>>, ResourcefulRegistry<T>> pair = ResourcefulRegistries.createCustomRegistryInternal(modId, key, save, sync, allowModification);
+        Pair<Supplier<CustomRegistryLookup<T, T>>, ResourcefulRegistry<T>> pair = ResourcefulRegistries.createCustomRegistryInternal(modId, key, save, sync, allowModification);
         return new CustomRegistry<>() {
             @Override
-            public CustomRegistryLookup<T> lookup() {
+            public CustomRegistryLookup<T, T> lookup() {
                 return pair.getLeft().get();
             }
 
@@ -25,22 +25,22 @@ public interface CustomRegistry<T> extends ResourcefulRegistry<T> {
         };
     }
 
-    CustomRegistryLookup<T> lookup();
+    CustomRegistryLookup<T, T> lookup();
 
     ResourcefulRegistry<T> registry();
 
     @Override
-    default <I extends T> RegistryEntry<I> register(String id, Supplier<I> supplier) {
+    default <I extends T> RegistryEntry<I, I> register(String id, Supplier<I> supplier) {
         return registry().register(id, supplier);
     }
 
     @Override
-    default Collection<RegistryEntry<T>> getEntries() {
+    default Collection<RegistryEntry<T, T>> getEntries() {
         return registry().getEntries();
     }
 
     @Override
-    default Stream<RegistryEntry<T>> stream() {
+    default Stream<RegistryEntry<T, T>> stream() {
         return registry().stream();
     }
 

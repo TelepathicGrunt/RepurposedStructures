@@ -1,8 +1,9 @@
-package com.telepathicgrunt.repurposedstructures.configs.forge;
+package com.telepathicgrunt.repurposedstructures.configs;
 
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.config.IConfigSpec;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;

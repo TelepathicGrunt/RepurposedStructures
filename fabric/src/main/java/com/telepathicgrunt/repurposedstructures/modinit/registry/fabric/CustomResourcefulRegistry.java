@@ -22,13 +22,13 @@ public class CustomResourcefulRegistry<T> implements ResourcefulRegistry<T> {
     }
 
     @Override
-    public <I extends T> RegistryEntry<I> register(String id, Supplier<I> supplier) {
+    public <I extends T> RegistryEntry<I, I> register(String id, Supplier<I> supplier) {
         I value = Registry.register(registry, new ResourceLocation(this.id, id), supplier.get());
         return entries.add(new BasicRegistryEntry<>(new ResourceLocation(this.id, id), value));
     }
 
     @Override
-    public Collection<RegistryEntry<T>> getEntries() {
+    public Collection<RegistryEntry<T, T>> getEntries() {
         return this.entries.getEntries();
     }
 

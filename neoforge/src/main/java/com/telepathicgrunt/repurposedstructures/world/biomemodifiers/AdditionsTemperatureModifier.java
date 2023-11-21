@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.world.forge.biomemodifiers;
+package com.telepathicgrunt.repurposedstructures.world.biomemodifiers;
 
 import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
@@ -11,13 +11,12 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
-
 
 public record AdditionsTemperatureModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> feature, GenerationStep.Decoration step, TEMPERATURE_RANGE temperatureRange) implements BiomeModifier {
 
@@ -28,10 +27,11 @@ public record AdditionsTemperatureModifier(HolderSet<Biome> biomes, Holder<Place
             StringRepresentable.fromEnum(TEMPERATURE_RANGE::values).fieldOf("biome_temperature_allowed").stable().forGetter(AdditionsTemperatureModifier::temperatureRange)
         ).apply(builder, AdditionsTemperatureModifier::new));
 
+    @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         // add a feature to all specified biomes
         if (phase == Phase.ADD && biomes.contains(biome)) {
-            Biome rawBiome = biome.get();
+            Biome rawBiome = biome.value();
             String biomeNamespace = biome.unwrapKey().get().location().getNamespace();
             String biomePath = biome.unwrapKey().get().location().getPath();
             switch (temperatureRange) {

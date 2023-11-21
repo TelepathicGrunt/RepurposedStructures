@@ -1,7 +1,6 @@
-package com.telepathicgrunt.repurposedstructures.forge;
+package com.telepathicgrunt.repurposedstructures;
 
-import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.configs.forge.RSConfigHandler;
+import com.telepathicgrunt.repurposedstructures.configs.RSConfigHandler;
 import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
@@ -10,7 +9,7 @@ import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToSt
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.SetupEvent;
 import com.telepathicgrunt.repurposedstructures.modinit.forge.RSBiomeModifiers;
 import com.telepathicgrunt.repurposedstructures.modinit.forge.RSGlobalLootModifier;
-import com.telepathicgrunt.repurposedstructures.modinit.registry.forge.ResourcefulRegistriesImpl;
+import com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge.ResourcefulRegistriesImpl;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -25,9 +24,9 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 
 
 @Mod(RepurposedStructures.MODID)
-public class RepurposedStructuresForge {
+public class RepurposedStructuresNeoforge {
 
-    public RepurposedStructuresForge() {
+    public RepurposedStructuresNeoforge() {
         RSConfigHandler.setup();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.NORMAL, ResourcefulRegistriesImpl::onRegisterForgeRegistries);
 
@@ -38,12 +37,12 @@ public class RepurposedStructuresForge {
         RSBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         RSGlobalLootModifier.GLM.register(modEventBus);
 
-        modEventBus.addListener(RepurposedStructuresForge::onSetup);
-        eventBus.addListener(RepurposedStructuresForge::onServerStarting);
-        eventBus.addListener(RepurposedStructuresForge::onServerStopping);
-        eventBus.addListener(RepurposedStructuresForge::onAddVillagerTrades);
-        eventBus.addListener(RepurposedStructuresForge::onWanderingTrades);
-        eventBus.addListener(RepurposedStructuresForge::onAddReloadListeners);
+        modEventBus.addListener(RepurposedStructuresNeoforge::onSetup);
+        eventBus.addListener(RepurposedStructuresNeoforge::onServerStarting);
+        eventBus.addListener(RepurposedStructuresNeoforge::onServerStopping);
+        eventBus.addListener(RepurposedStructuresNeoforge::onAddVillagerTrades);
+        eventBus.addListener(RepurposedStructuresNeoforge::onWanderingTrades);
+        eventBus.addListener(RepurposedStructuresNeoforge::onAddReloadListeners);
     }
 
     private static void onSetup(FMLCommonSetupEvent event) {
