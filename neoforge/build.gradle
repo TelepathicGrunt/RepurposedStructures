@@ -1,14 +1,27 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
-
 architectury {
     platformSetupLoomIde()
-    fabric()
+    neoForge()
 }
 
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
+
+    neoForge {
+        runs {
+            all {}
+
+            data {
+                data()
+                programArgs("--all", "--mod", "repurposed_structures")
+                programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
+                programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
+                all {}
+            }
+        }
+    }
 }
 
 configurations {
@@ -16,46 +29,44 @@ configurations {
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentFabric.extendsFrom common
+    developmentForge.extendsFrom common
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
 
-    modImplementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
-
-    modCompileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
-    modRuntimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
-
-    modLocalRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
-    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
+    //modLocalRuntime("com.telepathicgrunt:CommandStructures-Forge:${project.commandstructures_forge}")
+    //modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Forge:${project.structurevoidtoggle_forge}")
+    // modLocalRuntime("curse.maven:hugestructureblock-474114:3836266")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
-    include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${rootProject.mixin_extras}")))
+    implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${rootProject.mixin_extras}"))
+    implementation(include("com.github.llamalad7.mixinextras:mixinextras-forge:${rootProject.mixin_extras}"))
 }
 
 processResources {
     inputs.property "version", project.version
 
-    filesMatching("fabric.mod.json") {
+    filesMatching("META-INF/mods.toml") {
         expand "version": project.version
     }
 }
 
 shadowJar {
+    exclude "fabric.mod.json"
     exclude "architectury.common.json"
+
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
 }
 
 remapJar {
-    injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
     archiveClassifier.set(null)
+    atAccessWideners.add('wits.accesswidener') // this is a path inside the mod jar
 }
 
 jar {
@@ -127,7 +138,7 @@ publishing {
     }
 }
 
-task buildAndRelease{}
+task buildAndRelease {}
 tasks.build.mustRunAfter tasks.clean
 tasks.publish.mustRunAfter tasks.build
 tasks.curseforge.mustRunAfter tasks.publish

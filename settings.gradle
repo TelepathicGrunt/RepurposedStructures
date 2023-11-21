@@ -2,15 +2,13 @@ pluginManagement {
     repositories {
         maven { url "https://maven.fabricmc.net/" }
         maven { url "https://maven.architectury.dev/" }
-        maven { url "https://maven.minecraftforge.net/" }
+        maven { url "https://maven.neoforged.net/" }
         gradlePluginPortal()
     }
 }
 
 include("common")
 include("fabric")
-include("fabric-base")
-include("quilt")
-include("forge")
+include("neoforge")
 
 rootProject.name = "RepurposedStructures"

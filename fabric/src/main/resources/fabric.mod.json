@@ -19,15 +19,14 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.telepathicgrunt.repurposedstructures.fabric.RepurposedStructuresFabric"
+      "com.telepathicgrunt.repurposedstructures.RepurposedStructuresFabric"
     ],
     "modmenu": [
-      "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
+      "com.telepathicgrunt.repurposedstructures.configs.ModMenuCompat"
     ]
   },
   "mixins": [
     "repurposed_structures-fabric.mixins.json",
-    "repurposed_structures-fabric-base.mixins.json",
     "repurposed_structures-common.mixins.json"
   ],
 

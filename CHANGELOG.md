@@ -1,19 +1,4 @@
-### **(V.7.1.11 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
-
-#### Misc:
-Adjusted some mixins to be slightly less fragile.
-
-#### Strongholds:
-End Strongholds slightly more common.
-
-#### Ancient Cities:
-End Ancient Cities a bit more common.
-
-
-### **(V.7.1.10 Changes) (1.20.1 Minecraft)**
+### **(V.7.2.0 Changes) (1.20.1 Minecraft)**
 
 #### Major:
-Fixed issues where terrain adaption for various RS structures was not properly working.
- This should fix the holes of lava eating away at Bedrock and exposing the void at bottom of Nether.
- Was commonly found under Nether Villages and Nether Outposts.
-
+Updated to 1.20.2 and support Neoforge! Support for Forge is dropped. Quilt can use my Fabric jar without issue thus no more Quilt jar.
