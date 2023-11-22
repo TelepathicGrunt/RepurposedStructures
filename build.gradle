@@ -126,7 +126,7 @@ allprojects {
     apply plugin: "architectury-plugin"
     apply plugin: "maven-publish"
 
-    archivesBaseName = rootProject.archives_base_name
+    archivesBaseName = rootProject.mod_id
     version = "${rootProject.mod_version}+${rootProject.minecraft_version}-${name}"
     group = rootProject.maven_group
 

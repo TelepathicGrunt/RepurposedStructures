@@ -16,7 +16,7 @@ loom {
 
             data {
                 data()
-                programArgs("--all", "--mod", "repurposed_structures")
+                programArgs("--all", "--mod", "${rootProject.mod_id}")
                 programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
                 programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
                 all {}
@@ -64,10 +64,10 @@ shadowJar {
 }
 
 remapJar {
-    input.set shadowJar.archiveFile
+    inputFile.set shadowJar.archiveFile
     dependsOn shadowJar
     archiveClassifier.set(null)
-    atAccessWideners.add('repurposed_structures.accesswidener') // this is a path inside the mod jar
+    atAccessWideners.add("${rootProject.mod_id}.accesswidener") // this is a path inside the mod jar
 }
 
 jar {
