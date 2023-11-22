@@ -1,7 +1,5 @@
 ![The banner logo for Repurposed Structures](https://user-images.githubusercontent.com/40846040/212383632-2d628e1a-a086-490f-8863-823210407626.png)
 
-# See the wiki for more details about this bee-tastic mod!
-
 ***
 
 ## COMPILEONLY MAVEN
@@ -39,7 +37,7 @@ dependencies {
 
 &nbsp;
 
-**FORGE ONLY: Add the mixingradle to your buildscript's dependencies block. These will allow Bumblezone's mixins to work. After you add the properties lines, refresh Gradle and run `genEclipseRuns` or `genIntellijRuns` or `genVSCodeRuns` based on what IDE you are using.**
+**FORGE ONLY: Add the mixingradle to your buildscript's dependencies block. These will allow Repurposed Structures's mixins to work. After you add the properties lines, refresh Gradle and run `genEclipseRuns` or `genIntellijRuns` or `genVSCodeRuns` based on what IDE you are using.**
 
 https://github.com/SpongePowered/Mixin/wiki/Mixins-on-Minecraft-Forge#step-1---adding-the-mixingradle-plugin
 
