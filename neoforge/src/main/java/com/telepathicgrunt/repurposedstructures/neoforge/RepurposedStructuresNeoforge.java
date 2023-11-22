@@ -1,5 +1,6 @@
-package com.telepathicgrunt.repurposedstructures;
+package com.telepathicgrunt.repurposedstructures.neoforge;
 
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.neoforge.RSConfigHandler;
 import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
@@ -35,6 +36,7 @@ public class RepurposedStructuresNeoforge {
         IEventBus eventBus = NeoForge.EVENT_BUS;
         RSBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         RSGlobalLootModifier.GLM.register(modEventBus);
+        RSGlobalLootModifier.LOOT_CONDITION_TYPE.register(modEventBus);
 
         modEventBus.addListener(RepurposedStructuresNeoforge::onSetup);
         eventBus.addListener(RepurposedStructuresNeoforge::onServerStarting);
@@ -46,7 +48,6 @@ public class RepurposedStructuresNeoforge {
 
     private static void onSetup(FMLCommonSetupEvent event) {
         SetupEvent.EVENT.invoke(new SetupEvent(event::enqueueWork));
-        event.enqueueWork(RSGlobalLootModifier::registerLootData);
     }
 
     private static void onServerStarting(ServerAboutToStartEvent event) {

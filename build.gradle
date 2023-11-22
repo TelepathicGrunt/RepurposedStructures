@@ -92,7 +92,12 @@ subprojects {
                     releaseType = "release"
 
                     addGameVersion("${rootProject.minecraft_version}")
-                    addGameVersion(name.capitalize())
+                    if (name == "neoforge") {
+                        addGameVersion("NeoForge")
+                    }
+                    else {
+                        addGameVersion(name.capitalize())
+                    }
 
                     mainArtifact(tasks.remapJar) {
                         displayName = "Repurposed Structures v${rootProject.mod_version} (${rootProject.minecraft_version} MC ${name.capitalize()})"

@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntries
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -14,6 +15,10 @@ public class NeoForgeResourcefulRegistry<T> implements ResourcefulRegistry<T> {
 
     private final DeferredRegister<T> register;
     private final RegistryEntries<T> entries = new RegistryEntries<>();
+
+    public NeoForgeResourcefulRegistry(ResourceKey<? extends Registry<T>> registry, String id) {
+        this.register = DeferredRegister.create(registry, id);
+    }
 
     public NeoForgeResourcefulRegistry(Registry<T> registry, String id) {
         this.register = DeferredRegister.create(registry.key(), id);

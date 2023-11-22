@@ -19,6 +19,9 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[mixins]]
     config = "repurposed_structures-neoforge.mixins.json"
 
+[[mixins]]
+    config = "repurposed_structures-common.mixins.json"
+
 [[dependencies.repurposed_structures]]
     modId="minecraft"
     mandatory=true

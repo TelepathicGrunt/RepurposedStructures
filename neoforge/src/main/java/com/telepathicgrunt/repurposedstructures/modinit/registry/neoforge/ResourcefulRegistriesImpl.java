@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge;
 
-import com.mojang.datafixers.util.Pair;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.CustomRegistryLookup;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import net.minecraft.core.Registry;
@@ -8,7 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 import net.neoforged.neoforge.registries.RegistryBuilder;
-import org.checkerframework.checker.units.qual.K;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class ResourcefulRegistriesImpl {
     public static <T, R extends T, K extends Registry<T>> Pair<Supplier<CustomRegistryLookup<T, R>>, ResourcefulRegistry<T>> createCustomRegistryInternal(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
         CustomRegistryInfo<T, R> info = new CustomRegistryInfo<>(new LateSupplier<>(), key, save, sync, allowModification);
         CUSTOM_REGISTRIES.add(info);
-        return Pair.of(info.lookup(), new NeoForgeResourcefulRegistry<>((Registry<T>) BuiltInRegistries.REGISTRY.get(key.location()), modId));
+        return Pair.of(info.lookup(), new NeoForgeResourcefulRegistry<>(key, modId));
     }
 
     public static void onRegisterForgeRegistries(NewRegistryEvent event) {

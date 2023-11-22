@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures.misc.neoforge.lootmanager;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -30,6 +31,6 @@ public class DetectRSLootTables implements LootItemCondition {
     @Override
     public boolean test(LootContext lootContext) {
         ResourceLocation lootTableID = lootContext.getQueriedLootTableId();
-        return !this.blacklistedLootTableIds.contains(lootTableID);
+        return lootTableID.getNamespace().equals(RepurposedStructures.MODID) && !this.blacklistedLootTableIds.contains(lootTableID);
     }
 }

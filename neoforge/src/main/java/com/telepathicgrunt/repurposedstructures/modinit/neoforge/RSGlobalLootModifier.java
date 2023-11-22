@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.misc.neoforge.lootmanager.Struct
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -17,7 +18,7 @@ public final class RSGlobalLootModifier {
 
     public static final DeferredHolder<Codec<? extends IGlobalLootModifier>, Codec<StructureModdedLootImporterApplier>> STRUCTURE_MODDED_LOOT_IMPORTER = GLM.register("import_modded_loot", StructureModdedLootImporterApplier.CODEC);
 
-    public static void registerLootData() {
-        Registry.register(BuiltInRegistries.LOOT_CONDITION_TYPE, new ResourceLocation(RepurposedStructures.MODID, "detect_rs_loot_tables"), DetectRSLootTables.DETECT_RS_LOOT_TABLES);
-    }
+    public static final DeferredRegister<LootItemConditionType> LOOT_CONDITION_TYPE = DeferredRegister.create(BuiltInRegistries.LOOT_CONDITION_TYPE, RepurposedStructures.MODID);
+
+    public static final DeferredHolder<LootItemConditionType, LootItemConditionType> DETECT_RS_LOOT_TABLES = LOOT_CONDITION_TYPE.register("detect_rs_loot_tables", () -> DetectRSLootTables.DETECT_RS_LOOT_TABLES);
 }
