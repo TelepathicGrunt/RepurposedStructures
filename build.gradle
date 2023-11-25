@@ -74,7 +74,8 @@ subprojects {
                     uploadDependencies.each { dep, required ->
                         if (required) {
                             requiredContainer.project(dep)
-                        } else {
+                        }
+                        else {
                             optionalContainer.project(dep)
                         }
                     }
