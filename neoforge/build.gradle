@@ -42,9 +42,6 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
-
-    implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${rootProject.mixin_extras}"))
-    implementation(include("com.github.llamalad7.mixinextras:mixinextras-neoforge:${rootProject.mixin_extras}"))
 }
 
 processResources {
