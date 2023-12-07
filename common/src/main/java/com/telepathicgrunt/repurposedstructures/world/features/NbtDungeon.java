@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.RandomizableContainer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -260,7 +261,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                                     .setValue(ChestBlock.FACING, currentDirection)
                                                     .setValue(ChestBlock.TYPE, chestTyping ? ChestType.RIGHT : ChestType.LEFT),
                                             2);
-                                    RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
+                                    RandomizableContainer.setBlockEntityLootTable(world, random, mutable, config.chestResourcelocation);
 
                                     // Set neighboring chest to face same way too
                                     world.setBlock(mutable.move(neighborDirection),
@@ -268,7 +269,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                                     .setValue(ChestBlock.FACING, currentDirection)
                                                     .setValue(ChestBlock.TYPE, chestTyping ? ChestType.LEFT : ChestType.RIGHT),
                                             2);
-                                    RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
+                                    RandomizableContainer.setBlockEntityLootTable(world, random, mutable, config.chestResourcelocation);
                                     SolidifyBlock(world, mutable.below());
 
                                     isOnWall = false; // Skip wall code as we already placed chest
@@ -300,7 +301,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             currentChestAttempt++;
                             addedChestThisAttempt = true;
 
-                            RandomizableContainerBlockEntity.setLootTable(world, random, mutable, config.chestResourcelocation);
+                            RandomizableContainer.setBlockEntityLootTable(world, random, mutable, config.chestResourcelocation);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) == null) {
                                 EntityType<?> entity = MobSpawnerManager.MOB_SPAWNER_MANAGER.getSpawnerMob(config.rsSpawnerResourcelocation, random);

@@ -23,7 +23,7 @@ public class StructureGrass extends Feature<StructureTargetAndRangeConfig> {
     public boolean place(FeaturePlaceContext<StructureTargetAndRangeConfig> context) {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        BlockState grass = Blocks.GRASS.defaultBlockState();
+        BlockState grass = Blocks.SHORT_GRASS.defaultBlockState();
         BlockState tallGrass = Blocks.TALL_GRASS.defaultBlockState();
 
         for(int i = 0; i < context.config().attempts; i++) {

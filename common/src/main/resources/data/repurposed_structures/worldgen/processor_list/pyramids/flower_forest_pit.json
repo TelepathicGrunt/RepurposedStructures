@@ -46,7 +46,7 @@
         "minecraft:peony",
         "minecraft:oxeye_daisy",
         "minecraft:azure_bluet",
-        "minecraft:grass",
+        "minecraft:short_grass",
         "minecraft:tall_grass"
       ],
       "processor_type": "repurposed_structures:air_processor"

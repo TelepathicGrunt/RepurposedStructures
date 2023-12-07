@@ -25,9 +25,4 @@ Taking existing vanilla structures and changing them up for extra variety!
 [[dependencies.repurposed_structures]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.2,)"
-
-[[dependencies.repurposed_structures]]
-    modId="neoforge"
-    mandatory=true
-    versionRange="[20.2.86,)"
+    versionRange="[1.20.3,)"
