@@ -1,4 +1,6 @@
-### **(V.7.2.2 Changes) (1.20.3 Minecraft)**
+### **(V.7.2.3 Changes) (1.20.4 Minecraft)**
 
-#### Major:
-Updated to 1.20.3
+##### Misc:
+(NeoForge): Fixed crash when trying to view Bumblezone entry in Mod List menu.
+
+Updated to 1.20.4
