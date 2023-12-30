@@ -5,21 +5,21 @@ import json
 CF_MR_TO_GAME_VERSIONS_DICT = {
     # ( Project name, CF Project ID, CF File ID, MR File ID )
 
-    ('Friends and Foes Compat Datapack', '592278', 4994554, 'D8u1J7l4'): ['1.20.2'],
-    ('All Bark All Bite Compat Datapack', '906468', 4994465, 'l7GgSqoh'): ['1.20.2'],
-
-    ('Structure Void Toggle NeoForge', '357304', 4888921, '79xRp4Rg'): ['1.20.2', '1.20.3', '1.20.4'],
-    ('Structure Void Toggle Fabric', '357304', 4736611, 'te56DL5J'): ['1.20.2', '1.20.3', '1.20.4'],
-
-    ('CommandStructures NeoForge', '565119', 4934806, 'A7g4ZyFr'): ['1.20.3', '1.20.4'],
-    ('CommandStructures Fabric', '565119', 4934805, 'emSRuXFF'): ['1.20.3', '1.20.4'],
-
-    ('WITS NeoForge', '909375', 4934724, 'yQrQ3xiT'): ['1.20.3', '1.20.4'],
-    ('WITS Fabric', '909375', 4934723, '6Xjvbk9m'): ['1.20.3', '1.20.4'],
-
-    ('FullStack Watchdog NeoForge', '849817', 4888889, 'llivrfql'): ['1.20.2', '1.20.3', '1.20.4'],
-    ('FullStack Watchdog Fabric', '849817', 4488547, 'bQS4RMW3'): ['1.17.1', '1.18', '1.18.1', '1.18.2', '1.19', '1.19.1', '1.19.2', 
-                                                                   '1.19.3', '1.19.4', '1.20', '1.20.1', '1.20.2', '1.20.3', '1.20.4'],
+#    ('Friends and Foes Compat Datapack', '592278', 4994554, 'D8u1J7l4'): ['1.20.2'],
+#    ('All Bark All Bite Compat Datapack', '906468', 4994465, 'l7GgSqoh'): ['1.20.2'],
+#
+#    ('Structure Void Toggle NeoForge', '357304', 4888921, '79xRp4Rg'): ['1.20.2', '1.20.3', '1.20.4'],
+#    ('Structure Void Toggle Fabric', '357304', 4736611, 'te56DL5J'): ['1.20.2', '1.20.3', '1.20.4'],
+#
+#    ('CommandStructures NeoForge', '565119', 4934806, 'A7g4ZyFr'): ['1.20.3', '1.20.4'],
+#    ('CommandStructures Fabric', '565119', 4934805, 'emSRuXFF'): ['1.20.3', '1.20.4'],
+#
+#    ('WITS NeoForge', '909375', 4934724, 'yQrQ3xiT'): ['1.20.3', '1.20.4'],
+#    ('WITS Fabric', '909375', 4934723, '6Xjvbk9m'): ['1.20.3', '1.20.4'],
+#
+#    ('FullStack Watchdog NeoForge', '849817', 4888889, 'llivrfql'): ['1.20.2', '1.20.3', '1.20.4'],
+#    ('FullStack Watchdog Fabric', '849817', 4488547, 'bQS4RMW3'): ['1.17.1', '1.18', '1.18.1', '1.18.2', '1.19', '1.19.1', '1.19.2', 
+#                                                                   '1.19.3', '1.19.4', '1.20', '1.20.1', '1.20.2', '1.20.3', '1.20.4'],
 }
 
 MR_AUTH_KEY = os.getenv('MODRINTH')
@@ -29,7 +29,7 @@ MR_PATCH_HEADERS = {'content-type': 'application/json', 'Authorization': MR_AUTH
 CF_AUTH_KEY = os.getenv('CURSEFORGEKEY')
 CF_POST_ENDPOINT = 'https://minecraft.curseforge.com/api/projects/$1/update-file'
 CF_GET_HEADERS = {'X-Api-Token': CF_AUTH_KEY}
-CF_POST_HEADERS = {'Accept': 'application/json', 'X-Api-Token': CF_AUTH_KEY}
+CF_POST_HEADERS = {'X-Api-Token': CF_AUTH_KEY}
 
 # Have to call 2 CF APIs just to get the correct ID for a MC game version.
 CF_GAME_VERSION_TYPES_ENDPOINT = 'https://minecraft.curseforge.com/api/game/version-types?cache=true'
