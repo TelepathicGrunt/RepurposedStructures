@@ -49,7 +49,9 @@ while restart:
     structure_type_plural = structure_type if structure_type.endswith('s') else ((structure_type[:-1] + 'ies') if structure_type.endswith('y') else (structure_type + 's'));
     structure_variants = {
         "badlands": "repurposed_structures:villages/badlands/randomizer",
+        "bamboo": "repurposed_structures:villages/bamboo/mossify",
         "birch": "repurposed_structures:villages/birch/mossify",
+        "cherry": "repurposed_structures:villages/cherry/mossify",
         "crimson": "repurposed_structures:villages/crimson/randomizer",
         "dark_forest": "repurposed_structures:villages/dark_forest/mossify",
         "giant_taiga": "repurposed_structures:villages/giant_taiga/mossify",
