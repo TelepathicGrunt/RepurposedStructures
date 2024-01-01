@@ -493,8 +493,29 @@
           "weight": 3
         },
         {
+          "name": "minecraft:map",
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:exploration_map",
+              "destination": "repurposed_structures:explorer_maps/ancient_city_end",
+              "decoration": "monument",
+              "zoom": 2,
+              "skip_existing_chunks": false
+            },
+            {
+              "function": "minecraft:set_name",
+              "name": {
+                "translate": "End Ancient City Map"
+              }
+            }
+          ]
+        },
+        {
           "name": "minecraft:sentry_armor_trim_smithing_template",
           "type": "minecraft:item",
+          "weight": 1,
           "functions": [
             {
               "add": false,
