@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.world.processors;
 
-import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
@@ -10,56 +9,33 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-public class PillarProcessor extends StructureProcessor {
+public class BottomPillarProcessor extends StructureProcessor {
     private static final ResourceLocation EMPTY_RL = new ResourceLocation("minecraft", "empty");
 
-    public static final Codec<PillarProcessor> CODEC  = RecordCodecBuilder.create((instance) -> instance.group(
-            Codec.mapPair(BlockState.CODEC.fieldOf("trigger"), BlockState.CODEC.fieldOf("replacement"))
-                    .codec().listOf()
-                    .xmap((list) -> list.stream().collect(Collectors.toMap(Pair::getFirst, Pair::getSecond)),
-                            (map) -> map.entrySet().stream().map((entry) -> Pair.of(entry.getKey(), entry.getValue())).collect(Collectors.toList()))
-                    .fieldOf("pillar_trigger_and_replacements")
-                    .forGetter((processor) -> processor.pillarTriggerAndReplacementBlocks),
+    public static final Codec<BottomPillarProcessor> CODEC  = RecordCodecBuilder.create((instance) -> instance.group(
             ResourceLocation.CODEC.optionalFieldOf("pillar_processor_list", EMPTY_RL).forGetter(processor -> processor.processorList),
-            Direction.CODEC.optionalFieldOf("direction", Direction.DOWN).forGetter(processor -> processor.direction),
-            BlockState.CODEC.optionalFieldOf("original_replaced_block").forGetter(processor -> processor.originalReplacedBlock),
             Codec.INT.optionalFieldOf("pillar_length", 1000).forGetter(config -> config.pillarLength),
             Codec.BOOL.optionalFieldOf("forced_placement", false).forGetter(config -> config.forcePlacement))
-    .apply(instance, instance.stable(PillarProcessor::new)));
+    .apply(instance, instance.stable(BottomPillarProcessor::new)));
 
-    public final Map<BlockState, BlockState> pillarTriggerAndReplacementBlocks;
-    public final Optional<BlockState> originalReplacedBlock;
     public final ResourceLocation processorList;
-    public final Direction direction;
     public final int pillarLength;
     public final boolean forcePlacement;
 
-    private PillarProcessor(Map<BlockState, BlockState> pillarTriggerAndReplacementBlocks,
-                            ResourceLocation processorList,
-                            Direction direction,
-                            Optional<BlockState> originalReplacedBlock,
-                            int pillarLength,
-                            boolean forcePlacement)
+    private BottomPillarProcessor(ResourceLocation processorList, int pillarLength, boolean forcePlacement)
     {
-        this.pillarTriggerAndReplacementBlocks = pillarTriggerAndReplacementBlocks;
         this.processorList = processorList;
-        this.direction = direction;
-        this.originalReplacedBlock = originalReplacedBlock;
         this.pillarLength = pillarLength;
         this.forcePlacement = forcePlacement;
     }
@@ -68,11 +44,11 @@ public class PillarProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos templateOffset, BlockPos worldOffset, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         BlockState blockState = structureBlockInfoWorld.state();
-        if (pillarTriggerAndReplacementBlocks.containsKey(blockState)) {
+        if (structureBlockInfoLocal.pos().getY() == 0) {
             BlockPos worldPos = structureBlockInfoWorld.pos();
 
-            BlockState replacementState = pillarTriggerAndReplacementBlocks.get(blockState);
-            BlockState originalReplacementState = originalReplacedBlock.orElse(replacementState);
+            BlockState replacementState = blockState;
+            BlockState originalReplacementState = blockState;
             BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
             StructureProcessorList structureProcessorList = null;
             if(processorList != null && !processorList.equals(EMPTY_RL)) {
@@ -80,20 +56,20 @@ public class PillarProcessor extends StructureProcessor {
             }
 
             if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(currentPos))) {
-                return getReturnBlock(worldPos, originalReplacementState);
+                return structureBlockInfoWorld;
             }
 
             int terrainY = Integer.MIN_VALUE;
-            if(direction == Direction.DOWN && !forcePlacement) {
+            if(!forcePlacement) {
                 terrainY = GeneralUtils.getFirstLandYFromPos(levelReader, worldPos);
                 if(terrainY <= levelReader.getMinBuildHeight() && pillarLength + 2 >= worldPos.getY() - levelReader.getMinBuildHeight()) {
-                    // Replaces the data block itself
-                    return getReturnBlock(worldPos, originalReplacementState);
+                    return structureBlockInfoWorld;
                 }
             }
 
             // Creates the pillars in the world that replaces air and liquids
-            BlockState currentBlock = levelReader.getBlockState(worldPos.below());
+            ChunkAccess chunkAccess = levelReader.getChunk(worldPos);
+            BlockState currentBlock = chunkAccess.getBlockState(worldPos.below());
             while(((forcePlacement && currentBlock.getBlock().defaultDestroyTime() >= 0) || !currentBlock.canOcclude()) &&
                 (forcePlacement || currentPos.getY() >= terrainY) &&
                 !levelReader.isOutsideBuildHeight(currentPos.getY()) &&
@@ -112,15 +88,12 @@ public class PillarProcessor extends StructureProcessor {
                 }
 
                 if(newPillarState2 != null) {
-                    levelReader.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state(), false);
+                    chunkAccess.setBlockState(currentPos, newPillarState2.state(), false);
                 }
 
-                currentPos.move(direction);
-                currentBlock = levelReader.getBlockState(currentPos);
+                currentPos.move(Direction.DOWN);
+                currentBlock = chunkAccess.getBlockState(currentPos);
             }
-
-            // Replaces the data block itself
-            return getReturnBlock(worldPos, originalReplacementState);
         }
 
         return structureBlockInfoWorld;
@@ -133,6 +106,6 @@ public class PillarProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return RSProcessors.PILLAR_PROCESSOR.get();
+        return RSProcessors.BOTTOM_PILLAR_PROCESSOR.get();
     }
 }

@@ -17,6 +17,7 @@ public final class RSProcessors {
     public static final RegistryEntry<StructureProcessorType<TickBlocksProcessor>> TICK_BLOCKS_PROCESSOR = STRUCTURE_PROCESSOR.register("tick_blocks_processor", () -> () -> TickBlocksProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<MineshaftSkyViewProcessor>> MINESHAFT_SKY_VIEW_PROCESSOR = STRUCTURE_PROCESSOR.register("mineshaft_sky_view_processor", () -> () -> MineshaftSkyViewProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<PillarProcessor>> PILLAR_PROCESSOR = STRUCTURE_PROCESSOR.register("pillar_processor", () -> () -> PillarProcessor.CODEC);
+    public static final RegistryEntry<StructureProcessorType<BottomPillarProcessor>> BOTTOM_PILLAR_PROCESSOR = STRUCTURE_PROCESSOR.register("bottom_pillar_processor", () -> () -> BottomPillarProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<StructureVoidProcessor>> STRUCTURE_VOID_PROCESSOR = STRUCTURE_PROCESSOR.register("structure_void_processor", () -> () -> StructureVoidProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<FloodWithWaterProcessor>> FLOOD_WITH_WATER_PROCESSOR = STRUCTURE_PROCESSOR.register("flood_with_water_processor", () -> () -> FloodWithWaterProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<ReplaceAirOnlyProcessor>> REPLACE_AIR_ONLY_PROCESSOR = STRUCTURE_PROCESSOR.register("replace_air_only_processor", () -> () -> ReplaceAirOnlyProcessor.CODEC);
