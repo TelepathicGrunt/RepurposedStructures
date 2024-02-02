@@ -40,7 +40,19 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "Name": "minecraft:birch_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:birch_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:birch_trapdoor",
@@ -139,7 +151,31 @@
             "Name": "minecraft:dirt"
           },
           "input_predicate": {
+            "block": "minecraft:farmland",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
             "block": "minecraft:water",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobweb",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -166,6 +202,20 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "minecraft:block_ignore",
+      "blocks": [
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Name": "minecraft:structure_void"
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_when_replacing_water_processor"
     }
   ]
 }

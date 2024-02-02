@@ -9,16 +9,19 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.material.Fluid;
 
 public class BottomPillarProcessor extends StructureProcessor {
     private static final ResourceLocation EMPTY_RL = new ResourceLocation("minecraft", "empty");
@@ -69,12 +72,16 @@ public class BottomPillarProcessor extends StructureProcessor {
 
             // Creates the pillars in the world that replaces air and liquids
             ChunkAccess chunkAccess = levelReader.getChunk(worldPos);
-            BlockState currentBlock = chunkAccess.getBlockState(worldPos.below());
-            while(((forcePlacement && currentBlock.getBlock().defaultDestroyTime() >= 0) || !currentBlock.canOcclude()) &&
-                (forcePlacement || currentPos.getY() >= terrainY) &&
-                !levelReader.isOutsideBuildHeight(currentPos.getY()) &&
-                currentPos.closerThan(worldPos, pillarLength)
-            ) {
+            currentPos.move(Direction.DOWN);
+            BlockState currentBlock = chunkAccess.getBlockState(currentPos);
+            boolean currentLayer = isSpotValidForReplacement(levelReader, currentBlock, currentPos, terrainY, worldPos);
+            currentPos.move(Direction.DOWN);
+            BlockState secondBottomBlock = chunkAccess.getBlockState(currentPos);
+            boolean skipInitialLayer = isSpotValidForReplacement(levelReader, secondBottomBlock, currentPos, terrainY, worldPos);
+            currentPos.move(Direction.UP);
+            while (skipInitialLayer || currentLayer) {
+                skipInitialLayer = false;
+
                 StructureTemplate.StructureBlockInfo newPillarState1 = new StructureTemplate.StructureBlockInfo(currentPos.subtract(worldPos).offset(templateOffset), replacementState, null);
                 StructureTemplate.StructureBlockInfo newPillarState2 = new StructureTemplate.StructureBlockInfo(currentPos.immutable(), replacementState, null);
 
@@ -93,15 +100,17 @@ public class BottomPillarProcessor extends StructureProcessor {
 
                 currentPos.move(Direction.DOWN);
                 currentBlock = chunkAccess.getBlockState(currentPos);
+                currentLayer = isSpotValidForReplacement(levelReader, currentBlock, currentPos, terrainY, worldPos);
             }
         }
 
         return structureBlockInfoWorld;
     }
 
-    private static StructureTemplate.StructureBlockInfo getReturnBlock(BlockPos worldPos, BlockState originalReplacementState) {
-        return originalReplacementState == null || originalReplacementState.is(Blocks.STRUCTURE_VOID) ?
-                null : new StructureTemplate.StructureBlockInfo(worldPos, originalReplacementState, null);
+    private boolean isSpotValidForReplacement(LevelReader levelReader, BlockState currentBlock, BlockPos.MutableBlockPos currentPos, int terrainY, BlockPos worldPos) {
+        return ((forcePlacement && currentBlock.getBlock().defaultDestroyTime() >= 0) || !currentBlock.canOcclude()) &&
+                !levelReader.isOutsideBuildHeight(currentPos.getY()) &&
+                currentPos.closerThan(worldPos, pillarLength);
     }
 
     @Override
