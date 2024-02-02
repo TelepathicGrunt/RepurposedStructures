@@ -214,7 +214,7 @@
         "location": "repurposed_structures:villages/crimson/houses/weaponsmith_1",
         "processors": "repurposed_structures:villages/crimson/randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
