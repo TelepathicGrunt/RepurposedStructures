@@ -436,7 +436,7 @@
     },
     {
       "processor_type": "repurposed_structures:bottom_pillar_processor",
-      "pillar_processor_list": "repurposed_structures:villages/birch/bottom_pillar"
+      "pillar_processor_list": "repurposed_structures:villages/badlands/bottom_pillar"
     }
   ]
 }
