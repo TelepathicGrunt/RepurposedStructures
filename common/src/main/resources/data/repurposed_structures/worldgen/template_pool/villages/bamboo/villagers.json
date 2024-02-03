@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/bamboo/villagers/nitwit",
         "processors": "minecraft:empty",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/bamboo/villagers/baby",
         "processors": "minecraft:empty",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/bamboo/villagers/unemployed",
         "processors": "minecraft:empty",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]

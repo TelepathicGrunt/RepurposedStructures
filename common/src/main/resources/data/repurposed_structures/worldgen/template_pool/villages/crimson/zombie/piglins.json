@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/crimson/zombie/piglins/adult_crossbow",
         "processors": "minecraft:empty",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/crimson/zombie/piglins/adult_sword",
         "processors": "minecraft:empty",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/crimson/zombie/piglins/baby_sword",
         "processors": "minecraft:empty",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]

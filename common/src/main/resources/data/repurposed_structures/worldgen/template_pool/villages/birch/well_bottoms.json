@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/birch/decor/well_bottom_rare",
         "processors": "repurposed_structures:villages/birch/goldify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/birch/decor/well_bottom",
         "processors": "repurposed_structures:villages/birch/weak_goldify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]

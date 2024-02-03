@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/mountains/decor/lamp_post_1",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/mountains/decor/decoration_1",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/mountains/decor/decoration_2",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -34,7 +34,7 @@
         "location": "repurposed_structures:villages/mountains/decor/decoration_3",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -43,7 +43,7 @@
         "location": "repurposed_structures:villages/mountains/decor/decoration_4",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -52,7 +52,7 @@
         "location": "repurposed_structures:villages/mountains/decor/decoration_5",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -61,7 +61,7 @@
         "location": "repurposed_structures:villages/mountains/decor/decoration_6",
         "processors": "repurposed_structures:villages/mountains/pillar_1_zombified",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {

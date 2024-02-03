@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/badlands/decor/lamp_1",
         "processors": "repurposed_structures:villages/badlands/pillar_1",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/badlands/decor/lamp_2",
         "processors": "repurposed_structures:villages/badlands/pillar_1",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/badlands/decor/lamp_3",
         "processors": "repurposed_structures:villages/badlands/pillar_1",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {

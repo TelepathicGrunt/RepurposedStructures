@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/warped/town_centers/fountain_01",
         "processors": "repurposed_structures:villages/warped/cracked_blackstone_randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/warped/town_centers/meeting_point_1",
         "processors": "repurposed_structures:villages/warped/cracked_blackstone_randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/warped/town_centers/meeting_point_2",
         "processors": "repurposed_structures:villages/warped/cracked_blackstone_randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -34,7 +34,7 @@
         "location": "repurposed_structures:villages/warped/town_centers/meeting_point_3",
         "processors": "repurposed_structures:villages/warped/very_cracked_blackstone_randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -43,7 +43,7 @@
         "location": "repurposed_structures:villages/warped/zombie/town_centers/fountain_01",
         "processors": "repurposed_structures:villages/warped/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -52,7 +52,7 @@
         "location": "repurposed_structures:villages/warped/zombie/town_centers/meeting_point_1",
         "processors": "repurposed_structures:villages/warped/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -61,7 +61,7 @@
         "location": "repurposed_structures:villages/warped/zombie/town_centers/meeting_point_2",
         "processors": "repurposed_structures:villages/warped/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -70,7 +70,7 @@
         "location": "repurposed_structures:villages/warped/zombie/town_centers/meeting_point_3",
         "processors": "repurposed_structures:villages/warped/zombify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]

@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_2",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_3",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -34,7 +34,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_4",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -43,7 +43,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_5",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -52,7 +52,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_6",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -61,7 +61,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_7",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -70,7 +70,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_house_8",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -79,7 +79,7 @@
         "location": "repurposed_structures:villages/oak/houses/medium_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -88,7 +88,7 @@
         "location": "repurposed_structures:villages/oak/houses/medium_house_2",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -97,7 +97,7 @@
         "location": "repurposed_structures:villages/oak/houses/big_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -106,7 +106,7 @@
         "location": "repurposed_structures:villages/oak/houses/butcher_shop_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -115,7 +115,7 @@
         "location": "repurposed_structures:villages/oak/houses/butcher_shop_2",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -124,7 +124,7 @@
         "location": "repurposed_structures:villages/oak/houses/tool_smith_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -133,7 +133,7 @@
         "location": "repurposed_structures:villages/oak/houses/fletcher_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -142,7 +142,7 @@
         "location": "repurposed_structures:villages/oak/houses/shepherds_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -151,7 +151,7 @@
         "location": "repurposed_structures:villages/oak/houses/armorer_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -160,7 +160,7 @@
         "location": "repurposed_structures:villages/oak/houses/fisher_cottage_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -169,7 +169,7 @@
         "location": "repurposed_structures:villages/oak/houses/tannery_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -178,7 +178,7 @@
         "location": "repurposed_structures:villages/oak/houses/cartographer_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -187,7 +187,7 @@
         "location": "repurposed_structures:villages/oak/houses/library_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -196,7 +196,7 @@
         "location": "repurposed_structures:villages/oak/houses/library_2",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -205,7 +205,7 @@
         "location": "repurposed_structures:villages/oak/houses/masons_house_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -214,7 +214,7 @@
         "location": "repurposed_structures:villages/oak/houses/weaponsmith_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -223,7 +223,7 @@
         "location": "repurposed_structures:villages/oak/houses/temple_3",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -232,7 +232,7 @@
         "location": "repurposed_structures:villages/oak/houses/temple_4",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -241,7 +241,7 @@
         "location": "repurposed_structures:villages/oak/houses/stable_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -250,7 +250,7 @@
         "location": "repurposed_structures:villages/oak/houses/stable_2",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -259,7 +259,7 @@
         "location": "repurposed_structures:villages/oak/houses/large_farm_1",
         "processors": "repurposed_structures:villages/oak/crop_randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -268,7 +268,7 @@
         "location": "repurposed_structures:villages/oak/houses/small_farm_1",
         "processors": "repurposed_structures:villages/oak/crop_randomizer",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -277,7 +277,7 @@
         "location": "repurposed_structures:villages/oak/houses/animal_pen_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -286,7 +286,7 @@
         "location": "repurposed_structures:villages/oak/houses/animal_pen_2",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -295,7 +295,7 @@
         "location": "repurposed_structures:villages/oak/houses/animal_pen_3",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -304,7 +304,7 @@
         "location": "repurposed_structures:villages/oak/houses/accessory_1",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -313,7 +313,7 @@
         "location": "repurposed_structures:villages/oak/houses/meeting_point_4",
         "processors": "minecraft:mossify_70_percent",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -322,7 +322,7 @@
         "location": "repurposed_structures:villages/oak/houses/meeting_point_5",
         "processors": "repurposed_structures:villages/oak/mossify",
         "projection": "rigid",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {

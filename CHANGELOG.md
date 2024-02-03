@@ -7,4 +7,8 @@ Fixed several village houses not spawning or were absurdly rare.
 
 Fixed Fishery building in Crimson and Warped Villages having waterlogged blocks.
 
+Fixed Weaponsmith house having Terracotta and Orange Terracotta in Crimson and Warped Villages.
+
+Fixed plants able to persist into RS village houses.
+
 Made all RS village houses now pillar downward if land is removed under them at worldgen by cave or ravines!

@@ -7,7 +7,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/corner_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -16,7 +16,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/corner_02",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -25,7 +25,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/corner_03",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -34,7 +34,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/straight_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -43,7 +43,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/straight_02",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -52,7 +52,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/straight_03",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -61,7 +61,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/straight_04",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -70,7 +70,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/straight_06",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -79,7 +79,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/straight_08",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -88,7 +88,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/crossroad_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -97,7 +97,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/crossroad_02",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -106,7 +106,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/crossroad_03",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -115,7 +115,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/crossroad_04",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -124,7 +124,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/crossroad_05",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -133,7 +133,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/crossroad_06",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -142,7 +142,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/square_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     },
     {
@@ -151,7 +151,7 @@
         "location": "repurposed_structures:villages/giant_taiga/zombie/streets/turn_01",
         "processors": "repurposed_structures:villages/giant_taiga/path_randomizer",
         "projection": "terrain_matching",
-        "element_type": "minecraft:legacy_single_pool_element"
+        "element_type": "minecraft:single_pool_element"
       }
     }
   ]
