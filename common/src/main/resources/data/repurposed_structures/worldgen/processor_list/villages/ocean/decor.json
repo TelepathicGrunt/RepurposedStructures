@@ -1,28 +1,6 @@
 {
   "processors": [
     {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_processor_list": "repurposed_structures:villages/ocean/decor",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:red_stained_glass"
-          },
-          "replacement" : {
-            "Name": "minecraft:oak_fence",
-            "Properties": {
-              "waterlogged": "true",
-              "east": "false",
-              "west": "false",
-              "north": "false",
-              "south": "false"
-            }
-          }
-        }
-      ]
-    },
-    {
       "processor_type": "repurposed_structures:noise_replace_with_properties_processor",
       "input_block": "minecraft:oak_fence",
       "output_block": "minecraft:dark_oak_fence",
@@ -87,6 +65,10 @@
     },
     {
       "processor_type": "repurposed_structures:structure_void_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/ocean/bottom_pillar"
     }
   ]
 }

@@ -349,22 +349,11 @@
       "processor_type": "minecraft:rule"
     },
     {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_processor_list": "repurposed_structures:villages/ocean/dirt",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:dirt"
-          },
-          "replacement" : {
-            "Name": "minecraft:dirt"
-          }
-        }
-      ]
+      "processor_type": "repurposed_structures:structure_void_processor"
     },
     {
-      "processor_type": "repurposed_structures:structure_void_processor"
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/ocean/bottom_pillar"
     }
   ]
 }

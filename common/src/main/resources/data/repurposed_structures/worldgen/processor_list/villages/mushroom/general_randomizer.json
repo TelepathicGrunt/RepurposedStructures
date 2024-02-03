@@ -141,6 +141,10 @@
     },
     {
       "processor_type": "repurposed_structures:force_place_mushroom_blocks_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/mushroom/bottom_pillar"
     }
   ]
 }

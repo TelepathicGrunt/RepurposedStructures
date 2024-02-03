@@ -36,6 +36,10 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/mountains/bottom_pillar"
     }
   ]
 }

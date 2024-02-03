@@ -40,6 +40,18 @@
         },
         {
           "output_state": {
+            "Name": "minecraft:cobblestone_wall"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobblestone_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "Name": "minecraft:birch_fence"
           },
           "input_predicate": {

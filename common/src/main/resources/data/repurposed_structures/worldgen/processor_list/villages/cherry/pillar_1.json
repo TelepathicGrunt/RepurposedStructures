@@ -137,18 +137,8 @@
       "processor_type": "minecraft:rule"
     },
     {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:cherry_fence"
-          },
-          "replacement" : {
-            "Name": "minecraft:cherry_fence"
-          }
-        }
-      ]
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/cherry/bottom_pillar"
     }
   ]
 }

@@ -29,16 +29,19 @@ public class WaterlogWhenReplacingWaterProcessor extends StructureProcessor {
                 return infoIn2;
             }
 
-            ChunkAccess chunk = levelReader.getChunk(infoIn2.pos());
-            int minY = chunk.getMinBuildHeight();
-            int maxY = chunk.getMaxBuildHeight();
-            int currentY = infoIn2.pos().getY();
-            if (currentY >= minY && currentY <= maxY) {
-                ((LevelAccessor) levelReader).scheduleTick(infoIn2.pos(), infoIn2.state().getBlock(), 0);
-            }
-
             BlockState blockState = levelReader.getChunk(infoIn2.pos()).getBlockState(infoIn2.pos());
             boolean isWater = blockState.getFluidState().is(FluidTags.WATER);
+
+            if (isWater) {
+                ChunkAccess chunk = levelReader.getChunk(infoIn2.pos());
+                int minY = chunk.getMinBuildHeight();
+                int maxY = chunk.getMaxBuildHeight();
+                int currentY = infoIn2.pos().getY();
+                if (currentY >= minY && currentY <= maxY) {
+                    ((LevelAccessor) levelReader).scheduleTick(infoIn2.pos(), infoIn2.state().getBlock(), 0);
+                }
+            }
+
             return new StructureTemplate.StructureBlockInfo(
                     infoIn2.pos(),
                     infoIn2.state().setValue(BlockStateProperties.WATERLOGGED, isWater),

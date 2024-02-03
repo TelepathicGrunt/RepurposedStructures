@@ -15,6 +15,10 @@
       "threshold": 0.5,
       "xz_scale": 0.15,
       "y_scale": 0.15
+    },
+    {
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/ocean/bottom_pillar"
     }
   ]
 }

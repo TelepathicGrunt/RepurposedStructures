@@ -5,7 +5,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mountains/houses/animal_pen_1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:villages/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }
@@ -101,7 +101,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 6,
       "element": {
         "location": "repurposed_structures:villages/mountains/houses/medium_house_1",
         "processors": "repurposed_structures:villages/mountains/mossify",
@@ -140,7 +140,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/mountains/houses/shepherds_house_1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:villages/mountains/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

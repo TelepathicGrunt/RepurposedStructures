@@ -36,9 +36,9 @@ configurations {
 dependencies {
     neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
 
-    // modLocalRuntime("com.telepathicgrunt:CommandStructures-Neoforge:${project.commandstructures_neoforge}")
-    // modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Neoforge:${project.structurevoidtoggle_neoforge}")
-    // modLocalRuntime("curse.maven:hugestructureblock-474114:3836266")
+     modLocalRuntime("com.telepathicgrunt:CommandStructures-Neoforge:${project.commandstructures_neoforge}")
+     modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Neoforge:${project.structurevoidtoggle_neoforge}")
+     modLocalRuntime("curse.maven:hugestructureblock-474114:3836266")
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }

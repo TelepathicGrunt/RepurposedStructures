@@ -1,18 +1,8 @@
 {
   "processors": [
     {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:jungle_fence"
-          },
-          "replacement" : {
-            "Name": "minecraft:jungle_fence"
-          }
-        }
-      ]
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/jungle/bottom_pillar"
     }
   ]
 }

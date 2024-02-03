@@ -101,7 +101,7 @@
       }
     },
     {
-      "weight": 3,
+      "weight": 6,
       "element": {
         "location": "repurposed_structures:villages/cherry/houses/medium_house_1",
         "processors": "repurposed_structures:villages/cherry/mossify",
@@ -140,7 +140,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:villages/cherry/houses/shepherds_house_1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:villages/cherry/mossify",
         "projection": "rigid",
         "element_type": "minecraft:legacy_single_pool_element"
       }

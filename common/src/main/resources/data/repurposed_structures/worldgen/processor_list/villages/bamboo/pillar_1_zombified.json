@@ -1,20 +1,6 @@
 {
   "processors": [
     {
-      "processor_type": "repurposed_structures:pillar_processor",
-      "direction": "DOWN",
-      "pillar_trigger_and_replacements": [
-        {
-          "trigger" : {
-            "Name": "minecraft:bamboo_fence"
-          },
-          "replacement" : {
-            "Name": "minecraft:bamboo_fence"
-          }
-        }
-      ]
-    },
-    {
       "rules": [
         {
           "output_state": {
@@ -42,6 +28,10 @@
         }
       ],
       "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/bamboo/bottom_pillar"
     }
   ]
 }
