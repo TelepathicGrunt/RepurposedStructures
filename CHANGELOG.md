@@ -12,3 +12,7 @@ Fixed Weaponsmith house having Terracotta and Orange Terracotta in Crimson and W
 Fixed plants able to persist into RS village houses.
 
 Made all RS village houses now pillar downward if land is removed under them at worldgen by cave or ravines!
+
+##### Shipwrecks:
+
+End Shipwrecks's insides won't be filled with terrain blocks anymore.
