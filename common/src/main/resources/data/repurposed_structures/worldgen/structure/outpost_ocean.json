@@ -1,0 +1,27 @@
+{
+  "type": "repurposed_structures:generic_jigsaw_structure",
+  "start_pool": "repurposed_structures:outposts/ocean/base_plates",
+  "size": 11,
+  "valid_biome_radius_check": 1,
+  "biomes": "#repurposed_structures:has_structure/outposts/ocean",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "project_start_to_heightmap": "OCEAN_FLOOR_WG",
+  "start_height": {
+    "absolute": 0
+  },
+  "use_bounding_box_hack": true,
+  "spawn_overrides": {
+    "water_ambient": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "minecraft:pufferfish",
+          "weight": 10,
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  }
+}

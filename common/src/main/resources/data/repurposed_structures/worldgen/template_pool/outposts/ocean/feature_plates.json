@@ -1,0 +1,14 @@
+{
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:outposts/ocean/feature_plate",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "repurposed_structures:legacy_ocean_bottom_single_pool_element"
+      }
+    }
+  ]
+}

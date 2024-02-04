@@ -33,6 +33,10 @@
       "weight": 1
     },
     {
+      "structure": "repurposed_structures:outpost_savanna",
+      "weight": 1
+    },
+    {
       "structure": "repurposed_structures:outpost_snowy",
       "weight": 1
     },
