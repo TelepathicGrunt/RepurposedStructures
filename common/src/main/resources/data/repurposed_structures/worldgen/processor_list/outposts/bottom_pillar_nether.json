@@ -4,10 +4,10 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:oak_planks"
+            "Name": "minecraft:blackstone"
           },
           "input_predicate": {
-            "block": "minecraft:crafting_table",
+            "block": "minecraft:smithing_table",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -16,10 +16,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone_wall"
+            "Name": "minecraft:netherrack"
           },
           "input_predicate": {
-            "block": "minecraft:cobblestone_wall",
+            "block": "minecraft:nether_wart_block",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -28,10 +28,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:red_sandstone_wall"
+            "Name": "minecraft:netherrack"
           },
           "input_predicate": {
-            "block": "minecraft:red_sandstone_wall",
+            "block": "minecraft:nether_gold_ore",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -40,10 +40,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:prismarine_wall"
+            "Name": "minecraft:blackstone"
           },
           "input_predicate": {
-            "block": "minecraft:prismarine_wall",
+            "block": "minecraft:gilded_blackstone",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -52,10 +52,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:birch_fence"
+            "Name": "minecraft:blackstone_wall"
           },
           "input_predicate": {
-            "block": "minecraft:birch_fence",
+            "block": "minecraft:blackstone_wall",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -64,10 +64,78 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "Name": "minecraft:netherrack"
           },
           "input_predicate": {
-            "block": "minecraft:birch_trapdoor",
+            "block_state": {
+              "Name": "minecraft:crimson_stem",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:netherrack"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:crimson_stem",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:netherrack"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:warped_stem",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:netherrack"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:warped_stem",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:warped_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:warped_fence",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -76,10 +144,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "Name": "minecraft:crimson_fence"
           },
           "input_predicate": {
-            "block": "minecraft:bricks",
+            "block": "minecraft:crimson_fence",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -88,10 +156,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "Name": "minecraft:nether_brick_fence"
           },
           "input_predicate": {
-            "block": "minecraft:smooth_stone_slab",
+            "block": "minecraft:nether_brick_fence",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -100,94 +168,10 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "Name": "minecraft:netherrack"
           },
           "input_predicate": {
-            "block": "minecraft:yellow_wool",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:cobblestone"
-          },
-          "input_predicate": {
-            "block": "minecraft:white_wool",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:water_cauldron",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:grass_block",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:dirt_path",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:farmland",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:water",
-            "predicate_type": "minecraft:block_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          }
-        },
-        {
-          "output_state": {
-            "Name": "minecraft:dirt"
-          },
-          "input_predicate": {
-            "block": "minecraft:cobweb",
+            "block": "minecraft:bone_block",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -196,17 +180,6 @@
         }
       ],
       "processor_type": "minecraft:rule"
-    },
-    {
-      "processor_type": "minecraft:block_ignore",
-      "blocks": [
-        {
-          "Name": "minecraft:air"
-        },
-        {
-          "Name": "minecraft:structure_void"
-        }
-      ]
     },
     {
       "processor_type": "repurposed_structures:waterlogging_when_replacing_water_processor"

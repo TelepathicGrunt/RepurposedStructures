@@ -1,0 +1,446 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:oak_planks"
+          },
+          "input_predicate": {
+            "block": "minecraft:crafting_table",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:pumpkin",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:moss_carpet",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:cobblestone_wall"
+          },
+          "input_predicate": {
+            "block": "minecraft:cobblestone_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:diorite_wall"
+          },
+          "input_predicate": {
+            "block": "minecraft:diorite_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:sandstone_wall"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_sandstone_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:red_sandstone_wall"
+          },
+          "input_predicate": {
+            "block": "minecraft:red_sandstone_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:prismarine_wall"
+          },
+          "input_predicate": {
+            "block": "minecraft:prismarine_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:prismarine"
+          },
+          "input_predicate": {
+            "block": "minecraft:prismarine_stairs",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:gravel"
+          },
+          "input_predicate": {
+            "block": "minecraft:dark_prismarine",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:birch_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:birch_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:acacia_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:acacia_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:jungle_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:jungle_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:spruce_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:spruce_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:mangrove_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:mangrove_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:oak_fence"
+          },
+          "input_predicate": {
+            "block": "minecraft:oak_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:coarse_dirt"
+          },
+          "input_predicate": {
+            "block": "minecraft:bone_block",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:birch_log",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:birch_log",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:spruce_log",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:spruce_log",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:jungle_log",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:jungle_log",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:muddy_mangrove_roots"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:mangrove_log",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:muddy_mangrove_roots"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:mangrove_log",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:oak_log",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:oak_log",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:acacia_log",
+              "Properties": {
+                "axis": "x"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:dirt"
+          },
+          "input_predicate": {
+            "block_state": {
+              "Name": "minecraft:acacia_log",
+              "Properties": {
+                "axis": "z"
+              }
+            },
+            "predicate_type": "minecraft:blockstate_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:packed_ice"
+          },
+          "input_predicate": {
+            "block": "minecraft:blue_ice",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "minecraft:block_ignore",
+      "blocks": [
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Name": "minecraft:structure_void"
+        },
+        {
+          "Name": "minecraft:water"
+        }
+      ]
+    },
+    {
+      "processor_type": "repurposed_structures:waterlogging_when_replacing_water_processor"
+    }
+  ]
+}

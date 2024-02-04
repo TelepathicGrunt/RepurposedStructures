@@ -5,7 +5,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/crimson/cage1",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -14,7 +14,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/crimson/cage2",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -23,7 +23,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/crimson/cage3",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -32,7 +32,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/crimson/logs",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -41,7 +41,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/crimson/tent1",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -50,7 +50,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/crimson/tent2",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -59,7 +59,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:outposts/crimson/targets_1",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -68,7 +68,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/crimson/targets_2",
-        "processors": "repurposed_structures:outposts/crimson_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

@@ -5,7 +5,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/cage1",
-        "processors": "repurposed_structures:outposts/mangrove_cage_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -14,7 +14,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/cage2",
-        "processors": "repurposed_structures:outposts/mangrove_cage_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -23,7 +23,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/cage3",
-        "processors": "repurposed_structures:outposts/mangrove_cage_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -32,7 +32,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/cage4",
-        "processors": "repurposed_structures:outposts/mangrove_cage_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -41,7 +41,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/logs",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -50,7 +50,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/tent1",
-        "processors": "repurposed_structures:outposts/mangrove_tent_target_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -59,7 +59,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/tent2",
-        "processors": "repurposed_structures:outposts/mangrove_tent_target_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -68,7 +68,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/mangrove/targets",
-        "processors": "repurposed_structures:outposts/mangrove_tent_target_pillar",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

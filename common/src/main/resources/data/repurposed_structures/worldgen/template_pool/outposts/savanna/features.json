@@ -5,7 +5,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/cage1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -14,7 +14,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/cage2",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -23,7 +23,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/cage3",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -32,7 +32,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/logs",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -41,7 +41,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/tent1",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -50,7 +50,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/tent2",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -59,7 +59,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/savanna/targets",
-        "processors": "minecraft:empty",
+        "processors": "repurposed_structures:outposts/overworld_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

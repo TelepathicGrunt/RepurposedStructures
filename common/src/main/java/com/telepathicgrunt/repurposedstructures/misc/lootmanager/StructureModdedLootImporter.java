@@ -93,6 +93,8 @@ public class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/mangrove"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/nether_brick"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/oak"), new ResourceLocation("minecraft:chests/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/ocean"), new ResourceLocation("minecraft:chests/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/savanna"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/snowy"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/taiga"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/warped"), new ResourceLocation("minecraft:chests/pillager_outpost"));

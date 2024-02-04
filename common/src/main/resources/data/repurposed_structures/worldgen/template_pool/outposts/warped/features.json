@@ -5,7 +5,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/warped/cage1",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -14,7 +14,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/warped/cage2",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -23,7 +23,7 @@
       "weight": 4,
       "element": {
         "location": "repurposed_structures:outposts/warped/cage3",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -32,7 +32,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/warped/logs",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -41,7 +41,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/warped/tent1",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -50,7 +50,7 @@
       "weight": 6,
       "element": {
         "location": "repurposed_structures:outposts/warped/tent2",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -59,7 +59,7 @@
       "weight": 5,
       "element": {
         "location": "repurposed_structures:outposts/warped/targets_1",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
@@ -68,7 +68,7 @@
       "weight": 1,
       "element": {
         "location": "repurposed_structures:outposts/warped/targets_2",
-        "processors": "repurposed_structures:outposts/warped_feature_pillar",
+        "processors": "repurposed_structures:outposts/nether_pillar",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }

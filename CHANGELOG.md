@@ -16,3 +16,9 @@ Made all RS village houses now pillar downward if land is removed under them at 
 ##### Shipwrecks:
 
 End Shipwrecks's insides won't be filled with terrain blocks anymore.
+
+##### Outposts:
+
+Added Ocean and Savanna Outposts!
+
+Made all RS Outposts now pillar downward if land is removed under them at worldgen by cave or ravines!
