@@ -15,7 +15,7 @@
       "bounding_box": "piece",
       "spawns": [
         {
-          "type": "minecraft:piglin",
+          "type": "minecraft:zombified_piglin",
           "weight": 10,
           "minCount": 1,
           "maxCount": 1

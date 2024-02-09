@@ -8,6 +8,8 @@ Fixed Basalt and Soul Mineshafts not importing modded loot.
 
 Fixed Basalt and Soul Outposts not importing modded loot.
 
+Made Soul Outposts have Zombified Piglins instead of Piglins and Brutes.
+
 
 ### **(V.7.3.0 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
 

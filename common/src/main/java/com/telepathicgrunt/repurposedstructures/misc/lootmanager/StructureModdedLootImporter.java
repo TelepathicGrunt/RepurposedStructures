@@ -4,6 +4,9 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.utils.PlatformHooks;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 
@@ -21,7 +24,7 @@ public class StructureModdedLootImporter {
     private static Set<ResourceLocation> BLACKLISTED_LOOTTABLES;
 
     public static Map<ResourceLocation, ResourceLocation> createMap() {
-        Map<ResourceLocation, ResourceLocation> tableMap = new HashMap<>();
+        Map<ResourceLocation, ResourceLocation> tableMap = new Object2ObjectOpenHashMap<>();
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/nether"), new ResourceLocation("minecraft:chests/bastion_treasure"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/cities/overworld"), new ResourceLocation("minecraft:chests/village/village_plains_house"));
 
