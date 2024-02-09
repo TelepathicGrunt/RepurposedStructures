@@ -68,6 +68,7 @@ public class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/snowy"), new ResourceLocation("minecraft:chests/woodland_mansion"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mansions/taiga"), new ResourceLocation("minecraft:chests/woodland_mansion"));
 
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/basalt"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/birch"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/crimson"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/dark_forest"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
@@ -78,11 +79,13 @@ public class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/nether"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/ocean"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/savanna"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/soul"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/stone"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/swamp"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/taiga"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/mineshafts/warped"), new ResourceLocation("minecraft:chests/abandoned_mineshaft"));
 
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/basalt"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/badlands"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/birch"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/crimson"), new ResourceLocation("minecraft:chests/pillager_outpost"));
@@ -95,6 +98,7 @@ public class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/oak"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/ocean"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/savanna"), new ResourceLocation("minecraft:chests/pillager_outpost"));
+        tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/soul"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/snowy"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/taiga"), new ResourceLocation("minecraft:chests/pillager_outpost"));
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/outposts/warped"), new ResourceLocation("minecraft:chests/pillager_outpost"));

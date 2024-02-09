@@ -1,3 +1,14 @@
+### **(V.7.3.1 Changes) (1.20.4 Minecraft)**
+
+##### Mineshafts:
+
+Fixed Basalt and Soul Mineshafts not importing modded loot.
+
+##### Outposts:
+
+Fixed Basalt and Soul Outposts not importing modded loot.
+
+
 ### **(V.7.3.0 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
 
 ##### Villages:
