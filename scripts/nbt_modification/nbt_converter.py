@@ -12,8 +12,7 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:outposts/birch": "repurposed_structures:outposts/savanna",
-    "repurposed_structures:chests/outposts/birch": "repurposed_structures:chests/outposts/savanna"
+    "repurposed_structures:mineshafts/soul/plants": "repurposed_structures:mineshafts/soul/fire"
 }
 conversion_exact_dict = {
 }

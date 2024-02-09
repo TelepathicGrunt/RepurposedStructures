@@ -182,6 +182,90 @@
       "processor_type": "minecraft:rule"
     },
     {
+      "rules": [
+        {
+          "output_state": {
+            "Name": "minecraft:blackstone"
+          },
+          "input_predicate": {
+            "block": "minecraft:blackstone_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:lava",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:nether_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:nether_brick_wall",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:lava",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:nether_bricks"
+          },
+          "input_predicate": {
+            "block": "minecraft:nether_brick_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:lava",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:netherrack"
+          },
+          "input_predicate": {
+            "block": "minecraft:crimson_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:lava",
+            "predicate_type": "minecraft:block_match"
+          }
+        },
+        {
+          "output_state": {
+            "Name": "minecraft:netherrack"
+          },
+          "input_predicate": {
+            "block": "minecraft:warped_fence",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "block": "minecraft:lava",
+            "predicate_type": "minecraft:block_match"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "minecraft:block_ignore",
+      "blocks": [
+        {
+          "Name": "minecraft:air"
+        },
+        {
+          "Name": "minecraft:structure_void"
+        },
+        {
+          "Name": "minecraft:water"
+        }
+      ]
+    },
+    {
       "processor_type": "repurposed_structures:waterlogging_when_replacing_water_processor"
     }
   ]

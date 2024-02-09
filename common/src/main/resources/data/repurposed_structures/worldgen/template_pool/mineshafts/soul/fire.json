@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:mineshafts/soul/fire",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/soul_mineshaft_fire",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

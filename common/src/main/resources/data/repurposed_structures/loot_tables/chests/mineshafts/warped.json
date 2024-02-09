@@ -223,7 +223,7 @@
           ]
         },
         {
-          "name": "minecraft:beetroot_seeds",
+          "name": "minecraft:cooked_porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -238,7 +238,7 @@
           ]
         },
         {
-          "name": "minecraft:beetroot",
+          "name": "minecraft:porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [

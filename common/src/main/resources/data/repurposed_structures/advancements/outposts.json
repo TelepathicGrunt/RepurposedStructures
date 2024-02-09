@@ -34,6 +34,22 @@
         ]
       }
     },
+    "in_outpost_basalt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:outpost_basalt"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_outpost_birch": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -226,6 +242,22 @@
         ]
       }
     },
+    "in_outpost_soul": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:outpost_soul"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_outpost_snowy": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -280,6 +312,9 @@
       "in_outpost_badlands"
     ],
     [
+      "in_outpost_basalt"
+    ],
+    [
       "in_outpost_birch"
     ],
     [
@@ -317,6 +352,9 @@
     ],
     [
       "in_outpost_savanna"
+    ],
+    [
+      "in_outpost_soul"
     ],
     [
       "in_outpost_snowy"

@@ -1,15 +1,23 @@
 {
   "structures": [
     {
-      "structure": "repurposed_structures:outpost_nether_brick",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:outpost_warped",
+      "structure": "repurposed_structures:outpost_basalt",
       "weight": 100
     },
     {
       "structure": "repurposed_structures:outpost_crimson",
+      "weight": 100
+    },
+    {
+      "structure": "repurposed_structures:outpost_nether_brick",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:outpost_soul",
+      "weight": 100
+    },
+    {
+      "structure": "repurposed_structures:outpost_warped",
       "weight": 100
     }
   ],

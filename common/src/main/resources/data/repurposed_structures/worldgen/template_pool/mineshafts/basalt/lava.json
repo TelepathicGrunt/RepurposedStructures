@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:mineshafts/basalt/lava",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/basalt_mineshaft_lava",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

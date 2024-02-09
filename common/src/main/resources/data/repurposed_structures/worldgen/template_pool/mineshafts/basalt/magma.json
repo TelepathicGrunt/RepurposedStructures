@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:mineshafts/basalt/magma",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/basalt_mineshaft_magma",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

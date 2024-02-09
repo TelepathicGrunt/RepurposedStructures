@@ -223,7 +223,7 @@
           ]
         },
         {
-          "name": "minecraft:beetroot_seeds",
+          "name": "minecraft:cooked_porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -238,7 +238,7 @@
           ]
         },
         {
-          "name": "minecraft:beetroot",
+          "name": "minecraft:porkchop",
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
@@ -352,13 +352,13 @@
           "weight": 130
         },
         {
-          "name": "minecraft:red_banner",
+          "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
           "functions": [
             {
               "function":"set_nbt",
-              "tag":"{BlockEntityTag:{Patterns:[{Pattern:rud,Color:4},{Pattern:gra,Color:4},{Pattern:mr,Color:1},{Pattern:ss,Color:15},{Pattern:flo,Color:1},{Pattern:gra,Color:15},{Pattern:gru,Color:1},{Pattern:gru,Color:14},{Pattern:cbo,Color:15},{Pattern:bo,Color:15},{Pattern:drs,Color:14},{Pattern:ss,Color:15}]}}"
+              "tag":"{BlockEntityTag:{Patterns:[{Pattern:gra,Color:1},{Pattern:gra,Color:15},{Pattern:gru,Color:1},{Pattern:gru,Color:14},{Pattern:gru,Color:14},{Pattern:cbo,Color:15},{Pattern:bo,Color:15},{Pattern:sku,Color:15},{Pattern:sku,Color:1},{Pattern:sku,Color:14},{Pattern:drs,Color:14},{Pattern:ss,Color:15}]}}"
             }
           ]
         },

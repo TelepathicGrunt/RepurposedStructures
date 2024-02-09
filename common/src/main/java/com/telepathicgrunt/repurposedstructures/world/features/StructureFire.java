@@ -53,13 +53,14 @@ public class StructureFire extends Feature<StructureTargetConfig> {
             );
 
             BlockState belowBlock = context.level().getBlockState(mutable.below());
-            if(context.level().getBlockState(mutable).isAir() && (REPLACEABLE_BLOCKS.contains(belowBlock.getBlock()) || belowBlock.is(infiniteBurningBlocksTagKey))) {
+            boolean belowIsSoul = belowBlock.getBlock() == Blocks.SOUL_SOIL || belowBlock.getBlock() == Blocks.SOUL_SAND;
+            if(context.level().getBlockState(mutable).isAir() && (REPLACEABLE_BLOCKS.contains(belowBlock.getBlock()) || belowBlock.is(infiniteBurningBlocksTagKey) || belowIsSoul)) {
 
                 if(REPLACEABLE_BLOCKS.contains(belowBlock.getBlock())) {
                     context.level().setBlock(mutable.below(), Blocks.NETHERRACK.defaultBlockState(), 3);
                 }
 
-                if (belowBlock.getBlock() == Blocks.SOUL_SOIL || belowBlock.getBlock() == Blocks.SOUL_SAND) {
+                if (belowIsSoul) {
                     context.level().setBlock(mutable, soulFire, 3);
                 }
                 else {

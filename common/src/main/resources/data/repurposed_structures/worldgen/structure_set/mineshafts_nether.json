@@ -1,12 +1,20 @@
 {
   "structures": [
     {
+      "structure": "repurposed_structures:mineshaft_basalt",
+      "weight": 100
+    },
+    {
       "structure": "repurposed_structures:mineshaft_crimson",
       "weight": 100
     },
     {
       "structure": "repurposed_structures:mineshaft_nether",
       "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:mineshaft_soul",
+      "weight": 100
     },
     {
       "structure": "repurposed_structures:mineshaft_warped",

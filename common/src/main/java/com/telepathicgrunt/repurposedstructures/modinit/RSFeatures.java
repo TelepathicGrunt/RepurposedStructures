@@ -20,6 +20,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 
 public final class RSFeatures {
 	public static final ResourcefulRegistry<Feature<?>> FEATURES = ResourcefulRegistries.create(BuiltInRegistries.FEATURE, RepurposedStructures.MODID);
@@ -50,6 +51,7 @@ public final class RSFeatures {
 	public static final RegistryEntry<Feature<StructureTargetAndRangeConfig>> STRUCTURE_FLOWERS = FEATURES.register("structure_flowers", () -> new StructureFlowers(StructureTargetAndRangeConfig.CODEC));
 	public static final RegistryEntry<Feature<StructureRangeConfig>> STRUCTURE_POWDER_SNOW = FEATURES.register("structure_powder_snow", () -> new StructurePowderSnow(StructureRangeConfig.CODEC));
 	public static final RegistryEntry<Feature<BlockPileConfiguration>> UNDERWATER_BLOCK_PILE = FEATURES.register("underwater_block_pile", () -> new UnderwaterBlockPileFeature(BlockPileConfiguration.CODEC));
+	public static final RegistryEntry<Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_WITH_FLUID_TICK = FEATURES.register("simple_block_with_fluid_tick", () -> new SimpleBlockWithFluidTick(SimpleBlockConfiguration.CODEC));
 
 	public static final RegistryEntry<Feature<MinecartConfig>> MINESHAFT_MINECARTS = FEATURES.register("mineshaft_minecarts", () -> new MinecartFeature(MinecartConfig.CODEC));
 	public static final RegistryEntry<Feature<MineshaftSupportConfig>> MINESHAFT_SUPPORTS = FEATURES.register("mineshaft_supports", () -> new MineshaftSupport(MineshaftSupportConfig.CODEC));

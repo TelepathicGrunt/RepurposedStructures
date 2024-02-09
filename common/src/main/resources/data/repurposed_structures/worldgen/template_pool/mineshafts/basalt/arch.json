@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:mineshafts/basalt/arch",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:supports/basalt_mineshaft",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "config": {
+    "arch_blocks": ["minecraft:bone_block"],
+    "pillar_state": {
+      "Name": "minecraft:soul_soil"
+    },
+    "fence_state": {
+      "Properties": {
+        "axis": "y"
+      },
+      "Name": "minecraft:bone_block"
+    },
+    "target_floor_block": "minecraft:soul_sand",
+    "is_water_based": false,
+    "arch_only": true
+  },
+  "type": "repurposed_structures:mineshaft_supports"
+}

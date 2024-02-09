@@ -1,0 +1,19 @@
+{
+  "fallback": "repurposed_structures:mineshafts/soul/minecarts",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:minecarts/soul_mineshaft_minecart",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 224,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

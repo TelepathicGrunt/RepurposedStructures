@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "repurposed_structures:mineshaft_basalt",
     "repurposed_structures:mineshaft_birch",
     "repurposed_structures:mineshaft_crimson",
     "repurposed_structures:mineshaft_dark_forest",
@@ -11,6 +12,7 @@
     "repurposed_structures:mineshaft_nether",
     "repurposed_structures:mineshaft_ocean",
     "repurposed_structures:mineshaft_savanna",
+    "repurposed_structures:mineshaft_soul",
     "repurposed_structures:mineshaft_stone",
     "repurposed_structures:mineshaft_swamp",
     "repurposed_structures:mineshaft_taiga",

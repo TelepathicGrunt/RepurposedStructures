@@ -18,6 +18,22 @@
     "experience": 310
   },
   "criteria": {
+    "in_mineshaft_basalt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_basalt"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_mineshaft_birch": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -178,6 +194,22 @@
         ]
       }
     },
+    "in_mineshaft_soul": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "repurposed_structures:mineshaft_soul"
+              }
+            }
+          }
+        ]
+      }
+    },
     "in_mineshaft_stone": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -245,6 +277,9 @@
   },
   "requirements": [
     [
+      "in_mineshaft_basalt"
+    ],
+    [
       "in_mineshaft_birch"
     ],
     [
@@ -273,6 +308,9 @@
     ],
     [
       "in_mineshaft_savanna"
+    ],
+    [
+      "in_mineshaft_soul"
     ],
     [
       "in_mineshaft_stone"

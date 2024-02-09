@@ -19,6 +19,14 @@ End Shipwrecks's insides won't be filled with terrain blocks anymore.
 
 ##### Outposts:
 
-Added Ocean and Savanna Outposts!
+Added Ocean, Savanna, Basalt, and Soul Outposts!
 
 Made all RS Outposts now pillar downward if land is removed under them at worldgen by cave or ravines!
+
+##### Mineshafts:
+
+Added Basalt and Soul Mineshafts!
+
+Replaced Beetroot and Beetroot Seeds in Nether Mineshafts to have Porkchops and Cooked Porkchops instead.
+
+Changed secret banner pattern for Nether Brick Mineshaft.

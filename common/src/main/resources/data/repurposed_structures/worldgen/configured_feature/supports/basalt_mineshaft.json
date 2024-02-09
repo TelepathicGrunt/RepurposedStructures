@@ -1,0 +1,18 @@
+{
+  "config": {
+    "arch_blocks": ["minecraft:polished_basalt", "minecraft:chiseled_polished_blackstone"],
+    "pillar_state": {
+      "Name": "minecraft:smooth_basalt"
+    },
+    "fence_state": {
+      "Properties": {
+        "axis": "y"
+      },
+      "Name": "minecraft:basalt"
+    },
+    "target_floor_block": "minecraft:basalt",
+    "is_water_based": false,
+    "arch_only": true
+  },
+  "type": "repurposed_structures:mineshaft_supports"
+}

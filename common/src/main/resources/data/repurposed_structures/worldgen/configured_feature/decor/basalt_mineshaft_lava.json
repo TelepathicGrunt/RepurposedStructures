@@ -1,0 +1,22 @@
+{
+  "type": "repurposed_structures:simple_block_with_fluid_tick",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 8,
+          "data": {
+            "Name": "minecraft:lava"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:magma_block"
+          }
+        }
+      ]
+    }
+  }
+}

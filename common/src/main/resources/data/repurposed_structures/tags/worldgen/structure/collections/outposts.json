@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "repurposed_structures:outpost_badlands",
+    "repurposed_structures:outpost_basalt",
     "repurposed_structures:outpost_birch",
     "repurposed_structures:outpost_crimson",
     "repurposed_structures:outpost_desert",
@@ -14,6 +15,7 @@
     "repurposed_structures:outpost_oak",
     "repurposed_structures:outpost_ocean",
     "repurposed_structures:outpost_savanna",
+    "repurposed_structures:outpost_soul",
     "repurposed_structures:outpost_snowy",
     "repurposed_structures:outpost_taiga",
     "repurposed_structures:outpost_warped"
