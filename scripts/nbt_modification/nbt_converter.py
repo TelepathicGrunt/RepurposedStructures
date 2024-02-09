@@ -12,7 +12,6 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "repurposed_structures:mineshafts/soul/plants": "repurposed_structures:mineshafts/soul/fire"
 }
 conversion_exact_dict = {
 }
@@ -67,7 +66,9 @@ def traverse_dicts(nbt_list):
         if 'Attributes' in nbt_list:
             attributes = nbt_list['Attributes']
             for entry in attributes:
-                if entry["Name"] == "forge:entity_gravity" or entry["Name"] == "forge:step_height_addition":
+                if entry["Name"] == "forge:entity_gravity" or entry["Name"] == "forge:step_height_addition" or entry["Name"] == "forge:step_height":
+                    nbt_list['Attributes'].remove(entry)
+                if entry["Name"] == "neoforge:entity_gravity" or entry["Name"] == "neoforge:step_height":
                     nbt_list['Attributes'].remove(entry)
         
         for key, entry in nbt_list.items():
