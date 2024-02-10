@@ -1,4 +1,4 @@
-### **(V.7.3.1 Changes) (1.20.4 Minecraft)**
+### **(V.7.3.1 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
 
 ##### Mineshafts:
 
@@ -9,6 +9,9 @@ Fixed Basalt and Soul Mineshafts not importing modded loot.
 Fixed Basalt and Soul Outposts not importing modded loot.
 
 Made Soul Outposts have Zombified Piglins instead of Piglins and Brutes.
+
+##### Misc:
+Changed maps in trade offers to say to not buy them until they are finished locating their target structures.
 
 
 ### **(V.7.3.0 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**

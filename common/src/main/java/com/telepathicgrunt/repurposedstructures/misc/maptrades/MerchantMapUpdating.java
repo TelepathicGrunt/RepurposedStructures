@@ -151,7 +151,7 @@ public class MerchantMapUpdating {
 
     public static ItemStack createEmptyMap() {
         ItemStack stack = new ItemStack(Items.FILLED_MAP);
-        stack.setHoverName(Component.translatable("menu.working"));
+        stack.setHoverName(Component.translatable("Locating... (Do not buy this map until finished)"));
         return stack;
     }
 
