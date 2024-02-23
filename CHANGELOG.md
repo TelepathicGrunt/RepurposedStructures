@@ -3,6 +3,9 @@
 ##### Bastions:
 Made geodes try not to spawn in Underground Bastions.
 
+##### Cities:
+Relaxed some air space spawn condition for Nether City to try and let it spawn more often when other Nether terrain modifying mods are on.
+
 
 ### **(V.7.3.1 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
 

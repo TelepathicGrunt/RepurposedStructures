@@ -14,12 +14,15 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
+import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 public class CityNetherStructure extends GenericJigsawStructure {
@@ -89,9 +92,13 @@ public class CityNetherStructure extends GenericJigsawStructure {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         for (int curChunkX = chunkPos.x - 1; curChunkX <= chunkPos.x + 1; curChunkX++) {
             for (int curChunkZ = chunkPos.z - 1; curChunkZ <= chunkPos.z + 1; curChunkZ++) {
-                mutable.set(curChunkX << 4, context.chunkGenerator().getSeaLevel() + 10, curChunkZ << 4);
+                if (curChunkX == chunkPos.x && curChunkZ == chunkPos.z) {
+                    continue;
+                }
+
+                mutable.set(curChunkX << 4, context.chunkGenerator().getSeaLevel() + 20, curChunkZ << 4);
                 NoiseColumn blockView = context.chunkGenerator().getBaseColumn(mutable.getX(), mutable.getZ(), context.heightAccessor(), context.randomState());
-                int minValidSpace = 65;
+                int minValidSpace = 45;
                 int maxHeight = Math.min(GeneralUtils.getMaxTerrainLimit(context.chunkGenerator()), context.chunkGenerator().getSeaLevel() + minValidSpace);
 
                 while(mutable.getY() < maxHeight) {
