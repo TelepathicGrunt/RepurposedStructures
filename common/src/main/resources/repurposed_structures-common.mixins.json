@@ -13,6 +13,7 @@
     "features.NoBasaltColumnsInStructuresMixin",
     "features.NoDeltasInStructuresMixin",
     "features.NoFallsInStructuresMixin",
+    "features.NoGeodesInStructuresMixin",
     "features.NoLakesInStructuresMixin",
     "features.NoVinesInStructuresMixin",
     "features.SmarterSnowPlacingInStructuresMixin",

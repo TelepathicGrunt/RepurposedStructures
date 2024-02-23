@@ -1,3 +1,9 @@
+### **(V.7.3.2 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
+
+##### Bastions:
+Made geodes try not to spawn in Underground Bastions.
+
+
 ### **(V.7.3.1 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
 
 ##### Mineshafts:
