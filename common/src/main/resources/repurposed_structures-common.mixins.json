@@ -19,7 +19,6 @@
     "items.MapItemAccessor",
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
-    "resources.ReloadableResourceManagerImplAccessor",
     "structures.JigsawJunctionAccessor",
     "structures.ListPoolElementAccessor",
     "structures.LocateCommandMixin",
