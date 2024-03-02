@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 // Source: https://github.com/thebrightspark/AsyncLocator/blob/1.19.x/src/main/java/brightspark/asynclocator/mixins/MapItemAccess.java
 @Mixin(MapItem.class)
 public interface MapItemAccessor {
-    @Invoker("createAndStoreSavedData")
+    @Invoker
     static void callCreateAndStoreSavedData(ItemStack stack, Level level, int x, int z, int scale, boolean trackingPosition, boolean unlimitedTracking, ResourceKey<Level> dimension) {
         throw new UnsupportedOperationException();
     }
