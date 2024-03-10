@@ -1,0 +1,8 @@
+{
+  "type": "repurposed_structures:configurable_coral_claw",
+  "config": {
+    "main_blocks": "#repurposed_structures:dead_coral_blocks",
+    "wall_blocks": "#repurposed_structures:dead_wall_corals",
+    "floor_blocks": "#repurposed_structures:dead_coral_plants"
+  }
+}

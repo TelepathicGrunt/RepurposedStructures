@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.RandomState;
@@ -47,6 +48,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -343,5 +345,30 @@ public final class GeneralUtils {
             }
         });
         return invalidLootTableFound.get();
+    }
+
+    ///////////////////////////////////////////
+
+    public static boolean nameMatch(String biomeName, String... targetMatch) {
+        return Arrays.stream(targetMatch).anyMatch(biomeName::contains);
+    }
+
+    public static boolean nameExactMatch(String biomeName, String... targetMatch) {
+        return Arrays.asList(targetMatch).contains(biomeName);
+    }
+
+    //////////////////////////////////////////
+
+    public static BlockState copyBlockProperties(BlockState oldBlockState, BlockState newBlockState) {
+        for (Property<?> property : oldBlockState.getProperties()) {
+            if (newBlockState.hasProperty(property)) {
+                newBlockState = getStateWithProperty(newBlockState, oldBlockState, property);
+            }
+        }
+        return newBlockState;
+    }
+
+    public static <T extends Comparable<T>> BlockState getStateWithProperty(BlockState state, BlockState stateToCopy, Property<T> property) {
+        return state.setValue(property, stateToCopy.getValue(property));
     }
 }

@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSBiomeModifiers;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -31,62 +32,54 @@ public record AdditionsTemperatureModifier(HolderSet<Biome> biomes, Holder<Place
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         // add a feature to all specified biomes
         if (phase == Phase.ADD && biomes.contains(biome)) {
-            Biome rawBiome = biome.value();
             String biomeNamespace = biome.unwrapKey().get().location().getNamespace();
             String biomePath = biome.unwrapKey().get().location().getPath();
+            float biomeTemp = biome.value().getBaseTemperature();
             switch (temperatureRange) {
                 case WARM -> {
-                    if ((nameMatch(biomePath, "hot", "tropic", "warm") && !nameMatch(biomePath, "lukewarm")) ||
-                        (!nameExactMatch(biomeNamespace, "minecraft") && rawBiome.getModifiedClimateSettings().temperature() >= 1.5f))
+                    if ((GeneralUtils.nameMatch(biomePath, "hot", "tropic", "warm") && !GeneralUtils.nameMatch(biomePath, "lukewarm")) ||
+                        (!GeneralUtils.nameExactMatch(biomeNamespace, "minecraft") && biomeTemp >= 1.5f))
                     {
                         builder.getGenerationSettings().addFeature(step, feature);
                     }
                 }
                 case LUKEWARM -> {
-                    if (nameMatch(biomePath, "lukewarm") ||
-                        (!nameExactMatch(biomeNamespace, "minecraft")
-                         && rawBiome.getModifiedClimateSettings().temperature() >= 0.9f
-                         && rawBiome.getModifiedClimateSettings().temperature() < 1.5f))
+                    if (GeneralUtils.nameMatch(biomePath, "lukewarm") ||
+                        (!GeneralUtils.nameExactMatch(biomeNamespace, "minecraft")
+                         && biomeTemp >= 0.9f
+                         && biomeTemp < 1.5f))
                     {
                         builder.getGenerationSettings().addFeature(step, feature);
                     }
                 }
                 case NEUTRAL -> {
-                    if (!nameMatch(biomePath, "hot", "tropic", "warm", "cold", "chilly", "frozen", "snow", "ice", "frost") ||
-                        (!nameExactMatch(biomeNamespace, "minecraft")
-                            && rawBiome.getModifiedClimateSettings().temperature() >= 0.5f
-                            && rawBiome.getModifiedClimateSettings().temperature() < 0.9f))
+                    if (!GeneralUtils.nameMatch(biomePath, "hot", "tropic", "warm", "cold", "chilly", "frozen", "snow", "ice", "frost") ||
+                        (!GeneralUtils.nameExactMatch(biomeNamespace, "minecraft")
+                        && biomeTemp >= 0.5f
+                        && biomeTemp < 0.9f))
                     {
                         builder.getGenerationSettings().addFeature(step, feature);
                     }
                 }
                 case COLD -> {
-                    if (nameMatch(biomePath, "cold", "chilly") ||
-                        (!nameExactMatch(biomeNamespace, "minecraft")
-                            && rawBiome.getModifiedClimateSettings().temperature() >= 0.0f
-                            && rawBiome.getModifiedClimateSettings().temperature() < 0.5f))
+                    if (GeneralUtils.nameMatch(biomePath, "cold", "chilly") ||
+                        (!GeneralUtils.nameExactMatch(biomeNamespace, "minecraft")
+                        && biomeTemp >= 0.0f
+                        && biomeTemp < 0.5f))
                     {
                         builder.getGenerationSettings().addFeature(step, feature);
                     }
                 }
                 case FROZEN -> {
-                    if (nameMatch(biomePath, "frozen", "snow", "ice", "frost") ||
-                        (!nameExactMatch(biomeNamespace, "minecraft")
-                            && rawBiome.getModifiedClimateSettings().temperature() < 0.0f))
+                    if (GeneralUtils.nameMatch(biomePath, "frozen", "snow", "ice", "frost") ||
+                        (!GeneralUtils.nameExactMatch(biomeNamespace, "minecraft")
+                        && biomeTemp < 0.0f))
                     {
                         builder.getGenerationSettings().addFeature(step, feature);
                     }
                 }
             }
         }
-    }
-
-    private boolean nameMatch(String biomeName, String... targetMatch) {
-        return Arrays.stream(targetMatch).anyMatch(biomeName::contains);
-    }
-
-    private boolean nameExactMatch(String biomeName, String... targetMatch) {
-        return Arrays.asList(targetMatch).contains(biomeName);
     }
 
     public Codec<? extends BiomeModifier> codec() {

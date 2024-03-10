@@ -33,6 +33,7 @@ public final class RSProcessors {
     public static final RegistryEntry<StructureProcessorType<WaterlogWhenReplacingWaterProcessor>> WATERLOGGING_WHEN_REPLACING_WATER_PROCESSOR = STRUCTURE_PROCESSOR.register("waterlogging_when_replacing_water_processor", () -> () -> WaterlogWhenReplacingWaterProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<SuperGravityProcessor>> SUPER_GRAVITY_PROCESSOR = STRUCTURE_PROCESSOR.register("super_gravity_processor", () -> () -> SuperGravityProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<ForcePlaceMushroomBlocksProcessor>> FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR = STRUCTURE_PROCESSOR.register("force_place_mushroom_blocks_processor", () -> () -> ForcePlaceMushroomBlocksProcessor.CODEC);
+    public static final RegistryEntry<StructureProcessorType<CoralAliveDeadProcessor>> CORAL_ALIVE_DEAD_PROCESSOR = STRUCTURE_PROCESSOR.register("coral_alive_dead_processor", () -> () -> CoralAliveDeadProcessor.CODEC);
 
     public static final RegistryEntry<StructureProcessorType<CappedStructureSurfaceProcessor>> CAPPED_STRUCTURE_SURFACE_PROCESSOR = STRUCTURE_PROCESSOR.register("capped_structure_surface_processor", () -> () -> CappedStructureSurfaceProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<PostProcessListProcessor>> POST_PROCESS_LIST_PROCESSOR = STRUCTURE_PROCESSOR.register("post_process_list_processor", () -> () -> PostProcessListProcessor.CODEC);

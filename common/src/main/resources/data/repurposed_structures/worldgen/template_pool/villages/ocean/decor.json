@@ -61,6 +61,14 @@
       }
     },
     {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:villages/ocean_village_big_coral",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
       "weight": 10,
       "element": {
         "element_type": "minecraft:empty_pool_element"

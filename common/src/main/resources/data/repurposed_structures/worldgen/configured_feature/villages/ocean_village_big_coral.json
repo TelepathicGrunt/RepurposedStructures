@@ -1,0 +1,15 @@
+{
+  "type": "repurposed_structures:ocean_temperature_random_selector",
+  "config": {
+    "warm_features": [
+      "repurposed_structures:villages/coral_tree",
+      "repurposed_structures:villages/coral_claw",
+      "repurposed_structures:villages/coral_mushroom"
+    ],
+    "cold_features": [
+      "repurposed_structures:villages/dead_coral_tree",
+      "repurposed_structures:villages/dead_coral_claw",
+      "repurposed_structures:villages/dead_coral_mushroom"
+    ]
+  }
+}

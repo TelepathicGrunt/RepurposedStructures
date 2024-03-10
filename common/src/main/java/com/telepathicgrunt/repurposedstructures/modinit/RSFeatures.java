@@ -5,11 +5,13 @@ import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistries;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.ConfigurableCoralConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MinecartConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtDungeonConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatureConfig;
+import com.telepathicgrunt.repurposedstructures.world.features.configs.OceanTemperatureRandomSelectorConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureRangeConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
@@ -52,6 +54,10 @@ public final class RSFeatures {
 	public static final RegistryEntry<Feature<StructureRangeConfig>> STRUCTURE_POWDER_SNOW = FEATURES.register("structure_powder_snow", () -> new StructurePowderSnow(StructureRangeConfig.CODEC));
 	public static final RegistryEntry<Feature<BlockPileConfiguration>> UNDERWATER_BLOCK_PILE = FEATURES.register("underwater_block_pile", () -> new UnderwaterBlockPileFeature(BlockPileConfiguration.CODEC));
 	public static final RegistryEntry<Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_WITH_FLUID_TICK = FEATURES.register("simple_block_with_fluid_tick", () -> new SimpleBlockWithFluidTick(SimpleBlockConfiguration.CODEC));
+	public static final RegistryEntry<Feature<ConfigurableCoralConfig>> CONFIGURABLE_CORAL_TREE = FEATURES.register("configurable_coral_tree", () -> new ConfigurableCoralTree(ConfigurableCoralConfig.CODEC));
+	public static final RegistryEntry<Feature<ConfigurableCoralConfig>> CONFIGURABLE_CORAL_MUSHROOM = FEATURES.register("configurable_coral_mushroom", () -> new ConfigurableCoralMushroom(ConfigurableCoralConfig.CODEC));
+	public static final RegistryEntry<Feature<ConfigurableCoralConfig>> CONFIGURABLE_CORAL_CLAW = FEATURES.register("configurable_coral_claw", () -> new ConfigurableCoralClaw(ConfigurableCoralConfig.CODEC));
+	public static final RegistryEntry<Feature<OceanTemperatureRandomSelectorConfig>> OCEAN_TEMPERATURE_RANDOM_SELECTOR = FEATURES.register("ocean_temperature_random_selector", () -> new OceanTemperatureRandomSelector(OceanTemperatureRandomSelectorConfig.CODEC));
 
 	public static final RegistryEntry<Feature<MinecartConfig>> MINESHAFT_MINECARTS = FEATURES.register("mineshaft_minecarts", () -> new MinecartFeature(MinecartConfig.CODEC));
 	public static final RegistryEntry<Feature<MineshaftSupportConfig>> MINESHAFT_SUPPORTS = FEATURES.register("mineshaft_supports", () -> new MineshaftSupport(MineshaftSupportConfig.CODEC));

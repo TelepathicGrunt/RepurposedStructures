@@ -1,3 +1,11 @@
+### **(V.7.3.3 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
+
+##### Villages:
+Spawned big coral more often in Ocean Villages.
+
+In Ocean Villages, coral are now 50% dead in neutral temperature oceans and fully dead in cold or frozen oceans.
+
+
 ### **(V.7.3.2 Changes) (1.20.4 Minecraft) (Config Datapack Updated)**
 
 ##### Bastions:

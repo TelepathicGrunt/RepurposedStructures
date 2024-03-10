@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
+import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.RandomSource;
@@ -51,35 +52,23 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
             RandomSource random = RandomSource.create();
             int offSet = settings.getProcessors().indexOf(this) + 1;
             random.setSeed(worldPos.asLong() * worldPos.asLong() * offSet);
-            if(random.nextFloat() < probability) {
-                if(outputBlock.isPresent()) {
+            if (random.nextFloat() < probability) {
+                if (outputBlock.isPresent()) {
                     BlockState newBlockState = outputBlock.get().defaultBlockState();
-                    for(Property<?> property : infoIn2.state().getProperties()) {
-                        if(newBlockState.hasProperty(property)) {
-                            newBlockState = getStateWithProperty(newBlockState, infoIn2.state(), property);
-                        }
-                    }
+                    newBlockState = GeneralUtils.copyBlockProperties(infoIn2.state(), newBlockState);
                     return new StructureTemplate.StructureBlockInfo(infoIn2.pos(), newBlockState, infoIn2.nbt());
                 }
-                else if(!outputBlocks.isEmpty()) {
+                else if (!outputBlocks.isEmpty()) {
                     BlockState newBlockState = outputBlocks.get(random.nextInt(outputBlocks.size())).defaultBlockState();
-                    for(Property<?> property : infoIn2.state().getProperties()) {
-                        if(newBlockState.hasProperty(property)) {
-                            newBlockState = getStateWithProperty(newBlockState, infoIn2.state(), property);
-                        }
-                    }
+                    newBlockState = GeneralUtils.copyBlockProperties(infoIn2.state(), newBlockState);
                     return new StructureTemplate.StructureBlockInfo(infoIn2.pos(), newBlockState, infoIn2.nbt());
                 }
-                else{
+                else {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: repurposed_structures:random_replace_with_properties_processor in a processor file has no replacement block of any kind.");
                 }
             }
         }
         return infoIn2;
-    }
-
-    private <T extends Comparable<T>> BlockState getStateWithProperty(BlockState state, BlockState stateToCopy, Property<T> property) {
-        return state.setValue(property, stateToCopy.getValue(property));
     }
 
     @Override

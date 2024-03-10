@@ -43,4 +43,7 @@ public final class RSTags {
 
     public static TagKey<Block> MINESHAFT_SUPPORT_REPLACEABLES = TagKey.create(Registries.BLOCK,
             new ResourceLocation(RepurposedStructures.MODID, "mineshaft_support_replaceables"));
+
+    public static TagKey<Block> DEAD_CORALS = TagKey.create(Registries.BLOCK,
+            new ResourceLocation(RepurposedStructures.MODID, "dead_corals"));
 }

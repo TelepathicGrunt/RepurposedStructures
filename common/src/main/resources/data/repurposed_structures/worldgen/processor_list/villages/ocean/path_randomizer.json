@@ -58,6 +58,9 @@
     },
     {
       "processor_type": "repurposed_structures:structure_void_processor"
+    },
+    {
+      "processor_type": "repurposed_structures:coral_alive_dead_processor"
     }
   ]
 }

@@ -200,6 +200,9 @@
       "processor_type": "repurposed_structures:structure_void_processor"
     },
     {
+      "processor_type": "repurposed_structures:coral_alive_dead_processor"
+    },
+    {
       "processor_type": "repurposed_structures:bottom_pillar_processor",
       "pillar_processor_list": "repurposed_structures:villages/ocean/bottom_pillar"
     }
