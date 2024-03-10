@@ -59,7 +59,6 @@ public class CoralAliveDeadProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
-        // Mimic Mineshaft rails visible even in sky if block below is solid
         if (ALIVE_TO_DEAD_CORAL.containsKey(structureBlockInfoWorld.state().getBlock())) {
             Holder<Biome> biome = worldView.getBiome(structureBlockInfoWorld.pos());
             float biomeTemp = biome.value().getBaseTemperature();
