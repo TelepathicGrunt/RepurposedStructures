@@ -1,5 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixins.features;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
@@ -12,8 +14,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 
@@ -21,14 +21,17 @@ import java.util.List;
 @Mixin(BasaltColumnsFeature.class)
 public class NoBasaltColumnsInStructuresMixin {
 
-    @Inject(
-            method = "canPlaceAt(Lnet/minecraft/world/level/LevelAccessor;ILnet/minecraft/core/BlockPos$MutableBlockPos;)Z",
-            at = @At(value = "HEAD"),
-            cancellable = true
+    @WrapOperation(
+            method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/feature/BasaltColumnsFeature;canPlaceAt(Lnet/minecraft/world/level/LevelAccessor;ILnet/minecraft/core/BlockPos$MutableBlockPos;)Z")
     )
-    private static void repurposedstructures_noBasaltColumnsInStructures(LevelAccessor levelAccessor, int seaLevel, BlockPos.MutableBlockPos mutableBlockPos, CallbackInfoReturnable<Boolean> cir) {
+    private boolean repurposedstructures_noBasaltColumnsInStructures1(LevelAccessor levelAccessor, int sealevel, BlockPos.MutableBlockPos mutableBlockPos, Operation<Boolean> original) {
+        if (!original.call(levelAccessor, sealevel, mutableBlockPos)) { //canPlaceAt
+            return false;
+        }
+
         if (!(levelAccessor instanceof WorldGenRegion worldGenRegion)) {
-            return;
+            return true;
         }
 
         Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
@@ -38,8 +41,29 @@ public class NoBasaltColumnsInStructuresMixin {
                 mutableBlockPos,
                 struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.NO_BASALT));
 
-        if (!structureStarts.isEmpty()) {
-            cir.setReturnValue(false);
+        return structureStarts.isEmpty();
+    }
+
+    @WrapOperation(
+            method = "findSurface(Lnet/minecraft/world/level/LevelAccessor;ILnet/minecraft/core/BlockPos$MutableBlockPos;I)Lnet/minecraft/core/BlockPos;",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/feature/BasaltColumnsFeature;canPlaceAt(Lnet/minecraft/world/level/LevelAccessor;ILnet/minecraft/core/BlockPos$MutableBlockPos;)Z")
+    )
+    private static boolean repurposedstructures_noBasaltColumnsInStructures2(LevelAccessor levelAccessor, int sealevel, BlockPos.MutableBlockPos mutableBlockPos, Operation<Boolean> original) {
+        if (!original.call(levelAccessor, sealevel, mutableBlockPos)) { //canPlaceAt
+            return false;
         }
+
+        if (!(levelAccessor instanceof WorldGenRegion worldGenRegion)) {
+            return true;
+        }
+
+        Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+
+        List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
+                worldGenRegion,
+                mutableBlockPos,
+                struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.NO_BASALT));
+
+        return structureStarts.isEmpty();
     }
 }

@@ -405,6 +405,9 @@ public final class GeneralUtils {
     public static void fillStartsForStructure(LevelReader level, StructureManager structureManager, Structure structure, LongSet references, BlockPos position, Consumer<StructureStart> consumer) {
         for (long ref : references) {
             SectionPos sectionPos = SectionPos.of(new ChunkPos(ref), level.getMinSection());
+            if (!level.hasChunk(sectionPos.x(), sectionPos.z())) {
+                continue;
+            }
             StructureStart structureStart = structureManager.getStartForStructure(sectionPos, structure, level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_STARTS));
             if (structureStart != null && structureStart.isValid() && structureStart.getBoundingBox().isInside(position)) {
                 consumer.accept(structureStart);
