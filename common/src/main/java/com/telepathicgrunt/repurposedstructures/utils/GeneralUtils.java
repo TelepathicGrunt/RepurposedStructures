@@ -21,6 +21,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.BlockTags;
@@ -53,7 +54,6 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.storage.loot.LootTable;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,6 +61,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -69,6 +70,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public final class GeneralUtils {
     private GeneralUtils() {}
@@ -381,29 +383,30 @@ public final class GeneralUtils {
 
     ///////////////////////////////////////////
 
-    public static StructureStart getStructureAt(LevelReader level, StructureManager structureManager, BlockPos blockPos, Structure structure) {
-        for(StructureStart structureStart : startsForStructure(level, structureManager, SectionPos.of(blockPos), structure)) {
-            if (structureStart.getBoundingBox().isInside(blockPos)) {
-                return structureStart;
-            }
+    public static List<StructureStart> inboundsValidStartsForAllStructure(WorldGenRegion level, BlockPos position, Predicate<Structure> structureMatch) {
+        StructureManager structureManager = level.getLevel().structureManager();
+        SectionPos sectionPos = SectionPos.of(position);
+
+        ChunkAccess chunkAccess = level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_REFERENCES);
+        if (!chunkAccess.getHighestGeneratedStatus().isOrAfter(ChunkStatus.STRUCTURE_REFERENCES)) {
+            return new ArrayList<>();
         }
 
-        return StructureStart.INVALID_START;
+        Map<Structure, LongSet> references = chunkAccess.getAllReferences();
+        List<StructureStart> list = new ArrayList<>();
+        for (Map.Entry<Structure, LongSet> entry : references.entrySet()) {
+            if (structureMatch.test(entry.getKey())) {
+                fillStartsForStructure(level, structureManager, entry.getKey(), entry.getValue(), position, list::add);
+            }
+        }
+        return list;
     }
 
-    public static List<StructureStart> startsForStructure(LevelReader level, StructureManager structureManager, SectionPos sectionPos, Structure structure) {
-        ChunkAccess chunkAccess = level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_REFERENCES);
-        LongSet references = chunkAccess.getReferencesForStructure(structure);
-        ImmutableList.Builder<StructureStart> builder = ImmutableList.builder();
-        fillStartsForStructure(level, structureManager, chunkAccess, structure, references, builder::add);
-        return builder.build();
-    }
-
-    public static void fillStartsForStructure(LevelReader level, StructureManager structureManager, ChunkAccess chunkAccess, Structure structure, LongSet references, Consumer<StructureStart> consumer) {
+    public static void fillStartsForStructure(LevelReader level, StructureManager structureManager, Structure structure, LongSet references, BlockPos position, Consumer<StructureStart> consumer) {
         for (long ref : references) {
             SectionPos sectionPos = SectionPos.of(new ChunkPos(ref), level.getMinSection());
-            StructureStart structureStart = structureManager.getStartForStructure(sectionPos, structure, chunkAccess);
-            if (structureStart != null && structureStart.isValid()) {
+            StructureStart structureStart = structureManager.getStartForStructure(sectionPos, structure, level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_STARTS));
+            if (structureStart != null && structureStart.isValid() && structureStart.getBoundingBox().isInside(position)) {
                 consumer.accept(structureStart);
             }
         }
