@@ -48,9 +48,9 @@ public class EndGatewayProcessor extends StructureProcessor {
             BlockPos currentPos = structureBlockInfoWorld.pos();
             ChunkAccess currentChunk = levelReader.getChunk(currentPos);
             int terrainY = currentChunk.getHeight(Heightmap.Types.MOTION_BLOCKING, 0, 0);
-            if (terrainY <= currentChunk.getMinBuildHeight() || terrainY >= currentChunk.getMaxBuildHeight()) {
-                terrainY = currentChunk.getMinBuildHeight() + 1;
-                currentChunk.setBlockState(new BlockPos(0, currentChunk.getMinBuildHeight(), 0), Blocks.OBSIDIAN.defaultBlockState(), false);
+            if (terrainY <= currentChunk.getMinY() || terrainY >= currentChunk.getMaxY()) {
+                terrainY = currentChunk.getMinY() + 1;
+                currentChunk.setBlockState(new BlockPos(0, currentChunk.getMinY(), 0), Blocks.OBSIDIAN.defaultBlockState(), false);
             }
             CompoundTag compoundTag = structureBlockInfoWorld.nbt() == null ? new CompoundTag() : structureBlockInfoWorld.nbt();
             compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(new BlockPos(0, terrainY, 0)));

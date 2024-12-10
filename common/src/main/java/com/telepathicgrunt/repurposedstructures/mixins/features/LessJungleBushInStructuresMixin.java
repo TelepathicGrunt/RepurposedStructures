@@ -37,12 +37,12 @@ public class LessJungleBushInStructuresMixin {
         {
             // Rate for removal of bush
             if (context.random().nextFloat() < 0.85f) {
-                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
                 List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                         worldGenRegion,
                         context.origin(),
-                        struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.LESS_JUNGLE_BUSHES));
+                        struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.LESS_JUNGLE_BUSHES));
 
                 if (!structureStarts.isEmpty()) {
                     cir.setReturnValue(false);

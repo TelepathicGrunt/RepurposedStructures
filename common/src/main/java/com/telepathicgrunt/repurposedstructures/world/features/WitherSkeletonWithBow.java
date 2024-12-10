@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -33,7 +34,7 @@ public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
         // move down to spawn at the jigsaw block calling this
         BlockPos position = context.origin().below();
 
-        WitherSkeleton witherEntity = EntityType.WITHER_SKELETON.create(context.level().getLevel());
+        WitherSkeleton witherEntity = EntityType.WITHER_SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         witherEntity.setPersistenceRequired();
         witherEntity.moveTo(
                 (double)position.getX() + 0.5D,
@@ -49,12 +50,12 @@ public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
         ItemStack bow = new ItemStack(Items.BOW);
-        Registry<Enchantment> enchantmentRegistry = context.level().registryAccess().registryOrThrow(Registries.ENCHANTMENT);
-        bow.enchant(enchantmentRegistry.getHolderOrThrow(Enchantments.FLAME), 1);
-        bow.enchant(enchantmentRegistry.getHolderOrThrow(Enchantments.PUNCH), 2);
-        bow.enchant(enchantmentRegistry.getHolderOrThrow(Enchantments.POWER), 2);
-        bow.enchant(enchantmentRegistry.getHolderOrThrow(Enchantments.VANISHING_CURSE), 1);
-        bow.enchant(enchantmentRegistry.getHolderOrThrow(Enchantments.BINDING_CURSE), 1);
+        Registry<Enchantment> enchantmentRegistry = context.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+        enchantmentRegistry.get(Enchantments.FLAME).ifPresent(enchant -> bow.enchant(enchant, 1));
+        enchantmentRegistry.get(Enchantments.PUNCH).ifPresent(enchant -> bow.enchant(enchant, 2));
+        enchantmentRegistry.get(Enchantments.POWER).ifPresent(enchant -> bow.enchant(enchant, 2));
+        enchantmentRegistry.get(Enchantments.VANISHING_CURSE).ifPresent(enchant -> bow.enchant(enchant, 1));
+        enchantmentRegistry.get(Enchantments.BINDING_CURSE).ifPresent(enchant -> bow.enchant(enchant, 1));
         witherEntity.setItemInHand(InteractionHand.MAIN_HAND, bow);
         witherEntity.setDropChance(EquipmentSlot.MAINHAND, 0.5f);
         witherEntity.setLeftHanded(context.random().nextFloat() < 0.05F);

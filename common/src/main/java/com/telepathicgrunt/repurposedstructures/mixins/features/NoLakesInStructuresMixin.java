@@ -33,12 +33,12 @@ public class NoLakesInStructuresMixin {
             return;
         }
 
-        Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+        Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
         List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                 worldGenRegion,
                 context.origin(),
-                struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.NO_LAKES));
+                struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.NO_LAKES));
 
         if (!structureStarts.isEmpty()) {
             cir.setReturnValue(false);

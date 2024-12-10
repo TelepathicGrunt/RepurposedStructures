@@ -3,9 +3,9 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.horse.SkeletonHorse;
 import net.minecraft.world.entity.monster.Skeleton;
@@ -23,7 +23,7 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
     @Override
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
-        SkeletonHorse skeletonHorseEntity = EntityType.SKELETON_HORSE.create(context.level().getLevel());
+        SkeletonHorse skeletonHorseEntity = EntityType.SKELETON_HORSE.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         skeletonHorseEntity.setPersistenceRequired();
         skeletonHorseEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,
@@ -31,11 +31,11 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
                 (double)context.origin().getZ() + 0.5D,
                 0.0F,
                 0.0F);
-        skeletonHorseEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null);
-        Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel());
+        skeletonHorseEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
+        Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
 
         // Do this first as this attaches a bow automatically. We may want to override the bow later.
-        skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null);
+        skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
 
         context.config().heldItem.ifPresent(item -> {
             ItemStack heldItem = new ItemStack(item);

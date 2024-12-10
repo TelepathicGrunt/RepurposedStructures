@@ -62,8 +62,8 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 vineMutablePos.set(mutable).move(direction);
                 // no floating vines
-                while(mutable.getY() > level.getMinBuildHeight() &&
-                        mutable.getY() < level.getMaxBuildHeight() &&
+                while(mutable.getY() > level.getMinY() &&
+                        mutable.getY() < level.getMaxY() &&
                         (neighboringBlock.is(BlockTags.REPLACEABLE_BY_TREES) || neighboringBlock.is(BlockTags.FLOWERS)))
                 {
                     level.setBlock(vineMutablePos, Blocks.CAVE_AIR.defaultBlockState(), 3);
@@ -73,8 +73,8 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
 
             BlockPos.MutableBlockPos replacingPlantMutable = new BlockPos.MutableBlockPos().set(mutable);
             BlockState plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
-            while(mutable.getY() > level.getMinBuildHeight() &&
-                    mutable.getY() < level.getMaxBuildHeight() &&
+            while(mutable.getY() > level.getMinY() &&
+                    mutable.getY() < level.getMaxY() &&
                     (plantState.is(BlockTags.REPLACEABLE_BY_TREES) || plantState.is(BlockTags.FLOWERS)))
             {
                 context.level().setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);

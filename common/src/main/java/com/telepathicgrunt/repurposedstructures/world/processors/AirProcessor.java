@@ -47,11 +47,11 @@ public class AirProcessor extends StructureProcessor {
 
             BlockPos currentPos = structureBlockInfoWorld.pos();
             ChunkAccess currentChunk = levelReader.getChunk(currentPos);
-            if (currentPos.getY() >= currentChunk.getMinBuildHeight() && currentPos.getY() < currentChunk.getMaxBuildHeight()) {
+            if (currentPos.getY() >= currentChunk.getMinY() && currentPos.getY() < currentChunk.getMaxY()) {
                 if(!blocksToIgnore.contains(currentChunk.getBlockState(currentPos).getBlock())) {
 
                     LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                    if((levelReader instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinBuildHeight() && currentPos.getY() < levelHeightAccessor.getMaxBuildHeight())) {
+                    if((levelReader instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinY() && currentPos.getY() < levelHeightAccessor.getMaxY())) {
                         // Copy what vanilla ores do.
                         // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                         // even though everything seemed to be safe and fine.

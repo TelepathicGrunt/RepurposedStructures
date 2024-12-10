@@ -25,7 +25,7 @@ public class NeoForgeCustomRegistry<T, K extends T> implements CustomRegistryLoo
 
     @Override
     public @Nullable T get(ResourceLocation id) {
-        return registry.get(id);
+        return registry.getValue(id);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class UnderwaterBlockPileFeature extends Feature<BlockPileConfiguration> 
         WorldGenLevel worldgenlevel = placeContext.level();
         RandomSource randomsource = placeContext.random();
         BlockPileConfiguration blockpileconfiguration = placeContext.config();
-        if (blockpos.getY() < worldgenlevel.getMinBuildHeight() + 5) {
+        if (blockpos.getY() < worldgenlevel.getMinY() + 5) {
             return false;
         }
         else {

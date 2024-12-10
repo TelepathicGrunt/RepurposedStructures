@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
@@ -74,9 +75,9 @@ public class PillarProcessor extends StructureProcessor {
             BlockState replacementState = pillarTriggerAndReplacementBlocks.get(blockState);
             BlockState originalReplacementState = originalReplacedBlock.orElse(replacementState);
             BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
-            StructureProcessorList structureProcessorList = null;
+            Optional<Holder.Reference<StructureProcessorList>> structureProcessorList = Optional.empty();
             if(processorList != null && !processorList.equals(EMPTY_RL)) {
-                structureProcessorList = levelReader.registryAccess().registry(Registries.PROCESSOR_LIST).get().get(processorList);
+                structureProcessorList = levelReader.registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST).get(processorList);
             }
 
             if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(currentPos))) {
@@ -86,7 +87,7 @@ public class PillarProcessor extends StructureProcessor {
             int terrainY = Integer.MIN_VALUE;
             if(direction == Direction.DOWN && !forcePlacement) {
                 terrainY = GeneralUtils.getFirstLandYFromPos(levelReader, worldPos);
-                if(terrainY <= levelReader.getMinBuildHeight() && pillarLength + 2 >= worldPos.getY() - levelReader.getMinBuildHeight()) {
+                if(terrainY <= levelReader.getMinY() && pillarLength + 2 >= worldPos.getY() - levelReader.getMinY()) {
                     // Replaces the data block itself
                     return getReturnBlock(worldPos, originalReplacementState);
                 }
@@ -102,8 +103,8 @@ public class PillarProcessor extends StructureProcessor {
                 StructureTemplate.StructureBlockInfo newPillarState1 = new StructureTemplate.StructureBlockInfo(currentPos.subtract(worldPos).offset(templateOffset), replacementState, null);
                 StructureTemplate.StructureBlockInfo newPillarState2 = new StructureTemplate.StructureBlockInfo(currentPos.immutable(), replacementState, null);
 
-                if(structureProcessorList != null) {
-                    for(StructureProcessor processor : structureProcessorList.list()) {
+                if(structureProcessorList.isPresent()) {
+                    for(StructureProcessor processor : structureProcessorList.get().value().list()) {
                         if(newPillarState2 == null) {
                             break;
                         }

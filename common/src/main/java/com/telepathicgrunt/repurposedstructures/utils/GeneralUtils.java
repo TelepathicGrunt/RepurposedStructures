@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
-import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
@@ -12,6 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.SectionPos;
@@ -19,18 +19,19 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -98,9 +99,9 @@ public final class GeneralUtils {
 
     private static final Map<BlockState, Boolean> IS_FULLCUBE_MAP = new ConcurrentHashMap<>();
 
-    public static boolean isFullCube(BlockGetter world, BlockPos pos, BlockState state) {
+    public static boolean isFullCube(BlockState state) {
         if(state == null) return false;
-        return IS_FULLCUBE_MAP.computeIfAbsent(state, (stateIn) -> Block.isShapeFullBlock(stateIn.getOcclusionShape(world, pos)));
+        return IS_FULLCUBE_MAP.computeIfAbsent(state, (stateIn) -> Block.isShapeFullBlock(stateIn.getOcclusionShape()));
     }
 
     //////////////////////////////
@@ -114,7 +115,7 @@ public final class GeneralUtils {
             mutable.set(blockPos).move(facing);
 
             // Checks if wall is in this side
-            if (isFullCube(blockView, mutable, blockView.getBlockState(mutable))) {
+            if (isFullCube(blockView.getBlockState(mutable))) {
                 wallDirection = facing;
 
                 // Exit early if facing open space opposite of wall
@@ -133,8 +134,8 @@ public final class GeneralUtils {
 
     public static ItemStack enchantRandomly(RegistryAccess registryAccess, RandomSource random, ItemStack itemToEnchant, float chance) {
         if(random.nextFloat() < chance) {
-            List<Holder.Reference<Enchantment>> list = registryAccess.registryOrThrow(Registries.ENCHANTMENT).holders()
-                    .filter(holder -> holder.value().canEnchant(itemToEnchant)).toList();
+            List<Holder.Reference<Enchantment>> list = registryAccess.lookupOrThrow(Registries.ENCHANTMENT).listElements()
+                    .filter(holder -> holder.value().canEnchant(itemToEnchant) && holder.is(EnchantmentTags.ON_MOB_SPAWN_EQUIPMENT)).toList();
             if(!list.isEmpty()) {
                 Holder.Reference<Enchantment> enchantment = list.get(random.nextInt(list.size()));
                 // bias towards weaker enchantments
@@ -203,7 +204,7 @@ public final class GeneralUtils {
         ChunkAccess currentChunk = worldView.getChunk(mutable);
         BlockState currentState = currentChunk.getBlockState(mutable);
 
-        while(mutable.getY() >= worldView.getMinBuildHeight() && isReplaceableByStructures(currentState)) {
+        while(mutable.getY() >= worldView.getMinY() && isReplaceableByStructures(currentState)) {
             mutable.move(Direction.DOWN);
             currentState = currentChunk.getBlockState(mutable);
         }
@@ -245,17 +246,17 @@ public final class GeneralUtils {
     //////////////////////////////////////////////
 
     // More optimized with checking if the jigsaw blocks can connect
-    public static boolean canJigsawsAttach(StructureTemplate.StructureBlockInfo jigsaw1, StructureTemplate.StructureBlockInfo jigsaw2) {
-        FrontAndTop prop1 = jigsaw1.state().getValue(JigsawBlock.ORIENTATION);
-        FrontAndTop prop2 = jigsaw2.state().getValue(JigsawBlock.ORIENTATION);
+    public static boolean canJigsawsAttach(StructureTemplate.JigsawBlockInfo jigsaw1, StructureTemplate.JigsawBlockInfo jigsaw2) {
+        FrontAndTop prop1 = jigsaw1.info().state().getValue(JigsawBlock.ORIENTATION);
+        FrontAndTop prop2 = jigsaw2.info().state().getValue(JigsawBlock.ORIENTATION);
 
         return prop1.front() == prop2.front().getOpposite() &&
                 (prop1.top() == prop2.top() || isRollableJoint(jigsaw1, prop1)) &&
-                getStringMicroOptimised(jigsaw1.nbt(), "target").equals(getStringMicroOptimised(jigsaw2.nbt(), "name"));
+                getStringMicroOptimised(jigsaw1.info().nbt(), "target").equals(getStringMicroOptimised(jigsaw2.info().nbt(), "name"));
     }
 
-    private static boolean isRollableJoint(StructureTemplate.StructureBlockInfo jigsaw1, FrontAndTop prop1) {
-        String joint = getStringMicroOptimised(jigsaw1.nbt(), "joint");
+    private static boolean isRollableJoint(StructureTemplate.JigsawBlockInfo jigsaw1, FrontAndTop prop1) {
+        String joint = getStringMicroOptimised(jigsaw1.info().nbt(), "joint");
         if(!joint.equals("rollable") && !joint.equals("aligned")) {
             return !prop1.front().getAxis().isHorizontal();
         }
@@ -310,42 +311,44 @@ public final class GeneralUtils {
 
     ////////////////////////////
 
-    public static boolean isInvalidLootTableFound(MinecraftServer minecraftServer, Map.Entry<ResourceLocation, ResourceLocation> entry) {
+    public static boolean isInvalidLootTableFound(MinecraftServer minecraftServer, Map.Entry<ResourceKey<LootTable>, ResourceKey<LootTable>> entry) {
         boolean invalidLootTableFound = false;
-        Registry<LootTable> lootTableRegistry = minecraftServer.reloadableRegistries().get().registryOrThrow(Registries.LOOT_TABLE);
-        if(lootTableRegistry.get(entry.getKey()) == LootTable.EMPTY || lootTableRegistry.get(entry.getKey()) == null) {
+        HolderGetter<LootTable> lootTableRegistry = minecraftServer.reloadableRegistries().lookup().lookupOrThrow(Registries.LOOT_TABLE);
+        if (lootTableRegistry.get(entry.getKey()).isEmpty()) {
             RepurposedStructures.LOGGER.error("Unable to find loot table key: {}", entry.getKey());
             invalidLootTableFound = true;
         }
-        if(lootTableRegistry.get(entry.getValue()) == LootTable.EMPTY || lootTableRegistry.get(entry.getValue()) == null) {
+
+        if (lootTableRegistry.get(entry.getValue()).isEmpty()) {
             RepurposedStructures.LOGGER.error("Unable to find loot table value: {}", entry.getValue());
             invalidLootTableFound = true;
         }
+
         return invalidLootTableFound;
     }
 
-    public static boolean isMissingLootImporting(MinecraftServer minecraftServer, Set<ResourceLocation> tableKeys) {
+    public static boolean isMissingLootImporting(MinecraftServer minecraftServer, Set<ResourceKey<LootTable>> tableKeys) {
         AtomicBoolean invalidLootTableFound = new AtomicBoolean(false);
-        Registry<LootTable> lootTableRegistry = minecraftServer.reloadableRegistries().get().registryOrThrow(Registries.LOOT_TABLE);
+        Registry<LootTable> lootTableRegistry =  ((Registry<LootTable>)minecraftServer.reloadableRegistries().lookup().lookupOrThrow(Registries.LOOT_TABLE));
         lootTableRegistry.keySet().forEach(rl -> {
-            if(rl.getNamespace().equals(RepurposedStructures.MODID) && !tableKeys.contains(rl)) {
-                if(rl.getPath().contains("mansions") && rl.getPath().contains("storage")) {
+            if (rl.getNamespace().equals(RepurposedStructures.MODID) && !tableKeys.contains(rl)) {
+                if (rl.getPath().contains("mansions") && rl.getPath().contains("storage")) {
                     return;
                 }
 
-                if(rl.getPath().contains("monuments")) {
+                if (rl.getPath().contains("monuments")) {
                     return;
                 }
 
-                if(rl.getPath().contains("dispensers/temples/wasteland_lava")) {
+                if (rl.getPath().contains("dispensers/temples/wasteland_lava")) {
                     return;
                 }
 
-                if(rl.getPath().contains("lucky_pool")) {
+                if (rl.getPath().contains("lucky_pool")) {
                     return;
                 }
 
-                if(rl.getPath().contains("archaeology")) {
+                if (rl.getPath().contains("archaeology")) {
                     return;
                 }
 
@@ -404,7 +407,7 @@ public final class GeneralUtils {
 
     public static void fillStartsForStructure(LevelReader level, StructureManager structureManager, Structure structure, LongSet references, BlockPos position, Consumer<StructureStart> consumer) {
         for (long ref : references) {
-            SectionPos sectionPos = SectionPos.of(new ChunkPos(ref), level.getMinSection());
+            SectionPos sectionPos = SectionPos.of(new ChunkPos(ref), level.getMinY());
             if (!level.hasChunk(sectionPos.x(), sectionPos.z())) {
                 continue;
             }

@@ -14,10 +14,12 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -29,9 +31,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.telepathicgrunt.repurposedstructures.RepurposedStructures.GSON;
-
-public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadListener {
+public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadListener<JsonElement> {
     // Needed for detecting the correct files, ignoring file extension, and what JSON parser to use for parsing the files
     public final static PoolAdditionMergerManager POOL_ADDITIONS_MERGER_MANAGER = new PoolAdditionMergerManager();
     private static Map<ResourceLocation, JsonElement> cachedMap = null;
@@ -39,7 +39,7 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
     public PoolAdditionMergerManager() {
         // NOTE: Anyone copying this class, PLEASE CHANGE THE BELOW STRING TO BE UNIQUE!!!!
         // If you do not, both of our mods will read the same file twice and apply the file twice, causing duplicate additions to pools!!!
-        super(GSON, "rs_pool_additions");
+        super(ExtraCodecs.JSON, FileToIdConverter.json("rs_pool_additions"));
     }
 
     @Override
@@ -62,7 +62,7 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
     private static void parsePoolsAndBeginMerger(Map<ResourceLocation, JsonElement> poolAdditionJSON, RegistryAccess.Frozen frozen, ResourceManager manager) {
-        Registry<StructureTemplatePool> poolRegistry = frozen.registryOrThrow(Registries.TEMPLATE_POOL);
+        Registry<StructureTemplatePool> poolRegistry = frozen.lookupOrThrow(Registries.TEMPLATE_POOL);
         RegistryOps<JsonElement> customRegistryOps = RegistryOps.create(JsonOps.INSTANCE, frozen);
 
         // Will iterate over all of our found pool additions and make sure the target pool exists before we parse our JSON objects
@@ -92,7 +92,13 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
     /**
      * Merges the incoming pool with the given target pool in an additive manner that does not affect any other pools and can be stacked safely.
      */
-    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, StructureTemplatePool gluttonyPool, ResourceManager manager) {
+    private static void mergeIntoExistingPool(AdditionalStructureTemplatePool feedingPool, Optional<Holder.Reference<StructureTemplatePool>> gluttonyPoolOptional, ResourceManager manager) {
+        if (gluttonyPoolOptional.isEmpty() || gluttonyPoolOptional.get().value().size() == 0) {
+            return;
+        }
+
+        StructureTemplatePool gluttonyPool = gluttonyPoolOptional.get().value();
+
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
         ObjectArrayList<StructurePoolElement> elements = new ObjectArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
         List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());

@@ -16,9 +16,6 @@ public class StructureNbtUpdaterDatagen {
         ExistingFileHelper exHelper = event.getExistingFileHelper();
         DataGenerator gen = event.getGenerator();
         final var output = gen.getPackOutput();
-
-        if (event.includeServer()) {
-            gen.addProvider(true, new StructureNbtUpdater("structure", RepurposedStructures.MODID, exHelper, output));
-        }
+        gen.addProvider(true, new StructureNbtUpdater("structure", RepurposedStructures.MODID, exHelper, output));
     }
 }

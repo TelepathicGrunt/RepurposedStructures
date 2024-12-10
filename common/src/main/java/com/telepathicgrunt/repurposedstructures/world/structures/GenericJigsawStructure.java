@@ -219,7 +219,7 @@ public class GenericJigsawStructure extends Structure {
                 context,
                 this.startPool,
                 this.size,
-                context.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(this),
+                context.registryAccess().lookupOrThrow(Registries.STRUCTURE).getKey(this),
                 blockpos,
                 this.useBoundingBoxHack,
                 this.projectStartToHeightmap,

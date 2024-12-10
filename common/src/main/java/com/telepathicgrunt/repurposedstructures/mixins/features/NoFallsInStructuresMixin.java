@@ -41,12 +41,12 @@ public class NoFallsInStructuresMixin {
             for (Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
 
-                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
                 List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                         worldGenRegion,
                         mutable,
-                        struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.NO_LAVAFALLS));
+                        struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.NO_LAVAFALLS));
 
                 if (!structureStarts.isEmpty()) {
                     cir.setReturnValue(false);
@@ -59,12 +59,12 @@ public class NoFallsInStructuresMixin {
             for(Direction face : Direction.Plane.HORIZONTAL) {
                 mutable.set(context.origin()).move(face);
 
-                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
                 List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                         worldGenRegion,
                         mutable,
-                        struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.NO_WATERFALLS));
+                        struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.NO_WATERFALLS));
 
                 if (!structureStarts.isEmpty()) {
                     cir.setReturnValue(false);

@@ -522,7 +522,7 @@ public class MansionPieces{
         }
 
         public void generate(RegistryAccess dynamicRegistryManager, StructureTemplateManager manager, RandomSource random, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, MansionParameters mansionParameters) {
-            Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.registryOrThrow(Registries.TEMPLATE_POOL);
+            Registry<StructureTemplatePool> poolRegistry = dynamicRegistryManager.lookupOrThrow(Registries.TEMPLATE_POOL);
             GenerationPiece generationPiece = new GenerationPiece();
             generationPiece.position = pos;
             generationPiece.rotation = rotation;
@@ -1016,15 +1016,15 @@ public class MansionPieces{
 
         private void saveJigsawPiece(List<StructurePiece> structurePieces, Registry<StructureTemplatePool> poolRegistry, StructureTemplateManager manager, RandomSource random, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror) {
             ResourceLocation resourceLocation = ResourceLocation.tryParse(poolPath.toLowerCase(Locale.ROOT));
-            StructureTemplatePool pool = poolRegistry.get(resourceLocation);
+            Optional<Holder.Reference<StructureTemplatePool>> pool = poolRegistry.get(resourceLocation);
             StructurePoolElement poolEntry;
 
-            if(pool == null || pool.size() == 0) {
+            if(pool.isEmpty() || pool.get().value().size() == 0) {
                 RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate mansion piece at spot.", resourceLocation + " - Mansion type: " + this.mansionType);
                 poolEntry = StructurePoolElement.empty().apply(StructureTemplatePool.Projection.RIGID);
             }
             else {
-                poolEntry = pool.getRandomTemplate(this.random);
+                poolEntry = pool.get().value().getRandomTemplate(this.random);
                 if(poolEntry instanceof SinglePoolElement) {
                     poolEntry = new MirroringSingleJigsawPiece((SinglePoolElement) poolEntry, mirror, Optional.of(this.liquidSettings));
                 }
@@ -1049,7 +1049,7 @@ public class MansionPieces{
             StructurePoolElement poolEntry = mainPiece.getElement();
             int pieceMinY = mainPiece.getBoundingBox().minY();
 
-            List<StructureTemplate.StructureBlockInfo> shuffledJigsawBlocks = poolEntry.getShuffledJigsawBlocks(
+            List<StructureTemplate.JigsawBlockInfo> shuffledJigsawBlocks = poolEntry.getShuffledJigsawBlocks(
                     manager,
                     mainPiece.getPosition(),
                     mainPiece.getRotation(),
@@ -1059,14 +1059,14 @@ public class MansionPieces{
                 return;
             }
 
-            for (StructureTemplate.StructureBlockInfo jigsawBlock : shuffledJigsawBlocks) {
+            for (StructureTemplate.JigsawBlockInfo jigsawBlock : shuffledJigsawBlocks) {
                 // Gather jigsaw block information
-                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.state());
-                BlockPos jigsawBlockPos = jigsawBlock.pos();
+                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.info().state());
+                BlockPos jigsawBlockPos = jigsawBlock.info().pos();
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                ResourceLocation jigsawBlockPool = ResourceLocation.tryParse(jigsawBlock.nbt().getString("pool"));
+                ResourceLocation jigsawBlockPool = ResourceLocation.tryParse(jigsawBlock.info().nbt().getString("pool"));
                 Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlockPool);
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
@@ -1098,23 +1098,23 @@ public class MansionPieces{
 
                 boolean fulfilled = false;
                 for (Rotation rotationJigsaw : Rotation.getShuffled(this.random)) {
-                    List<StructureTemplate.StructureBlockInfo> candidateJigsawBlocks = candidatePiece.getShuffledJigsawBlocks(manager, BlockPos.ZERO, rotationJigsaw, this.random);
+                    List<StructureTemplate.JigsawBlockInfo> candidateJigsawBlocks = candidatePiece.getShuffledJigsawBlocks(manager, BlockPos.ZERO, rotationJigsaw, this.random);
 
                     if (fulfilled) {
                         break;
                     }
 
                     // Check for each of the candidate's jigsaw blocks for a match
-                    for (StructureTemplate.StructureBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
+                    for (StructureTemplate.JigsawBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
                         if (GeneralUtils.canJigsawsAttach(jigsawBlock, candidateJigsawBlock)) {
-                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos();
+                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.info().pos();
                             BlockPos candidateJigsawBlockRelativePos = new BlockPos(jigsawBlockTargetPos.getX() - candidateJigsawBlockPos.getX(), jigsawBlockTargetPos.getY() - candidateJigsawBlockPos.getY(), jigsawBlockTargetPos.getZ() - candidateJigsawBlockPos.getZ());
                             BoundingBox candidateBoundingBox = candidatePiece.getBoundingBox(manager, candidateJigsawBlockRelativePos, rotation);
 
                             // Determine how much the candidate jigsaw block is off in the y direction.
                             // This will be needed to offset the candidate piece so that the jigsaw blocks line up properly.
                             int candidateJigsawBlockRelativeY = candidateJigsawBlockPos.getY();
-                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.state()).getStepY();
+                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.info().state()).getStepY();
 
                             // Determine how much we need to offset the candidate piece itself in order to have the jigsaw blocks aligned.
                             // Depends on if the placement of both pieces is rigid or not

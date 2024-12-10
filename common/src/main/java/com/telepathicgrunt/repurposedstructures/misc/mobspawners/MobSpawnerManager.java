@@ -7,9 +7,11 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixins.features.DungeonFeatureAccessor;
 import net.minecraft.Util;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
@@ -20,7 +22,7 @@ import java.util.Map;
 
 import static com.telepathicgrunt.repurposedstructures.RepurposedStructures.GSON;
 
-public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
+public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElement> {
     public static final MobSpawnerManager MOB_SPAWNER_MANAGER = new MobSpawnerManager();
 
     private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
@@ -28,7 +30,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
     public MobSpawnerManager() {
         // NOTE: Anyone copying this class, PLEASE CHANGE THE BELOW STRING TO BE UNIQUE!!!!
         // If you do not, both of our mods will read the same file twice and apply the file twice, causing duplicate spawner applications!!!
-        super(GSON, "rs_spawners");
+        super(ExtraCodecs.JSON, FileToIdConverter.json("rs_spawners"));
     }
 
     @Override
@@ -80,7 +82,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener {
             while(true) {
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0) {
-                    return BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.tryParse(spawnerMobEntries.get(index).name));
+                    return BuiltInRegistries.ENTITY_TYPE.getValue(ResourceLocation.tryParse(spawnerMobEntries.get(index).name));
                 }
 
                 index++;

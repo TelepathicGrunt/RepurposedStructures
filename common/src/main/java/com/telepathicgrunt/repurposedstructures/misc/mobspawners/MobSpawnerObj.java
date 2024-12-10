@@ -31,7 +31,7 @@ public class MobSpawnerObj {
     public void setEntityType() throws Exception {
         ResourceLocation entityRl = ResourceLocation.tryParse(this.name);
         if(BuiltInRegistries.ENTITY_TYPE.containsKey(entityRl)) {
-            entityType = BuiltInRegistries.ENTITY_TYPE.get(entityRl);
+            entityType = BuiltInRegistries.ENTITY_TYPE.getValue(entityRl);
         }
         else if(!optional) {
             throw new Exception("Error: " + entityRl + " is not a valid entity ID!");

@@ -59,11 +59,13 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                 }
                 BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
                 currentState  = currentState.updateShape(
-                        direction,
-                        sideBlock,
+                        context.level(),
                         context.level(),
                         currentBlockMutable,
-                        offsetMutable
+                        direction,
+                        offsetMutable,
+                        sideBlock,
+                        context.random()
                 );
             }
             if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
@@ -80,11 +82,13 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
                 }
                 BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
                 currentState  = currentState.updateShape(
-                        direction,
-                        sideBlock,
+                        context.level(),
                         context.level(),
                         currentBlockMutable,
-                        offsetMutable
+                        direction,
+                        offsetMutable,
+                        sideBlock,
+                        context.random()
                 );
             }
             if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {

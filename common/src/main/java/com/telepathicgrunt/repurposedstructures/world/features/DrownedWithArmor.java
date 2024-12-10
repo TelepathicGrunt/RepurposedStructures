@@ -4,9 +4,9 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -31,7 +31,7 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
         // move down to spawn at the jigsaw block calling this
         BlockPos position = context.origin().below();
 
-        Drowned drownedEntity = EntityType.DROWNED.create(context.level().getLevel());
+        Drowned drownedEntity = EntityType.DROWNED.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         if(drownedEntity == null) return false;
 
         if(context.random().nextFloat() < 0.45F) {
@@ -63,7 +63,7 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
                 (double)position.getZ() + 0.5D,
                 0.0F,
                 0.0F);
-        drownedEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(position), MobSpawnType.STRUCTURE, null);
+        drownedEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(position), EntitySpawnReason.STRUCTURE, null);
         context.level().addFreshEntityWithPassengers(drownedEntity);
         return true;
     }

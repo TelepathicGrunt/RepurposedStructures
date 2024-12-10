@@ -186,7 +186,7 @@ public class MineshaftEndStructure extends Structure {
                 context,
                 this.startPool,
                 this.size,
-                context.registryAccess().registryOrThrow(Registries.STRUCTURE).getKey(this),
+                context.registryAccess().lookupOrThrow(Registries.STRUCTURE).getKey(this),
                 blockpos,
                 false,
                 Optional.empty(),

@@ -16,19 +16,19 @@ repositories {
 
 &nbsp;
 
-Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.5.0` for example. (See older branches's README.md for their stuff)
+Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.5.13` for example. (See older branches's README.md for their stuff)
 
 ```gradle
 dependencies {
    ...
    NEOFORGE: 
-     compileOnly fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+1.21-neoforge")
+     compileOnly fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-neoforge")
      
    FABRIC/QUILT: 
-     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21-fabric"
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-fabric"
      
    ARCH COMMON MODULE: 
-     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21-common"
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-common"
 }
 ```
 
@@ -58,19 +58,19 @@ repositories {
 
 &nbsp;
 
-Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.5.0` for example. (See older branches's README.md for their stuff)
+Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.5.13` for example. (See older branches's README.md for their stuff)
 
 ```gradle
 dependencies {
    ...
    NEOFORGE: 
-     implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+1.21-neoforge")
+     implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-neoforge")
      
    FABRIC/QUILT: 
-     modImplementation "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21-fabric"
+     modImplementation "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-fabric"
      modImplementation "maven.modrinth:midnightlib:1.5.7-fabric" 
    
    ARCH COMMON MODULE: 
-     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21-common"
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-common"
 }
 ```

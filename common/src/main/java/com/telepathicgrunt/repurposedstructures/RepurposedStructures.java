@@ -2,6 +2,7 @@ package com.telepathicgrunt.repurposedstructures;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.Strictness;
 import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
@@ -34,7 +35,7 @@ import org.apache.logging.log4j.Logger;
 public class RepurposedStructures {
     public static final String MODID = "repurposed_structures";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setLenient().disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
+    public static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().setStrictness(Strictness.LENIENT).disableHtmlEscaping().excludeFieldsWithoutExposeAnnotation().create();
 
     public static void init() {
         RSTags.initTags();

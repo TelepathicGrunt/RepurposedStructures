@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.mixins.resources.LootContextAccessor;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -20,23 +21,28 @@ public final class StructureModdedLootImporterApplier {
     private StructureModdedLootImporterApplier() {}
 
     public static void checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
-        if(RSMainModdedLootConfig.importModdedItems) {
+        if (RSMainModdedLootConfig.importModdedItems) {
 
-            ResourceLocation lootTableID = context.getLevel().getServer().reloadableRegistries().get().registryOrThrow(Registries.LOOT_TABLE).getKey(currentLootTable);
-            if(lootTableID != null && !StructureModdedLootImporter.isInBlacklist(lootTableID)) {
-                StructureModdedLootImporterApplier.modifyLootTables(context, lootTableID, originalLoot);
+            ResourceLocation lootTableID = ((Registry<LootTable>)context.getLevel().getServer().reloadableRegistries().lookup().lookupOrThrow(Registries.LOOT_TABLE)).getKey(currentLootTable);
+            if (lootTableID != null) {
+                ResourceKey<LootTable> key = ResourceKey.create(Registries.LOOT_TABLE, lootTableID);
+                if (!StructureModdedLootImporter.isInBlacklist(key)) {
+                    StructureModdedLootImporterApplier.modifyLootTables(context, key, originalLoot);
+                }
             }
         }
 
     }
 
-    public static void modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
-        ResourceLocation tableToImportLoot = StructureModdedLootImporter.TABLE_IMPORTS.get(lootTableID);
-        if(tableToImportLoot == null) return; // Safety net
+    public static void modifyLootTables(LootContext context, ResourceKey<LootTable> lootTableID, List<ItemStack> originalLoot) {
+        ResourceKey<LootTable> tableToImportLoot = StructureModdedLootImporter.TABLE_IMPORTS.get(lootTableID);
+        if (tableToImportLoot == null) {
+            return; // Safety net
+        }
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContext(context);
-        Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(Registries.LOOT_TABLE, ResourceKey.create(Registries.LOOT_TABLE, tableToImportLoot));
+        Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(tableToImportLoot);
 
         List<ItemStack> newlyGeneratedLoot = optionalLootTableReference.isPresent() ?
                 optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();

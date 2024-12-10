@@ -3,9 +3,11 @@ package com.telepathicgrunt.repurposedstructures.misc.maptrades;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonElement;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
+import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.profiling.ProfilerFiller;
 
 import java.util.HashMap;
@@ -14,14 +16,14 @@ import java.util.Map;
 
 import static com.telepathicgrunt.repurposedstructures.RepurposedStructures.GSON;
 
-public class StructureMapManager extends SimpleJsonResourceReloadListener {
+public class StructureMapManager extends SimpleJsonResourceReloadListener<JsonElement> {
     public final static StructureMapManager STRUCTURE_MAP_MANAGER = new StructureMapManager();
 
     public Map<String, List<VillagerMapObj>> VILLAGER_MAP_TRADES = new HashMap<>();
     public Map<WanderingTraderMapObj.TRADE_TYPE, List<WanderingTraderMapObj>> WANDERING_TRADER_MAP_TRADES = new HashMap<>();
 
     public StructureMapManager() {
-        super(GSON, "structure_map_trades");
+        super(ExtraCodecs.JSON, FileToIdConverter.json("structure_map_trades"));
     }
 
     @Override

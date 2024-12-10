@@ -90,7 +90,7 @@ public class StructureNbtUpdater implements DataProvider {
             DataFixers.getDataFixer(), nbt, nbt.getInt("DataVersion")
         );
         StructureTemplate template = new StructureTemplate();
-        template.load(BuiltInRegistries.BLOCK.asLookup(), updatedNBT);
+        template.load(BuiltInRegistries.BLOCK, updatedNBT);
         return template.save(new CompoundTag());
     }
 

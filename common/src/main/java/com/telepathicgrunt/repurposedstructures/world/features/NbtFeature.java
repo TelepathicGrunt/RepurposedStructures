@@ -90,7 +90,7 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
         BlockPos halfLengths = new BlockPos(template.get().getSize().getX() / 2, 0, template.get().getSize().getZ() / 2);
         placementSettings.setRotation(Rotation.getRandom(context.random())).setRotationPivot(halfLengths).setIgnoreEntities(false);
         if(context.config().processor != null) {
-            context.level().registryAccess().registryOrThrow(Registries.PROCESSOR_LIST)
+            context.level().registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST)
                     .getOptional(context.config().processor).ifPresent(processor -> processor.list().forEach(placementSettings::addProcessor));
         }
         blockpos$Mutable.set(context.origin());

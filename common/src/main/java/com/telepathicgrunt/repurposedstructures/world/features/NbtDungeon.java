@@ -108,7 +108,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                         return false;
                     }
                     // Floor must be complete
-                    else if(!GeneralUtils.isFullCube(context.level(), mutable, state)) {
+                    else if(!GeneralUtils.isFullCube(state)) {
                         if (y == 0 && !state.isSolid()) {
                             return false;
                         }
@@ -146,13 +146,13 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             // offset the dungeon such as ocean dungeons down 1
             position = position.above(context.config().structureYOffset);
 
-            Registry<StructureProcessorList> processorListRegistry = context.level().getLevel().getServer().registryAccess().registryOrThrow(Registries.PROCESSOR_LIST);
+            Registry<StructureProcessorList> processorListRegistry = context.level().getLevel().getServer().registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST);
             ResourceKey<StructureProcessorList> emptyKey = ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath("minecraft", "empty"));
 
             //RepurposedStructures.LOGGER.log(Level.INFO, nbtRL + " at X: "+position.getX() +", "+position.getY()+", "+position.getZ());
             StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setRotation(rotation).setRotationPivot(halfLengths).setIgnoreEntities(false);
             Optional<StructureProcessorList> processor = processorListRegistry.getOptional(context.config().processor);
-            processor.orElse(processorListRegistry.getHolder(emptyKey).get().value()).list().forEach(placementsettings::addProcessor); // add all processors
+            processor.orElse(processorListRegistry.getValue(emptyKey)).list().forEach(placementsettings::addProcessor); // add all processors
             BlockPos finalPos = mutable.set(position).move(-halfLengths.getX(), 0, -halfLengths.getZ());
             template.get().placeInWorld(context.level(), finalPos, finalPos, placementsettings, context.random(), Block.UPDATE_CLIENTS);
 
@@ -161,7 +161,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             // Post processors will place the blocks themselves so we will not do anything with the return of Structure.process
             placementsettings.clearProcessors();
             Optional<StructureProcessorList> postProcessor = processorListRegistry.getOptional(context.config().processor);
-            postProcessor.orElse(processorListRegistry.getHolder(emptyKey).get().value()).list().forEach(placementsettings::addProcessor); // add all post processors
+            postProcessor.orElse(processorListRegistry.getValue(emptyKey)).list().forEach(placementsettings::addProcessor); // add all post processors
             List<StructureTemplate.StructureBlockInfo> list = placementsettings.getRandomPalette(((TemplateAccessor)template.get()).repurposedstructures_getPalettes(), mutable).blocks();
             StructureTemplate.processBlockInfos(context.level(), mutable, mutable, placementsettings, list);
 
@@ -283,7 +283,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                                     break;
                                 }
                             }
-                            else if(GeneralUtils.isFullCube(world, mutable, neighboringState) && !(neighboringState.getBlock() instanceof SpawnerBlock)) {
+                            else if(GeneralUtils.isFullCube(neighboringState) && !(neighboringState.getBlock() instanceof SpawnerBlock)) {
                                 isOnWall = true;
                             }
                         }

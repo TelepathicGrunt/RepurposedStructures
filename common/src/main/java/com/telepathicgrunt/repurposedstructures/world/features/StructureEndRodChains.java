@@ -54,7 +54,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
             BlockState belowBlockstate;
             boolean exitEarly = false;
 
-            for (; mutable.getY() < world.getMaxBuildHeight() - 3 && length < context.random().nextInt(context.random().nextInt(context.random().nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
+            for (; mutable.getY() < world.getMaxY() - 3 && length < context.random().nextInt(context.random().nextInt(context.random().nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
                 if (world.isEmptyBlock(mutable)) {
                     belowBlockstate = world.getBlockState(mutable.below());
                     Block belowBlock = belowBlockstate.getBlock();
@@ -75,7 +75,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
             if(exitEarly) continue;
 
             //attaches end rod at end at a decent chance
-            if(mutable.getY() != world.getMaxBuildHeight() - 3 &&
+            if(mutable.getY() != world.getMaxY() - 3 &&
                 context.random().nextFloat() < 0.475f &&
                 world.isEmptyBlock(mutable.above()) &&
                 world.isEmptyBlock(mutable))

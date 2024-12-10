@@ -58,9 +58,8 @@ public class StructureSpecificMaps {
         }
 
         private HolderSet<Structure> getHolderSet(ServerLevel level) {
-            Registry<Structure> registry =
-                level.registryAccess().registryOrThrow(Registries.STRUCTURE);
-            return HolderSet.direct(registry.getHolderOrThrow(destination));
+            Registry<Structure> registry = level.registryAccess().lookupOrThrow(Registries.STRUCTURE);
+            return HolderSet.direct(registry.getOrThrow(destination));
         }
 
         private boolean mapValid(ServerLevel level) {
@@ -69,7 +68,7 @@ public class StructureSpecificMaps {
                 holderSet = getHolderSet(level);
             }
             else {
-                Optional<HolderSet.Named<Structure>> optionalHolders = level.registryAccess().registryOrThrow(Registries.STRUCTURE).getTag(destinationTag);
+                Optional<HolderSet.Named<Structure>> optionalHolders = level.registryAccess().lookupOrThrow(Registries.STRUCTURE).get(destinationTag);
                 if (optionalHolders.isEmpty()) {
                     return false;
                 }

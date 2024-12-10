@@ -33,12 +33,12 @@ public class NoDeltasInStructuresMixin {
             return;
         }
 
-        Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+        Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
         List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                 worldGenRegion,
                 context.origin(),
-                struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.NO_BASALT));
+                struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.NO_BASALT));
 
         if (!structureStarts.isEmpty()) {
             cir.setReturnValue(false);

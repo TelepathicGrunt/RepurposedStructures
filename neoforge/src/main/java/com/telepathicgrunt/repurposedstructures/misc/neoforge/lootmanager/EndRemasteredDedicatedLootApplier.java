@@ -24,13 +24,15 @@ public class EndRemasteredDedicatedLootApplier {
             // Remove incorrect End Remastered loot
             currentLoot.removeIf(itemStack -> BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getNamespace().equals("endrem"));
 
+            ResourceKey<LootTable> key = ResourceKey.create(Registries.LOOT_TABLE, oldLootContext.getQueriedLootTableId());
+
             // Get correct pool they want us to use
-            ResourceLocation tableToImportLoot = EndRemasteredDedicatedLoot.END_REMASTERED_DEDICATED_TABLE_IMPORTS.get(oldLootContext.getQueriedLootTableId());
+            ResourceKey<LootTable> tableToImportLoot = EndRemasteredDedicatedLoot.END_REMASTERED_DEDICATED_TABLE_IMPORTS.get(key);
             if(tableToImportLoot == null) return; // No entry found
 
             // Generate End Remastered's dedicated loot
-            LootContext newContext = StructureModdedLootImporterApplier.copyLootContextWithNewQueryID(oldLootContext, tableToImportLoot);
-            Optional<Holder.Reference<LootTable>> optionalLootTableReference = oldLootContext.getResolver().get(Registries.LOOT_TABLE, ResourceKey.create(Registries.LOOT_TABLE, tableToImportLoot));
+            LootContext newContext = StructureModdedLootImporterApplier.copyLootContextWithNewQueryID(oldLootContext, tableToImportLoot.location());
+            Optional<Holder.Reference<LootTable>> optionalLootTableReference = oldLootContext.getResolver().get(tableToImportLoot);
 
             List<ItemStack> endRemasteredLoot = optionalLootTableReference.isPresent() ?
                     optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();

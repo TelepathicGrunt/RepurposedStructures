@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.telepathicgrunt.repurposedstructures.mixins.entities.ShulkerEntityInvoker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,7 +28,7 @@ public class ShulkerMob extends Feature<NoneFeatureConfiguration> {
         // move down to spawn at the jigsaw block calling this
         BlockPos position = context.origin().below();
 
-        Shulker shulkerEntity = EntityType.SHULKER.create(context.level().getLevel());
+        Shulker shulkerEntity = EntityType.SHULKER.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         shulkerEntity.setPersistenceRequired();
         shulkerEntity.absMoveTo(
                 (double)position.getX() + 0.5D,

@@ -40,12 +40,12 @@ public class SmarterSnowPlacingInStructuresMixin {
 
             if (state.is(Blocks.SNOW) && state.hasProperty(SnowLayerBlock.LAYERS) && state.getValue(SnowLayerBlock.LAYERS) > 1) {
 
-                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().registry(Registries.STRUCTURE).get();
+                Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
                 List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                         worldGenRegion,
                         position,
-                        struct -> structureRegistry.getHolderOrThrow(structureRegistry.getResourceKey(struct).get()).is(RSTags.SMARTER_SNOW_PLACING));
+                        struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.SMARTER_SNOW_PLACING));
 
                 if (!structureStarts.isEmpty()) {
                     return false;

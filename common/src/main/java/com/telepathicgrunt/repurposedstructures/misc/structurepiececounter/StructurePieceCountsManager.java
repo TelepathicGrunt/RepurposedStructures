@@ -5,9 +5,11 @@ import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.profiling.ProfilerFiller;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,7 +21,7 @@ import java.util.function.Supplier;
 
 import static com.telepathicgrunt.repurposedstructures.RepurposedStructures.GSON;
 
-public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener {
+public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener<JsonElement> {
     public final static StructurePieceCountsManager STRUCTURE_PIECE_COUNTS_MANAGER = new StructurePieceCountsManager();
 
     private Map<ResourceLocation, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = new HashMap<>();
@@ -29,7 +31,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     public StructurePieceCountsManager() {
         // NOTE: Anyone copying this class, PLEASE CHANGE THE BELOW STRING TO BE UNIQUE!!!!
         // If you do not, both of our mods will read the same file twice and apply the file twice, causing duplicate spawn pieces application!!!
-        super(GSON, "rs_pieces_spawn_counts");
+        super(ExtraCodecs.JSON, FileToIdConverter.json("rs_pieces_spawn_counts"));
     }
 
     @MethodsReturnNonnullByDefault

@@ -35,16 +35,23 @@ public class StructureModdedLootImporterApplier extends LootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(!RSModdedLootConfig.importModdedItems.get() || StructureModdedLootImporter.isInBlacklist(context.getQueriedLootTableId()))
+        if (!RSModdedLootConfig.importModdedItems.get()) {
             return generatedLoot; // easier blacklist for users
+        }
 
-        ResourceLocation tableToImportLoot = StructureModdedLootImporter.TABLE_IMPORTS.get(context.getQueriedLootTableId());
-        if(tableToImportLoot == null)
+        ResourceKey<LootTable> key = ResourceKey.create(Registries.LOOT_TABLE, context.getQueriedLootTableId());
+        if (StructureModdedLootImporter.isInBlacklist(key)) {
+            return generatedLoot; // easier blacklist for users
+        }
+
+        ResourceKey<LootTable> tableToImportLoot = StructureModdedLootImporter.TABLE_IMPORTS.get(key);
+        if (tableToImportLoot == null) {
             return generatedLoot; // Safety net
+        }
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
-        LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot);
-        Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(Registries.LOOT_TABLE, ResourceKey.create(Registries.LOOT_TABLE, tableToImportLoot));
+        LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot.location());
+        Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(key);
 
         List<ItemStack> newlyGeneratedLoot = optionalLootTableReference.isPresent() ?
                 optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();
@@ -62,7 +69,8 @@ public class StructureModdedLootImporterApplier extends LootModifier {
 
     protected static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
         LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).getParams())
-                .withOptionalRandomSeed(oldLootContext.getRandom().nextLong());
+                .withOptionalRandomSeed(oldLootContext.getRandom().nextLong())
+                .withQueriedLootTableId(newQueryID);
 
         return newContextBuilder.create(Optional.empty());
     }

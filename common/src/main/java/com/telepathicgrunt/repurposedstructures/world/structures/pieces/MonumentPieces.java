@@ -7,6 +7,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
@@ -23,13 +24,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 public class MonumentPieces {
     private MonumentPieces() {
     }
 
     public static List<StructurePiece> createMonumentBuilding(RegistryAccess registryAccess, StructureTemplateManager StructureTemplateManager, RandomSource random, int x, int y, int z, String monumentType, LiquidSettings liquidSettings) {
-        Registry<StructureTemplatePool> poolRegistry = registryAccess.registryOrThrow(Registries.TEMPLATE_POOL);
+        Registry<StructureTemplatePool> poolRegistry = registryAccess.lookupOrThrow(Registries.TEMPLATE_POOL);
         List<StructurePiece> pieces = new ArrayList<>();
         MonumentBuilding mainBuilding = new MonumentPieces.MonumentBuilding(poolRegistry, StructureTemplateManager, random, monumentType, liquidSettings);
         mainBuilding.addMainBody(pieces, poolRegistry, StructureTemplateManager, random, Rotation.NONE, monumentType, liquidSettings);
@@ -40,15 +42,15 @@ public class MonumentPieces {
 
     private static StructurePiece getJigsawPiece(Registry<StructureTemplatePool> poolRegistry, StructureTemplateManager structureTemplateManager, String poolPath, BlockPos blockPos, Rotation rotation, RandomSource random, String type, LiquidSettings liquidSettings) {
         ResourceLocation resourceLocation = ResourceLocation.tryParse(poolPath.toLowerCase(Locale.ROOT));
-        StructureTemplatePool pool = poolRegistry.get(resourceLocation);
+        Optional<Holder.Reference<StructureTemplatePool>> pool = poolRegistry.get(resourceLocation);
         StructurePoolElement poolEntry;
 
-        if(pool == null || pool.size() == 0) {
+        if(pool.isEmpty() || pool.get().value().size() == 0) {
             RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate monument piece at spot.", resourceLocation + " - Monument type: " + type);
             poolEntry = StructurePoolElement.empty().apply(StructureTemplatePool.Projection.RIGID);
         }
         else {
-            poolEntry = pool.getRandomTemplate(random);
+            poolEntry = pool.get().value().getRandomTemplate(random);
         }
 
         return new PoolElementStructurePiece(

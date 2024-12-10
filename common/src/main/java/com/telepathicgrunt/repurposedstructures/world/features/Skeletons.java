@@ -3,9 +3,9 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.item.ItemStack;
@@ -22,10 +22,10 @@ public class Skeletons extends Feature<GenericMobConfig> {
     @Override
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
-        Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel());
+        Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
 
         // Do this first as this attaches a bow automatically. We may want to override the bow later.
-        skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null);
+        skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
 
         context.config().heldItem.ifPresent(item -> {
             ItemStack heldItem = new ItemStack(item);

@@ -64,7 +64,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
             return infoIn2;
         }
 
-        if(!GeneralUtils.isFullCube(levelReader, infoIn2.pos(), infoIn2.state()) || !infoIn2.state().blocksMotion()) {
+        if(!GeneralUtils.isFullCube(infoIn2.state()) || !infoIn2.state().blocksMotion()) {
             ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
 
             if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos()).isAir()) return infoIn2;
@@ -75,7 +75,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                 if(ignoreDown && direction == Direction.DOWN) continue;
 
                 mutable.set(infoIn2.pos()).move(direction);
-                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
+                if (mutable.getY() < currentChunk.getMinY() || mutable.getY() >= currentChunk.getMaxY()) {
                     continue;
                 }
 
@@ -88,7 +88,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                 // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                 // even though everything seemed to be safe and fine.
                 LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
+                if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinY() && mutable.getY() < levelHeightAccessor.getMaxY()) {
                     int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
                     if (levelChunkSection == null) continue;

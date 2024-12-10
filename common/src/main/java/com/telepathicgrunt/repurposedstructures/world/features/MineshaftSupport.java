@@ -79,7 +79,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
             BlockState tempBlock;
             boolean canMakePillar = false;
             mutable.move(Direction.DOWN);
-            while (mutable.getY() > chunk.getMinBuildHeight()) {
+            while (mutable.getY() > chunk.getMinY()) {
                 tempBlock = chunk.getBlockState(mutable);
 
                 // Move down for every spot we can replace with pillar.
@@ -117,7 +117,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
 
                     boolean canMakeChain = false;
                     mutable.move(Direction.UP);
-                    while (mutable.getY() < world.getMaxBuildHeight()) {
+                    while (mutable.getY() < world.getMaxY()) {
                         tempBlock = chunk.getBlockState(mutable);
 
                         // Move up for every spot we can replace with chain.

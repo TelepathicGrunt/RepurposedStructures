@@ -22,11 +22,11 @@ public final class StructureMapTradesEvents {
             for (VillagerMapObj mapTrade : StructureMapManager.STRUCTURE_MAP_MANAGER.VILLAGER_MAP_TRADES.get(currentVillager.toString())) {
                 Holder.Reference<MapDecorationType> icon;
                 try {
-                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getHolderOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, ResourceLocation.tryParse(mapTrade.mapIcon)));
+                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, ResourceLocation.tryParse(mapTrade.mapIcon)));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(e);
-                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.holders().findFirst().get();
+                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.get(0).get();
                 }
 
                 event.addTrade(mapTrade.tradeLevel, new StructureSpecificMaps.TreasureMapForEmeralds(
@@ -46,11 +46,11 @@ public final class StructureMapTradesEvents {
             for (WanderingTraderMapObj mapTrade : tradeEntry.getValue()) {
                 Holder.Reference<MapDecorationType> icon;
                 try {
-                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getHolderOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, ResourceLocation.tryParse(mapTrade.mapIcon)));
+                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, ResourceLocation.tryParse(mapTrade.mapIcon)));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(e);
-                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.holders().findFirst().get();
+                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.get(0).get();
                 }
 
                 if (tradeEntry.getKey() == WanderingTraderMapObj.TRADE_TYPE.RARE) {

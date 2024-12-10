@@ -64,7 +64,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
             for (Direction direction : Direction.values()) {
 
                 mutable.set(infoIn2.pos()).move(direction);
-                if (mutable.getY() < currentChunk.getMinBuildHeight() || mutable.getY() >= currentChunk.getMaxBuildHeight()) {
+                if (mutable.getY() < currentChunk.getMinY() || mutable.getY() >= currentChunk.getMaxY()) {
                     continue;
                 }
 
@@ -77,7 +77,7 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                 // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                 // even though everything seemed to be safe and fine.
                 LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinBuildHeight() && mutable.getY() < levelHeightAccessor.getMaxBuildHeight()) {
+                if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinY() && mutable.getY() < levelHeightAccessor.getMaxY()) {
                     int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
                     if (levelChunkSection == null) continue;

@@ -42,8 +42,8 @@ public class TickBlocksProcessor extends StructureProcessor {
             }
 
             ChunkAccess chunk = levelReader.getChunk(structureBlockInfoWorld.pos());
-            int minY = chunk.getMinBuildHeight();
-            int maxY = chunk.getMaxBuildHeight();
+            int minY = chunk.getMinY();
+            int maxY = chunk.getMaxY();
             int currentY = structureBlockInfoWorld.pos().getY();
             if(currentY >= minY && currentY <= maxY) {
                 ((LevelAccessor) levelReader).scheduleTick(structureBlockInfoWorld.pos(), structureBlockInfoWorld.state().getBlock(), 0);
