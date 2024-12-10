@@ -51,7 +51,7 @@ public class StructureModdedLootImporterApplier extends LootModifier {
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot.location());
-        Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(key);
+        Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(tableToImportLoot);
 
         List<ItemStack> newlyGeneratedLoot = optionalLootTableReference.isPresent() ?
                 optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();

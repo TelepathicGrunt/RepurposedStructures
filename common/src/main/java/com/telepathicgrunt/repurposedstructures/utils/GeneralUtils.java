@@ -331,7 +331,8 @@ public final class GeneralUtils {
         AtomicBoolean invalidLootTableFound = new AtomicBoolean(false);
         Registry<LootTable> lootTableRegistry =  ((Registry<LootTable>)minecraftServer.reloadableRegistries().lookup().lookupOrThrow(Registries.LOOT_TABLE));
         lootTableRegistry.keySet().forEach(rl -> {
-            if (rl.getNamespace().equals(RepurposedStructures.MODID) && !tableKeys.contains(rl)) {
+            ResourceKey<LootTable> key = ResourceKey.create(Registries.LOOT_TABLE, rl);
+            if (rl.getNamespace().equals(RepurposedStructures.MODID) && !tableKeys.contains(key)) {
                 if (rl.getPath().contains("mansions") && rl.getPath().contains("storage")) {
                     return;
                 }

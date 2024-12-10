@@ -12,7 +12,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 public class StructureNbtUpdaterDatagen {
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(GatherDataEvent.Server event) {
         ExistingFileHelper exHelper = event.getExistingFileHelper();
         DataGenerator gen = event.getGenerator();
         final var output = gen.getPackOutput();
