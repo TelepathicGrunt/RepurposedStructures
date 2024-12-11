@@ -29,7 +29,7 @@ public class CustomRegistry<T> implements CustomRegistryLookup<T, T> {
 
     @Override
     public @Nullable T get(ResourceLocation id) {
-        return registry.get(id);
+        return registry.getValue(id);
     }
 
     @Override
