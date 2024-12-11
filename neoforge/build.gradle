@@ -12,14 +12,14 @@ loom {
 
     neoForge {
         runs {
-            all {}
+            configureEach {}
 
-            data {
-                data()
+            serverData {
+                serverData()
+
                 programArgs("--all", "--mod", "repurposed_structures")
                 programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
                 programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
-                all {}
             }
         }
     }
