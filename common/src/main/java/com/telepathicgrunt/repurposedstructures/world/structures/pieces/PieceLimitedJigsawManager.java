@@ -441,6 +441,17 @@ public class PieceLimitedJigsawManager {
                     }
                 }
 
+                // If rigid and target position is already an invalid spot, do not run rest of logic.
+                StructureTemplatePool.Projection candidatePlacementBehavior = candidatePiece.getProjection();
+                boolean isCandidateRigid = candidatePlacementBehavior == StructureTemplatePool.Projection.RIGID;
+                if (!ignoreBounds && isCandidateRigid) {
+                    if (!boxOctreeMutableObject.getValue().boundaryContains(jigsawBlockTargetPos) || boxOctreeMutableObject.getValue().withinAnyBox(jigsawBlockTargetPos)) {
+                        totalCount -= chosenPiecePair.getSecond();
+                        candidatePieces.remove(chosenPiecePair);
+                        continue;
+                    }
+                }
+
                 // Try different rotations to see which sides of the piece are fit to be the receiving end
                 for (Rotation rotation : Rotation.getShuffled(this.random)) {
                     List<StructureTemplate.JigsawBlockInfo> candidateJigsawBlocks = candidatePiece.getShuffledJigsawBlocks(context.structureTemplateManager(), BlockPos.ZERO, rotation, this.random);
@@ -479,8 +490,6 @@ public class PieceLimitedJigsawManager {
                             BoundingBox candidateBoundingBox = candidatePiece.getBoundingBox(context.structureTemplateManager(), candidateJigsawBlockRelativePos, rotation);
 
                             // Determine if candidate is rigid
-                            StructureTemplatePool.Projection candidatePlacementBehavior = candidatePiece.getProjection();
-                            boolean isCandidateRigid = candidatePlacementBehavior == StructureTemplatePool.Projection.RIGID;
                             boolean isCandidatePieceOceanFloor = candidatePiece instanceof LegacyOceanBottomSinglePoolElement;
 
                             // Determine how much the candidate jigsaw block is off in the y direction.
