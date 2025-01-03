@@ -12,7 +12,6 @@ originalBiome = ""
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
-    "blue": "yellow"
 }
 conversion_exact_dict = {
 }
@@ -34,10 +33,10 @@ def string_replacer(nbt_string):
 
 def property_replacer(nbt_key, nbt_string, property_name, value_to_replace, new_value):
     if nbt_key == property_name:
-        if nbt_string == value_to_replace:
+        if nbt_string.unpack() == value_to_replace:
             blockPalette[nbt_string] = new_value
-            return new_value
-    return nbt.String(nbt_string)
+            return nbt.String(new_value)
+    return nbt_string
 
 
 
@@ -79,10 +78,10 @@ def traverse_dicts(nbt_list):
             elif isinstance(entry, nbt.String):
                 nbt_list[key] = string_replacer(entry)
 
-            #property_replacer(key, entry, "PersistenceRequired", 0, 1)
-            #property_replacer(key, entry, "waterlogged", "true", "false")
-            #property_replacer(key, entry, "waterlogged", "false", "true")
-            #property_replacer(key, entry, "joint", "rollable", "aligned")
+            #nbt_list[key] = property_replacer(key, nbt_list[key], "PersistenceRequired", 0, 1)
+            #nbt_list[key] = property_replacer(key, nbt_list[key], "waterlogged", "true", "false")
+            #nbt_list[key] = property_replacer(key, nbt_list[key], "waterlogged", "false", "true")
+            #nbt_list[key] = property_replacer(key, nbt_list[key], "joint", "rollable", "aligned")
 
 
     elif isinstance(nbt_list, nbt.List) or isinstance(nbt_list, nbt.Compound):
