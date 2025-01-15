@@ -1,8 +1,12 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.telepathicgrunt.repurposedstructures.mixins.entities.EntityAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
@@ -12,6 +16,8 @@ import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+
+import java.util.List;
 
 
 public class SkeletonHorseman extends Feature<GenericMobConfig> {
@@ -57,7 +63,15 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
                 (double)context.origin().getZ() + 0.5D,
                 0.0F,
                 0.0F);
-        skeletonEntity.startRiding(skeletonHorseEntity);
+
+        if (skeletonHorseEntity.getPassengers().isEmpty()) {
+            ((EntityAccessor)skeletonHorseEntity).setPassengers(ImmutableList.of(skeletonEntity));
+        }
+        else {
+            List<Entity> list = Lists.newArrayList(skeletonHorseEntity.getPassengers());
+            list.add(skeletonEntity);
+            ((EntityAccessor)skeletonHorseEntity).setPassengers(ImmutableList.copyOf(list));
+        }
 
         context.level().addFreshEntityWithPassengers(skeletonHorseEntity);
         return true;

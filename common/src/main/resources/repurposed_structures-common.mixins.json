@@ -3,6 +3,7 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "entities.EntityAccessor",
     "entities.BlockAttachedEntityMixin",
     "entities.MerchantOfferAccessor",
     "entities.ShulkerEntityInvoker",
