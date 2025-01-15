@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "entities.BlockAttachedEntityMixin",
+    "entities.EntityAccessor",
     "entities.MerchantOfferAccessor",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
