@@ -26,3 +26,8 @@ license="https://github.com/TelepathicGrunt/RepurposedStructures/blob/latest-rel
     modId="minecraft"
     type="required"
     versionRange="[1.21.1,)"
+
+[[dependencies.repurposed_structures]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.4.86-beta,)"
