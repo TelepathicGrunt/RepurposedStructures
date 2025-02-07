@@ -1,4 +1,4 @@
-### **(V.7.5.16 Changes) (1.21.4 Minecraft)**
+### **(V.7.5.17 Changes) (1.21.4 Minecraft)**
 
-##### Misc:
-(NeoForge): Updated to work on v21.4.86-beta NeoForge or newer.
+##### Pyramids:
+Reduced amount of TNT and adjust its placement in Dark Forest Pyramid so its one key Redstone piece remains for player learning.
