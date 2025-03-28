@@ -51,9 +51,9 @@ public class RepurposedStructuresFabric implements ModInitializer {
 
     private static void setupWanderingTrades() {
         List<Pair<VillagerTrades.ItemListing[], Integer>> trades = VillagerTrades.WANDERING_TRADER_TRADES;
-        List<VillagerTrades.ItemListing> buying = Arrays.stream(trades.get(0).getKey()).toList();
-        List<VillagerTrades.ItemListing> rare = Arrays.stream(trades.get(1).getKey()).toList();
-        List<VillagerTrades.ItemListing> basic = Arrays.stream(trades.get(2).getKey()).toList();
+        List<VillagerTrades.ItemListing> buying = Arrays.stream(trades.get(0).getKey()).collect(Collectors.toCollection(ArrayList::new));
+        List<VillagerTrades.ItemListing> rare = Arrays.stream(trades.get(1).getKey()).collect(Collectors.toCollection(ArrayList::new));
+        List<VillagerTrades.ItemListing> basic = Arrays.stream(trades.get(2).getKey()).collect(Collectors.toCollection(ArrayList::new));
         RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(basic::add, rare::add, buying::add));
     }
 

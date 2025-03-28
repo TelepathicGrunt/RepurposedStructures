@@ -20,7 +20,6 @@
     "features.SmarterSnowPlacingInStructuresMixin",
     "items.MapItemAccessor",
     "resources.LootContextAccessor",
-    "resources.NamespaceResourceManagerAccessor",
     "structures.JigsawJunctionAccessor",
     "structures.LocateCommandMixin",
     "structures.PoolElementStructurePieceAccessor",
