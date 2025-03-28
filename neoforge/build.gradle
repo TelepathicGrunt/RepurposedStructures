@@ -1,143 +1,154 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
-}
-
-architectury {
-    platformSetupLoomIde()
-    neoForge()
-}
-
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-
-    neoForge {
-        runs {
-            configureEach {}
-
-            serverData {
-                serverData()
-
-                programArgs("--all", "--mod", "repurposed_structures")
-                programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
-                programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
-            }
-        }
-    }
+    id 'net.neoforged.moddev'
 }
 
 configurations {
-    common
-    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
-    compileClasspath.extendsFrom common
-    runtimeClasspath.extendsFrom common
-    developmentNeoForge.extendsFrom common
+    runtimeClasspath.extendsFrom localRuntime
 }
 
 dependencies {
-    neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
+    compileOnly(project(':common')) {
+        transitive = false
+    }
 
-//    modLocalRuntime("com.telepathicgrunt:CommandStructures-Neoforge:${project.commandstructures_neoforge}")
-//    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Neoforge:${project.structurevoidtoggle_neoforge}")
-    //modLocalRuntime("curse.maven:hugestructureblock-474114:4977107")
+//    runtimeOnly("com.telepathicgrunt:CommandStructures-Neoforge:${project.commandstructures_neoforge}")
+//    runtimeOnly("com.telepathicgrunt:StructureVoidToggle-Neoforge:${project.structurevoidtoggle_neoforge}")
+//    runtimeOnly("curse.maven:hugestructureblock-474114:4977107")
+}
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
+publishMods {
+    file = tasks.jar.archiveFile
+    modLoaders.add("neoforge")
+
+    File changeLog = rootProject.file("CHANGELOG.md")
+    String changeLogText = changeLog.exists() ? changeLog.text : ""
+
+    def uploadDependenciesCf = [
+    ]
+    def uploadDependenciesMr = [
+    ]
+
+    if (project.hasProperty('curseforge_id_neoforge')) {
+        curseforge('CurseforgeNeo') {
+            accessToken = providers.environmentVariable('CURSEFORGEKEY')
+            projectId = project.findProperty('curseforge_id_neoforge')
+            minecraftVersions.add(project.minecraft_version)
+            changelog = changeLogText
+
+            uploadDependenciesCf.each { dep, required ->
+                if (required) {
+                    requires(dep)
+                } else {
+                    optional(dep)
+                }
+            }
+        }
+    }
+
+    if (project.hasProperty('modrinth_id_neoforge')) {
+        modrinth('modrinthNeo') {
+            accessToken = accessToken = providers.environmentVariable('MODRINTH_TOKEN')
+            projectId = project.findProperty('modrinth_id_neoforge')
+            minecraftVersions.add(project.minecraft_version)
+            changelog = changeLogText
+
+            dependencies {
+                uploadDependenciesMr.each { dep, required ->
+                    if (required) {
+                        requires(dep)
+                    } else {
+                        optional(dep)
+                    }
+                }
+            }
+        }
+    }
+}
+
+neoForge {
+    version = project.neoforge_version
+
+    parchment {
+        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = project.parchment_mappings_version
+    }
+
+    def atFile = project(":common").file("src/main/resources/META-INF/accesstransformer.cfg")
+    if (atFile.exists()) {
+        accessTransformers {
+            from atFile
+            publish atFile
+        }
+    }
+
+    validateAccessTransformers.set(true)
+
+    mods {
+        // define mod <-> source bindings
+        // these are used to tell the game which sources are for which mod
+        // mostly optional in a single mod project
+        // but multi mod projects should define one per mod
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+            sourceSet(project(":common").sourceSets.main)
+        }
+    }
+
+    runs {
+        configureEach {
+            logLevel = org.slf4j.event.Level.DEBUG
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+
+            gameDirectory = project.file('run')
+
+            sourceSet = sourceSets.main
+            loadedMods.set([mods."${mod_id}"])
+        }
+
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+
+            if (project.hasProperty('mc_uuid')) {
+                programArguments.add("--uuid=${project.findProperty('mc_uuid')}")
+            }
+
+            if (project.hasProperty('mc_username')) {
+                programArguments.add("--username=${project.findProperty('mc_username')}")
+            }
+
+            if (project.hasProperty('mc_java_agent_path')) {
+                jvmArgument("-javaagent:${project.findProperty('mc_java_agent_path')}")
+            }
+        }
+
+        server {
+            server()
+            programArguments.add('--nogui')
+        }
+
+        serverData {
+            serverData()
+
+            programArguments.add("--all --mod repurposed_structures")
+            programArguments.add("--existing ${project.project(":common").file("src/main/resources").absolutePath}")
+            programArguments.add("--output ${project.project(":common").file("src/main/generated/resources").absolutePath}")
+        }
+    }
+}
+
+tasks.named("compileJava", JavaCompile) {
+    source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("javadoc", Javadoc) {
+    source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+    from(project(":common").sourceSets.main.allSource)
 }
 
 processResources {
-    inputs.property "version", project.version
-
-    filesMatching("META-INF/neoforge.mods.toml") {
-        expand "version": project.version
-    }
+    from project(":common").sourceSets.main.resources
 }
-
-shadowJar {
-    exclude "fabric.mod.json"
-    exclude "architectury.common.json"
-
-    configurations = [project.configurations.shadowCommon]
-    archiveClassifier.set("dev-shadow")
-}
-
-remapJar {
-    inputFile.set shadowJar.archiveFile
-    dependsOn shadowJar
-    archiveClassifier.set(null)
-    atAccessWideners.add("${rootProject.mod_id}.accesswidener") // this is a path inside the mod jar
-}
-
-jar {
-    archiveClassifier.set("dev")
-}
-
-sourcesJar {
-    def commonSources = project(":common").sourcesJar
-    dependsOn commonSources
-    from commonSources.archiveFile.map { zipTree(it) }
-}
-
-components.java {
-    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
-        skip()
-    }
-}
-
-def ENV = System.getenv()
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact remapJar
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-
-            artifactId = "$rootProject.name"
-
-            pom {
-                name = 'RepurposedStructures'
-                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
-                url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-
-                scm {
-                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-                }
-
-                licenses {
-                    license {
-                        name = 'GNU Lesser General Public License v3.0'
-                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures/blob/master/LICENSE'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id = 'telepathic_grunt'
-                        name = 'TelepathicGrunt'
-                        email = 'asarnesespam@gmail.com'
-                    }
-                }
-            }
-
-        }
-    }
-
-    repositories {
-        maven {
-            url = uri("https://nexus.resourcefulbees.com/repository/telepathicgrunt/")
-            credentials {
-                username ENV.MAVEN_USER
-                password ENV.MAVEN_PASS
-            }
-        }
-    }
-}
-
-task buildAndRelease {}
-tasks.build.mustRunAfter tasks.clean
-tasks.publish.mustRunAfter tasks.build
-tasks.publishMods.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.clean, tasks.build, tasks.publish, tasks.publishMods)

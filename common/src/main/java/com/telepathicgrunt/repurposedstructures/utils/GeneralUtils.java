@@ -67,6 +67,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -75,6 +76,10 @@ import java.util.function.Predicate;
 
 public final class GeneralUtils {
     private GeneralUtils() {}
+
+    public static <T> T loadService(Class<T> service) {
+        return ServiceLoader.load(service).findFirst().orElseThrow(() -> new IllegalStateException("No platform implementation found for " + service.getName()));
+    }
 
     // Weighted Random from: https://stackoverflow.com/a/6737362
     public static <T> T getRandomEntry(List<Pair<T, Integer>> rlList, RandomSource random) {

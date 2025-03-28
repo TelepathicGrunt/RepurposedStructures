@@ -1,4 +1,4 @@
-### **(V.7.5.17 Changes) (1.21.4 Minecraft)**
+### **(V.7.5.18 Changes) (1.21.5 Minecraft)**
 
-##### Pyramids:
-Reduced amount of TNT and adjust its placement in Dark Forest Pyramid so its one key Redstone piece remains for player learning.
+##### Misc:
+Updated to 1.21.5

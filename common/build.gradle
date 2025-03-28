@@ -1,85 +1,49 @@
+plugins {
+    id 'net.neoforged.moddev'
+}
+
+// Vanilla depends on ASM 9.3, MDG makes that a 'strict' version constraint,
+// but Mixin and MixinExtras needs newer ASM so we override that here.
+configurations.configureEach {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == "org.ow2.asm") {
+            details.useVersion(project.asm_version)
+            details.because("Mixin requires new ASM")
+        }
+    }
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
 dependencies {
-    // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
-    // Do NOT use other classes from fabric loader
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    compileOnly "org.ow2.asm:asm:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-analysis:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-commons:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-tree:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-util:${project.asm_version}"
 
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${rootProject.mixin_extras}"))
+    compileOnly "net.fabricmc:sponge-mixin:${project.mixin_version}"
+    compileOnly "io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}"
+    annotationProcessor "io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}"
 }
 
-architectury {
-    common("fabric", "neoforge")
-}
+neoForge {
+    neoFormVersion = project.neoform_version
 
-loom {
-    accessWidenerPath = file("src/main/resources/repurposed_structures.accesswidener")
-}
-
-jar {
-    exclude "architectury.common.json"
-
-    manifest {
-        attributes 'Fabric-Loom-Remap': true
+    parchment {
+        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = project.parchment_mappings_version
     }
-}
 
-sourcesJar {
-    exclude "architectury.common.json"
-}
-
-def ENV = System.getenv()
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact remapJar
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-
-            artifactId = "$rootProject.name"
-
-            pom {
-                name = 'RepurposedStructures'
-                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
-                url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-
-                scm {
-                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-                }
-
-                licenses {
-                    license {
-                        name = 'GNU Lesser General Public License v3.0'
-                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures/blob/master/LICENSE'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id = 'telepathic_grunt'
-                        name = 'TelepathicGrunt'
-                        email = 'asarnesespam@gmail.com'
-                    }
-                }
-            }
-
+    def atFile = file("src/main/resources/META-INF/accesstransformer.cfg")
+    if (atFile.exists()) {
+        accessTransformers {
+            from atFile
+            publish atFile
         }
     }
 
-    repositories {
-        maven {
-            url = uri("https://nexus.resourcefulbees.com/repository/telepathicgrunt/")
-            credentials {
-                username ENV.MAVEN_USER
-                password ENV.MAVEN_PASS
-            }
-        }
-    }
+    validateAccessTransformers.set(true)
 }
-
-task buildAndRelease{}
-tasks.build.mustRunAfter tasks.clean
-tasks.publish.mustRunAfter tasks.build
-tasks.buildAndRelease.dependsOn(tasks.clean, tasks.build, tasks.publish)

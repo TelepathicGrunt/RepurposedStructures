@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "repurposed_structures",
+  "id": "${mod_id}",
   "version": "${version}",
 
-  "name": "Repurposed Structures",
-  "description": "Adds more variations of vanilla structures and features!",
+  "name": "${mod_display_name}",
+  "description": "${mod_description}",
   "authors": [
     "TelepathicGrunt"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/repurposed-structures",
-    "issues": "https://github.com/TelepathicGrunt/RepurposedStructures/issues"
+    "homepage": "${homepage_url}",
+    "sources": "${sources_url}",
+    "issues": "${issues_url}"
   },
 
   "license": "GNU Lesser General Public License v3.0",
@@ -31,9 +32,10 @@
   ],
 
   "depends": {
-    "fabricloader": "*",
-    "minecraft": ">=1.21.1",
-    "fabric": "*",
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": ">=${minecraft_version}",
+    "java": ">=${java_version}",
+    "fabric-api": "*",
     "midnightlib": ">=1.5.7"
   }
 }

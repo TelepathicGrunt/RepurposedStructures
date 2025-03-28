@@ -25,6 +25,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import com.telepathicgrunt.repurposedstructures.services.PlatformService;
 import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
 import com.telepathicgrunt.repurposedstructures.utils.PlatformHooks;
 import net.minecraft.resources.ResourceLocation;
@@ -40,7 +41,7 @@ public class RepurposedStructures {
     public static void init() {
         RSTags.initTags();
 
-        EndRemasteredDedicatedLoot.isEndRemasteredOn = PlatformHooks.isModLoaded("endrem");
+        EndRemasteredDedicatedLoot.isEndRemasteredOn = PlatformService.INSTANCE.isModLoaded("endrem");
         StructureModdedLootImporter.createMap();
 
         RSFeatures.FEATURES.init();
@@ -68,7 +69,7 @@ public class RepurposedStructures {
     private static void serverAboutToStart(final ServerGoingToStartEvent event) {
         PoolAdditionMergerManager.mergeAdditionPools(event);
 
-        if (PlatformHooks.isDevEnvironment()) {
+        if (PlatformService.INSTANCE.isDevEnvironment()) {
             StructureModdedLootImporter.checkLoottables(event.getServer());
             EndRemasteredDedicatedLoot.checkLoottables(event.getServer());
         }

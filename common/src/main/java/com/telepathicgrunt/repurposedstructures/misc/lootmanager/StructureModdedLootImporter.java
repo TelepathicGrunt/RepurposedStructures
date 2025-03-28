@@ -2,8 +2,8 @@ package com.telepathicgrunt.repurposedstructures.misc.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
+import com.telepathicgrunt.repurposedstructures.services.PlatformService;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import com.telepathicgrunt.repurposedstructures.utils.PlatformHooks;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -193,7 +193,7 @@ public class StructureModdedLootImporter {
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/warped_house"), generateKey("minecraft", "chests/village/village_desert_house"));
 
         // For Better Strongholds compat datapack
-        if(PlatformHooks.isModLoaded("betterstrongholds")) {
+        if(PlatformService.INSTANCE.isModLoaded("betterstrongholds")) {
             tableMap.put(generateKey("betterstrongholds", "chests/end/armoury"), generateKey("minecraft", "chests/end_city_treasure"));
             tableMap.put(generateKey("betterstrongholds", "chests/end/common"), generateKey("minecraft", "chests/end_city_treasure"));
             tableMap.put(generateKey("betterstrongholds", "chests/end/crypt"), generateKey("minecraft", "chests/end_city_treasure"));
