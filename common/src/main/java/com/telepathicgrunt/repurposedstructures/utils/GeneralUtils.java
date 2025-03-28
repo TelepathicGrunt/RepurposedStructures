@@ -255,7 +255,7 @@ public final class GeneralUtils {
 
         return prop1.front() == prop2.front().getOpposite() &&
                 (prop1.top() == prop2.top() || isRollableJoint(jigsaw1, prop1)) &&
-                jigsaw1.info().nbt().getStringOr("target", "").equals(jigsaw2.info().nbt().getStringOr("joint", ""));
+                jigsaw1.info().nbt().getStringOr("target", "").equals(jigsaw2.info().nbt().getStringOr("name", ""));
     }
 
     private static boolean isRollableJoint(StructureTemplate.JigsawBlockInfo jigsaw1, FrontAndTop prop1) {

@@ -180,10 +180,7 @@ public class MerchantMapUpdating {
         MapItem.renderBiomePreviewMap(level, mapStack);
         MapItemSavedData.addTargetDecoration(mapStack, pos, "+", destinationType);
         if (displayName != null) {
-            Component customName = mapStack.getComponents().get(DataComponents.CUSTOM_NAME);
-            if (customName != null) {
-                mapStack.set(DataComponents.CUSTOM_NAME, Component.translatable(displayName));
-            }
+            mapStack.set(DataComponents.CUSTOM_NAME, Component.translatable(displayName));
         }
     }
 }
