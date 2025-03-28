@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -37,7 +38,7 @@ public class EndGatewayProcessor extends StructureProcessor {
                 CompoundTag compoundTag = (structureBlockInfoWorld.nbt() == null || structureBlockInfoWorld.nbt().isEmpty()) ?
                         new CompoundTag() : structureBlockInfoWorld.nbt().copy();
 
-                compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(this.exitPos.get()));
+                compoundTag.storeNullable("exit_portal", BlockPos.CODEC, this.exitPos.get());
                 return new StructureTemplate.StructureBlockInfo(
                         structureBlockInfoWorld.pos(),
                         structureBlockInfoWorld.state(),
@@ -50,10 +51,10 @@ public class EndGatewayProcessor extends StructureProcessor {
             int terrainY = currentChunk.getHeight(Heightmap.Types.MOTION_BLOCKING, 0, 0);
             if (terrainY <= currentChunk.getMinY() || terrainY >= currentChunk.getMaxY()) {
                 terrainY = currentChunk.getMinY() + 1;
-                currentChunk.setBlockState(new BlockPos(0, currentChunk.getMinY(), 0), Blocks.OBSIDIAN.defaultBlockState(), false);
+                currentChunk.setBlockState(new BlockPos(0, currentChunk.getMinY(), 0), Blocks.OBSIDIAN.defaultBlockState(), Block.UPDATE_CLIENTS);
             }
             CompoundTag compoundTag = structureBlockInfoWorld.nbt() == null ? new CompoundTag() : structureBlockInfoWorld.nbt();
-            compoundTag.put("ExitPortal", NbtUtils.writeBlockPos(new BlockPos(0, terrainY, 0)));
+            compoundTag.storeNullable("exit_portal", BlockPos.CODEC, new BlockPos(0, terrainY, 0));
 
             return new StructureTemplate.StructureBlockInfo(
                     structureBlockInfoWorld.pos(),

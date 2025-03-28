@@ -63,7 +63,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElem
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
-            return Util.getRandom(DungeonFeatureAccessor.getMOBS(), random);
+            return Util.getRandom(DungeonFeatureAccessor.repurposedstructures$getMOBS(), random);
         }
 
         // Already did a check to make sure all entries do not have a negative weight earlier.

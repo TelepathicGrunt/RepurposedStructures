@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 public interface ShulkerEntityInvoker {
 
     @Invoker("setAttachFace")
-    void repurposedstructures_callSetAttachFace(Direction face);
+    void repurposedstructures$callSetAttachFace(Direction face);
 }

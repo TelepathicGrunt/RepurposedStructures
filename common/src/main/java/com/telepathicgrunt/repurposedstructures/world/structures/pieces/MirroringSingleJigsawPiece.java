@@ -15,7 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -31,8 +30,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -56,7 +53,7 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
     protected final Mirror mirror;
 
     public MirroringSingleJigsawPiece(SinglePoolElement singleJigsawPiece, Mirror mirror, Optional<LiquidSettings> liquidSettings) {
-        this(((SinglePoolElementAccessor)singleJigsawPiece).repurposedstructures_getTemplate(), ((SinglePoolElementAccessor)singleJigsawPiece).repurposedstructures_getProcessors(), singleJigsawPiece.getProjection(), mirror, liquidSettings);
+        this(((SinglePoolElementAccessor)singleJigsawPiece).repurposedstructures$getTemplate(), ((SinglePoolElementAccessor)singleJigsawPiece).repurposedstructures$getProcessors(), singleJigsawPiece.getProjection(), mirror, liquidSettings);
     }
 
     protected MirroringSingleJigsawPiece(Either<ResourceLocation, StructureTemplate> locationTemplateEither, Holder<StructureProcessorList> processorListSupplier, StructureTemplatePool.Projection placementBehaviour, Mirror mirror, Optional<LiquidSettings> liquidSettings) {
@@ -77,11 +74,11 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
     }
 
     private ObjectArrayList<StructureTemplate.JigsawBlockInfo> getJigsaws(StructureTemplate template, BlockPos blockPos, StructurePlaceSettings structurePlaceSettings) {
-        if (((TemplateAccessor)template).repurposedstructures_getPalettes().isEmpty()) {
+        if (((TemplateAccessor)template).repurposedstructures$getPalettes().isEmpty()) {
             return new ObjectArrayList<>();
         }
         else {
-            List<StructureTemplate.JigsawBlockInfo> list = structurePlaceSettings.getRandomPalette(((TemplateAccessor)template).repurposedstructures_getPalettes(), blockPos).jigsaws();
+            List<StructureTemplate.JigsawBlockInfo> list = structurePlaceSettings.getRandomPalette(((TemplateAccessor)template).repurposedstructures$getPalettes(), blockPos).jigsaws();
             ObjectArrayList<StructureTemplate.JigsawBlockInfo> list2 = new ObjectArrayList<>(list.size());
 
             for (StructureTemplate.JigsawBlockInfo jigsawBlockInfo : list) {

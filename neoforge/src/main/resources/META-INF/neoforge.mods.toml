@@ -2,23 +2,24 @@ modLoader="javafml"
 loaderVersion="[4,)"
 issueTrackerURL="${issues_url}"
 sourcesUrl="${sources_url}"
+license="${license}"
 
 [[mods]]
     modId="${mod_id}"
     version="${version}"
     displayName="${mod_display_name}"
     displayURL="${homepage_url}"
-    authors="TelepathicGrunt"
-    credits="Special thanks to /r/l-ll-ll-l_IsDisLoss, miguelforge, and cannon_foddr for donating some structures to this mod!"
+    authors="${mod_author}"
+    credits="${mod_credits}"
     description='''${mod_description}'''
-    logoFile= "assets/repurposed_structures/repurposed_structures_logo_wide.png"
+    logoFile="${logo_neoforge}"
     logoBlur=false
 
 [[mixins]]
-    config = "repurposed_structures-neoforge.mixins.json"
+    config = "${mod_id}-neoforge.mixins.json"
 
 [[mixins]]
-    config = "repurposed_structures-common.mixins.json"
+    config = "${mod_id}-common.mixins.json"
 
 [dependencies]
 "${mod_id}" = [

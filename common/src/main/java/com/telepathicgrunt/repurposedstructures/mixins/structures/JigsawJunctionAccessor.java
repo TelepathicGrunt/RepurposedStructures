@@ -9,13 +9,13 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 public interface JigsawJunctionAccessor {
     @Mutable
     @Accessor("sourceX")
-    void setSourceX(int sourceX);
+    void repurposedstructures$setSourceX(int sourceX);
 
     @Mutable
     @Accessor("sourceGroundY")
-    void setSourceGroundY(int sourceGroundY);
+    void repurposedstructures$setSourceGroundY(int sourceGroundY);
 
     @Mutable
     @Accessor("sourceZ")
-    void setSourceZ(int sourceZ);
+    void repurposedstructures$setSourceZ(int sourceZ);
 }

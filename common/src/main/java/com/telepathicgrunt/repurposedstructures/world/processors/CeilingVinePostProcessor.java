@@ -67,12 +67,12 @@ public class CeilingVinePostProcessor extends StructureProcessor {
                     // Vines only get placed if side block is empty and top block is solid.
                     if(!worldState.canOcclude()) {
                         // side block to hold vine
-                        worldView.getChunk(mutable).setBlockState(mutable, blockState, false);
+                        worldView.getChunk(mutable).setBlockState(mutable, blockState, Block.UPDATE_CLIENTS);
 
                         // ceiling vine
                         BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true).setValue(VineBlock.UP, true);
                         mutable.move(facing.getOpposite()); // Move back to center
-                        centerChunk.setBlockState(mutable, vineBlock, false);
+                        centerChunk.setBlockState(mutable, vineBlock, Block.UPDATE_CLIENTS);
 
                         // hanging vines
                         vineBlock = vineBlock.setValue(VineBlock.UP, false);
@@ -81,7 +81,7 @@ public class CeilingVinePostProcessor extends StructureProcessor {
                             if(!centerChunk.getBlockState(mutable).isAir()) {
                                 break;
                             }
-                            centerChunk.setBlockState(mutable, vineBlock, false);
+                            centerChunk.setBlockState(mutable, vineBlock, Block.UPDATE_CLIENTS);
                         }
 
                         break;

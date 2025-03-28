@@ -11,5 +11,5 @@ public interface MerchantOfferAccessor {
 
     @Mutable
     @Accessor("maxUses")
-    void setMaxUses(int maxUses);
+    void repurposedstructures$setMaxUses(int maxUses);
 }

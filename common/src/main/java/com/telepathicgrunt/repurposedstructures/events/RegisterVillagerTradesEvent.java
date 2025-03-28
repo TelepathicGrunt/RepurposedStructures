@@ -1,12 +1,13 @@
 package com.telepathicgrunt.repurposedstructures.events;
 
 import com.telepathicgrunt.repurposedstructures.events.base.EventHandler;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 
 import java.util.function.BiConsumer;
 
-public record RegisterVillagerTradesEvent(VillagerProfession type, BiConsumer<Integer, VillagerTrades.ItemListing> trade) {
+public record RegisterVillagerTradesEvent(ResourceKey<VillagerProfession> type, BiConsumer<Integer, VillagerTrades.ItemListing> trade) {
 
     public static final EventHandler<RegisterVillagerTradesEvent> EVENT = new EventHandler<>();
 

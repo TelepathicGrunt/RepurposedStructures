@@ -100,14 +100,14 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
         StructureTemplatePool gluttonyPool = gluttonyPoolOptional.get().value();
 
         // Make new copies of lists as the originals are immutable lists and we want to make sure our changes only stays with this pool element
-        ObjectArrayList<StructurePoolElement> elements = new ObjectArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getTemplates());
-        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures_getRawTemplates());
+        ObjectArrayList<StructurePoolElement> elements = new ObjectArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures$getTemplates());
+        List<Pair<StructurePoolElement, Integer>> elementCounts = new ArrayList<>(((StructurePoolAccessor) gluttonyPool).repurposedstructures$getRawTemplates());
 
-        elements.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getTemplates());
-        elementCounts.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures_getRawTemplates());
+        elements.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures$getTemplates());
+        elementCounts.addAll(((StructurePoolAccessor) feedingPool).repurposedstructures$getRawTemplates());
 
-        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setTemplates(elements);
-        ((StructurePoolAccessor) gluttonyPool).repurposedstructures_setRawTemplates(elementCounts);
+        ((StructurePoolAccessor) gluttonyPool).repurposedstructures$setTemplates(elements);
+        ((StructurePoolAccessor) gluttonyPool).repurposedstructures$setRawTemplates(elementCounts);
     }
 
     /**
@@ -126,7 +126,7 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
 
         public static final Codec<AdditionalStructureTemplatePool> DIRECT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 ResourceLocation.CODEC.fieldOf("target_pool").forGetter(structureTemplatePool -> structureTemplatePool.targetPool),
-                Codec.lazyInitialized(StructurePoolAccessor.getCODEC_REFERENCE()::getValue).fieldOf("fallback").forGetter(StructureTemplatePool::getFallback),
+                Codec.lazyInitialized(StructurePoolAccessor.repurposedstructures$getCODEC_REFERENCE()::getValue).fieldOf("fallback").forGetter(StructureTemplatePool::getFallback),
                 EXPANDED_POOL_ENTRY_CODEC.listOf().fieldOf("elements").forGetter(structureTemplatePool -> structureTemplatePool.rawTemplatesWithConditions)
         ).apply(instance, AdditionalStructureTemplatePool::new));
 

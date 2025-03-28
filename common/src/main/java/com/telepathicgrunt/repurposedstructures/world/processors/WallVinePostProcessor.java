@@ -47,7 +47,7 @@ public class WallVinePostProcessor extends StructureProcessor {
                     // Vines only get placed facing the side of 1 full block.
                     if(!worldState.is(Blocks.SPAWNER) && Block.isFaceFull(worldState.getCollisionShape(worldView, pos), facing.getOpposite())) {
                         BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true);
-                        centerChunk.setBlockState(structureBlockInfoWorld.pos(), vineBlock, false);
+                        centerChunk.setBlockState(structureBlockInfoWorld.pos(), vineBlock, Block.UPDATE_CLIENTS);
                         break;
                     }
                 }

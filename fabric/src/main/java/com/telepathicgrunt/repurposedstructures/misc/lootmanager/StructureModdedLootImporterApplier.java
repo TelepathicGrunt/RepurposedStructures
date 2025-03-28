@@ -45,7 +45,7 @@ public final class StructureModdedLootImporterApplier {
         Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(tableToImportLoot);
 
         List<ItemStack> newlyGeneratedLoot = optionalLootTableReference.isPresent() ?
-                optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();
+                optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).repurposedstructures$getParams()) : new ArrayList<>();
 
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> {
@@ -61,7 +61,7 @@ public final class StructureModdedLootImporterApplier {
     }
 
     static LootContext copyLootContext(LootContext oldLootContext) {
-        LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).getParams())
+        LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).repurposedstructures$getParams())
                 .withOptionalRandomSeed(oldLootContext.getRandom().nextLong());
 
         return newContextBuilder.create(Optional.empty());

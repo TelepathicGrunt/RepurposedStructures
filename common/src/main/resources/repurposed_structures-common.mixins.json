@@ -22,7 +22,6 @@
     "resources.LootContextAccessor",
     "resources.NamespaceResourceManagerAccessor",
     "structures.JigsawJunctionAccessor",
-    "structures.ListPoolElementAccessor",
     "structures.LocateCommandMixin",
     "structures.PoolElementStructurePieceAccessor",
     "structures.SinglePoolElementAccessor",

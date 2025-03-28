@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
-import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistries;
+import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import com.telepathicgrunt.repurposedstructures.world.processors.AirProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.BlockRemovalPostProcessor;
@@ -34,7 +34,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 
 public final class RSProcessors {
-    public static final ResourcefulRegistry<StructureProcessorType<?>> STRUCTURE_PROCESSOR = ResourcefulRegistries.create(BuiltInRegistries.STRUCTURE_PROCESSOR, RepurposedStructures.MODID);
+    public static final ResourcefulRegistry<StructureProcessorType<?>> STRUCTURE_PROCESSOR = ResourcefulRegistriesService.INSTANCE.create(BuiltInRegistries.STRUCTURE_PROCESSOR, RepurposedStructures.MODID);
 
     public static final RegistryEntry<StructureProcessorType<AirProcessor>> AIR_PROCESSOR = STRUCTURE_PROCESSOR.register("air_processor", () -> () -> AirProcessor.CODEC);
     public static final RegistryEntry<StructureProcessorType<BlockRemovalPostProcessor>> BLOCK_REMOVAL_POST_PROCESSOR = STRUCTURE_PROCESSOR.register("block_removal_post_processor", () -> () -> BlockRemovalPostProcessor.CODEC);

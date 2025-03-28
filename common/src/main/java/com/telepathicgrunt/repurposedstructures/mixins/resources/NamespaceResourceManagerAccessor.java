@@ -9,5 +9,5 @@ import java.util.List;
 @Mixin(FallbackResourceManager.class)
 public interface NamespaceResourceManagerAccessor {
     @Accessor("fallbacks")
-    List<FallbackResourceManager.PackEntry> repurposedstructures_getFallbacks();
+    List<FallbackResourceManager.PackEntry> repurposedstructures$getFallbacks();
 }

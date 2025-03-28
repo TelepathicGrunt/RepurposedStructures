@@ -6,7 +6,7 @@
   "name": "${mod_display_name}",
   "description": "${mod_description}",
   "authors": [
-    "TelepathicGrunt"
+    "${mod_author}"
   ],
   "contact": {
     "homepage": "${homepage_url}",
@@ -14,8 +14,8 @@
     "issues": "${issues_url}"
   },
 
-  "license": "GNU Lesser General Public License v3.0",
-  "icon": "assets/repurposed_structures/repurposed_structures_logo.png",
+  "license": "${license}",
+  "icon": "${logo_fabric}",
 
   "environment": "*",
   "entrypoints": {
@@ -27,8 +27,8 @@
     ]
   },
   "mixins": [
-    "repurposed_structures-fabric.mixins.json",
-    "repurposed_structures-common.mixins.json"
+    "${mod_id}-fabric.mixins.json",
+    "${mod_id}-common.mixins.json"
   ],
 
   "depends": {

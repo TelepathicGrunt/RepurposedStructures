@@ -38,12 +38,10 @@ public class Skeletons extends Feature<GenericMobConfig> {
         context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
 
         skeletonEntity.setPersistenceRequired();
-        skeletonEntity.moveTo(
+        skeletonEntity.setPos(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY(),
-                (double)context.origin().getZ() + 0.5D,
-                0.0F,
-                0.0F);
+                (double)context.origin().getZ() + 0.5D);
 
         skeletonEntity.setHealth(context.config().health);
         skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);

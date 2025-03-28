@@ -12,6 +12,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -83,7 +84,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
 
                     BlockState neighboringBlock = currentChunk.getBlockState(mutable);
                     if (!neighboringBlock.canOcclude() && neighboringBlock.getFluidState().isEmpty()) {
-                        currentChunk.setBlockState(mutable, Blocks.CRACKED_STONE_BRICKS.defaultBlockState(), false);
+                        currentChunk.setBlockState(mutable, Blocks.CRACKED_STONE_BRICKS.defaultBlockState(), Block.UPDATE_CLIENTS);
                     }
                 }
             }

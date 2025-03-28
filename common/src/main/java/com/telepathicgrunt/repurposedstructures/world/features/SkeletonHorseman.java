@@ -31,12 +31,10 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
 
         SkeletonHorse skeletonHorseEntity = EntityType.SKELETON_HORSE.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         skeletonHorseEntity.setPersistenceRequired();
-        skeletonHorseEntity.moveTo(
+        skeletonHorseEntity.setPos(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY(),
-                (double)context.origin().getZ() + 0.5D,
-                0.0F,
-                0.0F);
+                (double)context.origin().getZ() + 0.5D);
         skeletonHorseEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
         Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
 
@@ -57,20 +55,18 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
         skeletonEntity.setHealth(context.config().health);
         skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
         skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
-        skeletonEntity.moveTo(
+        skeletonEntity.setPos(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY() + 1,
-                (double)context.origin().getZ() + 0.5D,
-                0.0F,
-                0.0F);
+                (double)context.origin().getZ() + 0.5D);
 
         if (skeletonHorseEntity.getPassengers().isEmpty()) {
-            ((EntityAccessor)skeletonHorseEntity).setPassengers(ImmutableList.of(skeletonEntity));
+            ((EntityAccessor)skeletonHorseEntity).repurposedstructures$setPassengers(ImmutableList.of(skeletonEntity));
         }
         else {
             List<Entity> list = Lists.newArrayList(skeletonHorseEntity.getPassengers());
             list.add(skeletonEntity);
-            ((EntityAccessor)skeletonHorseEntity).setPassengers(ImmutableList.copyOf(list));
+            ((EntityAccessor)skeletonHorseEntity).repurposedstructures$setPassengers(ImmutableList.copyOf(list));
         }
 
         context.level().addFreshEntityWithPassengers(skeletonHorseEntity);

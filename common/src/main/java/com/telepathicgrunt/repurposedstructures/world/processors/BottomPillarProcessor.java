@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -95,7 +96,7 @@ public class BottomPillarProcessor extends StructureProcessor {
                 }
 
                 if(newPillarState2 != null) {
-                    chunkAccess.setBlockState(currentPos, newPillarState2.state(), false);
+                    chunkAccess.setBlockState(currentPos, newPillarState2.state(), Block.UPDATE_CLIENTS);
                 }
 
                 currentPos.move(Direction.DOWN);

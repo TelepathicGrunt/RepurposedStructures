@@ -16,21 +16,21 @@ import java.util.List;
 @Mixin(StructureTemplatePool.class)
 public interface StructurePoolAccessor {
     @Accessor("CODEC_REFERENCE")
-    static MutableObject<Codec<Holder<StructureTemplatePool>>> getCODEC_REFERENCE() {
+    static MutableObject<Codec<Holder<StructureTemplatePool>>> repurposedstructures$getCODEC_REFERENCE() {
         throw new UnsupportedOperationException();
     }
 
     @Accessor("rawTemplates")
-    List<Pair<StructurePoolElement, Integer>> repurposedstructures_getRawTemplates();
+    List<Pair<StructurePoolElement, Integer>> repurposedstructures$getRawTemplates();
 
     @Mutable
     @Accessor("rawTemplates")
-    void repurposedstructures_setRawTemplates(List<Pair<StructurePoolElement, Integer>> elementCounts);
+    void repurposedstructures$setRawTemplates(List<Pair<StructurePoolElement, Integer>> elementCounts);
 
     @Accessor("templates")
-    ObjectArrayList<StructurePoolElement> repurposedstructures_getTemplates();
+    ObjectArrayList<StructurePoolElement> repurposedstructures$getTemplates();
 
     @Mutable
     @Accessor("templates")
-    void repurposedstructures_setTemplates(ObjectArrayList<StructurePoolElement> elements);
+    void repurposedstructures$setTemplates(ObjectArrayList<StructurePoolElement> elements);
 }

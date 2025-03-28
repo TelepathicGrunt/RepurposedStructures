@@ -17,7 +17,7 @@ public final class StructureMapTradesEvents {
     private StructureMapTradesEvents() {}
 
     public static void addVillagerTrades(RegisterVillagerTradesEvent event) {
-        ResourceLocation currentVillager = BuiltInRegistries.VILLAGER_PROFESSION.getKey(event.type());
+        ResourceLocation currentVillager = event.type().location();
         if (currentVillager != null && StructureMapManager.STRUCTURE_MAP_MANAGER.VILLAGER_MAP_TRADES.containsKey(currentVillager.toString())) {
             for (VillagerMapObj mapTrade : StructureMapManager.STRUCTURE_MAP_MANAGER.VILLAGER_MAP_TRADES.get(currentVillager.toString())) {
                 Holder.Reference<MapDecorationType> icon;

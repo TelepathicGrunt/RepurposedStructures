@@ -10,5 +10,5 @@ import java.util.List;
 public interface TemplateAccessor {
 
     @Accessor("palettes")
-    List<StructureTemplate.Palette> repurposedstructures_getPalettes();
+    List<StructureTemplate.Palette> repurposedstructures$getPalettes();
 }

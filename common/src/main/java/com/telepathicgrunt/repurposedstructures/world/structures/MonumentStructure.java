@@ -129,7 +129,7 @@ public class MonumentStructure extends Structure {
             BlockPos mainOffset = new BlockPos(-29, 0, -29).rotate(rotation);
             for(StructurePiece structurePiece : list) {
                 if (structurePiece instanceof PoolElementStructurePiece poolPiece) {
-                    ((PoolElementStructurePieceAccessor)poolPiece).setRotation(
+                    ((PoolElementStructurePieceAccessor)poolPiece).repurposedstructures$setRotation(
                             poolPiece.getRotation().getRotated(rotation));
 
                     // rotate
@@ -146,8 +146,8 @@ public class MonumentStructure extends Structure {
 
                     // fix piece bounding boxes
                     if (poolPiece.getElement() instanceof SinglePoolElement singlePoolElement) {
-                        StructureTemplate structuretemplate = ((SinglePoolElementAccessor)singlePoolElement).callGetTemplate(context.structureTemplateManager());
-                        ((StructurePieceAccessor)poolPiece).setBoundingBox(structuretemplate.getBoundingBox((new StructurePlaceSettings()).setRotation(rotation), poolPiece.getPosition()));
+                        StructureTemplate structuretemplate = ((SinglePoolElementAccessor)singlePoolElement).repurposedstructures$callGetTemplate(context.structureTemplateManager());
+                        ((StructurePieceAccessor)poolPiece).repurposedstructures$setBoundingBox(structuretemplate.getBoundingBox((new StructurePlaceSettings()).setRotation(rotation), poolPiece.getPosition()));
                     }
                 }
             }

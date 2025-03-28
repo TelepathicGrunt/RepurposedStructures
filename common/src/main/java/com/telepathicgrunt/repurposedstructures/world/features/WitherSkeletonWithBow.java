@@ -36,12 +36,10 @@ public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
 
         WitherSkeleton witherEntity = EntityType.WITHER_SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         witherEntity.setPersistenceRequired();
-        witherEntity.moveTo(
+        witherEntity.setPos(
                 (double)position.getX() + 0.5D,
                 position.getY(),
-                (double)position.getZ() + 0.5D,
-                0.0F,
-                0.0F);
+                (double)position.getZ() + 0.5D);
 
         witherEntity.getAttribute(Attributes.FOLLOW_RANGE)
                 .addPermanentModifier(new AttributeModifier(

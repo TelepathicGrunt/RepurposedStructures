@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.telepathicgrunt.repurposedstructures.modinit.RSProcessors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
@@ -22,7 +23,7 @@ public class ForcePlaceMushroomBlocksProcessor extends StructureProcessor {
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos());
         if (structureBlockInfoWorld.state().getBlock() instanceof MushroomBlock) {
-            levelReader.getChunk(mutable).setBlockState(mutable, structureBlockInfoWorld.state(), false);
+            levelReader.getChunk(mutable).setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
             return null;
         }
 

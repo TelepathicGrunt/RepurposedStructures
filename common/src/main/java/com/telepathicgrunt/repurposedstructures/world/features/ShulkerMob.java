@@ -30,7 +30,7 @@ public class ShulkerMob extends Feature<NoneFeatureConfiguration> {
 
         Shulker shulkerEntity = EntityType.SHULKER.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         shulkerEntity.setPersistenceRequired();
-        shulkerEntity.absMoveTo(
+        shulkerEntity.setPos(
                 (double)position.getX() + 0.5D,
                 position.getY(),
                 (double)position.getZ() + 0.5D);
@@ -47,7 +47,7 @@ public class ShulkerMob extends Feature<NoneFeatureConfiguration> {
             }
         }
 
-        ((ShulkerEntityInvoker)shulkerEntity).repurposedstructures_callSetAttachFace(shulkerAttachment);
+        ((ShulkerEntityInvoker)shulkerEntity).repurposedstructures$callSetAttachFace(shulkerAttachment);
         context.level().addFreshEntityWithPassengers(shulkerEntity);
         return true;
     }

@@ -1066,18 +1066,18 @@ public class MansionPieces{
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                ResourceLocation jigsawBlockPool = ResourceLocation.tryParse(jigsawBlock.info().nbt().getString("pool"));
+                ResourceLocation jigsawBlockPool = ResourceLocation.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
                 Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlockPool);
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
                 if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.location())))) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures_getTemplate().left().get() : "not a SinglePoolElement class");
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
                 // Get the jigsaw block's fallback pool (which is a part of the pool's JSON)
                 Holder<StructureTemplatePool> jigsawBlockFallback = poolOptional.get().getFallback();
-                List<Pair<StructurePoolElement, Integer>> candidatePieces = new ArrayList<>(((StructurePoolAccessor)jigsawBlockFallback.value()).repurposedstructures_getRawTemplates());
+                List<Pair<StructurePoolElement, Integer>> candidatePieces = new ArrayList<>(((StructurePoolAccessor)jigsawBlockFallback.value()).repurposedstructures$getRawTemplates());
                 int jigsawBlockRelativeY = jigsawBlockPos.getY() - pieceMinY;
                 int totalCount = candidatePieces.stream().mapToInt(Pair::getSecond).reduce(0, Integer::sum);
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;

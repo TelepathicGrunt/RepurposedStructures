@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.google.common.collect.ImmutableList;
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
@@ -16,6 +17,10 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.Blocks;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,17 +50,16 @@ public class RepurposedStructuresFabric implements ModInitializer {
     }
 
     private static void setupWanderingTrades() {
-        var trades = VillagerTrades.WANDERING_TRADER_TRADES;
-        List<VillagerTrades.ItemListing> basic = Arrays.stream(trades.get(1)).collect(Collectors.toList());
-        List<VillagerTrades.ItemListing> rare = Arrays.stream(trades.get(2)).collect(Collectors.toList());
-        RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(basic::add, rare::add));
-        trades.put(1, basic.toArray(new VillagerTrades.ItemListing[0]));
-        trades.put(2, rare.toArray(new VillagerTrades.ItemListing[0]));
+        List<Pair<VillagerTrades.ItemListing[], Integer>> trades = VillagerTrades.WANDERING_TRADER_TRADES;
+        List<VillagerTrades.ItemListing> buying = Arrays.stream(trades.get(0).getKey()).toList();
+        List<VillagerTrades.ItemListing> rare = Arrays.stream(trades.get(1).getKey()).toList();
+        List<VillagerTrades.ItemListing> basic = Arrays.stream(trades.get(2).getKey()).toList();
+        RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(basic::add, rare::add, buying::add));
     }
 
     private static void setupVillagerTrades() {
         var trades = VillagerTrades.TRADES;
-        for (var profession : BuiltInRegistries.VILLAGER_PROFESSION) {
+        for (var profession : BuiltInRegistries.VILLAGER_PROFESSION.registryKeySet()) {
             if (profession == null) continue;
             Int2ObjectMap<VillagerTrades.ItemListing[]> profTrades = trades.computeIfAbsent(profession, key -> new Int2ObjectOpenHashMap<>());
             Int2ObjectMap<List<VillagerTrades.ItemListing>> listings = new Int2ObjectOpenHashMap<>();

@@ -10,7 +10,7 @@ import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToSt
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.SetupEvent;
 import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSBiomeModifiers;
 import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSGlobalLootModifier;
-import com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge.ResourcefulRegistriesImpl;
+import com.telepathicgrunt.repurposedstructures.services.neoforge.NeoResourcefulRegistriesService;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -31,7 +31,7 @@ public class RepurposedStructuresNeoforge {
 
     public RepurposedStructuresNeoforge(IEventBus modEventBus, ModContainer modContainer) {
         RSConfigHandler.setup(modEventBus, modContainer);
-        modEventBus.addListener(EventPriority.NORMAL, ResourcefulRegistriesImpl::onRegisterForgeRegistries);
+        modEventBus.addListener(EventPriority.NORMAL, NeoResourcefulRegistriesService::onRegisterForgeRegistries);
 
         modEventBusTempHolder = modEventBus;
         RepurposedStructures.init();
@@ -68,7 +68,7 @@ public class RepurposedStructuresNeoforge {
     }
 
     private static void onWanderingTrades(WandererTradesEvent event) {
-        RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(event.getGenericTrades()::add, event.getRareTrades()::add));
+        RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(event.getGenericTrades()::add, event.getRareTrades()::add, event.getBuyingTrades()::add));
     }
 
     private static void onAddReloadListeners(AddServerReloadListenersEvent event) {

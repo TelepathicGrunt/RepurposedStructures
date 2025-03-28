@@ -27,7 +27,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import com.telepathicgrunt.repurposedstructures.services.PlatformService;
 import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
-import com.telepathicgrunt.repurposedstructures.utils.PlatformHooks;
 import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

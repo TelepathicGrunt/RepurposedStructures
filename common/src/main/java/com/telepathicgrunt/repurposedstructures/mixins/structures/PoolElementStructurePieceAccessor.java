@@ -10,9 +10,9 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(PoolElementStructurePiece.class)
 public interface PoolElementStructurePieceAccessor {
     @Accessor("structureTemplateManager")
-    StructureTemplateManager getStructureManager();
+    StructureTemplateManager repurposedstructures$getStructureManager();
 
     @Mutable
     @Accessor("rotation")
-    void setRotation(Rotation rotation);
+    void repurposedstructures$setRotation(Rotation rotation);
 }

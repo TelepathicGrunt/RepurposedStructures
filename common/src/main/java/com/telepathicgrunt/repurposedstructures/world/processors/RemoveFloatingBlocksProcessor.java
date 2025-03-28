@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -34,12 +35,12 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
         if(structureBlockInfoWorld.state().isAir() || !structureBlockInfoWorld.state().getFluidState().isEmpty()) {
 
             // set the block in the world so that canPlaceAt's result changes
-            cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), false);
+            cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
             BlockState aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
 
             // detects the invalidly placed blocks
             while(mutable.getY() < levelReader.getHeight() && !aboveWorldState.canSurvive(levelReader, mutable)) {
-                cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), false);
+                cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
                 aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
             }
 
@@ -53,7 +54,7 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
                 }
                 BlockState sideBlock = chunkAccess2.getBlockState(mutable);
                 if (!sideBlock.canSurvive(levelReader, mutable)) {
-                    chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state(), false);
+                    chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
                 }
             }
         }

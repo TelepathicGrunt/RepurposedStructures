@@ -14,11 +14,11 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(SinglePoolElement.class)
 public interface SinglePoolElementAccessor {
     @Accessor("template")
-    Either<ResourceLocation, StructureTemplate> repurposedstructures_getTemplate();
+    Either<ResourceLocation, StructureTemplate> repurposedstructures$getTemplate();
 
     @Accessor("processors")
-    Holder<StructureProcessorList> repurposedstructures_getProcessors();
+    Holder<StructureProcessorList> repurposedstructures$getProcessors();
 
     @Invoker("getTemplate")
-    StructureTemplate callGetTemplate(StructureTemplateManager StructureTemplateManager);
+    StructureTemplate repurposedstructures$callGetTemplate(StructureTemplateManager StructureTemplateManager);
 }

@@ -17,8 +17,6 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -241,9 +239,9 @@ public final class GeneralUtils {
         piece.move(x, y, z);
         if (piece instanceof PoolElementStructurePiece poolElementStructurePiece) {
             poolElementStructurePiece.getJunctions().forEach(junction -> {
-                ((JigsawJunctionAccessor)junction).setSourceX(junction.getSourceX() + x);
-                ((JigsawJunctionAccessor)junction).setSourceX(junction.getSourceGroundY() + y);
-                ((JigsawJunctionAccessor)junction).setSourceX(junction.getSourceZ() + z);
+                ((JigsawJunctionAccessor)junction).repurposedstructures$setSourceX(junction.getSourceX() + x);
+                ((JigsawJunctionAccessor)junction).repurposedstructures$setSourceGroundY(junction.getSourceGroundY() + y);
+                ((JigsawJunctionAccessor)junction).repurposedstructures$setSourceZ(junction.getSourceZ() + z);
             });
         }
     }
@@ -257,21 +255,17 @@ public final class GeneralUtils {
 
         return prop1.front() == prop2.front().getOpposite() &&
                 (prop1.top() == prop2.top() || isRollableJoint(jigsaw1, prop1)) &&
-                getStringMicroOptimised(jigsaw1.info().nbt(), "target").equals(getStringMicroOptimised(jigsaw2.info().nbt(), "name"));
+                jigsaw1.info().nbt().getStringOr("target", "").equals(jigsaw2.info().nbt().getStringOr("joint", ""));
     }
 
     private static boolean isRollableJoint(StructureTemplate.JigsawBlockInfo jigsaw1, FrontAndTop prop1) {
-        String joint = getStringMicroOptimised(jigsaw1.info().nbt(), "joint");
+        String joint = jigsaw1.info().nbt().getStringOr("joint", "");
         if(!joint.equals("rollable") && !joint.equals("aligned")) {
             return !prop1.front().getAxis().isHorizontal();
         }
         else {
             return joint.equals("rollable");
         }
-    }
-
-    public static String getStringMicroOptimised(CompoundTag tag, String key) {
-        return tag.get(key) instanceof StringTag stringTag ? stringTag.getAsString() : "";
     }
 
     //////////////////////////////////////////////

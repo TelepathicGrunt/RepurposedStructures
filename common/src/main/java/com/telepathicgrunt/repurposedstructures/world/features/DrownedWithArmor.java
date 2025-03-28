@@ -57,12 +57,10 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
         }
 
         drownedEntity.setPersistenceRequired();
-        drownedEntity.moveTo(
+        drownedEntity.setPos(
                 (double)position.getX() + 0.5D,
                 position.getY(),
-                (double)position.getZ() + 0.5D,
-                0.0F,
-                0.0F);
+                (double)position.getZ() + 0.5D);
         drownedEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(position), EntitySpawnReason.STRUCTURE, null);
         context.level().addFreshEntityWithPassengers(drownedEntity);
         return true;

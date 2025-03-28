@@ -3,7 +3,6 @@ package com.telepathicgrunt.repurposedstructures.world.structures.pieces;
 import com.telepathicgrunt.repurposedstructures.mixins.structures.PoolElementStructurePieceAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -24,7 +23,7 @@ public class MansionStructurePiece extends PoolElementStructurePiece {
     public final boolean pillarOnlyToLand;
 
     public MansionStructurePiece(PoolElementStructurePiece poolElementStructurePiece, String mansionType, BlockState foundationBlock, boolean pillarOnlyToLand, LiquidSettings liquidSettings) {
-        super(((PoolElementStructurePieceAccessor)poolElementStructurePiece).getStructureManager(),
+        super(((PoolElementStructurePieceAccessor)poolElementStructurePiece).repurposedstructures$getStructureManager(),
                 poolElementStructurePiece.getElement(),
                 poolElementStructurePiece.getPosition(),
                 poolElementStructurePiece.getGroundLevelDelta(),
@@ -45,9 +44,9 @@ public class MansionStructurePiece extends PoolElementStructurePiece {
 
     public MansionStructurePiece(StructurePieceSerializationContext context, CompoundTag tag) {
         super(context, tag);
-        this.mansionType = tag.getString("mansion_type");
-        this.foundationBlock = NbtUtils.readBlockState(context.registryAccess().lookupOrThrow(Registries.BLOCK), tag.getCompound("foundation_block"));
-        this.pillarOnlyToLand = tag.getBoolean("pillar_only_to_land");
+        this.mansionType = tag.getStringOr("mansion_type", "");
+        this.foundationBlock = NbtUtils.readBlockState(context.registryAccess().lookupOrThrow(Registries.BLOCK), tag.getCompound("foundation_block").orElse(new CompoundTag()));
+        this.pillarOnlyToLand = tag.getBooleanOr("pillar_only_to_land", true);
     }
 
     @Override

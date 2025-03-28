@@ -48,7 +48,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
             for(int i = 0; i <= 2; i++) {
                 BlockState checkArchState = chunk.getBlockState(mutable.move(Direction.UP));
                 if(i < 2 ? checkArchState.getBlock() == context.config().fenceState.getBlock() : context.config().archBlocks.contains(checkArchState.getBlock())) {
-                    chunk.setBlockState(mutable, removalState, false);
+                    chunk.setBlockState(mutable, removalState, Block.UPDATE_CLIENTS);
                     blockOffAirIfWaterBased(context, mutable, world);
                 }
             }
@@ -57,7 +57,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                 if(new ChunkPos(mutable).equals(chunk.getPos())) {
                     BlockState checkArchState = chunk.getBlockState(mutable);
                     if(context.config().archBlocks.contains(checkArchState.getBlock())) {
-                        chunk.setBlockState(mutable, removalState, false);
+                        chunk.setBlockState(mutable, removalState, Block.UPDATE_CLIENTS);
                         blockOffAirIfWaterBased(context, mutable, world);
                     }
                 }
@@ -107,7 +107,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                     if (pillarBlockFinal.hasProperty(BlockStateProperties.WATERLOGGED)) {
                         pillarBlockFinal = pillarBlockFinal.setValue(BlockStateProperties.WATERLOGGED, chunk.getBlockState(pillarPos).getFluidState().is(FluidTags.WATER));
                     }
-                    chunk.setBlockState(pillarPos, pillarBlockFinal, false);
+                    chunk.setBlockState(pillarPos, pillarBlockFinal, Block.UPDATE_CLIENTS);
                     pillarPos.move(Direction.DOWN);
                 }
             }
@@ -144,7 +144,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                         if (fenceBlockFinal.hasProperty(BlockStateProperties.WATERLOGGED)) {
                             fenceBlockFinal = fenceBlockFinal.setValue(BlockStateProperties.WATERLOGGED, chunk.getBlockState(chainPos).getFluidState().is(FluidTags.WATER));
                         }
-                        chunk.setBlockState(chainPos, fenceBlockFinal, false);
+                        chunk.setBlockState(chainPos, fenceBlockFinal, Block.UPDATE_CLIENTS);
                         chainPos.move(Direction.UP);
                         while (chainPos.getY() < mutable.getY()) {
                             chunk.setBlockState(
@@ -152,7 +152,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                                     Blocks.CHAIN.defaultBlockState()
                                             .setValue(BlockStateProperties.WATERLOGGED,
                                                     chunk.getBlockState(chainPos).getFluidState().is(FluidTags.WATER)),
-                                    false);
+                                    Block.UPDATE_CLIENTS);
                             chainPos.move(Direction.UP);
                         }
                     }

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.modinit.registry;
 
+import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import org.apache.commons.lang3.tuple.Pair;
@@ -11,7 +12,7 @@ import java.util.stream.Stream;
 public interface CustomRegistry<T> extends ResourcefulRegistry<T> {
 
     static <T, K extends Registry<T>> CustomRegistry<T> of(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
-        Pair<Supplier<CustomRegistryLookup<T, T>>, ResourcefulRegistry<T>> pair = ResourcefulRegistries.createCustomRegistryInternal(modId, key, save, sync, allowModification);
+        Pair<Supplier<CustomRegistryLookup<T, T>>, ResourcefulRegistry<T>> pair = ResourcefulRegistriesService.INSTANCE.createCustomRegistryInternal(modId, key, save, sync, allowModification);
         return new CustomRegistry<>() {
             @Override
             public CustomRegistryLookup<T, T> lookup() {

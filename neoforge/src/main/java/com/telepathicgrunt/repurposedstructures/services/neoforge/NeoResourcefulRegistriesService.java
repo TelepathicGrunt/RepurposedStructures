@@ -1,7 +1,11 @@
-package com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge;
+package com.telepathicgrunt.repurposedstructures.services.neoforge;
 
 import com.telepathicgrunt.repurposedstructures.modinit.registry.CustomRegistryLookup;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
+import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistryChild;
+import com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge.NeoForgeCustomRegistry;
+import com.telepathicgrunt.repurposedstructures.modinit.registry.neoforge.NeoForgeResourcefulRegistry;
+import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
@@ -12,15 +16,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ResourcefulRegistriesImpl {
+public class NeoResourcefulRegistriesService implements ResourcefulRegistriesService {
 
     private static final List<CustomRegistryInfo<?, ?>> CUSTOM_REGISTRIES = new ArrayList<>();
 
-    public static <T> ResourcefulRegistry<T> create(Registry<T> registry, String id) {
+    @Override
+    public <T> ResourcefulRegistry<T> create(ResourcefulRegistry<T> parent) {
+        return new ResourcefulRegistryChild<>(parent);
+    }
+
+    @Override
+    public <T> ResourcefulRegistry<T> create(Registry<T> registry, String id) {
         return new NeoForgeResourcefulRegistry<>(registry, id);
     }
 
-    public static <T, R extends T, K extends Registry<T>> Pair<Supplier<CustomRegistryLookup<T, R>>, ResourcefulRegistry<T>> createCustomRegistryInternal(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
+    @Override
+    public <T, K extends Registry<T>> Pair<Supplier<CustomRegistryLookup<T, T>>, ResourcefulRegistry<T>> createCustomRegistryInternal(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
+        return createCustomRegistryInternalGenericHandler(modId, key, save, sync, allowModification);
+    }
+
+    private <T, R extends T, K extends Registry<T>> Pair<Supplier<CustomRegistryLookup<T, R>>, ResourcefulRegistry<T>> createCustomRegistryInternalGenericHandler(String modId, ResourceKey<K> key, boolean save, boolean sync, boolean allowModification) {
         CustomRegistryInfo<T, R> info = new CustomRegistryInfo<>(new LateSupplier<>(), key, save, sync, allowModification);
         CUSTOM_REGISTRIES.add(info);
         return Pair.of(info.lookup(), new NeoForgeResourcefulRegistry<>(key, modId));

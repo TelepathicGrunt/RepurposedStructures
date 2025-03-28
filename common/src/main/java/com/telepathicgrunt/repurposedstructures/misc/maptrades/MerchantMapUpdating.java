@@ -48,7 +48,7 @@ public class MerchantMapUpdating {
     }
 
     public static void removeOffer(AbstractVillager merchant, MerchantOffer offer) {
-        ((MerchantOfferAccessor) offer).setMaxUses(0);
+        ((MerchantOfferAccessor) offer).repurposedstructures$setMaxUses(0);
         offer.setToOutOfStock();
     }
 
@@ -71,7 +71,7 @@ public class MerchantMapUpdating {
             tradingPlayer.sendMerchantOffers(
                     tradingPlayer.containerMenu.containerId,
                     merchant.getOffers(),
-                    merchant instanceof Villager villager ? villager.getVillagerData().getLevel() : 1,
+                    merchant instanceof Villager villager ? villager.getVillagerData().level() : 1,
                     merchant.getVillagerXp(),
                     merchant.showProgressBar(),
                     merchant.canRestock()
@@ -175,7 +175,7 @@ public class MerchantMapUpdating {
             Holder.Reference<MapDecorationType> destinationType,
             String displayName
     ) {
-        MapId mapId = MapItemAccessor.callCreateNewSavedData(level, pos.getX(), pos.getZ(), scale, true, true, level.dimension());
+        MapId mapId = MapItemAccessor.repurposedstructures$callCreateNewSavedData(level, pos.getX(), pos.getZ(), scale, true, true, level.dimension());
         mapStack.set(DataComponents.MAP_ID, mapId);
         MapItem.renderBiomePreviewMap(level, mapStack);
         MapItemSavedData.addTargetDecoration(mapStack, pos, "+", destinationType);

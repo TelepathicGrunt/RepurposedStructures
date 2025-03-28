@@ -32,7 +32,7 @@ public class EndRemasteredDedicatedLootApplier {
             Optional<Holder.Reference<LootTable>> optionalLootTableReference = oldLootContext.getResolver().get(tableToImportLoot);
 
             List<ItemStack> endRemasteredLoot = optionalLootTableReference.isPresent() ?
-                    optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();
+                    optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).repurposedstructures$getParams()) : new ArrayList<>();
 
             currentLoot.addAll(endRemasteredLoot);
         }

@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -35,7 +34,7 @@ public class EndRemasteredDedicatedLootApplier {
             Optional<Holder.Reference<LootTable>> optionalLootTableReference = oldLootContext.getResolver().get(tableToImportLoot);
 
             List<ItemStack> endRemasteredLoot = optionalLootTableReference.isPresent() ?
-                    optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).getParams()) : new ArrayList<>();
+                    optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).repurposedstructures$getParams()) : new ArrayList<>();
 
             currentLoot.addAll(endRemasteredLoot);
         }
