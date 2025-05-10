@@ -12,7 +12,7 @@
   "start_height": {
     "absolute": 0
   },
-  "max_y_allowed": 62,
+  "max_y_allowed": 52,
   "use_bounding_box_hack": true,
   "spawn_overrides": {}
 }
