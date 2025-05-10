@@ -8,7 +8,7 @@
   "project_start_to_heightmap": "OCEAN_FLOOR_WG",
   "burying_type": "AVERAGE_LAND",
   "y_allowance": {
-    "max_y_allowed": 62
+    "max_y_allowed": 51
   },
   "start_height": {
     "absolute": -3
