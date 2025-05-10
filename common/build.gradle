@@ -70,7 +70,7 @@ publishing {
 
     repositories {
         maven {
-            url = uri("https://nexus.resourcefulbees.com/repository/telepathicgrunt/")
+            url = "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
             credentials {
                 username ENV.MAVEN_USER
                 password ENV.MAVEN_PASS
@@ -80,5 +80,6 @@ publishing {
 }
 
 task buildAndRelease{}
+tasks.build.mustRunAfter tasks.clean
 tasks.publish.mustRunAfter tasks.build
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish)
+tasks.buildAndRelease.dependsOn(tasks.clean, tasks.build, tasks.publish)

@@ -120,7 +120,7 @@ publishing {
 
     repositories {
         maven {
-            url = uri("https://nexus.resourcefulbees.com/repository/telepathicgrunt/")
+            url = "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
             credentials {
                 username ENV.MAVEN_USER
                 password ENV.MAVEN_PASS
