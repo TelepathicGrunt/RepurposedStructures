@@ -10,7 +10,7 @@
   "terrain_adaptation": "beard_thin",
   "project_start_to_heightmap": "OCEAN_FLOOR_WG",
   "y_allowance": {
-    "max_y_allowed": 62
+    "max_y_allowed": 52
   },
   "start_height": {
     "absolute": 0
