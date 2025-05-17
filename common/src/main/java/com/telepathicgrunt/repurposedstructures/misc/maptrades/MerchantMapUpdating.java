@@ -119,7 +119,7 @@ public class MerchantMapUpdating {
                                 mapStack,
                                 displayName,
                                 destinationType,
-                                pair.getFirst()
+                                pair == null ? null : pair.getFirst()
                         ))
         );
     }
@@ -151,7 +151,7 @@ public class MerchantMapUpdating {
 
     public static ItemStack createEmptyMap() {
         ItemStack stack = new ItemStack(Items.FILLED_MAP);
-        stack.setHoverName(Component.translatable("menu.working"));
+        stack.setHoverName(Component.translatable("Locating... (Do not buy this map until finished)"));
         return stack;
     }
 
@@ -168,8 +168,9 @@ public class MerchantMapUpdating {
         );
         MapItem.renderBiomePreviewMap(level, mapStack);
         MapItemSavedData.addTargetDecoration(mapStack, pos, "+", destinationType);
-        if (displayName != null)
+        if (displayName != null) {
             mapStack.setHoverName(Component.translatable(displayName));
+        }
     }
 }
 
