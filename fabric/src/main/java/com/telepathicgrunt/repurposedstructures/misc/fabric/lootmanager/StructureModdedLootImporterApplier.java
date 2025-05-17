@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.misc.fabricbase.lootmanager;
+package com.telepathicgrunt.repurposedstructures.misc.fabric.lootmanager;
 
 import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;

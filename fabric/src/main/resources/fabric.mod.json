@@ -22,7 +22,7 @@
       "com.telepathicgrunt.repurposedstructures.fabric.RepurposedStructuresFabric"
     ],
     "modmenu": [
-      "com.telepathicgrunt.repurposedstructures.configs.fabricbase.ModMenuCompat"
+      "com.telepathicgrunt.repurposedstructures.configs.fabric.ModMenuCompat"
     ]
   },
   "mixins": [

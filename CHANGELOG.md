@@ -1,3 +1,9 @@
+### **(V.7.1.18 Changes) (1.20.1 Minecraft)**
+
+##### Misc:
+(Fabric): Fixed crash with Mod Menu
+
+
 ### **(V.7.1.17 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 ##### Maps:
