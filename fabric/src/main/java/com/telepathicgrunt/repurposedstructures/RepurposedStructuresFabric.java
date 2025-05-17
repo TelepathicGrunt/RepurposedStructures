@@ -8,6 +8,7 @@ import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadL
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStopEvent;
 import com.telepathicgrunt.repurposedstructures.misc.FabricReloadListener;
+import com.telepathicgrunt.repurposedstructures.mixins.entities.VillagerTradesAccessor;
 import com.telepathicgrunt.repurposedstructures.world.biomemodifiers.BiomeModifier;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -20,6 +21,7 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
@@ -55,6 +57,11 @@ public class RepurposedStructuresFabric implements ModInitializer {
         List<VillagerTrades.ItemListing> rare = Arrays.stream(trades.get(1).getKey()).collect(Collectors.toCollection(ArrayList::new));
         List<VillagerTrades.ItemListing> basic = Arrays.stream(trades.get(2).getKey()).collect(Collectors.toCollection(ArrayList::new));
         RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(basic::add, rare::add, buying::add));
+        VillagerTradesAccessor.setWANDERING_TRADER_TRADES(ImmutableList.<Pair<VillagerTrades.ItemListing[], Integer>>builder().add(
+                Pair.of(buying.toArray(VillagerTrades.ItemListing[]::new), trades.get(0).getValue()),
+                Pair.of(rare.toArray(VillagerTrades.ItemListing[]::new), trades.get(1).getValue()),
+                Pair.of(basic.toArray(VillagerTrades.ItemListing[]::new), trades.get(2).getValue())
+        ).build());
     }
 
     private static void setupVillagerTrades() {

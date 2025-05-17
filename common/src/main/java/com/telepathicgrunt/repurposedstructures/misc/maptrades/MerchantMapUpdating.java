@@ -33,10 +33,7 @@ public class MerchantMapUpdating {
     private MerchantMapUpdating() {}
 
     public static void invalidateMap(AbstractVillager merchant, ItemStack mapStack) {
-        Component customName = mapStack.getComponents().get(DataComponents.CUSTOM_NAME);
-        if (customName != null) {
-            mapStack.set(DataComponents.CUSTOM_NAME, Component.translatable("item.minecraft.map"));
-        }
+        mapStack.set(DataComponents.CUSTOM_NAME, Component.translatable("item.minecraft.map"));
         merchant.getOffers()
                 .stream()
                 .filter(offer -> offer.getResult() == mapStack)
@@ -128,7 +125,7 @@ public class MerchantMapUpdating {
                                 mapStack,
                                 displayName,
                                 destinationType,
-                                pair.getFirst()
+                                pair == null ? null : pair.getFirst()
                         ))
         );
     }
@@ -160,10 +157,7 @@ public class MerchantMapUpdating {
 
     public static ItemStack createEmptyMap() {
         ItemStack stack = new ItemStack(Items.FILLED_MAP);
-        Component customName = stack.getComponents().get(DataComponents.CUSTOM_NAME);
-        if (customName != null) {
-            stack.set(DataComponents.CUSTOM_NAME, Component.translatable("Locating... (Do not buy this map until finished)"));
-        }
+        stack.set(DataComponents.CUSTOM_NAME, Component.translatable("Locating... (Do not buy this map until finished)"));
         return stack;
     }
 

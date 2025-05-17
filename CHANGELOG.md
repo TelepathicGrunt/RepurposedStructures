@@ -1,10 +1,6 @@
-### **(V.7.5.18 Changes) (1.21.5 Minecraft) (Config Datapack Updated)**
+### **(V.7.5.19 Changes) (1.21.5 Minecraft)**
 
-##### Temples:
-Fixed Ocean Temples able to spawn partially above y = 64
+##### Maps:
+Fixed crash when a Cartographer or Wandering Trader's explorer map is unable to find the structure in range.
 
-##### Villages:
-Fixed Ocean Villages able to spawn partially above y = 64
-
-##### Lang:
-Spanish (es_es.json) updated by GGlangf
+(Fabric): Fixed Wandering Traders not having RS maps.
