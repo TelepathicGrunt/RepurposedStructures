@@ -1,85 +1,44 @@
-dependencies {
-    // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
-    // Do NOT use other classes from fabric loader
-    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-
-    implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${rootProject.mixin_extras}"))
+plugins {
+    id 'fabric-loom' version '1.10-SNAPSHOT'
 }
 
-architectury {
-    common("fabric", "forge", "quilt")
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings(loom.layered {
+        it.officialMojangMappings()
+        it.parchment("org.parchmentmc.data:parchment-${project.parchment_minecraft_version}:${project.parchment_mappings_version}@zip")
+    })
+    compileOnly "org.ow2.asm:asm:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-analysis:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-commons:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-tree:${project.asm_version}"
+    compileOnly "org.ow2.asm:asm-util:${project.asm_version}"
+
+    compileOnly "net.fabricmc:sponge-mixin:${project.mixin_version}"
+    compileOnly "io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}"
+    annotationProcessor "io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}"
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/repurposed_structures.accesswidener")
-}
-
-jar {
-    exclude "architectury.common.json"
-
-    manifest {
-        attributes 'Fabric-Loom-Remap': true
-    }
-}
-
-sourcesJar {
-    exclude "architectury.common.json"
-}
-
-def ENV = System.getenv()
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact remapJar
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-
-            artifactId = "$rootProject.name"
-
-            pom {
-                name = 'RepurposedStructures'
-                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
-                url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-
-                scm {
-                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-                }
-
-                licenses {
-                    license {
-                        name = 'GNU Lesser General Public License v3.0'
-                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures/blob/master/LICENSE'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id = 'telepathic_grunt'
-                        name = 'TelepathicGrunt'
-                        email = 'asarnesespam@gmail.com'
-                    }
-                }
-            }
-
+    mods {
+        "${mod_id}" {
+            // Tell Loom about each source set used by your mod here. This ensures that your mod's classes are properly transformed by Loader.
+            sourceSet sourceSets.main
         }
     }
 
-    repositories {
-        maven {
-            url = "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
-            credentials {
-                username ENV.MAVEN_USER
-                password ENV.MAVEN_PASS
-            }
+    def awFile = project.file("src/main/resources/${mod_id}.accesswidener")
+    if (awFile.exists()) {
+        accessWidenerPath.set(awFile)
+    }
+
+    mixin {
+        useLegacyMixinAp = false
+    }
+
+    runs {
+        configureEach {
+            ideConfigGenerated(false)
         }
     }
 }
-
-task buildAndRelease{}
-tasks.build.mustRunAfter tasks.clean
-tasks.publish.mustRunAfter tasks.build
-tasks.buildAndRelease.dependsOn(tasks.clean, tasks.build, tasks.publish)

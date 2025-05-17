@@ -4,7 +4,13 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixins.fabric",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "resources.LootTableMixin"
+    "blocks.DetectorRailBlockMixin",
+    "blocks.PoweredRailBlockMixin",
+    "blocks.RailBlockMixin",
+    "resources.BuiltInRegistriesMixin",
+    "resources.LootManagerAccessor",
+    "resources.LootTableMixin",
+    "structures.StructurePoolMixin"
   ],
   "client": [],
   "injectors": {

@@ -10,7 +10,7 @@ import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToSt
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.SetupEvent;
 import com.telepathicgrunt.repurposedstructures.modinit.forge.RSBiomeModifiers;
 import com.telepathicgrunt.repurposedstructures.modinit.forge.RSGlobalLootModifier;
-import com.telepathicgrunt.repurposedstructures.modinit.registry.forge.ResourcefulRegistriesImpl;
+import com.telepathicgrunt.repurposedstructures.forge.services.ForgeResourcefulRegistriesService;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
@@ -29,7 +29,7 @@ public class RepurposedStructuresForge {
 
     public RepurposedStructuresForge() {
         RSConfigHandler.setup();
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.NORMAL, ResourcefulRegistriesImpl::onRegisterForgeRegistries);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(EventPriority.NORMAL, ForgeResourcefulRegistriesService::onRegisterForgeRegistries);
 
         RepurposedStructures.init();
 

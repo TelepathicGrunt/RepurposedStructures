@@ -1,151 +1,135 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
-}
-architectury {
-    platformSetupLoomIde()
-    forge()
+    id 'net.neoforged.moddev.legacyforge' version '2.0.88'
 }
 
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-
-    forge {
-        convertAccessWideners = true
-        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
-
-        mixinConfig "repurposed_structures-common.mixins.json"
-        mixinConfig "repurposed_structures-forge.mixins.json"
-    }
-
-    runs {
-        all {
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-        }
-        data {
-            data()
-            programArgs("--all", "--mod", "repurposed_structures")
-            programArgs("--existing", project(":common").file("src/main/resources").absolutePath)
-            programArgs("--output", project(":common").file("src/main/generated/resources").absolutePath)
-        }
-    }
-}
-
-configurations {
-    common
-    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
-    compileClasspath.extendsFrom common
-    runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
+repositories {
+    maven { url = 'https://maven.fabricmc.net' }
 }
 
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.forge_version}"
+    compileOnly(project(':common')) {
+        transitive = false
+    }
 
-    modLocalRuntime("com.telepathicgrunt:CommandStructures-Forge:${project.commandstructures_forge}")
-    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Forge:${project.structurevoidtoggle_forge}")
-    // modLocalRuntime("curse.maven:hugestructureblock-474114:3836266")
+    runtimeOnly("com.telepathicgrunt:CommandStructures-Forge:${project.commandstructures_forge}")
+    runtimeOnly("com.telepathicgrunt:StructureVoidToggle-Forge:${project.structurevoidtoggle_forge}")
+    // runtimeOnly("curse.maven:hugestructureblock-474114:3836266")
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    annotationProcessor 'net.fabricmc:sponge-mixin:0.13.0+mixin.0.8.5'
+    annotationProcessor "io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}"
+    compileOnly("io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}")
+    implementation("io.github.llamalad7:mixinextras-forge:${project.mixin_extras_version}")
+    jarJar("io.github.llamalad7:mixinextras-forge:${project.mixin_extras_version}")
+}
 
-    implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-common:${rootProject.mixin_extras}"))
-    implementation(include("com.github.llamalad7.mixinextras:mixinextras-forge:${rootProject.mixin_extras}"))
+legacyForge {
+    version = "${project.forge_version}"
+
+    runs {
+        client {
+            client()
+            systemProperty 'mixin.env.remapRefMap', 'true'
+            systemProperty 'mixin.env.refMapRemappingFile', project.layout.buildDirectory.get().file('createSrgToMcp/output.srg').asFile.absolutePath
+        }
+
+        server {
+            server()
+            systemProperty 'mixin.env.remapRefMap', 'true'
+            systemProperty 'mixin.env.refMapRemappingFile', project.layout.buildDirectory.get().file('createSrgToMcp/output.srg').asFile.absolutePath
+        }
+    }
+    mods {
+        modServerRun {
+            sourceSet sourceSets.main
+            sourceSet project(":common").sourceSets.main
+        }
+    }
+}
+
+publishMods {
+    file = tasks.reobfJar.archiveFile
+    modLoaders.add("forge")
+
+    File changeLog = rootProject.file("CHANGELOG.md")
+    String changeLogText = changeLog.exists() ? changeLog.text : ""
+
+    def uploadDependenciesCf = [
+    ]
+    def uploadDependenciesMr = [
+    ]
+
+    if (project.hasProperty('curseforge_id_forge')) {
+        curseforge('CurseforgeForge') {
+            accessToken = providers.environmentVariable('CURSEFORGEKEY')
+            projectId = project.findProperty('curseforge_id_forge')
+            minecraftVersions.add(project.minecraft_version)
+            changelog = changeLogText
+
+            uploadDependenciesCf.each { dep, required ->
+                if (required) {
+                    requires(dep)
+                } else {
+                    optional(dep)
+                }
+            }
+        }
+    }
+
+    if (project.hasProperty('modrinth_id_forge')) {
+        modrinth('modrinthForge') {
+            accessToken = accessToken = providers.environmentVariable('MODRINTH_TOKEN')
+            projectId = project.findProperty('modrinth_id_forge')
+            minecraftVersions.add(project.minecraft_version)
+            changelog = changeLogText
+
+            dependencies {
+                uploadDependenciesMr.each { dep, required ->
+                    if (required) {
+                        requires(dep)
+                    } else {
+                        optional(dep)
+                    }
+                }
+            }
+        }
+    }
+}
+
+mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+
+    config("${mod_id}-common.mixins.json")
+    config("${mod_id}-forge.mixins.json")
+}
+
+tasks.named("compileJava", JavaCompile) {
+    source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("javadoc", Javadoc) {
+    source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+    from(project(":common").sourceSets.main.allSource)
 }
 
 processResources {
-    inputs.property "version", project.version
-
-    filesMatching("META-INF/mods.toml") {
-        expand "version": project.version
-    }
-}
-
-shadowJar {
-    exclude "fabric.mod.json"
-    exclude "architectury.common.json"
-
-    configurations = [project.configurations.shadowCommon]
-    archiveClassifier.set("dev-shadow")
-}
-
-remapJar {
-    input.set shadowJar.archiveFile
-    dependsOn shadowJar
-    archiveClassifier.set(null)
+    from project(":common").sourceSets.main.resources
 }
 
 jar {
-    archiveClassifier.set("dev")
-}
-
-sourcesJar {
-    def commonSources = project(":common").sourcesJar
-    dependsOn commonSources
-    from commonSources.archiveFile.map { zipTree(it) }
-}
-
-components.java {
-    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
-        skip()
+    manifest {
+        attributes([
+                "MixinConfigs": "${project.mod_id}-common.mixins.json,${project.mod_id}-forge.mixins.json"
+        ])
     }
 }
-
-def ENV = System.getenv()
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            artifact remapJar
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-
-            artifactId = "$rootProject.name"
-
-            pom {
-                name = 'RepurposedStructures'
-                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
-                url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-
-                scm {
-                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
-                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
-                }
-
-                licenses {
-                    license {
-                        name = 'GNU Lesser General Public License v3.0'
-                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures/blob/master/LICENSE'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id = 'telepathic_grunt'
-                        name = 'TelepathicGrunt'
-                        email = 'asarnesespam@gmail.com'
-                    }
-                }
-            }
-
-        }
-    }
-
-    repositories {
-        maven {
-            url = "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
-            credentials {
-                username ENV.MAVEN_USER
-                password ENV.MAVEN_PASS
-            }
+        "mavenJava"(MavenPublication) {
+            from components.java
         }
     }
 }
-
-task buildAndRelease {}
-tasks.publish.mustRunAfter tasks.build
-tasks.curseforge.mustRunAfter tasks.publish
-tasks.modrinth.mustRunAfter tasks.publish
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.curseforge, tasks.modrinth)

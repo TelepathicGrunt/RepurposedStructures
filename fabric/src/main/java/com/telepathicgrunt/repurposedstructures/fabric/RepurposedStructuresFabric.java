@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.fabric;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.configs.fabricbase.RSModdedLootConfig;
+import com.telepathicgrunt.repurposedstructures.configs.fabric.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
