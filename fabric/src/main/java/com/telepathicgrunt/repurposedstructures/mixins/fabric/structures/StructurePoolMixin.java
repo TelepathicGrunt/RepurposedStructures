@@ -6,8 +6,6 @@ import com.mojang.serialization.Codec;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(value = StructureTemplatePool.class, priority = 1200)
 public class StructurePoolMixin {

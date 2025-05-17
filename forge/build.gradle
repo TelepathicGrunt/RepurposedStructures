@@ -11,10 +11,6 @@ dependencies {
         transitive = false
     }
 
-    runtimeOnly("com.telepathicgrunt:CommandStructures-Forge:${project.commandstructures_forge}")
-    runtimeOnly("com.telepathicgrunt:StructureVoidToggle-Forge:${project.structurevoidtoggle_forge}")
-    // runtimeOnly("curse.maven:hugestructureblock-474114:3836266")
-
     annotationProcessor 'net.fabricmc:sponge-mixin:0.13.0+mixin.0.8.5'
     annotationProcessor "io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}"
     compileOnly("io.github.llamalad7:mixinextras-common:${project.mixin_extras_version}")
