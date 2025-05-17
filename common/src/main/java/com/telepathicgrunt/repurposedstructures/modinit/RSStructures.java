@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
-import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
+import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistries;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import com.telepathicgrunt.repurposedstructures.world.structures.CityNetherStructure;
 import com.telepathicgrunt.repurposedstructures.world.structures.GenericJigsawStructure;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.structure.StructureType;
 
 
 public final class RSStructures {
-    public static final ResourcefulRegistry<StructureType<?>> STRUCTURE_TYPE = ResourcefulRegistriesService.INSTANCE.create(BuiltInRegistries.STRUCTURE_TYPE, RepurposedStructures.MODID);
+    public static final ResourcefulRegistry<StructureType<?>> STRUCTURE_TYPE = ResourcefulRegistries.create(BuiltInRegistries.STRUCTURE_TYPE, RepurposedStructures.MODID);
 
     public static RegistryEntry<StructureType<GenericJigsawStructure>> GENERIC_JIGSAW_STRUCTURE = STRUCTURE_TYPE.register("generic_jigsaw_structure", () -> () -> GenericJigsawStructure.CODEC);
     public static RegistryEntry<StructureType<MansionStructure>> MANSION_STRUCTURE = STRUCTURE_TYPE.register("mansion_structure", () -> () -> MansionStructure.CODEC);

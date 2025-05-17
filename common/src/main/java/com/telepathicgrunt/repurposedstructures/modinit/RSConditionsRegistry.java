@@ -29,7 +29,7 @@ public final class RSConditionsRegistry {
      * You can register what the condition is to this registry by doing the below in your mod so now your config can control the json files.
      * NOTE: DO THIS CODE ONLY AT MOD INIT. Do not run it when a world is being made! The registry will be frozen after mod init.
 
-     * FABRIC:
+     * FABRIC/QUILT:
          BuiltInRegistries.REGISTRY.getOptional(new ResourceLocation("repurposed_structures", "json_conditions"))
              .ifPresent(registry -> Registry.register(
                  (Registry<Supplier<Boolean>>)registry,

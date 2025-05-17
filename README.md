@@ -27,6 +27,9 @@ dependencies {
    FABRIC: 
      modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.20.1-fabric"
      
+   QUILT: 
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.20.1-quilt"
+     
    ARCH COMMON MODULE: 
      modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.20.1-common"
 }
@@ -84,6 +87,10 @@ dependencies {
      modImplementation "com.telepathicgrunt:RepurposedStructures:<modversion>+1.20.1-fabric"
      modImplementation "maven.modrinth:midnightlib:1.4.1-fabric" 
    
+   QUILT: 
+     modImplementation "com.telepathicgrunt:RepurposedStructures:<modversion>+1.20.1-quilt"
+     modImplementation "maven.modrinth:midnightlib:1.4.1-fabric" 
+     
    ARCH COMMON MODULE: 
      modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.20.1-common"
 }

@@ -1,22 +1,27 @@
 modLoader="javafml" #mandatory
 loaderVersion="[38,)" #mandatory
-issueTrackerURL="${issues_url}"
-sourcesUrl="${sources_url}"
-license="${license}"
+issueTrackerURL="https://github.com/TelepathicGrunt/RepurposedStructures/issues" #optional
+license="https://github.com/TelepathicGrunt/RepurposedStructures/blob/latest-released/LICENSE"
 
 [[mods]] #mandatory
-    modId="${mod_id}"
-    version="${version}"
-    displayName="${mod_display_name}"
-    displayURL="${homepage_url}"
-    authors="${mod_author}"
-    credits="${mod_credits}"
-    description='''${mod_description}'''
-    logoFile="${logo_forge}"
-    logoBlur=false
+modId="repurposed_structures" #mandatory
+logoFile= "../assets/repurposed_structures/repurposed_structures_logo_wide.png"
+logoBlur=false
+version="${version}" #mandatory
+displayName="Repurposed Structures" #mandatory
+displayURL="https://www.curseforge.com/minecraft/mc-mods/repurposed-structures"
+authors="TelepathicGrunt"
+credits="Special thanks to /r/l-ll-ll-l_IsDisLoss, miguelforge, and cannon_foddr for donating some structures to this mod!"
+description='''
+Taking existing vanilla structures and changing them up for extra variety!
+'''
 
-[dependencies]
-"${mod_id}" = [
-    { modId = "forge", type = "required", versionRange = "[46.0.1,)", ordering = "NONE", side = "BOTH" },
-    { modId = "minecraft", type = "required", versionRange = "[1.20.1,1.21)", ordering = "NONE", side = "BOTH" },
-]
+[[dependencies.repurposed_structures]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20,1.21)"
+
+[[dependencies.repurposed_structures]]
+    modId="forge"
+    mandatory=true
+    versionRange="[46.0.1,)"

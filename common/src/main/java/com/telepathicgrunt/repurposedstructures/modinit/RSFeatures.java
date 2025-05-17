@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
-import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
+import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistries;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import com.telepathicgrunt.repurposedstructures.world.features.*;
 import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMobConfig;
@@ -22,7 +22,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfig
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 public final class RSFeatures {
-	public static final ResourcefulRegistry<Feature<?>> FEATURES = ResourcefulRegistriesService.INSTANCE.create(BuiltInRegistries.FEATURE, RepurposedStructures.MODID);
+	public static final ResourcefulRegistry<Feature<?>> FEATURES = ResourcefulRegistries.create(BuiltInRegistries.FEATURE, RepurposedStructures.MODID);
 
 	public static final RegistryEntry<Feature<NbtDungeonConfig>> NBT_DUNGEONS = FEATURES.register("nbt_dungeon", () -> new NbtDungeon(NbtDungeonConfig.CODEC));
 	public static final RegistryEntry<Feature<NbtFeatureConfig>> NBT_FEATURE = FEATURES.register("nbt_feature", NbtFeature::new);

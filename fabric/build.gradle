@@ -1,160 +1,136 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
-repositories {
-    maven { url = 'https://maven.terraformersmc.com/releases' }
-    exclusiveContent {
-        forRepository {
-            maven {
-                name = "ParchmentMC"
-                url = "https://maven.parchmentmc.org"
-            }
-        }
-        filter {
-            includeGroupAndSubgroups("org.parchmentmc")
-        }
-    }
-}
-
-dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings(loom.layered {
-        it.officialMojangMappings()
-        it.parchment("org.parchmentmc.data:parchment-${project.parchment_minecraft_version}:${project.parchment_mappings_version}@zip")
-    })
-    compileOnly(project(":common")) {
-        transitive = false
-    }
-
-    modImplementation("net.fabricmc:fabric-loader:${project.fabric_loader_version}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}")
-
-    modImplementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
-
-    modCompileOnly("com.terraformersmc:modmenu:${project.mod_menu}") {
-        transitive = false
-    }
-    modLocalRuntime("com.terraformersmc:modmenu:${project.mod_menu}") {
-        transitive = false
-    }
-
-    modLocalRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
-    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
-}
-
-publishMods {
-    file = tasks.remapJar.archiveFile
-    modLoaders.add("fabric")
-
-    File changeLog = rootProject.file("CHANGELOG.md")
-    String changeLogText = changeLog.exists() ? changeLog.text : ""
-
-    def uploadDependenciesCf = [
-            'resourceful-config': true
-    ]
-    def uploadDependenciesMr = [
-            'resourceful-config': true
-    ]
-
-    if (project.hasProperty('curseforge_id_fabric')) {
-        curseforge('curseforgeFabric') {
-            accessToken = providers.environmentVariable('CURSEFORGEKEY')
-            projectId = project.findProperty('curseforge_id_fabric')
-            minecraftVersions.add(project.minecraft_version)
-            changelog = changeLogText
-
-            uploadDependenciesCf.each { dep, required ->
-                if (required) {
-                    requires(dep)
-                } else {
-                    optional(dep)
-                }
-            }
-        }
-    }
-
-    if (project.hasProperty('modrinth_id_fabric')) {
-        modrinth('modrinthFabric') {
-            accessToken = providers.environmentVariable('MODRINTH_TOKEN')
-            projectId = project.findProperty('modrinth_id_fabric')
-            minecraftVersions.add(project.minecraft_version)
-            changelog = changeLogText
-
-            dependencies {
-                uploadDependenciesMr.each { dep, required ->
-                    if (required) {
-                        requires(dep)
-                    } else {
-                        optional(dep)
-                    }
-                }
-            }
-        }
-    }
+architectury {
+    platformSetupLoomIde()
+    fabric()
 }
 
 loom {
-    mods {
-        "${mod_id}" {
-            // Tell Loom about each source set used by your mod here. This ensures that your mod's classes are properly transformed by Loader.
-            sourceSet sourceSets.main
-            sourceSet project(":common").sourceSets.main
-        }
-    }
-
-    def awFile = project(':common').file("src/main/resources/${mod_id}.accesswidener")
-    if (awFile.exists()) {
-        accessWidenerPath.set(awFile)
-    }
-
-    mixin {
-        useLegacyMixinAp = false
-    }
-
-    runs {
-        configureEach {
-            runDir("run")
-            ideConfigGenerated(true)
-        }
-
-        client {
-            client()
-            setConfigName("Fabric Client")
-
-            if (project.hasProperty('mc_uuid')) {
-                programArg("--uuid=${project.findProperty('mc_uuid')}")
-            }
-
-            if (project.hasProperty('mc_username')) {
-                programArg("--username=${project.findProperty('mc_username')}")
-            }
-
-            if (project.hasProperty('mc_java_agent_path')) {
-                vmArg("-javaagent:${project.findProperty('mc_java_agent_path')}")
-            }
-        }
-
-        server {
-            server()
-            setConfigName("Fabric Server")
-            programArg('--nogui')
-        }
-    }
+    accessWidenerPath = project(":common").loom.accessWidenerPath
 }
 
-tasks.named("compileJava", JavaCompile) {
-    source(project(":common").sourceSets.main.allJava)
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
 }
 
-tasks.named("javadoc", Javadoc).configure {
-    source(project(":common").sourceSets.main.allJava)
-}
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
 
-tasks.named("sourcesJar", Jar) {
-    from(project(":common").sourceSets.main.allSource)
+    modImplementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
+
+    modCompileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
+    modRuntimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
+
+    modLocalRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
+    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+    common(project(path: ":fabric-base", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":fabric-base", configuration: "transformProductionFabric")) { transitive false }
+
+    include(implementation(annotationProcessor("com.github.llamalad7.mixinextras:mixinextras-fabric:${rootProject.mixin_extras}")))
 }
 
 processResources {
-    from project(":common").sourceSets.main.resources
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
 }
+
+shadowJar {
+    exclude "architectury.common.json"
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier.set("dev-shadow")
+}
+
+remapJar {
+    injectAccessWidener = true
+    inputFile.set shadowJar.archiveFile
+    dependsOn shadowJar
+    archiveClassifier.set(null)
+}
+
+jar {
+    archiveClassifier.set("dev")
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+def ENV = System.getenv()
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact remapJar
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+
+            artifactId = "$rootProject.name"
+
+            pom {
+                name = 'RepurposedStructures'
+                description = 'Adds more variations of vanilla structures and features such as a Jungle Fortress!'
+                url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
+
+                scm {
+                    connection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
+                    developerConnection = 'git:https://github.com/TelepathicGrunt/RepurposedStructures.git'
+                    url = 'https://github.com/TelepathicGrunt/RepurposedStructures'
+                }
+
+                licenses {
+                    license {
+                        name = 'GNU Lesser General Public License v3.0'
+                        url = 'https://github.com/TelepathicGrunt/RepurposedStructures/blob/master/LICENSE'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'telepathic_grunt'
+                        name = 'TelepathicGrunt'
+                        email = 'asarnesespam@gmail.com'
+                    }
+                }
+            }
+
+        }
+    }
+
+    repositories {
+        maven {
+            url = "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
+            credentials {
+                username ENV.MAVEN_USER
+                password ENV.MAVEN_PASS
+            }
+        }
+    }
+}
+
+task buildAndRelease{}
+tasks.publish.mustRunAfter tasks.build
+tasks.curseforge.mustRunAfter tasks.publish
+tasks.modrinth.mustRunAfter tasks.publish
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.curseforge, tasks.modrinth)
