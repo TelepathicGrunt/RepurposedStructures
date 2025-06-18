@@ -32,8 +32,12 @@ dependencies {
 
     modImplementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
 
-    modCompileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
-    modRuntimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}")
+    modCompileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
+        transitive = false
+    }
+    modRuntimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
+        transitive = false
+    }
 
 //    modLocalRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
 //    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
