@@ -3,19 +3,15 @@
   "values": [
     "#minecraft:is_badlands",
     {
+      "id": "#c:in_badlands",
+      "required": false
+    },
+    {
       "id": "terralith:savanna_badlands",
       "required": false
     },
     {
       "id": "byg:atacama_desert",
-      "required": false
-    },
-    {
-      "id": "#forge:is_mesa",
-      "required": false
-    },
-    {
-      "id": "#c:in_mesa",
       "required": false
     },
     {

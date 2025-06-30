@@ -3,6 +3,10 @@
   "values": [
     "minecraft:warped_forest",
     {
+      "id": "#c:primary_wood_type/warped",
+      "required": false
+    },
+    {
       "id": "betternether:bone_reef",
       "required": false
     },

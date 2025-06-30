@@ -3,6 +3,14 @@
   "values": [
     "minecraft:dark_forest",
     {
+      "id": "#c:is_spooky",
+      "required": false
+    },
+    {
+      "id": "#c:is_dead",
+      "required": false
+    },
+    {
       "id": "byg:ancient_forest",
       "required": false
     },
@@ -60,18 +68,6 @@
     },
     {
       "id": "wythers:phantasmal_swamp",
-      "required": false
-    },
-    {
-      "id": "#forge:is_spooky",
-      "required": false
-    },
-    {
-      "id": "#forge:is_dead",
-      "required": false
-    },
-    {
-      "id": "#c:dead",
       "required": false
     }
   ]

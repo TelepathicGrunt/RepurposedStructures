@@ -3,6 +3,10 @@
   "values": [
     "minecraft:crimson_forest",
     {
+      "id": "#c:primary_wood_type/crimson",
+      "required": false
+    },
+    {
       "id": "betternether:crimson_glowing_woods",
       "required": false
     },

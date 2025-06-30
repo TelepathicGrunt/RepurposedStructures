@@ -4,15 +4,15 @@
     "minecraft:plains",
     "minecraft:sunflower_plains",
     {
+      "id": "#c:is_plains",
+      "required": false
+    },
+    {
       "id": "terralith:brushland",
       "required": false
     },
     {
       "id": "projectvibrantjourneys:prairie",
-      "required": false
-    },
-    {
-      "id": "#c:plains",
       "required": false
     },
     {
