@@ -4,7 +4,11 @@
     "minecraft:flower_forest",
     "minecraft:cherry_grove",
     {
-      "id": "#c:flower_forests",
+      "id": "#c:is_flower_forest",
+      "required": false
+    },
+    {
+      "id": "#c:is_floral",
       "required": false
     },
     {

@@ -4,11 +4,11 @@
     "minecraft:ice_spikes",
     "minecraft:frozen_peaks",
     {
-      "id": "#byg:is_icy",
+      "id": "#c:is_icy",
       "required": false
     },
     {
-      "id": "#forge:is_icy",
+      "id": "#byg:is_icy",
       "required": false
     },
     {

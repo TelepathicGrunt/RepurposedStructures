@@ -3,7 +3,7 @@
   "values": [
     "#minecraft:is_deep_ocean",
     {
-      "id": "#c:deep_ocean",
+      "id": "#c:is_deep_ocean",
       "required": false
     }
   ]

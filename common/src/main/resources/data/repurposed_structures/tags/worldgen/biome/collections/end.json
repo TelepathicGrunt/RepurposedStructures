@@ -3,15 +3,11 @@
   "values": [
     "#minecraft:is_end",
     {
-      "id": "#forge:is_end",
+      "id": "#c:is_end",
       "required": false
     },
     {
-      "id": "#c:in_the_end",
-      "required": false
-    },
-    {
-      "id": "#c:end_islands",
+      "id": "#c:is_outer_end_island",
       "required": false
     },
     {

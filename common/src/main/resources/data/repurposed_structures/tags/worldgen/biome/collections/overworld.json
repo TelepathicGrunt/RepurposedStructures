@@ -3,11 +3,7 @@
   "values": [
     "#minecraft:is_overworld",
     {
-      "id": "#forge:is_overworld",
-      "required": false
-    },
-    {
-      "id": "#c:in_overworld",
+      "id": "#c:is_overworld",
       "required": false
     }
   ]

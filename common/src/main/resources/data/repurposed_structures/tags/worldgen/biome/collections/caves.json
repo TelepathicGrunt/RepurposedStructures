@@ -5,6 +5,14 @@
     "minecraft:lush_caves",
     "minecraft:deep_dark",
     {
+      "id": "#c:is_caves",
+      "required": false
+    },
+    {
+      "id": "#c:is_underground",
+      "required": false
+    },
+    {
       "id": "terralith:cave/andesite_caves",
       "required": false
     },
@@ -58,22 +66,6 @@
     },
     {
       "id": "terralith:cave/underground_jungle",
-      "required": false
-    },
-    {
-      "id": "#forge:is_cave",
-      "required": false
-    },
-    {
-      "id": "#forge:is_underground",
-      "required": false
-    },
-    {
-      "id": "#c:underground",
-      "required": false
-    },
-    {
-      "id": "#c:caves",
       "required": false
     }
   ]
