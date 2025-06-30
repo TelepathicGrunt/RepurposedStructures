@@ -9,7 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 // Source: https://github.com/BluSunrize/ImmersiveEngineering/blob/1.20.1/src/datagen/java/blusunrize/immersiveengineering/data/IEDataGenerator.java
-@EventBusSubscriber(modid = RepurposedStructures.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = RepurposedStructures.MODID)
 public class StructureNbtUpdaterDatagen {
 
     @SubscribeEvent
