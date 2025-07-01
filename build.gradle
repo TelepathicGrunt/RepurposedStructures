@@ -59,8 +59,8 @@ subprojects {
                 "homepage_url"         : project.homepage_url,
                 "license_url"          : project.license_url,
                 "license"              : project.license,
-                "logo_neoforge"        : project.license,
-                "logo_fabric"          : project.license,
+                "logo_neoforge"        : project.logo_neoforge,
+                "logo_fabric"          : project.logo_fabric,
 
                 "minecraft_version"    : project.minecraft_version,
                 "neoforge_version"     : project.neoforge_version,
