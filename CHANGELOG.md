@@ -1,4 +1,4 @@
-### **(V.7.1.18 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
+### **(V.7.1.19 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 ##### Dungeons:
 Made spawners in all Overworld non-ocean Dungeons now doesn't override the light level requirements of mobs.
