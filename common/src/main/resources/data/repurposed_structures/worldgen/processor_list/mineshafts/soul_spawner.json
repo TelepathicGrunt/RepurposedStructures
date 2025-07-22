@@ -8,8 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:soul_wall_torch",
-            "probability": 0.92,
-            "predicate_type": "minecraft:random_block_match"
+            "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
