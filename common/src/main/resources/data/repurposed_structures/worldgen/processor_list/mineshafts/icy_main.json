@@ -8,7 +8,7 @@
           },
           "input_predicate": {
             "block": "minecraft:redstone_wall_torch",
-            "probability": 0.92,
+            "probability": 0.96,
             "predicate_type": "minecraft:random_block_match"
           },
           "location_predicate": {

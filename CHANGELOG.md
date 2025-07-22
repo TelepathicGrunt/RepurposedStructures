@@ -1,22 +1,13 @@
-### **(V.7.1.18 Changes) (1.20.1 Minecraft)**
+### **(V.7.1.18 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
-##### Misc:
-(Fabric): Fixed crash with Mod Menu
+##### Dungeons:
+Made spawners in all Overworld non-ocean Dungeons now doesn't override the light level requirements of mobs.
+Thus allowing common monsters in spawners to only spawn in light level 0.
 
+##### Mineshafts:
+Made spawners in all Overworld non-ocean Dungeons now doesn't override the light level requirements of mobs.
+ Thus allowing common monsters in spawners to only spawn in light level 0.
 
-### **(V.7.1.17 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
+Most Mineshaft's light block rates have been halved, leading to darker Mineshafts.
 
-##### Maps:
-Fixed crash when a Cartographer or Wandering Trader's explorer map is unable to find the structure in range.
-
-##### Pyramids:
-Reduced amount of TNT and adjust its placement in Dark Forest Pyramid so its one key Redstone piece remains for player learning.
-
-##### Temples:
-Fixed Ocean Temples able to spawn partially above y = 64
-
-##### Villages:
-Fixed Ocean Villages able to spawn partially above y = 64
-
-##### Lang:
-Spanish (es_es.json) updated by GGlangf
+Tunnel pieces that contains Spawners now will not have light blocks to allow better mob spawning from the spawner.
