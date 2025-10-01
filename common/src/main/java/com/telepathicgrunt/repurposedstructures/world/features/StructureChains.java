@@ -46,8 +46,8 @@ public class StructureChains extends Feature<StructureTargetConfig> {
                 if (world.isEmptyBlock(mutable)) {
                     aboveBlockstate = world.getBlockState(mutable.above());
 
-                    if (aboveBlockstate.is(Blocks.CHAIN) || aboveBlockstate.isFaceSturdy(world, mutable.above(), Direction.DOWN)) {
-                        world.setBlock(mutable, Blocks.CHAIN.defaultBlockState(), 2);
+                    if (aboveBlockstate.is(Blocks.IRON_CHAIN) || aboveBlockstate.isFaceSturdy(world, mutable.above(), Direction.DOWN)) {
+                        world.setBlock(mutable, Blocks.IRON_CHAIN.defaultBlockState(), 2);
                         length++;
                     }
                 }

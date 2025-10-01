@@ -126,7 +126,7 @@
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
-            "block": "minecraft:chain",
+            "block": "minecraft:iron_chain",
             "predicate_type": "minecraft:block_match"
           }
         },
@@ -139,7 +139,7 @@
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
-            "block": "minecraft:chain",
+            "block": "minecraft:iron_chain",
             "predicate_type": "minecraft:block_match"
           }
         }

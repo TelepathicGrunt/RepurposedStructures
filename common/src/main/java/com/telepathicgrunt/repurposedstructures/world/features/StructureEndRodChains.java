@@ -20,7 +20,7 @@ import java.util.Set;
 public class StructureEndRodChains extends Feature<StructureTargetConfig> {
 
     private static final Set<Block> ALLOWED_ATTACHEMENT_BLOCKS = Set.of(
-            Blocks.CHAIN,
+            Blocks.IRON_CHAIN,
             Blocks.OBSIDIAN,
             Blocks.CRYING_OBSIDIAN,
             Blocks.PURPUR_BLOCK,
@@ -60,7 +60,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
                     Block belowBlock = belowBlockstate.getBlock();
 
                     if (ALLOWED_ATTACHEMENT_BLOCKS.contains(belowBlock)) {
-                        world.setBlock(mutable, Blocks.CHAIN.defaultBlockState(), 2);
+                        world.setBlock(mutable, Blocks.IRON_CHAIN.defaultBlockState(), 2);
                         if(belowBlock instanceof SlabBlock) {
                             world.setBlock(mutable.below(), belowBlockstate.setValue(SlabBlock.TYPE, SlabType.DOUBLE), 3);
                         }

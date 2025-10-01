@@ -44,10 +44,10 @@ public class MatterPhaseRuleTest extends RuleTest {
                 if(!state.isAir() && state.getFluidState().isEmpty() && state.canOcclude()) phaseMatch = true;
                 break;
             case AIR_RAIL_OR_CHAIN:
-                if(state.isAir() || state.is(Blocks.CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
+                if(state.isAir() || state.is(Blocks.IRON_CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
                 break;
             case LIQUID_RAIL_OR_CHAIN:
-                if(!state.getFluidState().isEmpty() || state.is(Blocks.CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
+                if(!state.getFluidState().isEmpty() || state.is(Blocks.IRON_CHAIN) || state.is(Blocks.RAIL)) phaseMatch = true;
                 break;
         }
 

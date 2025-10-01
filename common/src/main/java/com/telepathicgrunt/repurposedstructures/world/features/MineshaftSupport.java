@@ -149,7 +149,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                         while (chainPos.getY() < mutable.getY()) {
                             chunk.setBlockState(
                                     chainPos,
-                                    Blocks.CHAIN.defaultBlockState()
+                                    Blocks.IRON_CHAIN.defaultBlockState()
                                             .setValue(BlockStateProperties.WATERLOGGED,
                                                     chunk.getBlockState(chainPos).getFluidState().is(FluidTags.WATER)),
                                     Block.UPDATE_CLIENTS);

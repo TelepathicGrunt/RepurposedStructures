@@ -13,6 +13,6 @@ public class NeoPlatformService implements PlatformService {
 
     @Override
     public boolean isDevEnvironment() {
-        return !FMLEnvironment.production;
+        return !FMLEnvironment.isProduction();
     }
 }
