@@ -30,6 +30,7 @@
     "${mod_id}-fabric.mixins.json",
     "${mod_id}-common.mixins.json"
   ],
+  "accessWidener": "${mod_id}.accesswidener",
 
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
