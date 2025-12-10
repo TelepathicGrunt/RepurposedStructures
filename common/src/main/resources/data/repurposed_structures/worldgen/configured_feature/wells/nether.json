@@ -3,7 +3,7 @@
   "config": {
 	  "nbt_entries": [
 		  {
-			  "resourcelocation": "repurposed_structures:wells/nether",
+			  "Identifier": "repurposed_structures:wells/nether",
 			  "weight": 1
 		  }
 	  ],

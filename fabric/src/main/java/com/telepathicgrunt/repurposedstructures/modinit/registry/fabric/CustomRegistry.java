@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.modinit.registry.fabric;
 
 import com.telepathicgrunt.repurposedstructures.modinit.registry.CustomRegistryLookup;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -18,7 +18,7 @@ public class CustomRegistry<T> implements CustomRegistryLookup<T, T> {
     }
 
     @Override
-    public boolean containsKey(ResourceLocation id) {
+    public boolean containsKey(Identifier id) {
         return registry.containsKey(id);
     }
 
@@ -28,12 +28,12 @@ public class CustomRegistry<T> implements CustomRegistryLookup<T, T> {
     }
 
     @Override
-    public @Nullable T get(ResourceLocation id) {
+    public @Nullable T get(Identifier id) {
         return registry.getValue(id);
     }
 
     @Override
-    public @Nullable ResourceLocation getKey(T value) {
+    public @Nullable Identifier getKey(T value) {
         return registry.getKey(value);
     }
 
@@ -43,7 +43,7 @@ public class CustomRegistry<T> implements CustomRegistryLookup<T, T> {
     }
 
     @Override
-    public Collection<ResourceLocation> getKeys() {
+    public Collection<Identifier> getKeys() {
         return registry.keySet();
     }
 

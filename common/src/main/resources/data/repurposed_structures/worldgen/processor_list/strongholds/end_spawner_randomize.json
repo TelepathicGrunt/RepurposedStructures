@@ -2,7 +2,7 @@
   "processors": [
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:strongholds/end"
+      "rs_spawner_Identifier": "repurposed_structures:strongholds/end"
     },
     {
       "processor_type": "repurposed_structures:noise_replace_with_properties_processor",

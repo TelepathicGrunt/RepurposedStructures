@@ -7,7 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
 
 import java.util.List;
@@ -17,12 +17,12 @@ public final class StructureMapTradesEvents {
     private StructureMapTradesEvents() {}
 
     public static void addVillagerTrades(RegisterVillagerTradesEvent event) {
-        ResourceLocation currentVillager = event.type().location();
+        Identifier currentVillager = event.type().identifier();
         if (currentVillager != null && StructureMapManager.STRUCTURE_MAP_MANAGER.VILLAGER_MAP_TRADES.containsKey(currentVillager.toString())) {
             for (VillagerMapObj mapTrade : StructureMapManager.STRUCTURE_MAP_MANAGER.VILLAGER_MAP_TRADES.get(currentVillager.toString())) {
                 Holder.Reference<MapDecorationType> icon;
                 try {
-                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, ResourceLocation.tryParse(mapTrade.mapIcon)));
+                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, Identifier.tryParse(mapTrade.mapIcon)));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(e);
@@ -46,7 +46,7 @@ public final class StructureMapTradesEvents {
             for (WanderingTraderMapObj mapTrade : tradeEntry.getValue()) {
                 Holder.Reference<MapDecorationType> icon;
                 try {
-                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, ResourceLocation.tryParse(mapTrade.mapIcon)));
+                    icon = BuiltInRegistries.MAP_DECORATION_TYPE.getOrThrow(ResourceKey.create(Registries.MAP_DECORATION_TYPE, Identifier.tryParse(mapTrade.mapIcon)));
                 }
                 catch (Exception e) {
                     RepurposedStructures.LOGGER.error(e);

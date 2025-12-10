@@ -27,7 +27,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import com.telepathicgrunt.repurposedstructures.services.PlatformService;
 import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -89,9 +89,9 @@ public class RepurposedStructures {
     }
 
     public static void registerDatapackListener(final RegisterReloadListenerEvent event) {
-        event.register(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_spawners"), MobSpawnerManager.MOB_SPAWNER_MANAGER);
-        event.register(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "structure_map_trades"), StructureMapManager.STRUCTURE_MAP_MANAGER);
-        event.register(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_pieces_spawn_counts"), StructurePieceCountsManager.STRUCTURE_PIECE_COUNTS_MANAGER);
-        event.register(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_pool_additions"), PoolAdditionMergerManager.POOL_ADDITIONS_MERGER_MANAGER);
+        event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_spawners"), MobSpawnerManager.MOB_SPAWNER_MANAGER);
+        event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "structure_map_trades"), StructureMapManager.STRUCTURE_MAP_MANAGER);
+        event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_pieces_spawn_counts"), StructurePieceCountsManager.STRUCTURE_PIECE_COUNTS_MANAGER);
+        event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_pool_additions"), PoolAdditionMergerManager.POOL_ADDITIONS_MERGER_MANAGER);
     }
 }

@@ -28,8 +28,8 @@ public class OceanTemperatureRandomSelector extends Feature<OceanTemperatureRand
         ChunkGenerator chunkGenerator = featurePlaceContext.chunkGenerator();
         Holder<Biome> biome = featurePlaceContext.level().getBiome(blockPos);
         float biomeTemp = biome.value().getBaseTemperature();
-        String biomeNamespace = biome.unwrapKey().get().location().getNamespace();
-        String biomePath = biome.unwrapKey().get().location().getPath();
+        String biomeNamespace = biome.unwrapKey().get().identifier().getNamespace();
+        String biomePath = biome.unwrapKey().get().identifier().getPath();
 
         PlacedFeature placedFeature;
 

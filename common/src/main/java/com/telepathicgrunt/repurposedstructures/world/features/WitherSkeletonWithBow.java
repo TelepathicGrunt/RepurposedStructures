@@ -4,14 +4,14 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.WitherSkeleton;
+import net.minecraft.world.entity.monster.skeleton.WitherSkeleton;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -43,7 +43,7 @@ public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
 
         witherEntity.getAttribute(Attributes.FOLLOW_RANGE)
                 .addPermanentModifier(new AttributeModifier(
-                        ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "random_spawn_bonus"),
+                        Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "random_spawn_bonus"),
                         (context.random().nextGaussian() * 0.3D) + 0.5D,
                         AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 

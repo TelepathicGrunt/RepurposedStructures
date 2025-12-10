@@ -7,7 +7,6 @@ import com.telepathicgrunt.repurposedstructures.mixins.structures.SinglePoolElem
 import com.telepathicgrunt.repurposedstructures.mixins.structures.StructurePoolAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -15,9 +14,10 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.Pools;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Tuple;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
@@ -1015,12 +1015,12 @@ public class MansionPieces{
         }
 
         private void saveJigsawPiece(List<StructurePiece> structurePieces, Registry<StructureTemplatePool> poolRegistry, StructureTemplateManager manager, RandomSource random, String poolPath, BlockPos blockPos, Rotation rotation, Mirror mirror) {
-            ResourceLocation resourceLocation = ResourceLocation.tryParse(poolPath.toLowerCase(Locale.ROOT));
-            Optional<Holder.Reference<StructureTemplatePool>> pool = poolRegistry.get(resourceLocation);
+            Identifier poolRl = Identifier.tryParse(poolPath.toLowerCase(Locale.ROOT));
+            Optional<Holder.Reference<StructureTemplatePool>> pool = poolRegistry.get(poolRl);
             StructurePoolElement poolEntry;
 
             if(pool.isEmpty() || pool.get().value().size() == 0) {
-                RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate mansion piece at spot.", resourceLocation + " - Mansion type: " + this.mansionType);
+                RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate mansion piece at spot.", poolRl + " - Mansion type: " + this.mansionType);
                 poolEntry = StructurePoolElement.empty().apply(StructureTemplatePool.Projection.RIGID);
             }
             else {
@@ -1066,11 +1066,11 @@ public class MansionPieces{
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                ResourceLocation jigsawBlockPool = ResourceLocation.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
+                Identifier jigsawBlockPool = Identifier.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
                 Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlockPool);
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
-                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.location())))) {
+                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.identifier())))) {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }

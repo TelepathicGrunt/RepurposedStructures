@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -33,58 +33,58 @@ public class BiomeModifier {
         addToBiome("wells/snow", GenerationStep.Decoration.SURFACE_STRUCTURES);
         addToBiome("wells/cherry", GenerationStep.Decoration.SURFACE_STRUCTURES);
 
-        removeFromBiome(ResourceLocation.fromNamespaceAndPath("minecraft", "monster_room_deep"), "has_structure/dungeons/deep", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        removeFromBiome(Identifier.fromNamespaceAndPath("minecraft", "monster_room_deep"), "has_structure/dungeons/deep", GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
 
         // Have to do this abomination to get neutral ocean dungeons only in biomes that the other ocean dungeon types won't touch.
         // All due to BiomeModification API being per feature instead of an event like Forge's Biome Modification event.
-        TagKey<Biome> oceanTag = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "has_structure/dungeons/ocean"));
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_neutral"))
+        TagKey<Biome> oceanTag = TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "has_structure/dungeons/ocean"));
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_neutral"))
                 .add(ModificationPhase.ADDITIONS,
                 (context) -> context.hasTag(oceanTag)
-                                && (!nameMatch(context.getBiomeKey().location().getPath(), "cold", "chilly", "frozen", "snow", "ice", "warm", "hot", "tropic", "lukewarm") || // Thanks to vanilla oceans all being same temperature...
-                                (!nameExactMatch(context.getBiomeKey().location().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 0.5f && context.getBiome().getBaseTemperature() < 0.9f)),
-                context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_neutral"))));
+                                && (!nameMatch(context.getBiomeKey().identifier().getPath(), "cold", "chilly", "frozen", "snow", "ice", "warm", "hot", "tropic", "lukewarm") || // Thanks to vanilla oceans all being same temperature...
+                                (!nameExactMatch(context.getBiomeKey().identifier().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 0.5f && context.getBiome().getBaseTemperature() < 0.9f)),
+                context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_neutral"))));
 
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_cold"))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_cold"))
                 .add(ModificationPhase.ADDITIONS,
                         (context) -> context.hasTag(oceanTag)
-                                && (nameMatch(context.getBiomeKey().location().getPath(), "cold", "chilly") || // Thanks to vanilla oceans all being same temperature...
-                                (!nameExactMatch(context.getBiomeKey().location().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 0.0f && context.getBiome().getBaseTemperature() < 0.5f)),
-                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_cold"))));
+                                && (nameMatch(context.getBiomeKey().identifier().getPath(), "cold", "chilly") || // Thanks to vanilla oceans all being same temperature...
+                                (!nameExactMatch(context.getBiomeKey().identifier().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 0.0f && context.getBiome().getBaseTemperature() < 0.5f)),
+                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_cold"))));
 
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_frozen"))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_frozen"))
                 .add(ModificationPhase.ADDITIONS,
                         (context) -> context.hasTag(oceanTag)
-                                && (nameMatch(context.getBiomeKey().location().getPath(), "frozen", "snow", "ice") || // Thanks to vanilla oceans all being same temperature...
-                                (!nameExactMatch(context.getBiomeKey().location().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() < 0.0f)),
-                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_frozen"))));
+                                && (nameMatch(context.getBiomeKey().identifier().getPath(), "frozen", "snow", "ice") || // Thanks to vanilla oceans all being same temperature...
+                                (!nameExactMatch(context.getBiomeKey().identifier().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() < 0.0f)),
+                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_frozen"))));
 
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"))
                 .add(ModificationPhase.ADDITIONS,
                         (context) -> context.hasTag(oceanTag)
-                                && (nameMatch(context.getBiomeKey().location().getPath(), "lukewarm") || // Thanks to vanilla oceans all being same temperature...
-                                (!nameExactMatch(context.getBiomeKey().location().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 0.9f && context.getBiome().getBaseTemperature() < 1.5f)),
-                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"))));
+                                && (nameMatch(context.getBiomeKey().identifier().getPath(), "lukewarm") || // Thanks to vanilla oceans all being same temperature...
+                                (!nameExactMatch(context.getBiomeKey().identifier().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 0.9f && context.getBiome().getBaseTemperature() < 1.5f)),
+                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_lukewarm"))));
 
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_warm"))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_warm"))
                 .add(ModificationPhase.ADDITIONS,
                         (context) -> context.hasTag(oceanTag)
-                                && (nameMatch(context.getBiomeKey().location().getPath(), "warm", "hot", "tropic") || // Thanks to vanilla oceans all being same temperature...
-                                (!nameExactMatch(context.getBiomeKey().location().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 1.5f)),
-                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_warm"))));
+                                && (nameMatch(context.getBiomeKey().identifier().getPath(), "warm", "hot", "tropic") || // Thanks to vanilla oceans all being same temperature...
+                                (!nameExactMatch(context.getBiomeKey().identifier().getNamespace(), "minecraft") && context.getBiome().getBaseTemperature() >= 1.5f)),
+                        context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dungeons/ocean_warm"))));
     }
 
     private static void addToBiome(String featureName, GenerationStep.Decoration step) {
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, featureName))
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, featureName))
                 .add(ModificationPhase.ADDITIONS,
-                        (context) -> context.hasTag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "has_structure/" + featureName))),
-                        (context) -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, featureName))));
+                        (context) -> context.hasTag(TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "has_structure/" + featureName))),
+                        (context) -> context.getGenerationSettings().addFeature(step, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, featureName))));
     }
 
-    private static void removeFromBiome(ResourceLocation feature, String biomeTagName, GenerationStep.Decoration step) {
-        BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "remove_" + feature.getPath()))
+    private static void removeFromBiome(Identifier feature, String biomeTagName, GenerationStep.Decoration step) {
+        BiomeModifications.create(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "remove_" + feature.getPath()))
                 .add(ModificationPhase.REMOVALS,
-                        (context) -> context.hasTag(TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, biomeTagName))),
+                        (context) -> context.hasTag(TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, biomeTagName))),
                         (context) -> context.getGenerationSettings().removeFeature(step, ResourceKey.create(Registries.PLACED_FEATURE, feature)));
     }
 

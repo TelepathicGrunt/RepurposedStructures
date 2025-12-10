@@ -7,7 +7,7 @@ import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.storage.loot.LootTable;
 
@@ -226,7 +226,7 @@ public class StructureModdedLootImporter {
             else {
                 BLACKLISTED_LOOTTABLES =
                         Arrays.stream(cleanedBlacklist.split(","))
-                                .map(entry -> ResourceLocation.tryParse(entry.trim()))
+                                .map(entry -> Identifier.tryParse(entry.trim()))
                                 .filter(Objects::nonNull)
                                 .map(entry -> ResourceKey.create(Registries.LOOT_TABLE, entry))
                                 .collect(Collectors.toSet());
@@ -239,7 +239,7 @@ public class StructureModdedLootImporter {
     public static void checkLoottables(MinecraftServer minecraftServer) {
         boolean invalidLootTableFound = false;
         for (Map.Entry<ResourceKey<LootTable>, ResourceKey<LootTable>> entry : TABLE_IMPORTS.entrySet()) {
-            if(entry.getKey().location().getNamespace().equals("betterstrongholds")) {
+            if(entry.getKey().identifier().getNamespace().equals("betterstrongholds")) {
                 continue;
             }
 
@@ -258,6 +258,6 @@ public class StructureModdedLootImporter {
     }
 
     public static ResourceKey<LootTable> generateKey(String namespace, String path) {
-        return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(namespace, path));
+        return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(namespace, path));
     }
 }

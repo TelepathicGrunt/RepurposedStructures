@@ -31,8 +31,8 @@ public record AdditionsTemperatureModifier(HolderSet<Biome> biomes, Holder<Place
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         // add a feature to all specified biomes
         if (phase == Phase.ADD && biomes.contains(biome)) {
-            String biomeNamespace = biome.unwrapKey().get().location().getNamespace();
-            String biomePath = biome.unwrapKey().get().location().getPath();
+            String biomeNamespace = biome.unwrapKey().get().identifier().getNamespace();
+            String biomePath = biome.unwrapKey().get().identifier().getPath();
             float biomeTemp = biome.value().getBaseTemperature();
             switch (temperatureRange) {
                 case WARM -> {

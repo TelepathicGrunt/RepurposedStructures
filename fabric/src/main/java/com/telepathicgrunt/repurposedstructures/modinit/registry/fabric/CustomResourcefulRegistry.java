@@ -5,7 +5,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntries
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.Collection;
 import java.util.function.Supplier;
@@ -23,8 +23,8 @@ public class CustomResourcefulRegistry<T> implements ResourcefulRegistry<T> {
 
     @Override
     public <I extends T> RegistryEntry<I> register(String id, Supplier<I> supplier) {
-        I value = Registry.register(registry, ResourceLocation.fromNamespaceAndPath(this.id, id), supplier.get());
-        return entries.add(new BasicRegistryEntry<>(ResourceLocation.fromNamespaceAndPath(this.id, id), value));
+        I value = Registry.register(registry, Identifier.fromNamespaceAndPath(this.id, id), supplier.get());
+        return entries.add(new BasicRegistryEntry<>(Identifier.fromNamespaceAndPath(this.id, id), value));
     }
 
     @Override

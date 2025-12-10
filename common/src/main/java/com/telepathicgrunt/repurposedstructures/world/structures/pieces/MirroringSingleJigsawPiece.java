@@ -8,11 +8,11 @@ import com.telepathicgrunt.repurposedstructures.mixins.structures.SinglePoolElem
 import com.telepathicgrunt.repurposedstructures.mixins.structures.TemplateAccessor;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Mirror;
@@ -56,7 +56,7 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
         this(((SinglePoolElementAccessor)singleJigsawPiece).repurposedstructures$getTemplate(), ((SinglePoolElementAccessor)singleJigsawPiece).repurposedstructures$getProcessors(), singleJigsawPiece.getProjection(), mirror, liquidSettings);
     }
 
-    protected MirroringSingleJigsawPiece(Either<ResourceLocation, StructureTemplate> locationTemplateEither, Holder<StructureProcessorList> processorListSupplier, StructureTemplatePool.Projection placementBehaviour, Mirror mirror, Optional<LiquidSettings> liquidSettings) {
+    protected MirroringSingleJigsawPiece(Either<Identifier, StructureTemplate> locationTemplateEither, Holder<StructureProcessorList> processorListSupplier, StructureTemplatePool.Projection placementBehaviour, Mirror mirror, Optional<LiquidSettings> liquidSettings) {
         super(locationTemplateEither, processorListSupplier, placementBehaviour, liquidSettings);
         this.mirror = mirror;
     }

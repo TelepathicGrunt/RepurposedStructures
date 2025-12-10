@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
@@ -28,7 +28,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class PillarProcessor extends StructureProcessor {
-    private static final ResourceLocation EMPTY_RL = ResourceLocation.fromNamespaceAndPath("minecraft", "empty");
+    private static final Identifier EMPTY_RL = Identifier.fromNamespaceAndPath("minecraft", "empty");
 
     public static final MapCodec<PillarProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Codec.mapPair(BlockState.CODEC.fieldOf("trigger"), BlockState.CODEC.fieldOf("replacement"))
@@ -37,7 +37,7 @@ public class PillarProcessor extends StructureProcessor {
                             (map) -> map.entrySet().stream().map((entry) -> Pair.of(entry.getKey(), entry.getValue())).collect(Collectors.toList()))
                     .fieldOf("pillar_trigger_and_replacements")
                     .forGetter((processor) -> processor.pillarTriggerAndReplacementBlocks),
-            ResourceLocation.CODEC.optionalFieldOf("pillar_processor_list", EMPTY_RL).forGetter(processor -> processor.processorList),
+            Identifier.CODEC.optionalFieldOf("pillar_processor_list", EMPTY_RL).forGetter(processor -> processor.processorList),
             Direction.CODEC.optionalFieldOf("direction", Direction.DOWN).forGetter(processor -> processor.direction),
             BlockState.CODEC.optionalFieldOf("original_replaced_block").forGetter(processor -> processor.originalReplacedBlock),
             Codec.INT.optionalFieldOf("pillar_length", 1000).forGetter(config -> config.pillarLength),
@@ -46,13 +46,13 @@ public class PillarProcessor extends StructureProcessor {
 
     public final Map<BlockState, BlockState> pillarTriggerAndReplacementBlocks;
     public final Optional<BlockState> originalReplacedBlock;
-    public final ResourceLocation processorList;
+    public final Identifier processorList;
     public final Direction direction;
     public final int pillarLength;
     public final boolean forcePlacement;
 
     private PillarProcessor(Map<BlockState, BlockState> pillarTriggerAndReplacementBlocks,
-                            ResourceLocation processorList,
+                            Identifier processorList,
                             Direction direction,
                             Optional<BlockState> originalReplacedBlock,
                             int pillarLength,

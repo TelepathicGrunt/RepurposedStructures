@@ -16,7 +16,7 @@ import net.minecraft.core.QuartPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.Pools;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.block.JigsawBlock;
@@ -64,13 +64,13 @@ public class PieceLimitedJigsawManager {
             Structure.GenerationContext context,
             Holder<StructureTemplatePool> startPoolHolder,
             int size,
-            ResourceLocation structureID,
+            Identifier structureID,
             BlockPos startPos,
             boolean doBoundaryAdjustments,
             Optional<Heightmap.Types> heightmapType,
             int maxY,
             int minY,
-            Set<ResourceLocation> poolsThatIgnoreBounds,
+            Set<Identifier> poolsThatIgnoreBounds,
             Optional<Integer> maxDistanceFromCenter,
             Optional<GenericJigsawStructure.BURYING_TYPE> buryingType,
             LiquidSettings liquidSettings,
@@ -130,9 +130,9 @@ public class PieceLimitedJigsawManager {
         return Optional.of(new Structure.GenerationStub(new BlockPos(pieceCenterX, pieceCenterY, pieceCenterZ), (structurePiecesBuilder) -> {
             List<PoolElementStructurePiece> components = new ArrayList<>();
             components.add(startPiece);
-            Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces = StructurePieceCountsManager.STRUCTURE_PIECE_COUNTS_MANAGER.getRequirePieces(structureID);
+            Map<Identifier, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces = StructurePieceCountsManager.STRUCTURE_PIECE_COUNTS_MANAGER.getRequirePieces(structureID);
             boolean runOnce = requiredPieces == null || requiredPieces.isEmpty();
-            Map<ResourceLocation, Integer> currentPieceCounter = new HashMap<>();
+            Map<Identifier, Integer> currentPieceCounter = new HashMap<>();
             for (int attempts = 0; runOnce || doesNotHaveAllRequiredPieces(components, requiredPieces, currentPieceCounter); attempts++) {
                 if (attempts == 40) {
                     RepurposedStructures.LOGGER.error(
@@ -209,8 +209,8 @@ public class PieceLimitedJigsawManager {
     }
 
     private static boolean doesNotHaveAllRequiredPieces(List<? extends StructurePiece> components, 
-                                                        Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces,
-                                                        Map<ResourceLocation, Integer> counter
+                                                        Map<Identifier, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces,
+                                                        Map<Identifier, Integer> counter
     ) {
         counter.clear();
         requiredPieces.forEach((key, value) -> counter.put(key, value.getRequiredAmount()));
@@ -218,7 +218,7 @@ public class PieceLimitedJigsawManager {
             if(piece instanceof PoolElementStructurePiece) {
                 StructurePoolElement poolElement = ((PoolElementStructurePiece)piece).getElement();
                 if(poolElement instanceof SinglePoolElement) {
-                    ResourceLocation pieceID = ((SinglePoolElementAccessor) poolElement).repurposedstructures$getTemplate().left().orElse(null);
+                    Identifier pieceID = ((SinglePoolElementAccessor) poolElement).repurposedstructures$getTemplate().left().orElse(null);
                     if(counter.containsKey(pieceID)) {
                         counter.put(pieceID, counter.get(pieceID) - 1);
                     }
@@ -237,24 +237,24 @@ public class PieceLimitedJigsawManager {
         private final List<? super PoolElementStructurePiece> structurePieces;
         private final RandomSource random;
         public final Deque<Entry> availablePieces = Queues.newArrayDeque();
-        private final Map<ResourceLocation, Integer> currentPieceCounts;
-        private final Map<ResourceLocation, Integer> maximumPieceCounts;
-        private final Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces;
+        private final Map<Identifier, Integer> currentPieceCounts;
+        private final Map<Identifier, Integer> maximumPieceCounts;
+        private final Map<Identifier, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces;
         private final int maxY;
         private final int minY;
-        private final Set<ResourceLocation> poolsThatIgnoreBounds;
+        private final Set<Identifier> poolsThatIgnoreBounds;
         private final LiquidSettings liquidSettings;
 
-        public Assembler(ResourceLocation structureID,
+        public Assembler(Identifier structureID,
                          Registry<StructureTemplatePool> poolRegistry,
                          int maxDepth,
                          Structure.GenerationContext context,
                          List<? super PoolElementStructurePiece> structurePieces,
                          RandomSource random,
-                         Map<ResourceLocation, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces,
+                         Map<Identifier, StructurePieceCountsManager.RequiredPieceNeeds> requiredPieces,
                          int maxY,
                          int minY,
-                         Set<ResourceLocation> poolsThatIgnoreBounds,
+                         Set<Identifier> poolsThatIgnoreBounds,
                          LiquidSettings liquidSettings
         ) {
             this.poolRegistry = poolRegistry;
@@ -302,11 +302,11 @@ public class PieceLimitedJigsawManager {
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                ResourceLocation jigsawBlockPool = ResourceLocation.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
+                Identifier jigsawBlockPool = Identifier.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
                 Optional<StructureTemplatePool> poolOptional = this.poolRegistry.getOptional(jigsawBlockPool);
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
-                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.location())))) {
+                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.identifier())))) {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
@@ -339,7 +339,7 @@ public class PieceLimitedJigsawManager {
                 // Process the fallback pieces in the event none of the pool pieces work
                 boolean ignoreBounds = false;
                 if(poolsThatIgnoreBounds != null) {
-                    ResourceLocation fallBackPoolRL = poolRegistry.getKey(jigsawBlockFallback.value());
+                    Identifier fallBackPoolRL = poolRegistry.getKey(jigsawBlockFallback.value());
                     ignoreBounds = poolsThatIgnoreBounds.contains(fallBackPoolRL);
                 }
                 this.processList(new ArrayList<>(((StructurePoolAccessor)jigsawBlockFallback.value()).repurposedstructures$getRawTemplates()), doBoundaryAdjustments, jigsawBlock, jigsawBlockTargetPos, pieceMinY, jigsawBlockPos, octreeToUse, piece, depth, targetPieceBoundsTop, heightLimitView, ignoreBounds);
@@ -380,7 +380,7 @@ public class PieceLimitedJigsawManager {
                 // 3. We are at least certain amount of pieces away from the starting piece.
                 Pair<StructurePoolElement, Integer> chosenPiecePair = null;
                 // Condition 2
-                Optional<ResourceLocation> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> {
+                Optional<Identifier> pieceNeededToSpawn = this.requiredPieces.keySet().stream().filter(key -> {
                     int currentCount = this.currentPieceCounts.get(key);
                     StructurePieceCountsManager.RequiredPieceNeeds requiredPieceNeeds = this.requiredPieces.get(key);
                     int requireCount = requiredPieceNeeds == null ? 0 : requiredPieceNeeds.getRequiredAmount();
@@ -428,7 +428,7 @@ public class PieceLimitedJigsawManager {
 
                 // Before performing any logic, check to ensure we haven't reached the max number of instances of this piece.
                 // This logic is my own additional logic - vanilla does not offer this behavior.
-                ResourceLocation pieceName = null;
+                Identifier pieceName = null;
                 if(candidatePiece instanceof SinglePoolElement) {
                     pieceName = ((SinglePoolElementAccessor) candidatePiece).repurposedstructures$getTemplate().left().get();
                     if (this.currentPieceCounts.containsKey(pieceName) && this.maximumPieceCounts.containsKey(pieceName)) {
@@ -465,7 +465,7 @@ public class PieceLimitedJigsawManager {
                                 return 0;
                             }
                             else {
-                                ResourceLocation candidateTargetPool = ResourceLocation.tryParse(pieceCandidateJigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
+                                Identifier candidateTargetPool = Identifier.tryParse(pieceCandidateJigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
                                 Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(candidateTargetPool);
                                 if (candidateTargetPoolOptional.isEmpty()) {
                                     RepurposedStructures.LOGGER.warn("Repurposed Structures: Non-existent child pool attempted to be spawned: {} which is being called from {}. Let Repurposed Structures dev (TelepathicGrunt) know about this log entry.", candidateTargetPool, candidatePiece instanceof SinglePoolElement ? ((SinglePoolElementAccessor) candidatePiece).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");

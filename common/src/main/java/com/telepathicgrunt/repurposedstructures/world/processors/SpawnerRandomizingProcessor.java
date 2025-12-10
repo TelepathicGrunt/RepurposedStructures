@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
@@ -27,7 +27,7 @@ import java.util.Optional;
 public class SpawnerRandomizingProcessor extends StructureProcessor {
 
     public static final MapCodec<SpawnerRandomizingProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
-            ResourceLocation.CODEC.fieldOf("rs_spawner_resourcelocation").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.rsSpawnerResourcelocation),
+            Identifier.CODEC.fieldOf("rs_spawner_Identifier").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.rsSpawnerIdentifier),
             InclusiveRange.INT.optionalFieldOf("valid_block_light_level").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.validBlockLightLevel),
             InclusiveRange.INT.optionalFieldOf("valid_sky_light_level").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.validSkyLightLevel),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("delay").orElse(20).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.delay),
@@ -40,7 +40,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
             BlockState.CODEC.fieldOf("spawner_replacement_block").orElse(Blocks.AIR.defaultBlockState()).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.replacementState)
     ).apply(instance, instance.stable(SpawnerRandomizingProcessor::new)));
 
-    public final ResourceLocation rsSpawnerResourcelocation;
+    public final Identifier rsSpawnerIdentifier;
     public final Optional<InclusiveRange<Integer>> validBlockLightLevel;
     public final Optional<InclusiveRange<Integer>> validSkyLightLevel;
     public final int delay;
@@ -52,7 +52,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     public final int spawnRange;
     public final BlockState replacementState;
 
-    private SpawnerRandomizingProcessor(ResourceLocation rsSpawnerResourcelocation,
+    private SpawnerRandomizingProcessor(Identifier rsSpawnerIdentifier,
                                         Optional<InclusiveRange<Integer>> validBlockLightLevel,
                                         Optional<InclusiveRange<Integer>> validSkyLightLevel,
                                         int delay,
@@ -64,7 +64,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
                                         int spawnRange,
                                         BlockState replacementState)
     {
-        this.rsSpawnerResourcelocation = rsSpawnerResourcelocation;
+        this.rsSpawnerIdentifier = rsSpawnerIdentifier;
         this.validBlockLightLevel = validBlockLightLevel;
         this.validSkyLightLevel = validSkyLightLevel;
         this.delay = delay;
@@ -98,9 +98,9 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
      * Makes the given block entity now have the correct spawner mob
      */
     private CompoundTag SetMobSpawnerEntity(RandomSource random) {
-        EntityType<?> entity = MobSpawnerManager.MOB_SPAWNER_MANAGER.getSpawnerMob(rsSpawnerResourcelocation, random);
+        EntityType<?> entity = MobSpawnerManager.MOB_SPAWNER_MANAGER.getSpawnerMob(rsSpawnerIdentifier, random);
         if(entity != null) {
-            ResourceLocation entityRL = BuiltInRegistries.ENTITY_TYPE.getKey(entity);
+            Identifier entityRL = BuiltInRegistries.ENTITY_TYPE.getKey(entity);
 
             // Set spawn potentials
             CompoundTag compound = new CompoundTag();

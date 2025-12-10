@@ -11,7 +11,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -52,7 +52,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
     @Override
     public boolean place(FeaturePlaceContext<NbtDungeonConfig> context) {
         BlockPos position = context.origin().above(-1);
-        ResourceLocation nbtRL = GeneralUtils.getRandomEntry(context.config().nbtResourcelocationsAndWeights, context.random());
+        Identifier nbtRL = GeneralUtils.getRandomEntry(context.config().nbtIdentifiersAndWeights, context.random());
 
         StructureTemplateManager structureTemplateManager = context.level().getLevel().getStructureManager();
         Optional<StructureTemplate> template = structureTemplateManager.get(nbtRL);
@@ -147,7 +147,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             position = position.above(context.config().structureYOffset);
 
             Registry<StructureProcessorList> processorListRegistry = context.level().getLevel().getServer().registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST);
-            ResourceKey<StructureProcessorList> emptyKey = ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath("minecraft", "empty"));
+            ResourceKey<StructureProcessorList> emptyKey = ResourceKey.create(Registries.PROCESSOR_LIST, Identifier.fromNamespaceAndPath("minecraft", "empty"));
 
             //RepurposedStructures.LOGGER.log(Level.INFO, nbtRL + " at X: "+position.getX() +", "+position.getY()+", "+position.getZ());
             StructurePlaceSettings placementsettings = (new StructurePlaceSettings()).setRotation(rotation).setRotationPivot(halfLengths).setIgnoreEntities(false);
@@ -220,7 +220,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                         mutable.move(Direction.UP);
                         boolean isOnWall = false;
 
-                        ResourceKey<LootTable> lootTableResourceKey = ResourceKey.create(Registries.LOOT_TABLE, config.chestResourcelocation);
+                        ResourceKey<LootTable> lootTableResourceKey = ResourceKey.create(Registries.LOOT_TABLE, config.chestIdentifier);
 
                         for(Direction neighborDirection : Direction.Plane.HORIZONTAL) {
                             mutable.move(neighborDirection);
@@ -306,7 +306,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
                             RandomizableContainer.setBlockEntityLootTable(world, random, mutable, lootTableResourceKey);
                             mutable.move(Direction.DOWN);
                             if(lootBlock.getBlock() == Blocks.SHULKER_BOX && world.getBlockEntity(mutable) == null) {
-                                EntityType<?> entity = MobSpawnerManager.MOB_SPAWNER_MANAGER.getSpawnerMob(config.rsSpawnerResourcelocation, random);
+                                EntityType<?> entity = MobSpawnerManager.MOB_SPAWNER_MANAGER.getSpawnerMob(config.rsSpawnerIdentifier, random);
                                 if (entity != null) {
                                     world.setBlock(mutable, Blocks.SPAWNER.defaultBlockState(), 2);
                                     BlockEntity blockEntity = world.getBlockEntity(mutable);

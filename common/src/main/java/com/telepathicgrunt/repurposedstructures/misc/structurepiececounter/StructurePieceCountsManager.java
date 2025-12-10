@@ -2,11 +2,11 @@ package com.telepathicgrunt.repurposedstructures.misc.structurepiececounter;
 
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.FileToIdConverter;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.ExtraCodecs;
@@ -24,9 +24,9 @@ import static com.telepathicgrunt.repurposedstructures.RepurposedStructures.GSON
 public class StructurePieceCountsManager extends SimpleJsonResourceReloadListener<JsonElement> {
     public final static StructurePieceCountsManager STRUCTURE_PIECE_COUNTS_MANAGER = new StructurePieceCountsManager();
 
-    private Map<ResourceLocation, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = new HashMap<>();
-    private final Map<ResourceLocation, Map<ResourceLocation, RequiredPieceNeeds>> cachedRequirePiecesMap = new HashMap<>();
-    private final Map<ResourceLocation, Map<ResourceLocation, Integer>> cachedMaxCountPiecesMap = new HashMap<>();
+    private Map<Identifier, List<StructurePieceCountsObj>> StructureToPieceCountsObjs = new HashMap<>();
+    private final Map<Identifier, Map<Identifier, RequiredPieceNeeds>> cachedRequirePiecesMap = new HashMap<>();
+    private final Map<Identifier, Map<Identifier, Integer>> cachedMaxCountPiecesMap = new HashMap<>();
 
     public StructurePieceCountsManager() {
         // NOTE: Anyone copying this class, PLEASE CHANGE THE BELOW STRING TO BE UNIQUE!!!!
@@ -35,7 +35,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     }
 
     @MethodsReturnNonnullByDefault
-    private List<StructurePieceCountsObj> getStructurePieceCountsObjs(ResourceLocation fileIdentifier, JsonElement jsonElement) throws Exception {
+    private List<StructurePieceCountsObj> getStructurePieceCountsObjs(Identifier fileIdentifier, JsonElement jsonElement) throws Exception {
         List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>() {}.getType());
         for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--) {
             StructurePieceCountsObj entry = piecesSpawnCounts.get(i);
@@ -43,7 +43,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
                 throw new Exception("Repurposed Structures Error: Found " + entry.nbtPieceName + " entry has alwaysSpawnThisMany greater than neverSpawnMoreThanThisMany which is invalid.");
             }
             if(entry.condition != null) {
-                Supplier<Boolean> supplier = RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(ResourceLocation.tryParse(entry.condition));
+                Supplier<Boolean> supplier = RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(Identifier.tryParse(entry.condition));
                 if (supplier != null) {
                     if(!supplier.get()) {
                         piecesSpawnCounts.remove(entry);
@@ -58,11 +58,11 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     }
 
     @Override
-    protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
-        Map<ResourceLocation, List<StructurePieceCountsObj>> mapBuilder = new HashMap<>();
+    protected void apply(Map<Identifier, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
+        Map<Identifier, List<StructurePieceCountsObj>> mapBuilder = new HashMap<>();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
-                mapBuilder.put(ResourceLocation.parse(jsonElement.getAsJsonObject().get("target_structure").getAsString()), getStructurePieceCountsObjs(fileIdentifier, jsonElement));
+                mapBuilder.put(Identifier.parse(jsonElement.getAsJsonObject().get("target_structure").getAsString()), getStructurePieceCountsObjs(fileIdentifier, jsonElement));
             }
             catch (Exception e) {
                 RepurposedStructures.LOGGER.error("Repurposed Structures Error: Couldn't parse rs_pieces_spawn_counts file {} - JSON looks like: {}", fileIdentifier, jsonElement, e);
@@ -72,7 +72,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         cachedRequirePiecesMap.clear();
     }
 
-    public void parseAndAddCountsJSONObj(ResourceLocation structureRL, JsonElement jsonElement) {
+    public void parseAndAddCountsJSONObj(Identifier structureRL, JsonElement jsonElement) {
         try {
             this.StructureToPieceCountsObjs.computeIfAbsent(structureRL, rl -> new ArrayList<>()).addAll(getStructurePieceCountsObjs(structureRL, jsonElement));
         }
@@ -82,7 +82,7 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     }
 
     @Nullable
-    public Map<ResourceLocation, RequiredPieceNeeds> getRequirePieces(ResourceLocation structureRL) {
+    public Map<Identifier, RequiredPieceNeeds> getRequirePieces(Identifier structureRL) {
         // check to make sure we do have entries for this structure
         if(!this.StructureToPieceCountsObjs.containsKey(structureRL))
             return null;
@@ -93,12 +93,12 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         }
         // otherwise, compute the required pieces map to return and cache
         else {
-            Map<ResourceLocation, RequiredPieceNeeds> requirePiecesMap = new HashMap<>();
+            Map<Identifier, RequiredPieceNeeds> requirePiecesMap = new HashMap<>();
             List<StructurePieceCountsObj> structurePieceCountsObjs = this.StructureToPieceCountsObjs.get(structureRL);
             if(structurePieceCountsObjs != null) {
                 structurePieceCountsObjs.forEach(entry -> {
                     if (entry.alwaysSpawnThisMany != null)
-                        requirePiecesMap.put(ResourceLocation.tryParse(entry.nbtPieceName), new RequiredPieceNeeds(entry.alwaysSpawnThisMany, entry.minimumDistanceFromCenterPiece != null ? entry.minimumDistanceFromCenterPiece : 0));
+                        requirePiecesMap.put(Identifier.tryParse(entry.nbtPieceName), new RequiredPieceNeeds(entry.alwaysSpawnThisMany, entry.minimumDistanceFromCenterPiece != null ? entry.minimumDistanceFromCenterPiece : 0));
                 });
             }
             cachedRequirePiecesMap.put(structureRL, requirePiecesMap);
@@ -107,19 +107,19 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
     }
 
     @MethodsReturnNonnullByDefault
-    public Map<ResourceLocation, Integer> getMaximumCountForPieces(ResourceLocation structureRL) {
+    public Map<Identifier, Integer> getMaximumCountForPieces(Identifier structureRL) {
         // if cached, return cached map
         if(cachedMaxCountPiecesMap.containsKey(structureRL)) {
             return cachedMaxCountPiecesMap.get(structureRL);
         }
         // otherwise, compute the max count pieces map to return and cache
         else {
-            Map<ResourceLocation, Integer> maxCountPiecesMap = new HashMap<>();
+            Map<Identifier, Integer> maxCountPiecesMap = new HashMap<>();
             List<StructurePieceCountsObj> structurePieceCountsObjs = this.StructureToPieceCountsObjs.get(structureRL);
             if(structurePieceCountsObjs != null) {
                 structurePieceCountsObjs.forEach(entry -> {
                     if(entry.neverSpawnMoreThanThisMany != null)
-                        maxCountPiecesMap.put(ResourceLocation.tryParse(entry.nbtPieceName), entry.neverSpawnMoreThanThisMany);
+                        maxCountPiecesMap.put(Identifier.tryParse(entry.nbtPieceName), entry.neverSpawnMoreThanThisMany);
                 });
             }
             cachedMaxCountPiecesMap.put(structureRL, maxCountPiecesMap);

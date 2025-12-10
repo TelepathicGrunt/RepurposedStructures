@@ -11,7 +11,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -50,7 +50,7 @@ public class StructureModdedLootImporterApplier extends LootModifier {
         }
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
-        LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot.location());
+        LootContext newContext = copyLootContextWithNewQueryID(context, tableToImportLoot.identifier());
         Optional<Holder.Reference<LootTable>> optionalLootTableReference = context.getResolver().get(tableToImportLoot);
 
         List<ItemStack> newlyGeneratedLoot = optionalLootTableReference.isPresent() ?
@@ -67,7 +67,7 @@ public class StructureModdedLootImporterApplier extends LootModifier {
         return generatedLoot;
     }
 
-    protected static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, ResourceLocation newQueryID){
+    protected static LootContext copyLootContextWithNewQueryID(LootContext oldLootContext, Identifier newQueryID){
         LootContext.Builder newContextBuilder = new LootContext.Builder(((LootContextAccessor)oldLootContext).repurposedstructures$getParams())
                 .withOptionalRandomSeed(oldLootContext.getRandom().nextLong())
                 .withQueriedLootTableId(newQueryID);

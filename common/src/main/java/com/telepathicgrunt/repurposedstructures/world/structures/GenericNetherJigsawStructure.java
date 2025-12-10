@@ -7,11 +7,11 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.codecs.YRangeAllowance;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
@@ -40,7 +40,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
             HeightProvider.CODEC.fieldOf("start_height").forGetter(structure -> structure.startHeight),
             Codec.BOOL.fieldOf("cannot_spawn_in_liquid").orElse(false).forGetter(structure -> structure.cannotSpawnInLiquid),
             Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius),
-            ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
+            Identifier.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
             Codec.intRange(1, 128).optionalFieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
             Codec.intRange(0, 100).optionalFieldOf("ledge_offset_y").forGetter(structure -> structure.ledgeOffsetY),
             StringRepresentable.fromEnum(LAND_SEARCH_DIRECTION::values).fieldOf("land_search_direction").forGetter(structure -> structure.searchDirection),
@@ -58,7 +58,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
                                     HeightProvider startHeight,
                                     boolean cannotSpawnInLiquid,
                                     Optional<Integer> biomeRadius,
-                                    HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
+                                    HashSet<Identifier> poolsThatIgnoreBoundaries,
                                     Optional<Integer> maxDistanceFromCenter,
                                     Optional<Integer> ledgeOffsetY,
                                     LAND_SEARCH_DIRECTION searchDirection,

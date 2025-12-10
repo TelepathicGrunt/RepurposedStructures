@@ -4,15 +4,15 @@ import com.google.common.collect.Lists;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
@@ -41,12 +41,12 @@ public class MonumentPieces {
     }
 
     private static StructurePiece getJigsawPiece(Registry<StructureTemplatePool> poolRegistry, StructureTemplateManager structureTemplateManager, String poolPath, BlockPos blockPos, Rotation rotation, RandomSource random, String type, LiquidSettings liquidSettings) {
-        ResourceLocation resourceLocation = ResourceLocation.tryParse(poolPath.toLowerCase(Locale.ROOT));
-        Optional<Holder.Reference<StructureTemplatePool>> pool = poolRegistry.get(resourceLocation);
+        Identifier poolRl = Identifier.tryParse(poolPath.toLowerCase(Locale.ROOT));
+        Optional<Holder.Reference<StructureTemplatePool>> pool = poolRegistry.get(poolRl);
         StructurePoolElement poolEntry;
 
         if(pool.isEmpty() || pool.get().value().size() == 0) {
-            RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate monument piece at spot.", resourceLocation + " - Monument type: " + type);
+            RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {}  Will not generate monument piece at spot.", poolRl + " - Monument type: " + type);
             poolEntry = StructurePoolElement.empty().apply(StructureTemplatePool.Projection.RIGID);
         }
         else {

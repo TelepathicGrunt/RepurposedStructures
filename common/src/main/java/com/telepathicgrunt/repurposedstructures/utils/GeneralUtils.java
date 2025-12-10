@@ -18,7 +18,7 @@ import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.server.packs.resources.Resource;
@@ -273,14 +273,14 @@ public final class GeneralUtils {
     /**
      * Will grab JSON objects that is specified by the dataType parameter.
      */
-    public static Map<ResourceLocation, JsonElement> getDatapacksJSONElement(ResourceManager resourceManager, Gson gson, String dataType, int fileSuffixLength) {
-        Map<ResourceLocation, JsonElement> map = new HashMap<>();
+    public static Map<Identifier, JsonElement> getDatapacksJSONElement(ResourceManager resourceManager, Gson gson, String dataType, int fileSuffixLength) {
+        Map<Identifier, JsonElement> map = new HashMap<>();
         int dataTypeLength = dataType.length() + 1;
 
         // Finds all JSON files paths within the rs_pool_additions folder. NOTE: this is just the path rn. Not the actual files yet.
-        for (Map.Entry<ResourceLocation, Resource> resourceStackEntry : resourceManager.listResources(dataType, (fileString) -> true).entrySet()) {
+        for (Map.Entry<Identifier, Resource> resourceStackEntry : resourceManager.listResources(dataType, (fileString) -> true).entrySet()) {
             String identifierPath = resourceStackEntry.getKey().getPath();
-            ResourceLocation fileID = ResourceLocation.fromNamespaceAndPath(
+            Identifier fileID = Identifier.fromNamespaceAndPath(
                     resourceStackEntry.getKey().getNamespace(),
                     identifierPath.substring(dataTypeLength, identifierPath.length() - fileSuffixLength));
 

@@ -16,7 +16,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.FileToIdConverter;
 import net.minecraft.resources.RegistryOps;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.ExtraCodecs;
@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadListener<JsonElement> {
     // Needed for detecting the correct files, ignoring file extension, and what JSON parser to use for parsing the files
     public final static PoolAdditionMergerManager POOL_ADDITIONS_MERGER_MANAGER = new PoolAdditionMergerManager();
-    private static Map<ResourceLocation, JsonElement> cachedMap = null;
+    private static Map<Identifier, JsonElement> cachedMap = null;
 
     public PoolAdditionMergerManager() {
         // NOTE: Anyone copying this class, PLEASE CHANGE THE BELOW STRING TO BE UNIQUE!!!!
@@ -43,7 +43,7 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
     }
 
     @Override
-    protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
+    protected void apply(Map<Identifier, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
         cachedMap = loader;
     }
 
@@ -61,13 +61,13 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
      * Using the given dynamic registry, will now parse the JSON objects of pools and resolve their processors with the dynamic registry.
      * Afterwards, it will merge the parsed pool into the targeted pool found in the dynamic registry.
      */
-    private static void parsePoolsAndBeginMerger(Map<ResourceLocation, JsonElement> poolAdditionJSON, RegistryAccess.Frozen frozen, ResourceManager manager) {
+    private static void parsePoolsAndBeginMerger(Map<Identifier, JsonElement> poolAdditionJSON, RegistryAccess.Frozen frozen, ResourceManager manager) {
         Registry<StructureTemplatePool> poolRegistry = frozen.lookupOrThrow(Registries.TEMPLATE_POOL);
         RegistryOps<JsonElement> customRegistryOps = RegistryOps.create(JsonOps.INSTANCE, frozen);
 
         // Will iterate over all of our found pool additions and make sure the target pool exists before we parse our JSON objects
-        for (Map.Entry<ResourceLocation, JsonElement> entry : poolAdditionJSON.entrySet()) {
-            ResourceLocation targetPool = ResourceLocation.parse(entry.getValue().getAsJsonObject().get("target_pool").getAsString());
+        for (Map.Entry<Identifier, JsonElement> entry : poolAdditionJSON.entrySet()) {
+            Identifier targetPool = Identifier.parse(entry.getValue().getAsJsonObject().get("target_pool").getAsString());
             if (poolRegistry.get(targetPool) == null) continue;
 
             // Parse the given pool addition JSON objects and add their pool to the dynamic registry pool
@@ -113,7 +113,7 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
     /**
      * Log out the pool that failed to be parsed and what the error is.
      */
-    private static void logBadData(ResourceLocation poolPath, String messageString) {
+    private static void logBadData(Identifier poolPath, String messageString) {
         RepurposedStructures.LOGGER.error("(Repurposed Structures POOL MERGER) Failed to parse {} additions file. Error is: {}", poolPath, messageString);
     }
 
@@ -121,19 +121,19 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
         private static final Codec<ExpandedPoolEntry> EXPANDED_POOL_ENTRY_CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 StructurePoolElement.CODEC.fieldOf("element").forGetter(ExpandedPoolEntry::poolElement),
                 Codec.intRange(1, 5000).fieldOf("weight").forGetter(ExpandedPoolEntry::weight),
-                ResourceLocation.CODEC.optionalFieldOf("condition").forGetter(ExpandedPoolEntry::condition)
+                Identifier.CODEC.optionalFieldOf("condition").forGetter(ExpandedPoolEntry::condition)
         ).apply(instance, ExpandedPoolEntry::new));
 
         public static final Codec<AdditionalStructureTemplatePool> DIRECT_CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                ResourceLocation.CODEC.fieldOf("target_pool").forGetter(structureTemplatePool -> structureTemplatePool.targetPool),
+                Identifier.CODEC.fieldOf("target_pool").forGetter(structureTemplatePool -> structureTemplatePool.targetPool),
                 Codec.lazyInitialized(StructurePoolAccessor.repurposedstructures$getCODEC_REFERENCE()::getValue).fieldOf("fallback").forGetter(StructureTemplatePool::getFallback),
                 EXPANDED_POOL_ENTRY_CODEC.listOf().fieldOf("elements").forGetter(structureTemplatePool -> structureTemplatePool.rawTemplatesWithConditions)
         ).apply(instance, AdditionalStructureTemplatePool::new));
 
         protected final List<ExpandedPoolEntry> rawTemplatesWithConditions;
-        protected final ResourceLocation targetPool;
+        protected final Identifier targetPool;
 
-        public AdditionalStructureTemplatePool(ResourceLocation targetPool, Holder<StructureTemplatePool> fallback, List<ExpandedPoolEntry> rawTemplatesWithConditions) {
+        public AdditionalStructureTemplatePool(Identifier targetPool, Holder<StructureTemplatePool> fallback, List<ExpandedPoolEntry> rawTemplatesWithConditions) {
             super(fallback, rawTemplatesWithConditions.stream().filter(triple -> {
                 if(triple.condition().isPresent()) {
                     Supplier<Boolean> supplier = RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.lookup().get(triple.condition.get());
@@ -150,6 +150,6 @@ public final class PoolAdditionMergerManager extends SimpleJsonResourceReloadLis
             this.targetPool = targetPool;
         }
 
-        public record ExpandedPoolEntry(StructurePoolElement poolElement, Integer weight, Optional<ResourceLocation> condition) {}
+        public record ExpandedPoolEntry(StructurePoolElement poolElement, Integer weight, Optional<Identifier> condition) {}
     }
 }

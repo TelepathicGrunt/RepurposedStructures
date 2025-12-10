@@ -1,7 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.events;
 
 import com.telepathicgrunt.repurposedstructures.events.base.EventHandler;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 
 import java.util.function.Consumer;
 

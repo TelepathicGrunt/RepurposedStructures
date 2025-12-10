@@ -30,7 +30,7 @@ public class EndRemasteredDedicatedLootApplier {
             if(tableToImportLoot == null) return; // No entry found
 
             // Generate End Remastered's dedicated loot
-            LootContext newContext = StructureModdedLootImporterApplier.copyLootContextWithNewQueryID(oldLootContext, tableToImportLoot.location());
+            LootContext newContext = StructureModdedLootImporterApplier.copyLootContextWithNewQueryID(oldLootContext, tableToImportLoot.identifier());
             Optional<Holder.Reference<LootTable>> optionalLootTableReference = oldLootContext.getResolver().get(tableToImportLoot);
 
             List<ItemStack> endRemasteredLoot = optionalLootTableReference.isPresent() ?

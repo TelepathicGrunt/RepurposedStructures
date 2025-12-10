@@ -5,14 +5,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.mixins.features.DungeonFeatureAccessor;
-import net.minecraft.Util;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.FileToIdConverter;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
 import org.apache.logging.log4j.Level;
@@ -25,7 +25,7 @@ import static com.telepathicgrunt.repurposedstructures.RepurposedStructures.GSON
 public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElement> {
     public static final MobSpawnerManager MOB_SPAWNER_MANAGER = new MobSpawnerManager();
 
-    private Map<ResourceLocation, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
+    private Map<Identifier, List<MobSpawnerObj>> spawnerMap = ImmutableMap.of();
 
     public MobSpawnerManager() {
         // NOTE: Anyone copying this class, PLEASE CHANGE THE BELOW STRING TO BE UNIQUE!!!!
@@ -34,8 +34,8 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElem
     }
 
     @Override
-    protected void apply(Map<ResourceLocation, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
-        ImmutableMap.Builder<ResourceLocation, List<MobSpawnerObj>> builder = ImmutableMap.builder();
+    protected void apply(Map<Identifier, JsonElement> loader, ResourceManager manager, ProfilerFiller profiler) {
+        ImmutableMap.Builder<Identifier, List<MobSpawnerObj>> builder = ImmutableMap.builder();
         loader.forEach((fileIdentifier, jsonElement) -> {
             try {
                 List<MobSpawnerObj> spawnerMobEntries = GSON.fromJson(jsonElement.getAsJsonObject().get("mobs"), new TypeToken<List<MobSpawnerObj>>() {}.getType());
@@ -59,7 +59,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElem
         this.spawnerMap =  builder.build();
     }
 
-    public EntityType<?> getSpawnerMob(ResourceLocation spawnerJsonEntry, RandomSource random) {
+    public EntityType<?> getSpawnerMob(Identifier spawnerJsonEntry, RandomSource random) {
         List<MobSpawnerObj> spawnerMobEntries = this.spawnerMap.get(spawnerJsonEntry);
         if(spawnerMobEntries == null) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct or that no other mod is interfering with how vanilla reads data folders. Let TelepathicGrunt know about this too!\n***************************************");
@@ -82,7 +82,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElem
             while(true) {
                 randomWeight -= spawnerMobEntries.get(index).weight;
                 if(randomWeight <= 0) {
-                    return BuiltInRegistries.ENTITY_TYPE.getValue(ResourceLocation.tryParse(spawnerMobEntries.get(index).name));
+                    return BuiltInRegistries.ENTITY_TYPE.getValue(Identifier.tryParse(spawnerMobEntries.get(index).name));
                 }
 
                 index++;

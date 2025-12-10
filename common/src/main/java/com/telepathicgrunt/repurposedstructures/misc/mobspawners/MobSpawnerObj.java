@@ -2,7 +2,7 @@ package com.telepathicgrunt.repurposedstructures.misc.mobspawners;
 
 import com.google.gson.annotations.Expose;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 
 public class MobSpawnerObj {
@@ -29,7 +29,7 @@ public class MobSpawnerObj {
     }
 
     public void setEntityType() throws Exception {
-        ResourceLocation entityRl = ResourceLocation.tryParse(this.name);
+        Identifier entityRl = Identifier.tryParse(this.name);
         if(BuiltInRegistries.ENTITY_TYPE.containsKey(entityRl)) {
             entityType = BuiltInRegistries.ENTITY_TYPE.getValue(entityRl);
         }

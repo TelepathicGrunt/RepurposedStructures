@@ -17,11 +17,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.Blocks;
-import org.apache.commons.lang3.tuple.MutablePair;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;

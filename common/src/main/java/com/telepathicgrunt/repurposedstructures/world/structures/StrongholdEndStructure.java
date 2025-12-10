@@ -9,7 +9,7 @@ import com.telepathicgrunt.repurposedstructures.world.structures.codecs.YRangeAl
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -39,7 +39,7 @@ public class StrongholdEndStructure extends GenericJigsawStructure {
             Codec.intRange(1, 100).optionalFieldOf("terrain_height_radius_check").forGetter(structure -> structure.terrainHeightCheckRadius),
             Codec.intRange(1, 1000).optionalFieldOf("allowed_terrain_height_range").forGetter(structure -> structure.allowedTerrainHeightRange),
             Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius),
-            ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
+            Identifier.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
             Codec.intRange(1, 128).optionalFieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
             StringRepresentable.fromEnum(BURYING_TYPE::values).optionalFieldOf("burying_type").forGetter(structure -> structure.buryingType),
             Codec.BOOL.fieldOf("use_bounding_box_hack").orElse(false).forGetter(structure -> structure.useBoundingBoxHack),
@@ -56,7 +56,7 @@ public class StrongholdEndStructure extends GenericJigsawStructure {
                               Optional<Integer> terrainHeightCheckRadius,
                               Optional<Integer> allowedTerrainHeightRange,
                               Optional<Integer> biomeRadius,
-                              HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
+                              HashSet<Identifier> poolsThatIgnoreBoundaries,
                               Optional<Integer> maxDistanceFromCenter,
                               Optional<BURYING_TYPE> buryingType,
                               boolean useBoundingBoxHack,

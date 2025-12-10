@@ -54,8 +54,8 @@ public class CoralAliveDeadProcessor extends StructureProcessor {
         if (ALIVE_TO_DEAD_CORAL.containsKey(structureBlockInfoWorld.state().getBlock())) {
             Holder<Biome> biome = worldView.getBiome(structureBlockInfoWorld.pos());
             float biomeTemp = biome.value().getBaseTemperature();
-            String biomeNamespace = biome.unwrapKey().get().location().getNamespace();
-            String biomePath = biome.unwrapKey().get().location().getPath();
+            String biomeNamespace = biome.unwrapKey().get().identifier().getNamespace();
+            String biomePath = biome.unwrapKey().get().identifier().getPath();
 
             // Neutral temp
             if (!GeneralUtils.nameMatch(biomePath, "hot", "tropic", "warm", "cold", "chilly", "frozen", "snow", "ice", "frost") ||

@@ -7,7 +7,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -23,7 +23,7 @@ public final class StructureModdedLootImporterApplier {
     public static void checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
         if (RSMainModdedLootConfig.importModdedItems) {
 
-            ResourceLocation lootTableID = ((Registry<LootTable>)context.getLevel().getServer().reloadableRegistries().lookup().lookupOrThrow(Registries.LOOT_TABLE)).getKey(currentLootTable);
+            Identifier lootTableID = ((Registry<LootTable>)context.getLevel().getServer().reloadableRegistries().lookup().lookupOrThrow(Registries.LOOT_TABLE)).getKey(currentLootTable);
             if (lootTableID != null) {
                 ResourceKey<LootTable> key = ResourceKey.create(Registries.LOOT_TABLE, lootTableID);
                 if (!StructureModdedLootImporter.isInBlacklist(key)) {
@@ -50,7 +50,7 @@ public final class StructureModdedLootImporterApplier {
         // Remove all vanilla loot so we only have modded loot
         newlyGeneratedLoot.removeIf(itemStack -> {
             ResourceKey<Item> itemKey = BuiltInRegistries.ITEM.getResourceKey(itemStack.getItem()).orElse(null);
-            return itemKey != null && itemKey.location().getNamespace().equals("minecraft");
+            return itemKey != null && itemKey.identifier().getNamespace().equals("minecraft");
         });
 
         // Intercept and modify the loot based on other mods being on

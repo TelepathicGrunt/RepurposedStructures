@@ -1,15 +1,15 @@
 package com.telepathicgrunt.repurposedstructures.modinit.registry;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.Objects;
 
 public class BasicRegistryEntry<T> implements RegistryEntry<T> {
 
-    private final ResourceLocation id;
+    private final Identifier id;
     private final T value;
 
-    public BasicRegistryEntry(ResourceLocation id, T value) {
+    public BasicRegistryEntry(Identifier id, T value) {
         this.id = Objects.requireNonNull(id);
         this.value = Objects.requireNonNull(value);
     }
@@ -20,7 +20,7 @@ public class BasicRegistryEntry<T> implements RegistryEntry<T> {
     }
 
     @Override
-    public ResourceLocation getId() {
+    public Identifier getId() {
         return id;
     }
 }

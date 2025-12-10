@@ -1,24 +1,24 @@
 package com.telepathicgrunt.repurposedstructures.modinit.registry;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 
 public interface CustomRegistryLookup<T, K extends T> extends Iterable<T> {
 
-    boolean containsKey(ResourceLocation id);
+    boolean containsKey(Identifier id);
 
     boolean containsValue(T value);
 
     @Nullable
-    T get(ResourceLocation id);
+    T get(Identifier id);
 
     @Nullable
-    ResourceLocation getKey(T value);
+    Identifier getKey(T value);
 
     Collection<T> getValues();
 
-    Collection<ResourceLocation> getKeys();
+    Collection<Identifier> getKeys();
 
 }

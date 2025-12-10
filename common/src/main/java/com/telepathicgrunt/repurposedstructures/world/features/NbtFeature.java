@@ -7,7 +7,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.NbtFeatur
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
@@ -52,17 +52,17 @@ public class NbtFeature extends Feature<NbtFeatureConfig> {
         }
 
         // Person wants an empty feature for some reason.
-        if (context.config().nbtResourcelocationsAndWeights.size() == 0) {
+        if (context.config().nbtIdentifiersAndWeights.size() == 0) {
             return false;
         }
 
         BlockPos.MutableBlockPos blockpos$Mutable = new BlockPos.MutableBlockPos();
         StructureTemplateManager templatemanager = context.level().getLevel().getServer().getStructureManager();
-        ResourceLocation nbtRL = GeneralUtils.getRandomEntry(context.config().nbtResourcelocationsAndWeights, context.random());
+        Identifier nbtRL = GeneralUtils.getRandomEntry(context.config().nbtIdentifiersAndWeights, context.random());
         Optional<StructureTemplate> template = templatemanager.get(nbtRL);
 
         if (template.isEmpty()) {
-            RepurposedStructures.LOGGER.warn(context.config().nbtResourcelocationsAndWeights.toString() + " NTB does not exist!");
+            RepurposedStructures.LOGGER.warn(context.config().nbtIdentifiersAndWeights.toString() + " NTB does not exist!");
             return false;
         }
 

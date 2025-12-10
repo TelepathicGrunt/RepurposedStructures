@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
@@ -25,19 +25,19 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.Optional;
 
 public class BottomPillarProcessor extends StructureProcessor {
-    private static final ResourceLocation EMPTY_RL = ResourceLocation.fromNamespaceAndPath("minecraft", "empty");
+    private static final Identifier EMPTY_RL = Identifier.fromNamespaceAndPath("minecraft", "empty");
 
     public static final MapCodec<BottomPillarProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
-            ResourceLocation.CODEC.optionalFieldOf("pillar_processor_list", EMPTY_RL).forGetter(processor -> processor.processorList),
+            Identifier.CODEC.optionalFieldOf("pillar_processor_list", EMPTY_RL).forGetter(processor -> processor.processorList),
             Codec.INT.optionalFieldOf("pillar_length", 1000).forGetter(config -> config.pillarLength),
             Codec.BOOL.optionalFieldOf("forced_placement", false).forGetter(config -> config.forcePlacement))
     .apply(instance, instance.stable(BottomPillarProcessor::new)));
 
-    public final ResourceLocation processorList;
+    public final Identifier processorList;
     public final int pillarLength;
     public final boolean forcePlacement;
 
-    private BottomPillarProcessor(ResourceLocation processorList, int pillarLength, boolean forcePlacement)
+    private BottomPillarProcessor(Identifier processorList, int pillarLength, boolean forcePlacement)
     {
         this.processorList = processorList;
         this.pillarLength = pillarLength;

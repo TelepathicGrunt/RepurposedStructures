@@ -5,12 +5,12 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecorationType;
@@ -34,10 +34,10 @@ public class StructureSpecificMaps {
 
             if(csf.startsWith("#")) {
                 this.destination = null;
-                this.destinationTag = TagKey.create(Registries.STRUCTURE, ResourceLocation.tryParse(csf.replaceFirst("#","")));
+                this.destinationTag = TagKey.create(Registries.STRUCTURE, Identifier.tryParse(csf.replaceFirst("#","")));
             }
             else {
-                this.destination = ResourceKey.create(Registries.STRUCTURE, ResourceLocation.tryParse(csf));
+                this.destination = ResourceKey.create(Registries.STRUCTURE, Identifier.tryParse(csf));
                 this.destinationTag = null;
             }
 
@@ -49,11 +49,7 @@ public class StructureSpecificMaps {
         }
 
         @Nullable
-        public MerchantOffer getOffer(Entity entity, RandomSource random) {
-            if (!(entity.level() instanceof ServerLevel serverlevel)) {
-                return null;
-            }
-
+        public MerchantOffer getOffer(ServerLevel serverlevel, Entity entity, RandomSource random) {
             return getOffer(serverlevel, entity);
         }
 

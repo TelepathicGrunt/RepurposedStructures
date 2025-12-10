@@ -5,7 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
@@ -28,8 +28,8 @@ public class LegacyOceanBottomSinglePoolElement extends SinglePoolElement {
                             overrideLiquidSettingsCodec())
                     .apply(legacyOceanBottomSinglePoolElementInstance, LegacyOceanBottomSinglePoolElement::new));
 
-    protected LegacyOceanBottomSinglePoolElement(Either<ResourceLocation, StructureTemplate> resourceLocationStructureTemplateEither, Holder<StructureProcessorList> structureProcessorListHolder, StructureTemplatePool.Projection projection, Optional<LiquidSettings> liquidSettings) {
-        super(resourceLocationStructureTemplateEither, structureProcessorListHolder, projection, liquidSettings);
+    protected LegacyOceanBottomSinglePoolElement(Either<Identifier, StructureTemplate> IdentifierStructureTemplateEither, Holder<StructureProcessorList> structureProcessorListHolder, StructureTemplatePool.Projection projection, Optional<LiquidSettings> liquidSettings) {
+        super(IdentifierStructureTemplateEither, structureProcessorListHolder, projection, liquidSettings);
     }
 
     @Override

@@ -5,14 +5,14 @@ import com.telepathicgrunt.repurposedstructures.modinit.registry.CustomRegistry;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.function.Supplier;
 
 public final class RSConditionsRegistry {
     private RSConditionsRegistry() {}
 
-    public static final ResourceKey<Registry<Supplier<Boolean>>> RS_JSON_CONDITIONS_KEY = ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "json_conditions"));
+    public static final ResourceKey<Registry<Supplier<Boolean>>> RS_JSON_CONDITIONS_KEY = ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "json_conditions"));
     public static final CustomRegistry<Supplier<Boolean>> RS_JSON_CONDITIONS_REGISTRY = CustomRegistry.of(RepurposedStructures.MODID, RS_JSON_CONDITIONS_KEY, false, false, true);
     public static final RegistryEntry<Supplier<Boolean>> ALWAYS_TRUE = RS_JSON_CONDITIONS_REGISTRY.register("always_true", () -> () -> true);
     public static final RegistryEntry<Supplier<Boolean>> ALWAYS_FALSE = RS_JSON_CONDITIONS_REGISTRY.register("always_false", () -> () -> true);
@@ -23,22 +23,22 @@ public final class RSConditionsRegistry {
      * json files like the many Repurposed Structures datapacks works but want a code config to control it.
      *
      * Add "condition" to the individual entries in the template pool in pool_additions folder and give it the
-     * ResourceLocation of the condition you registered. The rs_pieces_spawn_counts folder files can also take
+     * Identifier of the condition you registered. The rs_pieces_spawn_counts folder files can also take
      * a "condition" field for its entries as well.
      *
      * You can register what the condition is to this registry by doing the below in your mod so now your config can control the json files.
      * NOTE: DO THIS CODE ONLY AT MOD INIT. Do not run it when a world is being made! The registry will be frozen after mod init.
 
      * FABRIC/QUILT:
-         BuiltInRegistries.REGISTRY.getOptional(ResourceLocation.fromNamespaceAndPath("repurposed_structures", "json_conditions"))
+         BuiltInRegistries.REGISTRY.getOptional(Identifier.fromNamespaceAndPath("repurposed_structures", "json_conditions"))
              .ifPresent(registry -> Registry.register(
                  (Registry<Supplier<Boolean>>)registry,
-                 ResourceLocation.fromNamespaceAndPath("repurposed_structures", "test"),
+                 Identifier.fromNamespaceAndPath("repurposed_structures", "test"),
                  () -> SomeConfig.EnableJson()));
 
      * FORGE:
         public static final DeferredRegister<Supplier<Boolean>> RS_CONDITIONS_REGISTRY = DeferredRegister.createOptional(
-                ResourceLocation.fromNamespaceAndPath("repurposed_structures", "json_conditions"), "modid");
+                Identifier.fromNamespaceAndPath("repurposed_structures", "json_conditions"), "modid");
 
         // If the typing here doesn't work, make a helper method that takes a Supplier<Boolean> and returns a Supplier<Boolean>
         public static final RegistryObject<Supplier<Boolean>> CUSTOM_MOD_CONFIG_CONDITION = RS_CONDITIONS_REGISTRY.register(

@@ -97,7 +97,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:mineshafts/ocean",
+      "rs_spawner_Identifier": "repurposed_structures:mineshafts/ocean",
       "spawner_replacement_block": {
         "Name": "minecraft:water",
         "Properties": {

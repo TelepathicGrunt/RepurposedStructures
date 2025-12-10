@@ -164,7 +164,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_resourcelocation": "repurposed_structures:dungeons/snow",
+      "rs_spawner_Identifier": "repurposed_structures:dungeons/snow",
       "spawner_replacement_block": {
         "Name": "minecraft:snow_block"
       }

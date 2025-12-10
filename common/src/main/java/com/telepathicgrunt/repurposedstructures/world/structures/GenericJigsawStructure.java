@@ -8,13 +8,13 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.codecs.YRangeAllowance;
 import com.telepathicgrunt.repurposedstructures.world.structures.pieces.PieceLimitedJigsawManager;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.util.Util;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.biome.Biome;
@@ -60,7 +60,7 @@ public class GenericJigsawStructure extends Structure {
             Codec.intRange(1, 100).optionalFieldOf("terrain_height_radius_check").forGetter(structure -> structure.terrainHeightCheckRadius),
             Codec.intRange(1, 1000).optionalFieldOf("allowed_terrain_height_range").forGetter(structure -> structure.allowedTerrainHeightRange),
             Codec.intRange(1, 100).optionalFieldOf("valid_biome_radius_check").forGetter(structure -> structure.biomeRadius),
-            ResourceLocation.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
+            Identifier.CODEC.listOf().fieldOf("pools_that_ignore_boundaries").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(structure -> structure.poolsThatIgnoreBoundaries),
             Codec.intRange(1, 128).optionalFieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
             StringRepresentable.fromEnum(BURYING_TYPE::values).optionalFieldOf("burying_type").forGetter(structure -> structure.buryingType),
             Codec.BOOL.fieldOf("use_bounding_box_hack").orElse(false).forGetter(structure -> structure.useBoundingBoxHack),
@@ -76,7 +76,7 @@ public class GenericJigsawStructure extends Structure {
     public final Optional<Integer> terrainHeightCheckRadius;
     public final Optional<Integer> allowedTerrainHeightRange;
     public final Optional<Integer> biomeRadius;
-    public final HashSet<ResourceLocation> poolsThatIgnoreBoundaries;
+    public final HashSet<Identifier> poolsThatIgnoreBoundaries;
     public final Optional<Integer> maxDistanceFromCenter;
     public final Optional<BURYING_TYPE> buryingType;
     public final boolean useBoundingBoxHack;
@@ -92,7 +92,7 @@ public class GenericJigsawStructure extends Structure {
                                 Optional<Integer> terrainHeightCheckRadius,
                                 Optional<Integer> allowedTerrainHeightRange,
                                 Optional<Integer> biomeRadius,
-                                HashSet<ResourceLocation> poolsThatIgnoreBoundaries,
+                                HashSet<Identifier> poolsThatIgnoreBoundaries,
                                 Optional<Integer> maxDistanceFromCenter,
                                 Optional<BURYING_TYPE> buryingType,
                                 boolean useBoundingBoxHack,

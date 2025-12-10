@@ -1,4 +1,4 @@
-### **(V.7.5.22 Changes) (1.21.9 Minecraft) (Config Datapack Updated)**
+### **(V.7.5.23 Changes) (1.21.11 Minecraft)**
 
 ##### Misc:
-Updated to work on 1.21.9
+Updated to 1.21.11
