@@ -3,7 +3,7 @@
   "config": {
 	  "nbt_entries": [
 		  {
-			  "Identifier": "repurposed_structures:wells/cherry",
+			  "identifier": "repurposed_structures:wells/cherry",
 			  "weight": 1
 		  }
 	  ],

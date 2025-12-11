@@ -76,7 +76,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_Identifier": "repurposed_structures:dungeons/mushroom"
+      "rs_spawner_identifier": "repurposed_structures:dungeons/mushroom"
     }
   ]
 }

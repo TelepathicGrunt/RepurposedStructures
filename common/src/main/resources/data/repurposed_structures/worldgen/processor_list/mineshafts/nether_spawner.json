@@ -123,7 +123,7 @@
     },
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_Identifier": "repurposed_structures:mineshafts/nether"
+      "rs_spawner_identifier": "repurposed_structures:mineshafts/nether"
     },
     {
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",

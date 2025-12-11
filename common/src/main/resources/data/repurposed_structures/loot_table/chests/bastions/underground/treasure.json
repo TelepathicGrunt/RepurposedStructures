@@ -86,6 +86,26 @@
           ]
         },
         {
+          "name": "minecraft:diamond_spear",
+          "type": "minecraft:item",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.8,
+                "max": 1.0
+              },
+              "add": false
+            },
+            {
+              "function": "minecraft:enchant_randomly",
+              "options": "#minecraft:on_random_loot"
+            }
+          ]
+        },
+        {
           "name": "minecraft:diamond_chestplate",
           "type": "minecraft:item",
           "weight": 6,

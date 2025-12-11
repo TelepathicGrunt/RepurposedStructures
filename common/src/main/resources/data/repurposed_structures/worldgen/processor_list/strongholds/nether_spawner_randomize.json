@@ -2,7 +2,7 @@
   "processors": [
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_Identifier": "repurposed_structures:strongholds/nether"
+      "rs_spawner_identifier": "repurposed_structures:strongholds/nether"
     },
     {
       "processor_type": "repurposed_structures:close_off_fluid_sources_processor",

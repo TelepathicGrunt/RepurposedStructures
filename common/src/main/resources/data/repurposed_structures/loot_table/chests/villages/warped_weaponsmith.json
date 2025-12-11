@@ -150,6 +150,11 @@
           "weight": 5
         },
         {
+          "name": "minecraft:golden_spear",
+          "type": "minecraft:item",
+          "weight": 5
+        },
+        {
           "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
           "weight": 5

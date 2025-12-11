@@ -101,6 +101,22 @@
           ]
         },
         {
+          "name": "minecraft:golden_spear",
+          "type": "minecraft:item",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "min": 35.0,
+                "max": 45.0,
+                "type": "minecraft:uniform"
+              },
+              "options": "#minecraft:on_random_loot"
+            }
+          ]
+        },
+        {
           "name": "minecraft:golden_axe",
           "type": "minecraft:item",
           "weight": 12,

@@ -27,7 +27,7 @@ import java.util.Optional;
 public class SpawnerRandomizingProcessor extends StructureProcessor {
 
     public static final MapCodec<SpawnerRandomizingProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
-            Identifier.CODEC.fieldOf("rs_spawner_Identifier").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.rsSpawnerIdentifier),
+            Identifier.CODEC.fieldOf("rs_spawner_identifier").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.rsSpawnerIdentifier),
             InclusiveRange.INT.optionalFieldOf("valid_block_light_level").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.validBlockLightLevel),
             InclusiveRange.INT.optionalFieldOf("valid_sky_light_level").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.validSkyLightLevel),
             Codec.intRange(0, Integer.MAX_VALUE).fieldOf("delay").orElse(20).forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.delay),

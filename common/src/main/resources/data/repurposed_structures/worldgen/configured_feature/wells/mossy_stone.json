@@ -3,7 +3,7 @@
   "config": {
 	  "nbt_entries": [
 		  {
-			  "Identifier": "repurposed_structures:wells/mossy_stone",
+			  "identifier": "repurposed_structures:wells/mossy_stone",
 			  "weight": 1
 		  }
 	  ],

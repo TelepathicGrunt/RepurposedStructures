@@ -262,6 +262,11 @@
           "weight": 1
         },
         {
+          "name": "minecraft:iron_spear",
+          "type": "minecraft:item",
+          "weight": 1
+        },
+        {
           "name": "minecraft:iron_shovel",
           "type": "minecraft:item",
           "weight": 1

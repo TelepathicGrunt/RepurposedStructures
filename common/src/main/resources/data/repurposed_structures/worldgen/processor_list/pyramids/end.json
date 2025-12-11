@@ -2,7 +2,7 @@
   "processors": [
     {
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
-      "rs_spawner_Identifier": "repurposed_structures:pyramids/end"
+      "rs_spawner_identifier": "repurposed_structures:pyramids/end"
     }
   ]
 }

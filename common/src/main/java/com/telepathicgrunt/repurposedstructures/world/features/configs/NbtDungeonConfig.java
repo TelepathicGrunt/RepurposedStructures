@@ -23,11 +23,11 @@ public class NbtDungeonConfig implements FeatureConfiguration {
             Codec.BOOL.fieldOf("air_requirement_is_now_water").orElse(false).forGetter(nbtDungeonConfig -> nbtDungeonConfig.airRequirementIsNowWater),
             Codec.INT.fieldOf("structure_y_offset").orElse(0).forGetter(nbtFeatureConfig -> nbtFeatureConfig.structureYOffset),
             BuiltInRegistries.BLOCK.byNameCodec().fieldOf("loot_block").orElse(Blocks.CHEST).forGetter(nbtDungeonConfig -> nbtDungeonConfig.lootBlock),
-            Identifier.CODEC.fieldOf("loot_block_loottable_Identifier").forGetter(nbtDungeonConfig -> nbtDungeonConfig.chestIdentifier),
-            Identifier.CODEC.fieldOf("rs_spawner_Identifier").forGetter(nbtDungeonConfig -> nbtDungeonConfig.rsSpawnerIdentifier),
+            Identifier.CODEC.fieldOf("loot_block_loottable_identifier").forGetter(nbtDungeonConfig -> nbtDungeonConfig.chestIdentifier),
+            Identifier.CODEC.fieldOf("rs_spawner_identifier").forGetter(nbtDungeonConfig -> nbtDungeonConfig.rsSpawnerIdentifier),
             Identifier.CODEC.fieldOf("processors").forGetter(nbtDungeonConfig -> nbtDungeonConfig.processor),
             Identifier.CODEC.fieldOf("post_processors").orElse(Identifier.fromNamespaceAndPath("minecraft", "empty")).forGetter(nbtDungeonConfig -> nbtDungeonConfig.postProcessor),
-            Codec.mapPair(Identifier.CODEC.fieldOf("Identifier"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight")).codec().listOf().fieldOf("dungeon_nbt_entries").forGetter(nbtFeatureConfig -> nbtFeatureConfig.nbtIdentifiersAndWeights),
+            Codec.mapPair(Identifier.CODEC.fieldOf("identifier"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight")).codec().listOf().fieldOf("dungeon_nbt_entries").forGetter(nbtFeatureConfig -> nbtFeatureConfig.nbtIdentifiersAndWeights),
             Codec.floatRange(0, 1).optionalFieldOf("chance_of_spawning_loot_block_at_spot").forGetter(nbtFeatureConfig -> nbtFeatureConfig.chanceOfSpawningLootBlockAtSpot)
     ).apply(configInstance, NbtDungeonConfig::new))
             .comapFlatMap((nbtDungeonConfig) -> nbtDungeonConfig.maxAirSpace <= nbtDungeonConfig.minAirSpace ?
