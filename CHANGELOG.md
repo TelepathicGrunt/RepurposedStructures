@@ -3,4 +3,4 @@
 ##### Misc:
 Updated to 1.21.11
 
-Structure loot tables updated to have spears or nautilus armor similar to vanilla structures.
+Structure loot tables updated to have spears similar to vanilla structures. Some structures have ghast harnesses instead of nautilus armor.
