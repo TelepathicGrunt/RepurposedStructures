@@ -30,6 +30,7 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
         SkeletonHorse skeletonHorseEntity = EntityType.SKELETON_HORSE.create(context.level().getLevel());
+
         skeletonHorseEntity.setPersistenceRequired();
         skeletonHorseEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,
@@ -37,6 +38,7 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
                 (double)context.origin().getZ() + 0.5D,
                 0.0F,
                 0.0F);
+
         skeletonHorseEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null);
         Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel());
 
@@ -53,10 +55,13 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
         context.config().leggings.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
         context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
 
-        skeletonEntity.setPersistenceRequired();
         skeletonEntity.setHealth(context.config().health);
         skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
         skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
+
+        skeletonEntity.setPersistenceRequired();
+
+        // Ensure mods touching finalizeSpawn does not move entity.
         skeletonEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY() + 1,

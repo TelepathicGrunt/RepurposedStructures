@@ -24,6 +24,14 @@ public class Skeletons extends Feature<GenericMobConfig> {
 
         Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel());
 
+        skeletonEntity.setPersistenceRequired();
+        skeletonEntity.moveTo(
+                (double)context.origin().getX() + 0.5D,
+                context.origin().getY(),
+                (double)context.origin().getZ() + 0.5D,
+                0.0F,
+                0.0F);
+
         // Do this first as this attaches a bow automatically. We may want to override the bow later.
         skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null);
 
@@ -38,6 +46,8 @@ public class Skeletons extends Feature<GenericMobConfig> {
         context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
 
         skeletonEntity.setPersistenceRequired();
+
+        // Ensure mods touching finalizeSpawn does not move entity.
         skeletonEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY(),
