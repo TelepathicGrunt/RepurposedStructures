@@ -51,10 +51,13 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
         context.config().leggings.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
         context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
 
-        skeletonEntity.setPersistenceRequired();
         skeletonEntity.setHealth(context.config().health);
         skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
         skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
+
+        skeletonEntity.setPersistenceRequired();
+
+        // Ensure mods touching finalizeSpawn does not move entity.
         skeletonEntity.setPos(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY() + 1,
