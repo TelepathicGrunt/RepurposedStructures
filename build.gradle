@@ -36,6 +36,17 @@ subprojects {
         maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
         maven { url "https://www.cursemaven.com" }
         maven { url "https://api.modrinth.com/maven/" }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "ParchmentMC"
+                    url = "https://maven.parchmentmc.org"
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("org.parchmentmc")
+            }
+        }
     }
 
     dependencies {

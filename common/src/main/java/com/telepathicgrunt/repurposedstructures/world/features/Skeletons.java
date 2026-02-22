@@ -24,6 +24,14 @@ public class Skeletons extends Feature<GenericMobConfig> {
 
         Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel());
 
+        skeletonEntity.setPersistenceRequired();
+        skeletonEntity.moveTo(
+                (double)context.origin().getX() + 0.5D,
+                context.origin().getY(),
+                (double)context.origin().getZ() + 0.5D,
+                0.0F,
+                0.0F);
+
         // Do this first as this attaches a bow automatically. We may want to override the bow later.
         skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), MobSpawnType.STRUCTURE, null, null);
 
@@ -37,7 +45,13 @@ public class Skeletons extends Feature<GenericMobConfig> {
         context.config().leggings.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.random(), item.getDefaultInstance(), 0.075F)));
         context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.random(), item.getDefaultInstance(), 0.075F)));
 
+        skeletonEntity.setHealth(context.config().health);
+        skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
+        skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
+
         skeletonEntity.setPersistenceRequired();
+
+        // Ensure mods touching finalizeSpawn does not move entity.
         skeletonEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY(),
@@ -45,9 +59,6 @@ public class Skeletons extends Feature<GenericMobConfig> {
                 0.0F,
                 0.0F);
 
-        skeletonEntity.setHealth(context.config().health);
-        skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
-        skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
         context.level().addFreshEntityWithPassengers(skeletonEntity);
         return true;
     }
