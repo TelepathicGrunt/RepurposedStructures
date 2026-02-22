@@ -56,7 +56,7 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
         skeletonEntity.setPersistenceRequired();
 
         // Ensure mods touching finalizeSpawn does not move entity.
-        skeletonEntity.setPos(
+        skeletonEntity.moveTo(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY() + 1,
                 (double)context.origin().getZ() + 0.5D,
