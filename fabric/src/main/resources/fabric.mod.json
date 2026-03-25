@@ -37,6 +37,6 @@
     "minecraft": ">=${minecraft_version}",
     "java": ">=${java_version}",
     "fabric-api": "*",
-    "midnightlib": ">=1.5.7"
+    "midnightlib": "*"
   }
 }

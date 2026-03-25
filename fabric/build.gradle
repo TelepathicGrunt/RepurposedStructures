@@ -1,50 +1,35 @@
 plugins {
-    id 'fabric-loom'
+    id 'net.fabricmc.fabric-loom'
 }
 
 repositories {
     maven { url = 'https://maven.terraformersmc.com/releases' }
-    exclusiveContent {
-        forRepository {
-            maven {
-                name = "ParchmentMC"
-                url = "https://maven.parchmentmc.org"
-            }
-        }
-        filter {
-            includeGroupAndSubgroups("org.parchmentmc")
-        }
-    }
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings(loom.layered {
-        it.officialMojangMappings()
-        it.parchment("org.parchmentmc.data:parchment-${project.parchment_minecraft_version}:${project.parchment_mappings_version}@zip")
-    })
     compileOnly(project(":common")) {
         transitive = false
     }
 
-    modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    implementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    modImplementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
+    implementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
 
-    modCompileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
+    compileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
         transitive = false
     }
-    modRuntimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
+    runtimeOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
         transitive = false
     }
 
-//    modLocalRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
-//    modLocalRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
+//    localRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
+//    localRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
 }
 
 publishMods {
-    file = tasks.remapJar.archiveFile
+    file = tasks.jar.archiveFile
     modLoaders.add("fabric")
 
     File changeLog = rootProject.file("CHANGELOG.md")
