@@ -39,6 +39,17 @@ subprojects {
         maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
         maven { url "https://www.cursemaven.com" }
         maven { url "https://api.modrinth.com/maven/" }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "MidnightDust"
+                    url = "https://maven.midnightdust.eu/releases"
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("eu.midnightdust")
+            }
+        }
     }
 
     dependencies {

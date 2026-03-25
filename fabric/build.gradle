@@ -15,7 +15,7 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    implementation("maven.modrinth:midnightlib:${rootProject.midnightlib}")
+    implementation("eu.midnightdust:midnightlib:${rootProject.midnightlib}")
 
     compileOnly("maven.modrinth:modmenu:${rootProject.mod_menu}") {
         transitive = false
@@ -24,8 +24,8 @@ dependencies {
         transitive = false
     }
 
-//    localRuntime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
-//    localRuntime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
+//    runtime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
+//    runtime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
 }
 
 publishMods {
