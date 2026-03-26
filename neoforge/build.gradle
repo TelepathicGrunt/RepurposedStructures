@@ -125,8 +125,8 @@ neoForge {
             serverData()
 
             programArguments.addAll '--mod', project.mod_id, '--all',
-                    '--output', project.project(":common").file("src/main/resources").getAbsolutePath(),
-                    '--existing', project.project(":common").file("src/main/generated/resources").getAbsolutePath()
+                    '--output', project.project(":common").file("src/main/generated/resources").getAbsolutePath(),
+                    '--existing', project.project(":common").file("src/main/resources").getAbsolutePath()
         }
     }
 }
