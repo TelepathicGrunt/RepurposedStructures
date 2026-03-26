@@ -91,8 +91,7 @@ neoForge {
 
     runs {
         configureEach {
-            logLevel = org.slf4j.event.Level.DEBUG
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.INFO
 
             gameDirectory = project.file('run')
 
@@ -125,9 +124,9 @@ neoForge {
         serverData {
             serverData()
 
-            programArguments.add("--all --mod repurposed_structures")
-            programArguments.add("--existing ${project.project(":common").file("src/main/resources").absolutePath}")
-            programArguments.add("--output ${project.project(":common").file("src/main/generated/resources").absolutePath}")
+            programArguments.addAll '--mod', project.mod_id, '--all',
+                    '--output', project.project(":common").file("src/main/resources").getAbsolutePath(),
+                    '--existing', project.project(":common").file("src/main/generated/resources").getAbsolutePath()
         }
     }
 }
