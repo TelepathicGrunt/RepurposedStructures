@@ -31,7 +31,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:underwater_pile_dried_kelp",
+        "feature": "repurposed_structures:decor/underwater_pile_dried_kelp",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -39,7 +39,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:underwater_pile_hay_bale",
+        "feature": "repurposed_structures:decor/underwater_pile_hay_bale",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -47,7 +47,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:underwater_pile_melon",
+        "feature": "repurposed_structures:decor/underwater_pile_melon",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -55,7 +55,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:underwater_pile_pumpkin",
+        "feature": "repurposed_structures:decor/underwater_pile_pumpkin",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

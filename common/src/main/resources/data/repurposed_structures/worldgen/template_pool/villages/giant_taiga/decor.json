@@ -39,7 +39,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:patch_large_fern",
+        "feature": "repurposed_structures:decor/patch_large_fern",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -47,7 +47,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:patch_grass_taiga",
+        "feature": "repurposed_structures:decor/patch_grass_taiga",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -55,7 +55,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:pile_cobblestone",
+        "feature": "repurposed_structures:decor/pile_cobblestone",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

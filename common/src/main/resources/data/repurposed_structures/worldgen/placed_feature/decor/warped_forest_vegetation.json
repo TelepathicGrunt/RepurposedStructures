@@ -1,0 +1,9 @@
+{
+  "feature": "repurposed_structures:decor/warped_forest_vegetation",
+  "placement": [
+    {
+      "count": 5,
+      "type": "minecraft:count"
+    }
+  ]
+}

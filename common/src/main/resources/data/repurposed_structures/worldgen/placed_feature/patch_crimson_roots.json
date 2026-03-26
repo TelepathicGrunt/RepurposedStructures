@@ -1,9 +1,0 @@
-{
-  "feature": "minecraft:patch_crimson_roots",
-  "placement": [
-    {
-      "count": 5,
-      "type": "minecraft:count"
-    }
-  ]
-}

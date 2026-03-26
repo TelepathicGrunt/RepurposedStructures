@@ -4,7 +4,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:huge_red_mushroom",
+        "feature": "repurposed_structures:decor/huge_red_mushroom",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -12,7 +12,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:huge_brown_mushroom",
+        "feature": "repurposed_structures:decor/huge_brown_mushroom",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

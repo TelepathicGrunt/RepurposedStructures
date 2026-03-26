@@ -13,7 +13,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": "repurposed_structures:huge_crimson_fungus",
+        "feature": "repurposed_structures:decor/huge_crimson_fungus",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
@@ -21,7 +21,7 @@
     {
       "weight": 4,
       "element": {
-        "feature": "repurposed_structures:patch_crimson_roots",
+        "feature": "repurposed_structures:decor/patch_crimson_roots",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

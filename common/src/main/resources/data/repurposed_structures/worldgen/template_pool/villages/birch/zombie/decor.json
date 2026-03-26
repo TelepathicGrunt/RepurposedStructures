@@ -21,7 +21,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:lily_of_the_valley",
+        "feature": "repurposed_structures:decor/lily_of_the_valley",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }
