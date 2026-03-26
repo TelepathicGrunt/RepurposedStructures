@@ -23,8 +23,8 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
 
         BlockPos.MutableBlockPos currentBlockMutable = new BlockPos.MutableBlockPos();
-        ChunkPos currentChunkPos = new ChunkPos(context.origin());
-        ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x, currentChunkPos.z);
+        ChunkPos currentChunkPos = ChunkPos.containing(context.origin());
+        ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x(), currentChunkPos.z());
         for(int x = -1; x <= 1; x++) {
             for(int z = -1; z <= 1; z++) {
                 // only run the connection code in adjacent spots
@@ -32,9 +32,9 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
 
                 for(int y = 0; y >= -2; y--) {
                     currentBlockMutable.set(context.origin()).move(x, y, z);
-                    if (currentChunkPos.x != currentBlockMutable.getX() >> 4 || currentChunkPos.z != currentBlockMutable.getZ() >> 4) {
+                    if (currentChunkPos.x() != currentBlockMutable.getX() >> 4 || currentChunkPos.z() != currentBlockMutable.getZ() >> 4) {
                         currentChunk = context.level().getChunk(currentBlockMutable);
-                        currentChunkPos = new ChunkPos(currentBlockMutable);
+                        currentChunkPos = ChunkPos.containing(currentBlockMutable);
                     }
 
                     BlockState currentBlock = currentChunk.getBlockState(currentBlockMutable);
@@ -54,7 +54,7 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
             BlockState currentState = incomingBlockState.getBlock().defaultBlockState();
             for(Direction direction : Direction.values()) {
                 offsetMutable.set(currentBlockMutable).move(direction);
-                if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
+                if (currentChunkPos.x() != offsetMutable.getX() >> 4 || currentChunkPos.z() != offsetMutable.getZ() >> 4) {
                     continue;
                 }
                 BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
@@ -77,7 +77,7 @@ public class StructurePostProcessConnectiveBlocks extends Feature<NoneFeatureCon
             BlockState currentState = incomingBlockState.getBlock().defaultBlockState();
             for(Direction direction : Direction.Plane.HORIZONTAL) {
                 offsetMutable.set(currentBlockMutable).move(direction);
-                if (currentChunkPos.x != offsetMutable.getX() >> 4 || currentChunkPos.z != offsetMutable.getZ() >> 4) {
+                if (currentChunkPos.x() != offsetMutable.getX() >> 4 || currentChunkPos.z() != offsetMutable.getZ() >> 4) {
                     continue;
                 }
                 BlockState sideBlock = currentChunk.getBlockState(offsetMutable);

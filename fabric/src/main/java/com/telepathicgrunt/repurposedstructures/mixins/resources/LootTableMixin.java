@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures.mixins.resources;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporterApplier;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
@@ -19,8 +20,11 @@ public class LootTableMixin {
      * @author TelepathicGrunt
      */
     @Inject(method = "getRandomItems(Lnet/minecraft/world/level/storage/loot/LootContext;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;",
-            at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void repurposedstructures_modifyLoot(LootContext lootContext, CallbackInfoReturnable<ObjectArrayList<ItemStack>> cir, ObjectArrayList<ItemStack> list) {
+            at = @At(value = "TAIL"))
+    private void repurposedstructures_modifyLoot(LootContext lootContext,
+                                                 CallbackInfoReturnable<ObjectArrayList<ItemStack>> cir,
+                                                 @Local(name = "result") ObjectArrayList<ItemStack> list)
+    {
         StructureModdedLootImporterApplier.checkAndGetModifiedLoot(lootContext, (LootTable)(Object)this, list);
     }
 }

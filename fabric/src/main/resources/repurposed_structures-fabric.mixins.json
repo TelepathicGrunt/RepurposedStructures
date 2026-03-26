@@ -7,10 +7,8 @@
     "blocks.DetectorRailBlockMixin",
     "blocks.PoweredRailBlockMixin",
     "blocks.RailBlockMixin",
-    "entities.VillagerTradesAccessor",
     "resources.BuiltInRegistriesMixin",
-    "resources.LootTableMixin",
-    "structures.StructurePoolMixin"
+    "resources.LootTableMixin"
   ],
   "client": [],
   "injectors": {

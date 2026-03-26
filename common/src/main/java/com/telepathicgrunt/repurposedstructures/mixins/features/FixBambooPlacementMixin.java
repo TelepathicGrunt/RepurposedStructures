@@ -23,8 +23,8 @@ public class FixBambooPlacementMixin {
     )
     private void repurposedstructures_fixBambooNonAirCheck(FeaturePlaceContext<ProbabilityFeatureConfiguration> featurePlaceContext,
                                                            CallbackInfoReturnable<Boolean> cir,
-                                                           @Local(ordinal = 0) WorldGenLevel worldGenLevel,
-                                                           @Local(ordinal = 0) BlockPos.MutableBlockPos mutableBlockPos)
+                                                           @Local(name = "level") WorldGenLevel worldGenLevel,
+                                                           @Local(name = "bambooPos") BlockPos.MutableBlockPos mutableBlockPos)
     {
         if (!worldGenLevel.isEmptyBlock(mutableBlockPos)) {
             mutableBlockPos.move(Direction.DOWN);

@@ -37,7 +37,7 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
             int length = 0;
             BlockPos.MutableBlockPos vineMutablePos = new BlockPos.MutableBlockPos().set(mutable);
-            ChunkPos currentChunkPos = new ChunkPos(vineMutablePos);
+            ChunkPos currentChunkPos = ChunkPos.containing(vineMutablePos);
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
             // Biased towards max length
@@ -48,9 +48,9 @@ public class StructureVineAndLeaves extends Feature<StructureTargetAndLengthConf
                 if (context.level().isEmptyBlock(vineMutablePos)) {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
-                        ChunkPos newChunkPos = new ChunkPos(mutable);
+                        ChunkPos newChunkPos = ChunkPos.containing(mutable);
                         // Prevent floating vines at chunk borders
-                        if(newChunkPos.x != currentChunkPos.x || newChunkPos.z != currentChunkPos.z) continue;
+                        if(newChunkPos.x() != currentChunkPos.x() || newChunkPos.z() != currentChunkPos.z()) continue;
 
                         if(length == 0 &&
                             context.level().getBlockState(vineMutablePos.above()).canOcclude() &&

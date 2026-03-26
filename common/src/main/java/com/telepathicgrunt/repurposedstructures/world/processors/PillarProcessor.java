@@ -81,7 +81,7 @@ public class PillarProcessor extends StructureProcessor {
                 structureProcessorList = levelReader.registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST).get(processorList);
             }
 
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(currentPos))) {
+            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(currentPos))) {
                 return getReturnBlock(worldPos, originalReplacementState);
             }
 

@@ -54,7 +54,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
             }
             for(Direction direction : Direction.Plane.HORIZONTAL) {
                 mutable.move(direction);
-                if(new ChunkPos(mutable).equals(chunk.getPos())) {
+                if(ChunkPos.containing(mutable).equals(chunk.getPos())) {
                     BlockState checkArchState = chunk.getBlockState(mutable);
                     if(context.config().archBlocks.contains(checkArchState.getBlock())) {
                         chunk.setBlockState(mutable, removalState, Block.UPDATE_CLIENTS);

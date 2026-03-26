@@ -37,7 +37,7 @@ public class TickBlocksProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if(blocksToTick.contains(structureBlockInfoWorld.state().getBlock())) {
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos()))) {
+            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
                 return structureBlockInfoWorld;
             }
 

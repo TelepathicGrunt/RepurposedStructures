@@ -74,8 +74,8 @@ public class MansionStructure extends Structure {
 
         if (this.biomeRadius.isPresent() && !(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
             int validBiomeRange = this.biomeRadius.get();
-            for (int curChunkX = chunkPos.x - validBiomeRange; curChunkX <= chunkPos.x + validBiomeRange; curChunkX++) {
-                for (int curChunkZ = chunkPos.z - validBiomeRange; curChunkZ <= chunkPos.z + validBiomeRange; curChunkZ++) {
+            for (int curChunkX = chunkPos.x() - validBiomeRange; curChunkX <= chunkPos.x() + validBiomeRange; curChunkX++) {
+                for (int curChunkZ = chunkPos.z() - validBiomeRange; curChunkZ <= chunkPos.z() + validBiomeRange; curChunkZ++) {
                     Holder<Biome> biome = context.biomeSource().getNoiseBiome(QuartPos.fromSection(curChunkX), QuartPos.fromBlock(blockPos.getY()), QuartPos.fromSection(curChunkZ), context.randomState().sampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
@@ -92,7 +92,7 @@ public class MansionStructure extends Structure {
         ChunkPos chunkPos = context.chunkPos();
 
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x(), context.chunkPos().z());
         Rotation blockRotation = Rotation.getRandom(random);
 
         int xOffset = 5;
@@ -161,7 +161,7 @@ public class MansionStructure extends Structure {
 
             for (int x = box.minX(); x <= box.maxX(); ++x) {
                 for (int z = box.minZ(); z <= box.maxZ(); ++z) {
-                    if (chunkPos.x != x >> 4 || chunkPos.z != z >> 4) {
+                    if (chunkPos.x() != x >> 4 || chunkPos.z() != z >> 4) {
                         continue;
                     }
 

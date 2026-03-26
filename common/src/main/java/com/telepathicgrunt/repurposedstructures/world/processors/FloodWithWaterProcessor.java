@@ -46,7 +46,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
             return structureBlockInfoWorld;
         }
 
-        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(structureBlockInfoWorld.pos()))) {
+        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
             return structureBlockInfoWorld;
         }
 
@@ -70,16 +70,16 @@ public class FloodWithWaterProcessor extends StructureProcessor {
 
             if(flooded) {
                 // enclose the new water block with cracked stonebrick
-                ChunkPos currentChunkPos = new ChunkPos(structureBlockInfoWorld.pos());
-                ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+                ChunkPos currentChunkPos = ChunkPos.containing(structureBlockInfoWorld.pos());
+                ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x(), currentChunkPos.z());
                 BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
                 for (Direction direction : Direction.values()) {
                     if(direction == Direction.UP) continue;
 
                     mutable.set(structureBlockInfoWorld.pos()).move(direction);
-                    if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
+                    if (currentChunkPos.x() != mutable.getX() >> 4 || currentChunkPos.z() != mutable.getZ() >> 4) {
                         currentChunk = levelReader.getChunk(mutable);
-                        currentChunkPos = new ChunkPos(mutable);
+                        currentChunkPos = ChunkPos.containing(mutable);
                     }
 
                     BlockState neighboringBlock = currentChunk.getBlockState(mutable);

@@ -2,8 +2,6 @@ package com.telepathicgrunt.repurposedstructures.neoforge;
 
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.configs.neoforge.RSConfigHandler;
-import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
-import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStopEvent;
@@ -20,8 +18,6 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.neoforged.neoforge.event.server.ServerStoppingEvent;
-import net.neoforged.neoforge.event.village.VillagerTradesEvent;
-import net.neoforged.neoforge.event.village.WandererTradesEvent;
 
 
 @Mod(RepurposedStructures.MODID)
@@ -46,8 +42,6 @@ public class RepurposedStructuresNeoforge {
         IEventBus eventBus = NeoForge.EVENT_BUS;
         eventBus.addListener(RepurposedStructuresNeoforge::onServerStarting);
         eventBus.addListener(RepurposedStructuresNeoforge::onServerStopping);
-        eventBus.addListener(RepurposedStructuresNeoforge::onAddVillagerTrades);
-        eventBus.addListener(RepurposedStructuresNeoforge::onWanderingTrades);
         eventBus.addListener(RepurposedStructuresNeoforge::onAddReloadListeners);
     }
 
@@ -61,14 +55,6 @@ public class RepurposedStructuresNeoforge {
 
     private static void onServerStopping(ServerStoppingEvent event) {
         ServerGoingToStopEvent.EVENT.invoke(ServerGoingToStopEvent.INSTANCE);
-    }
-
-    private static void onAddVillagerTrades(VillagerTradesEvent event) {
-        RegisterVillagerTradesEvent.EVENT.invoke(new RegisterVillagerTradesEvent(event.getType(), (i, listing) -> event.getTrades().get(i.intValue()).add(listing)));
-    }
-
-    private static void onWanderingTrades(WandererTradesEvent event) {
-        RegisterWanderingTradesEvent.EVENT.invoke(new RegisterWanderingTradesEvent(event.getGenericTrades()::add, event.getRareTrades()::add, event.getBuyingTrades()::add));
     }
 
     private static void onAddReloadListeners(AddServerReloadListenersEvent event) {

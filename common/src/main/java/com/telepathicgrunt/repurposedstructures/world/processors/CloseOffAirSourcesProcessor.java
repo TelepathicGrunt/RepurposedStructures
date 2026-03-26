@@ -50,13 +50,13 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
-        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos());
+        ChunkPos currentChunkPos = ChunkPos.containing(infoIn2.pos());
         if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(currentChunkPos)) {
             return infoIn2;
         }
 
         if(!infoIn2.state().getFluidState().isEmpty()) {
-            ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x(), currentChunkPos.z());
             Fluid currentFluid = infoIn2.state().getFluidState().getType();
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
@@ -68,9 +68,9 @@ public class CloseOffAirSourcesProcessor extends StructureProcessor {
                     continue;
                 }
 
-                if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
+                if (currentChunkPos.x() != mutable.getX() >> 4 || currentChunkPos.z() != mutable.getZ() >> 4) {
                     currentChunk = levelReader.getChunk(mutable);
-                    currentChunkPos = new ChunkPos(mutable);
+                    currentChunkPos = ChunkPos.containing(mutable);
                 }
 
                 // Copy what vanilla ores do.

@@ -44,9 +44,9 @@ public class LocateCommandMixin {
     private static void repurposedstructures_increaseLocateRadius(CommandSourceStack commandSourceStack,
                                                                   ResourceOrTagKeyArgument.Result<Structure> result,
                                                                   CallbackInfoReturnable<Integer> cir,
-                                                                  @Local(ordinal = 0) HolderSet<Structure> holderSet,
-                                                                  @Local(ordinal = 0) BlockPos blockPos,
-                                                                  @Local(ordinal = 0) ServerLevel serverLevel) throws CommandSyntaxException
+                                                                  @Local(name = "target") HolderSet<Structure> holderSet,
+                                                                  @Local(name = "sourcePos") BlockPos blockPos,
+                                                                  @Local(name = "serverLevel") ServerLevel serverLevel) throws CommandSyntaxException
     {
         if(holderSet.stream().anyMatch(configuredStructureFeatureHolder -> configuredStructureFeatureHolder.is(RSTags.LARGER_LOCATE_SEARCH))) {
             int increasedSearchRadius = 2000;

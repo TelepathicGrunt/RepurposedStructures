@@ -21,7 +21,7 @@ public class SimpleBlockWithFluidTick extends Feature<SimpleBlockConfiguration> 
         SimpleBlockConfiguration simpleBlockConfiguration = context.config();
         WorldGenLevel worldGenLevel = context.level();
         BlockPos blockPos = context.origin();
-        BlockState blockState = simpleBlockConfiguration.toPlace().getState(context.random(), blockPos);
+        BlockState blockState = simpleBlockConfiguration.toPlace().getState(context.level(), context.random(), blockPos);
         if (!blockState.canSurvive(worldGenLevel, blockPos)) {
             return false;
         }

@@ -1,0 +1,39 @@
+{
+  "max_uses": 1.0,
+  "reputation_discount": 0.05,
+  "xp": 100.0,
+  "wants": {
+    "count": 38.0,
+    "id": "minecraft:emerald"
+  },
+  "gives": {
+    "id": "minecraft:map"
+  },
+  "given_item_modifiers": [
+    {
+      "function": "minecraft:exploration_map",
+      "destination": "repurposed_structures:explorer_maps/bastion_underground",
+      "decoration": "banner_gray",
+      "search_radius": 50
+    },
+    {
+      "function": "minecraft:set_name",
+      "target": "item_name",
+      "name": {
+        "translate": "Underground Bastion Map"
+      }
+    },
+    {
+      "function": "minecraft:filtered",
+      "item_filter": {
+        "items": "minecraft:filled_map",
+        "predicates": {
+          "minecraft:map_id": {}
+        }
+      },
+      "on_fail": {
+        "function": "minecraft:discard"
+      }
+    }
+  ]
+}

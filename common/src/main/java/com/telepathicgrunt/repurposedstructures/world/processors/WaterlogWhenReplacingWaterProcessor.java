@@ -25,7 +25,7 @@ public class WaterlogWhenReplacingWaterProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
         if (infoIn2.state().hasProperty(BlockStateProperties.WATERLOGGED)) {
-            if (levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(infoIn2.pos()))) {
+            if (levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(infoIn2.pos()))) {
                 return infoIn2;
             }
 

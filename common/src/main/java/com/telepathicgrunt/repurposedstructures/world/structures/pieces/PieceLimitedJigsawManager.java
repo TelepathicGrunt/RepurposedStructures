@@ -81,7 +81,7 @@ public class PieceLimitedJigsawManager {
 
         // Get a random orientation for the starting piece
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x(), context.chunkPos().z());
         Rotation rotation = Rotation.getRandom(random);
 
         // Get starting pool

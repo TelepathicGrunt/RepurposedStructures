@@ -407,7 +407,7 @@ public final class GeneralUtils {
 
     public static void fillStartsForStructure(LevelReader level, StructureManager structureManager, Structure structure, LongSet references, BlockPos position, Consumer<StructureStart> consumer) {
         for (long ref : references) {
-            SectionPos sectionPos = SectionPos.of(new ChunkPos(ref), level.getMinY());
+            SectionPos sectionPos = SectionPos.of(ChunkPos.unpack(ref), level.getMinY());
             if (!level.hasChunk(sectionPos.x(), sectionPos.z())) {
                 continue;
             }

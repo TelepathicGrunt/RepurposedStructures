@@ -96,7 +96,7 @@ public class NbtDungeon extends Feature<NbtDungeonConfig>{
             for (int z = zMin; z <= zMax; z++) {
                 for (int y = 0; y <= ceiling; y++) {
                     mutable.set(position).move(x, y, z);
-                    if(mutable.getX() >> 4 != cachedChunk.getPos().x || mutable.getZ() >> 4 != cachedChunk.getPos().z)
+                    if(mutable.getX() >> 4 != cachedChunk.getPos().x() || mutable.getZ() >> 4 != cachedChunk.getPos().z())
                         cachedChunk = context.level().getChunk(mutable);
 
                     BlockState state = cachedChunk.getBlockState(mutable);

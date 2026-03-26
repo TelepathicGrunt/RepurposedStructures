@@ -6,11 +6,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import net.minecraft.world.level.levelgen.placement.RepeatingPlacement;
 
 public class UnlimitedCountPlacement extends RepeatingPlacement {
-    public static final MapCodec<UnlimitedCountPlacement> CODEC = IntProvider.NON_NEGATIVE_CODEC.fieldOf("count").xmap(UnlimitedCountPlacement::new, countPlacement -> countPlacement.count);
+    public static final MapCodec<UnlimitedCountPlacement> CODEC = IntProviders.NON_NEGATIVE_CODEC.fieldOf("count").xmap(UnlimitedCountPlacement::new, countPlacement -> countPlacement.count);
     private final IntProvider count;
 
     private UnlimitedCountPlacement(IntProvider intProvider) {

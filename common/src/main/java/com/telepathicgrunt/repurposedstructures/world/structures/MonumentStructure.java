@@ -71,8 +71,8 @@ public class MonumentStructure extends Structure {
 
         if (this.biomeRadius.isPresent() && !(context.biomeSource() instanceof CheckerboardColumnBiomeSource)) {
             int validBiomeRange = this.biomeRadius.get();
-            for (int curChunkX = chunkPos.x - validBiomeRange; curChunkX <= chunkPos.x + validBiomeRange; curChunkX++) {
-                for (int curChunkZ = chunkPos.z - validBiomeRange; curChunkZ <= chunkPos.z + validBiomeRange; curChunkZ++) {
+            for (int curChunkX = chunkPos.x() - validBiomeRange; curChunkX <= chunkPos.x() + validBiomeRange; curChunkX++) {
+                for (int curChunkZ = chunkPos.z() - validBiomeRange; curChunkZ <= chunkPos.z() + validBiomeRange; curChunkZ++) {
                     Holder<Biome> biome = context.biomeSource().getNoiseBiome(QuartPos.fromSection(curChunkX), QuartPos.fromBlock(blockPos.getY()), QuartPos.fromSection(curChunkZ), context.randomState().sampler());
                     if (!context.validBiome().test(biome)) {
                         return false;
@@ -88,7 +88,7 @@ public class MonumentStructure extends Structure {
     public Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
         ChunkPos chunkPos = context.chunkPos();
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x(), context.chunkPos().z());
 
         BlockPos centerPoint = chunkPos.getMiddleBlockPosition(0);
         int finalheight;

@@ -6,7 +6,6 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,7 +15,6 @@ public class DetectRSLootTables implements LootItemCondition {
             Identifier.CODEC.listOf().fieldOf("blacklisted_loot_tables").xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blacklistedLootTableIds)
     ).apply(configInstance, DetectRSLootTables::new));
 
-    public static final LootItemConditionType DETECT_RS_LOOT_TABLES = new LootItemConditionType(CODEC);
     private final HashSet<Identifier> blacklistedLootTableIds;
 
     private DetectRSLootTables(final HashSet<Identifier> blacklistedLootTableIds) {
@@ -24,13 +22,13 @@ public class DetectRSLootTables implements LootItemCondition {
     }
 
     @Override
-    public LootItemConditionType getType() {
-        return DETECT_RS_LOOT_TABLES;
-    }
-
-    @Override
     public boolean test(LootContext lootContext) {
         Identifier lootTableID = lootContext.getQueriedLootTableId();
         return lootTableID.getNamespace().equals(RepurposedStructures.MODID) && !this.blacklistedLootTableIds.contains(lootTableID);
+    }
+
+    @Override
+    public MapCodec<? extends LootItemCondition> codec() {
+        return CODEC;
     }
 }

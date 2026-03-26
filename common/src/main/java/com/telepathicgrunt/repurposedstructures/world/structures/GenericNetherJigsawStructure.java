@@ -89,7 +89,7 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
         GeneralUtils.centerAllPieces(blockpos, pieces);
 
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+        random.setLargeFeatureSeed(context.seed(), context.chunkPos().x(), context.chunkPos().z());
         BlockPos placementPos;
 
         if (this.searchDirection == LAND_SEARCH_DIRECTION.HIGHEST_LAND) {

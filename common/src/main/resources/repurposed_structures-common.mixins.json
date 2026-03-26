@@ -5,7 +5,6 @@
   "mixins": [
     "entities.BlockAttachedEntityMixin",
     "entities.EntityAccessor",
-    "entities.MerchantOfferAccessor",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.FixBambooPlacementMixin",
@@ -18,7 +17,6 @@
     "features.NoLakesInStructuresMixin",
     "features.NoVinesInStructuresMixin",
     "features.SmarterSnowPlacingInStructuresMixin",
-    "items.MapItemAccessor",
     "resources.LootContextAccessor",
     "structures.JigsawJunctionAccessor",
     "structures.LocateCommandMixin",
@@ -26,7 +24,7 @@
     "structures.SinglePoolElementAccessor",
     "structures.StructurePieceAccessor",
     "structures.StructurePoolAccessor",
-    "structures.StructureProcessorAccessor",
+    "structures.StructurePoolMixin",
     "structures.TemplateAccessor"
   ],
   "client": [

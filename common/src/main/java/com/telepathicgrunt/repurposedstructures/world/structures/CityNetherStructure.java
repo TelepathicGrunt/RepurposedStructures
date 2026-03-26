@@ -86,11 +86,11 @@ public class CityNetherStructure extends GenericJigsawStructure {
             return false;
 
         // make sure land is open enough for city
-        ChunkPos chunkPos = new ChunkPos(blockPos);
+        ChunkPos chunkPos = ChunkPos.containing(blockPos);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
-        for (int curChunkX = chunkPos.x - 1; curChunkX <= chunkPos.x + 1; curChunkX++) {
-            for (int curChunkZ = chunkPos.z - 1; curChunkZ <= chunkPos.z + 1; curChunkZ++) {
-                if (curChunkX == chunkPos.x && curChunkZ == chunkPos.z) {
+        for (int curChunkX = chunkPos.x() - 1; curChunkX <= chunkPos.x() + 1; curChunkX++) {
+            for (int curChunkZ = chunkPos.z() - 1; curChunkZ <= chunkPos.z() + 1; curChunkZ++) {
+                if (curChunkX == chunkPos.x() && curChunkZ == chunkPos.z()) {
                     continue;
                 }
 

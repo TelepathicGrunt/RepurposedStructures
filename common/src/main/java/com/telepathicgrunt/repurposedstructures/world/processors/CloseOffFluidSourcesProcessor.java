@@ -55,7 +55,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
 
-        ChunkPos currentChunkPos = new ChunkPos(infoIn2.pos());
+        ChunkPos currentChunkPos = ChunkPos.containing(infoIn2.pos());
         if(infoIn2.state().is(Blocks.STRUCTURE_VOID) || !infoIn2.state().getFluidState().isEmpty()) {
             return infoIn2;
         }
@@ -65,7 +65,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
         }
 
         if(!GeneralUtils.isFullCube(infoIn2.state()) || !infoIn2.state().blocksMotion()) {
-            ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x, currentChunkPos.z);
+            ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x(), currentChunkPos.z());
 
             if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos()).isAir()) return infoIn2;
 
@@ -79,9 +79,9 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                     continue;
                 }
 
-                if (currentChunkPos.x != mutable.getX() >> 4 || currentChunkPos.z != mutable.getZ() >> 4) {
+                if (currentChunkPos.x() != mutable.getX() >> 4 || currentChunkPos.z() != mutable.getZ() >> 4) {
                     currentChunk = levelReader.getChunk(mutable);
-                    currentChunkPos = new ChunkPos(mutable);
+                    currentChunkPos = ChunkPos.containing(mutable);
                 }
 
                 // Copy what vanilla ores do.

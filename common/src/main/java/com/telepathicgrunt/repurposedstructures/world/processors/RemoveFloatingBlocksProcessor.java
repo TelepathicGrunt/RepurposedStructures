@@ -26,7 +26,7 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
     @Override
     public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos());
-        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(new ChunkPos(mutable))) {
+        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(mutable))) {
             return structureBlockInfoWorld;
         }
 
@@ -47,7 +47,7 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 mutable.set(structureBlockInfoWorld.pos());
                 mutable.move(direction);
-                ChunkPos chunkPos = new ChunkPos(mutable);
+                ChunkPos chunkPos = ChunkPos.containing(mutable);
                 ChunkAccess chunkAccess2 = cachedChunk;
                 if (!chunkPos.equals(cachedChunk.getPos())) {
                     chunkAccess2 = levelReader.getChunk(mutable);

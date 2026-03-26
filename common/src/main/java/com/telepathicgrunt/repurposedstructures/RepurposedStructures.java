@@ -3,16 +3,11 @@ package com.telepathicgrunt.repurposedstructures;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.Strictness;
-import com.telepathicgrunt.repurposedstructures.events.RegisterVillagerTradesEvent;
-import com.telepathicgrunt.repurposedstructures.events.RegisterWanderingTradesEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
-import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStopEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.SetupEvent;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.EndRemasteredDedicatedLoot;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporter;
-import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapManager;
-import com.telepathicgrunt.repurposedstructures.misc.maptrades.StructureMapTradesEvents;
 import com.telepathicgrunt.repurposedstructures.misc.mobspawners.MobSpawnerManager;
 import com.telepathicgrunt.repurposedstructures.misc.pooladditions.PoolAdditionMergerManager;
 import com.telepathicgrunt.repurposedstructures.misc.structurepiececounter.StructurePieceCountsManager;
@@ -26,7 +21,6 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import com.telepathicgrunt.repurposedstructures.services.PlatformService;
-import com.telepathicgrunt.repurposedstructures.utils.AsyncLocator;
 import net.minecraft.resources.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -57,9 +51,6 @@ public class RepurposedStructures {
         SetupEvent.EVENT.addListener(RepurposedStructures::setup);
         RegisterReloadListenerEvent.EVENT.addListener(RepurposedStructures::registerDatapackListener);
         ServerGoingToStartEvent.EVENT.addListener(RepurposedStructures::serverAboutToStart);
-        ServerGoingToStopEvent.EVENT.addListener(RepurposedStructures::onServerStopping);
-        RegisterVillagerTradesEvent.EVENT.addListener(RepurposedStructures::onAddVillagerTrades);
-        RegisterWanderingTradesEvent.EVENT.addListener(RepurposedStructures::onWanderingTrades);
     }
 
     private static void setup(final SetupEvent event) {
@@ -72,25 +63,10 @@ public class RepurposedStructures {
             StructureModdedLootImporter.checkLoottables(event.getServer());
             EndRemasteredDedicatedLoot.checkLoottables(event.getServer());
         }
-
-        AsyncLocator.handleServerAboutToStartEvent();
-    }
-
-    private static void onServerStopping(final ServerGoingToStopEvent event) {
-        AsyncLocator.handleServerStoppingEvent();
-    }
-
-    private static void onAddVillagerTrades(final RegisterVillagerTradesEvent event) {
-        StructureMapTradesEvents.addVillagerTrades(event);
-    }
-
-    private static void onWanderingTrades(final RegisterWanderingTradesEvent event) {
-        StructureMapTradesEvents.addWanderingTrades(event);
     }
 
     public static void registerDatapackListener(final RegisterReloadListenerEvent event) {
         event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_spawners"), MobSpawnerManager.MOB_SPAWNER_MANAGER);
-        event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "structure_map_trades"), StructureMapManager.STRUCTURE_MAP_MANAGER);
         event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_pieces_spawn_counts"), StructurePieceCountsManager.STRUCTURE_PIECE_COUNTS_MANAGER);
         event.register(Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "rs_pool_additions"), PoolAdditionMergerManager.POOL_ADDITIONS_MERGER_MANAGER);
     }

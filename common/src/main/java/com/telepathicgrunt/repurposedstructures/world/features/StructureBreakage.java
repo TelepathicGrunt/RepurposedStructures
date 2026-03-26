@@ -178,8 +178,8 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                             mutable.set(ag, ai, ak);
                                             BlockState state = context.level().getBlockState(mutable);
                                             if (FORTRESS_BLOCKS.test(state)) {
-                                                ChunkPos currentChunkPos = new ChunkPos(mutable);
-                                                ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x, currentChunkPos.z);
+                                                ChunkPos currentChunkPos = ChunkPos.containing(mutable);
+                                                ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x(), currentChunkPos.z());
                                                 boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
 
                                                 // Do not carve if exposed to cave space
@@ -221,9 +221,9 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                     if(direction == Direction.UP) continue;
 
                                                     mutableVineCheck.set(mutable).move(direction);
-                                                    if (currentChunkPos.x != mutableVineCheck.getX() >> 4 || currentChunkPos.z != mutableVineCheck.getZ() >> 4) {
+                                                    if (currentChunkPos.x() != mutableVineCheck.getX() >> 4 || currentChunkPos.z() != mutableVineCheck.getZ() >> 4) {
                                                         currentChunk = context.level().getChunk(mutableVineCheck);
-                                                        currentChunkPos = new ChunkPos(mutableVineCheck);
+                                                        currentChunkPos = ChunkPos.containing(mutableVineCheck);
                                                     }
 
                                                     BlockState neighboringBlock = currentChunk.getBlockState(mutableVineCheck);
@@ -253,16 +253,16 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
     private boolean isBorderingAir(ServerLevelAccessor world, BlockPos.MutableBlockPos mutable) {
         BlockPos.MutableBlockPos mutableWaterCheck = new BlockPos.MutableBlockPos();
-        ChunkPos currentChunkPos2 = new ChunkPos(mutable);
-        ChunkAccess currentChunk2 = world.getChunk(currentChunkPos2.x, currentChunkPos2.z);
+        ChunkPos currentChunkPos2 = ChunkPos.containing(mutable);
+        ChunkAccess currentChunk2 = world.getChunk(currentChunkPos2.x(), currentChunkPos2.z());
         for (Direction direction : Direction.values()) {
             // Do not check above or else we never carve at sealevel
             if (direction == Direction.UP) continue;
 
             mutableWaterCheck.set(mutable).move(direction);
-            if (currentChunkPos2.x != mutableWaterCheck.getX() >> 4 || currentChunkPos2.z != mutableWaterCheck.getZ() >> 4) {
+            if (currentChunkPos2.x() != mutableWaterCheck.getX() >> 4 || currentChunkPos2.z() != mutableWaterCheck.getZ() >> 4) {
                 currentChunk2 = world.getChunk(mutableWaterCheck);
-                currentChunkPos2 = new ChunkPos(mutableWaterCheck);
+                currentChunkPos2 = ChunkPos.containing(mutableWaterCheck);
             }
 
             if(currentChunk2.getBlockState(mutableWaterCheck).isAir()) {

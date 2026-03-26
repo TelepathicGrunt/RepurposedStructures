@@ -52,14 +52,14 @@ public class UnderwaterBlockPileFeature extends Feature<BlockPileConfiguration> 
         return blockstate.is(Blocks.DIRT_PATH) ? randomSource.nextBoolean() : blockstate.isFaceSturdy(levelAccessor, blockpos, Direction.UP);
     }
 
-    private void tryPlaceBlock(LevelAccessor levelAccessor, BlockPos blockPos, RandomSource randomSource, BlockPileConfiguration stateProvider) {
-        boolean isWaterLocation = levelAccessor.isWaterAt(blockPos);
-        if ((levelAccessor.isEmptyBlock(blockPos) || isWaterLocation) && this.mayPlaceOn(levelAccessor, blockPos, randomSource)) {
-            BlockState resultState = stateProvider.stateProvider.getState(randomSource, blockPos);
+    private void tryPlaceBlock(WorldGenLevel level, BlockPos blockPos, RandomSource randomSource, BlockPileConfiguration stateProvider) {
+        boolean isWaterLocation = level.isWaterAt(blockPos);
+        if ((level.isEmptyBlock(blockPos) || isWaterLocation) && this.mayPlaceOn(level, blockPos, randomSource)) {
+            BlockState resultState = stateProvider.stateProvider.getState(level, randomSource, blockPos);
             if (isWaterLocation && resultState.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 resultState = resultState.setValue(BlockStateProperties.WATERLOGGED, true);
             }
-            levelAccessor.setBlock(blockPos, resultState, 4);
+            level.setBlock(blockPos, resultState, 4);
         }
     }
 }

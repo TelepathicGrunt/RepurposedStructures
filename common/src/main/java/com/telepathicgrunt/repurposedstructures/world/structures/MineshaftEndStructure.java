@@ -171,7 +171,7 @@ public class MineshaftEndStructure extends Structure {
         }
         else{
             WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0L));
-            random.setLargeFeatureSeed(context.seed(), context.chunkPos().x, context.chunkPos().z);
+            random.setLargeFeatureSeed(context.seed(), context.chunkPos().x(), context.chunkPos().z());
             int structureStartHeight = random.nextInt(Math.max(islandTopBottomThickness.getZ() - this.minIslandThickness.get() + 1, 1)) + islandTopBottomThickness.getY() + (this.minIslandThickness.get() / 2);
             blockpos.move(Direction.UP, structureStartHeight);
             maxY = islandTopBottomThickness.getX() - 10;
