@@ -1,7 +1,6 @@
 {
   "required": true,
   "package": "com.telepathicgrunt.repurposedstructures.mixins.neoforge",
-  "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [],

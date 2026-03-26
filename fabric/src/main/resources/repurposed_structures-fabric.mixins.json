@@ -2,7 +2,6 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.telepathicgrunt.repurposedstructures.mixins",
-  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "blocks.DetectorRailBlockMixin",
     "blocks.PoweredRailBlockMixin",

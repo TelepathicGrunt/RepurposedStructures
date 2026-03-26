@@ -1,7 +1,6 @@
 {
   "required": true,
   "package": "com.telepathicgrunt.repurposedstructures.mixins",
-  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "entities.BlockAttachedEntityMixin",
     "entities.EntityAccessor",
