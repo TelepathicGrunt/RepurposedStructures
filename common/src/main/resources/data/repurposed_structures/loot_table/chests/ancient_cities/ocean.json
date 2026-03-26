@@ -103,11 +103,6 @@
           ]
         },
         {
-          "name": "minecraft:name_tag",
-          "type": "minecraft:item",
-          "weight": 4
-        },
-        {
           "name": "minecraft:diamond_hoe",
           "type": "minecraft:item",
           "weight": 4,
