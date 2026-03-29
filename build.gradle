@@ -36,9 +36,36 @@ subprojects {
     version = "${rootProject.mod_version}+${rootProject.minecraft_version}-${project.name}"
 
     repositories {
-        maven { url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/" }
-        maven { url "https://www.cursemaven.com" }
-        maven { url "https://api.modrinth.com/maven/" }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url = "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("com.telepathicgrunt")
+            }
+        }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url = "https://www.cursemaven.com"
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("curse.maven")
+            }
+        }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url = "https://api.modrinth.com/maven/"
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("maven.modrinth")
+            }
+        }
         exclusiveContent {
             forRepository {
                 maven {
