@@ -1,6 +1,7 @@
 package com.telepathicgrunt.repurposedstructures.mixins.resources;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.telepathicgrunt.repurposedstructures.misc.lootmanager.StructureModdedLootImporterApplier;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
@@ -8,23 +9,19 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(LootTable.class)
 public class LootTableMixin {
 
     /**
      * Allow use to import modded items to our structure's loottables
+     *
      * @author TelepathicGrunt
      */
-    @Inject(method = "getRandomItems(Lnet/minecraft/world/level/storage/loot/LootContext;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;",
-            at = @At(value = "TAIL"))
-    private void repurposedstructures_modifyLoot(LootContext lootContext,
-                                                 CallbackInfoReturnable<ObjectArrayList<ItemStack>> cir,
-                                                 @Local(name = "result") ObjectArrayList<ItemStack> list)
-    {
+    @ModifyReturnValue(method = "getRandomItems(Lnet/minecraft/world/level/storage/loot/LootContext;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;",
+            at = @At(value = "RETURN"))
+    private ObjectArrayList<ItemStack> repurposedstructures_modifyLoot(ObjectArrayList<ItemStack> list, LootContext lootContext) {
         StructureModdedLootImporterApplier.checkAndGetModifiedLoot(lootContext, (LootTable)(Object)this, list);
+        return list;
     }
 }
