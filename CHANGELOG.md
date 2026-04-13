@@ -1,5 +1,4 @@
-### **(V.7.6.1 Changes) (1.21.11 Minecraft) (Config Datapack Updated)**
+### **(V.7.6.2 Changes) (1.21.11 Minecraft)**
 
-##### Misc:
-Adjusted Skeletons spawning in RS structures to set position before calling finalizeSpawn.
-May improve interactions with certain mods.
+##### Mod Compat:
+(Fabric): Adjusted loot table manipulation mixin so it fixes the incompat with Artifact loot not showing in Repurposed Structures loot tables.
