@@ -23,6 +23,6 @@ license="${license}"
 
 [dependencies]
 "${mod_id}" = [
-    { modId = "neoforge", type = "required", versionRange = "*", ordering = "NONE", side = "BOTH" },
+    { modId = "neoforge", type = "required", versionRange = "[26.1.2.20-beta,)", ordering = "NONE", side = "BOTH" },
     { modId = "minecraft", type = "required", versionRange = "[${minecraft_version},)", ordering = "NONE", side = "BOTH" },
 ]

@@ -29,8 +29,8 @@ public class StructureModdedLootImporterApplier extends LootModifier {
     public static final Supplier<MapCodec<StructureModdedLootImporterApplier>> CODEC = Suppliers.memoize(() ->
             RecordCodecBuilder.mapCodec(inst -> codecStart(inst).apply(inst, StructureModdedLootImporterApplier::new)));
 
-    public StructureModdedLootImporterApplier(final LootItemCondition[] conditionsIn) {
-        super(conditionsIn);
+    public StructureModdedLootImporterApplier(final LootItemCondition[] conditionsIn, int priority) {
+        super(conditionsIn, priority);
     }
 
     @Override

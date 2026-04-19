@@ -1,3 +1,9 @@
+### **(V.7.7.3 Changes) (26.1 Minecraft)**
+
+#### Misc:
+(NeoForge): Now requires 26.1.2.20-beta NeoForge or newer due to a breaking change with GLMs.
+
+
 ### **(V.7.7.2 Changes) (26.1 Minecraft)**
 
 ##### Misc:
