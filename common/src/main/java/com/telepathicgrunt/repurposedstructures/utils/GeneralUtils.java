@@ -76,7 +76,7 @@ public final class GeneralUtils {
     private GeneralUtils() {}
 
     public static <T> T loadService(Class<T> service) {
-        return ServiceLoader.load(service).findFirst().orElseThrow(() -> new IllegalStateException("No platform implementation found for " + service.getName()));
+        return ServiceLoader.load(service, service.getClassLoader()).findFirst().orElseThrow(() -> new IllegalStateException("No platform implementation found for " + service.getName()));
     }
 
     // Weighted Random from: https://stackoverflow.com/a/6737362
