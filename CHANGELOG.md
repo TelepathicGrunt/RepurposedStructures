@@ -1,3 +1,10 @@
+### **(V.7.7.4 Changes) (26.1 Minecraft) (Config Datapack Updated)**
+
+##### Configs:
+Added item tag `repurposed_structures:blacklisted_from_modded_loot_importing` for packmakers or other mods to prevent
+ RS from importing certain modded items from vanilla loot tables while still importing other modded items.
+
+
 ### **(V.7.7.3 Changes) (26.1 Minecraft)**
 
 #### Misc:

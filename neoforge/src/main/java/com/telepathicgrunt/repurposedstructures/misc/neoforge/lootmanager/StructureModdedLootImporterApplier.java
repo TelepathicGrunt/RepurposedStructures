@@ -56,11 +56,11 @@ public class StructureModdedLootImporterApplier extends LootModifier {
         List<ItemStack> newlyGeneratedLoot = optionalLootTableReference.isPresent() ?
                 optionalLootTableReference.get().value().getRandomItems(((LootContextAccessor)newContext).repurposedstructures$getParams()) : new ArrayList<>();
 
-        // Remove all vanilla loot so we only have modded loot
-        newlyGeneratedLoot.removeIf(itemStack -> BuiltInRegistries.ITEM.getKey(itemStack.getItem()).getNamespace().equals("minecraft"));
-
         // Intercept and modify the loot based on other mods being on
         EndRemasteredDedicatedLootApplier.handleDedicatedModCompat(newlyGeneratedLoot, context);
+
+        // Remove all vanilla loot so we only have modded loot
+        newlyGeneratedLoot.removeIf(StructureModdedLootImporter::isFilteredOut);
 
         // Add modded loot to my structure's chests
         generatedLoot.addAll(newlyGeneratedLoot);

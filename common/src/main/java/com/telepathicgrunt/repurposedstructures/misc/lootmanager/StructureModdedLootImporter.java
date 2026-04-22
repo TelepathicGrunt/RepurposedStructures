@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.configs.RSMainModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.services.PlatformService;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
@@ -234,6 +235,12 @@ public class StructureModdedLootImporter {
         }
 
         return BLACKLISTED_LOOTTABLES.contains(lootTableID);
+    }
+
+    public static boolean isFilteredOut(ItemStack itemStack) {
+        ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(itemStack.getItem());
+        return (itemId != null && itemId.getNamespace().equals("minecraft"))
+                    || itemStack.is(RSTags.BLACKLISTED_FROM_MODDED_LOOT_IMPORTING);
     }
 
     public static void checkLoottables(MinecraftServer minecraftServer) {
