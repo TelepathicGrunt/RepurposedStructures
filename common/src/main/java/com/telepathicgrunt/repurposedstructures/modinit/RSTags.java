@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
@@ -46,4 +47,7 @@ public final class RSTags {
 
     public static TagKey<Block> DEAD_CORALS = TagKey.create(Registries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "dead_corals"));
+
+    public static TagKey<Item> BLACKLISTED_FROM_MODDED_LOOT_IMPORTING = TagKey.create(Registries.ITEM,
+             ResourceLocation.fromNamespaceAndPath(RepurposedStructures.MODID, "blacklisted_from_modded_loot_importing"));
 }
