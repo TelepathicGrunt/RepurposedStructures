@@ -4,6 +4,7 @@ import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
@@ -40,4 +41,8 @@ public final class RSTags {
 
     public static TagKey<Block> MINESHAFT_SUPPORT_REPLACEABLES = TagKey.create(Registries.BLOCK,
             new ResourceLocation(RepurposedStructures.MODID, "mineshaft_support_replaceables"));
+
+
+    public static TagKey<Item> BLACKLISTED_FROM_MODDED_LOOT_IMPORTING = TagKey.create(Registries.ITEM,
+            new ResourceLocation(RepurposedStructures.MODID, "blacklisted_from_modded_loot_importing"));
 }
