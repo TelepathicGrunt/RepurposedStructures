@@ -1,4 +1,4 @@
-### **(V.7.1.23 Changes) (1.20.1 Minecraft) (Config Datapack Updated**
+### **(V.7.1.23 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 ##### Configs:
 Added item tag `repurposed_structures:blacklisted_from_modded_loot_importing` for packmakers or other mods to prevent
