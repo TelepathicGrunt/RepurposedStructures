@@ -1,3 +1,10 @@
+### **(V.7.1.24 Changes) (1.20.1 Minecraft)**
+
+#### Misc:
+Fixed an incredibly rare concurrency modification exception crash when Villagers/Wandering Traders have explorer maps 
+ locating an RS structure while something else is also searching for structures at same time.
+
+
 ### **(V.7.1.23 Changes) (1.20.1 Minecraft) (Config Datapack Updated)**
 
 ##### Configs:

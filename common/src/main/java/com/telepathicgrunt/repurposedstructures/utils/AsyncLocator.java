@@ -4,6 +4,7 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -103,7 +105,19 @@ public class AsyncLocator {
             int searchRadius,
             boolean skipExistingChunks
     ) {
-        BlockPos foundPos = level.findNearestMapStructure(structureTag, pos, searchRadius, skipExistingChunks);
+        if (!level.getServer().getWorldData().worldGenOptions().generateStructures()) {
+            completableFuture.complete(null);
+            return;
+        }
+
+        Optional<HolderSet.Named<Structure>> optional = level.registryAccess().registryOrThrow(Registries.STRUCTURE).getTag(structureTag);
+        if (optional.isEmpty()) {
+            completableFuture.complete(null);
+            return;
+        }
+
+        Pair<BlockPos, Holder<Structure>> pair = GeneralUtils.findNearestMapStructureAsyncSafe(level, optional.get(), pos, searchRadius, skipExistingChunks);
+        BlockPos foundPos = pair != null ? pair.getFirst() : null;
         completableFuture.complete(foundPos);
     }
 
@@ -115,8 +129,12 @@ public class AsyncLocator {
             int searchRadius,
             boolean skipExistingChunks
     ) {
-        Pair<BlockPos, Holder<Structure>> foundPair = level.getChunkSource().getGenerator()
-                .findNearestMapStructure(level, structureSet, pos, searchRadius, skipExistingChunks);
+        if (!level.getServer().getWorldData().worldGenOptions().generateStructures()) {
+            completableFuture.complete(null);
+            return;
+        }
+
+        Pair<BlockPos, Holder<Structure>> foundPair = GeneralUtils.findNearestMapStructureAsyncSafe(level, structureSet, pos, searchRadius, skipExistingChunks);
         completableFuture.complete(foundPair);
     }
 

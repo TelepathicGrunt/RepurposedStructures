@@ -31,6 +31,8 @@
     "structures.StructureTemplateManagerAccessor",
     "structures.StructureTemplateMixin",
     "structures.TemplateAccessor",
+    "world.StructureCheckAccessor",
+    "world.StructureManagerAccessor",
     "world.WorldGenRegionAccessor"
   ],
   "client": [
