@@ -29,7 +29,9 @@
     "structures.StructurePieceAccessor",
     "structures.StructurePoolAccessor",
     "structures.StructureProcessorAccessor",
-    "structures.TemplateAccessor"
+    "structures.TemplateAccessor",
+    "world.StructureCheckAccessor",
+    "world.StructureManagerAccessor"
   ],
   "client": [
     "blocks.StructureBlockScreenMixin"
