@@ -1,6 +1,5 @@
 package com.telepathicgrunt.repurposedstructures.utils;
 
-import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
@@ -16,9 +15,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.HolderSet;
 import net.minecraft.core.SectionPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
@@ -26,8 +25,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.BlockTags;
@@ -50,10 +49,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
-import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
@@ -620,7 +618,7 @@ public final class GeneralUtils {
                 originalStructureCheck.getFixerUpper()
         );
         for (Holder<Structure> holder : structureHoldersSet) {
-            StructureCheckResult structurecheckresult = tempStructureCheck.checkStart(chunkPos, holder.value(), skipKnownStructures);
+            StructureCheckResult structurecheckresult = tempStructureCheck.checkStart(chunkPos, holder.value(), placement, skipKnownStructures);
             if (structurecheckresult != StructureCheckResult.START_NOT_PRESENT) {
                 if (!skipKnownStructures && structurecheckresult == StructureCheckResult.START_PRESENT) {
                     return Pair.of(placement.getLocatePos(chunkPos), holder);
