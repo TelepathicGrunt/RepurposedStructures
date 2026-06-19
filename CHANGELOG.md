@@ -1,3 +1,9 @@
+### **(V.7.7.5 Changes) (26.1 Minecraft) (Config Datapack Updated)**
+
+##### Fortresses: 
+Fixed Jungle Fortress having rare chance of spawning water above sea level.
+
+
 ### **(V.7.7.4 Changes) (26.1 Minecraft) (Config Datapack Updated)**
 
 ##### Configs:

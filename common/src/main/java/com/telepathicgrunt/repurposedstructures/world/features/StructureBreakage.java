@@ -213,6 +213,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                                                     {
                                                         currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                                                         state = currentChunk.getBlockState(mutable.move(Direction.UP));
+                                                        isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
                                                     }
                                                 }
 
