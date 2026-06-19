@@ -2,3 +2,6 @@
 
 ##### Misc:
 Updated to 26.2
+
+##### Fortresses: 
+Fixed Jungle Fortress having rare chance of spawning water above sea level.
