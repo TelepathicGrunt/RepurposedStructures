@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class SuperGravityProcessor extends StructureProcessor {
+public class SuperGravityProcessor implements StructureProcessor {
 
     public static final MapCodec<SuperGravityProcessor> CODEC = RecordCodecBuilder.mapCodec(
             (instance) -> instance.group(
@@ -83,7 +83,7 @@ public class SuperGravityProcessor extends StructureProcessor {
         return null;
     }
 
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.SUPER_GRAVITY_PROCESSOR.get();
     }
 }

@@ -9,6 +9,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.equine.SkeletonHorse;
@@ -29,14 +30,14 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
     @Override
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
-        SkeletonHorse skeletonHorseEntity = EntityType.SKELETON_HORSE.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        SkeletonHorse skeletonHorseEntity = EntityTypes.SKELETON_HORSE.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         skeletonHorseEntity.setPersistenceRequired();
         skeletonHorseEntity.setPos(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY(),
                 (double)context.origin().getZ() + 0.5D);
         skeletonHorseEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
-        Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        Skeleton skeletonEntity = EntityTypes.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
 
         // Do this first as this attaches a bow automatically. We may want to override the bow later.
         skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);

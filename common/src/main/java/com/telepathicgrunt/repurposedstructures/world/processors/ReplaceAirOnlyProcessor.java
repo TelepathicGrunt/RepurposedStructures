@@ -18,7 +18,7 @@ import java.util.HashSet;
 /**
  * For mimicking the dungeon look where they cannot replace air.
  */
-public class ReplaceAirOnlyProcessor extends StructureProcessor {
+public class ReplaceAirOnlyProcessor implements StructureProcessor {
 
     public static final MapCodec<ReplaceAirOnlyProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BlockState.CODEC.listOf()
@@ -33,12 +33,12 @@ public class ReplaceAirOnlyProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         if(!blocksToAlwaysPlace.contains(structureBlockInfoWorld.state())) {
             BlockPos position = structureBlockInfoWorld.pos();
-            BlockState worldState = worldView.getBlockState(position);
-            BlockState aboveWorldState = worldView.getBlockState(position.above());
+            BlockState worldState = level.getBlockState(position);
+            BlockState aboveWorldState = level.getBlockState(position.above());
 
             if (worldState.isAir() &&
                 !structureBlockInfoWorld.state().hasBlockEntity() &&
@@ -55,7 +55,7 @@ public class ReplaceAirOnlyProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.REPLACE_AIR_ONLY_PROCESSOR.get();
     }
 }

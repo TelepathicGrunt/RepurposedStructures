@@ -18,30 +18,30 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * For removing stuff like floating tall grass or kelp
  */
-public class RemoveFloatingBlocksProcessor extends StructureProcessor {
+public class RemoveFloatingBlocksProcessor implements StructureProcessor {
 
     public static final MapCodec<RemoveFloatingBlocksProcessor> CODEC = MapCodec.unit(RemoveFloatingBlocksProcessor::new);
     private RemoveFloatingBlocksProcessor() { }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos());
-        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(mutable))) {
+        if(level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(mutable))) {
             return structureBlockInfoWorld;
         }
 
         // attempts to remove invalid floating plants
-        ChunkAccess cachedChunk = levelReader.getChunk(mutable);
+        ChunkAccess cachedChunk = level.getChunk(mutable);
         if(structureBlockInfoWorld.state().isAir() || !structureBlockInfoWorld.state().getFluidState().isEmpty()) {
 
             // set the block in the world so that canPlaceAt's result changes
             cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
-            BlockState aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
+            BlockState aboveWorldState = level.getBlockState(mutable.move(Direction.UP));
 
             // detects the invalidly placed blocks
-            while(mutable.getY() < levelReader.getHeight() && !aboveWorldState.canSurvive(levelReader, mutable)) {
+            while(mutable.getY() < level.getHeight() && !aboveWorldState.canSurvive(level, mutable)) {
                 cachedChunk.setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
-                aboveWorldState = levelReader.getBlockState(mutable.move(Direction.UP));
+                aboveWorldState = level.getBlockState(mutable.move(Direction.UP));
             }
 
             for (Direction direction : Direction.Plane.HORIZONTAL) {
@@ -50,10 +50,10 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
                 ChunkPos chunkPos = ChunkPos.containing(mutable);
                 ChunkAccess chunkAccess2 = cachedChunk;
                 if (!chunkPos.equals(cachedChunk.getPos())) {
-                    chunkAccess2 = levelReader.getChunk(mutable);
+                    chunkAccess2 = level.getChunk(mutable);
                 }
                 BlockState sideBlock = chunkAccess2.getBlockState(mutable);
-                if (!sideBlock.canSurvive(levelReader, mutable)) {
+                if (!sideBlock.canSurvive(level, mutable)) {
                     chunkAccess2.setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
                 }
             }
@@ -63,7 +63,7 @@ public class RemoveFloatingBlocksProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.REMOVE_FLOATING_BLOCKS_PROCESSOR.get();
     }
 }

@@ -25,7 +25,7 @@ import java.util.HashSet;
 /**
  * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
  */
-public class AirProcessor extends StructureProcessor {
+public class AirProcessor implements StructureProcessor {
 
     public static final MapCodec<AirProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("ignore_block").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToIgnore)
@@ -38,20 +38,20 @@ public class AirProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         if (structureBlockInfoWorld.state().isAir()) {
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
+            if(level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
                 return structureBlockInfoWorld;
             }
 
             BlockPos currentPos = structureBlockInfoWorld.pos();
-            ChunkAccess currentChunk = levelReader.getChunk(currentPos);
+            ChunkAccess currentChunk = level.getChunk(currentPos);
             if (currentPos.getY() >= currentChunk.getMinY() && currentPos.getY() < currentChunk.getMaxY()) {
                 if(!blocksToIgnore.contains(currentChunk.getBlockState(currentPos).getBlock())) {
 
                     LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                    if((levelReader instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinY() && currentPos.getY() < levelHeightAccessor.getMaxY())) {
+                    if((level instanceof WorldGenLevel && currentPos.getY() >= levelHeightAccessor.getMinY() && currentPos.getY() < levelHeightAccessor.getMaxY())) {
                         // Copy what vanilla ores do.
                         // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                         // even though everything seemed to be safe and fine.
@@ -73,7 +73,7 @@ public class AirProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.AIR_PROCESSOR.get();
     }
 }

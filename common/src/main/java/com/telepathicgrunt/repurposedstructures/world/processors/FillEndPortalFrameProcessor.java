@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * FOR RANDOMIZING THE END PORTAL FRAMES WITH EYES OF ENDER
  */
-public class FillEndPortalFrameProcessor extends StructureProcessor {
+public class FillEndPortalFrameProcessor implements StructureProcessor {
 
     public static final MapCodec<FillEndPortalFrameProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Codec.FLOAT.fieldOf("probability_per_block").stable().forGetter((processor) -> processor.probability))
@@ -29,7 +29,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state().is(Blocks.END_PORTAL_FRAME)) {
             BlockPos worldPos = structureBlockInfoWorld.pos();
             RandomSource random = structurePlacementData.getRandom(worldPos);
@@ -43,7 +43,7 @@ public class FillEndPortalFrameProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.FILL_END_PORTAL_FRAME_PROCESSOR.get();
     }
 }

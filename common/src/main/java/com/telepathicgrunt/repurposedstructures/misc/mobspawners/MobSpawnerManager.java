@@ -15,6 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Util;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import org.apache.logging.log4j.Level;
 
 import java.util.List;
@@ -90,7 +91,7 @@ public class MobSpawnerManager extends SimpleJsonResourceReloadListener<JsonElem
         }
         catch(Exception e) {
             RepurposedStructures.LOGGER.log(Level.ERROR,"\n***************************************\nFailed to get mob. Please check that "+spawnerJsonEntry+".json is correct and let Telepathicgrunt (mod author) know he broke the mob spawner code!\n***************************************");
-            return EntityType.PIG;
+            return EntityTypes.PIG;
         }
     }
 }

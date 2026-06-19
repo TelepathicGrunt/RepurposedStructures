@@ -13,13 +13,13 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * MAKE STRUCTURE VOID PLACED BY PROCESSOR ACTUAL FUNCTION AS STRUCTURE VOID WHEN PLACING
  */
-public class StructureVoidProcessor extends StructureProcessor {
+public class StructureVoidProcessor implements StructureProcessor {
 
     public static final MapCodec<StructureVoidProcessor> CODEC = MapCodec.unit(StructureVoidProcessor::new);
     private StructureVoidProcessor() { }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state().is(Blocks.STRUCTURE_VOID)) {
             return null;
         }
@@ -27,7 +27,7 @@ public class StructureVoidProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.STRUCTURE_VOID_PROCESSOR.get();
     }
 }

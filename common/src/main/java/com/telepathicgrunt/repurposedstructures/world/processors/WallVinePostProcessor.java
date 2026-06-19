@@ -20,7 +20,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * RUN ONLY AFTER THE NBT PIECE IS PLACED INTO THE WORLD
  */
-public class WallVinePostProcessor extends StructureProcessor {
+public class WallVinePostProcessor implements StructureProcessor {
     public static final MapCodec<WallVinePostProcessor> CODEC = Codec.FLOAT.fieldOf("probability")
             .xmap(WallVinePostProcessor::new, (wallVinePostProcessor) -> wallVinePostProcessor.probability);
 
@@ -30,11 +30,11 @@ public class WallVinePostProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         // Place vines only in air space
         if (structureBlockInfoWorld.state().isAir()) {
             RandomSource random = structurePlacementData.getRandom(structureBlockInfoWorld.pos());
-            ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos());
+            ChunkAccess centerChunk = level.getChunk(structureBlockInfoWorld.pos());
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos());
             if(random.nextFloat() < probability && centerState.isAir()) {
 
@@ -42,10 +42,10 @@ public class WallVinePostProcessor extends StructureProcessor {
                 for(Direction facing : Direction.Plane.HORIZONTAL) {
 
                     mutable.set(structureBlockInfoWorld.pos()).move(facing);
-                    BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
+                    BlockState worldState = level.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed facing the side of 1 full block.
-                    if(!worldState.is(Blocks.SPAWNER) && Block.isFaceFull(worldState.getCollisionShape(worldView, pos), facing.getOpposite())) {
+                    if(!worldState.is(Blocks.SPAWNER) && Block.isFaceFull(worldState.getCollisionShape(level, targetPosition), facing.getOpposite())) {
                         BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true);
                         centerChunk.setBlockState(structureBlockInfoWorld.pos(), vineBlock, Block.UPDATE_CLIENTS);
                         break;
@@ -57,7 +57,7 @@ public class WallVinePostProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.WALL_VINE_POST_PROCESSOR.get();
     }
 }

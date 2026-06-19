@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 // TODO: rename in 1.21
-public class CappedStructureSurfaceProcessor extends StructureProcessor {
+public class CappedStructureSurfaceProcessor implements StructureProcessor {
 
     public static final MapCodec<CappedStructureSurfaceProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
         StructureProcessorType.SINGLE_CODEC.fieldOf("delegate").forGetter((cappedProcessor) -> cappedProcessor.delegate),
@@ -89,7 +89,7 @@ public class CappedStructureSurfaceProcessor extends StructureProcessor {
                             serverLevelAccessor,
                             structureBlockInfoOriginalNbtOrigin.pos(),
                             structureBlockInfoWorld.pos(),
-                            structureBlockInfoOriginalNbtOrigin,
+                            structureBlockInfoOriginalNbtOrigin.pos(),
                             structureBlockInfoWorld,
                             structurePlaceSettings);
 
@@ -104,7 +104,7 @@ public class CappedStructureSurfaceProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.STRUCTURE_SURFACE_PROCESSOR.get();
     }
 }

@@ -16,43 +16,43 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-public class WaterlogWhenReplacingWaterProcessor extends StructureProcessor {
+public class WaterlogWhenReplacingWaterProcessor implements StructureProcessor {
 
     public static final MapCodec<WaterlogWhenReplacingWaterProcessor> CODEC = MapCodec.unit(WaterlogWhenReplacingWaterProcessor::new);
 
     private WaterlogWhenReplacingWaterProcessor() { }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
-        if (infoIn2.state().hasProperty(BlockStateProperties.WATERLOGGED)) {
-            if (levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(infoIn2.pos()))) {
-                return infoIn2;
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+        if (structureBlockInfoWorld.state().hasProperty(BlockStateProperties.WATERLOGGED)) {
+            if (level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
+                return structureBlockInfoWorld;
             }
 
-            BlockState blockState = levelReader.getChunk(infoIn2.pos()).getBlockState(infoIn2.pos());
+            BlockState blockState = level.getChunk(structureBlockInfoWorld.pos()).getBlockState(structureBlockInfoWorld.pos());
             boolean isWater = blockState.getFluidState().is(FluidTags.WATER);
 
             if (isWater) {
-                ChunkAccess chunk = levelReader.getChunk(infoIn2.pos());
+                ChunkAccess chunk = level.getChunk(structureBlockInfoWorld.pos());
                 int minY = chunk.getMinY();
                 int maxY = chunk.getMaxY();
-                int currentY = infoIn2.pos().getY();
+                int currentY = structureBlockInfoWorld.pos().getY();
                 if (currentY >= minY && currentY <= maxY) {
-                    ((LevelAccessor) levelReader).scheduleTick(infoIn2.pos(), infoIn2.state().getBlock(), 0);
+                    ((LevelAccessor) level).scheduleTick(structureBlockInfoWorld.pos(), structureBlockInfoWorld.state().getBlock(), 0);
                 }
             }
 
             return new StructureTemplate.StructureBlockInfo(
-                    infoIn2.pos(),
-                    infoIn2.state().setValue(BlockStateProperties.WATERLOGGED, isWater),
-                    infoIn2.nbt());
+                    structureBlockInfoWorld.pos(),
+                    structureBlockInfoWorld.state().setValue(BlockStateProperties.WATERLOGGED, isWater),
+                    structureBlockInfoWorld.nbt());
         }
 
-        return infoIn2;
+        return structureBlockInfoWorld;
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.WATERLOGGING_WHEN_REPLACING_WATER_PROCESSOR.get();
     }
 }

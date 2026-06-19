@@ -5,6 +5,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.configs.GenericMo
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.skeleton.Skeleton;
@@ -22,7 +23,7 @@ public class Skeletons extends Feature<GenericMobConfig> {
     @Override
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
-        Skeleton skeletonEntity = EntityType.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        Skeleton skeletonEntity = EntityTypes.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
 
         skeletonEntity.setPersistenceRequired();
         skeletonEntity.setPos(

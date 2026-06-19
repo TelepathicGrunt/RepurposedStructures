@@ -24,7 +24,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.Optional;
 
-public class SpawnerRandomizingProcessor extends StructureProcessor {
+public class SpawnerRandomizingProcessor implements StructureProcessor {
 
     public static final MapCodec<SpawnerRandomizingProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Identifier.CODEC.fieldOf("rs_spawner_identifier").forGetter(spawnerRandomizingProcessor -> spawnerRandomizingProcessor.rsSpawnerIdentifier),
@@ -78,7 +78,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if (structureBlockInfoWorld.state().getBlock() instanceof SpawnerBlock) {
             BlockPos worldPos = structureBlockInfoWorld.pos();
             RandomSource random = structurePlacementData.getRandom(structureBlockInfoWorld.pos());
@@ -158,7 +158,7 @@ public class SpawnerRandomizingProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.SPAWNER_RANDOMIZING_PROCESSOR.get();
     }
 }

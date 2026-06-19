@@ -18,7 +18,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.Optional;
 
-public class EndGatewayProcessor extends StructureProcessor {
+public class EndGatewayProcessor implements StructureProcessor {
 
     public static final MapCodec<EndGatewayProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BlockPos.CODEC.optionalFieldOf("exit_position").forGetter(config -> config.exitPos)
@@ -31,7 +31,7 @@ public class EndGatewayProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         if (structureBlockInfoWorld.state().is(Blocks.END_GATEWAY)) {
             if (this.exitPos.isPresent()) {
@@ -47,7 +47,7 @@ public class EndGatewayProcessor extends StructureProcessor {
             }
 
             BlockPos currentPos = structureBlockInfoWorld.pos();
-            ChunkAccess currentChunk = levelReader.getChunk(currentPos);
+            ChunkAccess currentChunk = level.getChunk(currentPos);
             int terrainY = currentChunk.getHeight(Heightmap.Types.MOTION_BLOCKING, 0, 0);
             if (terrainY <= currentChunk.getMinY() || terrainY >= currentChunk.getMaxY()) {
                 terrainY = currentChunk.getMinY() + 1;
@@ -66,7 +66,7 @@ public class EndGatewayProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.END_GATEWAY_PROCESSOR.get();
     }
 }

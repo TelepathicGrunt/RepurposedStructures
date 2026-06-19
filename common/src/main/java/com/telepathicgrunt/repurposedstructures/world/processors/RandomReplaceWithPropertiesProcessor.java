@@ -24,7 +24,7 @@ import java.util.Optional;
 /**
  * Replace blocks randomly but preserve the properties of the block
  */
-public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
+public class RandomReplaceWithPropertiesProcessor implements StructureProcessor {
 
     public static final MapCodec<RandomReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BuiltInRegistries.BLOCK.byNameCodec().fieldOf("input_block").forGetter(config -> config.inputBlock),
@@ -46,33 +46,33 @@ public class RandomReplaceWithPropertiesProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
-        if(infoIn2.state().getBlock() == inputBlock) {
-            BlockPos worldPos = infoIn2.pos();
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+        if(structureBlockInfoWorld.state().getBlock() == inputBlock) {
+            BlockPos worldPos = structureBlockInfoWorld.pos();
             RandomSource random = RandomSource.create();
-            int offSet = settings.getProcessors().indexOf(this) + 1;
+            int offSet = structurePlacementData.getProcessors().indexOf(this) + 1;
             random.setSeed(worldPos.asLong() * worldPos.asLong() * offSet);
             if (random.nextFloat() < probability) {
                 if (outputBlock.isPresent()) {
                     BlockState newBlockState = outputBlock.get().defaultBlockState();
-                    newBlockState = GeneralUtils.copyBlockProperties(infoIn2.state(), newBlockState);
-                    return new StructureTemplate.StructureBlockInfo(infoIn2.pos(), newBlockState, infoIn2.nbt());
+                    newBlockState = GeneralUtils.copyBlockProperties(structureBlockInfoWorld.state(), newBlockState);
+                    return new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), newBlockState, structureBlockInfoWorld.nbt());
                 }
                 else if (!outputBlocks.isEmpty()) {
                     BlockState newBlockState = outputBlocks.get(random.nextInt(outputBlocks.size())).defaultBlockState();
-                    newBlockState = GeneralUtils.copyBlockProperties(infoIn2.state(), newBlockState);
-                    return new StructureTemplate.StructureBlockInfo(infoIn2.pos(), newBlockState, infoIn2.nbt());
+                    newBlockState = GeneralUtils.copyBlockProperties(structureBlockInfoWorld.state(), newBlockState);
+                    return new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), newBlockState, structureBlockInfoWorld.nbt());
                 }
                 else {
                     RepurposedStructures.LOGGER.warn("Repurposed Structures: repurposed_structures:random_replace_with_properties_processor in a processor file has no replacement block of any kind.");
                 }
             }
         }
-        return infoIn2;
+        return structureBlockInfoWorld;
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.RANDOM_REPLACE_WITH_PROPERTIES_PROCESSOR.get();
     }
 }

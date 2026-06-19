@@ -27,7 +27,7 @@ import net.minecraft.world.level.material.Fluids;
 /**
  * FOR ELEMENTS USING legacy_single_pool_element AND WANTS AIR TO REPLACE TERRAIN.
  */
-public class FloodWithWaterProcessor extends StructureProcessor {
+public class FloodWithWaterProcessor implements StructureProcessor {
 
     public static final MapCodec<FloodWithWaterProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Codec.INT.fieldOf("flood_level").forGetter(config -> config.floodLevel)
@@ -40,13 +40,13 @@ public class FloodWithWaterProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if(structureBlockInfoWorld.state().getFluidState().is(FluidTags.WATER)) {
-            tickWaterFluid(levelReader, structureBlockInfoWorld);
+            tickWaterFluid(level, structureBlockInfoWorld);
             return structureBlockInfoWorld;
         }
 
-        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
+        if(level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
             return structureBlockInfoWorld;
         }
 
@@ -54,31 +54,31 @@ public class FloodWithWaterProcessor extends StructureProcessor {
             boolean flooded = false;
             if(structureBlockInfoWorld.state().isAir() || structureBlockInfoWorld.state().is(BlockTags.FLOWER_POTS) || structureBlockInfoWorld.state().is(BlockTags.BUTTONS) || structureBlockInfoWorld.state().canBeReplaced(Fluids.WATER)) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), Blocks.WATER.defaultBlockState(), null);
-                tickWaterFluid(levelReader, structureBlockInfoWorld);
+                tickWaterFluid(level, structureBlockInfoWorld);
                 flooded = true;
             }
             else if(structureBlockInfoWorld.state().hasProperty(BlockStateProperties.WATERLOGGED)) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), structureBlockInfoWorld.state().setValue(BlockStateProperties.WATERLOGGED, true), structureBlockInfoWorld.nbt());
-                tickWaterFluid(levelReader, structureBlockInfoWorld);
+                tickWaterFluid(level, structureBlockInfoWorld);
                 flooded = true;
             }
             else if(structureBlockInfoWorld.state().getBlock() instanceof BushBlock) {
                 structureBlockInfoWorld = new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), Blocks.WATER.defaultBlockState(), null);
-                tickWaterFluid(levelReader, structureBlockInfoWorld);
+                tickWaterFluid(level, structureBlockInfoWorld);
                 flooded = true;
             }
 
             if(flooded) {
                 // enclose the new water block with cracked stonebrick
                 ChunkPos currentChunkPos = ChunkPos.containing(structureBlockInfoWorld.pos());
-                ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x(), currentChunkPos.z());
+                ChunkAccess currentChunk = level.getChunk(currentChunkPos.x(), currentChunkPos.z());
                 BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
                 for (Direction direction : Direction.values()) {
                     if(direction == Direction.UP) continue;
 
                     mutable.set(structureBlockInfoWorld.pos()).move(direction);
                     if (currentChunkPos.x() != mutable.getX() >> 4 || currentChunkPos.z() != mutable.getZ() >> 4) {
-                        currentChunk = levelReader.getChunk(mutable);
+                        currentChunk = level.getChunk(mutable);
                         currentChunkPos = ChunkPos.containing(mutable);
                     }
 
@@ -97,7 +97,7 @@ public class FloodWithWaterProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.FLOOD_WITH_WATER_PROCESSOR.get();
     }
 }

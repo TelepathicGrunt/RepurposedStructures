@@ -8,6 +8,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -34,7 +35,7 @@ public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
         // move down to spawn at the jigsaw block calling this
         BlockPos position = context.origin().below();
 
-        WitherSkeleton witherEntity = EntityType.WITHER_SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        WitherSkeleton witherEntity = EntityTypes.WITHER_SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         witherEntity.setPersistenceRequired();
         witherEntity.setPos(
                 (double)position.getX() + 0.5D,

@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 /**
  * RUN ONLY AFTER THE NBT PIECE IS PLACED INTO THE WORLD
  */
-public class CeilingVinePostProcessor extends StructureProcessor {
+public class CeilingVinePostProcessor implements StructureProcessor {
 
     public static final MapCodec<CeilingVinePostProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Codec.FLOAT.fieldOf("probability").stable().forGetter((ceilingVinePostProcessor) -> ceilingVinePostProcessor.probability),
@@ -42,32 +42,32 @@ public class CeilingVinePostProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         // Place vines only in air space
         if (structureBlockInfoWorld.state().isAir()) {
 
             RandomSource random = new WorldgenRandom(new LegacyRandomSource(0L));
             random.setSeed(structureBlockInfoWorld.pos().asLong() * structureBlockInfoWorld.pos().getY());
-            ChunkAccess centerChunk = worldView.getChunk(structureBlockInfoWorld.pos());
+            ChunkAccess centerChunk = level.getChunk(structureBlockInfoWorld.pos());
             BlockState centerState = centerChunk.getBlockState(structureBlockInfoWorld.pos());
             BlockPos abovePos = structureBlockInfoWorld.pos().above();
             BlockState aboveState = centerChunk.getBlockState(abovePos);
 
             if(random.nextFloat() < probability &&
                 centerState.isAir() &&
-                Block.isFaceFull(aboveState.getCollisionShape(worldView, abovePos), Direction.DOWN)) {
+                Block.isFaceFull(aboveState.getCollisionShape(level, abovePos), Direction.DOWN)) {
 
                 BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
                 List<Direction> shuffledDirectionList = Direction.Plane.HORIZONTAL.stream().collect(Collectors.toList());
                 Collections.shuffle(shuffledDirectionList);
                 for(Direction facing : shuffledDirectionList) {
                     mutable.set(structureBlockInfoWorld.pos()).move(facing);
-                    BlockState worldState = worldView.getChunk(mutable).getBlockState(mutable);
+                    BlockState worldState = level.getChunk(mutable).getBlockState(mutable);
 
                     // Vines only get placed if side block is empty and top block is solid.
                     if(!worldState.canOcclude()) {
                         // side block to hold vine
-                        worldView.getChunk(mutable).setBlockState(mutable, blockState, Block.UPDATE_CLIENTS);
+                        level.getChunk(mutable).setBlockState(mutable, blockState, Block.UPDATE_CLIENTS);
 
                         // ceiling vine
                         BlockState vineBlock = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(facing), true).setValue(VineBlock.UP, true);
@@ -93,7 +93,7 @@ public class CeilingVinePostProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.CEILING_VINE_POST_PROCESSOR.get();
     }
 }

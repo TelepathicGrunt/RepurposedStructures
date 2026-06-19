@@ -32,7 +32,7 @@ import java.util.List;
  * Will help enclose the structure in solid blocks rather than allow fluid source blocks to be floating.
  * Best for Nether Structures with Cave Air marking the insides that should never be exposed to lava.
  */
-public class CloseOffFluidSourcesProcessor extends StructureProcessor {
+public class CloseOffFluidSourcesProcessor implements StructureProcessor {
 
     public static final MapCodec<CloseOffFluidSourcesProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             Codec.mapPair(BuiltInRegistries.BLOCK.byNameCodec().fieldOf("block"), Codec.intRange(1, Integer.MAX_VALUE).fieldOf("weight"))
@@ -53,34 +53,34 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
-        ChunkPos currentChunkPos = ChunkPos.containing(infoIn2.pos());
-        if(infoIn2.state().is(Blocks.STRUCTURE_VOID) || !infoIn2.state().getFluidState().isEmpty()) {
-            return infoIn2;
+        ChunkPos currentChunkPos = ChunkPos.containing(structureBlockInfoWorld.pos());
+        if(structureBlockInfoWorld.state().is(Blocks.STRUCTURE_VOID) || !structureBlockInfoWorld.state().getFluidState().isEmpty()) {
+            return structureBlockInfoWorld;
         }
 
-        if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(currentChunkPos)) {
-            return infoIn2;
+        if(level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(currentChunkPos)) {
+            return structureBlockInfoWorld;
         }
 
-        if(!GeneralUtils.isFullCube(infoIn2.state()) || !infoIn2.state().blocksMotion()) {
-            ChunkAccess currentChunk = levelReader.getChunk(currentChunkPos.x(), currentChunkPos.z());
+        if(!GeneralUtils.isFullCube(structureBlockInfoWorld.state()) || !structureBlockInfoWorld.state().blocksMotion()) {
+            ChunkAccess currentChunk = level.getChunk(currentChunkPos.x(), currentChunkPos.z());
 
-            if(ifAirInWorld && !currentChunk.getBlockState(infoIn2.pos()).isAir()) return infoIn2;
+            if(ifAirInWorld && !currentChunk.getBlockState(structureBlockInfoWorld.pos()).isAir()) return structureBlockInfoWorld;
 
             // Remove fluid sources in adjacent horizontal blocks across chunk boundaries and above as well
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
             for (Direction direction : Direction.values()) {
                 if(ignoreDown && direction == Direction.DOWN) continue;
 
-                mutable.set(infoIn2.pos()).move(direction);
+                mutable.set(structureBlockInfoWorld.pos()).move(direction);
                 if (mutable.getY() < currentChunk.getMinY() || mutable.getY() >= currentChunk.getMaxY()) {
                     continue;
                 }
 
                 if (currentChunkPos.x() != mutable.getX() >> 4 || currentChunkPos.z() != mutable.getZ() >> 4) {
-                    currentChunk = levelReader.getChunk(mutable);
+                    currentChunk = level.getChunk(mutable);
                     currentChunkPos = ChunkPos.containing(mutable);
                 }
 
@@ -88,7 +88,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                 // This bypasses the PaletteContainer's lock as it was throwing `Accessing PalettedContainer from multiple threads` crash
                 // even though everything seemed to be safe and fine.
                 LevelHeightAccessor levelHeightAccessor = currentChunk.getHeightAccessorForGeneration();
-                if(levelReader instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinY() && mutable.getY() < levelHeightAccessor.getMaxY()) {
+                if(level instanceof WorldGenLevel && mutable.getY() >= levelHeightAccessor.getMinY() && mutable.getY() < levelHeightAccessor.getMaxY()) {
                     int sectionYIndex = currentChunk.getSectionIndex(mutable.getY());
                     LevelChunkSection levelChunkSection = currentChunk.getSection(sectionYIndex);
                     if (levelChunkSection == null) continue;
@@ -99,7 +99,7 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
                             SectionPos.sectionRelative(mutable.getZ()));
 
                     if (fluidState.isSource()) {
-                        RandomSource random = settings.getRandom(infoIn2.pos());
+                        RandomSource random = structurePlacementData.getRandom(structureBlockInfoWorld.pos());
                         Block replacementBlock = GeneralUtils.getRandomEntry(weightedReplacementBlocks, random);
                         levelChunkSection.setBlockState(
                                 SectionPos.sectionRelative(mutable.getX()),
@@ -112,11 +112,11 @@ public class CloseOffFluidSourcesProcessor extends StructureProcessor {
             }
         }
 
-        return infoIn2;
+        return structureBlockInfoWorld;
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.CLOSE_OFF_FLUID_SOURCES_PROCESSOR.get();
     }
 }

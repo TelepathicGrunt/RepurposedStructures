@@ -20,7 +20,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * Replace blocks randomly with noise generator but preserve the properties of the block
  */
-public class NoiseReplaceWithPropertiesProcessor extends StructureProcessor {
+public class NoiseReplaceWithPropertiesProcessor implements StructureProcessor {
 
     public static final MapCodec<NoiseReplaceWithPropertiesProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BuiltInRegistries.BLOCK.byNameCodec().fieldOf("input_block").forGetter(config -> config.inputBlock),
@@ -54,24 +54,24 @@ public class NoiseReplaceWithPropertiesProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldReader, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo infoIn1, StructureTemplate.StructureBlockInfo infoIn2, StructurePlaceSettings settings) {
-        setSeed(worldReader instanceof WorldGenRegion ? ((WorldGenRegion) worldReader).getSeed() : 0);
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+        setSeed(level instanceof WorldGenRegion ? ((WorldGenRegion) level).getSeed() : 0);
 
-        if(infoIn2.state().getBlock() == inputBlock) {
-            BlockPos worldPos = infoIn2.pos();
+        if(structureBlockInfoWorld.state().getBlock() == inputBlock) {
+            BlockPos worldPos = structureBlockInfoWorld.pos();
             double noiseVal = noiseGenerator.noise3_Classic(worldPos.getX() * xzScale, worldPos.getY() * yScale, worldPos.getZ() * xzScale);
 
             if((noiseVal / 2D) + 0.5D < threshold) {
                 BlockState newBlockState = outputBlock.defaultBlockState();
-                newBlockState = GeneralUtils.copyBlockProperties(infoIn2.state(), newBlockState);
-                return new StructureTemplate.StructureBlockInfo(infoIn2.pos(), newBlockState, infoIn2.nbt());
+                newBlockState = GeneralUtils.copyBlockProperties(structureBlockInfoWorld.state(), newBlockState);
+                return new StructureTemplate.StructureBlockInfo(structureBlockInfoWorld.pos(), newBlockState, structureBlockInfoWorld.nbt());
             }
         }
-        return infoIn2;
+        return structureBlockInfoWorld;
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.NOISE_REPLACE_WITH_PROPERTIES_PROCESSOR.get();
     }
 }

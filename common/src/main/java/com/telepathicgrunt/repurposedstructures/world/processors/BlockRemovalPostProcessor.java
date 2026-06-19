@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class BlockRemovalPostProcessor extends StructureProcessor {
+public class BlockRemovalPostProcessor implements StructureProcessor {
 
     public static final MapCodec<BlockRemovalPostProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("remove_blocks").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.removeBlocks)
@@ -43,7 +43,7 @@ public class BlockRemovalPostProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.BLOCK_REMOVAL_POST_PROCESSOR.get();
     }
 }

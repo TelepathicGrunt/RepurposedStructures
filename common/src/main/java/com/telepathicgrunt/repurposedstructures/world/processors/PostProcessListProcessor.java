@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.List;
 
-public class PostProcessListProcessor extends StructureProcessor {
+public class PostProcessListProcessor implements StructureProcessor {
 
     public static final MapCodec<PostProcessListProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
         StructureProcessorType.SINGLE_CODEC.listOf().fieldOf("delegates").forGetter((processor) -> processor.delegates)
@@ -44,7 +44,7 @@ public class PostProcessListProcessor extends StructureProcessor {
                                 serverLevelAccessor,
                                 structureBlockInfoOriginalNbtOrigin.pos(),
                                 structureBlockInfoResult.pos(),
-                                structureBlockInfoOriginalNbtOrigin,
+                                structureBlockInfoOriginalNbtOrigin.pos(),
                                 structureBlockInfoResult,
                                 structurePlaceSettings);
 
@@ -64,7 +64,7 @@ public class PostProcessListProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.POST_PROCESS_LIST_PROCESSOR.get();
     }
 }

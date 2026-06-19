@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class PillarProcessor extends StructureProcessor {
+public class PillarProcessor implements StructureProcessor {
     private static final Identifier EMPTY_RL = Identifier.fromNamespaceAndPath("minecraft", "empty");
 
     public static final MapCodec<PillarProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
@@ -67,7 +67,7 @@ public class PillarProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos templateOffset, BlockPos worldOffset, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         BlockState blockState = structureBlockInfoWorld.state();
         if (pillarTriggerAndReplacementBlocks.containsKey(blockState)) {
@@ -78,30 +78,30 @@ public class PillarProcessor extends StructureProcessor {
             BlockPos.MutableBlockPos currentPos = new BlockPos.MutableBlockPos().set(worldPos);
             Optional<Holder.Reference<StructureProcessorList>> structureProcessorList = Optional.empty();
             if(processorList != null && !processorList.equals(EMPTY_RL)) {
-                structureProcessorList = levelReader.registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST).get(processorList);
+                structureProcessorList = level.registryAccess().lookupOrThrow(Registries.PROCESSOR_LIST).get(processorList);
             }
 
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(currentPos))) {
+            if(level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(currentPos))) {
                 return getReturnBlock(worldPos, originalReplacementState);
             }
 
             int terrainY = Integer.MIN_VALUE;
             if(direction == Direction.DOWN && !forcePlacement) {
-                terrainY = GeneralUtils.getFirstLandYFromPos(levelReader, worldPos);
-                if(terrainY <= levelReader.getMinY() && pillarLength + 2 >= worldPos.getY() - levelReader.getMinY()) {
+                terrainY = GeneralUtils.getFirstLandYFromPos(level, worldPos);
+                if(terrainY <= level.getMinY() && pillarLength + 2 >= worldPos.getY() - level.getMinY()) {
                     // Replaces the data block itself
                     return getReturnBlock(worldPos, originalReplacementState);
                 }
             }
 
             // Creates the pillars in the world that replaces air and liquids
-            BlockState currentBlock = levelReader.getBlockState(worldPos.below());
+            BlockState currentBlock = level.getBlockState(worldPos.below());
             while(((forcePlacement && currentBlock.getBlock().defaultDestroyTime() >= 0) || !currentBlock.canOcclude()) &&
                 (forcePlacement || currentPos.getY() >= terrainY) &&
-                !levelReader.isOutsideBuildHeight(currentPos.getY()) &&
+                !level.isOutsideBuildHeight(currentPos.getY()) &&
                 currentPos.closerThan(worldPos, pillarLength)
             ) {
-                StructureTemplate.StructureBlockInfo newPillarState1 = new StructureTemplate.StructureBlockInfo(currentPos.subtract(worldPos).offset(templateOffset), replacementState, null);
+                StructureTemplate.StructureBlockInfo newPillarState1 = new StructureTemplate.StructureBlockInfo(currentPos.subtract(worldPos).offset(referencePos), replacementState, null);
                 StructureTemplate.StructureBlockInfo newPillarState2 = new StructureTemplate.StructureBlockInfo(currentPos.immutable(), replacementState, null);
 
                 if(structureProcessorList.isPresent()) {
@@ -109,16 +109,16 @@ public class PillarProcessor extends StructureProcessor {
                         if(newPillarState2 == null) {
                             break;
                         }
-                        newPillarState2 = processor.processBlock(levelReader, newPillarState1.pos(), newPillarState2.pos(), newPillarState1, newPillarState2, structurePlacementData);
+                        newPillarState2 = processor.processBlock(level, newPillarState1.pos(), newPillarState2.pos(), newPillarState1.pos(), newPillarState2, structurePlacementData);
                     }
                 }
 
                 if(newPillarState2 != null) {
-                    levelReader.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state(), Block.UPDATE_CLIENTS);
+                    level.getChunk(currentPos).setBlockState(currentPos, newPillarState2.state(), Block.UPDATE_CLIENTS);
                 }
 
                 currentPos.move(direction);
-                currentBlock = levelReader.getBlockState(currentPos);
+                currentBlock = level.getBlockState(currentPos);
             }
 
             // Replaces the data block itself
@@ -134,7 +134,7 @@ public class PillarProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.PILLAR_PROCESSOR.get();
     }
 }

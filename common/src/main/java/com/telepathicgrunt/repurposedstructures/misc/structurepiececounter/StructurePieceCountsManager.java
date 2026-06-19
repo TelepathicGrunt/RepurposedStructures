@@ -2,7 +2,6 @@ package com.telepathicgrunt.repurposedstructures.misc.structurepiececounter;
 
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSConditionsRegistry;
 import net.minecraft.resources.FileToIdConverter;
@@ -34,7 +33,6 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         super(ExtraCodecs.JSON, FileToIdConverter.json("rs_pieces_spawn_counts"));
     }
 
-    @MethodsReturnNonnullByDefault
     private List<StructurePieceCountsObj> getStructurePieceCountsObjs(Identifier fileIdentifier, JsonElement jsonElement) throws Exception {
         List<StructurePieceCountsObj> piecesSpawnCounts = GSON.fromJson(jsonElement.getAsJsonObject().get("pieces_spawn_counts"), new TypeToken<List<StructurePieceCountsObj>>() {}.getType());
         for(int i = piecesSpawnCounts.size() - 1; i >= 0; i--) {
@@ -106,7 +104,6 @@ public class StructurePieceCountsManager extends SimpleJsonResourceReloadListene
         }
     }
 
-    @MethodsReturnNonnullByDefault
     public Map<Identifier, Integer> getMaximumCountForPieces(Identifier structureRL) {
         // if cached, return cached map
         if(cachedMaxCountPiecesMap.containsKey(structureRL)) {

@@ -16,7 +16,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.Pools;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.Tuple;
 import net.minecraft.util.Util;
 import net.minecraft.world.level.block.JigsawBlock;
 import net.minecraft.world.level.block.Mirror;
@@ -351,7 +350,7 @@ public class MansionPieces{
         }
 
         private void method_15048() {
-            List<Tuple<Integer, Integer>> list = Lists.newArrayList();
+            List<GridPos> list = Lists.newArrayList();
             FlagMatrix flagMatrix = this.field_15443[1];
 
             int m;
@@ -361,7 +360,7 @@ public class MansionPieces{
                     int k = flagMatrix.get(m, i);
                     n = k & 983040;
                     if (n == 131072 && (k & 2097152) == 2097152) {
-                        list.add(new Tuple<>(m, i));
+                        list.add(new GridPos(m, i));
                     }
                 }
             }
@@ -369,18 +368,18 @@ public class MansionPieces{
             if (list.isEmpty()) {
                 this.field_15439.fill(0, 0, this.field_15439.n, this.field_15439.m, 5);
             } else {
-                Tuple<Integer, Integer> pair = list.get(this.random.nextInt(list.size()));
-                m = flagMatrix.get(pair.getA(), pair.getB());
-                flagMatrix.set(pair.getA(), pair.getB(), m | 4194304);
-                Direction direction = this.method_15040(this.field_15440, pair.getA(), pair.getB(), 1, m & '\uffff');
-                n = pair.getA() + direction.getStepX();
-                int o = pair.getB() + direction.getStepZ();
+                GridPos pair = list.get(this.random.nextInt(list.size()));
+                m = flagMatrix.get(pair.x(), pair.y());
+                flagMatrix.set(pair.x(), pair.y(), m | 4194304);
+                Direction direction = this.method_15040(this.field_15440, pair.x(), pair.y(), 1, m & '\uffff');
+                n = pair.x() + direction.getStepX();
+                int o = pair.y() + direction.getStepZ();
 
                 for(int p = 0; p < this.field_15439.m; ++p) {
                     for(int q = 0; q < this.field_15439.n; ++q) {
                         if (!method_15047(this.field_15440, q, p)) {
                             this.field_15439.set(q, p, 5);
-                        } else if (q == pair.getA() && p == pair.getB()) {
+                        } else if (q == pair.x() && p == pair.y()) {
                             this.field_15439.set(q, p, 3);
                         } else if (q == n && p == o) {
                             this.field_15439.set(q, p, 3);
@@ -399,7 +398,7 @@ public class MansionPieces{
 
                 if (list2.isEmpty()) {
                     this.field_15439.fill(0, 0, this.field_15439.n, this.field_15439.m, 5);
-                    flagMatrix.set(pair.getA(), pair.getB(), m);
+                    flagMatrix.set(pair.x(), pair.y(), m);
                 } else {
                     Direction direction3 = list2.get(this.random.nextInt(list2.size()));
                     this.method_15045(this.field_15439, n + direction3.getStepX(), o + direction3.getStepZ(), direction3, 4);
@@ -412,20 +411,20 @@ public class MansionPieces{
         }
 
         private void method_15042(FlagMatrix flagMatrix, FlagMatrix flagMatrix2) {
-            ObjectArrayList<Tuple<Integer, Integer>> list = new ObjectArrayList<>();
+            ObjectArrayList<GridPos> list = new ObjectArrayList<>();
 
             int k;
             for(k = 0; k < flagMatrix.m; ++k) {
                 for(int j = 0; j < flagMatrix.n; ++j) {
                     if (flagMatrix.get(j, k) == 2) {
-                        list.add(new Tuple<>(j, k));
+                        list.add(new GridPos(j, k));
                     }
                 }
             }
 
             Util.shuffle(list, this.random);
             k = 10;
-            Iterator<Tuple<Integer, Integer>> var19 = list.iterator();
+            Iterator<GridPos> var19 = list.iterator();
 
             while(true) {
                 int l;
@@ -435,9 +434,9 @@ public class MansionPieces{
                         return;
                     }
 
-                    Tuple<Integer, Integer> pair = var19.next();
-                    l = pair.getA();
-                    m = pair.getB();
+                    GridPos pair = var19.next();
+                    l = pair.x();
+                    m = pair.y();
                 } while(flagMatrix2.get(l, m) != 0);
 
                 int n = l;
@@ -503,6 +502,9 @@ public class MansionPieces{
 
                 ++k;
             }
+        }
+
+        private record GridPos(int x, int y) {
         }
     }
 

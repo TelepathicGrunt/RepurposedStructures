@@ -18,7 +18,7 @@ import java.util.HashSet;
 /**
  * For mimicking the dungeon look where they cannot replace air.
  */
-public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
+public class ReplaceLiquidOnlyProcessor implements StructureProcessor {
 
     public static final MapCodec<ReplaceLiquidOnlyProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BlockState.CODEC.listOf()
@@ -33,12 +33,12 @@ public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         if(!blocksToAlwaysPlace.contains(structureBlockInfoWorld.state())) {
             BlockPos position = structureBlockInfoWorld.pos();
-            BlockState worldState = worldView.getBlockState(position);
-            BlockState aboveWorldState = worldView.getBlockState(position.above());
+            BlockState worldState = level.getBlockState(position);
+            BlockState aboveWorldState = level.getBlockState(position.above());
 
             if (!worldState.getFluidState().isEmpty() &&
                     !structureBlockInfoWorld.state().hasBlockEntity() &&
@@ -56,7 +56,7 @@ public class ReplaceLiquidOnlyProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.REPLACE_LIQUIDS_ONLY_PROCESSOR.get();
     }
 }

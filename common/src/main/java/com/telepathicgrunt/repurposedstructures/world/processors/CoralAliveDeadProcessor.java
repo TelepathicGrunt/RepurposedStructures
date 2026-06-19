@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * Kill coral in colder areas
  */
-public class CoralAliveDeadProcessor extends StructureProcessor {
+public class CoralAliveDeadProcessor implements StructureProcessor {
 
     public static final MapCodec<CoralAliveDeadProcessor> CODEC = MapCodec.unit(CoralAliveDeadProcessor::new);
     private static final Map<Block, Block> ALIVE_TO_DEAD_CORAL = Map.ofEntries(
@@ -49,10 +49,10 @@ public class CoralAliveDeadProcessor extends StructureProcessor {
     private CoralAliveDeadProcessor() {}
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         if (ALIVE_TO_DEAD_CORAL.containsKey(structureBlockInfoWorld.state().getBlock())) {
-            Holder<Biome> biome = worldView.getBiome(structureBlockInfoWorld.pos());
+            Holder<Biome> biome = level.getBiome(structureBlockInfoWorld.pos());
             float biomeTemp = biome.value().getBaseTemperature();
             String biomeNamespace = biome.unwrapKey().get().identifier().getNamespace();
             String biomePath = biome.unwrapKey().get().identifier().getPath();
@@ -103,7 +103,7 @@ public class CoralAliveDeadProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.CORAL_ALIVE_DEAD_PROCESSOR.get();
     }
 }

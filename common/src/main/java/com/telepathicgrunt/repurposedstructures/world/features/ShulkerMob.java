@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -28,7 +29,7 @@ public class ShulkerMob extends Feature<NoneFeatureConfiguration> {
         // move down to spawn at the jigsaw block calling this
         BlockPos position = context.origin().below();
 
-        Shulker shulkerEntity = EntityType.SHULKER.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        Shulker shulkerEntity = EntityTypes.SHULKER.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         shulkerEntity.setPersistenceRequired();
         shulkerEntity.setPos(
                 (double)position.getX() + 0.5D,

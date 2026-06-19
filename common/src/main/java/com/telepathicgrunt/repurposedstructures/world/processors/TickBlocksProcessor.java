@@ -22,7 +22,7 @@ import java.util.HashSet;
 /**
  * Makes bubble columns continue to create their columns after structure gen and other ticking needed.
  */
-public class TickBlocksProcessor extends StructureProcessor {
+public class TickBlocksProcessor implements StructureProcessor {
 
     public static final MapCodec<TickBlocksProcessor> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
             BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("blocks_to_tick").orElse(new ArrayList<>()).xmap(HashSet::new, ArrayList::new).forGetter(config -> config.blocksToTick)
@@ -35,25 +35,25 @@ public class TickBlocksProcessor extends StructureProcessor {
     }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         if(blocksToTick.contains(structureBlockInfoWorld.state().getBlock())) {
-            if(levelReader instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
+            if(level instanceof WorldGenRegion worldGenRegion && !worldGenRegion.getCenter().equals(ChunkPos.containing(structureBlockInfoWorld.pos()))) {
                 return structureBlockInfoWorld;
             }
 
-            ChunkAccess chunk = levelReader.getChunk(structureBlockInfoWorld.pos());
+            ChunkAccess chunk = level.getChunk(structureBlockInfoWorld.pos());
             int minY = chunk.getMinY();
             int maxY = chunk.getMaxY();
             int currentY = structureBlockInfoWorld.pos().getY();
             if(currentY >= minY && currentY <= maxY) {
-                ((LevelAccessor) levelReader).scheduleTick(structureBlockInfoWorld.pos(), structureBlockInfoWorld.state().getBlock(), 0);
+                ((LevelAccessor) level).scheduleTick(structureBlockInfoWorld.pos(), structureBlockInfoWorld.state().getBlock(), 0);
             }
         }
         return structureBlockInfoWorld;
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.TICK_BLOCKS_PROCESSOR.get();
     }
 }

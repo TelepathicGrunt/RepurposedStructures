@@ -6,6 +6,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.item.ItemStack;
@@ -31,7 +32,7 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
         // move down to spawn at the jigsaw block calling this
         BlockPos position = context.origin().below();
 
-        Drowned drownedEntity = EntityType.DROWNED.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        Drowned drownedEntity = EntityTypes.DROWNED.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
         if(drownedEntity == null) return false;
 
         if(context.random().nextFloat() < 0.45F) {

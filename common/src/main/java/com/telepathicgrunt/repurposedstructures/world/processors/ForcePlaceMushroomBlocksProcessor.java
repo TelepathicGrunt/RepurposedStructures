@@ -14,16 +14,16 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * For fixing https://bugs.mojang.com/browse/MC-213695 bug
  */
-public class ForcePlaceMushroomBlocksProcessor extends StructureProcessor {
+public class ForcePlaceMushroomBlocksProcessor implements StructureProcessor {
 
     public static final MapCodec<ForcePlaceMushroomBlocksProcessor> CODEC = MapCodec.unit(ForcePlaceMushroomBlocksProcessor::new);
     private ForcePlaceMushroomBlocksProcessor() { }
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader levelReader, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(structureBlockInfoWorld.pos());
         if (structureBlockInfoWorld.state().getBlock() instanceof MushroomBlock) {
-            levelReader.getChunk(mutable).setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
+            level.getChunk(mutable).setBlockState(mutable, structureBlockInfoWorld.state(), Block.UPDATE_CLIENTS);
             return null;
         }
 
@@ -31,7 +31,7 @@ public class ForcePlaceMushroomBlocksProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR.get();
     }
 }

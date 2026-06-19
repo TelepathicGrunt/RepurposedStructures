@@ -16,18 +16,18 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 /**
  * FOR ELEMENTS THAT CANNOT SPAWN IN VIEW OF THE SKY
  */
-public class MineshaftSkyViewProcessor extends StructureProcessor {
+public class MineshaftSkyViewProcessor implements StructureProcessor {
 
     public static final MapCodec<MineshaftSkyViewProcessor> CODEC = MapCodec.unit(MineshaftSkyViewProcessor::new);
 
     private MineshaftSkyViewProcessor() {}
 
     @Override
-    public StructureTemplate.StructureBlockInfo processBlock(LevelReader worldView, BlockPos pos, BlockPos blockPos, StructureTemplate.StructureBlockInfo structureBlockInfoLocal, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
+    public StructureTemplate.StructureBlockInfo processBlock(LevelReader level, BlockPos targetPosition, BlockPos referencePos, BlockPos templateRelativePos, StructureTemplate.StructureBlockInfo structureBlockInfoWorld, StructurePlaceSettings structurePlacementData) {
 
         // Mimic Mineshaft rails visible even in sky if block below is solid
-        if(structureBlockInfoWorld.state().is(Blocks.RAIL) && worldView.getBlockState(structureBlockInfoWorld.pos().below()).canOcclude()) {
-            boolean waterlogged = worldView.getBlockState(structureBlockInfoWorld.pos()).getFluidState().is(FluidTags.WATER);
+        if(structureBlockInfoWorld.state().is(Blocks.RAIL) && level.getBlockState(structureBlockInfoWorld.pos().below()).canOcclude()) {
+            boolean waterlogged = level.getBlockState(structureBlockInfoWorld.pos()).getFluidState().is(FluidTags.WATER);
 
             return new StructureTemplate.StructureBlockInfo(
                     structureBlockInfoWorld.pos(),
@@ -36,7 +36,7 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
         }
 
         // Will not place blocks if out in open and visible to sky.
-        if(structureBlockInfoWorld.pos().getY() >= worldView.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos().getX(), structureBlockInfoWorld.pos().getZ())) {
+        if(structureBlockInfoWorld.pos().getY() >= level.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, structureBlockInfoWorld.pos().getX(), structureBlockInfoWorld.pos().getZ())) {
             return null;
         }
 
@@ -44,7 +44,7 @@ public class MineshaftSkyViewProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    public MapCodec<? extends StructureProcessor> codec() {
         return RSProcessors.MINESHAFT_SKY_VIEW_PROCESSOR.get();
     }
 }
