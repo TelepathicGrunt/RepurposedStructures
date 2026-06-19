@@ -3,6 +3,14 @@
 ##### Fortresses: 
 Fixed Jungle Fortress having rare chance of spawning water above sea level.
 
+##### Dungeons:
+Badlands and Desert Dungeons can have Parched spawners instead of Skeleton spawner.
+
+Swamp Dungeons can have Bogged spawners instead of Skeleton spawner.
+
+##### Monuments:
+Desert Monuments now spawn Parched instead of Skeletons.
+
 
 ### **(V.7.7.4 Changes) (26.1 Minecraft) (Config Datapack Updated)**
 
