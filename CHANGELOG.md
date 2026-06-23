@@ -1,3 +1,11 @@
+### **(V.7.7.6 Changes) (26.2 Minecraft) (Config Datapack Updated)**
+
+##### Mineshafts:
+Allowed RS Mineshaft support to replace Sulfur Spike properly.
+
+Overworld RS Mineshafts now has a small chance of spawning Bounce Music Disc if their Minecart Chest is opened inside Sulfur Caves biome.
+
+
 ### **(V.7.7.5 Changes) (26.2 Minecraft) (Config Datapack Updated)**
 
 ##### Misc:
