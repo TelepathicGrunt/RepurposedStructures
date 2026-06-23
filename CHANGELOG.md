@@ -5,6 +5,9 @@ Allowed RS Mineshaft support to replace Sulfur Spike properly.
 
 Overworld RS Mineshafts now has a small chance of spawning Bounce Music Disc if their Minecart Chest is opened inside Sulfur Caves biome.
 
+##### Villages:
+Made Hoglins spawned in pens in Crimson and Warped Villages not be hunted by Piglins.
+
 
 ### **(V.7.7.5 Changes) (26.2 Minecraft) (Config Datapack Updated)**
 

@@ -24,8 +24,8 @@ dependencies {
         transitive = false
     }
 
-//    runtime("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
-//    runtime("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
+//    runtimeOnly("com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_fabric}")
+//    runtimeOnly("com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_fabric}")
 }
 
 publishMods {
