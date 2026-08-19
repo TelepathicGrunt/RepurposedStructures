@@ -55,5 +55,11 @@
       "id": "wythers:warm_birch_forest",
       "required": false
     }
+  ],
+  "remove": [
+    "#repurposed_structures:collections/oceans"
+  ],
+  "fabric:remove": [
+    "#repurposed_structures:collections/oceans"
   ]
 }

@@ -18,5 +18,11 @@
       "id": "#c:stony_shores",
       "required": false
     }
+  ],
+  "remove": [
+    "#repurposed_structures:collections/oceans"
+  ],
+  "fabric:remove": [
+    "#repurposed_structures:collections/oceans"
   ]
 }
