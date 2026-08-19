@@ -69,8 +69,8 @@ subprojects {
                 "homepage_url"         : project.homepage_url,
                 "license_url"          : project.license_url,
                 "license"              : project.license,
-                "logo_forge"           : project.license,
-                "logo_fabric"          : project.license,
+                "logo_forge"           : project.logo_forge,
+                "logo_fabric"          : project.logo_fabric,
 
                 "minecraft_version"    : project.minecraft_version,
                 "forge_version"        : project.forge_version,
