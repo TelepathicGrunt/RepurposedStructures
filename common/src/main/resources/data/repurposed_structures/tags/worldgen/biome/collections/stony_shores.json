@@ -18,5 +18,11 @@
       "id": "regions_unexplored:chalk_cliffs",
       "required": false
     }
+  ],
+  "remove": [
+    "#repurposed_structures:collections/oceans"
+  ],
+  "fabric:remove": [
+    "#repurposed_structures:collections/oceans"
   ]
 }
