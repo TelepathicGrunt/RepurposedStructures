@@ -126,5 +126,11 @@
       "id": "wythers:thermal_taiga",
       "required": false
     }
+  ],
+  "remove": [
+    "#repurposed_structures:collections/oceans"
+  ],
+  "fabric:remove": [
+    "#repurposed_structures:collections/oceans"
   ]
 }

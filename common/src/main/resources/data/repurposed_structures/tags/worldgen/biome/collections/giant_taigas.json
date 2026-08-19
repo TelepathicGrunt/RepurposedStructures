@@ -59,5 +59,11 @@
       "id": "wythers:old_growth_taiga_swamp",
       "required": false
     }
+  ],
+  "remove": [
+    "#repurposed_structures:collections/oceans"
+  ],
+  "fabric:remove": [
+    "#repurposed_structures:collections/oceans"
   ]
 }
