@@ -31,46 +31,51 @@ public class SkeletonHorseman extends Feature<GenericMobConfig> {
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
         SkeletonHorse skeletonHorseEntity = EntityTypes.SKELETON_HORSE.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        if (skeletonHorseEntity == null) {
+            return false;
+        }
         skeletonHorseEntity.setPersistenceRequired();
         skeletonHorseEntity.setPos(
                 (double)context.origin().getX() + 0.5D,
                 context.origin().getY(),
                 (double)context.origin().getZ() + 0.5D);
         skeletonHorseEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
+
         Skeleton skeletonEntity = EntityTypes.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        if (skeletonEntity != null) {
+            // Do this first as this attaches a bow automatically. We may want to override the bow later.
+            skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
 
-        // Do this first as this attaches a bow automatically. We may want to override the bow later.
-        skeletonEntity.finalizeSpawn(context.level(), context.level().getCurrentDifficultyAt(context.origin()), EntitySpawnReason.STRUCTURE, null);
+            context.config().heldItem.ifPresent(item -> {
+                ItemStack heldItem = new ItemStack(item);
+                skeletonEntity.setItemInHand(InteractionHand.MAIN_HAND, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), heldItem, 0.1F));
+                skeletonEntity.setLeftHanded(context.random().nextFloat() < 0.05F);
+            });
+            context.config().helmet.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.HEAD, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
+            context.config().chestplate.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.CHEST, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
+            context.config().leggings.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
+            context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
 
-        context.config().heldItem.ifPresent(item -> {
-            ItemStack heldItem = new ItemStack(item);
-            skeletonEntity.setItemInHand(InteractionHand.MAIN_HAND, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), heldItem, 0.1F));
-            skeletonEntity.setLeftHanded(context.random().nextFloat() < 0.05F);
-        });
-        context.config().helmet.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.HEAD, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
-        context.config().chestplate.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.CHEST, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
-        context.config().leggings.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.LEGS, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
-        context.config().boots.ifPresent(item -> skeletonEntity.setItemSlot(EquipmentSlot.FEET, GeneralUtils.enchantRandomly(context.level().registryAccess(), context.random(), item.getDefaultInstance(), 0.075F)));
+            skeletonEntity.setHealth(context.config().health);
+            skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
+            skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
 
-        skeletonEntity.setHealth(context.config().health);
-        skeletonEntity.getAttribute(Attributes.MAX_HEALTH).setBaseValue(context.config().health);
-        skeletonEntity.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(context.config().speedModifier);
+            skeletonEntity.setPersistenceRequired();
 
-        skeletonEntity.setPersistenceRequired();
+            // Ensure mods touching finalizeSpawn does not move entity.
+            skeletonEntity.setPos(
+                    (double)context.origin().getX() + 0.5D,
+                    context.origin().getY() + 1,
+                    (double)context.origin().getZ() + 0.5D);
 
-        // Ensure mods touching finalizeSpawn does not move entity.
-        skeletonEntity.setPos(
-                (double)context.origin().getX() + 0.5D,
-                context.origin().getY() + 1,
-                (double)context.origin().getZ() + 0.5D);
-
-        if (skeletonHorseEntity.getPassengers().isEmpty()) {
-            ((EntityAccessor)skeletonHorseEntity).repurposedstructures$setPassengers(ImmutableList.of(skeletonEntity));
-        }
-        else {
-            List<Entity> list = Lists.newArrayList(skeletonHorseEntity.getPassengers());
-            list.add(skeletonEntity);
-            ((EntityAccessor)skeletonHorseEntity).repurposedstructures$setPassengers(ImmutableList.copyOf(list));
+            if (skeletonHorseEntity.getPassengers().isEmpty()) {
+                ((EntityAccessor)skeletonHorseEntity).repurposedstructures$setPassengers(ImmutableList.of(skeletonEntity));
+            }
+            else {
+                List<Entity> list = Lists.newArrayList(skeletonHorseEntity.getPassengers());
+                list.add(skeletonEntity);
+                ((EntityAccessor)skeletonHorseEntity).repurposedstructures$setPassengers(ImmutableList.copyOf(list));
+            }
         }
 
         context.level().addFreshEntityWithPassengers(skeletonHorseEntity);

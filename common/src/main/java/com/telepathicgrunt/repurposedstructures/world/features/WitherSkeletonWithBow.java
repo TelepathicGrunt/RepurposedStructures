@@ -36,6 +36,9 @@ public class WitherSkeletonWithBow extends Feature<NoneFeatureConfiguration> {
         BlockPos position = context.origin().below();
 
         WitherSkeleton witherEntity = EntityTypes.WITHER_SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        if (witherEntity == null) {
+            return false;
+        }
         witherEntity.setPersistenceRequired();
         witherEntity.setPos(
                 (double)position.getX() + 0.5D,

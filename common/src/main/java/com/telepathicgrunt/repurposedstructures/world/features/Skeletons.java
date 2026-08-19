@@ -24,6 +24,9 @@ public class Skeletons extends Feature<GenericMobConfig> {
     public boolean place(FeaturePlaceContext<GenericMobConfig> context) {
 
         Skeleton skeletonEntity = EntityTypes.SKELETON.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        if (skeletonEntity == null) {
+            return false;
+        }
 
         skeletonEntity.setPersistenceRequired();
         skeletonEntity.setPos(

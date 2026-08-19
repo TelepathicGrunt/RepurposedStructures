@@ -1,5 +1,8 @@
 ### **(V.7.7.6 Changes) (26.2 Minecraft) (Config Datapack Updated)**
 
+##### General:
+Fixed crash when attempting to spawn an entity that cannot spawn (Skeletons during Peaceful mode for example)
+
 ##### Mineshafts:
 Allowed RS Mineshaft support to replace Sulfur Spike properly.
 
@@ -7,20 +10,3 @@ Overworld RS Mineshafts now has a small chance of spawning Bounce Music Disc if 
 
 ##### Villages:
 Made Hoglins spawned in pens in Crimson and Warped Villages not be hunted by Piglins.
-
-
-### **(V.7.7.5 Changes) (26.2 Minecraft) (Config Datapack Updated)**
-
-##### Misc:
-Updated to 26.2
-
-##### Fortresses: 
-Fixed Jungle Fortress having rare chance of spawning water above sea level.
-
-##### Dungeons:
-Badlands and Desert Dungeons can have Parched spawners instead of Skeleton spawner.
-
-Swamp Dungeons can have Bogged spawners instead of Skeleton spawner.
-
-##### Monuments:
-Desert Monuments now spawn Parched instead of Skeletons.

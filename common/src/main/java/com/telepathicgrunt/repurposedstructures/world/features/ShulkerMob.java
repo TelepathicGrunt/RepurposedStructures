@@ -30,6 +30,9 @@ public class ShulkerMob extends Feature<NoneFeatureConfiguration> {
         BlockPos position = context.origin().below();
 
         Shulker shulkerEntity = EntityTypes.SHULKER.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
+        if (shulkerEntity == null) {
+            return false;
+        }
         shulkerEntity.setPersistenceRequired();
         shulkerEntity.setPos(
                 (double)position.getX() + 0.5D,

@@ -33,7 +33,9 @@ public class DrownedWithArmor extends Feature<NoneFeatureConfiguration> {
         BlockPos position = context.origin().below();
 
         Drowned drownedEntity = EntityTypes.DROWNED.create(context.level().getLevel(), EntitySpawnReason.STRUCTURE);
-        if(drownedEntity == null) return false;
+        if (drownedEntity == null) {
+            return false;
+        }
 
         if(context.random().nextFloat() < 0.45F) {
             ItemStack stoneSword = new ItemStack(Items.STONE_SWORD);
