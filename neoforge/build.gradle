@@ -34,6 +34,8 @@ publishMods {
             projectId = project.findProperty('curseforge_id_neoforge')
             minecraftVersions.add(project.minecraft_version)
             changelog = changeLogText
+            client = false
+            server = true
 
             uploadDependenciesCf.each { dep, required ->
                 if (required) {
