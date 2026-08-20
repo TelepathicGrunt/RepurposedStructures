@@ -2,9 +2,9 @@ package com.telepathicgrunt.repurposedstructures.modinit.forge;
 
 import com.mojang.serialization.Codec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
-import com.telepathicgrunt.repurposedstructures.world.forge.biomemodifiers.AdditionsModifier;
-import com.telepathicgrunt.repurposedstructures.world.forge.biomemodifiers.AdditionsTemperatureModifier;
-import com.telepathicgrunt.repurposedstructures.world.forge.biomemodifiers.RemovalsModifier;
+import com.telepathicgrunt.repurposedstructures.world.forge.AdditionsModifier;
+import com.telepathicgrunt.repurposedstructures.world.forge.AdditionsTemperatureModifier;
+import com.telepathicgrunt.repurposedstructures.world.forge.RemovalsModifier;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

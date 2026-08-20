@@ -1,4 +1,4 @@
-package com.telepathicgrunt.repurposedstructures.world.forge.biomemodifiers;
+package com.telepathicgrunt.repurposedstructures.world.forge;
 
 import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
