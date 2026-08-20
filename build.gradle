@@ -1,7 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
     id "dev.architectury.loom" version "1.6-SNAPSHOT" apply false
-    id "me.modmuss50.mod-publish-plugin" version "0.5.1"
+    id 'me.modmuss50.mod-publish-plugin' version '2.0.0-beta.2' apply false
 }
 
 architectury {
@@ -21,82 +21,6 @@ subprojects {
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
         mappings loom.officialMojangMappings()
-    }
-
-    Map<String, Map<String, String>> platformSettings = [
-            "fabric": [
-                    "curse-id": "391366",
-                    "modrinth-id": "muf0XoRe"
-            ],
-            "neoforge": [
-                    "curse-id": "368293",
-                    "modrinth-id": "QDNS5oAT"
-            ]
-    ]
-
-    Map<String, Map<String, Boolean>> platformDependencies = [
-            "fabric": [
-                    "fabric-api": true,
-                    "midnightlib": true
-            ],
-            "neoforge": []
-    ]
-
-    var env = System.getenv()
-    def uploadSettings = platformSettings.get(name)
-    def uploadDependencies = platformDependencies.get(name)
-
-    if (uploadSettings != null && uploadDependencies != null) {
-
-        File changeLog = rootProject.file("CHANGELOG.md")
-        String changelogText = changeLog.exists() ? changeLog.text : ""
-
-        publishMods {
-            file = tasks.remapJar.archiveFile
-            type = STABLE
-            changelog = changelogText
-
-            displayName = "Repurposed Structures v${rootProject.mod_version} (${rootProject.minecraft_version} MC ${name.capitalize()})"
-            version = "${project.version}"
-            modLoaders.add(name)
-
-            if (env.CURSEFORGEKEY) {
-                curseforge {
-                    accessToken = env.CURSEFORGEKEY
-                    projectId = uploadSettings["curse-id"]
-                    minecraftVersions.add(rootProject.minecraft_version)
-
-                    if (uploadDependencies.size() > 0) {
-                        uploadDependencies.each { dep, required ->
-                            if (required) {
-                                requires(dep)
-                            }
-                            else {
-                                optional(dep)
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (env.MODRINTH_TOKEN) {
-                modrinth {
-                    accessToken = env.MODRINTH_TOKEN
-                    projectId = uploadSettings["modrinth-id"]
-                    minecraftVersions.add(rootProject.minecraft_version)
-
-                    dependencies {
-                        uploadDependencies.each { dep, required ->
-                            if (required) {
-                                requires(dep)
-                            } else {
-                                optional(dep)
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
