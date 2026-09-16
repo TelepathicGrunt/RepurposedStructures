@@ -15,7 +15,7 @@
   },
 
   "license": "${license}",
-  "icon": "${logo_fabric}",
+  "icon": "${logo_icon}",
 
   "environment": "*",
   "entrypoints": {

@@ -12,8 +12,8 @@ license="${license}"
     authors="${mod_author}"
     credits="${mod_credits}"
     description='''${mod_description}'''
-    logoFile="${logo_neoforge}"
-    logoBlur=false
+    bannerFile="${logo_banner}"
+    iconFile="${logo_icon}"
 
 [[mixins]]
     config = "${mod_id}-neoforge.mixins.json"

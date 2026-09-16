@@ -16,19 +16,19 @@ repositories {
 
 &nbsp;
 
-Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.5.13` for example. (See older branches's README.md for their stuff)
+Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.8.0` for example. (See older branches's README.md for their stuff)
 
 ```gradle
 dependencies {
    ...
    NEOFORGE: 
-     compileOnly fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-neoforge")
+     compileOnly fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+26.3-neoforge")
      
    FABRIC/QUILT: 
-     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-fabric"
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+26.3-fabric"
      
    ARCH COMMON MODULE: 
-     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-common"
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+26.3-common"
 }
 ```
 
@@ -46,7 +46,7 @@ repositories {
      url "https://nexus.resourcefulbees.com/repository/telepathicgrunt/"
     }
     
-    // Fabric/Quilt only
+    // Fabric only
     maven {
         url = 'https://api.modrinth.com/maven/'
         content {
@@ -58,20 +58,20 @@ repositories {
 
 &nbsp;
 
-Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.5.13` for example. (See older branches's README.md for their stuff)
+Don't forget to change &lt;modversion> with the actual latest version of this mod like `7.8.0` for example. (See older branches's README.md for their stuff)
 
 ```gradle
 dependencies {
    ...
    NEOFORGE: 
-     implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-neoforge")
+     implementation fg.deobf("com.telepathicgrunt:RepurposedStructures:<modversion>+26.3-neoforge")
      
-   FABRIC/QUILT: 
-     modImplementation "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-fabric"
+   FABRIC: 
+     modImplementation "com.telepathicgrunt:RepurposedStructures:<modversion>+26.3-fabric"
      modImplementation "maven.modrinth:midnightlib:1.5.7-fabric" 
    
    ARCH COMMON MODULE: 
-     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+1.21.4-common"
+     modCompileOnly "com.telepathicgrunt:RepurposedStructures:<modversion>+26.3-common"
 }
 ```
 
