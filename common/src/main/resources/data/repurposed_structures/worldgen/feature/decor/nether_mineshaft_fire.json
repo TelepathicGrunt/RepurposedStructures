@@ -1,6 +1,4 @@
 {
-  "config": {
-	  "attempts": 3
-  },
+  "attempts": 3,
   "type": "repurposed_structures:structure_fire"
 }

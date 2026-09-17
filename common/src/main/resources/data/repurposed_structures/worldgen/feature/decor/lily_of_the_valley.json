@@ -1,11 +1,9 @@
 {
-	"type": "minecraft:simple_block",
-	"config": {
-		"to_place": {
-			"type": "minecraft:simple_state_provider",
-			"state": {
-				"id": "minecraft:lily_of_the_valley"
-			}
-		}
-	}
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:simple",
+    "state": {
+      "id": "minecraft:lily_of_the_valley"
+    }
+  }
 }

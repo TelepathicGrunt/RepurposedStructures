@@ -1,6 +1,4 @@
 {
-  "config": {
-    "minecart_nbt_file": "repurposed_structures:mineshafts/jungle/minecart"
-  },
+  "minecart_nbt_file": "repurposed_structures:mineshafts/jungle/minecart",
   "type": "repurposed_structures:mineshaft_minecarts"
 }

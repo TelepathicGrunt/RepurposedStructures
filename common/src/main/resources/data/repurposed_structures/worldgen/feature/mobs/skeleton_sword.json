@@ -1,8 +1,6 @@
 {
-  "config": {
-	  "held_item": "minecraft:stone_sword",
-	  "speed_modifier": 0.25,
-	  "health": 14
-  },
+  "held_item": "minecraft:stone_sword",
+  "speed_modifier": 0.25,
+  "health": 14,
   "type": "repurposed_structures:skeleton"
 }

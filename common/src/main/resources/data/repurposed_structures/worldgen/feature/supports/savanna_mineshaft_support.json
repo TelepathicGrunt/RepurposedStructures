@@ -1,24 +1,24 @@
 {
-  "config": {
-    "arch_blocks": ["minecraft:acacia_log"],
-    "pillar_state": {
-      "properties": {
-        "axis": "y"
-      },
-      "id": "minecraft:acacia_log"
+  "arch_blocks": [
+    "minecraft:acacia_log"
+  ],
+  "pillar_state": {
+    "properties": {
+      "axis": "y"
     },
-    "fence_state": {
-      "properties": {
-        "north": "false",
-        "south": "false",
-        "east": "false",
-        "west": "false",
-        "waterlogged": "false"
-      },
-      "id": "minecraft:acacia_fence"
-    },
-    "target_floor_block": "minecraft:acacia_planks",
-    "is_water_based": false
+    "id": "minecraft:acacia_log"
   },
+  "fence_state": {
+    "properties": {
+      "north": "false",
+      "south": "false",
+      "east": "false",
+      "west": "false",
+      "waterlogged": "false"
+    },
+    "id": "minecraft:acacia_fence"
+  },
+  "target_floor_block": "minecraft:acacia_planks",
+  "is_water_based": false,
   "type": "repurposed_structures:mineshaft_supports"
 }

@@ -1,7 +1,5 @@
 {
-  "config": {
-	  "speed_modifier": 0.25,
-	  "health": 14
-  },
+  "speed_modifier": 0.25,
+  "health": 14,
   "type": "repurposed_structures:skeleton"
 }

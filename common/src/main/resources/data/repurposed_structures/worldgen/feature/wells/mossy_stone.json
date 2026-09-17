@@ -1,14 +1,12 @@
 {
   "type": "repurposed_structures:nbt_feature",
-  "config": {
-	  "nbt_entries": [
-		  {
-			  "identifier": "repurposed_structures:wells/mossy_stone",
-			  "weight": 1
-		  }
-	  ],
-	  "allow_liquid": true,
-	  "processors": "repurposed_structures:wells/mossy_stone",
-	  "height_offset": -2
-  }
+  "nbt_entries": [
+    {
+      "identifier": "repurposed_structures:wells/mossy_stone",
+      "weight": 1
+    }
+  ],
+  "allow_liquid": true,
+  "processors": "repurposed_structures:wells/mossy_stone",
+  "height_offset": -2
 }

@@ -18,19 +18,13 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 
 public record StructureVineAndLeaves(
         int attempts,
-        int length,
-        int xzRange,
-        int heightRange
+        int length
 ) implements Feature {
 
     public static final MapCodec<StructureVineAndLeaves> CODEC = RecordCodecBuilder.<StructureVineAndLeaves>mapCodec((structureVineInstance) -> structureVineInstance.group(
                     Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureVine -> structureVine.attempts),
-                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureVine -> structureVine.length),
-                    Codec.intRange(1, 200).fieldOf("xz_range").forGetter(structureVine -> structureVine.xzRange),
-                    Codec.intRange(1, 200).fieldOf("height_range").orElse(5).forGetter(structureVine -> structureVine.heightRange)
-            ).apply(structureVineInstance, StructureVineAndLeaves::new))
-            .validate((config) -> config.heightRange <= 0 ?
-                    DataResult.error(() -> "height must be greater than 0") : DataResult.success(config));
+                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureVine -> structureVine.length)
+            ).apply(structureVineInstance, StructureVineAndLeaves::new));
 
     @Override
     public MapCodec<StructureVineAndLeaves> codec() {

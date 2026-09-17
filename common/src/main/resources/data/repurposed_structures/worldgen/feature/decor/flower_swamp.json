@@ -1,11 +1,9 @@
 {
   "type": "minecraft:simple_block",
-  "config": {
-    "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "id": "minecraft:blue_orchid"
-      }
+  "to_place": {
+    "type": "minecraft:simple",
+    "state": {
+      "id": "minecraft:blue_orchid"
     }
   }
 }

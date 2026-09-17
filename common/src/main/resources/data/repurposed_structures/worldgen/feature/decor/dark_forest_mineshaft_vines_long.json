@@ -1,8 +1,6 @@
 {
-  "config": {
-	  "attempts": 23,
-	  "length": 8,
-	  "xz_range": 1
-  },
+  "attempts": 23,
+  "length": 8,
+  "xz_range": 1,
   "type": "repurposed_structures:structure_vines"
 }

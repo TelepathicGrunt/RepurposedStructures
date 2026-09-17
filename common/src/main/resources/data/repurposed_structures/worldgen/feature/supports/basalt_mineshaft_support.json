@@ -1,17 +1,18 @@
 {
-  "config": {
-    "arch_blocks": ["minecraft:polished_basalt", "minecraft:chiseled_polished_blackstone"],
-    "pillar_state": {
-      "id": "minecraft:smooth_basalt"
-    },
-    "fence_state": {
-      "properties": {
-        "axis": "y"
-      },
-      "id": "minecraft:basalt"
-    },
-    "target_floor_block": "minecraft:basalt",
-    "is_water_based": false
+  "arch_blocks": [
+    "minecraft:polished_basalt",
+    "minecraft:chiseled_polished_blackstone"
+  ],
+  "pillar_state": {
+    "id": "minecraft:smooth_basalt"
   },
+  "fence_state": {
+    "properties": {
+      "axis": "y"
+    },
+    "id": "minecraft:basalt"
+  },
+  "target_floor_block": "minecraft:basalt",
+  "is_water_based": false,
   "type": "repurposed_structures:mineshaft_supports"
 }

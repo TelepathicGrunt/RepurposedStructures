@@ -1,6 +1,4 @@
 {
-  "config": {
-	  "attempts": 4
-  },
+  "attempts": 4,
   "type": "repurposed_structures:structure_end_rod_chains"
 }

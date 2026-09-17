@@ -1,6 +1,4 @@
 {
-  "config": {
-	  "attempts": 80
-  },
+  "attempts": 80,
   "type": "repurposed_structures:structure_seagrass"
 }

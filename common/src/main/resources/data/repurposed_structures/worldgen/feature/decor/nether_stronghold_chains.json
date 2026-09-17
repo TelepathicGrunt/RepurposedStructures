@@ -1,6 +1,4 @@
 {
-  "config": {
-	  "attempts": 7
-  },
+  "attempts": 7,
   "type": "repurposed_structures:structure_chains"
 }

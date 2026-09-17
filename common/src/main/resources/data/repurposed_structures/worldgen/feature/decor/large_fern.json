@@ -1,13 +1,11 @@
 {
   "type": "minecraft:simple_block",
-  "config": {
-    "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "id": "minecraft:large_fern",
-        "properties": {
-          "half": "lower"
-        }
+  "to_place": {
+    "type": "minecraft:simple",
+    "state": {
+      "id": "minecraft:large_fern",
+      "properties": {
+        "half": "lower"
       }
     }
   }

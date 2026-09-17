@@ -16,19 +16,13 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 
 public record StructureWarpedPlants(
         int attempts,
-        int length,
-        int xzRange,
-        int heightRange
+        int length
 ) implements Feature {
 
     public static final MapCodec<StructureWarpedPlants> CODEC = RecordCodecBuilder.<StructureWarpedPlants>mapCodec((structureWarpedPlantsInstance) -> structureWarpedPlantsInstance.group(
                     Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureWarpedPlants -> structureWarpedPlants.attempts),
-                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureWarpedPlants -> structureWarpedPlants.length),
-                    Codec.intRange(1, 200).fieldOf("xz_range").forGetter(structureWarpedPlants -> structureWarpedPlants.xzRange),
-                    Codec.intRange(1, 200).fieldOf("height_range").orElse(5).forGetter(structureWarpedPlants -> structureWarpedPlants.heightRange)
-            ).apply(structureWarpedPlantsInstance, StructureWarpedPlants::new))
-            .validate((structureWarpedPlants) -> structureWarpedPlants.heightRange <= 0 ?
-                    DataResult.error(() -> "height must be greater than 0") : DataResult.success(structureWarpedPlants));
+                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureWarpedPlants -> structureWarpedPlants.length)
+            ).apply(structureWarpedPlantsInstance, StructureWarpedPlants::new));
 
     @Override
     public MapCodec<StructureWarpedPlants> codec() {

@@ -1,6 +1,4 @@
 {
-  "config": {
-	  "attempts": 60
-  },
+  "attempts": 60,
   "type": "repurposed_structures:structure_chorus"
 }

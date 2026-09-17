@@ -21,19 +21,13 @@ import java.util.function.Predicate;
 
 public record StructureVineBreakage(
         int attempts,
-        int length,
-        int xzRange,
-        int heightRange
+        int length
 ) implements Feature {
 
     public static final MapCodec<StructureVineBreakage> CODEC = RecordCodecBuilder.<StructureVineBreakage>mapCodec((structureVineBreakageInstance) -> structureVineBreakageInstance.group(
                     Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureVineBreakage -> structureVineBreakage.attempts),
-                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureVineBreakage -> structureVineBreakage.length),
-                    Codec.intRange(1, 200).fieldOf("xz_range").forGetter(structureVineBreakage -> structureVineBreakage.xzRange),
-                    Codec.intRange(1, 200).fieldOf("height_range").orElse(5).forGetter(structureVineBreakage -> structureVineBreakage.heightRange)
-            ).apply(structureVineBreakageInstance, StructureVineBreakage::new))
-            .validate((structureVineBreakage) -> structureVineBreakage.heightRange <= 0 ?
-                    DataResult.error(() -> "height must be greater than 0") : DataResult.success(structureVineBreakage));
+                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureVineBreakage -> structureVineBreakage.length)
+            ).apply(structureVineBreakageInstance, StructureVineBreakage::new));
 
     private static final Predicate<BlockState> FORTRESS_BLOCKS = (blockState) -> {
         if (blockState == null) {

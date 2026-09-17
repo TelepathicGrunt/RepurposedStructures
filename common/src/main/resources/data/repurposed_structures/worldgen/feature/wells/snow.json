@@ -1,14 +1,12 @@
 {
   "type": "repurposed_structures:nbt_feature",
-  "config": {
-	  "nbt_entries": [
-		  {
-			  "identifier": "repurposed_structures:wells/snow",
-			  "weight": 1
-		  }
-	  ],
-	  "allow_liquid": false,
-	  "processors": "repurposed_structures:wells/snow",
-	  "height_offset": -1
-  }
+  "nbt_entries": [
+    {
+      "identifier": "repurposed_structures:wells/snow",
+      "weight": 1
+    }
+  ],
+  "allow_liquid": false,
+  "processors": "repurposed_structures:wells/snow",
+  "height_offset": -1
 }

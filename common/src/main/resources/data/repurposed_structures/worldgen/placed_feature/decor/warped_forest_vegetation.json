@@ -4,6 +4,27 @@
     {
       "count": 5,
       "type": "minecraft:count"
+    },
+    {
+      "type": "minecraft:offset",
+      "x": {
+        "type": "minecraft:trapezoid",
+        "max": 8,
+        "min": -8,
+        "plateau": 0
+      },
+      "y": {
+        "type": "minecraft:trapezoid",
+        "max": 4,
+        "min": -4,
+        "plateau": 0
+      },
+      "z": {
+        "type": "minecraft:trapezoid",
+        "max": 8,
+        "min": -8,
+        "plateau": 0
+      }
     }
   ]
 }

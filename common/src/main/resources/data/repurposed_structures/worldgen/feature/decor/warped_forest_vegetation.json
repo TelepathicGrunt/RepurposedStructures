@@ -1,36 +1,32 @@
 {
-  "type": "minecraft:nether_forest_vegetation",
-  "config": {
-    "spread_height": 4,
-    "spread_width": 8,
-    "state_provider": {
-      "type": "minecraft:weighted",
-      "entries": [
-        {
-          "data": {
-            "id": "minecraft:warped_roots"
-          },
-          "weight": 85
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": {
+          "id": "minecraft:warped_roots"
         },
-        {
-          "data": {
-            "id": "minecraft:crimson_roots"
-          },
-          "weight": 1
+        "weight": 85
+      },
+      {
+        "data": {
+          "id": "minecraft:crimson_roots"
         },
-        {
-          "data": {
-            "id": "minecraft:warped_fungus"
-          },
-          "weight": 13
+        "weight": 1
+      },
+      {
+        "data": {
+          "id": "minecraft:warped_fungus"
         },
-        {
-          "data": {
-            "id": "minecraft:crimson_fungus"
-          },
-          "weight": 1
-        }
-      ]
-    }
+        "weight": 13
+      },
+      {
+        "data": {
+          "id": "minecraft:crimson_fungus"
+        },
+        "weight": 1
+      }
+    ]
   }
 }

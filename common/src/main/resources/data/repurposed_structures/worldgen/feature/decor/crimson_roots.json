@@ -1,11 +1,9 @@
 {
   "type": "minecraft:simple_block",
-  "config": {
-    "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "id": "minecraft:crimson_roots"
-      }
+  "to_place": {
+    "type": "minecraft:simple",
+    "state": {
+      "id": "minecraft:crimson_roots"
     }
   }
 }

@@ -1,11 +1,9 @@
 {
-	"type": "minecraft:simple_block",
-	"config": {
-		"to_place": {
-			"type": "minecraft:simple_state_provider",
-			"state": {
-				"id": "minecraft:red_mushroom"
-			}
-		}
-	}
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:simple",
+    "state": {
+      "id": "minecraft:red_mushroom"
+    }
+  }
 }
