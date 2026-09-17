@@ -10,7 +10,6 @@
     "features.FixBambooPlacementMixin",
     "features.LessBambooInStructuresMixin",
     "features.LessJungleBushInStructuresMixin",
-    "features.NoBasaltColumnsInStructuresMixin",
     "features.NoDeltasInStructuresMixin",
     "features.NoFallsInStructuresMixin",
     "features.NoGeodesInStructuresMixin",
