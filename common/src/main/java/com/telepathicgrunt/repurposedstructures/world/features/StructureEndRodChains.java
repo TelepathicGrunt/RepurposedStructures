@@ -1,9 +1,11 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetConfig;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -11,38 +13,43 @@ import net.minecraft.world.level.block.EndRodBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Set;
 
 
-public class StructureEndRodChains extends Feature<StructureTargetConfig> {
+public record StructureEndRodChains(int attempts) implements Feature {
 
-    private static final Set<Block> ALLOWED_ATTACHEMENT_BLOCKS = Set.of(
-            Blocks.IRON_CHAIN,
-            Blocks.OBSIDIAN,
-            Blocks.CRYING_OBSIDIAN,
-            Blocks.PURPUR_BLOCK,
-            Blocks.PURPUR_PILLAR,
-            Blocks.PURPUR_SLAB,
-            Blocks.PURPUR_STAIRS);
-
-    public StructureEndRodChains(Codec<StructureTargetConfig> config) {
-        super(config);
-    }
+    public static final MapCodec<StructureEndRodChains> CODEC = RecordCodecBuilder.mapCodec((structureChainsInstance) -> structureChainsInstance.group(
+            Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureChains -> structureChains.attempts)
+    ).apply(structureChainsInstance, StructureEndRodChains::new));
 
     @Override
-    public boolean place(FeaturePlaceContext<StructureTargetConfig> context) {
+    public MapCodec<StructureEndRodChains> codec() {
+        return CODEC;
+    }
 
-        WorldGenLevel world = context.level();
+    private static final Set<Block> ALLOWED_ATTACHEMENT_BLOCKS = Set.of(
+        Blocks.IRON_CHAIN,
+        Blocks.OBSIDIAN,
+        Blocks.CRYING_OBSIDIAN,
+        Blocks.PURPUR_BLOCK,
+        Blocks.PURPUR_PILLAR,
+        Blocks.PURPUR_SLAB,
+        Blocks.PURPUR_STAIRS);
+
+    @Override
+    public boolean place(final WorldGenLevel level, final ChunkGenerator chunkGenerator, final RandomSource random, final BlockPos origin) {
+
+        WorldGenLevel world = level;
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++) {
-            mutable.set(context.origin()).move(
-                    context.random().nextInt(7) - 3,
+        for(int i = 0; i < attempts; i++) {
+            mutable.set(origin).move(
+                    random.nextInt(7) - 3,
                     -1,
-                    context.random().nextInt(7) - 3
+                    random.nextInt(7) - 3
             );
 
             if(!world.getBlockState(mutable).isAir()) {
@@ -54,7 +61,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
             BlockState belowBlockstate;
             boolean exitEarly = false;
 
-            for (; mutable.getY() < world.getMaxY() - 3 && length < context.random().nextInt(context.random().nextInt(context.random().nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
+            for (; mutable.getY() < world.getMaxY() - 3 && length < random.nextInt(random.nextInt(random.nextInt(8) + 1) + 1) + 1; mutable.move(Direction.UP)) {
                 if (world.isEmptyBlock(mutable)) {
                     belowBlockstate = world.getBlockState(mutable.below());
                     Block belowBlock = belowBlockstate.getBlock();
@@ -76,7 +83,7 @@ public class StructureEndRodChains extends Feature<StructureTargetConfig> {
 
             //attaches end rod at end at a decent chance
             if(mutable.getY() != world.getMaxY() - 3 &&
-                context.random().nextFloat() < 0.475f &&
+                random.nextFloat() < 0.475f &&
                 world.isEmptyBlock(mutable.above()) &&
                 world.isEmptyBlock(mutable))
             {

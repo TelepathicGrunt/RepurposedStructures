@@ -1,11 +1,13 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetChanceConfig;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
@@ -16,16 +18,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.BitSet;
 import java.util.function.Predicate;
 
 
-public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
+public record StructureBreakage(float chance) implements Feature {
 
-    public StructureBreakage(Codec<StructureTargetChanceConfig> config) {
-        super(config);
+    public static final MapCodec<StructureBreakage> CODEC = RecordCodecBuilder.mapCodec((configInstance) -> configInstance.group(
+            Codec.floatRange(0, 1).fieldOf("chance").forGetter(config -> config.chance)
+    ).apply(configInstance, StructureBreakage::new));
+
+    @Override
+    public MapCodec<StructureBreakage> codec() {
+        return CODEC;
     }
 
     private static final Predicate<BlockState> FORTRESS_BLOCKS = (blockState) -> {
@@ -46,50 +52,45 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         }
     };
 
-
     @Override
-    public boolean place(FeaturePlaceContext<StructureTargetChanceConfig> context) {
+    public boolean place(final WorldGenLevel level, final ChunkGenerator chunkGenerator, final RandomSource random, final BlockPos origin) {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        if(context.random().nextFloat() < context.config().chance) {
-            mutable.set(context.origin()).move(
-                    context.random().nextInt(7) - 3,
+        if (random.nextFloat() < chance) {
+            mutable.set(origin).move(
+                    random.nextInt(7) - 3,
                     0,
-                    context.random().nextInt(7) - 3
+                    random.nextInt(7) - 3
             );
 
-            boolean foundSurface = findSurface(context.level(), mutable, Direction.UP);
-            if(!foundSurface) {
+            boolean foundSurface = findSurface(level, mutable, Direction.UP);
+            if (!foundSurface) {
                 mutable.move(Direction.DOWN, 5);
-                foundSurface = findSurface(context.level(), mutable, Direction.DOWN);
+                foundSurface = findSurface(level, mutable, Direction.DOWN);
             }
 
-            if(!foundSurface) {
+            if (!foundSurface) {
                 return false;
             }
             mutable.move(Direction.UP, 2);
 
-            float f = context.random().nextFloat() * 3.1415927F;
+            float f = random.nextFloat() * 3.1415927F;
             float g = 3;
             int i = 2;
             double d = (float) mutable.getX() + Mth.sin(f) * g;
             double e = (float) mutable.getX() - Mth.sin(f) * g;
             double h = (float) mutable.getZ() + Mth.cos(f) * g;
             double j = (float) mutable.getZ() - Mth.cos(f) * g;
-            double l = mutable.getY() + context.random().nextInt(3) - 2;
-            double m = mutable.getY() + context.random().nextInt(3) - 2;
+            double l = mutable.getY() + random.nextInt(3) - 2;
+            double m = mutable.getY() + random.nextInt(3) - 2;
             int n = mutable.getX() - Mth.ceil(g) - i;
             int o = mutable.getY() - 4;
             int p = mutable.getZ() - Mth.ceil(g) - i;
             int q = 2 * (Mth.ceil(g) + i);
             int r = 8;
 
-            for (int s = n; s <= n + q; ++s) {
-                for (int t = p; t <= p + q; ++t) {
-                    return this.generateVeinPart(context, d, e, h, j, l, m, n, o, p, q, r, context.chunkGenerator());
-                }
-            }
+            this.generateVeinPart(level, random, d, e, h, j, l, m, n, o, p, q, r, chunkGenerator);
         }
 
         return true;
@@ -106,8 +107,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
     }
 
 
-    protected boolean generateVeinPart(FeaturePlaceContext<StructureTargetChanceConfig> context, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i, ChunkGenerator chunkGenerator) {
-        int j = 0;
+    private void generateVeinPart(WorldGenLevel level, RandomSource random, double startX, double endX, double startZ, double endZ, double startY, double endY, int x, int y, int z, int size, int i, ChunkGenerator chunkGenerator) {
         BitSet bitSet = new BitSet(size * i * size);
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         double[] ds = new double[24 * 4];
@@ -117,22 +117,22 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
         double p;
         double q;
         double r;
-        for(m = 0; m < 24; ++m) {
-            float f = (float)m / (float)24;
+        for (m = 0; m < 24; ++m) {
+            float f = (float) m / (float) 24;
             o = Mth.lerp(f, startX, endX);
             p = Mth.lerp(f, startY, endY);
             q = Mth.lerp(f, startZ, endZ);
-            r = context.random().nextDouble() * (double)24 / 16.0D;
-            double l = ((double)(Mth.sin(3.1415927F * f) + 1.0F) * r + 1.0D) / 2.0D;
+            r = random.nextDouble() * (double) 24 / 16.0D;
+            double l = ((double) (Mth.sin(3.1415927F * f) + 1.0F) * r + 1.0D) / 2.0D;
             ds[m * 4] = o;
             ds[m * 4 + 1] = p;
             ds[m * 4 + 2] = q;
             ds[m * 4 + 3] = l;
         }
 
-        for(m = 0; m < 24 - 1; ++m) {
+        for (m = 0; m < 24 - 1; ++m) {
             if (ds[m * 4 + 3] > 0.0D) {
-                for(int n = m + 1; n < 24; ++n) {
+                for (int n = m + 1; n < 24; ++n) {
                     if (ds[n * 4 + 3] > 0.0D) {
                         o = ds[m * 4] - ds[n * 4];
                         p = ds[m * 4 + 1] - ds[n * 4 + 1];
@@ -150,7 +150,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
             }
         }
 
-        for(m = 0; m < 24; ++m) {
+        for (m = 0; m < 24; ++m) {
             double t = ds[m * 4 + 3];
             if (t >= 0.0D) {
                 double u = ds[m * 4];
@@ -163,39 +163,37 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                 int ae = Math.max(Mth.floor(v + t), ab);
                 int af = Math.max(Mth.floor(w + t), ac);
 
-                for(int ag = aa; ag <= ad; ++ag) {
-                    double ah = ((double)ag + 0.5D - u) / t;
+                for (int ag = aa; ag <= ad; ++ag) {
+                    double ah = ((double) ag + 0.5D - u) / t;
                     if (ah * ah < 1.0D) {
-                        for(int ai = ab; ai <= ae; ++ai) {
-                            double aj = ((double)ai + 0.5D - v) / t;
+                        for (int ai = ab; ai <= ae; ++ai) {
+                            double aj = ((double) ai + 0.5D - v) / t;
                             if (ah * ah + aj * aj < 1.0D) {
-                                for(int ak = ac; ak <= af; ++ak) {
-                                    double al = ((double)ak + 0.5D - w) / t;
+                                for (int ak = ac; ak <= af; ++ak) {
+                                    double al = ((double) ak + 0.5D - w) / t;
                                     if (ah * ah + aj * aj + al * al < 1.0D) {
                                         int am = ag - x + (ai - y) * size + (ak - z) * size * i;
                                         if (!bitSet.get(am)) {
                                             bitSet.set(am);
                                             mutable.set(ag, ai, ak);
-                                            BlockState state = context.level().getBlockState(mutable);
+                                            BlockState state = level.getBlockState(mutable);
                                             if (FORTRESS_BLOCKS.test(state)) {
                                                 ChunkPos currentChunkPos = ChunkPos.containing(mutable);
-                                                ChunkAccess currentChunk = context.level().getChunk(currentChunkPos.x(), currentChunkPos.z());
+                                                ChunkAccess currentChunk = level.getChunk(currentChunkPos.x(), currentChunkPos.z());
                                                 boolean isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
 
                                                 // Do not carve if exposed to cave space
-                                                if(isBelowSealevel && isBorderingAir(context.level(), mutable)) {
+                                                if (isBelowSealevel && isBorderingAir(level, mutable)) {
                                                     continue;
                                                 }
 
                                                 currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                                                ++j;
 
                                                 // no floating vines
                                                 state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
-                                                while(mutable.getY() > currentChunk.getMinY() &&
+                                                while (mutable.getY() > currentChunk.getMinY() &&
                                                         mutable.getY() < currentChunk.getMaxY() &&
-                                                        (state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.FLOWERS)))
-                                                {
+                                                        (state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.FLOWERS))) {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                                                     state = currentChunk.getBlockState(mutable.move(Direction.DOWN));
                                                 }
@@ -205,12 +203,10 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                 if (state.is(BlockTags.FLOWER_POTS)) {
                                                     currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
-                                                }
-                                                else {
+                                                } else {
                                                     while (mutable.getY() > currentChunk.getMinY() &&
                                                             mutable.getY() < currentChunk.getMaxY() &&
-                                                            (state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.FLOWERS)))
-                                                    {
+                                                            (state.is(BlockTags.REPLACEABLE_BY_TREES) || state.is(BlockTags.FLOWERS))) {
                                                         currentChunk.setBlockState(mutable, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                                                         state = currentChunk.getBlockState(mutable.move(Direction.UP));
                                                         isBelowSealevel = mutable.getY() < chunkGenerator.getSeaLevel();
@@ -219,20 +215,19 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
 
                                                 BlockPos.MutableBlockPos mutableVineCheck = new BlockPos.MutableBlockPos();
                                                 for (Direction direction : Direction.values()) {
-                                                    if(direction == Direction.UP) continue;
+                                                    if (direction == Direction.UP) continue;
 
                                                     mutableVineCheck.set(mutable).move(direction);
                                                     if (currentChunkPos.x() != mutableVineCheck.getX() >> 4 || currentChunkPos.z() != mutableVineCheck.getZ() >> 4) {
-                                                        currentChunk = context.level().getChunk(mutableVineCheck);
+                                                        currentChunk = level.getChunk(mutableVineCheck);
                                                         currentChunkPos = ChunkPos.containing(mutableVineCheck);
                                                     }
 
                                                     BlockState neighboringBlock = currentChunk.getBlockState(mutableVineCheck);
                                                     if (neighboringBlock.is(Blocks.VINE) && neighboringBlock.getValue(VineBlock.getPropertyForFace(direction.getOpposite()))) {
-                                                        while(mutable.getY() > currentChunk.getMinY() &&
+                                                        while (mutable.getY() > currentChunk.getMinY() &&
                                                                 mutable.getY() < currentChunk.getMaxY() &&
-                                                                (neighboringBlock.is(BlockTags.REPLACEABLE_BY_TREES) || neighboringBlock.is(BlockTags.FLOWERS)))
-                                                        {
+                                                                (neighboringBlock.is(BlockTags.REPLACEABLE_BY_TREES) || neighboringBlock.is(BlockTags.FLOWERS))) {
                                                             currentChunk.setBlockState(mutableVineCheck, isBelowSealevel ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                                                             neighboringBlock = currentChunk.getBlockState(mutableVineCheck.move(Direction.DOWN));
                                                         }
@@ -248,8 +243,6 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                 }
             }
         }
-
-        return j > 0;
     }
 
     private boolean isBorderingAir(ServerLevelAccessor world, BlockPos.MutableBlockPos mutable) {
@@ -266,7 +259,7 @@ public class StructureBreakage extends Feature<StructureTargetChanceConfig> {
                 currentChunkPos2 = ChunkPos.containing(mutableWaterCheck);
             }
 
-            if(currentChunk2.getBlockState(mutableWaterCheck).isAir()) {
+            if (currentChunk2.getBlockState(mutableWaterCheck).isAir()) {
                 return true;
             }
         }

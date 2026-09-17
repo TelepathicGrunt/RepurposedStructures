@@ -2,24 +2,28 @@ package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndRangeConfig;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.List;
 
 
-public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
+public record StructureFlowers(int attempts, int range) implements Feature {
 
-    public StructureFlowers(Codec<StructureTargetAndRangeConfig> config) {
-        super(config);
-    }
+    public static final MapCodec<StructureFlowers> CODEC = RecordCodecBuilder.mapCodec((structureFlowersInstance) -> structureFlowersInstance.group(
+            Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureFlowers -> structureFlowers.attempts),
+            Codec.intRange(1, 200).fieldOf("range").forGetter(structureFlowers -> structureFlowers.range)
+    ).apply(structureFlowersInstance, StructureFlowers::new));
 
     private static final List<BlockState> FLOWERS = ImmutableList.of(
             Blocks.LILY_OF_THE_VALLEY.defaultBlockState(),
@@ -36,29 +40,34 @@ public class StructureFlowers extends Feature<StructureTargetAndRangeConfig> {
     );
 
     @Override
-    public boolean place(FeaturePlaceContext<StructureTargetAndRangeConfig> context) {
+    public MapCodec<StructureFlowers> codec() {
+        return CODEC;
+    }
+
+    @Override
+    public boolean place(final WorldGenLevel level, final ChunkGenerator chunkGenerator, final RandomSource random, final BlockPos origin) {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++) {
-            mutable.set(context.origin()).move(
-                    context.random().nextInt((context.config().range * 2) + 1) - context.config().range,
-                    context.random().nextInt(3) - 1,
-                    context.random().nextInt((context.config().range * 2) + 1) - context.config().range
+        for(int i = 0; i < attempts; i++) {
+            mutable.set(origin).move(
+                    random.nextInt((range * 2) + 1) - range,
+                    random.nextInt(3) - 1,
+                    random.nextInt((range * 2) + 1) - range
             );
 
-            if(context.level().getBlockState(mutable).isAir()) {
+            if(level.getBlockState(mutable).isAir()) {
 
-                BlockState chosenFlower = FLOWERS.get(context.random().nextInt(FLOWERS.size()));
+                BlockState chosenFlower = FLOWERS.get(random.nextInt(FLOWERS.size()));
 
-                if(chosenFlower.canSurvive(context.level(), mutable)) {
+                if(chosenFlower.canSurvive(level, mutable)) {
 
-                    if(chosenFlower.getBlock() instanceof DoublePlantBlock && context.level().getBlockState(mutable.above()).isAir()) {
-                        context.level().setBlock(mutable, chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
-                        context.level().setBlock(mutable.move(Direction.UP), chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
+                    if(chosenFlower.getBlock() instanceof DoublePlantBlock && level.getBlockState(mutable.above()).isAir()) {
+                        level.setBlock(mutable, chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER), 3);
+                        level.setBlock(mutable.move(Direction.UP), chosenFlower.setValue(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER), 3);
                     }
                     else{
-                        context.level().setBlock(mutable, chosenFlower, 3);
+                        level.setBlock(mutable, chosenFlower, 3);
                     }
                 }
             }

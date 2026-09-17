@@ -4,7 +4,7 @@
     "spread_height": 4,
     "spread_width": 8,
     "state_provider": {
-      "type": "minecraft:weighted_state_provider",
+      "type": "minecraft:weighted",
       "entries": [
         {
           "data": {

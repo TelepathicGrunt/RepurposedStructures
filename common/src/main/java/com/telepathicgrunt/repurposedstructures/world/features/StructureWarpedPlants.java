@@ -1,24 +1,42 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 
-public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfig> {
+public record StructureWarpedPlants(
+        int attempts,
+        int length,
+        int xzRange,
+        int heightRange
+) implements Feature {
 
-    public StructureWarpedPlants(Codec<StructureTargetAndLengthConfig> config) {
-        super(config);
-    }
-
+    public static final MapCodec<StructureWarpedPlants> CODEC = RecordCodecBuilder.<StructureWarpedPlants>mapCodec((structureWarpedPlantsInstance) -> structureWarpedPlantsInstance.group(
+                    Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureWarpedPlants -> structureWarpedPlants.attempts),
+                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureWarpedPlants -> structureWarpedPlants.length),
+                    Codec.intRange(1, 200).fieldOf("xz_range").forGetter(structureWarpedPlants -> structureWarpedPlants.xzRange),
+                    Codec.intRange(1, 200).fieldOf("height_range").orElse(5).forGetter(structureWarpedPlants -> structureWarpedPlants.heightRange)
+            ).apply(structureWarpedPlantsInstance, StructureWarpedPlants::new))
+            .validate((structureWarpedPlants) -> structureWarpedPlants.heightRange <= 0 ?
+                    DataResult.error(() -> "height must be greater than 0") : DataResult.success(structureWarpedPlants));
 
     @Override
-    public boolean place(FeaturePlaceContext<StructureTargetAndLengthConfig> context) {
+    public MapCodec<StructureWarpedPlants> codec() {
+        return CODEC;
+    }
+
+    @Override
+    public boolean place(final WorldGenLevel level, final ChunkGenerator chunkGenerator, final RandomSource random, final BlockPos origin) {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
         BlockState netherSprouts = Blocks.NETHER_SPROUTS.defaultBlockState();
@@ -27,36 +45,36 @@ public class StructureWarpedPlants extends Feature<StructureTargetAndLengthConfi
         BlockState twistingVines = Blocks.TWISTING_VINES.defaultBlockState();
         BlockState twistingVinesPlant = Blocks.TWISTING_VINES_PLANT.defaultBlockState();
 
-        for(int i = 0; i < context.config().attempts; i++) {
-            mutable.set(context.origin()).move(
-                    context.random().nextInt(7) - 3,
+        for(int i = 0; i < attempts; i++) {
+            mutable.set(origin).move(
+                    random.nextInt(7) - 3,
                     -1,
-                    context.random().nextInt(7) - 3
+                    random.nextInt(7) - 3
             );
 
-            if(context.level().getBlockState(mutable).isAir()) {
-                if(context.random().nextFloat() < 0.5f && netherSprouts.canSurvive(context.level(), mutable)) {
+            if(level.getBlockState(mutable).isAir()) {
+                if(random.nextFloat() < 0.5f && netherSprouts.canSurvive(level, mutable)) {
 
-                    context.level().setBlock(mutable, netherSprouts, 3);
+                    level.setBlock(mutable, netherSprouts, 3);
                 }
-                else if(context.random().nextFloat() < 0.4f && twistingRoots.canSurvive(context.level(), mutable)) {
+                else if(random.nextFloat() < 0.4f && twistingRoots.canSurvive(level, mutable)) {
 
-                    context.level().setBlock(mutable, twistingRoots, 3);
+                    level.setBlock(mutable, twistingRoots, 3);
                 }
-                else if(context.random().nextFloat() < 0.3f && twistingFungus.canSurvive(context.level(), mutable)) {
+                else if(random.nextFloat() < 0.3f && twistingFungus.canSurvive(level, mutable)) {
 
-                    context.level().setBlock(mutable, twistingFungus, 3);
+                    level.setBlock(mutable, twistingFungus, 3);
                 }
-                else if(twistingVines.canSurvive(context.level(), mutable)) {
+                else if(twistingVines.canSurvive(level, mutable)) {
 
                     // Biased towards max length if greater than 3
-                    int length = context.config().length > 3 ? context.config().length - context.random().nextInt(context.random().nextInt(context.config().length) + 1) : context.random().nextInt(context.config().length);
-                    for(int currentLength = 0; currentLength <= length; currentLength++) {
-                        if(currentLength == length || !context.level().getBlockState(mutable.above()).isAir()) {
-                            context.level().setBlock(mutable, twistingVines, 3);
+                    int maxLength = length > 3 ? length - random.nextInt(random.nextInt(length) + 1) : random.nextInt(length);
+                    for(int currentLength = 0; currentLength <= maxLength; currentLength++) {
+                        if(currentLength == maxLength || !level.getBlockState(mutable.above()).isAir()) {
+                            level.setBlock(mutable, twistingVines, 3);
                             break;
                         }
-                        context.level().setBlock(mutable, twistingVinesPlant, 3);
+                        level.setBlock(mutable, twistingVinesPlant, 3);
                         mutable.move(Direction.UP);
                     }
                 }

@@ -1,26 +1,39 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.StructureTargetAndLengthConfig;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.function.Predicate;
 
 
-public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfig> {
+public record StructureVineBreakage(
+        int attempts,
+        int length,
+        int xzRange,
+        int heightRange
+) implements Feature {
 
-    public StructureVineBreakage(Codec<StructureTargetAndLengthConfig> config) {
-        super(config);
-    }
+    public static final MapCodec<StructureVineBreakage> CODEC = RecordCodecBuilder.<StructureVineBreakage>mapCodec((structureVineBreakageInstance) -> structureVineBreakageInstance.group(
+                    Codec.intRange(1, 1000000).fieldOf("attempts").forGetter(structureVineBreakage -> structureVineBreakage.attempts),
+                    Codec.intRange(1, 200).fieldOf("length").forGetter(structureVineBreakage -> structureVineBreakage.length),
+                    Codec.intRange(1, 200).fieldOf("xz_range").forGetter(structureVineBreakage -> structureVineBreakage.xzRange),
+                    Codec.intRange(1, 200).fieldOf("height_range").orElse(5).forGetter(structureVineBreakage -> structureVineBreakage.heightRange)
+            ).apply(structureVineBreakageInstance, StructureVineBreakage::new))
+            .validate((structureVineBreakage) -> structureVineBreakage.heightRange <= 0 ?
+                    DataResult.error(() -> "height must be greater than 0") : DataResult.success(structureVineBreakage));
 
     private static final Predicate<BlockState> FORTRESS_BLOCKS = (blockState) -> {
         if (blockState == null) {
@@ -37,28 +50,31 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
         }
     };
 
+    @Override
+    public MapCodec<StructureVineBreakage> codec() {
+        return CODEC;
+    }
 
     @Override
-    public boolean place(FeaturePlaceContext<StructureTargetAndLengthConfig> context) {
+    public boolean place(final WorldGenLevel level, final ChunkGenerator chunkGenerator, final RandomSource random, final BlockPos origin) {
 
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos();
 
-        for(int i = 0; i < context.config().attempts; i++) {
-            mutable.set(context.origin()).move(
-                    context.random().nextInt(7) - 3,
-                    context.random().nextInt(5) - 1,
-                    context.random().nextInt(7) - 3
+        for(int i = 0; i < attempts; i++) {
+            mutable.set(origin).move(
+                    random.nextInt(7) - 3,
+                    random.nextInt(5) - 1,
+                    random.nextInt(7) - 3
             );
 
-            if(!FORTRESS_BLOCKS.test(context.level().getBlockState(mutable)) || !context.level().isEmptyBlock(mutable.below())) {
+            if(!FORTRESS_BLOCKS.test(level.getBlockState(mutable)) || !level.isEmptyBlock(mutable.below())) {
                 continue;
             }
 
             // create hole in fortress block for vine
-            context.level().setBlock(mutable, Blocks.CAVE_AIR.defaultBlockState(), 3);
+            level.setBlock(mutable, Blocks.CAVE_AIR.defaultBlockState(), 3);
             BlockPos.MutableBlockPos vineMutablePos = new BlockPos.MutableBlockPos().set(mutable);
-            BlockState neighboringBlock = context.level().getBlockState(vineMutablePos);
-            WorldGenLevel level = context.level();
+            BlockState neighboringBlock = level.getBlockState(vineMutablePos);
             for (Direction direction : Direction.Plane.HORIZONTAL) {
                 vineMutablePos.set(mutable).move(direction);
                 // no floating vines
@@ -72,13 +88,13 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             }
 
             BlockPos.MutableBlockPos replacingPlantMutable = new BlockPos.MutableBlockPos().set(mutable);
-            BlockState plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
+            BlockState plantState = level.getBlockState(replacingPlantMutable.move(Direction.UP));
             while(mutable.getY() > level.getMinY() &&
                     mutable.getY() < level.getMaxY() &&
                     (plantState.is(BlockTags.REPLACEABLE_BY_TREES) || plantState.is(BlockTags.FLOWERS)))
             {
-                context.level().setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
-                plantState = context.level().getBlockState(replacingPlantMutable.move(Direction.UP));
+                level.setBlock(replacingPlantMutable, Blocks.AIR.defaultBlockState(), 3);
+                plantState = level.getBlockState(replacingPlantMutable.move(Direction.UP));
             }
 
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
@@ -87,11 +103,11 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
             BlockState currentBlockstate;
             BlockState aboveBlockstate;
             // Biased towards max length
-            int maxLength = context.config().length - context.random().nextInt(context.random().nextInt(context.config().length) + 1);
+            int maxLength = length - random.nextInt(random.nextInt(length) + 1);
             int targetY = vineMutablePos.getY() - maxLength;
 
             for (; vineMutablePos.getY() >= targetY; vineMutablePos.move(Direction.DOWN)) {
-                if (context.level().isEmptyBlock(vineMutablePos)) {
+                if (level.isEmptyBlock(vineMutablePos)) {
                     for (Direction direction : Direction.Plane.HORIZONTAL) {
                         mutable.set(vineMutablePos).move(direction);
                         ChunkPos newChunkPos = ChunkPos.containing(mutable);
@@ -99,16 +115,16 @@ public class StructureVineBreakage extends Feature<StructureTargetAndLengthConfi
                         if(newChunkPos.x() != currentChunkPos.x() || newChunkPos.z() != currentChunkPos.z()) continue;
 
                         currentBlockstate = Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(direction), Boolean.TRUE);
-                        aboveBlockstate = context.level().getBlockState(vineMutablePos.above());
+                        aboveBlockstate = level.getBlockState(vineMutablePos.above());
 
-                        if (currentBlockstate.canSurvive(context.level(), vineMutablePos) && context.level().getBlockState(vineMutablePos.relative(direction)).getBlock() != Blocks.MOSS_CARPET) {
+                        if (currentBlockstate.canSurvive(level, vineMutablePos) && level.getBlockState(vineMutablePos.relative(direction)).getBlock() != Blocks.MOSS_CARPET) {
                             //places topmost vine that can face upward
-                            context.level().setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
+                            level.setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
                             break;
                         }
                         else if (aboveBlockstate.is(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
-                            context.level().setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
+                            level.setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
                             break;
                         }
                     }

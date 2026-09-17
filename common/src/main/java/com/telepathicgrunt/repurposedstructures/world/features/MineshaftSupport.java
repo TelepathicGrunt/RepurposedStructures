@@ -1,11 +1,14 @@
 package com.telepathicgrunt.repurposedstructures.world.features;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
-import com.telepathicgrunt.repurposedstructures.world.features.configs.MineshaftSupportConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -14,64 +17,83 @@ import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 
-public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
+public record MineshaftSupport(
+        HashSet<Block> archBlocks, 
+        BlockState pillarState,
+        BlockState fenceState, 
+        Block targetFloorState, 
+        boolean waterBased, 
+        boolean archOnly
+) implements Feature {
 
-    public MineshaftSupport(Codec<MineshaftSupportConfig> config) {
-        super(config);
+    public static final MapCodec<MineshaftSupport> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
+            BuiltInRegistries.BLOCK.byNameCodec().listOf().fieldOf("arch_blocks").xmap(HashSet::new, ArrayList::new).forGetter(feature -> feature.archBlocks),
+            BlockState.CODEC.fieldOf("pillar_state").forGetter(feature -> feature.pillarState),
+            BlockState.CODEC.fieldOf("fence_state").forGetter(feature -> feature.fenceState),
+            BuiltInRegistries.BLOCK.byNameCodec().fieldOf("target_floor_block").forGetter(feature -> feature.targetFloorState),
+            Codec.BOOL.fieldOf("is_water_based").orElse(false).forGetter(feature -> feature.waterBased),
+            Codec.BOOL.fieldOf("arch_only").orElse(false).forGetter(feature -> feature.archOnly)
+    ).apply(instance, MineshaftSupport::new));
+
+    @Override
+    public MapCodec<MineshaftSupport> codec() {
+        return CODEC;
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<MineshaftSupportConfig> context) {
+    public boolean place(final WorldGenLevel level, final ChunkGenerator chunkGenerator, final RandomSource random, final BlockPos origin) {
 
         // start at jigsaw block pos
-        BlockPos jigsawPos = context.origin().below();
+        BlockPos jigsawPos = origin.below();
         BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(jigsawPos);
-        WorldGenLevel world = context.level();
+        WorldGenLevel world = level;
         ChunkAccess chunk = world.getChunk(mutable);
-        BlockState removalState = context.config().waterBased ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState();
+        BlockState removalState = waterBased ? Blocks.WATER.defaultBlockState() : Blocks.CAVE_AIR.defaultBlockState();
 
         // Repair arch if we can at this spot (doesn't repair all arches. That requires a redesign of these jigsaw mineshafts)
-        if (context.config().archBlocks.contains(world.getBlockState(mutable.above(3)).getBlock())) {
-            for(int i = 0; i <= 1; i++) {
-                if(chunk.getBlockState(mutable.move(Direction.UP)).getBlock() != context.config().fenceState.getBlock()) {
-                    StructurePostProcessConnectiveBlocks.placeConnectBlock(context, mutable, chunk.getPos(), chunk, context.config().fenceState);
-                    blockOffAirIfWaterBased(context, mutable, world);
+        if (archBlocks.contains(world.getBlockState(mutable.above(3)).getBlock())) {
+            for (int i = 0; i <= 1; i++) {
+                if (chunk.getBlockState(mutable.move(Direction.UP)).getBlock() != fenceState.getBlock()) {
+                    StructurePostProcessConnectiveBlocks.placeConnectBlock(level, random, mutable, chunk.getPos(), chunk, fenceState);
+                    blockOffAirIfWaterBased(mutable, world);
                 }
             }
             return true;
-        }
-        else {
-            for(int i = 0; i <= 2; i++) {
+        } else {
+            for (int i = 0; i <= 2; i++) {
                 BlockState checkArchState = chunk.getBlockState(mutable.move(Direction.UP));
-                if(i < 2 ? checkArchState.getBlock() == context.config().fenceState.getBlock() : context.config().archBlocks.contains(checkArchState.getBlock())) {
+                if (i < 2 ? checkArchState.getBlock() == fenceState.getBlock() : archBlocks.contains(checkArchState.getBlock())) {
                     chunk.setBlockState(mutable, removalState, Block.UPDATE_CLIENTS);
-                    blockOffAirIfWaterBased(context, mutable, world);
+                    blockOffAirIfWaterBased(mutable, world);
                 }
             }
-            for(Direction direction : Direction.Plane.HORIZONTAL) {
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
                 mutable.move(direction);
-                if(ChunkPos.containing(mutable).equals(chunk.getPos())) {
+                if (ChunkPos.containing(mutable).equals(chunk.getPos())) {
                     BlockState checkArchState = chunk.getBlockState(mutable);
-                    if(context.config().archBlocks.contains(checkArchState.getBlock())) {
+                    if (archBlocks.contains(checkArchState.getBlock())) {
                         chunk.setBlockState(mutable, removalState, Block.UPDATE_CLIENTS);
-                        blockOffAirIfWaterBased(context, mutable, world);
+                        blockOffAirIfWaterBased(mutable, world);
                     }
                 }
                 mutable.move(direction.getOpposite());
             }
         }
 
-        if(context.config().archOnly) {
+        if (archOnly) {
             return true;
         }
 
         // Only do support if floor block is placed
         mutable.set(jigsawPos);
-        if(world.getBlockState(mutable).is(context.config().targetFloorState)) {
+        if (world.getBlockState(mutable).is(targetFloorState)) {
             if (world.canSeeSkyFromBelowWater(mutable.above())) {
                 return false;
             }
@@ -102,7 +124,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
             // Start making pillar
             if (canMakePillar) {
                 BlockPos.MutableBlockPos pillarPos = new BlockPos.MutableBlockPos().set(jigsawPos).move(Direction.DOWN);
-                BlockState pillarBlockFinal = context.config().pillarState;
+                BlockState pillarBlockFinal = pillarState;
                 while (pillarPos.getY() > mutable.getY()) {
                     if (pillarBlockFinal.hasProperty(BlockStateProperties.WATERLOGGED)) {
                         pillarBlockFinal = pillarBlockFinal.setValue(BlockStateProperties.WATERLOGGED, chunk.getBlockState(pillarPos).getFluidState().is(FluidTags.WATER));
@@ -110,10 +132,9 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                     chunk.setBlockState(pillarPos, pillarBlockFinal, Block.UPDATE_CLIENTS);
                     pillarPos.move(Direction.DOWN);
                 }
-            }
-            else {
+            } else {
                 mutable.set(jigsawPos);
-                if (!chunk.getBlockState(mutable.above(context.config().waterBased ? 4 : 3)).canOcclude()) {
+                if (!chunk.getBlockState(mutable.above(waterBased ? 4 : 3)).canOcclude()) {
 
                     boolean canMakeChain = false;
                     mutable.move(Direction.UP);
@@ -140,7 +161,7 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
                     // Start making chain
                     if (canMakeChain) {
                         BlockPos.MutableBlockPos chainPos = new BlockPos.MutableBlockPos().set(jigsawPos).move(Direction.UP);
-                        BlockState fenceBlockFinal = context.config().fenceState;
+                        BlockState fenceBlockFinal = fenceState;
                         if (fenceBlockFinal.hasProperty(BlockStateProperties.WATERLOGGED)) {
                             fenceBlockFinal = fenceBlockFinal.setValue(BlockStateProperties.WATERLOGGED, chunk.getBlockState(chainPos).getFluidState().is(FluidTags.WATER));
                         }
@@ -163,19 +184,19 @@ public class MineshaftSupport extends Feature<MineshaftSupportConfig> {
         return true;
     }
 
-    private void blockOffAirIfWaterBased(FeaturePlaceContext<MineshaftSupportConfig> context, BlockPos.MutableBlockPos mutable, WorldGenLevel world) {
-        if (context.config().waterBased) {
-            for(Direction direction : Direction.values()) {
+    private void blockOffAirIfWaterBased(BlockPos.MutableBlockPos mutable, WorldGenLevel world) {
+        if (waterBased) {
+            for (Direction direction : Direction.values()) {
                 mutable.move(direction);
-                if(world.getBlockState(mutable).isAir()) {
-                    world.setBlock(mutable, context.config().targetFloorState.defaultBlockState(), 3);
+                if (world.getBlockState(mutable).isAir()) {
+                    world.setBlock(mutable, targetFloorState.defaultBlockState(), 3);
                 }
                 mutable.move(direction.getOpposite());
             }
         }
     }
 
-    protected boolean canReplace(BlockState state) {
+    private boolean canReplace(BlockState state) {
         return state.isAir() ||
                 (!state.getFluidState().isEmpty() && !state.getFluidState().is(FluidTags.LAVA)) ||
                 state.is(RSTags.MINESHAFT_SUPPORT_REPLACEABLES);

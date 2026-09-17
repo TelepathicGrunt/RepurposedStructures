@@ -1,8 +1,9 @@
 {
-  "type": "repurposed_structures:simple_block_with_fluid_tick",
+  "type": "minecraft:simple_block",
   "config": {
+    "schedule_tick": true,
     "to_place": {
-      "type": "minecraft:weighted_state_provider",
+      "type": "minecraft:weighted",
       "entries": [
         {
           "weight": 1,
