@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:nether_bricks",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:black_terracotta"
+            "id": "minecraft:black_terracotta"
           },
           "input_predicate": {
             "block": "minecraft:nether_bricks",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:red_nether_bricks"
+            "id": "minecraft:red_nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:nether_bricks",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_nether_bricks"
+            "id": "minecraft:cracked_nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:nether_bricks",

@@ -36,7 +36,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:kelp"
+            "id": "minecraft:kelp"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -49,7 +49,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -62,7 +62,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:tube_coral_fan"
+            "id": "minecraft:tube_coral_fan"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -75,7 +75,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:horn_coral_fan"
+            "id": "minecraft:horn_coral_fan"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -88,7 +88,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:fire_coral_fan"
+            "id": "minecraft:fire_coral_fan"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -101,7 +101,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:bubble_coral_fan"
+            "id": "minecraft:bubble_coral_fan"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -114,7 +114,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:brain_coral_fan"
+            "id": "minecraft:brain_coral_fan"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -127,7 +127,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:brain_coral_fan",
@@ -145,11 +145,11 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "pickles": "4",
               "waterlogged": "true"
             },
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:sea_pickle",
@@ -162,11 +162,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "pickles": "3",
               "waterlogged": "true"
             },
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:sea_pickle",
@@ -179,11 +179,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "pickles": "2",
               "waterlogged": "true"
             },
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:sea_pickle",

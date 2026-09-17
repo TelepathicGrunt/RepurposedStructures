@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:brown_mushroom"
+            "id": "minecraft:brown_mushroom"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
@@ -37,10 +37,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:brown_mushroom_block"
+            "id": "minecraft:brown_mushroom_block"
           }
         }
       ]

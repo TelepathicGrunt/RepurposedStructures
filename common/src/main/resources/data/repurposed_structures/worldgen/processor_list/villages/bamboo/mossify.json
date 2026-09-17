@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:packed_mud"
+            "id": "minecraft:packed_mud"
           },
           "input_predicate": {
             "block": "minecraft:mud_bricks",

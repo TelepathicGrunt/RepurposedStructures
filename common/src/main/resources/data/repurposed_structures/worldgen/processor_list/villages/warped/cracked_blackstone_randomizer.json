@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",

@@ -6,11 +6,11 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:stripped_mangrove_log",
-            "Properties": {
+            "id": "minecraft:stripped_mangrove_log",
+            "properties": {
               "axis": "y"
             }
           }

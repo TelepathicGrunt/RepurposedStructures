@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:bell",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gold_ore"
+            "id": "minecraft:gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:stone",

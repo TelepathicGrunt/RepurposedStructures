@@ -13,7 +13,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:cracked_nether_bricks"
+            "id": "minecraft:cracked_nether_bricks"
           }
         },
         {
@@ -26,7 +26,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           }
         }
       ]
@@ -44,7 +44,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           }
         },
         {
@@ -57,7 +57,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:gold_block"
+            "id": "minecraft:gold_block"
           }
         },
         {
@@ -70,7 +70,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:ancient_debris"
+            "id": "minecraft:ancient_debris"
           }
         }
       ]

@@ -6,12 +6,20 @@
       "count": 7
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": 0,
-      "y_spread": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 0,
-        "max_inclusive": 2
+      "type": "minecraft:offset",
+      "x": {
+        "type": "minecraft:constant",
+        "value": 0
+      },
+      "y": {
+        "type": "minecraft:trapezoid",
+        "max": 2,
+        "min": 0,
+        "plateau": 0
+      },
+      "z": {
+        "type": "minecraft:constant",
+        "value": 0
       }
     }
   ]

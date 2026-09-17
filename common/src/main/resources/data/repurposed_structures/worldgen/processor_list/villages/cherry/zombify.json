@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:allium"
+            "id": "minecraft:allium"
           },
           "input_predicate": {
             "block": "minecraft:pink_tulip",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:pink_tulip"
+            "id": "minecraft:pink_tulip"
           },
           "input_predicate": {
             "block": "minecraft:allium",
@@ -30,10 +30,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "1"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -46,10 +46,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "2"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -62,10 +62,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "3"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -78,10 +78,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "4"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -98,7 +98,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:brick_stairs"
+            "id": "minecraft:brick_stairs"
           },
           "input_predicate": {
             "block": "minecraft:bricks",
@@ -111,7 +111,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:brick_slab"
+            "id": "minecraft:brick_slab"
           },
           "input_predicate": {
             "block": "minecraft:brick_stairs",
@@ -124,7 +124,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:brick_slab",
@@ -137,7 +137,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "tag": "minecraft:doors",
@@ -149,7 +149,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:torch",
@@ -161,7 +161,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:wall_torch",
@@ -173,7 +173,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:bricks",
@@ -186,7 +186,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:cherry_wood",
@@ -199,7 +199,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:cherry_log",
@@ -212,7 +212,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:cherry_planks",
@@ -225,7 +225,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:cherry_stairs",
@@ -238,7 +238,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:stripped_cherry_log",
@@ -251,7 +251,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass_pane",
@@ -264,25 +264,25 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "west": "false",
               "waterlogged": "false",
               "south": "true",
               "north": "true",
               "east": "false"
             },
-            "Name": "minecraft:brown_stained_glass_pane"
+            "id": "minecraft:brown_stained_glass_pane"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "west": "false",
                 "waterlogged": "false",
                 "south": "true",
                 "north": "true",
                 "east": "false"
               },
-              "Name": "minecraft:red_stained_glass_pane"
+              "id": "minecraft:red_stained_glass_pane"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -292,25 +292,25 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "west": "true",
               "waterlogged": "false",
               "south": "false",
               "north": "false",
               "east": "true"
             },
-            "Name": "minecraft:brown_stained_glass_pane"
+            "id": "minecraft:brown_stained_glass_pane"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "west": "true",
                 "waterlogged": "false",
                 "south": "false",
                 "north": "false",
                 "east": "true"
               },
-              "Name": "minecraft:red_stained_glass_pane"
+              "id": "minecraft:red_stained_glass_pane"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -320,10 +320,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:carrots"
+            "id": "minecraft:carrots"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -336,10 +336,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:potatoes"
+            "id": "minecraft:potatoes"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -352,10 +352,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:melon_stem"
+            "id": "minecraft:melon_stem"
           },
           "input_predicate": {
             "block": "minecraft:wheat",

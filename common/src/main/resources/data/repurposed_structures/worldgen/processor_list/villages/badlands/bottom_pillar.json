@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_stairs",
@@ -16,7 +16,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_door",
@@ -28,7 +28,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:red_sandstone_wall"
+            "id": "minecraft:red_sandstone_wall"
           },
           "input_predicate": {
             "block": "minecraft:red_sandstone_wall",
@@ -40,7 +40,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_fence"
+            "id": "minecraft:dark_oak_fence"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_fence",
@@ -52,7 +52,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_trapdoor",
@@ -64,7 +64,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -76,7 +76,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:podzol",
@@ -88,7 +88,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -100,7 +100,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:farmland",
@@ -112,7 +112,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:terracotta"
+            "id": "minecraft:terracotta"
           },
           "input_predicate": {
             "block": "minecraft:water",
@@ -124,7 +124,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:terracotta"
+            "id": "minecraft:terracotta"
           },
           "input_predicate": {
             "block": "minecraft:cobweb",
@@ -141,10 +141,10 @@
       "processor_type": "minecraft:block_ignore",
       "blocks": [
         {
-          "Name": "minecraft:air"
+          "id": "minecraft:air"
         },
         {
-          "Name": "minecraft:structure_void"
+          "id": "minecraft:structure_void"
         }
       ]
     },

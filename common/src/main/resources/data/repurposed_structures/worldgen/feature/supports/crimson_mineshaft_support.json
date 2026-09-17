@@ -1,0 +1,24 @@
+{
+  "config": {
+    "arch_blocks": ["minecraft:crimson_stem", "minecraft:shroomlight", "minecraft:crimson_planks"],
+    "pillar_state": {
+      "properties": {
+        "axis": "y"
+      },
+      "id": "minecraft:crimson_hyphae"
+    },
+    "fence_state": {
+      "properties": {
+        "north": "false",
+        "south": "false",
+        "east": "false",
+        "west": "false",
+        "waterlogged": "false"
+      },
+      "id": "minecraft:crimson_fence"
+    },
+    "target_floor_block": "minecraft:crimson_nylium",
+    "is_water_based": false
+  },
+  "type": "repurposed_structures:mineshaft_supports"
+}

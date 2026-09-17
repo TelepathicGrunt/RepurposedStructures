@@ -4,12 +4,12 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "3",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:purple_candle"
+            "id": "minecraft:purple_candle"
           },
           "input_predicate": {
             "block": "minecraft:purple_candle",
@@ -22,12 +22,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "2",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:purple_candle"
+            "id": "minecraft:purple_candle"
           },
           "input_predicate": {
             "block": "minecraft:purple_candle",
@@ -40,12 +40,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "1",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:purple_candle"
+            "id": "minecraft:purple_candle"
           },
           "input_predicate": {
             "block": "minecraft:purple_candle",

@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:amethyst_block"
+            "id": "minecraft:amethyst_block"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom_block",

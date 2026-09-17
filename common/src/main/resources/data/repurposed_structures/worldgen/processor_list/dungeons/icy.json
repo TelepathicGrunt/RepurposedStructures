@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:ice"
+            "id": "minecraft:ice"
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:packed_ice"
+            "id": "minecraft:packed_ice"
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:snow_block"
+            "id": "minecraft:snow_block"
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:ice"
+            "id": "minecraft:ice"
           },
           "input_predicate": {
             "block": "minecraft:packed_ice",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:packed_ice",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:packed_ice"
+            "id": "minecraft:packed_ice"
           },
           "input_predicate": {
             "block": "minecraft:ice",

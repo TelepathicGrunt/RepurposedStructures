@@ -16,7 +16,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -29,7 +29,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -42,7 +42,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -55,7 +55,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
 
@@ -73,8 +73,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -93,8 +93,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -113,8 +113,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -133,8 +133,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -178,7 +178,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:moss_block"
+            "id": "minecraft:moss_block"
           },
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -191,7 +191,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -204,7 +204,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",

@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "west": "none",
               "waterlogged": "false",
               "up": "true",
@@ -64,7 +64,7 @@
               "north": "none",
               "east": "none"
             },
-            "Name": "minecraft:mossy_cobblestone_wall"
+            "id": "minecraft:mossy_cobblestone_wall"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone_wall",

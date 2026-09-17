@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:crying_obsidian"
+            "id": "minecraft:crying_obsidian"
           },
           "input_predicate": {
             "block": "minecraft:obsidian",

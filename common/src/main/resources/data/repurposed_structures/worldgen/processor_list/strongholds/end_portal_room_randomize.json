@@ -30,7 +30,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:budding_amethyst"
+            "id": "minecraft:budding_amethyst"
           },
           "input_predicate": {
             "block": "minecraft:amethyst_block",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:small_amethyst_bud",

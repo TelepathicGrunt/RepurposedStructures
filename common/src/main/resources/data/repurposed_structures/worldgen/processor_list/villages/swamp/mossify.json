@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:moss_carpet",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mud"
+            "id": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mud"
+            "id": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:muddy_mangrove_roots",
@@ -43,8 +43,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:muddy_mangrove_roots",
-            "Properties": {
+            "id": "minecraft:muddy_mangrove_roots",
+            "properties": {
               "axis": "y"
             }
           },
@@ -59,8 +59,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:muddy_mangrove_roots",
-            "Properties": {
+            "id": "minecraft:muddy_mangrove_roots",
+            "properties": {
               "axis": "y"
             }
           },

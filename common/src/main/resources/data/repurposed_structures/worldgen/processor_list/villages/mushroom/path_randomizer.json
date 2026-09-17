@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "up": "true",
               "down": "false",
               "east": "false",
@@ -12,7 +12,7 @@
               "north": "false",
               "south": "false"
             },
-            "Name": "minecraft:brown_mushroom_block"
+            "id": "minecraft:brown_mushroom_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -25,10 +25,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:mycelium"
+            "id": "minecraft:mycelium"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -41,10 +41,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:mycelium",
@@ -57,10 +57,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:dirt",
@@ -73,10 +73,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:mycelium"
+            "id": "minecraft:mycelium"
           },
           "input_predicate": {
             "block": "minecraft:dirt",

@@ -13,14 +13,20 @@
         {
           "type": "minecraft:stray",
           "weight": 40,
-          "minCount": 1,
-          "maxCount": 3
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 3
+          }
         },
         {
           "type": "minecraft:vex",
           "weight": 1,
-          "minCount": 1,
-          "maxCount": 2
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 2
+          }
         }
       ]
     }

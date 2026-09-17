@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:brown_mushroom"
+            "id": "minecraft:brown_mushroom"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
@@ -30,12 +30,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "3",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:purple_candle"
+            "id": "minecraft:purple_candle"
           },
           "input_predicate": {
             "block": "minecraft:purple_candle",
@@ -48,12 +48,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "2",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:purple_candle"
+            "id": "minecraft:purple_candle"
           },
           "input_predicate": {
             "block": "minecraft:purple_candle",
@@ -66,12 +66,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "1",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:purple_candle"
+            "id": "minecraft:purple_candle"
           },
           "input_predicate": {
             "block": "minecraft:purple_candle",
@@ -84,12 +84,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "3",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:magenta_candle"
+            "id": "minecraft:magenta_candle"
           },
           "input_predicate": {
             "block": "minecraft:magenta_candle",
@@ -102,12 +102,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "2",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:magenta_candle"
+            "id": "minecraft:magenta_candle"
           },
           "input_predicate": {
             "block": "minecraft:magenta_candle",
@@ -120,12 +120,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "candles": "1",
               "lit": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:magenta_candle"
+            "id": "minecraft:magenta_candle"
           },
           "input_predicate": {
             "block": "minecraft:magenta_candle",

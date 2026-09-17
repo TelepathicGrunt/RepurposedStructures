@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:polished_basalt"
+            "id": "minecraft:polished_basalt"
           },
           "input_predicate": {
             "block": "minecraft:glowstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -35,7 +35,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -61,7 +61,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -82,7 +82,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:cave_air",

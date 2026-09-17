@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:end_rod",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:rail",
@@ -34,7 +34,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 1,

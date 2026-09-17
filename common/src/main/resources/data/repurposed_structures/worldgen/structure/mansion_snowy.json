@@ -2,7 +2,7 @@
   "type": "repurposed_structures:mansion_structure",
   "mansion_type": "snowy",
   "foundation_block": {
-    "Name": "minecraft:snow_block"
+    "id": "minecraft:snow_block"
   },
   "biomes": "#repurposed_structures:has_structure/mansions/snowy",
   "step": "surface_structures",

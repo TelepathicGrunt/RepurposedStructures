@@ -10,7 +10,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:chiseled_deepslate",
@@ -23,7 +23,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_deepslate_bricks"
+            "id": "minecraft:cracked_deepslate_bricks"
           },
           "input_predicate": {
             "block": "minecraft:redstone_block",
@@ -36,7 +36,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_deepslate"
+            "id": "minecraft:chiseled_deepslate"
           },
           "input_predicate": {
             "block": "minecraft:redstone_block",
@@ -49,7 +49,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:deepslate_copper_ore"
+            "id": "minecraft:deepslate_copper_ore"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_redstone_ore",
@@ -62,7 +62,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:deepslate_bricks"
+            "id": "minecraft:deepslate_bricks"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_redstone_ore",
@@ -75,10 +75,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "lit": "false"
             },
-            "Name": "minecraft:deepslate_redstone_ore"
+            "id": "minecraft:deepslate_redstone_ore"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_bricks",
@@ -91,7 +91,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:deepslate_copper_ore"
+            "id": "minecraft:deepslate_copper_ore"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_bricks",

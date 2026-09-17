@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:packed_mud"
+            "id": "minecraft:packed_mud"
           },
           "input_predicate": {
             "block": "minecraft:mud_bricks",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "tag": "minecraft:doors",
@@ -29,7 +29,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:torch",
@@ -41,7 +41,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:wall_torch",
@@ -53,7 +53,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:mud_bricks",
@@ -66,7 +66,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:bamboo_mosaic",
@@ -79,7 +79,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:yellow_terracotta",
@@ -92,7 +92,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:bamboo_block",
@@ -105,7 +105,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:bamboo_planks",
@@ -118,7 +118,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:bamboo_stairs",
@@ -131,7 +131,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:stripped_bamboo_block",
@@ -144,7 +144,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:glass_pane",
@@ -157,25 +157,25 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "west": "false",
               "waterlogged": "false",
               "south": "true",
               "north": "true",
               "east": "false"
             },
-            "Name": "minecraft:brown_stained_glass_pane"
+            "id": "minecraft:brown_stained_glass_pane"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "west": "false",
                 "waterlogged": "false",
                 "south": "true",
                 "north": "true",
                 "east": "false"
               },
-              "Name": "minecraft:glass_pane"
+              "id": "minecraft:glass_pane"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -185,25 +185,25 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "west": "true",
               "waterlogged": "false",
               "south": "false",
               "north": "false",
               "east": "true"
             },
-            "Name": "minecraft:brown_stained_glass_pane"
+            "id": "minecraft:brown_stained_glass_pane"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "west": "true",
                 "waterlogged": "false",
                 "south": "false",
                 "north": "false",
                 "east": "true"
               },
-              "Name": "minecraft:glass_pane"
+              "id": "minecraft:glass_pane"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -213,10 +213,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:carrots"
+            "id": "minecraft:carrots"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -229,10 +229,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:potatoes"
+            "id": "minecraft:potatoes"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -245,10 +245,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:beetroots"
+            "id": "minecraft:beetroots"
           },
           "input_predicate": {
             "block": "minecraft:wheat",

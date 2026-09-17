@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:red_sandstone"
+            "id": "minecraft:red_sandstone"
           },
           "input_predicate": {
             "block": "minecraft:red_terracotta",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cut_red_sandstone"
+            "id": "minecraft:cut_red_sandstone"
           },
           "input_predicate": {
             "block": "minecraft:orange_terracotta",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:orange_terracotta"
+            "id": "minecraft:orange_terracotta"
           },
           "input_predicate": {
             "block": "minecraft:smooth_red_sandstone",

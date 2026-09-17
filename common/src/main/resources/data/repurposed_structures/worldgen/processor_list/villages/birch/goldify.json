@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:raw_gold_block",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:gold_ore",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:gold_ore",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:raw_gold_block"
+            "id": "minecraft:raw_gold_block"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",
@@ -82,7 +82,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",
@@ -95,7 +95,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gold_ore"
+            "id": "minecraft:gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",
@@ -107,7 +107,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gold_ore"
+            "id": "minecraft:gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",

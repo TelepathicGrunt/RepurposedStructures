@@ -6,8 +6,8 @@
 			"predicate": {
 				"type": "minecraft:would_survive",
 				"state": {
-					"Name": "minecraft:cherry_sapling",
-					"Properties": {
+					"id": "minecraft:cherry_sapling",
+					"properties": {
 						"stage": "0"
 					}
 				}

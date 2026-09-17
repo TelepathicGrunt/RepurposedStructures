@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:bell",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:lapis_ore"
+            "id": "minecraft:lapis_ore"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -50,8 +50,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }

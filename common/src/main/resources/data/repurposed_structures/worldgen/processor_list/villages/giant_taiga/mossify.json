@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone"
+            "id": "minecraft:stone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:coal_ore"
+            "id": "minecraft:coal_ore"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:iron_ore"
+            "id": "minecraft:iron_ore"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:coal_ore"
+            "id": "minecraft:coal_ore"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -82,7 +82,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:iron_ore"
+            "id": "minecraft:iron_ore"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -95,7 +95,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -108,7 +108,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -121,12 +121,12 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "powered": "false",
               "facing": "north",
               "face": "floor"
             },
-            "Name": "minecraft:stone_button"
+            "id": "minecraft:stone_button"
           },
           "input_predicate": {
             "block": "minecraft:stone_pressure_plate",
@@ -139,11 +139,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "waterlogged": "false",
               "type": "bottom"
             },
-            "Name": "minecraft:cobblestone_slab"
+            "id": "minecraft:cobblestone_slab"
           },
           "input_predicate": {
             "block": "minecraft:stone_pressure_plate",
@@ -156,7 +156,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:stone_pressure_plate",

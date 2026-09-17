@@ -15,7 +15,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -28,7 +28,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -41,7 +41,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
 
@@ -59,8 +59,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -79,8 +79,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -99,8 +99,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -112,7 +112,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -125,7 +125,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -138,7 +138,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_stone_bricks"
+            "id": "minecraft:chiseled_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -156,7 +156,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:infested_stone_bricks"
+            "id": "minecraft:infested_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -169,7 +169,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_mossy_stone_bricks"
+            "id": "minecraft:infested_mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -182,7 +182,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_cracked_stone_bricks"
+            "id": "minecraft:infested_cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:cracked_stone_bricks",
@@ -195,7 +195,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_chiseled_stone_bricks"
+            "id": "minecraft:infested_chiseled_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:chiseled_stone_bricks",
@@ -222,10 +222,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:stone_bricks"
+            "id": "minecraft:stone_bricks"
           }
         }
       ]

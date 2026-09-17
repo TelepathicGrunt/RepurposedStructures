@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "tag": "minecraft:doors",
@@ -29,7 +29,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -42,7 +42,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:cracked_polished_blackstone_bricks",
@@ -55,7 +55,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:purple_terracotta",
@@ -68,7 +68,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -81,7 +81,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:warped_planks",
@@ -94,7 +94,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:warped_stairs",
@@ -107,7 +107,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -120,7 +120,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:warped_hyphae",
@@ -133,7 +133,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:cyan_stained_glass_pane",
@@ -146,7 +146,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:nether_wart",
@@ -159,7 +159,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:soul_fire"
+            "id": "minecraft:soul_fire"
           },
           "input_predicate": {
             "block": "minecraft:nether_wart",
@@ -172,7 +172,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:redstone_torch",
@@ -185,7 +185,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:soul_torch"
+            "id": "minecraft:soul_torch"
           },
           "input_predicate": {
             "block": "minecraft:redstone_torch",
@@ -197,7 +197,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:redstone_wall_torch",
@@ -210,18 +210,18 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "north"
             },
-            "Name": "minecraft:soul_wall_torch"
+            "id": "minecraft:soul_wall_torch"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "lit": "true",
                 "facing": "north"
               },
-              "Name": "minecraft:redstone_wall_torch"
+              "id": "minecraft:redstone_wall_torch"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -231,18 +231,18 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "south"
             },
-            "Name": "minecraft:soul_wall_torch"
+            "id": "minecraft:soul_wall_torch"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "lit": "true",
                 "facing": "south"
               },
-              "Name": "minecraft:redstone_wall_torch"
+              "id": "minecraft:redstone_wall_torch"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -252,18 +252,18 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "east"
             },
-            "Name": "minecraft:soul_wall_torch"
+            "id": "minecraft:soul_wall_torch"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "lit": "true",
                 "facing": "east"
               },
-              "Name": "minecraft:redstone_wall_torch"
+              "id": "minecraft:redstone_wall_torch"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -273,18 +273,18 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "west"
             },
-            "Name": "minecraft:soul_wall_torch"
+            "id": "minecraft:soul_wall_torch"
           },
           "input_predicate": {
             "block_state": {
-              "Properties": {
+              "properties": {
                 "lit": "true",
                 "facing": "west"
               },
-              "Name": "minecraft:redstone_wall_torch"
+              "id": "minecraft:redstone_wall_torch"
             },
             "predicate_type": "minecraft:blockstate_match"
           },
@@ -294,7 +294,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:warped_wart_block"
+            "id": "minecraft:warped_wart_block"
           },
           "input_predicate": {
             "block": "minecraft:shroomlight",
@@ -306,7 +306,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",

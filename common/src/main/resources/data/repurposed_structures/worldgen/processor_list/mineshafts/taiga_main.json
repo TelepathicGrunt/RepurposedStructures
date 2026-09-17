@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cobweb"
+            "id": "minecraft:cobweb"
           },
           "input_predicate": {
             "block": "minecraft:wall_torch",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:rail",
@@ -35,7 +35,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:cobweb",
@@ -53,7 +53,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:structure_void",
@@ -71,7 +71,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 1,
@@ -98,7 +98,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -119,7 +119,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:cave_air",
@@ -132,7 +132,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:cobweb",

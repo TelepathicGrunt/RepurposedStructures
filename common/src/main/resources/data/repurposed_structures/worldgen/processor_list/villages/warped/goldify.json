@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:lava"
+            "id": "minecraft:lava"
           },
           "input_predicate": {
             "block": "minecraft:raw_gold_block",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gold_ore",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:raw_gold_block"
+            "id": "minecraft:raw_gold_block"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gold_ore",
@@ -81,7 +81,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:deepslate_gold_ore",

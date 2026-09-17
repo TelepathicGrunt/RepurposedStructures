@@ -6,7 +6,7 @@
 			"predicate": {
 				"type": "minecraft:would_survive",
 				"state": {
-					"Name": "minecraft:flowering_azalea"
+					"id": "minecraft:flowering_azalea"
 				}
 			}
 		}

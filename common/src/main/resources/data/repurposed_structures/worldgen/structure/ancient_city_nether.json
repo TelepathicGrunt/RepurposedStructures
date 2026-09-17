@@ -15,14 +15,20 @@
         {
           "type": "minecraft:ghast",
           "weight": 10,
-          "minCount": 6,
-          "maxCount": 10
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 6,
+            "max_inclusive": 10
+          }
         },
         {
           "type": "minecraft:wither_skeleton",
           "weight": 1,
-          "minCount": 1,
-          "maxCount": 3
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 3
+          }
         }
       ]
     }

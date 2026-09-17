@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:packed_ice"
+            "id": "minecraft:packed_ice"
           },
           "input_predicate": {
             "block": "minecraft:blue_ice",
@@ -25,10 +25,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:packed_ice"
+            "id": "minecraft:packed_ice"
           }
         }
       ]

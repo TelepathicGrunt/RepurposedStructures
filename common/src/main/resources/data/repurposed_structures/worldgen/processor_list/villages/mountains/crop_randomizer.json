@@ -4,10 +4,10 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:carrots"
+            "id": "minecraft:carrots"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -20,10 +20,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:sweet_berry_bush"
+            "id": "minecraft:sweet_berry_bush"
           },
           "input_predicate": {
             "block": "minecraft:wheat",

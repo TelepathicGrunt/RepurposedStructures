@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:mossy_cobblestone",

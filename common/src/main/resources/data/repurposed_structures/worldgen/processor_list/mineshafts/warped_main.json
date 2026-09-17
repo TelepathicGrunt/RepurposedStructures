@@ -4,8 +4,8 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:warped_hyphae",
-            "Properties": {
+            "id": "minecraft:warped_hyphae",
+            "properties": {
               "axis": "y"
             }
           },
@@ -20,7 +20,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:warped_planks"
+            "id": "minecraft:warped_planks"
           },
           "input_predicate": {
             "block": "minecraft:shroomlight",
@@ -33,7 +33,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:shroomlight"
+            "id": "minecraft:shroomlight"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -46,7 +46,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:warped_planks"
+            "id": "minecraft:warped_planks"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -59,7 +59,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:rail",
@@ -77,7 +77,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -103,7 +103,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -124,7 +124,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:cave_air",

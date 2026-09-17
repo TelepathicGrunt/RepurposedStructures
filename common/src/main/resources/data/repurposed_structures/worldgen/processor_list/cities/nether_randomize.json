@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_polished_blackstone"
+            "id": "minecraft:chiseled_polished_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -56,11 +56,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "type": "bottom",
               "waterlogged": "false"
             },
-            "Name": "minecraft:blackstone_slab"
+            "id": "minecraft:blackstone_slab"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_brick_slab",

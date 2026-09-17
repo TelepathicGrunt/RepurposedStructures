@@ -5,7 +5,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:gravel"
+            "id": "minecraft:gravel"
           },
           "input_predicate": {
             "block": "minecraft:yellow_stained_glass",
@@ -18,7 +18,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:yellow_stained_glass",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -56,11 +56,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "waterlogged": "false",
               "type": "bottom"
             },
-            "Name": "minecraft:stone_brick_slab"
+            "id": "minecraft:stone_brick_slab"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -73,11 +73,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "waterlogged": "false",
               "type": "bottom"
             },
-            "Name": "minecraft:mossy_stone_brick_slab"
+            "id": "minecraft:mossy_stone_brick_slab"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -90,7 +90,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:chiseled_stone_bricks",
@@ -103,7 +103,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_slab",
@@ -116,7 +116,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_mossy_stone_bricks"
+            "id": "minecraft:infested_mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
@@ -129,7 +129,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_cracked_stone_bricks"
+            "id": "minecraft:infested_cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
@@ -142,7 +142,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone_bricks"
+            "id": "minecraft:stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
@@ -155,7 +155,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
@@ -168,7 +168,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_stone_bricks",
@@ -181,7 +181,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_cracked_stone_bricks",
@@ -194,7 +194,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_mossy_stone_bricks",
@@ -207,7 +207,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_stone_bricks"
+            "id": "minecraft:chiseled_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:infested_chiseled_stone_bricks",
@@ -220,11 +220,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "waterlogged": "false",
               "type": "double"
             },
-            "Name": "minecraft:stone_slab"
+            "id": "minecraft:stone_slab"
           },
           "input_predicate": {
             "block": "minecraft:infested_stone",
@@ -249,8 +249,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:suspicious_gravel",
-            "Properties": {
+            "id": "minecraft:suspicious_gravel",
+            "properties": {
               "dusted": "0"
             }
           }

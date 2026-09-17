@@ -17,14 +17,20 @@
         {
           "type": "minecraft:endermite",
           "weight": 10,
-          "minCount": 2,
-          "maxCount": 5
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 2,
+            "max_inclusive": 5
+          }
         },
         {
           "type": "minecraft:enderman",
           "weight": 5,
-          "minCount": 1,
-          "maxCount": 3
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 3
+          }
         }
       ]
     }

@@ -6,13 +6,23 @@
       "count": 32
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": {
-        "type": "minecraft:uniform",
-        "min_inclusive": 0,
-        "max_inclusive": 4
+      "type": "minecraft:offset",
+      "x": {
+        "type": "minecraft:trapezoid",
+        "max": 4,
+        "min": 0,
+        "plateau": 0
       },
-      "y_spread": -1
+      "y": {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      "z": {
+        "type": "minecraft:trapezoid",
+        "max": 4,
+        "min": 0,
+        "plateau": 0
+      }
     },
     {
       "type": "minecraft:block_predicate_filter",
@@ -21,9 +31,19 @@
       }
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": 0,
-      "y_spread": -1
+      "type": "minecraft:offset",
+      "x": {
+        "type": "minecraft:constant",
+        "value": 0
+      },
+      "y": {
+        "type": "minecraft:constant",
+        "value": -1
+      },
+      "z": {
+        "type": "minecraft:constant",
+        "value": 0
+      }
     },
     {
       "type": "minecraft:block_predicate_filter",

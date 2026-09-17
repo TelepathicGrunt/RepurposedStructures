@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:chiseled_sandstone"
+            "id": "minecraft:chiseled_sandstone"
           },
           "input_predicate": {
             "block": "minecraft:cut_sandstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:sandstone"
+            "id": "minecraft:sandstone"
           },
           "input_predicate": {
             "block": "minecraft:cut_sandstone",
@@ -30,10 +30,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "6"
             },
-            "Name": "minecraft:wheat"
+            "id": "minecraft:wheat"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -67,8 +67,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_sand",
-              "Properties": {
+              "id": "minecraft:suspicious_sand",
+              "properties": {
                 "dusted": "0"
               }
             }

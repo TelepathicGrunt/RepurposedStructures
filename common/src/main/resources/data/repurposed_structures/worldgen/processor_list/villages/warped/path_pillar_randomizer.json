@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_gold_ore"
+            "id": "minecraft:nether_gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",

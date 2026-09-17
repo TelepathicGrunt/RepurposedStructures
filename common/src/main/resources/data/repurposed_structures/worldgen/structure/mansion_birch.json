@@ -2,8 +2,8 @@
   "type": "repurposed_structures:mansion_structure",
   "mansion_type": "birch",
   "foundation_block": {
-    "Name": "minecraft:dark_oak_wood",
-    "Properties": {
+    "id": "minecraft:dark_oak_wood",
+    "properties": {
       "axis": "y"
     }
   },

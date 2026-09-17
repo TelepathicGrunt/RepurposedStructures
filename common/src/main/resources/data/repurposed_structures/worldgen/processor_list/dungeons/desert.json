@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:smooth_sandstone"
+            "id": "minecraft:smooth_sandstone"
           },
           "input_predicate": {
             "block": "minecraft:smooth_sandstone_slab",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_sandstone"
+            "id": "minecraft:chiseled_sandstone"
           },
           "input_predicate": {
             "block": "minecraft:smooth_sandstone_slab",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:smooth_sandstone"
+            "id": "minecraft:smooth_sandstone"
           },
           "input_predicate": {
             "block": "minecraft:sandstone",
@@ -43,11 +43,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
                 "type": "top",
                 "waterlogged": "false"
             },
-            "Name": "minecraft:sandstone_slab"
+            "id": "minecraft:sandstone_slab"
           },
           "input_predicate": {
             "block": "minecraft:sandstone",

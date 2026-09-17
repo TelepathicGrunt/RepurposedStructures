@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:dark_prismarine"
+            "id": "minecraft:dark_prismarine"
           },
           "input_predicate": {
             "block": "minecraft:prismarine",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_prismarine"
+            "id": "minecraft:dark_prismarine"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_bricks",

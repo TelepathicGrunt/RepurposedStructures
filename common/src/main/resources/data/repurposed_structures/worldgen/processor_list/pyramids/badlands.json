@@ -7,10 +7,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:red_sandstone"
+            "id": "minecraft:red_sandstone"
           }
         }
       ]

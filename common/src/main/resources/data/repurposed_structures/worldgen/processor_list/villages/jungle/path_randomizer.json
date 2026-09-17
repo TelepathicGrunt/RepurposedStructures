@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:jungle_planks"
+            "id": "minecraft:jungle_planks"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -17,10 +17,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:grass_block"
+            "id": "minecraft:grass_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -33,10 +33,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -49,10 +49,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:dirt",
@@ -65,10 +65,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:grass_block"
+            "id": "minecraft:grass_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt",

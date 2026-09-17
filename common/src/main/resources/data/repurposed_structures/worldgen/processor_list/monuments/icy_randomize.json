@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:wet_sponge"
+            "id": "minecraft:wet_sponge"
           },
           "input_predicate": {
             "block": "minecraft:water",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:wet_sponge"
+            "id": "minecraft:wet_sponge"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
@@ -52,10 +52,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:wet_sponge"
+            "id": "minecraft:wet_sponge"
           }
         }
       ]
@@ -66,10 +66,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:light_blue_stained_glass"
+            "id": "minecraft:light_blue_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:packed_ice"
+            "id": "minecraft:packed_ice"
           }
         }
       ]

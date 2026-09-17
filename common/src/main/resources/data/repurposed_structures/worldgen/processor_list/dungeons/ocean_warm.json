@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:prismarine_bricks"
+            "id": "minecraft:prismarine_bricks"
           },
           "input_predicate": {
             "block": "minecraft:prismarine",
@@ -17,13 +17,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "west",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine",
@@ -36,13 +36,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "east",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine",
@@ -55,13 +55,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "south",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine",
@@ -74,13 +74,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "north",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine",
@@ -93,7 +93,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_bricks",
@@ -106,7 +106,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:prismarine"
+            "id": "minecraft:prismarine"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_bricks",
@@ -119,7 +119,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:prismarine_bricks"
+            "id": "minecraft:prismarine_bricks"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -132,7 +132,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:prismarine"
+            "id": "minecraft:prismarine"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -145,7 +145,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:sea_lantern"
+            "id": "minecraft:sea_lantern"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -158,13 +158,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -177,13 +177,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -196,13 +196,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -215,13 +215,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -234,13 +234,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "west",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -253,13 +253,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "east",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -272,13 +272,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "south",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -291,13 +291,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "facing": "north",
               "half": "top",
               "shape": "straight",
               "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_stairs"
+            "id": "minecraft:prismarine_stairs"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -310,11 +310,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
                 "type": "top",
                 "waterlogged": "true"
             },
-            "Name": "minecraft:prismarine_slab"
+            "id": "minecraft:prismarine_slab"
           },
           "input_predicate": {
             "block": "minecraft:prismarine_slab",
@@ -332,46 +332,46 @@
       "processor_type": "repurposed_structures:replace_liquids_only_processor",
       "blocks_to_always_place": [
         {
-          "Name": "minecraft:dark_prismarine"
+          "id": "minecraft:dark_prismarine"
         },
         {
-          "Properties": {
+          "properties": {
             "facing": "south",
             "half": "bottom",
             "shape": "straight",
             "waterlogged": "true"
           },
-          "Name": "minecraft:dark_prismarine_stairs"
+          "id": "minecraft:dark_prismarine_stairs"
         },
         {
-          "Properties": {
+          "properties": {
             "facing": "north",
             "half": "bottom",
             "shape": "straight",
             "waterlogged": "true"
           },
-          "Name": "minecraft:dark_prismarine_stairs"
+          "id": "minecraft:dark_prismarine_stairs"
         },
         {
-          "Properties": {
+          "properties": {
             "facing": "west",
             "half": "bottom",
             "shape": "straight",
             "waterlogged": "true"
           },
-          "Name": "minecraft:dark_prismarine_stairs"
+          "id": "minecraft:dark_prismarine_stairs"
         },
         {
-          "Properties": {
+          "properties": {
             "facing": "east",
             "half": "bottom",
             "shape": "straight",
             "waterlogged": "true"
           },
-          "Name": "minecraft:dark_prismarine_stairs"
+          "id": "minecraft:dark_prismarine_stairs"
         },
         {
-          "Properties": {
+          "properties": {
             "up": "true",
             "north": "none",
             "south": "none",
@@ -379,10 +379,10 @@
             "west": "none",
             "waterlogged": "true"
           },
-          "Name": "minecraft:prismarine_wall"
+          "id": "minecraft:prismarine_wall"
         },
         {
-          "Properties": {
+          "properties": {
             "up": "true",
             "north": "low",
             "south": "low",
@@ -390,7 +390,7 @@
             "west": "low",
             "waterlogged": "true"
           },
-          "Name": "minecraft:prismarine_wall"
+          "id": "minecraft:prismarine_wall"
         }
       ]
     },
@@ -405,8 +405,8 @@
         "max_inclusive": 7
       },
       "spawner_replacement_block": {
-        "Name": "minecraft:water",
-        "Properties": {
+        "id": "minecraft:water",
+        "properties": {
           "level": "0"
         }
       }

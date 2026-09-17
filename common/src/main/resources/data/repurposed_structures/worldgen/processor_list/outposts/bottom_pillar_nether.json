@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:smithing_table",
@@ -16,7 +16,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:nether_wart_block",
@@ -28,7 +28,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:nether_gold_ore",
@@ -40,7 +40,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -52,7 +52,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone_wall"
+            "id": "minecraft:blackstone_wall"
           },
           "input_predicate": {
             "block": "minecraft:blackstone_wall",
@@ -64,12 +64,12 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block_state": {
-              "Name": "minecraft:crimson_stem",
-              "Properties": {
+              "id": "minecraft:crimson_stem",
+              "properties": {
                 "axis": "x"
               }
             },
@@ -81,12 +81,12 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block_state": {
-              "Name": "minecraft:crimson_stem",
-              "Properties": {
+              "id": "minecraft:crimson_stem",
+              "properties": {
                 "axis": "z"
               }
             },
@@ -98,12 +98,12 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block_state": {
-              "Name": "minecraft:warped_stem",
-              "Properties": {
+              "id": "minecraft:warped_stem",
+              "properties": {
                 "axis": "x"
               }
             },
@@ -115,12 +115,12 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block_state": {
-              "Name": "minecraft:warped_stem",
-              "Properties": {
+              "id": "minecraft:warped_stem",
+              "properties": {
                 "axis": "z"
               }
             },
@@ -132,7 +132,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:warped_fence"
+            "id": "minecraft:warped_fence"
           },
           "input_predicate": {
             "block": "minecraft:warped_fence",
@@ -144,7 +144,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:crimson_fence"
+            "id": "minecraft:crimson_fence"
           },
           "input_predicate": {
             "block": "minecraft:crimson_fence",
@@ -156,7 +156,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_brick_fence"
+            "id": "minecraft:nether_brick_fence"
           },
           "input_predicate": {
             "block": "minecraft:nether_brick_fence",
@@ -168,7 +168,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:bone_block",
@@ -185,7 +185,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone_wall",
@@ -198,7 +198,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_bricks"
+            "id": "minecraft:nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:nether_brick_wall",
@@ -211,7 +211,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_bricks"
+            "id": "minecraft:nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:nether_brick_fence",
@@ -224,7 +224,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:crimson_fence",
@@ -237,7 +237,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:warped_fence",
@@ -255,13 +255,13 @@
       "processor_type": "minecraft:block_ignore",
       "blocks": [
         {
-          "Name": "minecraft:air"
+          "id": "minecraft:air"
         },
         {
-          "Name": "minecraft:structure_void"
+          "id": "minecraft:structure_void"
         },
         {
-          "Name": "minecraft:water"
+          "id": "minecraft:water"
         }
       ]
     },

@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:brown_mushroom"
+            "id": "minecraft:brown_mushroom"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom",
@@ -35,7 +35,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -48,7 +48,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -61,7 +61,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_stone_bricks"
+            "id": "minecraft:chiseled_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -79,7 +79,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:infested_stone_bricks"
+            "id": "minecraft:infested_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -92,7 +92,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_mossy_stone_bricks"
+            "id": "minecraft:infested_mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -105,7 +105,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_cracked_stone_bricks"
+            "id": "minecraft:infested_cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:cracked_stone_bricks",
@@ -118,7 +118,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_chiseled_stone_bricks"
+            "id": "minecraft:infested_chiseled_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:chiseled_stone_bricks",
@@ -145,10 +145,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:stone_bricks"
+            "id": "minecraft:stone_bricks"
           }
         }
       ]

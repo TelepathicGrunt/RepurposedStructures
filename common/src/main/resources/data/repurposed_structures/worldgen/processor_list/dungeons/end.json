@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cave_air"
+            "id": "minecraft:cave_air"
           },
           "input_predicate": {
             "block": "minecraft:air",
@@ -27,7 +27,7 @@
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
       "rs_spawner_identifier": "repurposed_structures:dungeons/end",
       "spawner_replacement_block": {
-        "Name": "minecraft:end_stone_bricks"
+        "id": "minecraft:end_stone_bricks"
       }
     }
   ]

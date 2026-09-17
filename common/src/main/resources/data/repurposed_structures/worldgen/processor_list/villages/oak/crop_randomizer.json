@@ -4,10 +4,10 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:melon_stem"
+            "id": "minecraft:melon_stem"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -20,10 +20,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:pumpkin_stem"
+            "id": "minecraft:pumpkin_stem"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -36,10 +36,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:potatoes"
+            "id": "minecraft:potatoes"
           },
           "input_predicate": {
             "block": "minecraft:wheat",
@@ -52,10 +52,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "age": "0"
             },
-            "Name": "minecraft:beetroots"
+            "id": "minecraft:beetroots"
           },
           "input_predicate": {
             "block": "minecraft:wheat",

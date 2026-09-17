@@ -4,8 +4,8 @@
       "processor_type": "repurposed_structures:pillar_processor",
       "direction": "down",
       "original_replaced_block" : {
-        "Name": "minecraft:nether_brick_slab",
-        "Properties": {
+        "id": "minecraft:nether_brick_slab",
+        "properties": {
           "type": "bottom",
           "waterlogged": false
         }
@@ -13,10 +13,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:pink_stained_glass"
+            "id": "minecraft:pink_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:nether_bricks"
+            "id": "minecraft:nether_bricks"
           }
         }
       ]
@@ -25,8 +25,8 @@
       "processor_type": "repurposed_structures:pillar_processor",
       "direction": "down",
       "original_replaced_block" : {
-        "Name": "minecraft:red_nether_brick_slab",
-        "Properties": {
+        "id": "minecraft:red_nether_brick_slab",
+        "properties": {
           "type": "bottom",
           "waterlogged": false
         }
@@ -34,10 +34,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:purple_stained_glass"
+            "id": "minecraft:purple_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:red_nether_bricks"
+            "id": "minecraft:red_nether_bricks"
           }
         }
       ]

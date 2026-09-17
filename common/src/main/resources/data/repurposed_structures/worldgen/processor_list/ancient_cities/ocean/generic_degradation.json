@@ -18,7 +18,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:prismarine"
+            "id": "minecraft:prismarine"
           }
         },
         {
@@ -31,7 +31,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           }
         },
         {
@@ -44,7 +44,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:gravel"
+            "id": "minecraft:gravel"
           }
         }
       ]
@@ -54,11 +54,11 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "pickles": "4",
               "waterlogged": "true"
             },
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:sea_pickle",
@@ -71,11 +71,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "pickles": "3",
               "waterlogged": "true"
             },
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:sea_pickle",
@@ -88,11 +88,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "pickles": "2",
               "waterlogged": "true"
             },
-            "Name": "minecraft:sea_pickle"
+            "id": "minecraft:sea_pickle"
           },
           "input_predicate": {
             "block": "minecraft:sea_pickle",
@@ -124,8 +124,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_sand",
-              "Properties": {
+              "id": "minecraft:suspicious_sand",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -143,8 +143,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -172,8 +172,8 @@
               "predicate_type": "minecraft:block_match"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_sand",
-              "Properties": {
+              "id": "minecraft:suspicious_sand",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -192,8 +192,8 @@
               "predicate_type": "minecraft:block_match"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }

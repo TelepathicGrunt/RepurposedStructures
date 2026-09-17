@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:obsidian"
+            "id": "minecraft:obsidian"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -43,10 +43,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "y"
             },
-            "Name": "minecraft:basalt"
+            "id": "minecraft:basalt"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -59,7 +59,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",

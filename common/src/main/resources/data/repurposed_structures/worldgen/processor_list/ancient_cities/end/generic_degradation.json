@@ -18,7 +18,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:end_stone"
+            "id": "minecraft:end_stone"
           }
         },
         {
@@ -31,7 +31,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:end_stone"
+            "id": "minecraft:end_stone"
           }
         },
         {
@@ -44,7 +44,7 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           }
         }
       ]

@@ -4,8 +4,8 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:crimson_hyphae",
-            "Properties": {
+            "id": "minecraft:crimson_hyphae",
+            "properties": {
               "axis": "y"
             }
           },
@@ -20,7 +20,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:crimson_planks"
+            "id": "minecraft:crimson_planks"
           },
           "input_predicate": {
             "block": "minecraft:shroomlight",
@@ -33,7 +33,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:crimson_planks"
+            "id": "minecraft:crimson_planks"
           },
           "input_predicate": {
             "block": "minecraft:crimson_stem",
@@ -51,7 +51,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -77,7 +77,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "position_predicate": {
             "min_chance": 0,
@@ -98,7 +98,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:cave_air",

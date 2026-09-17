@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -30,10 +30,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "y"
             },
-            "Name": "minecraft:warped_hyphae"
+            "id": "minecraft:warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -46,10 +46,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "x"
             },
-            "Name": "minecraft:warped_hyphae"
+            "id": "minecraft:warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -62,10 +62,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "z"
             },
-            "Name": "minecraft:warped_hyphae"
+            "id": "minecraft:warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -78,7 +78,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:warped_wart_block"
+            "id": "minecraft:warped_wart_block"
           },
           "input_predicate": {
             "block": "minecraft:warped_stem",
@@ -91,10 +91,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "y"
             },
-            "Name": "minecraft:warped_hyphae"
+            "id": "minecraft:warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_hyphae",
@@ -107,10 +107,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "x"
             },
-            "Name": "minecraft:warped_hyphae"
+            "id": "minecraft:warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_hyphae",
@@ -123,10 +123,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "z"
             },
-            "Name": "minecraft:warped_hyphae"
+            "id": "minecraft:warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_hyphae",
@@ -139,10 +139,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "axis": "y"
             },
-            "Name": "minecraft:stripped_warped_hyphae"
+            "id": "minecraft:stripped_warped_hyphae"
           },
           "input_predicate": {
             "block": "minecraft:warped_planks",
@@ -155,7 +155,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:warped_wart_block"
+            "id": "minecraft:warped_wart_block"
           },
           "input_predicate": {
             "block": "minecraft:warped_planks",

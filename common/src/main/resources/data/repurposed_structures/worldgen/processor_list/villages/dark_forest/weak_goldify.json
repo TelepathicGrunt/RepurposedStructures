@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:deepslate_gold_ore"
+            "id": "minecraft:deepslate_gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_planks",

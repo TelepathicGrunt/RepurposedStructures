@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:diorite_wall"
+            "id": "minecraft:diorite_wall"
           },
           "input_predicate": {
             "block": "minecraft:diorite_wall",
@@ -16,8 +16,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:diorite_slab",
-            "Properties": {
+            "id": "minecraft:diorite_slab",
+            "properties": {
               "type": "double"
             }
           },
@@ -31,7 +31,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone_stairs",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:spruce_planks"
+            "id": "minecraft:spruce_planks"
           },
           "input_predicate": {
             "block": "minecraft:spruce_stairs",
@@ -55,7 +55,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:spruce_door",
@@ -67,7 +67,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone_wall"
+            "id": "minecraft:cobblestone_wall"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone_wall",
@@ -79,7 +79,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:spruce_fence"
+            "id": "minecraft:spruce_fence"
           },
           "input_predicate": {
             "block": "minecraft:spruce_fence",
@@ -91,7 +91,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:spruce_trapdoor",
@@ -103,7 +103,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:bricks",
@@ -115,7 +115,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:smooth_stone_slab",
@@ -127,7 +127,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:light_gray_wool",
@@ -139,7 +139,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:white_wool",
@@ -151,7 +151,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:water_cauldron",
@@ -163,7 +163,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -175,7 +175,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -187,7 +187,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:farmland",
@@ -199,7 +199,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:water",
@@ -211,7 +211,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:cobweb",
@@ -228,7 +228,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -241,7 +241,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -254,7 +254,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -267,7 +267,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:iron_ore"
+            "id": "minecraft:iron_ore"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -280,7 +280,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:coal_ore"
+            "id": "minecraft:coal_ore"
           },
           "input_predicate": {
             "block": "minecraft:stone",
@@ -293,7 +293,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:iron_ore",
@@ -306,7 +306,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cobblestone"
+            "id": "minecraft:cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:coal_ore",
@@ -319,7 +319,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone"
+            "id": "minecraft:stone"
           },
           "input_predicate": {
             "block": "minecraft:iron_ore",
@@ -332,7 +332,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone"
+            "id": "minecraft:stone"
           },
           "input_predicate": {
             "block": "minecraft:coal_ore",
@@ -350,10 +350,10 @@
       "processor_type": "minecraft:block_ignore",
       "blocks": [
         {
-          "Name": "minecraft:air"
+          "id": "minecraft:air"
         },
         {
-          "Name": "minecraft:structure_void"
+          "id": "minecraft:structure_void"
         }
       ]
     },

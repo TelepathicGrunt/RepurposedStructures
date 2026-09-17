@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:polished_blackstone_bricks"
+            "id": "minecraft:polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_polished_blackstone"
+            "id": "minecraft:chiseled_polished_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:polished_blackstone"
+            "id": "minecraft:polished_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_nether_bricks"
+            "id": "minecraft:chiseled_nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -82,7 +82,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_nether_bricks"
+            "id": "minecraft:cracked_nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -95,7 +95,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:obsidian"
+            "id": "minecraft:obsidian"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -108,7 +108,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:crying_obsidian"
+            "id": "minecraft:crying_obsidian"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -121,7 +121,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -134,7 +134,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_quartz_ore"
+            "id": "minecraft:nether_quartz_ore"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -147,7 +147,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_gold_ore"
+            "id": "minecraft:nether_gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -160,7 +160,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:ancient_debris"
+            "id": "minecraft:ancient_debris"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -178,7 +178,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -191,7 +191,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -204,7 +204,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_polished_blackstone"
+            "id": "minecraft:chiseled_polished_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -217,7 +217,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:polished_blackstone"
+            "id": "minecraft:polished_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -230,7 +230,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -243,7 +243,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -256,7 +256,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_bricks"
+            "id": "minecraft:nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -269,7 +269,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_nether_bricks"
+            "id": "minecraft:cracked_nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -282,7 +282,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:red_nether_bricks"
+            "id": "minecraft:red_nether_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",

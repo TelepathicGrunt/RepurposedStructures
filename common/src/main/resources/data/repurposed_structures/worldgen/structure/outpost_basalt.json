@@ -17,8 +17,11 @@
         {
           "type": "minecraft:piglin",
           "weight": 10,
-          "minCount": 1,
-          "maxCount": 1
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 1
+          }
         }
       ]
     }

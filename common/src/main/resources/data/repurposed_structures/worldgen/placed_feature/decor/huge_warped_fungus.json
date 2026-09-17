@@ -4,7 +4,7 @@
     {
       "predicate": {
         "state": {
-          "Name": "minecraft:warped_fungus"
+          "id": "minecraft:warped_fungus"
         },
         "type": "minecraft:would_survive"
       },

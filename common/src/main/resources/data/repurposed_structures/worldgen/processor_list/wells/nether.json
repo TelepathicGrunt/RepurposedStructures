@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:bell",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:chiseled_quartz_block"
+            "id": "minecraft:chiseled_quartz_block"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_quartz_ore"
+            "id": "minecraft:nether_quartz_ore"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_gold_ore"
+            "id": "minecraft:nether_gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -76,8 +76,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }

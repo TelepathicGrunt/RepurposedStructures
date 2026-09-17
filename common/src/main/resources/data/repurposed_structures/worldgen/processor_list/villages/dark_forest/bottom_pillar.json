@@ -4,8 +4,8 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:granite_slab",
-            "Properties": {
+            "id": "minecraft:granite_slab",
+            "properties": {
               "type": "double"
             }
           },
@@ -19,7 +19,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_stairs",
@@ -31,7 +31,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_door",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:granite_wall"
+            "id": "minecraft:granite_wall"
           },
           "input_predicate": {
             "block": "minecraft:granite_wall",
@@ -55,7 +55,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_fence"
+            "id": "minecraft:dark_oak_fence"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_fence",
@@ -67,7 +67,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:dark_oak_trapdoor",
@@ -79,7 +79,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:bricks",
@@ -91,7 +91,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:smooth_stone_slab",
@@ -103,7 +103,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:red_wool",
@@ -115,7 +115,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dark_oak_planks"
+            "id": "minecraft:dark_oak_planks"
           },
           "input_predicate": {
             "block": "minecraft:gray_wool",
@@ -127,7 +127,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:water_cauldron",
@@ -139,7 +139,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -151,7 +151,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -163,7 +163,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:farmland",
@@ -175,7 +175,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:water",
@@ -187,7 +187,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt"
+            "id": "minecraft:dirt"
           },
           "input_predicate": {
             "block": "minecraft:cobweb",
@@ -204,10 +204,10 @@
       "processor_type": "minecraft:block_ignore",
       "blocks": [
         {
-          "Name": "minecraft:air"
+          "id": "minecraft:air"
         },
         {
-          "Name": "minecraft:structure_void"
+          "id": "minecraft:structure_void"
         }
       ]
     },

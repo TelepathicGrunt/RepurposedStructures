@@ -16,7 +16,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -29,7 +29,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -42,7 +42,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
           {
@@ -55,7 +55,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:gravel"
+              "id": "minecraft:gravel"
             }
           },
 
@@ -73,8 +73,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -93,8 +93,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -113,8 +113,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -133,8 +133,8 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_gravel",
-              "Properties": {
+              "id": "minecraft:suspicious_gravel",
+              "properties": {
                 "dusted": "0"
               }
             }
@@ -170,7 +170,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -183,7 +183,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone_bricks"
+            "id": "minecraft:stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -196,7 +196,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_cracked_stone_bricks"
+            "id": "minecraft:infested_cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:cracked_stone_bricks",
@@ -209,7 +209,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_mossy_stone_bricks"
+            "id": "minecraft:infested_mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:mossy_stone_bricks",
@@ -222,7 +222,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:infested_stone_bricks"
+            "id": "minecraft:infested_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -235,7 +235,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:emerald_ore"
+            "id": "minecraft:emerald_ore"
           },
           "input_predicate": {
             "block": "minecraft:chiseled_stone_bricks",
@@ -248,7 +248,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:emerald_ore"
+            "id": "minecraft:emerald_ore"
           },
           "input_predicate": {
             "block": "minecraft:andesite",
@@ -261,8 +261,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:stone_slab",
-            "Properties": {
+            "id": "minecraft:stone_slab",
+            "properties": {
               "type": "double",
               "waterlogged": "false"
             }
@@ -278,8 +278,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:andesite_slab",
-            "Properties": {
+            "id": "minecraft:andesite_slab",
+            "properties": {
               "type": "double",
               "waterlogged": "false"
             }
@@ -294,7 +294,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:wet_sponge"
+            "id": "minecraft:wet_sponge"
           },
           "input_predicate": {
             "block": "minecraft:water",
@@ -307,7 +307,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
@@ -320,7 +320,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:wet_sponge"
+            "id": "minecraft:wet_sponge"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
@@ -342,10 +342,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:wet_sponge"
+            "id": "minecraft:wet_sponge"
           }
         }
       ]
@@ -357,10 +357,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:light_blue_stained_glass"
+            "id": "minecraft:light_blue_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           }
         }
       ]

@@ -6,11 +6,11 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:oak_log",
-            "Properties": {
+            "id": "minecraft:oak_log",
+            "properties": {
               "axis": "y"
             }
           }

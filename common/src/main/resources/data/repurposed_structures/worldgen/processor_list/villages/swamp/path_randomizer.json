@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mud"
+            "id": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:mud_bricks",
@@ -16,7 +16,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dirt_path"
+            "id": "minecraft:dirt_path"
           },
           "input_predicate": {
             "block": "minecraft:mud",
@@ -33,7 +33,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mud"
+            "id": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -46,8 +46,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:muddy_mangrove_roots",
-            "Properties": {
+            "id": "minecraft:muddy_mangrove_roots",
+            "properties": {
               "axis": "y"
             }
           },
@@ -62,10 +62,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:grass_block"
+            "id": "minecraft:grass_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -78,7 +78,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mangrove_planks"
+            "id": "minecraft:mangrove_planks"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -92,10 +92,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -108,10 +108,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -125,7 +125,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mangrove_planks"
+            "id": "minecraft:mangrove_planks"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -138,10 +138,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:dirt",
@@ -154,8 +154,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mud",
-            "Properties": {
+            "id": "minecraft:mud",
+            "properties": {
               "snowy": "false"
             }
           },
@@ -174,7 +174,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mud"
+            "id": "minecraft:mud"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -188,8 +188,8 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:grass_block",
-            "Properties": {
+            "id": "minecraft:grass_block",
+            "properties": {
               "snowy": "false"
             }
           },
@@ -213,7 +213,7 @@
           "rules": [
             {
               "output_state": {
-                "Name": "minecraft:bedrock"
+                "id": "minecraft:bedrock"
               },
               "input_predicate": {
                 "block": "minecraft:air",
@@ -226,7 +226,7 @@
             },
             {
               "output_state": {
-                "Name": "minecraft:bedrock"
+                "id": "minecraft:bedrock"
               },
               "input_predicate": {
                 "block": "minecraft:air",
@@ -244,7 +244,7 @@
           "processor_type": "minecraft:block_ignore",
           "blocks": [
             {
-              "Name": "minecraft:air"
+              "id": "minecraft:air"
             }
           ]
         },
@@ -252,7 +252,7 @@
           "rules": [
             {
               "output_state": {
-                "Name": "minecraft:air"
+                "id": "minecraft:air"
               },
               "input_predicate": {
                 "block": "minecraft:bedrock",
@@ -275,10 +275,10 @@
           "processor_type": "minecraft:block_ignore",
           "blocks": [
             {
-              "Name": "minecraft:air"
+              "id": "minecraft:air"
             },
             {
-              "Name": "minecraft:structure_void"
+              "id": "minecraft:structure_void"
             }
           ]
         }

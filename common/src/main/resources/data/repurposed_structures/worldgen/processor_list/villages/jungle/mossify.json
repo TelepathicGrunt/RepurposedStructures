@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mossy_cobblestone"
+            "id": "minecraft:mossy_cobblestone"
           },
           "input_predicate": {
             "block": "minecraft:cobblestone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:mossy_stone_bricks"
+            "id": "minecraft:mossy_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_stone_bricks"
+            "id": "minecraft:cracked_stone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:stone_bricks",
@@ -43,13 +43,13 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "waterlogged": "false",
               "shape": "straight",
               "half": "bottom",
               "facing": "north"
             },
-            "Name": "minecraft:mossy_cobblestone_stairs"
+            "id": "minecraft:mossy_cobblestone_stairs"
           },
           "input_predicate": {
             "block": "minecraft:stone_brick_stairs",
@@ -62,11 +62,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "waterlogged": "false",
               "type": "bottom"
             },
-            "Name": "minecraft:mossy_stone_brick_slab"
+            "id": "minecraft:mossy_stone_brick_slab"
           },
           "input_predicate": {
             "block": "minecraft:stone_brick_slab",
@@ -79,7 +79,7 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "west": "none",
               "waterlogged": "false",
               "up": "true",
@@ -87,7 +87,7 @@
               "north": "none",
               "east": "none"
             },
-            "Name": "minecraft:mossy_stone_brick_wall"
+            "id": "minecraft:mossy_stone_brick_wall"
           },
           "input_predicate": {
             "block": "minecraft:stone_brick_wall",

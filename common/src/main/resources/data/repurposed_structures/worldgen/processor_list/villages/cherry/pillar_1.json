@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:potted_pink_tulip"
+            "id": "minecraft:potted_pink_tulip"
           },
           "input_predicate": {
             "block": "minecraft:potted_allium",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:potted_flowering_azalea_bush"
+            "id": "minecraft:potted_flowering_azalea_bush"
           },
           "input_predicate": {
             "block": "minecraft:potted_allium",
@@ -30,10 +30,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "persistent": "true"
             },
-            "Name": "minecraft:cherry_leaves"
+            "id": "minecraft:cherry_leaves"
           },
           "input_predicate": {
             "block": "minecraft:flowering_azalea_leaves",
@@ -46,7 +46,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:allium"
+            "id": "minecraft:allium"
           },
           "input_predicate": {
             "block": "minecraft:pink_tulip",
@@ -59,7 +59,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:pink_tulip"
+            "id": "minecraft:pink_tulip"
           },
           "input_predicate": {
             "block": "minecraft:allium",
@@ -72,10 +72,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "1"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -88,10 +88,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "2"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -104,10 +104,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "3"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -120,10 +120,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "4"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",

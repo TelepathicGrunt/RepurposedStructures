@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "up": "true",
               "down": "true",
               "north": "true",
@@ -12,7 +12,7 @@
               "east": "true",
               "west": "true"
             },
-            "Name": "minecraft:mushroom_stem"
+            "id": "minecraft:mushroom_stem"
           },
           "input_predicate": {
             "block": "minecraft:mushroom_stem",
@@ -25,7 +25,7 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "up": "true",
               "down": "true",
               "north": "true",
@@ -33,7 +33,7 @@
               "east": "true",
               "west": "true"
             },
-            "Name": "minecraft:brown_mushroom_block"
+            "id": "minecraft:brown_mushroom_block"
           },
           "input_predicate": {
             "block": "minecraft:brown_mushroom_block",
@@ -46,7 +46,7 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "up": "true",
               "down": "true",
               "north": "true",
@@ -54,7 +54,7 @@
               "east": "true",
               "west": "true"
             },
-            "Name": "minecraft:red_mushroom_block"
+            "id": "minecraft:red_mushroom_block"
           },
           "input_predicate": {
             "block": "minecraft:red_mushroom_block",

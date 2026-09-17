@@ -20,14 +20,20 @@
         {
           "type": "minecraft:wither_skeleton",
           "weight": 10,
-          "minCount": 2,
-          "maxCount": 3
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 2,
+            "max_inclusive": 3
+          }
         },
         {
           "type": "minecraft:blaze",
           "weight": 120,
-          "minCount": 1,
-          "maxCount": 4
+          "count": {
+            "type": "minecraft:uniform",
+            "min_inclusive": 1,
+            "max_inclusive": 4
+          }
         }
       ]
     }

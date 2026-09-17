@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:mangrove_planks"
+            "id": "minecraft:mangrove_planks"
           },
           "position_predicate": {
             "min_chance": 1,
@@ -31,7 +31,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "block": "minecraft:mud",
@@ -44,7 +44,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "predicate_type": "minecraft:always_true"
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:structure_void"
+            "id": "minecraft:structure_void"
           },
           "input_predicate": {
             "predicate_type": "minecraft:always_true"

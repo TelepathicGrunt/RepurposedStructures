@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gilded_blackstone",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:gilded_blackstone"
+            "id": "minecraft:gilded_blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gold_block",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:gold_block",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:chiseled_polished_blackstone",
@@ -82,7 +82,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           },
           "input_predicate": {
             "block": "minecraft:polished_blackstone_bricks",
@@ -95,7 +95,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:fire",
@@ -108,7 +108,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:soul_fire",
@@ -121,7 +121,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_gold_ore"
+            "id": "minecraft:nether_gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -134,7 +134,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "input_predicate": {
             "block": "minecraft:magma_block",
@@ -147,7 +147,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -160,7 +160,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:blackstone",
@@ -173,7 +173,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:magma_block"
+            "id": "minecraft:magma_block"
           },
           "input_predicate": {
             "block": "minecraft:cracked_polished_blackstone_bricks",
@@ -186,11 +186,11 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "hanging": "true",
               "waterlogged": "false"
             },
-            "Name": "minecraft:soul_lantern"
+            "id": "minecraft:soul_lantern"
           },
           "input_predicate": {
             "block": "minecraft:lantern",
@@ -203,7 +203,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:lantern",
@@ -216,7 +216,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:light_gray_banner",
@@ -229,7 +229,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:light_gray_wall_banner",
@@ -250,10 +250,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           }
         }
       ]
@@ -263,16 +263,16 @@
       "direction": "down",
       "pillar_length": 5,
       "original_replaced_block" : {
-        "Name": "minecraft:magma_block"
+        "id": "minecraft:magma_block"
       },
       "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:orange_stained_glass"
+            "id": "minecraft:orange_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           }
         }
       ]
@@ -282,16 +282,16 @@
       "direction": "down",
       "pillar_length": 5,
       "original_replaced_block" : {
-        "Name": "minecraft:magma_block"
+        "id": "minecraft:magma_block"
       },
       "pillar_processor_list": "repurposed_structures:ruins/nether_randomize",
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:orange_stained_glass"
+            "id": "minecraft:orange_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           }
         }
       ]
@@ -304,10 +304,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:black_stained_glass"
+            "id": "minecraft:black_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           }
         }
       ]
@@ -320,10 +320,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:gray_stained_glass"
+            "id": "minecraft:gray_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:polished_blackstone_bricks"
+            "id": "minecraft:polished_blackstone_bricks"
           }
         }
       ]
@@ -336,10 +336,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:light_gray_stained_glass"
+            "id": "minecraft:light_gray_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:chiseled_polished_blackstone"
+            "id": "minecraft:chiseled_polished_blackstone"
           }
         }
       ]
@@ -352,10 +352,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:brown_stained_glass"
+            "id": "minecraft:brown_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           }
         }
       ]
@@ -368,10 +368,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:brown_stained_glass"
+            "id": "minecraft:brown_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:cracked_polished_blackstone_bricks"
+            "id": "minecraft:cracked_polished_blackstone_bricks"
           }
         }
       ]
@@ -384,10 +384,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:white_stained_glass"
+            "id": "minecraft:white_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:polished_blackstone"
+            "id": "minecraft:polished_blackstone"
           }
         }
       ]
@@ -400,10 +400,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:blue_stained_glass"
+            "id": "minecraft:blue_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:warped_planks"
+            "id": "minecraft:warped_planks"
           }
         }
       ]
@@ -416,10 +416,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:yellow_stained_glass"
+            "id": "minecraft:yellow_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:crimson_planks"
+            "id": "minecraft:crimson_planks"
           }
         }
       ]

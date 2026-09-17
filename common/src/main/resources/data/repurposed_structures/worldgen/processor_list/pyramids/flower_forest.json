@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:spore_blossom",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:flowering_azalea"
+            "id": "minecraft:flowering_azalea"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:air"
+            "id": "minecraft:air"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:orange_tulip"
+            "id": "minecraft:orange_tulip"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -56,7 +56,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:white_tulip"
+            "id": "minecraft:white_tulip"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -69,7 +69,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:pink_tulip"
+            "id": "minecraft:pink_tulip"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -82,7 +82,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:cornflower"
+            "id": "minecraft:cornflower"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -95,7 +95,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:lily_of_the_valley"
+            "id": "minecraft:lily_of_the_valley"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -108,7 +108,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:allium"
+            "id": "minecraft:allium"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -121,7 +121,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:poppy"
+            "id": "minecraft:poppy"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -134,7 +134,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:dandelion"
+            "id": "minecraft:dandelion"
           },
           "input_predicate": {
             "block": "minecraft:red_tulip",
@@ -154,10 +154,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:gray_terracotta"
+            "id": "minecraft:gray_terracotta"
           }
         }
       ]

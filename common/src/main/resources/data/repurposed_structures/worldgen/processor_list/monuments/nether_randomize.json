@@ -12,7 +12,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:lava"
+            "id": "minecraft:lava"
           },
           "position_predicate": {
             "min_y_value": 0,
@@ -29,7 +29,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:ancient_debris"
+            "id": "minecraft:ancient_debris"
           },
           "input_predicate": {
             "block": "minecraft:lava",
@@ -42,7 +42,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:lava"
+            "id": "minecraft:lava"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
@@ -55,7 +55,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:ancient_debris"
+            "id": "minecraft:ancient_debris"
           },
           "input_predicate": {
             "block": "minecraft:red_stained_glass",
@@ -77,10 +77,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:red_stained_glass"
+            "id": "minecraft:red_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:ancient_debris"
+            "id": "minecraft:ancient_debris"
           }
         }
       ]
@@ -92,10 +92,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:light_blue_stained_glass"
+            "id": "minecraft:light_blue_stained_glass"
           },
           "replacement" : {
-            "Name": "minecraft:nether_bricks"
+            "id": "minecraft:nether_bricks"
           }
         }
       ]

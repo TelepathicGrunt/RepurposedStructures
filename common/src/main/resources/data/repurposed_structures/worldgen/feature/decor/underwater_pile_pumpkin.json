@@ -1,0 +1,52 @@
+{
+  "type": "repurposed_structures:underwater_block_pile",
+  "config": {
+    "state_provider": {
+      "type": "minecraft:weighted",
+      "entries": [
+        {
+          "data": {
+            "id": "minecraft:pumpkin"
+          },
+          "weight": 70
+        },
+        {
+          "data": {
+            "id": "minecraft:jack_o_lantern",
+            "properties": {
+              "facing": "north"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "id": "minecraft:jack_o_lantern",
+            "properties": {
+              "facing": "west"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "id": "minecraft:jack_o_lantern",
+            "properties": {
+              "facing": "east"
+            }
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "id": "minecraft:jack_o_lantern",
+            "properties": {
+              "facing": "south"
+            }
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}

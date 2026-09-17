@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:packed_ice"
+            "id": "minecraft:packed_ice"
           },
           "input_predicate": {
             "block": "minecraft:snow_block",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:ice"
+            "id": "minecraft:ice"
           },
           "input_predicate": {
             "block": "minecraft:snow_block",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blue_ice"
+            "id": "minecraft:blue_ice"
           },
           "input_predicate": {
             "block": "minecraft:snow_block",
@@ -43,10 +43,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "1"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -59,10 +59,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "2"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -75,10 +75,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "3"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -91,10 +91,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "4"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -107,10 +107,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "5"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -123,10 +123,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "6"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -139,10 +139,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "layers": "7"
             },
-            "Name": "minecraft:snow"
+            "id": "minecraft:snow"
           },
           "input_predicate": {
             "block": "minecraft:snow",
@@ -166,7 +166,7 @@
       "processor_type": "repurposed_structures:spawner_randomizing_processor",
       "rs_spawner_identifier": "repurposed_structures:dungeons/snow",
       "spawner_replacement_block": {
-        "Name": "minecraft:snow_block"
+        "id": "minecraft:snow_block"
       }
     }
   ]

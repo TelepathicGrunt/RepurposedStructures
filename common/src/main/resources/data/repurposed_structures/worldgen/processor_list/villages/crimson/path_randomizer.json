@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:crimson_nylium"
+            "id": "minecraft:crimson_nylium"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -30,7 +30,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:nether_gold_ore"
+            "id": "minecraft:nether_gold_ore"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -43,7 +43,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:crimson_nylium"
+            "id": "minecraft:crimson_nylium"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -57,10 +57,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:lava"
+            "id": "minecraft:lava"
           },
           "input_predicate": {
             "block": "minecraft:netherrack",
@@ -80,15 +80,15 @@
       "direction": "down",
       "pillar_length": 5,
       "original_replaced_block" : {
-        "Name": "minecraft:crimson_nylium"
+        "id": "minecraft:crimson_nylium"
       },
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:crimson_nylium"
+            "id": "minecraft:crimson_nylium"
           },
           "replacement" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           }
         }
       ]
@@ -98,15 +98,15 @@
       "direction": "down",
       "pillar_length": 5,
       "original_replaced_block" : {
-        "Name": "minecraft:nether_gold_ore"
+        "id": "minecraft:nether_gold_ore"
       },
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:nether_gold_ore"
+            "id": "minecraft:nether_gold_ore"
           },
           "replacement" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           }
         }
       ]
@@ -119,10 +119,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           },
           "replacement" : {
-            "Name": "minecraft:blackstone"
+            "id": "minecraft:blackstone"
           }
         }
       ]
@@ -135,10 +135,10 @@
       "pillar_trigger_and_replacements": [
         {
           "trigger" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           },
           "replacement" : {
-            "Name": "minecraft:netherrack"
+            "id": "minecraft:netherrack"
           }
         }
       ]

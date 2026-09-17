@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:allium"
+            "id": "minecraft:allium"
           },
           "input_predicate": {
             "block": "minecraft:pink_tulip",
@@ -17,7 +17,7 @@
         },
         {
           "output_state": {
-            "Name": "minecraft:pink_tulip"
+            "id": "minecraft:pink_tulip"
           },
           "input_predicate": {
             "block": "minecraft:allium",
@@ -30,10 +30,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "1"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -46,10 +46,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "2"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -62,10 +62,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "3"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -78,10 +78,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "flower_amount": "4"
             },
-            "Name": "minecraft:pink_petals"
+            "id": "minecraft:pink_petals"
           },
           "input_predicate": {
             "block": "minecraft:pink_petals",
@@ -98,7 +98,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:cherry_planks"
+            "id": "minecraft:cherry_planks"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -111,10 +111,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:grass_block"
+            "id": "minecraft:grass_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt_path",
@@ -127,10 +127,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:grass_block",
@@ -143,10 +143,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "level": "0"
             },
-            "Name": "minecraft:water"
+            "id": "minecraft:water"
           },
           "input_predicate": {
             "block": "minecraft:dirt",
@@ -159,10 +159,10 @@
         },
         {
           "output_state": {
-            "Properties": {
+            "properties": {
               "snowy": "false"
             },
-            "Name": "minecraft:grass_block"
+            "id": "minecraft:grass_block"
           },
           "input_predicate": {
             "block": "minecraft:dirt",

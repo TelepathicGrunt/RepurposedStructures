@@ -4,7 +4,7 @@
       "rules": [
         {
           "output_state": {
-            "Name": "minecraft:lava"
+            "id": "minecraft:lava"
           },
           "position_predicate": {
             "min_y_value": 0,
