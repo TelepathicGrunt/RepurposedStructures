@@ -1,35 +1,29 @@
 package com.telepathicgrunt.repurposedstructures.world.placements;
 
 import com.mojang.serialization.MapCodec;
-import com.telepathicgrunt.repurposedstructures.modinit.RSPlacements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.placement.PlacementContext;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
-import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 
-import java.util.stream.Stream;
+import java.util.function.Consumer;
 
-public class SnapToLowerNonAirPlacement extends PlacementModifier {
+public record SnapToLowerNonAirPlacement() implements PlacementModifier {
 	private static final SnapToLowerNonAirPlacement INSTANCE = new SnapToLowerNonAirPlacement();
 	public static final MapCodec<SnapToLowerNonAirPlacement> CODEC = MapCodec.unit(() -> INSTANCE);
 
-	public static SnapToLowerNonAirPlacement snapToLowerNonAir() {
-		return INSTANCE;
-	}
-
 	@Override
-	public final Stream<BlockPos> getPositions(PlacementContext placementContext, RandomSource random, BlockPos blockPos) {
+	public void modify(PlacementContext placementContext, RandomSource random, BlockPos blockPos, Consumer<BlockPos> output) {
 		BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos().set(blockPos);
 		while(placementContext.getBlockState(mutable).isAir() && mutable.getY() > placementContext.getMinGenY()) {
 			mutable.move(Direction.DOWN);
 		}
-		return Stream.of(mutable.immutable());
+		output.accept(mutable.immutable());
 	}
 
 	@Override
-	public PlacementModifierType<?> type() {
-		return RSPlacements.SNAP_TO_LOWER_NON_AIR_PLACEMENT.get();
+	public MapCodec<SnapToLowerNonAirPlacement> codec() {
+		return CODEC;
 	}
 }

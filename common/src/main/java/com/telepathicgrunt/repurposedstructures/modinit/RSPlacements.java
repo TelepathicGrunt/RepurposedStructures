@@ -1,21 +1,22 @@
 package com.telepathicgrunt.repurposedstructures.modinit;
 
+import com.mojang.serialization.MapCodec;
 import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.RegistryEntry;
-import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
 import com.telepathicgrunt.repurposedstructures.modinit.registry.ResourcefulRegistry;
+import com.telepathicgrunt.repurposedstructures.services.ResourcefulRegistriesService;
 import com.telepathicgrunt.repurposedstructures.world.placements.MinDistanceFromWorldOriginPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.MinusEightPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.SnapToLowerNonAirPlacement;
 import com.telepathicgrunt.repurposedstructures.world.placements.UnlimitedCountPlacement;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 public final class RSPlacements {
-	public static final ResourcefulRegistry<PlacementModifierType<?>> PLACEMENT_MODIFIER = ResourcefulRegistriesService.INSTANCE.create(BuiltInRegistries.PLACEMENT_MODIFIER_TYPE, RepurposedStructures.MODID);
+	public static final ResourcefulRegistry<MapCodec<? extends PlacementModifier>> PLACEMENT_MODIFIER = ResourcefulRegistriesService.INSTANCE.create(BuiltInRegistries.PLACEMENT_MODIFIER_TYPE, RepurposedStructures.MODID);
 
-	public static final RegistryEntry<PlacementModifierType<MinusEightPlacement>> MINUS_EIGHT_PLACEMENT = PLACEMENT_MODIFIER.register("minus_eight_placement", () -> () -> MinusEightPlacement.CODEC);
-	public static final RegistryEntry<PlacementModifierType<UnlimitedCountPlacement>> UNLIMITED_COUNT = PLACEMENT_MODIFIER.register("unlimited_count", () -> () -> UnlimitedCountPlacement.CODEC);
-	public static final RegistryEntry<PlacementModifierType<SnapToLowerNonAirPlacement>> SNAP_TO_LOWER_NON_AIR_PLACEMENT = PLACEMENT_MODIFIER.register("snap_to_lower_non_air_placement", () -> () -> SnapToLowerNonAirPlacement.CODEC);
-	public static final RegistryEntry<PlacementModifierType<MinDistanceFromWorldOriginPlacement>> MIN_DISTANCE_FROM_WORLD_ORIGIN_PLACEMENT = PLACEMENT_MODIFIER.register("min_distance_from_world_origin_placement", () -> () -> MinDistanceFromWorldOriginPlacement.CODEC);
+	public static final RegistryEntry<MapCodec<MinusEightPlacement>> MINUS_EIGHT_PLACEMENT = PLACEMENT_MODIFIER.register("minus_eight_placement", () -> MinusEightPlacement.CODEC);
+	public static final RegistryEntry<MapCodec<UnlimitedCountPlacement>> UNLIMITED_COUNT = PLACEMENT_MODIFIER.register("unlimited_count", () -> UnlimitedCountPlacement.CODEC);
+	public static final RegistryEntry<MapCodec<SnapToLowerNonAirPlacement>> SNAP_TO_LOWER_NON_AIR_PLACEMENT = PLACEMENT_MODIFIER.register("snap_to_lower_non_air_placement", () -> SnapToLowerNonAirPlacement.CODEC);
+	public static final RegistryEntry<MapCodec<MinDistanceFromWorldOriginPlacement>> MIN_DISTANCE_FROM_WORLD_ORIGIN_PLACEMENT = PLACEMENT_MODIFIER.register("min_distance_from_world_origin_placement", () -> MinDistanceFromWorldOriginPlacement.CODEC);
 }
