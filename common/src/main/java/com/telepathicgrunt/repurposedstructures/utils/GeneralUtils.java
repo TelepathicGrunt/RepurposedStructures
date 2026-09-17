@@ -39,6 +39,7 @@ import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.JigsawBlock;
+import net.minecraft.world.level.block.entity.JigsawBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -248,24 +249,17 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    // More optimized with checking if the jigsaw blocks can connect
     public static boolean canJigsawsAttach(StructureTemplate.JigsawBlockInfo jigsaw1, StructureTemplate.JigsawBlockInfo jigsaw2) {
-        FrontAndTop prop1 = jigsaw1.info().state().getValue(JigsawBlock.ORIENTATION);
-        FrontAndTop prop2 = jigsaw2.info().state().getValue(JigsawBlock.ORIENTATION);
+        FrontAndTop prop1 = jigsaw1.state().getValue(JigsawBlock.ORIENTATION);
+        FrontAndTop prop2 = jigsaw2.state().getValue(JigsawBlock.ORIENTATION);
 
         return prop1.front() == prop2.front().getOpposite() &&
-                (prop1.top() == prop2.top() || isRollableJoint(jigsaw1, prop1)) &&
-                jigsaw1.info().nbt().getStringOr("target", "").equals(jigsaw2.info().nbt().getStringOr("name", ""));
+                (prop1.top() == prop2.top() || isRollableJoint(jigsaw1)) &&
+                jigsaw1.target().equals(jigsaw2.name());
     }
 
-    private static boolean isRollableJoint(StructureTemplate.JigsawBlockInfo jigsaw1, FrontAndTop prop1) {
-        String joint = jigsaw1.info().nbt().getStringOr("joint", "");
-        if(!joint.equals("rollable") && !joint.equals("aligned")) {
-            return !prop1.front().getAxis().isHorizontal();
-        }
-        else {
-            return joint.equals("rollable");
-        }
+    private static boolean isRollableJoint(StructureTemplate.JigsawBlockInfo jigsaw1) {
+        return jigsaw1.jointType() == JigsawBlockEntity.JointType.ROLLABLE;
     }
 
     //////////////////////////////////////////////
@@ -411,7 +405,7 @@ public final class GeneralUtils {
             if (!level.hasChunk(sectionPos.x(), sectionPos.z())) {
                 continue;
             }
-            StructureStart structureStart = structureManager.getStartForStructure(sectionPos, structure, level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_STARTS));
+            StructureStart structureStart = structureManager.getStartForStructure(structure, level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_STARTS));
             if (structureStart != null && structureStart.isValid() && structureStart.getBoundingBox().isInside(position)) {
                 consumer.accept(structureStart);
             }

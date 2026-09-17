@@ -18,11 +18,11 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.material.FluidState;
 
@@ -64,7 +64,7 @@ public class CloseOffFluidSourcesProcessor implements StructureProcessor {
             return structureBlockInfoWorld;
         }
 
-        if(!GeneralUtils.isFullCube(structureBlockInfoWorld.state()) || !structureBlockInfoWorld.state().blocksMotion()) {
+        if(!GeneralUtils.isFullCube(structureBlockInfoWorld.state()) || !blocksMotion(structureBlockInfoWorld)) {
             ChunkAccess currentChunk = level.getChunk(currentChunkPos.x(), currentChunkPos.z());
 
             if(ifAirInWorld && !currentChunk.getBlockState(structureBlockInfoWorld.pos()).isAir()) return structureBlockInfoWorld;
@@ -113,6 +113,11 @@ public class CloseOffFluidSourcesProcessor implements StructureProcessor {
         }
 
         return structureBlockInfoWorld;
+    }
+
+    private static boolean blocksMotion(StructureTemplate.StructureBlockInfo structureBlockInfoWorld) {
+        BlockState state = structureBlockInfoWorld.state();
+        return state.isSolid() && state.getBlock() != Blocks.COBWEB && state.getBlock() != Blocks.BAMBOO_SAPLING;
     }
 
     @Override

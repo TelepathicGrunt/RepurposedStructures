@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.RSPredicates;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.Util;
@@ -30,7 +31,8 @@ public class MatterPhaseRuleTest extends RuleTest {
         this.invertCondition = invertCondition;
     }
 
-    public boolean test(BlockState state, RandomSource random) {
+    @Override
+    public boolean test(BlockState state, BlockPos blockPos, RandomSource randomSource) {
         boolean phaseMatch = false;
 
         switch(phaseToTestFor) {
@@ -58,10 +60,10 @@ public class MatterPhaseRuleTest extends RuleTest {
         return phaseMatch;
     }
 
+    @Override
     protected RuleTestType<?> getType() {
         return RSPredicates.MATTER_PHASE_RULE_TEST.get();
     }
-
 
     public enum MATTER_PHASE implements StringRepresentable {
         SOLID("SOLID"),

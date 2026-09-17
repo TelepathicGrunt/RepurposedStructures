@@ -1063,17 +1063,16 @@ public class MansionPieces{
 
             for (StructureTemplate.JigsawBlockInfo jigsawBlock : shuffledJigsawBlocks) {
                 // Gather jigsaw block information
-                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.info().state());
-                BlockPos jigsawBlockPos = jigsawBlock.info().pos();
+                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.state());
+                BlockPos jigsawBlockPos = jigsawBlock.pos();
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                Identifier jigsawBlockPool = Identifier.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
-                Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlockPool);
+                Optional<StructureTemplatePool> poolOptional = poolRegistry.getOptional(jigsawBlock.pool());
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
-                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.identifier())))) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
+                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlock.pool().identifier(), Pools.EMPTY.identifier())))) {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlock.pool().identifier(), poolEntry instanceof SinglePoolElement ? ((SinglePoolElementAccessor) poolEntry).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -1109,14 +1108,14 @@ public class MansionPieces{
                     // Check for each of the candidate's jigsaw blocks for a match
                     for (StructureTemplate.JigsawBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
                         if (GeneralUtils.canJigsawsAttach(jigsawBlock, candidateJigsawBlock)) {
-                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.info().pos();
+                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos();
                             BlockPos candidateJigsawBlockRelativePos = new BlockPos(jigsawBlockTargetPos.getX() - candidateJigsawBlockPos.getX(), jigsawBlockTargetPos.getY() - candidateJigsawBlockPos.getY(), jigsawBlockTargetPos.getZ() - candidateJigsawBlockPos.getZ());
                             BoundingBox candidateBoundingBox = candidatePiece.getBoundingBox(manager, candidateJigsawBlockRelativePos, rotation);
 
                             // Determine how much the candidate jigsaw block is off in the y direction.
                             // This will be needed to offset the candidate piece so that the jigsaw blocks line up properly.
                             int candidateJigsawBlockRelativeY = candidateJigsawBlockPos.getY();
-                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.info().state()).getStepY();
+                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.state()).getStepY();
 
                             // Determine how much we need to offset the candidate piece itself in order to have the jigsaw blocks aligned.
                             // Depends on if the placement of both pieces is rigid or not

@@ -136,7 +136,7 @@ public class GenericJigsawStructure extends Structure {
 
             for (int curChunkX = chunkPos.x() - validBiomeRange; curChunkX <= chunkPos.x() + validBiomeRange; curChunkX++) {
                 for (int curChunkZ = chunkPos.z() - validBiomeRange; curChunkZ <= chunkPos.z() + validBiomeRange; curChunkZ++) {
-                    Holder<Biome> biome = context.biomeSource().getNoiseBiome(QuartPos.fromSection(curChunkX), sectionY, QuartPos.fromSection(curChunkZ), context.randomState().sampler());
+                    Holder<Biome> biome = context.biomeResolver().getNoiseBiome(QuartPos.fromSection(curChunkX), sectionY, QuartPos.fromSection(curChunkZ));
                     if (!context.validBiome().test(biome)) {
                         return false;
                     }
@@ -260,7 +260,7 @@ public class GenericJigsawStructure extends Structure {
         }
         else if(this.buryingType.get() == BURYING_TYPE.AVERAGE_LAND) {
             BoundingBox box = pieces.get(0).getBoundingBox();
-            BlockPos centerPos = new BlockPos(box.getCenter());
+            BlockPos centerPos = box.getCenter().immutable();
             int radius = (int) Math.sqrt((box.getLength().getX() * box.getLength().getX()) + (box.getLength().getZ() * box.getLength().getZ())) / 2;
 
             Heightmap.Types heightMapToUse = this.projectStartToHeightmap.orElse(Heightmap.Types.WORLD_SURFACE_WG);

@@ -82,8 +82,7 @@ public class MirroringSingleJigsawPiece extends SinglePoolElement {
             ObjectArrayList<StructureTemplate.JigsawBlockInfo> list2 = new ObjectArrayList<>(list.size());
 
             for (StructureTemplate.JigsawBlockInfo jigsawBlockInfo : list) {
-                StructureTemplate.StructureBlockInfo structureBlockInfo = jigsawBlockInfo.info();
-                list2.add(jigsawBlockInfo.withInfo(new StructureTemplate.StructureBlockInfo(StructureTemplate.calculateRelativePosition(structurePlaceSettings, structureBlockInfo.pos()).offset(blockPos), structureBlockInfo.state().rotate(structurePlaceSettings.getRotation()), structureBlockInfo.nbt())));
+                list2.add(jigsawBlockInfo.withInfo(StructureTemplate.calculateRelativePosition(structurePlaceSettings, jigsawBlockInfo.pos()).offset(blockPos), jigsawBlockInfo.state().rotate(structurePlaceSettings.getRotation())));
             }
 
             return list2;

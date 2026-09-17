@@ -123,7 +123,7 @@ public class PieceLimitedJigsawManager {
 
         int yAdjustment = pieceBoundingBox.minY() + startPiece.getGroundLevelDelta();
         startPiece.move(0, pieceCenterY - yAdjustment, 0);
-        if (!context.validBiome().test(context.chunkGenerator().getBiomeSource().getNoiseBiome(QuartPos.fromBlock(pieceCenterX), QuartPos.fromBlock(pieceCenterY), QuartPos.fromBlock(pieceCenterZ), context.randomState().sampler()))) {
+        if (!context.validBiome().test(context.biomeResolver().getNoiseBiome(QuartPos.fromBlock(pieceCenterX), QuartPos.fromBlock(pieceCenterY), QuartPos.fromBlock(pieceCenterZ)))) {
             return Optional.empty();
         }
 
@@ -297,17 +297,16 @@ public class PieceLimitedJigsawManager {
 
             for (StructureTemplate.JigsawBlockInfo jigsawBlock : pieceJigsawBlocks) {
                 // Gather jigsaw block information
-                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.info().state());
-                BlockPos jigsawBlockPos = jigsawBlock.info().pos();
+                Direction direction = JigsawBlock.getFrontFacing(jigsawBlock.state());
+                BlockPos jigsawBlockPos = jigsawBlock.pos();
                 BlockPos jigsawBlockTargetPos = jigsawBlockPos.relative(direction);
 
                 // Get the jigsaw block's piece pool
-                Identifier jigsawBlockPool = Identifier.tryParse(jigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
-                Optional<StructureTemplatePool> poolOptional = this.poolRegistry.getOptional(jigsawBlockPool);
+                Optional<StructureTemplatePool> poolOptional = this.poolRegistry.getOptional(jigsawBlock.pool());
 
                 // Only continue if we are using the jigsaw pattern registry and if it is not empty
-                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlockPool, Pools.EMPTY.identifier())))) {
-                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlockPool, pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
+                if (!(poolOptional.isPresent() && (poolOptional.get().size() != 0 || Objects.equals(jigsawBlock.pool().identifier(), Pools.EMPTY.identifier())))) {
+                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Empty or nonexistent pool: {} which is being called from {}", jigsawBlock.pool(), pieceBlueprint instanceof SinglePoolElement ? ((SinglePoolElementAccessor) pieceBlueprint).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
                     continue;
                 }
 
@@ -461,14 +460,13 @@ public class PieceLimitedJigsawManager {
                     int candidateHeightAdjustments;
                     if (doBoundaryAdjustments && tempCandidateBoundingBox.getYSpan() <= 16) {
                         candidateHeightAdjustments = candidateJigsawBlocks.stream().mapToInt((pieceCandidateJigsawBlock) -> {
-                            if (!tempCandidateBoundingBox.isInside(pieceCandidateJigsawBlock.info().pos().relative(JigsawBlock.getFrontFacing(pieceCandidateJigsawBlock.info().state())))) {
+                            if (!tempCandidateBoundingBox.isInside(pieceCandidateJigsawBlock.pos().relative(JigsawBlock.getFrontFacing(pieceCandidateJigsawBlock.state())))) {
                                 return 0;
                             }
                             else {
-                                Identifier candidateTargetPool = Identifier.tryParse(pieceCandidateJigsawBlock.info().nbt().getStringOr("pool", "minecraft:empty"));
-                                Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(candidateTargetPool);
+                                Optional<StructureTemplatePool> candidateTargetPoolOptional = this.poolRegistry.getOptional(pieceCandidateJigsawBlock.pool());
                                 if (candidateTargetPoolOptional.isEmpty()) {
-                                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Non-existent child pool attempted to be spawned: {} which is being called from {}. Let Repurposed Structures dev (TelepathicGrunt) know about this log entry.", candidateTargetPool, candidatePiece instanceof SinglePoolElement ? ((SinglePoolElementAccessor) candidatePiece).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
+                                    RepurposedStructures.LOGGER.warn("Repurposed Structures: Non-existent child pool attempted to be spawned: {} which is being called from {}. Let Repurposed Structures dev (TelepathicGrunt) know about this log entry.", pieceCandidateJigsawBlock.pool(), candidatePiece instanceof SinglePoolElement ? ((SinglePoolElementAccessor) candidatePiece).repurposedstructures$getTemplate().left().get() : "not a SinglePoolElement class");
                                 }
                                 int tallestCandidateTargetFallbackPieceHeight = candidateTargetPoolOptional.map((c) -> c.getFallback().value().getMaxSize(context.structureTemplateManager())).orElse(0);
                                 int tallestCandidateTargetPoolPieceHeight = candidateTargetPoolOptional.map((c) -> c.getMaxSize(context.structureTemplateManager())).orElse(0);
@@ -483,7 +481,7 @@ public class PieceLimitedJigsawManager {
                     // Check for each of the candidate's jigsaw blocks for a match
                     for (StructureTemplate.JigsawBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
                         if (GeneralUtils.canJigsawsAttach(jigsawBlock, candidateJigsawBlock)) {
-                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.info().pos();
+                            BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos();
                             BlockPos candidateJigsawBlockRelativePos = new BlockPos(jigsawBlockTargetPos.getX() - candidateJigsawBlockPos.getX(), jigsawBlockTargetPos.getY() - candidateJigsawBlockPos.getY(), jigsawBlockTargetPos.getZ() - candidateJigsawBlockPos.getZ());
 
                             // Get the bounding box for the piece, offset by the relative position difference
@@ -495,7 +493,7 @@ public class PieceLimitedJigsawManager {
                             // Determine how much the candidate jigsaw block is off in the y direction.
                             // This will be needed to offset the candidate piece so that the jigsaw blocks line up properly.
                             int candidateJigsawBlockRelativeY = candidateJigsawBlockPos.getY();
-                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.info().state()).getStepY();
+                            int candidateJigsawYOffsetNeeded = jigsawBlockRelativeY - candidateJigsawBlockRelativeY + JigsawBlock.getFrontFacing(jigsawBlock.state()).getStepY();
 
                             // Determine how much we need to offset the candidate piece itself in order to have the jigsaw blocks aligned.
                             // Depends on if the placement of both pieces is rigid or not

@@ -2,14 +2,14 @@ package com.telepathicgrunt.repurposedstructures.mixins.features;
 
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
-import net.minecraft.core.SectionPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.WorldGenRegion;
-import net.minecraft.world.level.StructureManager;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
@@ -25,23 +25,29 @@ import java.util.List;
 public class LessJungleBushInStructuresMixin {
 
     @Inject(
-            method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z",
+            method = "place(Lnet/minecraft/world/level/WorldGenLevel;Lnet/minecraft/world/level/chunk/ChunkGenerator;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;)Z",
             at = @At(value = "HEAD"),
             cancellable = true
     )
-    private void repurposedstructures_lessJungleBushInStructures(FeaturePlaceContext<TreeConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
+    private void repurposedstructures_lessJungleBushInStructures(
+            WorldGenLevel level,
+            ChunkGenerator chunkGenerator,
+            RandomSource random,
+            BlockPos origin,
+            CallbackInfoReturnable<Boolean> cir)
+    {
         // Detect jungle bush like tree
-        if (context.level() instanceof WorldGenRegion worldGenRegion &&
-            context.config().foliagePlacer instanceof BushFoliagePlacer &&
-            context.config().minimumSize.minClippedHeight().orElse(0) < 2)
+        if (level instanceof WorldGenRegion worldGenRegion &&
+            ((TreeFeature)(Object)(this)).foliagePlacer() instanceof BushFoliagePlacer &&
+            ((TreeFeature)(Object)(this)).minimumSize().minClippedHeight().orElse(0) < 2)
         {
             // Rate for removal of bush
-            if (context.random().nextFloat() < 0.85f) {
+            if (random.nextFloat() < 0.85f) {
                 Registry<Structure> structureRegistry = worldGenRegion.registryAccess().lookupOrThrow(Registries.STRUCTURE);
 
                 List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                         worldGenRegion,
-                        context.origin(),
+                        origin,
                         struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.LESS_JUNGLE_BUSHES));
 
                 if (!structureStarts.isEmpty()) {

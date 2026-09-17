@@ -38,6 +38,7 @@ public class PieceOriginAxisAlignedLinearPosRuleTest extends PosRuleTest {
         }
     }
 
+    @Override
     public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, RandomSource random) {
         Direction direction = Direction.get(Direction.AxisDirection.POSITIVE, this.axis);
         float xDist = (float)Math.abs((blockPos.getX()) * direction.getStepX());
@@ -48,6 +49,7 @@ public class PieceOriginAxisAlignedLinearPosRuleTest extends PosRuleTest {
         return (double)randomChance <= Mth.clampedLerp(this.minChance, this.maxChance, Mth.inverseLerp(distanceFromOrigin, this.minDistance, this.maxDistance));
     }
 
+    @Override
     protected PosRuleTestType<?> getType() {
         return RSPredicates.PIECE_ORIGIN_AXIS_ALIGNED_LINEAR_POS_RULE_TEST.get();
     }

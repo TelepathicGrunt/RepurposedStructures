@@ -27,10 +27,12 @@ public class YValuePosRuleTest extends PosRuleTest {
         }
     }
 
+    @Override
     public boolean test(BlockPos blockPos, BlockPos blockPos2, BlockPos blockPos3, RandomSource random) {
         return blockPos2.getY() >= this.minYValue && blockPos2.getY() <= this.maxYValue;
     }
 
+    @Override
     protected PosRuleTestType<?> getType() {
         return RSPredicates.Y_VALUE_POS_RULE_TEST.get();
     }

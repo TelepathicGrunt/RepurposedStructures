@@ -28,7 +28,7 @@ import java.util.List;
 public class SmarterSnowPlacingInStructuresMixin {
 
     @WrapOperation(
-        method = "place(Lnet/minecraft/world/level/levelgen/feature/FeaturePlaceContext;)Z",
+        method = "place(Lnet/minecraft/world/level/WorldGenLevel;Lnet/minecraft/world/level/chunk/ChunkGenerator;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;)Z",
         at = @At(value = "INVOKE",
                 target = "Lnet/minecraft/world/level/biome/Biome;shouldSnow(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
                 ordinal = 0),
