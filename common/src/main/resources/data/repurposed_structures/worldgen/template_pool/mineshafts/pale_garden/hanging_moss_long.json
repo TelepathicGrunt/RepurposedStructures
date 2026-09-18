@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:mineshafts/pale_garden/hanging_moss_long",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/pale_garden_mineshaft_hanging_moss_long",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.WallSide;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -59,9 +60,6 @@ public record StructurePostProcessConnectiveBlocks() implements Feature{
             BlockState currentState = incomingBlockState.getBlock().defaultBlockState();
             for(Direction direction : Direction.values()) {
                 offsetMutable.set(currentBlockMutable).move(direction);
-                if (currentChunkPos.x() != offsetMutable.getX() >> 4 || currentChunkPos.z() != offsetMutable.getZ() >> 4) {
-                    continue;
-                }
                 BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
                 currentState  = currentState.updateShape(
                         level,
@@ -72,6 +70,10 @@ public record StructurePostProcessConnectiveBlocks() implements Feature{
                         sideBlock,
                         random
                 );
+
+                if (currentChunkPos.x() != offsetMutable.getX() >> 4 || currentChunkPos.z() != offsetMutable.getZ() >> 4) {
+                    currentState = currentState.setValue(WallBlock.PROPERTY_BY_DIRECTION.get(direction), WallSide.NONE);
+                }
             }
             if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, incomingBlockState.getValue(BlockStateProperties.WATERLOGGED));
@@ -82,9 +84,6 @@ public record StructurePostProcessConnectiveBlocks() implements Feature{
             BlockState currentState = incomingBlockState.getBlock().defaultBlockState();
             for(Direction direction : Direction.Plane.HORIZONTAL) {
                 offsetMutable.set(currentBlockMutable).move(direction);
-                if (currentChunkPos.x() != offsetMutable.getX() >> 4 || currentChunkPos.z() != offsetMutable.getZ() >> 4) {
-                    continue;
-                }
                 BlockState sideBlock = currentChunk.getBlockState(offsetMutable);
                 currentState  = currentState.updateShape(
                         level,
@@ -95,6 +94,10 @@ public record StructurePostProcessConnectiveBlocks() implements Feature{
                         sideBlock,
                         random
                 );
+
+                if (currentChunkPos.x() != offsetMutable.getX() >> 4 || currentChunkPos.z() != offsetMutable.getZ() >> 4) {
+                    currentState = currentState.setValue(FenceBlock.PROPERTY_BY_DIRECTION.get(direction), false);
+                }
             }
             if(currentState.hasProperty(BlockStateProperties.WATERLOGGED)) {
                 currentState = currentState.setValue(BlockStateProperties.WATERLOGGED, incomingBlockState.getValue(BlockStateProperties.WATERLOGGED));

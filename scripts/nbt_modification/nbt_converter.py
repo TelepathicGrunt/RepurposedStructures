@@ -49,8 +49,8 @@ def traverse_dicts(nbt_list):
         
         if 'palette' in nbt_list:
             for entry in nbt_list['palette']:
-                if entry.get('Name') not in blockPalette.keys():
-                    blockPalette[entry.get('Name')] = entry.get('Name')
+                if entry.get('id') not in blockPalette.keys():
+                    blockPalette[entry.get('id')] = entry.get('id')
 
         '''
         for key, entry in nbt_list.items():
@@ -63,16 +63,7 @@ def traverse_dicts(nbt_list):
         nbt_list.pop('SleepingZ', None)
         nbt_list.pop('blockEntityUuid', None)
         
-        if 'Attributes' in nbt_list:
-            attributes = nbt_list['Attributes']
-            for entry in attributes:
-                if entry["Name"] == "forge:entity_gravity" or entry["Name"] == "forge:step_height_addition" or entry["Name"] == "forge:step_height":
-                    nbt_list['Attributes'].remove(entry)
-                if entry["Name"] == "neoforge:entity_gravity" or entry["Name"] == "neoforge:step_height":
-                    nbt_list['Attributes'].remove(entry)
-        
         for key, entry in nbt_list.items():
-
             if isinstance(entry, nbt.List) or isinstance(entry, nbt.Compound):
                 traverse_dicts(entry)
             elif isinstance(entry, nbt.String):

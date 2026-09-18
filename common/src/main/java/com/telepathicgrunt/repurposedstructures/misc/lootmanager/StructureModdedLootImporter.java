@@ -78,6 +78,7 @@ public class StructureModdedLootImporter {
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/basalt"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/birch"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/crimson"), generateKey("minecraft", "chests/abandoned_mineshaft"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/dappled"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/dark_forest"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/desert"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/end"), generateKey("minecraft", "chests/abandoned_mineshaft"));
@@ -85,6 +86,7 @@ public class StructureModdedLootImporter {
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/jungle"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/nether"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/ocean"), generateKey("minecraft", "chests/abandoned_mineshaft"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/pale_garden"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/savanna"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/soul"), generateKey("minecraft", "chests/abandoned_mineshaft"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mineshafts/stone"), generateKey("minecraft", "chests/abandoned_mineshaft"));

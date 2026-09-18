@@ -25,6 +25,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.StructureEndRodCh
 import com.telepathicgrunt.repurposedstructures.world.features.StructureFire;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureFlowers;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureGrass;
+import com.telepathicgrunt.repurposedstructures.world.features.StructureHangingMoss;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureNetherwart;
 import com.telepathicgrunt.repurposedstructures.world.features.StructurePostProcessConnectiveBlocks;
 import com.telepathicgrunt.repurposedstructures.world.features.StructurePowderSnow;
@@ -61,6 +62,7 @@ public final class RSFeatures {
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_SEAGRASS = FEATURES.register("structure_seagrass", () -> StructureSeagrass.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_VINES = FEATURES.register("structure_vines", () -> StructureVine.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_VINES_AND_LEAVES = FEATURES.register("structure_vines_and_leaves", () -> StructureVineAndLeaves.CODEC);
+	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_HANGING_MOSS = FEATURES.register("structure_hanging_moss", () -> StructureHangingMoss.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_WARPED_PLANTS = FEATURES.register("structure_warped_plants", () -> StructureWarpedPlants.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_VINE_BREAKAGE = FEATURES.register("structure_vine_breakage", () -> StructureVineBreakage.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_GRASS = FEATURES.register("structure_grass", () -> StructureGrass.CODEC);

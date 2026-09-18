@@ -4,6 +4,103 @@
       "rules": [
         {
           "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "facing": "east"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:wall_torch",
+              "properties": {
+                "facing": "east"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "facing": "west"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:wall_torch",
+              "properties": {
+                "facing": "west"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "facing": "north"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:wall_torch",
+              "properties": {
+                "facing": "north"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "facing": "south"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.04,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:wall_torch",
+              "properties": {
+                "facing": "south"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:cobweb"
+          },
+          "input_predicate": {
+            "block": "minecraft:shelf_mushroom",
+            "probability": 0.9,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "id": "minecraft:cobweb"
           },
           "input_predicate": {

@@ -83,6 +83,7 @@ public record MineshaftSupport(
                         blockOffAirIfWaterBased(mutable, world);
                     }
                 }
+
                 mutable.move(direction.getOpposite());
             }
         }
