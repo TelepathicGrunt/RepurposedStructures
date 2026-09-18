@@ -1,0 +1,19 @@
+{
+  "type": "repurposed_structures:generic_mineshaft",
+  "start_pool": "repurposed_structures:mineshafts/dappled/start_pool",
+  "size": 9,
+  "biomes": "#repurposed_structures:has_structure/mineshafts/dappled",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "liquid_settings": "ignore_waterlogging",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 130
+    },
+    "min_inclusive": {
+      "absolute": 35
+    }
+  },
+  "spawn_overrides": {}
+}

@@ -3,19 +3,11 @@
   "values": [
     "minecraft:forest",
     {
-      "id": "byg:red_oak_forest",
-      "required": false
-    },
-    {
       "id": "byg:temperate_rainforest",
       "required": false
     },
     {
       "id": "byg:orchard",
-      "required": false
-    },
-    {
-      "id": "byg:autumnal_forest",
       "required": false
     },
     {
@@ -28,10 +20,6 @@
     },
     {
       "id": "biomesoplenty:orchard",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:seasonal_forest",
       "required": false
     },
     {
@@ -51,10 +39,6 @@
       "required": false
     },
     {
-      "id": "regions_unexplored:autumnal_maple_forest",
-      "required": false
-    },
-    {
       "id": "regions_unexplored:deciduous_forest",
       "required": false
     },
@@ -63,19 +47,7 @@
       "required": false
     },
     {
-      "id": "wythers:ancient_copper_beech_forest",
-      "required": false
-    },
-    {
       "id": "wythers:ancient_emerald_beech_forest",
-      "required": false
-    },
-    {
-      "id": "wythers:ancient_golden_beech_forest",
-      "required": false
-    },
-    {
-      "id": "wythers:autumnal_forest",
       "required": false
     },
     {
@@ -88,10 +60,6 @@
     },
     {
       "id": "wythers:spring_flower_forest",
-      "required": false
-    },
-    {
-      "id": "wythers:autumnal_flower_forest",
       "required": false
     },
     {

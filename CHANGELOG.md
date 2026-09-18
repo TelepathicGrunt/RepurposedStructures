@@ -3,6 +3,9 @@
 ##### Major:
 Updated to 26.3 Minecraft, utilizing the new mc changes as well for this update.
 
+##### Mineshafts:
+Added Pale Garden and Dappled Mineshafts
+
 ##### Ancient Cities:
 Fixed End Ancient City showing End Gateway beam on spawn. Now should not show the beam.
 

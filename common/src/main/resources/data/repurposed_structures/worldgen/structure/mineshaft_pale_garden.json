@@ -1,0 +1,19 @@
+{
+  "type": "repurposed_structures:generic_mineshaft",
+  "start_pool": "repurposed_structures:mineshafts/pale_garden/start_pool",
+  "size": 9,
+  "biomes": "#repurposed_structures:has_structure/mineshafts/pale_garden",
+  "step": "underground_structures",
+  "terrain_adaptation": "none",
+  "liquid_settings": "ignore_waterlogging",
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 140
+    },
+    "min_inclusive": {
+      "absolute": 35
+    }
+  },
+  "spawn_overrides": {}
+}

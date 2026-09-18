@@ -1,0 +1,19 @@
+{
+  "fallback": "repurposed_structures:mineshafts/dappled/minecarts",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:minecarts/dappled_mineshaft_minecart",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 275,
+      "element": {
+        "element_type": "minecraft:empty_pool_element"
+      }
+    }
+  ]
+}

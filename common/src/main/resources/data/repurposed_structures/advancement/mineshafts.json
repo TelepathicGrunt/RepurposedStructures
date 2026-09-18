@@ -60,6 +60,20 @@
         }
       }
     },
+    "in_mineshaft_dappled": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:mineshaft_dappled"
+            }
+          }
+        }
+      }
+    },
     "in_mineshaft_dark_forest": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -153,6 +167,20 @@
           "predicate": {
             "minecraft:location": {
               "structures": "repurposed_structures:mineshaft_ocean"
+            }
+          }
+        }
+      }
+    },
+    "in_mineshaft_pale_garden": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:mineshaft_pale_garden"
             }
           }
         }
@@ -254,6 +282,9 @@
       "in_mineshaft_crimson"
     ],
     [
+      "in_mineshaft_dappled"
+    ],
+    [
       "in_mineshaft_dark_forest"
     ],
     [
@@ -273,6 +304,9 @@
     ],
     [
       "in_mineshaft_ocean"
+    ],
+    [
+      "in_mineshaft_pale_garden"
     ],
     [
       "in_mineshaft_savanna"

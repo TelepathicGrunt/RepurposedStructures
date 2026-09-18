@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#repurposed_structures:collections/regular_forests"
+    "#repurposed_structures:collections/regular_forests",
+    "#repurposed_structures:collections/dappled_forests"
   ]
 }
