@@ -249,21 +249,6 @@ public final class GeneralUtils {
 
     //////////////////////////////////////////////
 
-    public static boolean canJigsawsAttach(StructureTemplate.JigsawBlockInfo jigsaw1, StructureTemplate.JigsawBlockInfo jigsaw2) {
-        FrontAndTop prop1 = jigsaw1.state().getValue(JigsawBlock.ORIENTATION);
-        FrontAndTop prop2 = jigsaw2.state().getValue(JigsawBlock.ORIENTATION);
-
-        return prop1.front() == prop2.front().getOpposite() &&
-                (prop1.top() == prop2.top() || isRollableJoint(jigsaw1)) &&
-                jigsaw1.target().equals(jigsaw2.name());
-    }
-
-    private static boolean isRollableJoint(StructureTemplate.JigsawBlockInfo jigsaw1) {
-        return jigsaw1.jointType() == JigsawBlockEntity.JointType.ROLLABLE;
-    }
-
-    //////////////////////////////////////////////
-
     /**
      * Will grab JSON objects that is specified by the dataType parameter.
      */

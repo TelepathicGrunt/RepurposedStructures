@@ -480,7 +480,7 @@ public class PieceLimitedJigsawManager {
 
                     // Check for each of the candidate's jigsaw blocks for a match
                     for (StructureTemplate.JigsawBlockInfo candidateJigsawBlock : candidateJigsawBlocks) {
-                        if (GeneralUtils.canJigsawsAttach(jigsawBlock, candidateJigsawBlock)) {
+                        if (JigsawBlock.canAttach(jigsawBlock, candidateJigsawBlock)) {
                             BlockPos candidateJigsawBlockPos = candidateJigsawBlock.pos();
                             BlockPos candidateJigsawBlockRelativePos = new BlockPos(jigsawBlockTargetPos.getX() - candidateJigsawBlockPos.getX(), jigsawBlockTargetPos.getY() - candidateJigsawBlockPos.getY(), jigsawBlockTargetPos.getZ() - candidateJigsawBlockPos.getZ());
 
