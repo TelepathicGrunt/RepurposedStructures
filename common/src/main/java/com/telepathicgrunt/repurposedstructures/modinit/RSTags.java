@@ -29,8 +29,11 @@ public final class RSTags {
     public static TagKey<Structure> NO_WATERFALLS = TagKey.create(Registries.STRUCTURE,
             Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "no_waterfalls"));
 
-    public static TagKey<Structure> NO_BASALT = TagKey.create(Registries.STRUCTURE,
-            Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "no_basalt"));
+    public static TagKey<Structure> NO_COLUMNS = TagKey.create(Registries.STRUCTURE,
+            Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "no_columns"));
+
+    public static TagKey<Structure> REDUCED_COLUMNS = TagKey.create(Registries.STRUCTURE,
+            Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "reduced_columns"));
 
     public static TagKey<Structure> NO_GEODES = TagKey.create(Registries.STRUCTURE,
             Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "no_geodes"));

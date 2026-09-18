@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+	  "repurposed_structures:outpost_nether_brick",
+	  "repurposed_structures:ruins_nether",
+	  "repurposed_structures:ancient_city_nether"
+  ]
+}

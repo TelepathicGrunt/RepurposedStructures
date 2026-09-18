@@ -14,6 +14,7 @@
     "features.NoFallsInStructuresMixin",
     "features.NoGeodesInStructuresMixin",
     "features.NoLakesInStructuresMixin",
+    "features.NoSteppedColumnClusterFeatureMixin",
     "features.NoVinesInStructuresMixin",
     "features.SmarterSnowPlacingInStructuresMixin",
     "resources.LootContextAccessor",

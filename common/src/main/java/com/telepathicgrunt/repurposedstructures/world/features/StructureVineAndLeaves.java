@@ -48,7 +48,7 @@ public record StructureVineAndLeaves(
             }
 
             // generates vines from given position down length number of blocks if path is clear and the given position is valid
-            int length = 0;
+            int recordedLength = 0;
             BlockPos.MutableBlockPos vineMutablePos = new BlockPos.MutableBlockPos().set(mutable);
             ChunkPos currentChunkPos = ChunkPos.containing(vineMutablePos);
             BlockState currentBlockstate;
@@ -65,7 +65,7 @@ public record StructureVineAndLeaves(
                         // Prevent floating vines at chunk borders
                         if(newChunkPos.x() != currentChunkPos.x() || newChunkPos.z() != currentChunkPos.z()) continue;
 
-                        if(length == 0 &&
+                        if(recordedLength == 0 &&
                             level.getBlockState(vineMutablePos.above()).canOcclude() &&
                             level.getBlockState(mutable).isAir() &&
                             level.getBlockState(mutable.above()).canOcclude())
@@ -80,13 +80,13 @@ public record StructureVineAndLeaves(
                         if (currentBlockstate.canSurvive(level, vineMutablePos) && level.getBlockState(vineMutablePos.relative(direction)).getBlock() != Blocks.MOSS_CARPET) {
                             //places topmost vine that can face upward
                             level.setBlock(vineMutablePos, currentBlockstate.setValue(VineBlock.UP, aboveBlockstate.canOcclude()), 2);
-                            length++;
+                            recordedLength++;
                             break;
                         }
                         else if (aboveBlockstate.is(Blocks.VINE)) {
                             //places rest of the vine as long as vine is above
                             level.setBlock(vineMutablePos, aboveBlockstate.setValue(VineBlock.UP, false), 2);
-                            length++;
+                            recordedLength++;
                             break;
                         }
                     }
