@@ -53,9 +53,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -73,9 +73,9 @@
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -88,9 +88,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -103,9 +103,9 @@
           "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -123,9 +123,9 @@
           "name": "minecraft:wheat",
           "type": "minecraft:item",
           "weight": 20,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -143,9 +143,9 @@
           "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -158,9 +158,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 18,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -173,9 +173,9 @@
           "name": "minecraft:cookie",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -188,9 +188,9 @@
           "name": "minecraft:sweet_berries",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -203,9 +203,9 @@
           "name": "minecraft:melon_seeds",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -218,9 +218,9 @@
           "name": "minecraft:pumpkin_seeds",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -233,9 +233,9 @@
           "name": "minecraft:cake",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -253,9 +253,9 @@
           "name": "minecraft:snowball",
           "type": "minecraft:item",
           "weight": 16,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -268,9 +268,9 @@
           "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -283,9 +283,9 @@
           "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -298,9 +298,9 @@
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -313,9 +313,9 @@
           "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -360,9 +360,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -421,10 +421,13 @@
           "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2
+              }
             }
           ]
         }

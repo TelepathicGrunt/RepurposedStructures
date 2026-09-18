@@ -13,9 +13,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 45,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "options": "#minecraft:on_random_loot",
               "levels": 30
             }
@@ -40,9 +40,9 @@
           "name": "minecraft:ender_eye",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 2.0,
@@ -64,9 +64,9 @@
           "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 5.0,
@@ -79,9 +79,9 @@
           "name": "minecraft:amethyst_shard",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 6.0,
@@ -94,9 +94,9 @@
           "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -115,19 +115,30 @@
           "weight": 45
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:desert_pyramid_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/pyramid_end",
-              "decoration": "banner_gray",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/pyramid_end",
+              "decoration": "minecraft:banner_gray",
               "zoom": 1,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "End Pyramid Map"
               }
@@ -135,19 +146,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/end_city",
-              "decoration": "banner_magenta",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/end_city",
+              "decoration": "minecraft:banner_magenta",
               "zoom": 1,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "End City Map"
               }
@@ -187,9 +209,9 @@
           "name": "minecraft:purple_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -253,9 +275,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": 30
             }
           ]

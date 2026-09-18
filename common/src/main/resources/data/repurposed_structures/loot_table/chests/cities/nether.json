@@ -13,9 +13,9 @@
           "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
           "weight": 50,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:magma_block",
           "type": "minecraft:item",
           "weight": 20,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 15.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 18,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 8.0,
                 "max": 18.0,
@@ -58,9 +58,9 @@
           "name": "minecraft:blaze_rod",
           "type": "minecraft:item",
           "weight": 18,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 10.0,
@@ -73,9 +73,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 10.0,
                 "max": 20.0,
@@ -88,9 +88,9 @@
           "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "options": "#minecraft:on_random_loot",
               "levels": {
                 "min": 35.0,
@@ -104,9 +104,9 @@
           "name": "minecraft:golden_spear",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -120,9 +120,9 @@
           "name": "minecraft:golden_axe",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -136,9 +136,9 @@
           "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -152,9 +152,9 @@
           "name": "minecraft:golden_shovel",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -168,9 +168,9 @@
           "name": "minecraft:golden_pickaxe",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -184,9 +184,9 @@
           "name": "minecraft:golden_boots",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -200,9 +200,9 @@
           "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -216,9 +216,9 @@
           "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -232,9 +232,9 @@
           "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 35.0,
                 "max": 45.0,
@@ -248,9 +248,9 @@
           "name": "minecraft:fire_charge",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 12.0,
@@ -268,9 +268,9 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 12.0,
@@ -278,7 +278,7 @@
               }
             },
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 0
               ],
@@ -295,9 +295,9 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 12.0,
@@ -305,7 +305,7 @@
               }
             },
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 12201518
               ],
@@ -327,9 +327,9 @@
           "name": "minecraft:gold_block",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 12.0,
@@ -347,9 +347,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 20.0,
@@ -362,9 +362,9 @@
           "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 40.0,
                 "max": 60.0,
@@ -387,9 +387,9 @@
           "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 9.0,
@@ -402,9 +402,9 @@
           "name": "minecraft:blaze_rod",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 6.0,
@@ -417,9 +417,9 @@
           "name": "minecraft:netherite_scrap",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -432,9 +432,9 @@
           "name": "minecraft:fire_charge",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 10.0,
@@ -452,16 +452,27 @@
           "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/bastion_remnant",
-              "decoration": "banner_black",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/bastion_remnant",
+              "decoration": "minecraft:banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Bastion Remnant Map"
               }
@@ -505,9 +516,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -566,9 +577,9 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 0
               ],
@@ -585,9 +596,9 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 12201518
               ],

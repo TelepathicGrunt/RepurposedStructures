@@ -13,9 +13,9 @@
           "name": "minecraft:warped_fungus",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 5.0,
@@ -58,9 +58,9 @@
           "name": "minecraft:warped_wart_block",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -82,11 +82,14 @@
         {
           "name": "minecraft:wild_armor_trim_smithing_template",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -113,9 +116,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -174,10 +177,13 @@
           "name": "minecraft:comparator",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2
+              }
             }
           ]
         },
@@ -185,10 +191,13 @@
           "name": "minecraft:target",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2
+              }
             }
           ]
         }

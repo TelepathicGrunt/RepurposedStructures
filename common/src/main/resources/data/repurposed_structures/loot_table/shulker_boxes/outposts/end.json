@@ -13,16 +13,17 @@
           "name": "minecraft:crossbow",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.4,
                 "max": 0.9
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "options": "#minecraft:on_random_loot",
               "levels": {
                 "min": 25.0,
@@ -36,16 +37,17 @@
           "name": "minecraft:bow",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.4,
                 "max": 0.9
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 25.0,
                 "max": 39.0,
@@ -59,16 +61,17 @@
           "name": "minecraft:diamond_boots",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.7
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -82,16 +85,17 @@
           "name": "minecraft:diamond_chestplate",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.7
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -105,16 +109,17 @@
           "name": "minecraft:diamond_leggings",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.7
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -128,16 +133,17 @@
           "name": "minecraft:diamond_helmet",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.7
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -151,16 +157,17 @@
           "name": "minecraft:iron_boots",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -174,16 +181,17 @@
           "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -197,16 +205,17 @@
           "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -220,16 +229,17 @@
           "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -243,16 +253,17 @@
           "name": "minecraft:diamond_sword",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.7
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -266,16 +277,17 @@
           "name": "minecraft:iron_sword",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.2,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 39.0,
@@ -298,9 +310,9 @@
           "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 6.0,
                 "max": 18.0,
@@ -313,9 +325,9 @@
           "name": "minecraft:phantom_membrane",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 8.0,
@@ -328,9 +340,9 @@
           "name": "minecraft:arrow",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 8.0,
@@ -343,9 +355,9 @@
           "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 8.0,
@@ -353,7 +365,7 @@
               }
             },
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:strong_healing"
             }
           ]
@@ -362,9 +374,9 @@
           "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 8.0,
@@ -377,9 +389,9 @@
           "name": "minecraft:iron_block",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 8.0,
@@ -397,16 +409,17 @@
           "name": "minecraft:crossbow",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.1,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 35.0,
@@ -420,16 +433,17 @@
           "name": "minecraft:bow",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.1,
                 "max": 0.8
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 35.0,
@@ -452,9 +466,9 @@
           "name": "minecraft:arrow",
           "type": "minecraft:item",
           "weight": 9,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 7.0,
                 "max": 15.0,
@@ -467,9 +481,9 @@
           "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 9,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 7.0,
                 "max": 15.0,
@@ -477,7 +491,7 @@
               }
             },
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:strong_healing"
             }
           ]
@@ -493,19 +507,30 @@
           "weight": 3
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/ancient_city_end",
-              "decoration": "monument",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/ancient_city_end",
+              "decoration": "minecraft:monument",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "End Ancient City Map"
               }
@@ -516,11 +541,14 @@
           "name": "minecraft:sentry_armor_trim_smithing_template",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -547,9 +575,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -608,10 +636,13 @@
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2
+              }
             }
           ]
         }

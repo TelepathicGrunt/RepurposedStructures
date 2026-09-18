@@ -13,9 +13,9 @@
           "name": "minecraft:tipped_arrow",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 9.0,
@@ -23,7 +23,7 @@
               }
             },
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:long_slowness"
             }
           ]
@@ -32,9 +32,9 @@
           "name": "minecraft:fire_charge",
           "type": "minecraft:item",
           "weight": 20,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,

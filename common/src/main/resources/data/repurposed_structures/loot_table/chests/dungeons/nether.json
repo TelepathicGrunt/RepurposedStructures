@@ -13,9 +13,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 7.0,
@@ -58,9 +58,9 @@
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 8.0,
@@ -73,9 +73,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 7.0,
@@ -88,9 +88,9 @@
           "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 6.0,
@@ -103,9 +103,9 @@
           "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 10.0,
@@ -127,9 +127,9 @@
           "name": "minecraft:golden_sword",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,
@@ -143,9 +143,9 @@
           "name": "minecraft:golden_boots",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,
@@ -159,9 +159,9 @@
           "name": "minecraft:golden_chestplate",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,
@@ -175,9 +175,9 @@
           "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,
@@ -191,9 +191,9 @@
           "name": "minecraft:golden_helmet",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,
@@ -207,9 +207,9 @@
           "name": "minecraft:iron_sword",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 25.0,
@@ -223,9 +223,9 @@
           "name": "minecraft:chainmail_boots",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 25.0,
@@ -239,9 +239,9 @@
           "name": "minecraft:chainmail_chestplate",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 25.0,
@@ -255,9 +255,9 @@
           "name": "minecraft:chainmail_leggings",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 25.0,
@@ -271,9 +271,9 @@
           "name": "minecraft:chainmail_helmet",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 10.0,
                 "max": 25.0,
@@ -336,9 +336,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -356,9 +356,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 9.0,
@@ -371,9 +371,9 @@
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 5.0,
@@ -386,9 +386,9 @@
           "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 9.0,
@@ -401,9 +401,9 @@
           "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 8.0,
@@ -416,9 +416,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 9.0,
@@ -431,9 +431,9 @@
           "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 9.0,
@@ -446,9 +446,9 @@
           "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 6.0,
                 "max": 10.0,
@@ -480,9 +480,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {

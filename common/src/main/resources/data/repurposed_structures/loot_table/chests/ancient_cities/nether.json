@@ -19,7 +19,7 @@
           "name": "minecraft:enchanted_golden_apple",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -27,7 +27,7 @@
                 "max": 2.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -40,9 +40,9 @@
           "type": "minecraft:item",
           "name": "minecraft:potion",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:fire_resistance"
             }
           ]
@@ -51,9 +51,9 @@
           "type": "minecraft:item",
           "name": "minecraft:potion",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:strong_leaping"
             }
           ]
@@ -62,7 +62,7 @@
           "name": "minecraft:disc_fragment_5",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -70,7 +70,7 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -78,11 +78,14 @@
           "name": "minecraft:compass",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -90,7 +93,7 @@
           "name": "minecraft:coal_block",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -98,7 +101,7 @@
                 "max": 4.0,
                 "min": 2.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -106,11 +109,14 @@
           "name": "minecraft:netherite_hoe",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             },
             {
               "add": false,
@@ -119,10 +125,10 @@
                 "max": 1.0,
                 "min": 0.8
               },
-              "function": "minecraft:set_damage"
+              "type": "minecraft:set_damage"
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "options": "#minecraft:on_random_loot",
               "levels": {
                 "type": "minecraft:uniform",
@@ -136,11 +142,14 @@
           "name": "minecraft:lead",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -148,11 +157,14 @@
           "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -160,11 +172,14 @@
           "name": "minecraft:saddle",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -182,9 +197,9 @@
           "name": "minecraft:golden_leggings",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
                 "max": 60.0,
@@ -198,7 +213,7 @@
           "name": "minecraft:black_candle",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -206,7 +221,7 @@
                 "max": 4.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -214,7 +229,7 @@
           "name": "minecraft:red_candle",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -222,7 +237,7 @@
                 "max": 4.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -230,7 +245,7 @@
           "name": "minecraft:ghast_tear",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -238,7 +253,7 @@
                 "max": 15.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -246,7 +261,7 @@
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -254,7 +269,7 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -262,7 +277,7 @@
           "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -270,7 +285,7 @@
                 "max": 15.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -278,9 +293,9 @@
           "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
                 "max": 39.0,
@@ -294,7 +309,7 @@
           "name": "minecraft:blaze_powder",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -302,7 +317,7 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -310,9 +325,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": [
                 "minecraft:fire_aspect",
                 "minecraft:flame",
@@ -328,7 +343,7 @@
           "name": "minecraft:potion",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -336,10 +351,10 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             },
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:strong_regeneration"
             }
           ]
@@ -348,7 +363,7 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -356,7 +371,7 @@
                 "max": 10.0,
                 "min": 3.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -364,7 +379,7 @@
           "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -372,7 +387,7 @@
                 "max": 15.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -380,7 +395,7 @@
           "name": "minecraft:glowstone",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -388,7 +403,7 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -396,7 +411,7 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 14,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -404,7 +419,7 @@
                 "max": 15.0,
                 "min": 6.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -412,9 +427,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -461,9 +476,9 @@
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {

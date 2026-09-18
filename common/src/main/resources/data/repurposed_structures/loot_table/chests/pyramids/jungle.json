@@ -13,9 +13,9 @@
           "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 5.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 7.0,
@@ -58,9 +58,9 @@
           "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 20,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -73,9 +73,9 @@
           "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 6.0,
@@ -88,9 +88,9 @@
           "name": "minecraft:vine",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -103,9 +103,9 @@
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 7.0,
@@ -123,9 +123,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -173,9 +173,9 @@
           "name": "minecraft:bone",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -188,9 +188,9 @@
           "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -203,9 +203,9 @@
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -218,9 +218,9 @@
           "name": "minecraft:string",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -233,9 +233,9 @@
           "name": "minecraft:cracked_stone_bricks",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -257,11 +257,14 @@
         {
           "name": "minecraft:dune_armor_trim_smithing_template",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -288,9 +291,9 @@
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -354,9 +357,9 @@
           "type": "minecraft:item",
           "name": "minecraft:potion",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:regeneration"
             }
           ]

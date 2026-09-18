@@ -13,9 +13,9 @@
           "name": "minecraft:amethyst_shard",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 12.0,
                 "max": 22.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 12.0,
                 "max": 35.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 14.0,
@@ -58,9 +58,9 @@
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 10.0,
                 "max": 20.0,
@@ -73,9 +73,9 @@
           "name": "minecraft:diamond_sword",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -84,9 +84,9 @@
           "name": "minecraft:diamond_chestplate",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -100,71 +100,80 @@
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_stew_effect",
+              "type": "minecraft:set_stew_effect",
               "effects": [
                 {
                   "type": "minecraft:blindness",
                   "duration": {
                     "min": 30.0,
-                    "max": 50.0
+                    "max": 50.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:levitation",
                   "duration": {
                     "min": 40.0,
-                    "max": 60.0
+                    "max": 60.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:weakness",
                   "duration": {
                     "min": 40.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:jump_boost",
                   "duration": {
                     "min": 60.0,
-                    "max": 440.0
+                    "max": 440.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:night_vision",
                   "duration": {
                     "min": 60.0,
-                    "max": 440.0
+                    "max": 440.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:saturation",
                   "duration": {
                     "min": 10.0,
-                    "max": 12.0
+                    "max": 12.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:invisibility",
                   "duration": {
                     "min": 60.0,
-                    "max": 440.0
+                    "max": 440.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:slow_falling",
                   "duration": {
                     "min": 60.0,
-                    "max": 440.0
+                    "max": 440.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:glowing",
                   "duration": {
                     "min": 60.0,
-                    "max": 500.0
+                    "max": 500.0,
+                    "type": "minecraft:uniform"
                   }
                 }
               ]
@@ -180,9 +189,9 @@
           "name": "minecraft:experience_bottle",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 2.0,
@@ -195,9 +204,9 @@
           "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 6.0,
                 "max": 15.0,
@@ -210,9 +219,9 @@
           "name": "minecraft:crying_obsidian",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 12.0,
@@ -225,9 +234,9 @@
           "name": "minecraft:iron_chain",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 12.0,
@@ -264,9 +273,9 @@
           "name": "minecraft:purple_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {

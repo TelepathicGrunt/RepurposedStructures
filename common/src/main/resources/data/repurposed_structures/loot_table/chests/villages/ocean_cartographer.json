@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -15,7 +15,7 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ],
           "name": "minecraft:map",
@@ -23,7 +23,7 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -31,7 +31,7 @@
                 "max": 5.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ],
           "name": "minecraft:paper",
@@ -44,7 +44,7 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -52,7 +52,7 @@
                 "max": 4.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ],
           "name": "minecraft:bread",
@@ -60,7 +60,7 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -68,7 +68,7 @@
                 "max": 2.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ],
           "name": "minecraft:stick",
@@ -85,19 +85,30 @@
       "rolls": 1,
       "entries": [
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_1",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_1",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }
@@ -105,19 +116,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_2",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_2",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }
@@ -125,19 +147,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_3",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_3",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }
@@ -145,19 +178,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_4",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_4",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }
@@ -165,19 +209,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_5",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_5",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }
@@ -185,19 +240,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_6",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_6",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }
@@ -205,19 +271,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/unknown_ocean_structure_7",
-              "decoration": "banner_cyan",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/unknown_ocean_structure_7",
+              "decoration": "minecraft:banner_cyan",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Unknown Ocean Structure Map"
               }

@@ -13,9 +13,9 @@
           "name": "minecraft:melon_slice",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 15.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -68,9 +68,9 @@
           "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 3.0,
@@ -83,9 +83,9 @@
           "name": "minecraft:sugar_cane",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 3.0,
@@ -102,9 +102,9 @@
         {
           "name": "minecraft:bowl",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 3.0,
@@ -154,9 +154,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -215,10 +215,13 @@
           "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2
+              }
             }
           ]
         }

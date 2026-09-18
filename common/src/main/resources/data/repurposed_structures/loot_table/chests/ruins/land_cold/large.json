@@ -13,9 +13,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:iron_nugget",
           "type": "minecraft:item",
           "weight": 12,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 2.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:bread",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 3.0,
@@ -58,10 +58,11 @@
           "name": "minecraft:stone_hoe",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.1,
                 "max": 0.9
               }
@@ -72,9 +73,9 @@
           "name": "minecraft:potato",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 7.0,
@@ -87,9 +88,9 @@
           "name": "minecraft:carrot",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -127,9 +128,9 @@
           "name": "minecraft:pumpkin",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 3.0,
@@ -147,9 +148,9 @@
           "name": "minecraft:arrow",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 6.0,
@@ -162,9 +163,9 @@
           "name": "minecraft:fishing_rod",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -173,9 +174,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -219,21 +220,41 @@
           "name": "minecraft:golden_apple",
           "type": "minecraft:item",
           "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 6
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
-          "weight": 2,
-          "functions": [
+          "weight": 1,
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/bastion_underground",
-              "decoration": "banner_gray",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/bastion_underground",
+              "decoration": "minecraft:banner_gray",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Bastion Remnant Map"
               }
@@ -254,11 +275,14 @@
           "name": "minecraft:copper_horse_armor",
           "type": "minecraft:item",
           "weight": 20,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -266,11 +290,14 @@
           "name": "minecraft:iron_horse_armor",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -278,11 +305,14 @@
           "name": "minecraft:golden_horse_armor",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -290,11 +320,14 @@
           "name": "minecraft:diamond_horse_armor",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -321,9 +354,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -382,16 +415,17 @@
           "name": "minecraft:iron_hoe",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.1,
                 "max": 0.75
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,

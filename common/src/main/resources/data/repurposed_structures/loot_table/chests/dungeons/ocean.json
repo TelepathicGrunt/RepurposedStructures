@@ -58,9 +58,9 @@
           "name": "minecraft:nautilus_shell",
           "type": "minecraft:item",
           "weight": 16,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 6.0,
@@ -78,9 +78,9 @@
           "name": "minecraft:prismarine_crystals",
           "type": "minecraft:item",
           "weight": 16,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 2.0,
@@ -93,9 +93,9 @@
           "name": "minecraft:prismarine_shard",
           "type": "minecraft:item",
           "weight": 16,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 6.0,
@@ -127,9 +127,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {

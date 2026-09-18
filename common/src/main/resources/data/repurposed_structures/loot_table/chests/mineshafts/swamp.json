@@ -23,9 +23,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -52,9 +52,9 @@
           "name": "minecraft:iron_ingot",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 5.0,
@@ -67,9 +67,9 @@
           "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -82,9 +82,9 @@
           "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 9.0,
@@ -97,9 +97,9 @@
           "name": "minecraft:lapis_lazuli",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 9.0,
@@ -112,9 +112,9 @@
           "name": "minecraft:diamond",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 2.0,
@@ -127,9 +127,9 @@
           "name": "minecraft:emerald",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 2.0,
@@ -142,9 +142,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 8.0,
@@ -157,9 +157,9 @@
           "name": "minecraft:glow_berries",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 3.0,
@@ -173,9 +173,9 @@
           "name": "minecraft:apple",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -193,50 +193,56 @@
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_stew_effect",
+              "type": "minecraft:set_stew_effect",
               "effects": [
                 {
                   "type": "minecraft:blindness",
                   "duration": {
                     "min": 5.0,
-                    "max": 7.0
+                    "max": 7.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:poison",
                   "duration": {
                     "min": 10.0,
-                    "max": 20.0
+                    "max": 20.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:weakness",
                   "duration": {
                     "min": 6.0,
-                    "max": 8.0
+                    "max": 8.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:jump_boost",
                   "duration": {
                     "min": 7.0,
-                    "max": 10.0
+                    "max": 10.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:night_vision",
                   "duration": {
                     "min": 7.0,
-                    "max": 10.0
+                    "max": 10.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:saturation",
                   "duration": {
                     "min": 7.0,
-                    "max": 10.0
+                    "max": 10.0,
+                    "type": "minecraft:uniform"
                   }
                 }
               ]
@@ -247,9 +253,9 @@
           "name": "minecraft:pumpkin_seeds",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -262,9 +268,9 @@
           "name": "minecraft:lily_pad",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -277,9 +283,9 @@
           "name": "minecraft:carved_pumpkin",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -297,9 +303,9 @@
           "name": "minecraft:rail",
           "type": "minecraft:item",
           "weight": 20,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 4.0,
                 "max": 8.0,
@@ -312,9 +318,9 @@
           "name": "minecraft:powered_rail",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -327,9 +333,9 @@
           "name": "minecraft:detector_rail",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -342,9 +348,9 @@
           "name": "minecraft:activator_rail",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -357,9 +363,9 @@
           "name": "minecraft:torch",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 16.0,
@@ -377,9 +383,9 @@
           "name": "minecraft:slime_ball",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -424,9 +430,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -485,10 +491,13 @@
           "name": "minecraft:tnt",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 2
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2
+              }
             }
           ]
         }

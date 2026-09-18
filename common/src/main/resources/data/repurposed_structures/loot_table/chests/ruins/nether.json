@@ -13,9 +13,9 @@
           "name": "minecraft:coal",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -38,9 +38,9 @@
           "name": "minecraft:rotten_flesh",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -53,9 +53,9 @@
           "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -68,9 +68,9 @@
           "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -83,9 +83,9 @@
           "name": "minecraft:ghast_tear",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 5.0,
@@ -108,9 +108,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -134,9 +134,9 @@
           "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -146,19 +146,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/bastion_remnant",
-              "decoration": "banner_black",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/bastion_remnant",
+              "decoration": "minecraft:banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Bastion Remnant Map"
               }
@@ -179,9 +190,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 16,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -215,9 +226,9 @@
           "name": "minecraft:magma_cream",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -227,19 +238,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/bastion_remnant",
-              "decoration": "banner_black",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/bastion_remnant",
+              "decoration": "minecraft:banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Bastion Remnant Map"
               }
@@ -247,19 +269,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/city_nether",
-              "decoration": "banner_gray",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/city_nether",
+              "decoration": "minecraft:banner_gray",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Nether City Map"
               }
@@ -267,19 +300,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/ancient_city_nether",
-              "decoration": "monument",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/ancient_city_nether",
+              "decoration": "minecraft:monument",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Nether Ancient City Map"
               }
@@ -303,9 +347,9 @@
           "name": "minecraft:fishing_rod",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -313,22 +357,7 @@
         {
           "name": "minecraft:map",
           "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "decoration": "minecraft:red_x",
-              "function": "minecraft:exploration_map",
-              "skip_existing_chunks": false,
-              "zoom": 1
-            },
-            {
-              "function": "minecraft:set_name",
-              "name": {
-                "translate": "filled_map.buried_treasure"
-              },
-              "target": "item_name"
-            }
-          ]
+          "weight": 5
         }
       ],
       "rolls": 1.0
@@ -345,11 +374,14 @@
           "name": "minecraft:black_harness",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -357,11 +389,14 @@
           "name": "minecraft:red_harness",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -369,11 +404,14 @@
           "name": "minecraft:orange_harness",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -381,11 +419,14 @@
           "name": "minecraft:white_harness",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 1.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -412,9 +453,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -445,16 +486,17 @@
           "name": "minecraft:golden_hoe",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
+              "type": "minecraft:set_damage",
               "damage": {
+                "type": "minecraft:uniform",
                 "min": 0.1,
                 "max": 0.75
               }
             },
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 5.0,
                 "max": 25.0,

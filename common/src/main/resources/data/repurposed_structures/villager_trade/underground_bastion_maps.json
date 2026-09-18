@@ -7,13 +7,13 @@
     "id": "minecraft:emerald"
   },
   "gives": {
-    "id": "minecraft:map"
+    "id": "minecraft:buried_ancient_city_map"
   },
   "given_item_modifiers": [
     {
-      "function": "minecraft:exploration_map",
-      "destination": "repurposed_structures:explorer_maps/bastion_underground",
-      "decoration": "banner_gray",
+      "type": "minecraft:exploration_map",
+      "destination": "#repurposed_structures:explorer_maps/bastion_underground",
+      "decoration": "minecraft:banner_gray",
       "search_radius": 50
     },
     {

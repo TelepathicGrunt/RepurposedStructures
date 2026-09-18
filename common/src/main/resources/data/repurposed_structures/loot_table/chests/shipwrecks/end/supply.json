@@ -13,9 +13,9 @@
           "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 12.0,
@@ -28,9 +28,9 @@
           "name": "minecraft:chorus_fruit",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 12.0,
@@ -43,9 +43,9 @@
           "name": "minecraft:beetroot_seeds",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 10.0,
@@ -58,9 +58,9 @@
           "name": "minecraft:magenta_banner",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 4.0,
@@ -68,7 +68,7 @@
               }
             },
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": []
             }
@@ -78,9 +78,9 @@
           "name": "minecraft:popped_chorus_fruit",
           "type": "minecraft:item",
           "weight": 7,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 5.0,
                 "max": 17.0,
@@ -93,71 +93,80 @@
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_stew_effect",
+              "type": "minecraft:set_stew_effect",
               "effects": [
                 {
                   "type": "minecraft:blindness",
                   "duration": {
                     "min": 10.0,
-                    "max": 25.0
+                    "max": 25.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:levitation",
                   "duration": {
                     "min": 25.0,
-                    "max": 55.0
+                    "max": 55.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:weakness",
                   "duration": {
                     "min": 30.0,
-                    "max": 50.0
+                    "max": 50.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:jump_boost",
                   "duration": {
                     "min": 60.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:night_vision",
                   "duration": {
                     "min": 60.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:saturation",
                   "duration": {
                     "min": 10.0,
-                    "max": 12.0
+                    "max": 12.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:invisibility",
                   "duration": {
                     "min": 30.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:slow_falling",
                   "duration": {
                     "min": 30.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:glowing",
                   "duration": {
                     "min": 30.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 }
               ]
@@ -168,9 +177,9 @@
           "name": "minecraft:phantom_membrane",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -183,9 +192,9 @@
           "name": "minecraft:ender_pearl",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -198,9 +207,9 @@
           "name": "minecraft:end_rod",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -213,9 +222,9 @@
           "name": "minecraft:magenta_stained_glass_pane",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -228,9 +237,9 @@
           "name": "minecraft:gunpowder",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 10.0,
                 "max": 15.0,
@@ -243,9 +252,9 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -253,7 +262,7 @@
               }
             },
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 8073150
               ],
@@ -270,9 +279,9 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -280,7 +289,7 @@
               }
             },
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 12801229
               ],
@@ -296,9 +305,9 @@
         {
           "name": "minecraft:obsidian",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 6.0,
@@ -311,9 +320,9 @@
           "name": "minecraft:iron_helmet",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -322,9 +331,9 @@
           "name": "minecraft:iron_chestplate",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -333,9 +342,9 @@
           "name": "minecraft:iron_leggings",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -344,9 +353,9 @@
           "name": "minecraft:iron_boots",
           "type": "minecraft:item",
           "weight": 3,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
+              "type": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ]
@@ -365,71 +374,80 @@
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 47,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_stew_effect",
+              "type": "minecraft:set_stew_effect",
               "effects": [
                 {
                   "type": "minecraft:blindness",
                   "duration": {
                     "min": 10.0,
-                    "max": 25.0
+                    "max": 25.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:levitation",
                   "duration": {
                     "min": 25.0,
-                    "max": 55.0
+                    "max": 55.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:weakness",
                   "duration": {
                     "min": 30.0,
-                    "max": 50.0
+                    "max": 50.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:jump_boost",
                   "duration": {
                     "min": 60.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:night_vision",
                   "duration": {
                     "min": 60.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:saturation",
                   "duration": {
                     "min": 10.0,
-                    "max": 12.0
+                    "max": 12.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:invisibility",
                   "duration": {
                     "min": 30.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:slow_falling",
                   "duration": {
                     "min": 30.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 },
                 {
                   "type": "minecraft:glowing",
                   "duration": {
                     "min": 30.0,
-                    "max": 120.0
+                    "max": 120.0,
+                    "type": "minecraft:uniform"
                   }
                 }
               ]
@@ -440,13 +458,16 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 14,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 3
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 3
+              }
             },
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 8073150
               ],
@@ -463,13 +484,16 @@
           "name": "minecraft:firework_star",
           "type": "minecraft:item",
           "weight": 14,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 3
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 3
+              }
             },
             {
-              "function": "minecraft:set_firework_explosion",
+              "type": "minecraft:set_firework_explosion",
               "color": [
                 12801229
               ],
@@ -495,11 +519,14 @@
         {
           "name": "minecraft:coast_armor_trim_smithing_template",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }

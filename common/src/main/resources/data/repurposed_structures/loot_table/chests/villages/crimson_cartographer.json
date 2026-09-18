@@ -6,19 +6,30 @@
       "rolls": 1,
       "entries": [
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 25,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/nether_fortress",
-              "decoration": "banner_red",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/nether_fortress",
+              "decoration": "minecraft:banner_red",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Nether Fortress Map"
               }
@@ -26,19 +37,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
           "weight": 25,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/bastion_remnant",
-              "decoration": "banner_black",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/bastion_remnant",
+              "decoration": "minecraft:banner_black",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Bastion Remnant Map"
               }
@@ -46,19 +68,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/city_nether",
-              "decoration": "banner_gray",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/city_nether",
+              "decoration": "minecraft:banner_gray",
               "zoom": 2,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "Nether City Map"
               }
@@ -78,9 +111,9 @@
           "name": "minecraft:map",
           "type": "minecraft:item",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -93,9 +126,9 @@
           "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 8.0,
@@ -113,9 +146,9 @@
           "name": "minecraft:nether_wart",
           "type": "minecraft:item",
           "weight": 15,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 4.0,
@@ -128,9 +161,9 @@
           "name": "minecraft:redstone",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 6.0,

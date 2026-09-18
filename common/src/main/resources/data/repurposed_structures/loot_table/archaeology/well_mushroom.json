@@ -34,9 +34,9 @@
         {
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_stew_effect",
+              "type": "minecraft:set_stew_effect",
               "effects": [
                 {
                   "type": "minecraft:night_vision",

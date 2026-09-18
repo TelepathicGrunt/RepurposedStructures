@@ -7,13 +7,13 @@
     "id": "minecraft:emerald"
   },
   "gives": {
-    "id": "minecraft:map"
+    "id": "minecraft:plains_village_map"
   },
   "given_item_modifiers": [
     {
-      "function": "minecraft:exploration_map",
-      "destination": "repurposed_structures:explorer_maps/village_mushroom",
-      "decoration": "mansion",
+      "type": "minecraft:exploration_map",
+      "destination": "#repurposed_structures:explorer_maps/village_mushroom",
+      "decoration": "minecraft:mansion",
       "search_radius": 100
     },
     {

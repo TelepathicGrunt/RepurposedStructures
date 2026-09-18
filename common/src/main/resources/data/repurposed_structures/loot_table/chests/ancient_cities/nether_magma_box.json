@@ -14,9 +14,9 @@
           "name": "minecraft:suspicious_stew",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_stew_effect",
+              "type": "minecraft:set_stew_effect",
               "effects": [
                 {
                   "type": "minecraft:fire_resistance",
@@ -37,7 +37,7 @@
               ]
             },
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
@@ -51,7 +51,7 @@
           "name": "minecraft:golden_carrot",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -59,7 +59,7 @@
                 "max": 10.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -67,7 +67,7 @@
           "name": "minecraft:glowstone",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -75,7 +75,7 @@
                 "max": 13.0,
                 "min": 3.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -83,7 +83,7 @@
           "name": "minecraft:obsidian",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -91,7 +91,7 @@
                 "max": 12.0,
                 "min": 3.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -99,7 +99,7 @@
           "name": "minecraft:lava_bucket",
           "type": "minecraft:item",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -107,7 +107,7 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -134,9 +134,9 @@
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {

@@ -7,13 +7,13 @@
     "id": "minecraft:emerald"
   },
   "gives": {
-    "id": "minecraft:map"
+    "id": "minecraft:buried_ancient_city_map"
   },
   "given_item_modifiers": [
     {
-      "function": "minecraft:exploration_map",
-      "destination": "repurposed_structures:explorer_maps/ancient_city_ocean",
-      "decoration": "monument",
+      "type": "minecraft:exploration_map",
+      "destination": "#repurposed_structures:explorer_maps/ancient_city_ocean",
+      "decoration": "minecraft:monument",
       "search_radius": 50
     },
     {

@@ -7,6 +7,4 @@ TODO:
 
 - do camps in nether and end
 - Consider dappled forest structures and pale oak structures.
-- fix loot table arrows
-- Check loot table explorer maps
 - Make end ancient city's end gateway age higher

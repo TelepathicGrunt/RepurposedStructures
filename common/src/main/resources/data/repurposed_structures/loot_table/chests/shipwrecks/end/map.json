@@ -6,18 +6,29 @@
       "rolls": 1,
       "entries": [
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_treasure_map",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/end_city",
-              "decoration": "banner_magenta",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/end_city",
+              "decoration": "minecraft:banner_magenta",
               "zoom": 1,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "End City Map"
               }
@@ -48,9 +59,9 @@
           "name": "minecraft:paper",
           "type": "minecraft:item",
           "weight": 18,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 10.0,
@@ -63,9 +74,9 @@
           "name": "minecraft:feather",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 5.0,
@@ -78,9 +89,9 @@
           "name": "minecraft:ender_pearl",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 3.0,
                 "max": 6.0,
@@ -98,9 +109,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 2.0,
                 "max": 8.0,
@@ -113,9 +124,9 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
+              "type": "minecraft:enchant_with_levels",
               "options": "#minecraft:on_random_loot",
               "levels": {
                 "min": 25.0,
@@ -138,9 +149,9 @@
           "name": "minecraft:ender_eye",
           "type": "minecraft:item",
           "weight": 40,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": {
                 "min": 1.0,
                 "max": 3.0,
@@ -150,19 +161,30 @@
           ]
         },
         {
-          "name": "minecraft:map",
+          "name": "minecraft:buried_ancient_city_map",
           "type": "minecraft:item",
           "weight": 1,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:exploration_map",
-              "destination": "repurposed_structures:explorer_maps/stronghold_end",
-              "decoration": "banner_black",
+              "type": "minecraft:exploration_map",
+              "destination": "#repurposed_structures:explorer_maps/stronghold_end",
+              "decoration": "minecraft:banner_black",
               "zoom": 1,
               "skip_existing_chunks": false
             },
             {
-              "function": "minecraft:set_name",
+              "type": "minecraft:filtered",
+              "item_filter": {
+                "predicates": {
+                  "minecraft:map_id": {}
+                }
+              },
+              "on_fail": {
+                "type": "minecraft:discard"
+              }
+            },
+            {
+              "type": "minecraft:set_name",
               "name": {
                 "translate": "End Stronghold Map"
               }
@@ -182,11 +204,14 @@
         {
           "name": "minecraft:coast_armor_trim_smithing_template",
           "type": "minecraft:item",
-          "functions": [
+          "modifier": [
             {
               "add": false,
-              "count": 2.0,
-              "function": "minecraft:set_count"
+              "count": {
+                "type": "minecraft:constant",
+                "value": 2.0
+              },
+              "type": "minecraft:set_count"
             }
           ]
         }
@@ -213,9 +238,9 @@
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 30,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_banner_pattern",
+              "type": "minecraft:set_banner_pattern",
               "append": true,
               "patterns": [
                 {
@@ -279,10 +304,13 @@
           "name": "minecraft:book",
           "type": "minecraft:item",
           "weight": 8,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
-              "count": 3
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:constant",
+                "value": 3
+              }
             }
           ]
         }

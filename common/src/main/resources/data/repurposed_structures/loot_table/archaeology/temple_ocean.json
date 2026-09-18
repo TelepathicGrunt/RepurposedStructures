@@ -35,9 +35,9 @@
           "name": "minecraft:potion",
           "type": "minecraft:item",
           "weight": 6,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_potion",
+              "type": "minecraft:set_potion",
               "id": "minecraft:water"
             }
           ]
