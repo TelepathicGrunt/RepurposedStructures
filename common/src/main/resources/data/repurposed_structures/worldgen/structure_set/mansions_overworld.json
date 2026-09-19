@@ -5,6 +5,10 @@
       "weight": 1
     },
     {
+      "structure": "repurposed_structures:mansion_desert",
+      "weight": 1
+    },
+    {
       "structure": "repurposed_structures:mansion_oak",
       "weight": 1
     },
@@ -22,10 +26,6 @@
     },
     {
       "structure": "repurposed_structures:mansion_snowy",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:mansion_desert",
       "weight": 1
     }
   ],

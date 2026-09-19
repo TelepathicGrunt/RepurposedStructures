@@ -101,6 +101,94 @@
         },
         {
           "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "age": "1",
+              "facing": "east"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:shelf_mushroom",
+              "properties": {
+                "facing": "east"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "age": "1",
+              "facing": "west"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:shelf_mushroom",
+              "properties": {
+                "facing": "west"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "age": "1",
+              "facing": "north"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:shelf_mushroom",
+              "properties": {
+                "facing": "north"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "id": "minecraft:shelf_mushroom",
+            "properties": {
+              "age": "1",
+              "facing": "south"
+            }
+          },
+          "input_predicate": {
+            "probability": 0.5,
+            "predicate_type": "minecraft:random_blockstate_match",
+            "block_state": {
+              "id": "minecraft:shelf_mushroom",
+              "properties": {
+                "facing": "south"
+              }
+            }
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
             "id": "minecraft:cobweb"
           },
           "input_predicate": {

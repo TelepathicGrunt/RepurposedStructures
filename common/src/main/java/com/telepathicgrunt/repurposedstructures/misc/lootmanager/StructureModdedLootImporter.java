@@ -68,6 +68,7 @@ public class StructureModdedLootImporter {
 
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mansions/birch"), generateKey("minecraft", "chests/woodland_mansion"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mansions/desert"), generateKey("minecraft", "chests/woodland_mansion"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mansions/dappled"), generateKey("minecraft", "chests/woodland_mansion"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mansions/jungle"), generateKey("minecraft", "chests/woodland_mansion"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mansions/mangrove"), generateKey("minecraft", "chests/woodland_mansion"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/mansions/oak"), generateKey("minecraft", "chests/woodland_mansion"));

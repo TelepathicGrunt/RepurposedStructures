@@ -1,0 +1,8 @@
+{
+  "mobs": [
+    {
+      "name": "minecraft:spider",
+      "weight": 100
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "fallback": "repurposed_structures:mansions/dappled/mobs/evokers",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:mansions/hostile_mobs/evoker",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
