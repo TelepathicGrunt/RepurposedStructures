@@ -23,4 +23,6 @@ run
 .gitattributes
 deps
 common/src/main/generated
+scripts/nbt_modification/toconvert
+scripts/nbt_modification/converted
 CHANGELOG_OLD.md
