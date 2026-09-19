@@ -3,28 +3,31 @@
 ##### Major:
 Updated to 26.3 Minecraft, utilizing the new mc changes as well for this update.
 
-##### Mineshafts:
-Added Pale Garden and Dappled Mineshafts
+##### Ancient Cities:
+Fixed End Ancient City showing End Gateway beam on spawn. Now should not show the beam.
 
 ##### Mansions:
 Added Dabbled Mansions
 
+##### Mineshafts:
+Added Pale Garden and Dappled Mineshafts
+
 ##### Outposts:
 Added Dappled Outposts
-
-##### Wells:
-Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
-
-##### Ancient Cities:
-Fixed End Ancient City showing End Gateway beam on spawn. Now should not show the beam.
-
-##### Villages:
-Fixed Cherry Villages and Mountain Villages unable to spawn adult Villagers and Golems in one of their town center piece.
 
 ##### Ruins:
 Fixed some RS Ruins trying to spawn Buried Treasure Maps when they should be spawning Underground Bastion Maps.
 
 Adjusted loot tables of RS ruins so they cannot spawn more than 1 Underground Bastion Map per chest.
+
+##### Villages:
+Fixed Cherry Villages and Mountain Villages unable to spawn adult Villagers and Golems in one of their town center piece.
+
+##### Witch Huts:
+Added Dappled Witch Huts
+
+##### Wells:
+Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
 
 
 TODO:

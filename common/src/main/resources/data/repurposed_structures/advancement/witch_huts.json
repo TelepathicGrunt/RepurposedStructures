@@ -46,6 +46,20 @@
         }
       }
     },
+    "in_witch_hut_dappled": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:witch_hut_dappled"
+            }
+          }
+        }
+      }
+    },
     "in_witch_hut_giant_tree_taiga": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -109,6 +123,9 @@
     ],
     [
       "in_witch_hut_dark_forest"
+    ],
+    [
+      "in_witch_hut_dappled"
     ],
     [
       "in_witch_hut_giant_tree_taiga"

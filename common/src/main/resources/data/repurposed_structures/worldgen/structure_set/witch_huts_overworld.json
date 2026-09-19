@@ -1,14 +1,6 @@
 {
   "structures": [
     {
-      "structure": "repurposed_structures:witch_hut_oak",
-      "weight": 1
-    },
-    {
-      "structure": "repurposed_structures:witch_hut_taiga",
-      "weight": 1
-    },
-    {
       "structure": "repurposed_structures:witch_hut_birch",
       "weight": 1
     },
@@ -17,11 +9,23 @@
       "weight": 1
     },
     {
+      "structure": "repurposed_structures:witch_hut_dappled",
+      "weight": 1
+    },
+    {
       "structure": "repurposed_structures:witch_hut_giant_tree_taiga",
       "weight": 1
     },
     {
       "structure": "repurposed_structures:witch_hut_mangrove",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_oak",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:witch_hut_taiga",
       "weight": 1
     }
   ],
