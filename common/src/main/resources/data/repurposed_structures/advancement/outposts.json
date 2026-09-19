@@ -88,6 +88,20 @@
         }
       }
     },
+    "in_outpost_dappled": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:outpost_dappled"
+            }
+          }
+        }
+      }
+    },
     "in_outpost_end": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -283,6 +297,9 @@
     ],
     [
       "in_outpost_crimson"
+    ],
+    [
+      "in_outpost_dappled"
     ],
     [
       "in_outpost_desert"

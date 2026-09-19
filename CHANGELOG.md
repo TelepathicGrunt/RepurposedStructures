@@ -9,6 +9,9 @@ Added Pale Garden and Dappled Mineshafts
 ##### Mansions:
 Added Dabbled Mansions
 
+##### Outposts:
+Added Dappled Outposts
+
 ##### Wells:
 Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
 

@@ -100,6 +100,7 @@ public class StructureModdedLootImporter {
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/birch"), generateKey("minecraft", "chests/pillager_outpost"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/crimson"), generateKey("minecraft", "chests/pillager_outpost"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/desert"), generateKey("minecraft", "chests/pillager_outpost"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/dappled"), generateKey("minecraft", "chests/pillager_outpost"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/giant_tree_taiga"), generateKey("minecraft", "chests/pillager_outpost"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/icy"), generateKey("minecraft", "chests/pillager_outpost"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/outposts/jungle"), generateKey("minecraft", "chests/pillager_outpost"));
