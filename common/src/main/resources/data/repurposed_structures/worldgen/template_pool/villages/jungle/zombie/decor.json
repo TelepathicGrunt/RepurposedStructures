@@ -1,5 +1,5 @@
 {
-  "fallback": "minecraft:empty",
+  "fallback": "repurposed_structures:villages/jungle/zombie/decor",
   "elements": [
     {
       "weight": 1,

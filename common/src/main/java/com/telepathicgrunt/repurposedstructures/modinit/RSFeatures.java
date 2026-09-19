@@ -30,6 +30,7 @@ import com.telepathicgrunt.repurposedstructures.world.features.StructureNetherwa
 import com.telepathicgrunt.repurposedstructures.world.features.StructurePostProcessConnectiveBlocks;
 import com.telepathicgrunt.repurposedstructures.world.features.StructurePowderSnow;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureSeagrass;
+import com.telepathicgrunt.repurposedstructures.world.features.StructureShelfMushroom;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureVine;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureVineAndLeaves;
 import com.telepathicgrunt.repurposedstructures.world.features.StructureVineBreakage;
@@ -68,6 +69,7 @@ public final class RSFeatures {
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_GRASS = FEATURES.register("structure_grass", () -> StructureGrass.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_FLOWERS = FEATURES.register("structure_flowers", () -> StructureFlowers.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_POWDER_SNOW = FEATURES.register("structure_powder_snow", () -> StructurePowderSnow.CODEC);
+	public static final RegistryEntry<MapCodec<? extends Feature>> STRUCTURE_SHELF_MUSHROOM = FEATURES.register("structure_shelf_mushroom", () -> StructureShelfMushroom.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> UNDERWATER_BLOCK_PILE = FEATURES.register("underwater_block_pile", () -> UnderwaterBlockPileFeature.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> CONFIGURABLE_CORAL_TREE = FEATURES.register("configurable_coral_tree", () -> ConfigurableCoralTree.CODEC);
 	public static final RegistryEntry<MapCodec<? extends Feature>> CONFIGURABLE_CORAL_MUSHROOM = FEATURES.register("configurable_coral_mushroom", () -> ConfigurableCoralMushroom.CODEC);

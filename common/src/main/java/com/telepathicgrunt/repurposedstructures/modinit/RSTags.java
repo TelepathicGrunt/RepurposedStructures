@@ -51,6 +51,9 @@ public final class RSTags {
     public static TagKey<Block> DEAD_CORALS = TagKey.create(Registries.BLOCK,
             Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "dead_corals"));
 
+    public static TagKey<Block> SHELF_MUSHROOM_BASE_ATTACHMENT = TagKey.create(Registries.BLOCK,
+            Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "shelf_mushroom_base_attachment"));
+
             
     public static TagKey<Item> BLACKLISTED_FROM_MODDED_LOOT_IMPORTING = TagKey.create(Registries.ITEM,
              Identifier.fromNamespaceAndPath(RepurposedStructures.MODID, "blacklisted_from_modded_loot_importing"));

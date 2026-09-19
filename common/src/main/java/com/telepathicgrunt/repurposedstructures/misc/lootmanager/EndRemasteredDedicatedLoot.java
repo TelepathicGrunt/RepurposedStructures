@@ -18,11 +18,13 @@ public class EndRemasteredDedicatedLoot {
     private static Map<ResourceKey<LootTable>, ResourceKey<LootTable>> createEndRemasteredMap() {
         Map<ResourceKey<LootTable>, ResourceKey<LootTable>> tableMap = new HashMap<>();
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/birch"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
+        tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/dappled"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
+        tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/dark_forest"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/ocean"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
+        tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/pale_garden"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/savanna"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/stone"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/swamp"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
-        tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/dark_forest"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/mineshafts/taiga"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/igloos/stone"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/igloos/mushroom"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/abandoned_mineshaft"));
@@ -58,6 +60,7 @@ public class EndRemasteredDedicatedLoot {
 
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/outposts/badlands"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/pillager_outpost"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/outposts/birch"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/pillager_outpost"));
+        tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/outposts/dappled"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/pillager_outpost"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/outposts/desert"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/pillager_outpost"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/outposts/giant_tree_taiga"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/pillager_outpost"));
         tableMap.put(StructureModdedLootImporter.generateKey(RepurposedStructures.MODID, "chests/outposts/icy"), StructureModdedLootImporter.generateKey("endrem", "minecraft/chests/pillager_outpost"));

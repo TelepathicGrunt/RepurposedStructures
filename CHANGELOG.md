@@ -21,6 +21,8 @@ Fixed some RS Ruins trying to spawn Buried Treasure Maps when they should be spa
 Adjusted loot tables of RS ruins so they cannot spawn more than 1 Underground Bastion Map per chest.
 
 ##### Villages:
+Added Dappled Village
+
 Fixed Cherry Villages and Mountain Villages unable to spawn adult Villagers and Golems in one of their town center piece.
 
 ##### Witch Huts:

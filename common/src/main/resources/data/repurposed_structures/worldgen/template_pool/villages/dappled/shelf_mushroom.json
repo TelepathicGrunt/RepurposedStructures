@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:villages/dappled/shelf_mushroom",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/shelf_mushroom",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "properties": {
+              "age": "0"
+            },
+            "id": "minecraft:melon_stem"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 0.1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "properties": {
+              "age": "0"
+            },
+            "id": "minecraft:pumpkin_stem"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 0.25,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "properties": {
+              "age": "0"
+            },
+            "id": "minecraft:potatoes"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 0.35,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        },
+        {
+          "output_state": {
+            "properties": {
+              "age": "0"
+            },
+            "id": "minecraft:beetroots"
+          },
+          "input_predicate": {
+            "block": "minecraft:wheat",
+            "probability": 1,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    },
+    {
+      "processor_type": "repurposed_structures:bottom_pillar_processor",
+      "pillar_processor_list": "repurposed_structures:villages/dappled/bottom_pillar"
+    }
+  ]
+}
