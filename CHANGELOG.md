@@ -3,6 +3,9 @@
 ##### Major:
 Updated to 26.3 Minecraft, utilizing the new mc changes as well for this update.
 
+##### Abandoned Camps:
+Added Basalt, Crimson, Nether Brick, Soul, and Warped Abandoned Camps.
+
 ##### Ancient Cities:
 Fixed End Ancient City showing End Gateway beam on spawn. Now should not show the beam.
 
@@ -36,4 +39,5 @@ Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
 
 TODO:
 
-- do camps in nether and end
+- soul sand fossil disable in structure
+- test map trades

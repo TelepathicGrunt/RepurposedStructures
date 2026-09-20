@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "repurposed_structures:abandoned_camp_basalt",
+    "repurposed_structures:abandoned_camp_crimson",
+    "repurposed_structures:abandoned_camp_nether_brick",
+    "repurposed_structures:abandoned_camp_soul",
+    "repurposed_structures:abandoned_camp_warped"
+  ]
+}

@@ -44,7 +44,9 @@ public class NoDeltasInStructuresMixin {
         List<StructureStart> structureStarts = GeneralUtils.inboundsValidStartsForAllStructure(
                 worldGenRegion,
                 origin,
-                struct -> structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.NO_COLUMNS));
+                struct ->
+                        structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.NO_COLUMNS) ||
+                        structureRegistry.get(structureRegistry.getResourceKey(struct).get()).get().is(RSTags.REDUCED_COLUMNS));
 
         if (!structureStarts.isEmpty()) {
             cir.setReturnValue(false);

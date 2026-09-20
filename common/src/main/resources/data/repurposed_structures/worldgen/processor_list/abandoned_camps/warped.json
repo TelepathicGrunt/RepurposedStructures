@@ -1,0 +1,22 @@
+{
+  "processors": [
+    {
+      "rules": [
+        {
+          "output_state": {
+            "id": "minecraft:soul_sand"
+          },
+          "input_predicate": {
+            "block": "minecraft:soul_soil",
+            "probability": 0.3,
+            "predicate_type": "minecraft:random_block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          }
+        }
+      ],
+      "processor_type": "minecraft:rule"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.telepathicgrunt.repurposedstructures.RepurposedStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import com.telepathicgrunt.repurposedstructures.world.structures.codecs.YRangeAllowance;
@@ -108,7 +109,9 @@ public class GenericNetherJigsawStructure extends GenericJigsawStructure {
             pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, yDiff, 0));
         }
 
-        pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, offsetY, 0));
+        if (offsetY != 0) {
+            pieces.forEach(piece -> GeneralUtils.movePieceProperly(piece, 0, offsetY, 0));
+        }
     }
 
     public enum LAND_SEARCH_DIRECTION implements StringRepresentable {

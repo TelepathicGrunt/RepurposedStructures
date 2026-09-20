@@ -1,0 +1,41 @@
+{
+  "fallback": "repurposed_structures:abandoned_camps/warped/campground",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/warped/campground/campsite_1",
+        "processors": "repurposed_structures:abandoned_camps/warped",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/warped/campground/campsite_2",
+        "processors": "repurposed_structures:abandoned_camps/warped",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/warped/campground/campsite_3",
+        "processors": "repurposed_structures:abandoned_camps/warped",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/warped/campground/campsite_4",
+        "processors": "repurposed_structures:abandoned_camps/warped",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

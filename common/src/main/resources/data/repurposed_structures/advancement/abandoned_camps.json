@@ -1,0 +1,109 @@
+{
+  "parent": "repurposed_structures:root",
+  "display": {
+    "icon": {
+      "id": "minecraft:campfire"
+    },
+    "title": {
+      "translate": "Lost Explorers"
+    },
+    "description": {
+      "translate": "Find all new Abandoned Camps!"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 200
+  },
+  "criteria": {
+    "in_abandoned_camp_basalt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:abandoned_camp_basalt"
+            }
+          }
+        }
+      }
+    },
+    "in_abandoned_camp_crimson": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:abandoned_camp_crimson"
+            }
+          }
+        }
+      }
+    },
+    "in_abandoned_camp_nether_brick": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:abandoned_camp_nether_brick"
+            }
+          }
+        }
+      }
+    },
+    "in_abandoned_camp_soul": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:abandoned_camp_soul"
+            }
+          }
+        }
+      }
+    },
+    "in_abandoned_camp_warped": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:abandoned_camp_warped"
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "in_abandoned_camp_basalt"
+    ],
+    [
+      "in_abandoned_camp_crimson"
+    ],
+    [
+      "in_abandoned_camp_nether_brick"
+    ],
+    [
+      "in_abandoned_camp_soul"
+    ],
+    [
+      "in_abandoned_camp_warped"
+    ]
+  ]
+}

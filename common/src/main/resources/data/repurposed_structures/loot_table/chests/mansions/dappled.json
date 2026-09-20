@@ -306,6 +306,10 @@
               "append": true,
               "patterns": [
                 {
+                  "pattern": "minecraft:triangle_bottom",
+                  "color": "lime"
+                },
+                {
                   "pattern": "minecraft:skull",
                   "color": "orange"
                 },
@@ -322,16 +326,12 @@
                   "color": "black"
                 },
                 {
-                  "pattern": "minecraft:stripe_right",
-                  "color": "black"
-                },
-                {
                   "pattern": "minecraft:stripe_left",
                   "color": "black"
                 },
                 {
-                  "pattern": "minecraft:border",
-                  "color": "red"
+                  "pattern": "minecraft:stripe_right",
+                  "color": "black"
                 },
                 {
                   "pattern": "minecraft:border",

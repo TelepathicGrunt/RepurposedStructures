@@ -1,6 +1,7 @@
 {
     "Start exploring for structures!": "Start exploring for structures!",
     "Repurposed Structures": "Repurposed Structures",
+    "Lost Explorers": "Lost Explorers",
     "Civilization from the Beyond": "Civilization from the Beyond",
     "Bastions, Evil, and Bones...": "Bastions, Evil, and Bones...",
     "Blazing Cities": "Blazing Cities",
@@ -37,6 +38,7 @@
     "Find all new Temples!": "Find all new Temples!",
     "Find all new Villages!": "Find all new Villages!",
     "Find all new Witch Huts!": "Find all new Witch Huts!",
+    "Find all new Abandoned Camps!": "Find all new Abandoned Camps!",
 
     "Locating... (Do not buy this map until finished)": "Locating... (Do not buy this map until finished)",
     "Bastion Remnant Map": "Bastion Remnant Map",
@@ -58,7 +60,13 @@
     "Nether Ancient City Map": "Nether Ancient City Map",
     "Ocean Ancient City Map": "Ocean Ancient City Map",
     "Unknown Ocean Structure Map": "Unknown Ocean Structure Map",
-    
+    "Basalt Abandoned Camp Map": "Basalt Abandoned Camp Map",
+    "Crimson Abandoned Camp Map": "Crimson Abandoned Camp Map",
+    "Nether Brick Abandoned Camp Map": "Nether Brick Abandoned Camp Map",
+    "Soul Abandoned Camp Map": "Soul Abandoned Camp Map",
+    "Warped Abandoned Camp Map": "Warped Abandoned Camp Map",
+
+    "structure.repurposed_structures.abandoned_camp_crimson": "Crimson Abandoned Camp",
     "structure.repurposed_structures.ancient_city_end": "End Ancient City",
     "structure.repurposed_structures.ancient_city_nether": "Nether Ancient City",
     "structure.repurposed_structures.ancient_city_ocean": "Ocean Ancient City",

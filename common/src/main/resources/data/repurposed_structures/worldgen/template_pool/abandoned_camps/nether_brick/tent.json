@@ -1,0 +1,95 @@
+{
+  "fallback": "repurposed_structures:abandoned_camps/nether_brick/tent",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_1",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_2",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_3",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_4",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_5",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_6",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_7",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_8",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_9",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "repurposed_structures:abandoned_camps/nether_brick/tents/tent_10",
+        "processors": "repurposed_structures:abandoned_camps/nether_brick",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ]
+}

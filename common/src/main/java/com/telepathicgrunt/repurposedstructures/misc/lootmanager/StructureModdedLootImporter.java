@@ -201,6 +201,22 @@ public class StructureModdedLootImporter {
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/warped_weaponsmith"), generateKey("minecraft", "chests/village/village_weaponsmith"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/warped_house"), generateKey("minecraft", "chests/village/village_desert_house"));
 
+        tableMap.put(generateKey(RepurposedStructures.MODID, "barrels/abandoned_camps/basalt"), generateKey("minecraft", "barrels/abandoned_camp_barrel"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "barrels/abandoned_camps/crimson"), generateKey("minecraft", "barrels/abandoned_camp_barrel"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "barrels/abandoned_camps/nether_brick"), generateKey("minecraft", "barrels/abandoned_camp_barrel"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "barrels/abandoned_camps/soul"), generateKey("minecraft", "barrels/abandoned_camp_barrel"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "barrels/abandoned_camps/warped"), generateKey("minecraft", "barrels/abandoned_camp_barrel"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/basalt_common"), generateKey("minecraft", "chests/abandoned_camp_common_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/basalt_secret"), generateKey("minecraft", "chests/abandoned_camp_secret_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/crimson_common"), generateKey("minecraft", "chests/abandoned_camp_common_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/crimson_secret"), generateKey("minecraft", "chests/abandoned_camp_secret_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/nether_brick_common"), generateKey("minecraft", "chests/abandoned_camp_common_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/nether_brick_secret"), generateKey("minecraft", "chests/abandoned_camp_secret_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/soul_common"), generateKey("minecraft", "chests/abandoned_camp_common_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/soul_secret"), generateKey("minecraft", "chests/abandoned_camp_secret_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/warped_common"), generateKey("minecraft", "chests/abandoned_camp_common_chest"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/abandoned_camps/warped_secret"), generateKey("minecraft", "chests/abandoned_camp_secret_chest"));
+
         // For Better Strongholds compat datapack
         if(PlatformService.INSTANCE.isModLoaded("betterstrongholds")) {
             tableMap.put(generateKey("betterstrongholds", "chests/end/armoury"), generateKey("minecraft", "chests/end_city_treasure"));

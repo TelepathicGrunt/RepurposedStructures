@@ -1,0 +1,30 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:abandoned_camp_basalt",
+      "weight": 100
+    },
+    {
+      "structure": "repurposed_structures:abandoned_camp_crimson",
+      "weight": 100
+    },
+    {
+      "structure": "repurposed_structures:abandoned_camp_nether_brick",
+      "weight": 1
+    },
+    {
+      "structure": "repurposed_structures:abandoned_camp_soul",
+      "weight": 100
+    },
+    {
+      "structure": "repurposed_structures:abandoned_camp_warped",
+      "weight": 100
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 342317127,
+    "spacing": 32,
+    "separation": 8
+  }
+}
