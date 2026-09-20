@@ -25,6 +25,8 @@ Added Dappled and Pale Garden Villages
 
 Fixed Cherry Villages and Mountain Villages unable to spawn adult Villagers and Golems in one of their town center piece.
 
+Fixed several villages having a center piece with only 3 street connections instead of the typical 4.
+
 ##### Witch Huts:
 Added Dappled Witch Huts
 
