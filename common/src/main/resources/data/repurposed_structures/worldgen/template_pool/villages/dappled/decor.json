@@ -45,7 +45,7 @@
     {
       "weight": 1,
       "element": {
-        "feature": "repurposed_structures:decor/poplar_leaf_litter",
+        "feature": "repurposed_structures:decor/dappled_village_leaf_litter",
         "projection": "rigid",
         "element_type": "minecraft:feature_pool_element"
       }

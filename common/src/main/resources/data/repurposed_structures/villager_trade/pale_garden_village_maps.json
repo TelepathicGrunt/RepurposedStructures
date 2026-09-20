@@ -1,0 +1,39 @@
+{
+  "max_uses": 1.0,
+  "reputation_discount": 0.05,
+  "xp": 100.0,
+  "wants": {
+    "count": 38.0,
+    "id": "minecraft:emerald"
+  },
+  "gives": {
+    "id": "minecraft:plains_village_map"
+  },
+  "given_item_modifiers": [
+    {
+      "type": "minecraft:exploration_map",
+      "destination": "#repurposed_structures:explorer_maps/village_pale_garden",
+      "decoration": "minecraft:mansion",
+      "search_radius": 100
+    },
+    {
+      "function": "minecraft:set_name",
+      "target": "item_name",
+      "name": {
+        "translate": "Pale Garden Village Map"
+      }
+    },
+    {
+      "function": "minecraft:filtered",
+      "item_filter": {
+        "items": "minecraft:filled_map",
+        "predicates": {
+          "minecraft:map_id": {}
+        }
+      },
+      "on_fail": {
+        "function": "minecraft:discard"
+      }
+    }
+  ]
+}

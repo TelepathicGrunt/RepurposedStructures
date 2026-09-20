@@ -20,6 +20,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePieces;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructurePlacementType;
 import com.telepathicgrunt.repurposedstructures.modinit.RSStructures;
 import com.telepathicgrunt.repurposedstructures.modinit.RSTags;
+import com.telepathicgrunt.repurposedstructures.modinit.RSTrunkPlacerTypes;
 import com.telepathicgrunt.repurposedstructures.services.PlatformService;
 import net.minecraft.resources.Identifier;
 import org.apache.logging.log4j.LogManager;
@@ -44,6 +45,7 @@ public class RepurposedStructures {
         RSPlacements.PLACEMENT_MODIFIER.init();
         RSProcessors.STRUCTURE_PROCESSOR.init();
         RSStructurePieces.STRUCTURE_PIECE.init();
+        RSTrunkPlacerTypes.TRUNK_PLACER_TYPE.init();
         RSStructurePieces.STRUCTURE_POOL_ELEMENT.init();
         RSStructurePlacementType.STRUCTURE_PLACEMENT_TYPE.init();
         RSConditionsRegistry.RS_JSON_CONDITIONS_REGISTRY.init();

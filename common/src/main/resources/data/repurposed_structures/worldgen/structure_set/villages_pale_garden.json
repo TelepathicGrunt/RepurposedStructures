@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "repurposed_structures:village_pale_garden",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "repurposed_structures:advanced_random_spread",
+    "salt": 601936212,
+    "spacing": 24,
+    "separation": 14,
+    "super_exclusion_zone": {
+      "chunk_count": 6,
+      "other_set": "#repurposed_structures:overworld_village_avoid"
+    }
+  }
+}

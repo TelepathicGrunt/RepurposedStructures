@@ -1,0 +1,13 @@
+{
+  "fallback": "repurposed_structures:villages/pale_garden/hanging_moss",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "feature": "repurposed_structures:decor/pale_garden_village_hanging_moss",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

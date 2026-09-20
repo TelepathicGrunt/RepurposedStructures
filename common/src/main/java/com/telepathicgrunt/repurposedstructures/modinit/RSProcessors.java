@@ -19,6 +19,7 @@ import com.telepathicgrunt.repurposedstructures.world.processors.FloodWithWaterP
 import com.telepathicgrunt.repurposedstructures.world.processors.ForcePlaceMushroomBlocksProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.MineshaftSkyViewProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.NoiseReplaceWithPropertiesProcessor;
+import com.telepathicgrunt.repurposedstructures.world.processors.PieceChanceReplaceBlockProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.PillarProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.PostProcessListProcessor;
 import com.telepathicgrunt.repurposedstructures.world.processors.RandomReplaceWithPropertiesProcessor;
@@ -59,6 +60,7 @@ public final class RSProcessors {
     public static final RegistryEntry<MapCodec<? extends StructureProcessor>> SUPER_GRAVITY_PROCESSOR = STRUCTURE_PROCESSOR.register("super_gravity_processor", () -> SuperGravityProcessor.CODEC);
     public static final RegistryEntry<MapCodec<? extends StructureProcessor>> FORCE_PLACE_MUSHROOM_BLOCKS_PROCESSOR = STRUCTURE_PROCESSOR.register("force_place_mushroom_blocks_processor", () -> ForcePlaceMushroomBlocksProcessor.CODEC);
     public static final RegistryEntry<MapCodec<? extends StructureProcessor>> CORAL_ALIVE_DEAD_PROCESSOR = STRUCTURE_PROCESSOR.register("coral_alive_dead_processor", () -> CoralAliveDeadProcessor.CODEC);
+    public static final RegistryEntry<MapCodec<? extends StructureProcessor>> PIECE_CHANCE_REPLACE_BLOCK_PROCESSOR = STRUCTURE_PROCESSOR.register("piece_chance_replace_block_processor", () -> PieceChanceReplaceBlockProcessor.CODEC);
 
     public static final RegistryEntry<MapCodec<? extends StructureProcessor>> STRUCTURE_SURFACE_PROCESSOR = STRUCTURE_PROCESSOR.register("structure_surface_processor", () -> CappedStructureSurfaceProcessor.CODEC);
     public static final RegistryEntry<MapCodec<? extends StructureProcessor>> POST_PROCESS_LIST_PROCESSOR = STRUCTURE_PROCESSOR.register("post_process_list_processor", () -> PostProcessListProcessor.CODEC);

@@ -214,6 +214,20 @@
         }
       }
     },
+    "in_village_pale_garden": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "structures": "repurposed_structures:village_pale_garden"
+            }
+          }
+        }
+      }
+    },
     "in_village_swamp": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -268,6 +282,9 @@
     ],
     [
       "in_village_ocean"
+    ],
+    [
+      "in_village_pale_garden"
     ],
     [
       "in_village_swamp"

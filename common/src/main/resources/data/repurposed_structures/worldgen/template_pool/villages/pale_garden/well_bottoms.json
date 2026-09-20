@@ -1,0 +1,23 @@
+{
+  "fallback": "repurposed_structures:villages/pale_garden/well_bottoms",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/decor/well_bottom_rare",
+        "processors": "repurposed_structures:villages/pale_garden/goldify",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 3,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/decor/well_bottom",
+        "processors": "repurposed_structures:villages/pale_garden/weak_goldify",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

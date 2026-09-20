@@ -21,7 +21,7 @@ Fixed some RS Ruins trying to spawn Buried Treasure Maps when they should be spa
 Adjusted loot tables of RS ruins so they cannot spawn more than 1 Underground Bastion Map per chest.
 
 ##### Villages:
-Added Dappled Village
+Added Dappled and Pale Garden Villages
 
 Fixed Cherry Villages and Mountain Villages unable to spawn adult Villagers and Golems in one of their town center piece.
 
@@ -35,4 +35,3 @@ Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
 TODO:
 
 - do camps in nether and end
-- Consider dappled forest structures and pale oak structures.

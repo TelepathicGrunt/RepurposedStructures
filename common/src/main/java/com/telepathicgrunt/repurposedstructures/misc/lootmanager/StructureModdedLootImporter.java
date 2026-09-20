@@ -188,6 +188,7 @@ public class StructureModdedLootImporter {
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/oak_house"), generateKey("minecraft", "chests/village/village_plains_house"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/ocean_house"), generateKey("minecraft", "chests/village/village_plains_house"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/ocean_cartographer"), generateKey("minecraft", "chests/village/village_cartographer"));
+        tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/pale_garden_house"), generateKey("minecraft", "chests/village/village_plains_house"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/swamp_house"), generateKey("minecraft", "chests/village/village_plains_house"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/crimson_cartographer"), generateKey("minecraft", "chests/village/village_cartographer"));
         tableMap.put(generateKey(RepurposedStructures.MODID, "chests/villages/crimson_fisher"), generateKey("minecraft", "chests/village/village_fisher"));

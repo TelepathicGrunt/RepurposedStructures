@@ -1,0 +1,30 @@
+{
+  "fallback": "repurposed_structures:villages/pale_garden/decor",
+  "elements": [
+    {
+      "weight": 5,
+      "element": {
+        "feature": "repurposed_structures:decor/pale_garden_village_pale_oak_creaking",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/decor/lamp_1",
+        "processors": "repurposed_structures:villages/pale_garden/pillar_1",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "feature": "minecraft:pile_hay",
+        "projection": "rigid",
+        "element_type": "minecraft:feature_pool_element"
+      }
+    }
+  ]
+}

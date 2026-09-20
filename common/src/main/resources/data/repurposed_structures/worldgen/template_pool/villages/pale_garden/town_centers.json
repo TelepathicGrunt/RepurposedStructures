@@ -1,0 +1,41 @@
+{
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/town_centers/fountain_01",
+        "processors": "repurposed_structures:villages/pale_garden/abandoned",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/town_centers/meeting_point_1",
+        "processors": "repurposed_structures:villages/pale_garden/abandoned",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/town_centers/meeting_point_2",
+        "processors": "repurposed_structures:villages/pale_garden/abandoned",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "repurposed_structures:villages/pale_garden/town_centers/meeting_point_3",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
