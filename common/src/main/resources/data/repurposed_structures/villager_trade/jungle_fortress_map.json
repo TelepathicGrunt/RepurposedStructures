@@ -1,15 +1,25 @@
 {
-  "max_uses": 12.0,
+  "max_uses": 12,
   "reputation_discount": 0.2,
-  "xp": 5.0,
+  "xp": 5,
   "wants": {
-    "count": 14.0,
+    "count": 14,
     "id": "minecraft:emerald"
+  },
+  "additional_wants": {
+    "id": "minecraft:compass"
   },
   "gives": {
     "id": "minecraft:jungle_pyramid_map"
   },
-  "given_item_modifiers": [
+  "given_item_modifier": [
+    {
+      "type": "minecraft:set_name",
+      "target": "item_name",
+      "name": {
+        "translate": "Jungle Fortress Map"
+      }
+    },
     {
       "type": "minecraft:exploration_map",
       "destination": "#repurposed_structures:explorer_maps/fortress",
@@ -17,22 +27,14 @@
       "search_radius": 50
     },
     {
-      "function": "minecraft:set_name",
-      "target": "item_name",
-      "name": {
-        "translate": "Jungle Fortress Map"
-      }
-    },
-    {
-      "function": "minecraft:filtered",
+      "type": "minecraft:filtered",
       "item_filter": {
-        "items": "minecraft:filled_map",
         "predicates": {
           "minecraft:map_id": {}
         }
       },
       "on_fail": {
-        "function": "minecraft:discard"
+        "type": "minecraft:discard"
       }
     }
   ]

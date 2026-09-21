@@ -1,15 +1,25 @@
 {
-  "max_uses": 1.0,
+  "max_uses": 1,
   "reputation_discount": 0.05,
-  "xp": 200.0,
+  "xp": 200,
   "wants": {
-    "count": 38.0,
+    "count": 38,
     "id": "minecraft:emerald"
+  },
+  "additional_wants": {
+    "id": "minecraft:compass"
   },
   "gives": {
     "id": "minecraft:plains_village_map"
   },
-  "given_item_modifiers": [
+  "given_item_modifier": [
+    {
+      "type": "minecraft:set_name",
+      "target": "item_name",
+      "name": {
+        "translate": "Overworld City Map"
+      }
+    },
     {
       "type": "minecraft:exploration_map",
       "destination": "#repurposed_structures:explorer_maps/city_overworld",
@@ -17,22 +27,14 @@
       "search_radius": 50
     },
     {
-      "function": "minecraft:set_name",
-      "target": "item_name",
-      "name": {
-        "translate": "Overworld City Map"
-      }
-    },
-    {
-      "function": "minecraft:filtered",
+      "type": "minecraft:filtered",
       "item_filter": {
-        "items": "minecraft:filled_map",
         "predicates": {
           "minecraft:map_id": {}
         }
       },
       "on_fail": {
-        "function": "minecraft:discard"
+        "type": "minecraft:discard"
       }
     }
   ]
