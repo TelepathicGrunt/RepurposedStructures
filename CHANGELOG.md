@@ -35,8 +35,3 @@ Added Dappled Witch Huts
 
 ##### Wells:
 Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
-
-
-TODO:
-
-- soul sand fossil disable in structure
