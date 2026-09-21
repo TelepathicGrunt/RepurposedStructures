@@ -1,3 +1,17 @@
+### **(V.7.8.1 Changes) (26.3 Minecraft) (Config Datapack Updated)**
+
+##### Mansions:
+Added Shelf Mushroom to the outside of Dappled Mansions
+
+##### Villages:
+Swapped Pale Garden Village Weaponsmith's lava with obsidian to prevent fires and show village is very old
+
+Stopped spawning Cherry Village in Sunflower Plains
+
+##### Wells:
+Stopped spawning Cherry Well in Sunflower Plains
+
+
 ### **(V.7.8.0 Changes) (26.3 Minecraft) (Config Datapack Updated)**
 
 ##### Major:
@@ -35,3 +49,5 @@ Added Dappled Witch Huts
 
 ##### Wells:
 Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
+
+todo: make basalt camp bottom use structure void to not be square
