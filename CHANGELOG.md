@@ -11,6 +11,17 @@ Stopped spawning Cherry Village in Sunflower Plains
 ##### Wells:
 Stopped spawning Cherry Well in Sunflower Plains
 
+todo: make basalt camp bottom use structure void to not be square
+
+##### Loot Tables:
+Removed corporation logo banners from the lucky banner pool. 
+
+Added modloader logos + CurseForge logo as banners in lucky banner pool. Also added laser kiwi flag banner to it as well.
+
+Cleaned up loot table paths for lucky banners.
+
+Fixed Dark Forest Dungeon not using the dedicated lucky banner pool.
+
 
 ### **(V.7.8.0 Changes) (26.3 Minecraft) (Config Datapack Updated)**
 
@@ -49,5 +60,3 @@ Added Dappled Witch Huts
 
 ##### Wells:
 Added Mossy Stone Well to Pale Garden and Forest Well to Dappled Forest
-
-todo: make basalt camp bottom use structure void to not be square

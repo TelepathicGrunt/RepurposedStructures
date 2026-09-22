@@ -201,6 +201,15 @@
       ]
     },
     {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "repurposed_structures:lucky_pool"
+        }
+      ]
+    },
+    {
       "rolls": 0,
       "bonus_rolls": 1,
       "entries": [

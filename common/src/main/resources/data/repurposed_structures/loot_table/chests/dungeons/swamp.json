@@ -401,7 +401,7 @@
       "entries": [
         {
           "type": "minecraft:loot_table",
-          "value": "repurposed_structures:chests/lucky_pool"
+          "value": "repurposed_structures:lucky_pool"
         }
       ]
     },
