@@ -1467,11 +1467,7 @@
               "append": true,
               "patterns": [
                 {
-                  "pattern": "minecraft:stripe_top",
-                  "color": "orange"
-                },
-                {
-                  "pattern": "minecraft:stripe_top",
+                  "pattern": "minecraft:half_horizontal_bottom",
                   "color": "orange"
                 },
                 {
@@ -1483,12 +1479,20 @@
                   "color": "orange"
                 },
                 {
-                  "pattern": "minecraft:circle",
+                  "pattern": "minecraft:cross",
                   "color": "white"
                 },
                 {
-                  "pattern": "minecraft:circle",
+                  "pattern": "minecraft:cross",
                   "color": "white"
+                },
+                {
+                  "pattern": "minecraft:cross",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:stripe_top",
+                  "color": "orange"
                 },
                 {
                   "pattern": "minecraft:creeper",
@@ -1499,12 +1503,12 @@
                   "color": "white"
                 },
                 {
-                  "pattern": "minecraft:stripe_bottom",
-                  "color": "orange"
+                  "pattern": "minecraft:creeper",
+                  "color": "white"
                 },
                 {
-                  "pattern": "minecraft:stripe_bottom",
-                  "color": "orange"
+                  "pattern": "minecraft:creeper",
+                  "color": "white"
                 },
                 {
                   "pattern": "minecraft:stripe_bottom",
@@ -1554,11 +1558,7 @@
               "append": true,
               "patterns": [
                 {
-                  "pattern": "minecraft:stripe_top",
-                  "color": "blue"
-                },
-                {
-                  "pattern": "minecraft:stripe_top",
+                  "pattern": "minecraft:half_horizontal_bottom",
                   "color": "blue"
                 },
                 {
@@ -1570,12 +1570,20 @@
                   "color": "blue"
                 },
                 {
-                  "pattern": "minecraft:circle",
+                  "pattern": "minecraft:cross",
                   "color": "white"
                 },
                 {
-                  "pattern": "minecraft:circle",
+                  "pattern": "minecraft:cross",
                   "color": "white"
+                },
+                {
+                  "pattern": "minecraft:cross",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:stripe_top",
+                  "color": "blue"
                 },
                 {
                   "pattern": "minecraft:creeper",
@@ -1586,12 +1594,12 @@
                   "color": "white"
                 },
                 {
-                  "pattern": "minecraft:stripe_bottom",
-                  "color": "blue"
+                  "pattern": "minecraft:creeper",
+                  "color": "white"
                 },
                 {
-                  "pattern": "minecraft:stripe_bottom",
-                  "color": "blue"
+                  "pattern": "minecraft:creeper",
+                  "color": "white"
                 },
                 {
                   "pattern": "minecraft:stripe_bottom",
