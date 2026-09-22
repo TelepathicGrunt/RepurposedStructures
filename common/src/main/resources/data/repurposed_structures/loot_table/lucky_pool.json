@@ -16,6 +16,7 @@
           "weight": 30
         },
         {
+          "_description": "Riddler",
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -77,6 +78,69 @@
           ]
         },
         {
+          "_description": "No Smoking",
+          "name": "minecraft:white_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "modifier": [
+            {
+              "type": "minecraft:set_banner_pattern",
+              "append": true,
+              "patterns": [
+                {
+                  "pattern": "minecraft:triangles_top",
+                  "color": "black"
+                },
+                {
+                  "pattern": "minecraft:triangles_top",
+                  "color": "gray"
+                },
+                {
+                  "pattern": "minecraft:stripe_bottom",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:stripe_bottom",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:stripe_right",
+                  "color": "light_gray"
+                },
+                {
+                  "pattern": "minecraft:stripe_right",
+                  "color": "light_gray"
+                },
+                {
+                  "pattern": "minecraft:stripe_left",
+                  "color": "light_gray"
+                },
+                {
+                  "pattern": "minecraft:stripe_left",
+                  "color": "light_gray"
+                },
+                {
+                  "pattern": "minecraft:stripe_downright",
+                  "color": "red"
+                },
+                {
+                  "pattern": "minecraft:stripe_downright",
+                  "color": "red"
+                },
+                {
+                  "pattern": "minecraft:border",
+                  "color": "red"
+                },
+                {
+                  "pattern": "minecraft:border",
+                  "color": "red"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_description": "Illuminati 1",
           "name": "minecraft:green_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -138,6 +202,7 @@
           ]
         },
         {
+          "_description": "Illuminati 2",
           "name": "minecraft:yellow_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -199,6 +264,7 @@
           ]
         },
         {
+          "_description": "Knights Templar",
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -260,6 +326,7 @@
           ]
         },
         {
+          "_description": "19th Amendment Womens Suffrage flag",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -321,6 +388,7 @@
           ]
         },
         {
+          "_description": "Human Rights Organization",
           "name": "minecraft:blue_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -382,6 +450,7 @@
           ]
         },
         {
+          "_description": "European Union",
           "name": "minecraft:blue_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -443,6 +512,7 @@
           ]
         },
         {
+          "_description": "World Health Organization",
           "name": "minecraft:light_blue_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -504,6 +574,7 @@
           ]
         },
         {
+          "_description": "Red Cross",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -565,6 +636,7 @@
           ]
         },
         {
+          "_description": "Black Lives Matter",
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -626,6 +698,7 @@
           ]
         },
         {
+          "_description": "Pan-African flag",
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -687,6 +760,7 @@
           ]
         },
         {
+          "_description": "Genderfluid Pride flag",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -748,6 +822,7 @@
           ]
         },
         {
+          "_description": "Aromantic Pride flag",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -809,6 +884,7 @@
           ]
         },
         {
+          "_description": "Bisexual Pride flag",
           "name": "minecraft:purple_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -870,6 +946,7 @@
           ]
         },
         {
+          "_description": "Lesbian Pride flag",
           "name": "minecraft:yellow_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -931,6 +1008,7 @@
           ]
         },
         {
+          "_description": "Pansexual Pride flag",
           "name": "minecraft:yellow_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -992,6 +1070,7 @@
           ]
         },
         {
+          "_description": "Nonbinary Pride flag",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1053,6 +1132,7 @@
           ]
         },
         {
+          "_description": "Asexual Pride flag",
           "name": "minecraft:light_gray_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1114,6 +1194,7 @@
           ]
         },
         {
+          "_description": "Rainbow Pride flag",
           "name": "minecraft:red_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1175,6 +1256,7 @@
           ]
         },
         {
+          "_description": "Ukraine",
           "name": "minecraft:yellow_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1236,6 +1318,7 @@
           ]
         },
         {
+          "_description": "Transgender Pride flag",
           "name": "minecraft:pink_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1273,6 +1356,7 @@
           ]
         },
         {
+          "_description": "Earth",
           "name": "minecraft:green_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1334,6 +1418,7 @@
           ]
         },
         {
+          "_description": "Breast Cancer Awareness",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1394,8 +1479,8 @@
             }
           ]
         },
-
         {
+          "_description": "Laser Kiwi",
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1456,8 +1541,70 @@
             }
           ]
         },
-
         {
+          "_description": "Modrinth Logo",
+          "name": "minecraft:green_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "modifier": [
+            {
+              "type": "minecraft:set_banner_pattern",
+              "append": true,
+              "patterns": [
+                {
+                  "pattern": "minecraft:half_horizontal_bottom",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:half_horizontal",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:piglin",
+                  "color": "lime"
+                },
+                {
+                  "pattern": "minecraft:guster",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:flow",
+                  "color": "lime"
+                },
+                {
+                  "pattern": "minecraft:triangle_bottom",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:triangle_bottom",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:square_top_left",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:square_top_left",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:square_top_left",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:border",
+                  "color": "green"
+                },
+                {
+                  "pattern": "minecraft:border",
+                  "color": "green"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_description": "CurseForge Logo",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1518,8 +1665,8 @@
             }
           ]
         },
-
         {
+          "_description": "Fabric Logo",
           "name": "minecraft:gray_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1549,6 +1696,7 @@
           ]
         },
         {
+          "_description": "Forge Logo",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,
@@ -1610,6 +1758,7 @@
           ]
         },
         {
+          "_description": "NeoForge Logo",
           "name": "minecraft:white_banner",
           "type": "minecraft:item",
           "weight": 1,

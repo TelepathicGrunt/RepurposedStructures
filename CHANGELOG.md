@@ -16,7 +16,9 @@ todo: make basalt camp bottom use structure void to not be square
 ##### Loot Tables:
 Removed corporation logo banners from the lucky banner pool. 
 
-Added modloader logos + CurseForge logo as banners in lucky banner pool. Also added laser kiwi flag banner to it as well.
+Added modloader logos + CurseForge/Modrinth logos as banners in lucky banner pool.
+
+Also added laser kiwi flag banner and No Smoking banner to lucky banner pool.
 
 Cleaned up loot table paths for lucky banners.
 
