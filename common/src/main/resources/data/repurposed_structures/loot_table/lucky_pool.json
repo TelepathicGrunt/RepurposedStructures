@@ -636,6 +636,68 @@
           ]
         },
         {
+          "_description": "Trevor Project",
+          "name": "minecraft:orange_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "modifier": [
+            {
+              "type": "minecraft:set_banner_pattern",
+              "append": true,
+              "patterns": [
+                {
+                  "pattern": "minecraft:gradient",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:stripe_middle",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:flower",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:flower",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:stripe_top",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:stripe_top",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:stripe_bottom",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:stripe_bottom",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:rhombus",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:rhombus",
+                  "color": "orange"
+                },
+                {
+                  "pattern": "minecraft:triangle_bottom",
+                  "color": "white"
+                },
+                {
+                  "pattern": "minecraft:triangle_bottom",
+                  "color": "white"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "_description": "Black Lives Matter",
           "name": "minecraft:black_banner",
           "type": "minecraft:item",
@@ -1350,6 +1412,44 @@
                 {
                   "pattern": "minecraft:border",
                   "color": "light_blue"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_description": "Intersex Pride flag",
+          "name": "minecraft:yellow_banner",
+          "type": "minecraft:item",
+          "weight": 1,
+          "modifier": [
+            {
+              "type": "minecraft:set_banner_pattern",
+              "append": true,
+              "patterns": [
+                {
+                  "pattern": "minecraft:half_horizontal",
+                  "color": "yellow"
+                },
+                {
+                  "pattern": "minecraft:half_horizontal_bottom",
+                  "color": "yellow"
+                },
+                {
+                  "pattern": "minecraft:circle",
+                  "color": "purple"
+                },
+                {
+                  "pattern": "minecraft:flower",
+                  "color": "yellow"
+                },
+                {
+                  "pattern": "minecraft:flower",
+                  "color": "yellow"
+                },
+                {
+                  "pattern": "minecraft:flower",
+                  "color": "yellow"
                 }
               ]
             }

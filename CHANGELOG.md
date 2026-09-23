@@ -1,3 +1,12 @@
+### **(V.7.8.2 Changes) (26.3 Minecraft) (Config Datapack Updated)**
+
+##### Mansions:
+Fixed one wall in Dappled Mansion spamming log entry about missing pool (Forgot to remove redundant Jigsaw Block)
+
+##### Loot Tables:
+Added 2 more flags to lucky banner pool.
+
+
 ### **(V.7.8.1 Changes) (26.3 Minecraft) (Config Datapack Updated)**
 
 ##### Mansions:
