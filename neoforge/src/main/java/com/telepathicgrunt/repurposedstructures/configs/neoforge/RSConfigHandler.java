@@ -13,7 +13,7 @@ public class RSConfigHandler {
         modEventBus.addListener(RSConfigHandler::onConfigLoad);
         modEventBus.addListener(RSConfigHandler::onConfigReload);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, RSModdedLootConfig.GENERAL_SPEC, "repurposed_structures-neoforge/modded_loot.toml");
+        modContainer.registerConfig(ModConfig.Type.LOCAL, RSModdedLootConfig.GENERAL_SPEC, "repurposed_structures-neoforge/modded_loot.toml");
     }
 
     private static void onConfigLoad(ModConfigEvent.Loading event) {

@@ -1,3 +1,9 @@
+### **(V.7.8.3 Changes) (26.3 Minecraft)**
+
+##### Misc:
+(NeoForge): Updated to work on 26.3.0.37-beta NeoForge and newer
+
+
 ### **(V.7.8.2 Changes) (26.3 Minecraft) (Config Datapack Updated)**
 
 ##### Mansions:

@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSBiomeModifiers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -21,7 +22,7 @@ public record AdditionsModifier(HolderSet<Biome> biomes, Holder<PlacedFeature> f
         ).apply(builder, AdditionsModifier::new));
 
     @Override
-    public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
+    public void modify(RegistryAccess registryAccess, Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         // add a feature to all specified biomes
         if (phase == Phase.ADD && biomes.contains(biome)) {
             builder.getGenerationSettings().addFeature(step, feature);

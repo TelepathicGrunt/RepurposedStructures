@@ -7,6 +7,7 @@ import com.telepathicgrunt.repurposedstructures.modinit.neoforge.RSBiomeModifier
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.util.Util;
 import net.minecraft.world.level.biome.Biome;
@@ -28,7 +29,7 @@ public record AdditionsTemperatureModifier(HolderSet<Biome> biomes, Holder<Place
         ).apply(builder, AdditionsTemperatureModifier::new));
 
     @Override
-    public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
+    public void modify(RegistryAccess registryAccess, Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         // add a feature to all specified biomes
         if (phase == Phase.ADD && biomes.contains(biome)) {
             String biomeNamespace = biome.unwrapKey().get().identifier().getNamespace();
