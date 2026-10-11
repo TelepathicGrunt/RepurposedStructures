@@ -1,3 +1,9 @@
+### **(V.7.8.2 Changes) (26.3 Minecraft) (Config Datapack Updated)**
+
+##### Abandoned Camps:
+Fixed Nether Abandoned Camps having waterlogged blocks when shouldn't.
+
+
 ### **(V.7.8.3 Changes) (26.3 Minecraft)**
 
 ##### Misc:
