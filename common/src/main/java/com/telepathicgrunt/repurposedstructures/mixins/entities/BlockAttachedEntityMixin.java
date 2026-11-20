@@ -3,6 +3,7 @@ package com.telepathicgrunt.repurposedstructures.mixins.entities;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.telepathicgrunt.repurposedstructures.configs.RSMainConfig;
 import net.minecraft.world.entity.decoration.BlockAttachedEntity;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,6 +17,11 @@ public class BlockAttachedEntityMixin {
             at = @At(value = "INVOKE", target = "Lorg/slf4j/Logger;error(Ljava/lang/String;Ljava/lang/Object;)V", remap = false),
             require = 0)
     private void repurposedstructures_lowerLoggingLevel(Logger instance, String s, Object o, Operation<Void> original) {
-        instance.debug(s, o);
+        if (RSMainConfig.disableLogspamHiding) {
+            original.call(instance, s, o);
+        }
+        else {
+            instance.debug(s, o);
+        }
     }
 }

@@ -17,6 +17,7 @@
     "features.NoSteppedColumnClusterFeatureMixin",
     "features.NoVinesInStructuresMixin",
     "features.SmarterSnowPlacingInStructuresMixin",
+    "level.WorldGenRegionMixin",
     "resources.LootContextAccessor",
     "structures.JigsawJunctionAccessor",
     "structures.LocateCommandMixin",

@@ -177,8 +177,10 @@
     "structure.repurposed_structures.witch_hut_taiga": "Taiga Witch Hut",
     
     "repurposed_structures.midnightconfig.title": "Repurposed Structures",
+    "repurposed_structures.midnightconfig.disableLogspamHiding": "Disable Logspam Hiding",
     "repurposed_structures.midnightconfig.importModdedItems": "Import Modded Items",
     "repurposed_structures.midnightconfig.blacklistedRSLoottablesFromImportingModdedItems": "RS Loottables That Disables Importing Modded Items",
+    "repurposed_structures.midnightconfig.disableLogspamHiding.tooltip": "Allows vanilla bugs to resume spamming the logs",
     "repurposed_structures.midnightconfig.importModdedItems.tooltip": "Adds modded loot from vanilla structure's loot tables and\ninjects them into Repurposed Structure's loot tables.\nExample: Snowy Pyramid gets all modded items that\nvanilla Desert Temple can have",
     "repurposed_structures.midnightconfig.blacklistedRSLoottablesFromImportingModdedItems.tooltip": "Add the identifiers for Repurposed Structures's loot table you\nwant to turn off the automatic modded item importing code for.\nSeparate multiple entries with a comma.\nExample:\n\"repurposed_structures:chests/mansions/birch,\nrepurposed_structures:chests/mineshafts/jungle\""
 }

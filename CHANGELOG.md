@@ -1,3 +1,13 @@
+### **(V.7.8.5 Changes) (26.3 Minecraft)**
+
+##### Ancient Cities:
+Silenced vanilla bug https://report.bugs.mojang.com/servicedesk/customer/portal/2/MC-308792 globally in production for block/fluid reads out of worldgen region bounds.
+ The logspam can only be realistically solved on Mojang's end. But in terms of actual impact, there should be none for the processors used in the RS Ancient Cities and other mods/datapacks.
+
+##### Configs:
+Added `disableLogspamHiding` config option. When true, it will allow vanilla's logspam to resume 
+
+
 ### **(V.7.8.4 Changes) (26.3 Minecraft) (Config Datapack Updated)**
 
 ##### Abandoned Camps:

@@ -1,5 +1,6 @@
 package com.telepathicgrunt.repurposedstructures;
 
+import com.telepathicgrunt.repurposedstructures.configs.RSConfig;
 import com.telepathicgrunt.repurposedstructures.configs.RSModdedLootConfig;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.RegisterReloadListenerEvent;
 import com.telepathicgrunt.repurposedstructures.events.lifecycle.ServerGoingToStartEvent;
@@ -15,6 +16,7 @@ public class RepurposedStructuresFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        RSConfig.setup();
         RSModdedLootConfig.setup();
         RepurposedStructures.init();
         BiomeModifier.addFeatures();
